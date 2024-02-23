@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -41,7 +40,7 @@ class GetIdentityProviderResult:
 
     @property
     @pulumi.getter(name="identityProviderDetails")
-    def identity_provider_details(self) -> Optional['outputs.IdentityProviderDetails']:
+    def identity_provider_details(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "identity_provider_details")
 
     @property

@@ -13,7 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AllowListCriteria',
-    'FindingsFilterCriterion',
+    'FindingsFilterCriterionAdditionalProperties',
     'FindingsFilterFindingCriteria',
 ]
 
@@ -30,27 +30,68 @@ class AllowListCriteria(dict):
 
 
 @pulumi.output_type
-class FindingsFilterCriterion(dict):
-    """
-    Map of filter criteria.
-    """
-    def __init__(__self__):
-        """
-        Map of filter criteria.
-        """
-        pass
+class FindingsFilterCriterionAdditionalProperties(dict):
+    def __init__(__self__, *,
+                 eq: Optional[Sequence[str]] = None,
+                 gt: Optional[int] = None,
+                 gte: Optional[int] = None,
+                 lt: Optional[int] = None,
+                 lte: Optional[int] = None,
+                 neq: Optional[Sequence[str]] = None):
+        if eq is not None:
+            pulumi.set(__self__, "eq", eq)
+        if gt is not None:
+            pulumi.set(__self__, "gt", gt)
+        if gte is not None:
+            pulumi.set(__self__, "gte", gte)
+        if lt is not None:
+            pulumi.set(__self__, "lt", lt)
+        if lte is not None:
+            pulumi.set(__self__, "lte", lte)
+        if neq is not None:
+            pulumi.set(__self__, "neq", neq)
+
+    @property
+    @pulumi.getter
+    def eq(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "eq")
+
+    @property
+    @pulumi.getter
+    def gt(self) -> Optional[int]:
+        return pulumi.get(self, "gt")
+
+    @property
+    @pulumi.getter
+    def gte(self) -> Optional[int]:
+        return pulumi.get(self, "gte")
+
+    @property
+    @pulumi.getter
+    def lt(self) -> Optional[int]:
+        return pulumi.get(self, "lt")
+
+    @property
+    @pulumi.getter
+    def lte(self) -> Optional[int]:
+        return pulumi.get(self, "lte")
+
+    @property
+    @pulumi.getter
+    def neq(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "neq")
 
 
 @pulumi.output_type
 class FindingsFilterFindingCriteria(dict):
     def __init__(__self__, *,
-                 criterion: Optional['outputs.FindingsFilterCriterion'] = None):
+                 criterion: Optional[Mapping[str, 'outputs.FindingsFilterCriterionAdditionalProperties']] = None):
         if criterion is not None:
             pulumi.set(__self__, "criterion", criterion)
 
     @property
     @pulumi.getter
-    def criterion(self) -> Optional['outputs.FindingsFilterCriterion']:
+    def criterion(self) -> Optional[Mapping[str, 'outputs.FindingsFilterCriterionAdditionalProperties']]:
         return pulumi.get(self, "criterion")
 
 

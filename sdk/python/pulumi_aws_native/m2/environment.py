@@ -29,7 +29,7 @@ class EnvironmentArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input['EnvironmentTagMapArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] instance_type: The type of instance underlying the environment.
@@ -42,7 +42,7 @@ class EnvironmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The list of security groups for the VPC associated with this environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]] storage_configurations: The storage configurations defined for the runtime environment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The unique identifiers of the subnets assigned to this runtime environment.
-        :param pulumi.Input['EnvironmentTagMapArgs'] tags: Tags associated to this environment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags associated to this environment.
         """
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -209,14 +209,14 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['EnvironmentTagMapArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Tags associated to this environment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['EnvironmentTagMapArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -237,7 +237,7 @@ class Environment(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentStorageConfigurationArgs']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a runtime environment that can run migrated mainframe applications.
@@ -254,7 +254,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The list of security groups for the VPC associated with this environment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentStorageConfigurationArgs']]]] storage_configurations: The storage configurations defined for the runtime environment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The unique identifiers of the subnets assigned to this runtime environment.
-        :param pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']] tags: Tags associated to this environment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags associated to this environment.
         """
         ...
     @overload
@@ -292,7 +292,7 @@ class Environment(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentStorageConfigurationArgs']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -470,7 +470,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.EnvironmentTagMap']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Tags associated to this environment.
         """

@@ -572,39 +572,118 @@ export namespace amplify {
 }
 
 export namespace amplifyuibuilder {
-    export interface ComponentBindingPropertiesArgs {
+    export interface ComponentActionParametersArgs {
+        anchor?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>;
+        fields?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>}>;
+        global?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>;
+        id?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>;
+        model?: pulumi.Input<string>;
+        state?: pulumi.Input<inputs.amplifyuibuilder.ComponentMutationActionSetStateParameterArgs>;
+        target?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>;
+        type?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>;
+        url?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>;
+    }
+
+    export interface ComponentBindingPropertiesValueArgs {
+        bindingProperties?: pulumi.Input<inputs.amplifyuibuilder.ComponentBindingPropertiesValuePropertiesArgs>;
+        defaultValue?: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
+    }
+
+    export interface ComponentBindingPropertiesValuePropertiesArgs {
+        bucket?: pulumi.Input<string>;
+        defaultValue?: pulumi.Input<string>;
+        field?: pulumi.Input<string>;
+        key?: pulumi.Input<string>;
+        model?: pulumi.Input<string>;
+        predicates?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentPredicateArgs>[]>;
+        slotName?: pulumi.Input<string>;
+        userAttribute?: pulumi.Input<string>;
     }
 
     export interface ComponentChildArgs {
         children?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentChildArgs>[]>;
         componentType: pulumi.Input<string>;
-        events?: pulumi.Input<inputs.amplifyuibuilder.ComponentEventsArgs>;
+        events?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentEventArgs>}>;
         name: pulumi.Input<string>;
-        properties: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertiesArgs>;
+        properties: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>}>;
         sourceId?: pulumi.Input<string>;
     }
 
-    export interface ComponentCollectionPropertiesArgs {
+    export interface ComponentConditionPropertyArgs {
+        else?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>;
+        field?: pulumi.Input<string>;
+        operand?: pulumi.Input<string>;
+        operandType?: pulumi.Input<string>;
+        operator?: pulumi.Input<string>;
+        property?: pulumi.Input<string>;
+        then?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>;
     }
 
-    export interface ComponentEventsArgs {
+    export interface ComponentDataConfigurationArgs {
+        identifiers?: pulumi.Input<pulumi.Input<string>[]>;
+        model: pulumi.Input<string>;
+        predicate?: pulumi.Input<inputs.amplifyuibuilder.ComponentPredicateArgs>;
+        sort?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentSortPropertyArgs>[]>;
     }
 
-    export interface ComponentOverridesArgs {
+    export interface ComponentEventArgs {
+        action?: pulumi.Input<string>;
+        bindingEvent?: pulumi.Input<string>;
+        parameters?: pulumi.Input<inputs.amplifyuibuilder.ComponentActionParametersArgs>;
     }
 
-    export interface ComponentPropertiesArgs {
+    export interface ComponentFormBindingElementArgs {
+        element: pulumi.Input<string>;
+        property: pulumi.Input<string>;
     }
 
-    export interface ComponentTagsArgs {
+    export interface ComponentMutationActionSetStateParameterArgs {
+        componentName: pulumi.Input<string>;
+        property: pulumi.Input<string>;
+        set: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>;
+    }
+
+    export interface ComponentPredicateArgs {
+        and?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentPredicateArgs>[]>;
+        field?: pulumi.Input<string>;
+        operand?: pulumi.Input<string>;
+        operandType?: pulumi.Input<string>;
+        operator?: pulumi.Input<string>;
+        or?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentPredicateArgs>[]>;
+    }
+
+    export interface ComponentPropertyArgs {
+        bindingProperties?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyBindingPropertiesArgs>;
+        bindings?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentFormBindingElementArgs>}>;
+        collectionBindingProperties?: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyBindingPropertiesArgs>;
+        componentName?: pulumi.Input<string>;
+        concat?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>[]>;
+        condition?: pulumi.Input<inputs.amplifyuibuilder.ComponentConditionPropertyArgs>;
+        configured?: pulumi.Input<boolean>;
+        defaultValue?: pulumi.Input<string>;
+        event?: pulumi.Input<string>;
+        importedValue?: pulumi.Input<string>;
+        model?: pulumi.Input<string>;
+        property?: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
+        userAttribute?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface ComponentPropertyBindingPropertiesArgs {
+        field?: pulumi.Input<string>;
+        property: pulumi.Input<string>;
+    }
+
+    export interface ComponentSortPropertyArgs {
+        direction: pulumi.Input<enums.amplifyuibuilder.ComponentSortDirection>;
+        field: pulumi.Input<string>;
     }
 
     export interface ComponentVariantArgs {
-        overrides?: pulumi.Input<inputs.amplifyuibuilder.ComponentOverridesArgs>;
-        variantValues?: pulumi.Input<inputs.amplifyuibuilder.ComponentVariantValuesArgs>;
-    }
-
-    export interface ComponentVariantValuesArgs {
+        overrides?: pulumi.Input<{[key: string]: any}>;
+        variantValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface FormButtonArgs {
@@ -625,6 +704,33 @@ export namespace amplifyuibuilder {
         dataTypeName: pulumi.Input<string>;
     }
 
+    export interface FormFieldConfigArgs {
+        excluded?: pulumi.Input<boolean>;
+        inputType?: pulumi.Input<inputs.amplifyuibuilder.FormFieldInputConfigArgs>;
+        label?: pulumi.Input<string>;
+        position?: pulumi.Input<inputs.amplifyuibuilder.FormFieldPosition0PropertiesArgs | inputs.amplifyuibuilder.FormFieldPosition1PropertiesArgs | inputs.amplifyuibuilder.FormFieldPosition2PropertiesArgs>;
+        validations?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.FormFieldValidationConfigurationArgs>[]>;
+    }
+
+    export interface FormFieldInputConfigArgs {
+        defaultChecked?: pulumi.Input<boolean>;
+        defaultCountryCode?: pulumi.Input<string>;
+        defaultValue?: pulumi.Input<string>;
+        descriptiveText?: pulumi.Input<string>;
+        fileUploaderConfig?: pulumi.Input<inputs.amplifyuibuilder.FormFileUploaderFieldConfigArgs>;
+        isArray?: pulumi.Input<boolean>;
+        maxValue?: pulumi.Input<number>;
+        minValue?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+        placeholder?: pulumi.Input<string>;
+        readOnly?: pulumi.Input<boolean>;
+        required?: pulumi.Input<boolean>;
+        step?: pulumi.Input<number>;
+        type: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+        valueMappings?: pulumi.Input<inputs.amplifyuibuilder.FormValueMappingsArgs>;
+    }
+
     export interface FormFieldPosition0PropertiesArgs {
         fixed: pulumi.Input<enums.amplifyuibuilder.FormFixedPosition>;
     }
@@ -637,10 +743,49 @@ export namespace amplifyuibuilder {
         below: pulumi.Input<string>;
     }
 
-    export interface FormFieldsMapArgs {
+    export interface FormFieldValidationConfigurationArgs {
+        numValues?: pulumi.Input<pulumi.Input<number>[]>;
+        strValues?: pulumi.Input<pulumi.Input<string>[]>;
+        type: pulumi.Input<string>;
+        validationMessage?: pulumi.Input<string>;
     }
 
-    export interface FormSectionalElementMapArgs {
+    export interface FormFileUploaderFieldConfigArgs {
+        acceptedFileTypes: pulumi.Input<pulumi.Input<string>[]>;
+        accessLevel: pulumi.Input<enums.amplifyuibuilder.FormStorageAccessLevel>;
+        isResumable?: pulumi.Input<boolean>;
+        maxFileCount?: pulumi.Input<number>;
+        maxSize?: pulumi.Input<number>;
+        showThumbnails?: pulumi.Input<boolean>;
+    }
+
+    export interface FormInputBindingPropertiesValueArgs {
+        bindingProperties?: pulumi.Input<inputs.amplifyuibuilder.FormInputBindingPropertiesValuePropertiesArgs>;
+        type?: pulumi.Input<string>;
+    }
+
+    export interface FormInputBindingPropertiesValuePropertiesArgs {
+        model?: pulumi.Input<string>;
+    }
+
+    export interface FormInputValuePropertyArgs {
+        bindingProperties?: pulumi.Input<inputs.amplifyuibuilder.FormInputValuePropertyBindingPropertiesArgs>;
+        concat?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.FormInputValuePropertyArgs>[]>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface FormInputValuePropertyBindingPropertiesArgs {
+        field?: pulumi.Input<string>;
+        property: pulumi.Input<string>;
+    }
+
+    export interface FormSectionalElementArgs {
+        excluded?: pulumi.Input<boolean>;
+        level?: pulumi.Input<number>;
+        orientation?: pulumi.Input<string>;
+        position?: pulumi.Input<inputs.amplifyuibuilder.FormFieldPosition0PropertiesArgs | inputs.amplifyuibuilder.FormFieldPosition1PropertiesArgs | inputs.amplifyuibuilder.FormFieldPosition2PropertiesArgs>;
+        text?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface FormStyleArgs {
@@ -657,10 +802,14 @@ export namespace amplifyuibuilder {
         value: pulumi.Input<string>;
     }
 
-    export interface FormTagsArgs {
+    export interface FormValueMappingArgs {
+        displayValue?: pulumi.Input<inputs.amplifyuibuilder.FormInputValuePropertyArgs>;
+        value: pulumi.Input<inputs.amplifyuibuilder.FormInputValuePropertyArgs>;
     }
 
-    export interface ThemeTagsArgs {
+    export interface FormValueMappingsArgs {
+        bindingProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormInputBindingPropertiesValueArgs>}>;
+        values: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.FormValueMappingArgs>[]>;
     }
 
     export interface ThemeValueArgs {
@@ -1343,7 +1492,14 @@ export namespace apigatewayv2 {
         serverNameToVerify?: pulumi.Input<string>;
     }
 
-    export interface RouteResponseRouteParametersArgs {
+    /**
+     * Specifies whether the parameter is required.
+     */
+    export interface RouteResponseParameterConstraintsArgs {
+        /**
+         * Specifies whether the parameter is required.
+         */
+        required: pulumi.Input<boolean>;
     }
 
     export interface StageAccessLogSettingsArgs {
@@ -1497,14 +1653,8 @@ export namespace appflow {
         zendesk?: pulumi.Input<inputs.appflow.ConnectorProfileZendeskConnectorProfileCredentialsArgs>;
     }
 
-    /**
-     * A map for properties for custom authentication.
-     */
-    export interface ConnectorProfileCredentialsMapArgs {
-    }
-
     export interface ConnectorProfileCustomAuthCredentialsArgs {
-        credentialsMap?: pulumi.Input<inputs.appflow.ConnectorProfileCredentialsMapArgs>;
+        credentialsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         customAuthenticationType: pulumi.Input<string>;
     }
 
@@ -1518,7 +1668,7 @@ export namespace appflow {
 
     export interface ConnectorProfileCustomConnectorProfilePropertiesArgs {
         oAuth2Properties?: pulumi.Input<inputs.appflow.ConnectorProfileOAuth2PropertiesArgs>;
-        profileProperties?: pulumi.Input<inputs.appflow.ConnectorProfileProfilePropertiesArgs>;
+        profileProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ConnectorProfileDatadogConnectorProfileCredentialsArgs {
@@ -1639,7 +1789,7 @@ export namespace appflow {
     export interface ConnectorProfileOAuth2PropertiesArgs {
         oAuth2GrantType?: pulumi.Input<enums.appflow.ConnectorProfileOAuth2GrantType>;
         tokenUrl?: pulumi.Input<string>;
-        tokenUrlCustomProperties?: pulumi.Input<inputs.appflow.ConnectorProfileTokenUrlCustomPropertiesArgs>;
+        tokenUrlCustomProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ConnectorProfileOAuthPropertiesArgs {
@@ -1680,12 +1830,6 @@ export namespace appflow {
          * Indicates whether the connector profile applies to a demo or production environment
          */
         isSandboxEnvironment?: pulumi.Input<boolean>;
-    }
-
-    /**
-     * A map for properties for custom connector.
-     */
-    export interface ConnectorProfileProfilePropertiesArgs {
     }
 
     /**
@@ -1925,12 +2069,6 @@ export namespace appflow {
         warehouse: pulumi.Input<string>;
     }
 
-    /**
-     * A map for properties for custom connector Token Url.
-     */
-    export interface ConnectorProfileTokenUrlCustomPropertiesArgs {
-    }
-
     export interface ConnectorProfileTrendmicroConnectorProfileCredentialsArgs {
         /**
          * The Secret Access Key portion of the credentials.
@@ -2025,7 +2163,7 @@ export namespace appflow {
     }
 
     export interface FlowCustomConnectorDestinationPropertiesArgs {
-        customProperties?: pulumi.Input<inputs.appflow.FlowCustomPropertiesArgs>;
+        customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         entityName: pulumi.Input<string>;
         errorHandlingConfig?: pulumi.Input<inputs.appflow.FlowErrorHandlingConfigArgs>;
         /**
@@ -2036,7 +2174,7 @@ export namespace appflow {
     }
 
     export interface FlowCustomConnectorSourcePropertiesArgs {
-        customProperties?: pulumi.Input<inputs.appflow.FlowCustomPropertiesArgs>;
+        customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         dataTransferApi?: pulumi.Input<inputs.appflow.FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs>;
         entityName: pulumi.Input<string>;
     }
@@ -2044,12 +2182,6 @@ export namespace appflow {
     export interface FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs {
         name: pulumi.Input<string>;
         type: pulumi.Input<enums.appflow.FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType>;
-    }
-
-    /**
-     * A map for properties for custom connector.
-     */
-    export interface FlowCustomPropertiesArgs {
     }
 
     export interface FlowDatadogSourcePropertiesArgs {
@@ -2439,12 +2571,6 @@ export namespace appintegrations {
          * Identifiers for the source folders to pull all files from recursively.
          */
         folders: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * The configuration for what data should be pulled from the source.
-     */
-    export interface DataIntegrationObjectConfigurationArgs {
     }
 
     export interface DataIntegrationScheduleConfigArgs {
@@ -5139,9 +5265,6 @@ export namespace backup {
     export interface RestoreTestingSelectionProtectedResourceConditionsArgs {
         stringEquals?: pulumi.Input<pulumi.Input<inputs.backup.RestoreTestingSelectionKeyValueArgs>[]>;
         stringNotEquals?: pulumi.Input<pulumi.Input<inputs.backup.RestoreTestingSelectionKeyValueArgs>[]>;
-    }
-
-    export interface RestoreTestingSelectionSensitiveStringMapArgs {
     }
 }
 
@@ -9234,9 +9357,6 @@ export namespace databrew {
         key?: pulumi.Input<string>;
     }
 
-    export interface JobParameterMapArgs {
-    }
-
     export interface JobProfileConfigurationArgs {
         columnStatisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.databrew.JobColumnStatisticsConfigurationArgs>[]>;
         datasetStatisticsConfiguration?: pulumi.Input<inputs.databrew.JobStatisticsConfigurationArgs>;
@@ -9277,7 +9397,7 @@ export namespace databrew {
     }
 
     export interface JobStatisticOverrideArgs {
-        parameters: pulumi.Input<inputs.databrew.JobParameterMapArgs>;
+        parameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         statistic: pulumi.Input<string>;
     }
 
@@ -9313,7 +9433,7 @@ export namespace databrew {
          * Step action operation
          */
         operation: pulumi.Input<string>;
-        parameters?: pulumi.Input<inputs.databrew.RecipeParametersArgs | inputs.databrew.RecipeParameterMapArgs>;
+        parameters?: pulumi.Input<inputs.databrew.RecipeParametersArgs | {[key: string]: pulumi.Input<string>}>;
     }
 
     /**
@@ -9348,9 +9468,6 @@ export namespace databrew {
          */
         tableName?: pulumi.Input<string>;
         tempDirectory?: pulumi.Input<inputs.databrew.RecipeS3LocationArgs>;
-    }
-
-    export interface RecipeParameterMapArgs {
     }
 
     export interface RecipeParametersArgs {
@@ -10185,11 +10302,8 @@ export namespace datazone {
         userAssignment?: pulumi.Input<enums.datazone.DomainUserAssignment>;
     }
 
-    export interface EnvironmentBlueprintConfigurationParameterArgs {
-    }
-
     export interface EnvironmentBlueprintConfigurationRegionalParameterArgs {
-        parameters?: pulumi.Input<inputs.datazone.EnvironmentBlueprintConfigurationParameterArgs>;
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         region?: pulumi.Input<string>;
     }
 
@@ -15108,7 +15222,11 @@ export namespace emrserverless {
         memory: pulumi.Input<string>;
     }
 
-    export interface ApplicationWorkerTypeSpecificationInputMapArgs {
+    /**
+     * The specifications for a worker type.
+     */
+    export interface ApplicationWorkerTypeSpecificationInputArgs {
+        imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfigurationInputArgs>;
     }
 }
 
@@ -15653,9 +15771,20 @@ export namespace finspace {
 
 export namespace fis {
     /**
-     * The actions for the experiment.
+     * Specifies an action for the experiment template.
      */
-    export interface ExperimentTemplateActionMapArgs {
+    export interface ExperimentTemplateActionArgs {
+        actionId: pulumi.Input<string>;
+        description?: pulumi.Input<string>;
+        /**
+         * The parameters for the action, if applicable.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        startAfter?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more targets for the action.
+         */
+        targets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ExperimentTemplateExperimentOptionsArgs {
@@ -15690,9 +15819,23 @@ export namespace fis {
     }
 
     /**
-     * The targets for the experiment.
+     * Specifies a target for an experiment.
      */
-    export interface ExperimentTemplateTargetMapArgs {
+    export interface ExperimentTemplateTargetArgs {
+        filters?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTargetFilterArgs>[]>;
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        resourceType: pulumi.Input<string>;
+        selectionMode: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes a filter used for the target resource input in an experiment template.
+     */
+    export interface ExperimentTemplateTargetFilterArgs {
+        path: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -17858,14 +18001,6 @@ export namespace guardduty {
 
 }
 
-export namespace healthimaging {
-    /**
-     * A Map of key value pairs for Tags.
-     */
-    export interface DatastoreTagsArgs {
-    }
-}
-
 export namespace healthlake {
     /**
      * The identity provider configuration for the datastore
@@ -18742,12 +18877,9 @@ export namespace inspector {
 }
 
 export namespace inspectorv2 {
-    export interface CisScanConfigurationCisTagMapArgs {
-    }
-
     export interface CisScanConfigurationCisTargetsArgs {
         accountIds: pulumi.Input<pulumi.Input<string>[]>;
-        targetResourceTags?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationTargetResourceTagsArgs>;
+        targetResourceTags?: pulumi.Input<{[key: string]: any}>;
     }
 
     export interface CisScanConfigurationDailyScheduleArgs {
@@ -18770,9 +18902,6 @@ export namespace inspectorv2 {
         monthly?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationMonthlyScheduleArgs>;
         oneTime?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationOneTimeScheduleArgs>;
         weekly?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationWeeklyScheduleArgs>;
-    }
-
-    export interface CisScanConfigurationTargetResourceTagsArgs {
     }
 
     export interface CisScanConfigurationTimeArgs {
@@ -19291,9 +19420,6 @@ export namespace iot {
          * The percentile which resolves to a threshold value by which compliance with a behavior is determined
          */
         statistic?: pulumi.Input<enums.iot.SecurityProfileStatisticalThresholdStatistic>;
-    }
-
-    export interface SoftwarePackageVersionResourceAttributesArgs {
     }
 
     export interface ThingAttributePayloadArgs {
@@ -20814,8 +20940,6 @@ export namespace iotfleetwise {
         unit?: pulumi.Input<string>;
     }
 
-    export interface VehicleattributesMapArgs {
-    }
 }
 
 export namespace iotsitewise {
@@ -21465,17 +21589,11 @@ export namespace iottwinmaker {
     /**
      * An object that specifies information about a property.
      */
-    export interface EntityPropertyDefinitionConfigurationArgs {
-    }
-
-    /**
-     * An object that specifies information about a property.
-     */
     export interface EntityPropertyDefinitionPropertiesArgs {
         /**
          * An object that specifies information about a property.
          */
-        configuration?: pulumi.Input<inputs.iottwinmaker.EntityPropertyDefinitionConfigurationArgs>;
+        configuration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * An object that contains information about the data type.
          */
@@ -26365,9 +26483,6 @@ export namespace m2 {
         content: pulumi.Input<string>;
     }
 
-    export interface ApplicationTagMapArgs {
-    }
-
     /**
      * Defines the details of a high availability configuration.
      */
@@ -26380,12 +26495,6 @@ export namespace m2 {
      */
     export interface EnvironmentStorageConfigurationArgs {
     }
-
-    /**
-     * Defines tags associated to an environment.
-     */
-    export interface EnvironmentTagMapArgs {
-    }
 }
 
 export namespace macie {
@@ -26395,14 +26504,17 @@ export namespace macie {
     export interface AllowListCriteriaArgs {
     }
 
-    /**
-     * Map of filter criteria.
-     */
-    export interface FindingsFilterCriterionArgs {
+    export interface FindingsFilterCriterionAdditionalPropertiesArgs {
+        eq?: pulumi.Input<pulumi.Input<string>[]>;
+        gt?: pulumi.Input<number>;
+        gte?: pulumi.Input<number>;
+        lt?: pulumi.Input<number>;
+        lte?: pulumi.Input<number>;
+        neq?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FindingsFilterFindingCriteriaArgs {
-        criterion?: pulumi.Input<inputs.macie.FindingsFilterCriterionArgs>;
+        criterion?: pulumi.Input<{[key: string]: pulumi.Input<inputs.macie.FindingsFilterCriterionAdditionalPropertiesArgs>}>;
     }
 
 }
@@ -29327,12 +29439,6 @@ export namespace mediatailor {
     }
 
     /**
-     * The predefined aliases for dynamic variables.
-     */
-    export interface PlaybackConfigurationConfigurationAliasesArgs {
-    }
-
-    /**
      * The configuration for DASH PUT operations.
      */
     export interface PlaybackConfigurationDashConfigurationArgs {
@@ -29763,12 +29869,6 @@ export namespace msk {
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VpcConnectionTagsArgs {
-    }
 }
 
 export namespace mwaa {
@@ -29876,15 +29976,16 @@ export namespace networkfirewall {
         value: pulumi.Input<string>;
     }
 
+    export interface FirewallPolicyIpSetArgs {
+        definition?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface FirewallPolicyPolicyVariablesPropertiesArgs {
-        ruleVariables?: pulumi.Input<inputs.networkfirewall.FirewallPolicyRuleVariablesArgs>;
+        ruleVariables?: pulumi.Input<{[key: string]: pulumi.Input<inputs.networkfirewall.FirewallPolicyIpSetArgs>}>;
     }
 
     export interface FirewallPolicyPublishMetricActionArgs {
         dimensions: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyDimensionArgs>[]>;
-    }
-
-    export interface FirewallPolicyRuleVariablesArgs {
     }
 
     export interface FirewallPolicyStatefulEngineOptionsArgs {
@@ -30403,9 +30504,6 @@ export namespace nimblestudio {
         windows?: pulumi.Input<string>;
     }
 
-    export interface LaunchProfileTagsArgs {
-    }
-
     /**
      * <p>Custom volume configuration for the root volumes that are attached to streaming
      *             sessions.</p>
@@ -30428,9 +30526,6 @@ export namespace nimblestudio {
          *             session. The throughput is measured in MiB/s.</p>
          */
         throughput?: pulumi.Input<number>;
-    }
-
-    export interface StreamingImageTagsArgs {
     }
 
     /**
@@ -30584,9 +30679,6 @@ export namespace nimblestudio {
         windowsMountDrive?: pulumi.Input<string>;
     }
 
-    export interface StudioComponentTagsArgs {
-    }
-
     /**
      * <p>Configuration of the encryption method that is used for the studio.</p>
      */
@@ -30597,20 +30689,11 @@ export namespace nimblestudio {
         keyArn?: pulumi.Input<string>;
         keyType: pulumi.Input<enums.nimblestudio.StudioEncryptionConfigurationKeyType>;
     }
-
-    export interface StudioTagsArgs {
-    }
 }
 
 export namespace omics {
-    export interface AnnotationStoreFormatToHeaderArgs {
-    }
-
     export interface AnnotationStoreReferenceItemArgs {
         referenceArn: pulumi.Input<string>;
-    }
-
-    export interface AnnotationStoreSchemaItemArgs {
     }
 
     export interface AnnotationStoreSseConfigArgs {
@@ -30622,13 +30705,10 @@ export namespace omics {
         tsvStoreOptions: pulumi.Input<inputs.omics.AnnotationStoreTsvStoreOptionsArgs>;
     }
 
-    export interface AnnotationStoreTagMapArgs {
-    }
-
     export interface AnnotationStoreTsvStoreOptionsArgs {
         annotationType?: pulumi.Input<enums.omics.AnnotationStoreAnnotationType>;
-        formatToHeader?: pulumi.Input<inputs.omics.AnnotationStoreFormatToHeaderArgs>;
-        schema?: pulumi.Input<pulumi.Input<inputs.omics.AnnotationStoreSchemaItemArgs>[]>;
+        formatToHeader?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        schema?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<enums.omics.AnnotationStoreSchemaValueType>}>[]>;
     }
 
     /**
@@ -30642,15 +30722,6 @@ export namespace omics {
         type: pulumi.Input<enums.omics.ReferenceStoreEncryptionType>;
     }
 
-    export interface ReferenceStoreTagMapArgs {
-    }
-
-    /**
-     * A map of resource tags
-     */
-    export interface RunGroupTagMapArgs {
-    }
-
     /**
      * Server-side encryption (SSE) settings for a store.
      */
@@ -30662,9 +30733,6 @@ export namespace omics {
         type: pulumi.Input<enums.omics.SequenceStoreEncryptionType>;
     }
 
-    export interface SequenceStoreTagMapArgs {
-    }
-
     export interface VariantStoreReferenceItemArgs {
         referenceArn: pulumi.Input<string>;
     }
@@ -30674,16 +30742,9 @@ export namespace omics {
         type: pulumi.Input<enums.omics.VariantStoreEncryptionType>;
     }
 
-    export interface VariantStoreTagMapArgs {
-    }
-
-    export interface WorkflowParameterTemplateArgs {
-    }
-
-    /**
-     * A map of resource tags
-     */
-    export interface WorkflowTagMapArgs {
+    export interface WorkflowParameterArgs {
+        description?: pulumi.Input<string>;
+        optional?: pulumi.Input<boolean>;
     }
 }
 
@@ -31045,14 +31106,8 @@ export namespace panorama {
 }
 
 export namespace pcaconnectorad {
-    export interface ConnectorTagsArgs {
-    }
-
     export interface ConnectorVpcInformationArgs {
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface DirectoryRegistrationTagsArgs {
     }
 
     export interface TemplateApplicationPoliciesArgs {
@@ -31252,9 +31307,6 @@ export namespace pcaconnectorad {
         sanRequireEmail?: pulumi.Input<boolean>;
         sanRequireSpn?: pulumi.Input<boolean>;
         sanRequireUpn?: pulumi.Input<boolean>;
-    }
-
-    export interface TemplateTagsArgs {
     }
 
     export interface TemplateV2Args {
@@ -31899,9 +31951,6 @@ export namespace pipes {
         type?: pulumi.Input<enums.pipes.PipeBatchJobDependencyType>;
     }
 
-    export interface PipeBatchParametersMapArgs {
-    }
-
     export interface PipeBatchResourceRequirementArgs {
         type: pulumi.Input<enums.pipes.PipeBatchResourceRequirementType>;
         value: pulumi.Input<string>;
@@ -31971,9 +32020,9 @@ export namespace pipes {
     }
 
     export interface PipeEnrichmentHttpParametersArgs {
-        headerParameters?: pulumi.Input<inputs.pipes.PipeHeaderParametersMapArgs>;
+        headerParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         pathParameterValues?: pulumi.Input<pulumi.Input<string>[]>;
-        queryStringParameters?: pulumi.Input<inputs.pipes.PipeQueryStringParametersMapArgs>;
+        queryStringParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface PipeEnrichmentParametersArgs {
@@ -31991,9 +32040,6 @@ export namespace pipes {
 
     export interface PipeFirehoseLogDestinationArgs {
         deliveryStreamArn?: pulumi.Input<string>;
-    }
-
-    export interface PipeHeaderParametersMapArgs {
     }
 
     export interface PipeLogConfigurationArgs {
@@ -32037,9 +32083,6 @@ export namespace pipes {
     export interface PipePlacementStrategyArgs {
         field?: pulumi.Input<string>;
         type?: pulumi.Input<enums.pipes.PipePlacementStrategyType>;
-    }
-
-    export interface PipeQueryStringParametersMapArgs {
     }
 
     export interface PipeS3LogDestinationArgs {
@@ -32176,16 +32219,13 @@ export namespace pipes {
         value: pulumi.Input<string>;
     }
 
-    export interface PipeTagMapArgs {
-    }
-
     export interface PipeTargetBatchJobParametersArgs {
         arrayProperties?: pulumi.Input<inputs.pipes.PipeBatchArrayPropertiesArgs>;
         containerOverrides?: pulumi.Input<inputs.pipes.PipeBatchContainerOverridesArgs>;
         dependsOn?: pulumi.Input<pulumi.Input<inputs.pipes.PipeBatchJobDependencyArgs>[]>;
         jobDefinition: pulumi.Input<string>;
         jobName: pulumi.Input<string>;
-        parameters?: pulumi.Input<inputs.pipes.PipeBatchParametersMapArgs>;
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         retryStrategy?: pulumi.Input<inputs.pipes.PipeBatchRetryStrategyArgs>;
     }
 
@@ -32221,9 +32261,9 @@ export namespace pipes {
     }
 
     export interface PipeTargetHttpParametersArgs {
-        headerParameters?: pulumi.Input<inputs.pipes.PipeHeaderParametersMapArgs>;
+        headerParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         pathParameterValues?: pulumi.Input<pulumi.Input<string>[]>;
-        queryStringParameters?: pulumi.Input<inputs.pipes.PipeQueryStringParametersMapArgs>;
+        queryStringParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface PipeTargetKinesisStreamParametersArgs {
@@ -38417,6 +38457,53 @@ export namespace quicksight {
     }
 
     /**
+     * <p>A calculated column for a dataset.</p>
+     */
+    export interface DataSetCalculatedColumnArgs {
+        /**
+         * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
+         *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
+         *             preserves the existing calculated column.</p>
+         */
+        columnId: pulumi.Input<string>;
+        /**
+         * <p>Column name.</p>
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * <p>An expression that defines the calculated column.</p>
+         */
+        expression: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>A transform operation that casts a column to a different type.</p>
+     */
+    export interface DataSetCastColumnTypeOperationArgs {
+        /**
+         * <p>Column name.</p>
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * <p>When casting a column from string to datetime type, you can supply a string in a
+         *             format supported by Amazon QuickSight to denote the source data format.</p>
+         */
+        format?: pulumi.Input<string>;
+        newColumnType: pulumi.Input<enums.quicksight.DataSetColumnDataType>;
+        subType?: pulumi.Input<enums.quicksight.DataSetColumnSubDataType>;
+    }
+
+    /**
+     * <p>Metadata that contains a description for a column.</p>
+     */
+    export interface DataSetColumnDescriptionArgs {
+        /**
+         * <p>The text of a description for a column.</p>
+         */
+        text?: pulumi.Input<string>;
+    }
+
+    /**
      * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
      *             a variant type structure. For this structure to be valid, only one of the attributes can
      *             be non-null.</p>
@@ -38428,6 +38515,49 @@ export namespace quicksight {
     export interface DataSetColumnLevelPermissionRuleArgs {
         columnNames?: pulumi.Input<pulumi.Input<string>[]>;
         principals?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+     *             variant type structure. For this structure to be valid, only one of the attributes can
+     *             be non-null.</p>
+     */
+    export interface DataSetColumnTagArgs {
+        columnDescription?: pulumi.Input<inputs.quicksight.DataSetColumnDescriptionArgs>;
+        columnGeographicRole?: pulumi.Input<enums.quicksight.DataSetGeoSpatialDataRole>;
+    }
+
+    /**
+     * <p>A transform operation that creates calculated columns. Columns created in one such
+     *             operation form a lexical closure.</p>
+     */
+    export interface DataSetCreateColumnsOperationArgs {
+        /**
+         * <p>Calculated columns to create.</p>
+         */
+        columns: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetCalculatedColumnArgs>[]>;
+    }
+
+    /**
+     * <p>A physical table type built from the results of the custom SQL query.</p>
+     */
+    export interface DataSetCustomSqlArgs {
+        /**
+         * <p>The column schema from the SQL query result set.</p>
+         */
+        columns: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetInputColumnArgs>[]>;
+        /**
+         * <p>The Amazon Resource Name (ARN) of the data source.</p>
+         */
+        dataSourceArn: pulumi.Input<string>;
+        /**
+         * <p>A display name for the SQL query result.</p>
+         */
+        name: pulumi.Input<string>;
+        /**
+         * <p>The SQL query.</p>
+         */
+        sqlQuery: pulumi.Input<string>;
     }
 
     /**
@@ -38481,7 +38611,20 @@ export namespace quicksight {
         staticValues?: pulumi.Input<pulumi.Input<number>[]>;
     }
 
-    export interface DataSetFieldFolderMapArgs {
+    export interface DataSetFieldFolderArgs {
+        columns?: pulumi.Input<pulumi.Input<string>[]>;
+        description?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>A transform operation that filters rows based on a condition.</p>
+     */
+    export interface DataSetFilterOperationArgs {
+        /**
+         * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
+         *             evaluates to true are kept in the dataset.</p>
+         */
+        conditionExpression: pulumi.Input<string>;
     }
 
     /**
@@ -38523,6 +38666,18 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Metadata for a column that is used as the input of a transform operation.</p>
+     */
+    export interface DataSetInputColumnArgs {
+        /**
+         * <p>The name of this column in the underlying data source.</p>
+         */
+        name: pulumi.Input<string>;
+        subType?: pulumi.Input<enums.quicksight.DataSetColumnSubDataType>;
+        type: pulumi.Input<enums.quicksight.DataSetInputColumnDataType>;
+    }
+
+    /**
      * <p>A parameter created in the dataset of integer data type.</p>
      */
     export interface DataSetIntegerDatasetParameterArgs {
@@ -38542,7 +38697,63 @@ export namespace quicksight {
         staticValues?: pulumi.Input<pulumi.Input<number>[]>;
     }
 
-    export interface DataSetLogicalTableMapArgs {
+    /**
+     * <p>Join instruction.</p>
+     */
+    export interface DataSetJoinInstructionArgs {
+        leftJoinKeyProperties?: pulumi.Input<inputs.quicksight.DataSetJoinKeyPropertiesArgs>;
+        /**
+         * <p>Left operand.</p>
+         */
+        leftOperand: pulumi.Input<string>;
+        /**
+         * <p>On Clause.</p>
+         */
+        onClause: pulumi.Input<string>;
+        rightJoinKeyProperties?: pulumi.Input<inputs.quicksight.DataSetJoinKeyPropertiesArgs>;
+        /**
+         * <p>Right operand.</p>
+         */
+        rightOperand: pulumi.Input<string>;
+        type: pulumi.Input<enums.quicksight.DataSetJoinType>;
+    }
+
+    export interface DataSetJoinKeyPropertiesArgs {
+        uniqueKey?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * <p>A <i>logical table</i> is a unit that joins and that data
+     *             transformations operate on. A logical table has a source, which can be either a physical
+     *             table or result of a join. When a logical table points to a physical table, the logical
+     *             table acts as a mutable copy of that physical table through transform operations.</p>
+     */
+    export interface DataSetLogicalTableArgs {
+        /**
+         * <p>A display name for the logical table.</p>
+         */
+        alias: pulumi.Input<string>;
+        /**
+         * <p>Transform operations that act on this logical table.</p>
+         */
+        dataTransforms?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetTransformOperationArgs>[]>;
+        source: pulumi.Input<inputs.quicksight.DataSetLogicalTableSourceArgs>;
+    }
+
+    /**
+     * <p>Information about the source of a logical table. This is a variant type structure. For
+     *             this structure to be valid, only one of the attributes can be non-null.</p>
+     */
+    export interface DataSetLogicalTableSourceArgs {
+        /**
+         * <p>The Amazon Resource Name (ARN) for the dataset.</p>
+         */
+        dataSetArn?: pulumi.Input<string>;
+        joinInstruction?: pulumi.Input<inputs.quicksight.DataSetJoinInstructionArgs>;
+        /**
+         * <p>Physical table ID.</p>
+         */
+        physicalTableId?: pulumi.Input<string>;
     }
 
     export interface DataSetLookbackWindowArgs {
@@ -38557,7 +38768,51 @@ export namespace quicksight {
         sizeUnit?: pulumi.Input<enums.quicksight.DataSetSizeUnit>;
     }
 
-    export interface DataSetPhysicalTableMapArgs {
+    export interface DataSetNewDefaultValuesArgs {
+        dateTimeStaticValues?: pulumi.Input<pulumi.Input<string>[]>;
+        decimalStaticValues?: pulumi.Input<pulumi.Input<number>[]>;
+        integerStaticValues?: pulumi.Input<pulumi.Input<number>[]>;
+        stringStaticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>
+     */
+    export interface DataSetOverrideDatasetParameterOperationArgs {
+        /**
+         * <p>The new default values for the parameter.</p>
+         */
+        newDefaultValues?: pulumi.Input<inputs.quicksight.DataSetNewDefaultValuesArgs>;
+        /**
+         * <p>The new name for the parameter.</p>
+         */
+        newParameterName?: pulumi.Input<string>;
+        /**
+         * <p>The name of the parameter to be overridden with different values.</p>
+         */
+        parameterName: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>A view of a data source that contains information about the shape of the data in the
+     *             underlying source. This is a variant type structure. For this structure to be valid,
+     *             only one of the attributes can be non-null.</p>
+     */
+    export interface DataSetPhysicalTableArgs {
+        customSql?: pulumi.Input<inputs.quicksight.DataSetCustomSqlArgs>;
+        relationalTable?: pulumi.Input<inputs.quicksight.DataSetRelationalTableArgs>;
+        s3Source?: pulumi.Input<inputs.quicksight.DataSetS3SourceArgs>;
+    }
+
+    /**
+     * <p>A transform operation that projects columns. Operations that come after a projection
+     *             can only refer to projected columns.</p>
+     */
+    export interface DataSetProjectOperationArgs {
+        /**
+         * <p>Projected columns.</p>
+         */
+        projectedColumns: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -38572,6 +38827,46 @@ export namespace quicksight {
      */
     export interface DataSetRefreshPropertiesArgs {
         refreshConfiguration?: pulumi.Input<inputs.quicksight.DataSetRefreshConfigurationArgs>;
+    }
+
+    /**
+     * <p>A physical table type for relational data sources.</p>
+     */
+    export interface DataSetRelationalTableArgs {
+        /**
+         * <p>The catalog associated with a table.</p>
+         */
+        catalog?: pulumi.Input<string>;
+        /**
+         * <p>The Amazon Resource Name (ARN) for the data source.</p>
+         */
+        dataSourceArn: pulumi.Input<string>;
+        /**
+         * <p>The column schema of the table.</p>
+         */
+        inputColumns: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetInputColumnArgs>[]>;
+        /**
+         * <p>The name of the relational table.</p>
+         */
+        name: pulumi.Input<string>;
+        /**
+         * <p>The schema name. This name applies to certain relational database engines.</p>
+         */
+        schema?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>A transform operation that renames a column.</p>
+     */
+    export interface DataSetRenameColumnOperationArgs {
+        /**
+         * <p>The name of the column to be renamed.</p>
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * <p>The new name for the column.</p>
+         */
+        newColumnName: pulumi.Input<string>;
     }
 
     /**
@@ -38657,6 +38952,21 @@ export namespace quicksight {
     }
 
     /**
+     * <p>A physical table type for as S3 data source.</p>
+     */
+    export interface DataSetS3SourceArgs {
+        /**
+         * <p>The amazon Resource Name (ARN) for the data source.</p>
+         */
+        dataSourceArn: pulumi.Input<string>;
+        /**
+         * <p>A physical table type for as S3 data source.</p>
+         */
+        inputColumns: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetInputColumnArgs>[]>;
+        uploadSettings?: pulumi.Input<inputs.quicksight.DataSetUploadSettingsArgs>;
+    }
+
+    /**
      * <p>A parameter created in the dataset of string data type.</p>
      */
     export interface DataSetStringDatasetParameterArgs {
@@ -38674,6 +38984,57 @@ export namespace quicksight {
          * <p>List of static default values defined for a given string dataset parameter type.</p>
          */
         staticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * <p>A transform operation that tags a column with additional information.</p>
+     */
+    export interface DataSetTagColumnOperationArgs {
+        /**
+         * <p>The column that this operation acts on.</p>
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
+         *         <note>
+         *             <p>This is not tags for the AWS tagging feature. .</p>
+         *         </note>
+         */
+        tags: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnTagArgs>[]>;
+    }
+
+    /**
+     * <p>A data transformation on a logical table. This is a variant type structure. For this
+     *             structure to be valid, only one of the attributes can be non-null.</p>
+     */
+    export interface DataSetTransformOperationArgs {
+        castColumnTypeOperation?: pulumi.Input<inputs.quicksight.DataSetCastColumnTypeOperationArgs>;
+        createColumnsOperation?: pulumi.Input<inputs.quicksight.DataSetCreateColumnsOperationArgs>;
+        filterOperation?: pulumi.Input<inputs.quicksight.DataSetFilterOperationArgs>;
+        overrideDatasetParameterOperation?: pulumi.Input<inputs.quicksight.DataSetOverrideDatasetParameterOperationArgs>;
+        projectOperation?: pulumi.Input<inputs.quicksight.DataSetProjectOperationArgs>;
+        renameColumnOperation?: pulumi.Input<inputs.quicksight.DataSetRenameColumnOperationArgs>;
+        tagColumnOperation?: pulumi.Input<inputs.quicksight.DataSetTagColumnOperationArgs>;
+    }
+
+    /**
+     * <p>Information about the format for a source file or files.</p>
+     */
+    export interface DataSetUploadSettingsArgs {
+        /**
+         * <p>Whether the file has a header row, or the files each have a header row.</p>
+         */
+        containsHeader?: pulumi.Input<boolean>;
+        /**
+         * <p>The delimiter between values in the file.</p>
+         */
+        delimiter?: pulumi.Input<string>;
+        format?: pulumi.Input<enums.quicksight.DataSetFileFormat>;
+        /**
+         * <p>A row number to start reading data from.</p>
+         */
+        startFromRow?: pulumi.Input<number>;
+        textQualifier?: pulumi.Input<enums.quicksight.DataSetTextQualifier>;
     }
 
     /**
@@ -42285,9 +42646,6 @@ export namespace quicksight {
         warningForeground?: pulumi.Input<string>;
     }
 
-    export interface TopicAggregationFunctionParametersArgs {
-    }
-
     export interface TopicCalculatedFieldArgs {
         aggregation?: pulumi.Input<enums.quicksight.TopicDefaultAggregation>;
         allowedAggregations?: pulumi.Input<pulumi.Input<enums.quicksight.TopicAuthorSpecifiedAggregation>[]>;
@@ -42427,7 +42785,7 @@ export namespace quicksight {
 
     export interface TopicNamedEntityDefinitionMetricArgs {
         aggregation?: pulumi.Input<enums.quicksight.TopicNamedEntityAggType>;
-        aggregationFunctionParameters?: pulumi.Input<inputs.quicksight.TopicAggregationFunctionParametersArgs>;
+        aggregationFunctionParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface TopicNegativeFormatArgs {
@@ -42465,7 +42823,7 @@ export namespace quicksight {
     export interface TopicSemanticEntityTypeArgs {
         subTypeName?: pulumi.Input<string>;
         typeName?: pulumi.Input<string>;
-        typeParameters?: pulumi.Input<inputs.quicksight.TopicTypeParametersArgs>;
+        typeParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface TopicSemanticTypeArgs {
@@ -42475,15 +42833,12 @@ export namespace quicksight {
         truthyCellValue?: pulumi.Input<string>;
         truthyCellValueSynonyms?: pulumi.Input<pulumi.Input<string>[]>;
         typeName?: pulumi.Input<string>;
-        typeParameters?: pulumi.Input<inputs.quicksight.TopicTypeParametersArgs>;
+        typeParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface TopicSingularFilterConstantArgs {
         constantType?: pulumi.Input<enums.quicksight.TopicConstantType>;
         singularConstant?: pulumi.Input<string>;
-    }
-
-    export interface TopicTypeParametersArgs {
     }
 
 }
@@ -42689,12 +43044,6 @@ export namespace rds {
         ec2SecurityGroupId?: pulumi.Input<string>;
         ec2SecurityGroupName?: pulumi.Input<string>;
         ec2SecurityGroupOwnerId?: pulumi.Input<string>;
-    }
-
-    /**
-     * An optional set of non-secret key–value pairs that contains additional contextual information about the data.
-     */
-    export interface IntegrationEncryptionContextMapArgs {
     }
 
     /**
@@ -42968,29 +43317,28 @@ export namespace resiliencehub {
         terraformSourceName?: pulumi.Input<string>;
     }
 
-    export interface AppTagMapArgs {
-    }
-
-    export interface ResiliencyPolicyPolicyMapArgs {
-    }
-
-    export interface ResiliencyPolicyTagMapArgs {
+    /**
+     * Failure Policy.
+     */
+    export interface ResiliencyPolicyFailurePolicyArgs {
+        /**
+         * RPO in seconds.
+         */
+        rpoInSecs: pulumi.Input<number>;
+        /**
+         * RTO in seconds.
+         */
+        rtoInSecs: pulumi.Input<number>;
     }
 }
 
 export namespace resourceexplorer2 {
-    export interface IndexTagMapArgs {
-    }
-
     export interface ViewIncludedPropertyArgs {
         name: pulumi.Input<string>;
     }
 
     export interface ViewSearchFilterArgs {
         filterString: pulumi.Input<string>;
-    }
-
-    export interface ViewTagMapArgs {
     }
 }
 
@@ -43024,12 +43372,6 @@ export namespace resourcegroups {
 
 export namespace robomaker {
     /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface FleetTagsArgs {
-    }
-
-    /**
      * The robot software suite used by the robot application.
      */
     export interface RobotApplicationRobotSoftwareSuiteArgs {
@@ -43056,18 +43398,6 @@ export namespace robomaker {
          * The s3 key of robot application source.
          */
         s3Key: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RobotApplicationTagsArgs {
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface RobotTagsArgs {
     }
 
     /**
@@ -43128,12 +43458,6 @@ export namespace robomaker {
          * The s3 object key.
          */
         s3Key: pulumi.Input<string>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SimulationApplicationTagsArgs {
     }
 }
 
@@ -45746,7 +46070,7 @@ export namespace sagemaker {
     export interface InferenceComponentContainerSpecificationArgs {
         artifactUrl?: pulumi.Input<string>;
         deployedImage?: pulumi.Input<inputs.sagemaker.InferenceComponentDeployedImageArgs>;
-        environment?: pulumi.Input<inputs.sagemaker.InferenceComponentEnvironmentMapArgs>;
+        environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         image?: pulumi.Input<string>;
     }
 
@@ -45754,12 +46078,6 @@ export namespace sagemaker {
         resolutionTime?: pulumi.Input<string>;
         resolvedImage?: pulumi.Input<string>;
         specifiedImage?: pulumi.Input<string>;
-    }
-
-    /**
-     * Environment variables to specify on the container
-     */
-    export interface InferenceComponentEnvironmentMapArgs {
     }
 
     /**
@@ -48431,7 +48749,7 @@ export namespace scheduler {
         /**
          * The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
          */
-        tags?: pulumi.Input<pulumi.Input<inputs.scheduler.ScheduleTagMapArgs>[]>;
+        tags?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
         /**
          * The number of tasks to create based on TaskDefinition. The default is 1.
          */
@@ -48552,9 +48870,6 @@ export namespace scheduler {
          * The FIFO message group ID to use as the target.
          */
         messageGroupId?: pulumi.Input<string>;
-    }
-
-    export interface ScheduleTagMapArgs {
     }
 
     /**
@@ -48714,20 +49029,8 @@ export namespace securityhub {
         value: pulumi.Input<string>;
     }
 
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface AutomationRuleTagsArgs {
-    }
-
     export interface AutomationRuleWorkflowUpdateArgs {
         status: pulumi.Input<enums.securityhub.AutomationRuleWorkflowUpdateStatus>;
-    }
-
-    /**
-     * An object of user-defined name and value string pair added to a finding.
-     */
-    export interface AutomationRulemapArgs {
     }
 
     export interface AutomationRulesActionArgs {
@@ -48754,7 +49057,7 @@ export namespace securityhub {
          */
         severity?: pulumi.Input<inputs.securityhub.AutomationRuleSeverityUpdateArgs>;
         types?: pulumi.Input<pulumi.Input<string>[]>;
-        userDefinedFields?: pulumi.Input<inputs.securityhub.AutomationRulemapArgs>;
+        userDefinedFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         verificationState?: pulumi.Input<enums.securityhub.AutomationRulesFindingFieldsUpdateVerificationState>;
         /**
          * The rule action will update the ``Workflow`` field of a finding.
@@ -48798,12 +49101,6 @@ export namespace securityhub {
         userDefinedFields?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleMapFilterArgs>[]>;
         verificationState?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
         workflowStatus?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface HubTagsArgs {
     }
 
     /**
@@ -48864,14 +49161,6 @@ export namespace servicecatalog {
     export interface ServiceActionDefinitionParameterArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
-    }
-}
-
-export namespace servicecatalogappregistry {
-    export interface ApplicationTagsArgs {
-    }
-
-    export interface AttributeGroupTagsArgs {
     }
 }
 
@@ -49948,9 +50237,6 @@ export namespace stepfunctions {
     }
 
     export interface StateMachineDefinitionArgs {
-    }
-
-    export interface StateMachineDefinitionSubstitutionsArgs {
     }
 
     export interface StateMachineLogDestinationArgs {
@@ -51059,9 +51345,11 @@ export namespace wafv2 {
     }
 
     /**
-     * Custom response key and body map.
+     * Custom response body.
      */
-    export interface RuleGroupCustomResponseBodiesArgs {
+    export interface RuleGroupCustomResponseBodyArgs {
+        content: pulumi.Input<string>;
+        contentType: pulumi.Input<enums.wafv2.RuleGroupResponseContentType>;
     }
 
     /**
@@ -51413,7 +51701,7 @@ export namespace wafv2 {
      * AssociationConfig for body inspection
      */
     export interface WebAclAssociationConfigArgs {
-        requestBody?: pulumi.Input<inputs.wafv2.WebAclRequestBodyArgs>;
+        requestBody?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.WebAclRequestBodyAssociatedResourceTypeConfigArgs>}>;
     }
 
     /**
@@ -51554,9 +51842,11 @@ export namespace wafv2 {
     }
 
     /**
-     * Custom response key and body map.
+     * Custom response body.
      */
-    export interface WebAclCustomResponseBodiesArgs {
+    export interface WebAclCustomResponseBodyArgs {
+        content: pulumi.Input<string>;
+        contentType: pulumi.Input<enums.wafv2.WebAclResponseContentType>;
     }
 
     /**
@@ -51861,9 +52151,10 @@ export namespace wafv2 {
     }
 
     /**
-     * Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+     * Configures the inspection size in the request body.
      */
-    export interface WebAclRequestBodyArgs {
+    export interface WebAclRequestBodyAssociatedResourceTypeConfigArgs {
+        defaultSizeInspectionLimit: pulumi.Input<enums.wafv2.WebAclSizeInspectionLimit>;
     }
 
     /**
@@ -52117,24 +52408,12 @@ export namespace workspacesthinclient {
 }
 
 export namespace workspacesweb {
-    export interface BrowserSettingsEncryptionContextMapArgs {
-    }
-
-    export interface IdentityProviderDetailsArgs {
-    }
-
-    export interface IpAccessSettingsEncryptionContextMapArgs {
-    }
-
     export interface IpAccessSettingsIpRuleArgs {
         description?: pulumi.Input<string>;
         /**
          * A single IP address or an IP address range in CIDR notation
          */
         ipRange: pulumi.Input<string>;
-    }
-
-    export interface PortalEncryptionContextMapArgs {
     }
 
     export interface UserSettingsCookieSpecificationArgs {
@@ -52146,9 +52425,6 @@ export namespace workspacesweb {
     export interface UserSettingsCookieSynchronizationConfigurationArgs {
         allowlist: pulumi.Input<pulumi.Input<inputs.workspacesweb.UserSettingsCookieSpecificationArgs>[]>;
         blocklist?: pulumi.Input<pulumi.Input<inputs.workspacesweb.UserSettingsCookieSpecificationArgs>[]>;
-    }
-
-    export interface UserSettingsEncryptionContextMapArgs {
     }
 
 }

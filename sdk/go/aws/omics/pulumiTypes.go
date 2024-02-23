@@ -13,124 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type AnnotationStoreFormatToHeader struct {
-}
-
-// AnnotationStoreFormatToHeaderInput is an input type that accepts AnnotationStoreFormatToHeaderArgs and AnnotationStoreFormatToHeaderOutput values.
-// You can construct a concrete instance of `AnnotationStoreFormatToHeaderInput` via:
-//
-//	AnnotationStoreFormatToHeaderArgs{...}
-type AnnotationStoreFormatToHeaderInput interface {
-	pulumi.Input
-
-	ToAnnotationStoreFormatToHeaderOutput() AnnotationStoreFormatToHeaderOutput
-	ToAnnotationStoreFormatToHeaderOutputWithContext(context.Context) AnnotationStoreFormatToHeaderOutput
-}
-
-type AnnotationStoreFormatToHeaderArgs struct {
-}
-
-func (AnnotationStoreFormatToHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnnotationStoreFormatToHeader)(nil)).Elem()
-}
-
-func (i AnnotationStoreFormatToHeaderArgs) ToAnnotationStoreFormatToHeaderOutput() AnnotationStoreFormatToHeaderOutput {
-	return i.ToAnnotationStoreFormatToHeaderOutputWithContext(context.Background())
-}
-
-func (i AnnotationStoreFormatToHeaderArgs) ToAnnotationStoreFormatToHeaderOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreFormatToHeaderOutput)
-}
-
-func (i AnnotationStoreFormatToHeaderArgs) ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput {
-	return i.ToAnnotationStoreFormatToHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i AnnotationStoreFormatToHeaderArgs) ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreFormatToHeaderOutput).ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx)
-}
-
-// AnnotationStoreFormatToHeaderPtrInput is an input type that accepts AnnotationStoreFormatToHeaderArgs, AnnotationStoreFormatToHeaderPtr and AnnotationStoreFormatToHeaderPtrOutput values.
-// You can construct a concrete instance of `AnnotationStoreFormatToHeaderPtrInput` via:
-//
-//	        AnnotationStoreFormatToHeaderArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnnotationStoreFormatToHeaderPtrInput interface {
-	pulumi.Input
-
-	ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput
-	ToAnnotationStoreFormatToHeaderPtrOutputWithContext(context.Context) AnnotationStoreFormatToHeaderPtrOutput
-}
-
-type annotationStoreFormatToHeaderPtrType AnnotationStoreFormatToHeaderArgs
-
-func AnnotationStoreFormatToHeaderPtr(v *AnnotationStoreFormatToHeaderArgs) AnnotationStoreFormatToHeaderPtrInput {
-	return (*annotationStoreFormatToHeaderPtrType)(v)
-}
-
-func (*annotationStoreFormatToHeaderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnnotationStoreFormatToHeader)(nil)).Elem()
-}
-
-func (i *annotationStoreFormatToHeaderPtrType) ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput {
-	return i.ToAnnotationStoreFormatToHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i *annotationStoreFormatToHeaderPtrType) ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreFormatToHeaderPtrOutput)
-}
-
-type AnnotationStoreFormatToHeaderOutput struct{ *pulumi.OutputState }
-
-func (AnnotationStoreFormatToHeaderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnnotationStoreFormatToHeader)(nil)).Elem()
-}
-
-func (o AnnotationStoreFormatToHeaderOutput) ToAnnotationStoreFormatToHeaderOutput() AnnotationStoreFormatToHeaderOutput {
-	return o
-}
-
-func (o AnnotationStoreFormatToHeaderOutput) ToAnnotationStoreFormatToHeaderOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderOutput {
-	return o
-}
-
-func (o AnnotationStoreFormatToHeaderOutput) ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput {
-	return o.ToAnnotationStoreFormatToHeaderPtrOutputWithContext(context.Background())
-}
-
-func (o AnnotationStoreFormatToHeaderOutput) ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnnotationStoreFormatToHeader) *AnnotationStoreFormatToHeader {
-		return &v
-	}).(AnnotationStoreFormatToHeaderPtrOutput)
-}
-
-type AnnotationStoreFormatToHeaderPtrOutput struct{ *pulumi.OutputState }
-
-func (AnnotationStoreFormatToHeaderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnnotationStoreFormatToHeader)(nil)).Elem()
-}
-
-func (o AnnotationStoreFormatToHeaderPtrOutput) ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput {
-	return o
-}
-
-func (o AnnotationStoreFormatToHeaderPtrOutput) ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderPtrOutput {
-	return o
-}
-
-func (o AnnotationStoreFormatToHeaderPtrOutput) Elem() AnnotationStoreFormatToHeaderOutput {
-	return o.ApplyT(func(v *AnnotationStoreFormatToHeader) AnnotationStoreFormatToHeader {
-		if v != nil {
-			return *v
-		}
-		var ret AnnotationStoreFormatToHeader
-		return ret
-	}).(AnnotationStoreFormatToHeaderOutput)
-}
-
 type AnnotationStoreReferenceItem struct {
 	ReferenceArn string `pulumi:"referenceArn"`
 }
@@ -262,94 +144,6 @@ func (o AnnotationStoreReferenceItemPtrOutput) ReferenceArn() pulumi.StringPtrOu
 		}
 		return &v.ReferenceArn
 	}).(pulumi.StringPtrOutput)
-}
-
-type AnnotationStoreSchemaItem struct {
-}
-
-// AnnotationStoreSchemaItemInput is an input type that accepts AnnotationStoreSchemaItemArgs and AnnotationStoreSchemaItemOutput values.
-// You can construct a concrete instance of `AnnotationStoreSchemaItemInput` via:
-//
-//	AnnotationStoreSchemaItemArgs{...}
-type AnnotationStoreSchemaItemInput interface {
-	pulumi.Input
-
-	ToAnnotationStoreSchemaItemOutput() AnnotationStoreSchemaItemOutput
-	ToAnnotationStoreSchemaItemOutputWithContext(context.Context) AnnotationStoreSchemaItemOutput
-}
-
-type AnnotationStoreSchemaItemArgs struct {
-}
-
-func (AnnotationStoreSchemaItemArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnnotationStoreSchemaItem)(nil)).Elem()
-}
-
-func (i AnnotationStoreSchemaItemArgs) ToAnnotationStoreSchemaItemOutput() AnnotationStoreSchemaItemOutput {
-	return i.ToAnnotationStoreSchemaItemOutputWithContext(context.Background())
-}
-
-func (i AnnotationStoreSchemaItemArgs) ToAnnotationStoreSchemaItemOutputWithContext(ctx context.Context) AnnotationStoreSchemaItemOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreSchemaItemOutput)
-}
-
-// AnnotationStoreSchemaItemArrayInput is an input type that accepts AnnotationStoreSchemaItemArray and AnnotationStoreSchemaItemArrayOutput values.
-// You can construct a concrete instance of `AnnotationStoreSchemaItemArrayInput` via:
-//
-//	AnnotationStoreSchemaItemArray{ AnnotationStoreSchemaItemArgs{...} }
-type AnnotationStoreSchemaItemArrayInput interface {
-	pulumi.Input
-
-	ToAnnotationStoreSchemaItemArrayOutput() AnnotationStoreSchemaItemArrayOutput
-	ToAnnotationStoreSchemaItemArrayOutputWithContext(context.Context) AnnotationStoreSchemaItemArrayOutput
-}
-
-type AnnotationStoreSchemaItemArray []AnnotationStoreSchemaItemInput
-
-func (AnnotationStoreSchemaItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnnotationStoreSchemaItem)(nil)).Elem()
-}
-
-func (i AnnotationStoreSchemaItemArray) ToAnnotationStoreSchemaItemArrayOutput() AnnotationStoreSchemaItemArrayOutput {
-	return i.ToAnnotationStoreSchemaItemArrayOutputWithContext(context.Background())
-}
-
-func (i AnnotationStoreSchemaItemArray) ToAnnotationStoreSchemaItemArrayOutputWithContext(ctx context.Context) AnnotationStoreSchemaItemArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreSchemaItemArrayOutput)
-}
-
-type AnnotationStoreSchemaItemOutput struct{ *pulumi.OutputState }
-
-func (AnnotationStoreSchemaItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnnotationStoreSchemaItem)(nil)).Elem()
-}
-
-func (o AnnotationStoreSchemaItemOutput) ToAnnotationStoreSchemaItemOutput() AnnotationStoreSchemaItemOutput {
-	return o
-}
-
-func (o AnnotationStoreSchemaItemOutput) ToAnnotationStoreSchemaItemOutputWithContext(ctx context.Context) AnnotationStoreSchemaItemOutput {
-	return o
-}
-
-type AnnotationStoreSchemaItemArrayOutput struct{ *pulumi.OutputState }
-
-func (AnnotationStoreSchemaItemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnnotationStoreSchemaItem)(nil)).Elem()
-}
-
-func (o AnnotationStoreSchemaItemArrayOutput) ToAnnotationStoreSchemaItemArrayOutput() AnnotationStoreSchemaItemArrayOutput {
-	return o
-}
-
-func (o AnnotationStoreSchemaItemArrayOutput) ToAnnotationStoreSchemaItemArrayOutputWithContext(ctx context.Context) AnnotationStoreSchemaItemArrayOutput {
-	return o
-}
-
-func (o AnnotationStoreSchemaItemArrayOutput) Index(i pulumi.IntInput) AnnotationStoreSchemaItemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnnotationStoreSchemaItem {
-		return vs[0].([]AnnotationStoreSchemaItem)[vs[1].(int)]
-	}).(AnnotationStoreSchemaItemOutput)
 }
 
 type AnnotationStoreSseConfig struct {
@@ -637,128 +431,10 @@ func (o AnnotationStoreStoreOptionsPropertiesPtrOutput) TsvStoreOptions() Annota
 	}).(AnnotationStoreTsvStoreOptionsPtrOutput)
 }
 
-type AnnotationStoreTagMap struct {
-}
-
-// AnnotationStoreTagMapInput is an input type that accepts AnnotationStoreTagMap and AnnotationStoreTagMapOutput values.
-// You can construct a concrete instance of `AnnotationStoreTagMapInput` via:
-//
-//	AnnotationStoreTagMap{ "key": AnnotationStoreTagArgs{...} }
-type AnnotationStoreTagMapInput interface {
-	pulumi.Input
-
-	ToAnnotationStoreTagMapOutput() AnnotationStoreTagMapOutput
-	ToAnnotationStoreTagMapOutputWithContext(context.Context) AnnotationStoreTagMapOutput
-}
-
-type AnnotationStoreTagMapArgs struct {
-}
-
-func (AnnotationStoreTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnnotationStoreTagMap)(nil)).Elem()
-}
-
-func (i AnnotationStoreTagMapArgs) ToAnnotationStoreTagMapOutput() AnnotationStoreTagMapOutput {
-	return i.ToAnnotationStoreTagMapOutputWithContext(context.Background())
-}
-
-func (i AnnotationStoreTagMapArgs) ToAnnotationStoreTagMapOutputWithContext(ctx context.Context) AnnotationStoreTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreTagMapOutput)
-}
-
-func (i AnnotationStoreTagMapArgs) ToAnnotationStoreTagMapPtrOutput() AnnotationStoreTagMapPtrOutput {
-	return i.ToAnnotationStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i AnnotationStoreTagMapArgs) ToAnnotationStoreTagMapPtrOutputWithContext(ctx context.Context) AnnotationStoreTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreTagMapOutput).ToAnnotationStoreTagMapPtrOutputWithContext(ctx)
-}
-
-// AnnotationStoreTagMapPtrInput is an input type that accepts AnnotationStoreTagMapArgs, AnnotationStoreTagMapPtr and AnnotationStoreTagMapPtrOutput values.
-// You can construct a concrete instance of `AnnotationStoreTagMapPtrInput` via:
-//
-//	        AnnotationStoreTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnnotationStoreTagMapPtrInput interface {
-	pulumi.Input
-
-	ToAnnotationStoreTagMapPtrOutput() AnnotationStoreTagMapPtrOutput
-	ToAnnotationStoreTagMapPtrOutputWithContext(context.Context) AnnotationStoreTagMapPtrOutput
-}
-
-type annotationStoreTagMapPtrType AnnotationStoreTagMapArgs
-
-func AnnotationStoreTagMapPtr(v *AnnotationStoreTagMapArgs) AnnotationStoreTagMapPtrInput {
-	return (*annotationStoreTagMapPtrType)(v)
-}
-
-func (*annotationStoreTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnnotationStoreTagMap)(nil)).Elem()
-}
-
-func (i *annotationStoreTagMapPtrType) ToAnnotationStoreTagMapPtrOutput() AnnotationStoreTagMapPtrOutput {
-	return i.ToAnnotationStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i *annotationStoreTagMapPtrType) ToAnnotationStoreTagMapPtrOutputWithContext(ctx context.Context) AnnotationStoreTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreTagMapPtrOutput)
-}
-
-type AnnotationStoreTagMapOutput struct{ *pulumi.OutputState }
-
-func (AnnotationStoreTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnnotationStoreTagMap)(nil)).Elem()
-}
-
-func (o AnnotationStoreTagMapOutput) ToAnnotationStoreTagMapOutput() AnnotationStoreTagMapOutput {
-	return o
-}
-
-func (o AnnotationStoreTagMapOutput) ToAnnotationStoreTagMapOutputWithContext(ctx context.Context) AnnotationStoreTagMapOutput {
-	return o
-}
-
-func (o AnnotationStoreTagMapOutput) ToAnnotationStoreTagMapPtrOutput() AnnotationStoreTagMapPtrOutput {
-	return o.ToAnnotationStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (o AnnotationStoreTagMapOutput) ToAnnotationStoreTagMapPtrOutputWithContext(ctx context.Context) AnnotationStoreTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnnotationStoreTagMap) *AnnotationStoreTagMap {
-		return &v
-	}).(AnnotationStoreTagMapPtrOutput)
-}
-
-type AnnotationStoreTagMapPtrOutput struct{ *pulumi.OutputState }
-
-func (AnnotationStoreTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnnotationStoreTagMap)(nil)).Elem()
-}
-
-func (o AnnotationStoreTagMapPtrOutput) ToAnnotationStoreTagMapPtrOutput() AnnotationStoreTagMapPtrOutput {
-	return o
-}
-
-func (o AnnotationStoreTagMapPtrOutput) ToAnnotationStoreTagMapPtrOutputWithContext(ctx context.Context) AnnotationStoreTagMapPtrOutput {
-	return o
-}
-
-func (o AnnotationStoreTagMapPtrOutput) Elem() AnnotationStoreTagMapOutput {
-	return o.ApplyT(func(v *AnnotationStoreTagMap) AnnotationStoreTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret AnnotationStoreTagMap
-		return ret
-	}).(AnnotationStoreTagMapOutput)
-}
-
 type AnnotationStoreTsvStoreOptions struct {
-	AnnotationType *AnnotationStoreAnnotationType `pulumi:"annotationType"`
-	FormatToHeader *AnnotationStoreFormatToHeader `pulumi:"formatToHeader"`
-	Schema         []AnnotationStoreSchemaItem    `pulumi:"schema"`
+	AnnotationType *AnnotationStoreAnnotationType              `pulumi:"annotationType"`
+	FormatToHeader map[string]string                           `pulumi:"formatToHeader"`
+	Schema         []map[string]AnnotationStoreSchemaValueType `pulumi:"schema"`
 }
 
 // AnnotationStoreTsvStoreOptionsInput is an input type that accepts AnnotationStoreTsvStoreOptionsArgs and AnnotationStoreTsvStoreOptionsOutput values.
@@ -773,9 +449,9 @@ type AnnotationStoreTsvStoreOptionsInput interface {
 }
 
 type AnnotationStoreTsvStoreOptionsArgs struct {
-	AnnotationType AnnotationStoreAnnotationTypePtrInput `pulumi:"annotationType"`
-	FormatToHeader AnnotationStoreFormatToHeaderPtrInput `pulumi:"formatToHeader"`
-	Schema         AnnotationStoreSchemaItemArrayInput   `pulumi:"schema"`
+	AnnotationType AnnotationStoreAnnotationTypePtrInput       `pulumi:"annotationType"`
+	FormatToHeader pulumi.StringMapInput                       `pulumi:"formatToHeader"`
+	Schema         AnnotationStoreSchemaValueTypeMapArrayInput `pulumi:"schema"`
 }
 
 func (AnnotationStoreTsvStoreOptionsArgs) ElementType() reflect.Type {
@@ -859,12 +535,12 @@ func (o AnnotationStoreTsvStoreOptionsOutput) AnnotationType() AnnotationStoreAn
 	return o.ApplyT(func(v AnnotationStoreTsvStoreOptions) *AnnotationStoreAnnotationType { return v.AnnotationType }).(AnnotationStoreAnnotationTypePtrOutput)
 }
 
-func (o AnnotationStoreTsvStoreOptionsOutput) FormatToHeader() AnnotationStoreFormatToHeaderPtrOutput {
-	return o.ApplyT(func(v AnnotationStoreTsvStoreOptions) *AnnotationStoreFormatToHeader { return v.FormatToHeader }).(AnnotationStoreFormatToHeaderPtrOutput)
+func (o AnnotationStoreTsvStoreOptionsOutput) FormatToHeader() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AnnotationStoreTsvStoreOptions) map[string]string { return v.FormatToHeader }).(pulumi.StringMapOutput)
 }
 
-func (o AnnotationStoreTsvStoreOptionsOutput) Schema() AnnotationStoreSchemaItemArrayOutput {
-	return o.ApplyT(func(v AnnotationStoreTsvStoreOptions) []AnnotationStoreSchemaItem { return v.Schema }).(AnnotationStoreSchemaItemArrayOutput)
+func (o AnnotationStoreTsvStoreOptionsOutput) Schema() AnnotationStoreSchemaValueTypeMapArrayOutput {
+	return o.ApplyT(func(v AnnotationStoreTsvStoreOptions) []map[string]AnnotationStoreSchemaValueType { return v.Schema }).(AnnotationStoreSchemaValueTypeMapArrayOutput)
 }
 
 type AnnotationStoreTsvStoreOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -900,22 +576,22 @@ func (o AnnotationStoreTsvStoreOptionsPtrOutput) AnnotationType() AnnotationStor
 	}).(AnnotationStoreAnnotationTypePtrOutput)
 }
 
-func (o AnnotationStoreTsvStoreOptionsPtrOutput) FormatToHeader() AnnotationStoreFormatToHeaderPtrOutput {
-	return o.ApplyT(func(v *AnnotationStoreTsvStoreOptions) *AnnotationStoreFormatToHeader {
+func (o AnnotationStoreTsvStoreOptionsPtrOutput) FormatToHeader() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AnnotationStoreTsvStoreOptions) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.FormatToHeader
-	}).(AnnotationStoreFormatToHeaderPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
-func (o AnnotationStoreTsvStoreOptionsPtrOutput) Schema() AnnotationStoreSchemaItemArrayOutput {
-	return o.ApplyT(func(v *AnnotationStoreTsvStoreOptions) []AnnotationStoreSchemaItem {
+func (o AnnotationStoreTsvStoreOptionsPtrOutput) Schema() AnnotationStoreSchemaValueTypeMapArrayOutput {
+	return o.ApplyT(func(v *AnnotationStoreTsvStoreOptions) []map[string]AnnotationStoreSchemaValueType {
 		if v == nil {
 			return nil
 		}
 		return v.Schema
-	}).(AnnotationStoreSchemaItemArrayOutput)
+	}).(AnnotationStoreSchemaValueTypeMapArrayOutput)
 }
 
 // Server-side encryption (SSE) settings for a store.
@@ -1073,245 +749,6 @@ func (o ReferenceStoreSseConfigPtrOutput) Type() ReferenceStoreEncryptionTypePtr
 	}).(ReferenceStoreEncryptionTypePtrOutput)
 }
 
-type ReferenceStoreTagMap struct {
-}
-
-// ReferenceStoreTagMapInput is an input type that accepts ReferenceStoreTagMap and ReferenceStoreTagMapOutput values.
-// You can construct a concrete instance of `ReferenceStoreTagMapInput` via:
-//
-//	ReferenceStoreTagMap{ "key": ReferenceStoreTagArgs{...} }
-type ReferenceStoreTagMapInput interface {
-	pulumi.Input
-
-	ToReferenceStoreTagMapOutput() ReferenceStoreTagMapOutput
-	ToReferenceStoreTagMapOutputWithContext(context.Context) ReferenceStoreTagMapOutput
-}
-
-type ReferenceStoreTagMapArgs struct {
-}
-
-func (ReferenceStoreTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceStoreTagMap)(nil)).Elem()
-}
-
-func (i ReferenceStoreTagMapArgs) ToReferenceStoreTagMapOutput() ReferenceStoreTagMapOutput {
-	return i.ToReferenceStoreTagMapOutputWithContext(context.Background())
-}
-
-func (i ReferenceStoreTagMapArgs) ToReferenceStoreTagMapOutputWithContext(ctx context.Context) ReferenceStoreTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceStoreTagMapOutput)
-}
-
-func (i ReferenceStoreTagMapArgs) ToReferenceStoreTagMapPtrOutput() ReferenceStoreTagMapPtrOutput {
-	return i.ToReferenceStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i ReferenceStoreTagMapArgs) ToReferenceStoreTagMapPtrOutputWithContext(ctx context.Context) ReferenceStoreTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceStoreTagMapOutput).ToReferenceStoreTagMapPtrOutputWithContext(ctx)
-}
-
-// ReferenceStoreTagMapPtrInput is an input type that accepts ReferenceStoreTagMapArgs, ReferenceStoreTagMapPtr and ReferenceStoreTagMapPtrOutput values.
-// You can construct a concrete instance of `ReferenceStoreTagMapPtrInput` via:
-//
-//	        ReferenceStoreTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type ReferenceStoreTagMapPtrInput interface {
-	pulumi.Input
-
-	ToReferenceStoreTagMapPtrOutput() ReferenceStoreTagMapPtrOutput
-	ToReferenceStoreTagMapPtrOutputWithContext(context.Context) ReferenceStoreTagMapPtrOutput
-}
-
-type referenceStoreTagMapPtrType ReferenceStoreTagMapArgs
-
-func ReferenceStoreTagMapPtr(v *ReferenceStoreTagMapArgs) ReferenceStoreTagMapPtrInput {
-	return (*referenceStoreTagMapPtrType)(v)
-}
-
-func (*referenceStoreTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReferenceStoreTagMap)(nil)).Elem()
-}
-
-func (i *referenceStoreTagMapPtrType) ToReferenceStoreTagMapPtrOutput() ReferenceStoreTagMapPtrOutput {
-	return i.ToReferenceStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i *referenceStoreTagMapPtrType) ToReferenceStoreTagMapPtrOutputWithContext(ctx context.Context) ReferenceStoreTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceStoreTagMapPtrOutput)
-}
-
-type ReferenceStoreTagMapOutput struct{ *pulumi.OutputState }
-
-func (ReferenceStoreTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceStoreTagMap)(nil)).Elem()
-}
-
-func (o ReferenceStoreTagMapOutput) ToReferenceStoreTagMapOutput() ReferenceStoreTagMapOutput {
-	return o
-}
-
-func (o ReferenceStoreTagMapOutput) ToReferenceStoreTagMapOutputWithContext(ctx context.Context) ReferenceStoreTagMapOutput {
-	return o
-}
-
-func (o ReferenceStoreTagMapOutput) ToReferenceStoreTagMapPtrOutput() ReferenceStoreTagMapPtrOutput {
-	return o.ToReferenceStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (o ReferenceStoreTagMapOutput) ToReferenceStoreTagMapPtrOutputWithContext(ctx context.Context) ReferenceStoreTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceStoreTagMap) *ReferenceStoreTagMap {
-		return &v
-	}).(ReferenceStoreTagMapPtrOutput)
-}
-
-type ReferenceStoreTagMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ReferenceStoreTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReferenceStoreTagMap)(nil)).Elem()
-}
-
-func (o ReferenceStoreTagMapPtrOutput) ToReferenceStoreTagMapPtrOutput() ReferenceStoreTagMapPtrOutput {
-	return o
-}
-
-func (o ReferenceStoreTagMapPtrOutput) ToReferenceStoreTagMapPtrOutputWithContext(ctx context.Context) ReferenceStoreTagMapPtrOutput {
-	return o
-}
-
-func (o ReferenceStoreTagMapPtrOutput) Elem() ReferenceStoreTagMapOutput {
-	return o.ApplyT(func(v *ReferenceStoreTagMap) ReferenceStoreTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret ReferenceStoreTagMap
-		return ret
-	}).(ReferenceStoreTagMapOutput)
-}
-
-// A map of resource tags
-type RunGroupTagMap struct {
-}
-
-// RunGroupTagMapInput is an input type that accepts RunGroupTagMap and RunGroupTagMapOutput values.
-// You can construct a concrete instance of `RunGroupTagMapInput` via:
-//
-//	RunGroupTagMap{ "key": RunGroupTagArgs{...} }
-type RunGroupTagMapInput interface {
-	pulumi.Input
-
-	ToRunGroupTagMapOutput() RunGroupTagMapOutput
-	ToRunGroupTagMapOutputWithContext(context.Context) RunGroupTagMapOutput
-}
-
-// A map of resource tags
-type RunGroupTagMapArgs struct {
-}
-
-func (RunGroupTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RunGroupTagMap)(nil)).Elem()
-}
-
-func (i RunGroupTagMapArgs) ToRunGroupTagMapOutput() RunGroupTagMapOutput {
-	return i.ToRunGroupTagMapOutputWithContext(context.Background())
-}
-
-func (i RunGroupTagMapArgs) ToRunGroupTagMapOutputWithContext(ctx context.Context) RunGroupTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RunGroupTagMapOutput)
-}
-
-func (i RunGroupTagMapArgs) ToRunGroupTagMapPtrOutput() RunGroupTagMapPtrOutput {
-	return i.ToRunGroupTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i RunGroupTagMapArgs) ToRunGroupTagMapPtrOutputWithContext(ctx context.Context) RunGroupTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RunGroupTagMapOutput).ToRunGroupTagMapPtrOutputWithContext(ctx)
-}
-
-// RunGroupTagMapPtrInput is an input type that accepts RunGroupTagMapArgs, RunGroupTagMapPtr and RunGroupTagMapPtrOutput values.
-// You can construct a concrete instance of `RunGroupTagMapPtrInput` via:
-//
-//	        RunGroupTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type RunGroupTagMapPtrInput interface {
-	pulumi.Input
-
-	ToRunGroupTagMapPtrOutput() RunGroupTagMapPtrOutput
-	ToRunGroupTagMapPtrOutputWithContext(context.Context) RunGroupTagMapPtrOutput
-}
-
-type runGroupTagMapPtrType RunGroupTagMapArgs
-
-func RunGroupTagMapPtr(v *RunGroupTagMapArgs) RunGroupTagMapPtrInput {
-	return (*runGroupTagMapPtrType)(v)
-}
-
-func (*runGroupTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RunGroupTagMap)(nil)).Elem()
-}
-
-func (i *runGroupTagMapPtrType) ToRunGroupTagMapPtrOutput() RunGroupTagMapPtrOutput {
-	return i.ToRunGroupTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i *runGroupTagMapPtrType) ToRunGroupTagMapPtrOutputWithContext(ctx context.Context) RunGroupTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RunGroupTagMapPtrOutput)
-}
-
-// A map of resource tags
-type RunGroupTagMapOutput struct{ *pulumi.OutputState }
-
-func (RunGroupTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RunGroupTagMap)(nil)).Elem()
-}
-
-func (o RunGroupTagMapOutput) ToRunGroupTagMapOutput() RunGroupTagMapOutput {
-	return o
-}
-
-func (o RunGroupTagMapOutput) ToRunGroupTagMapOutputWithContext(ctx context.Context) RunGroupTagMapOutput {
-	return o
-}
-
-func (o RunGroupTagMapOutput) ToRunGroupTagMapPtrOutput() RunGroupTagMapPtrOutput {
-	return o.ToRunGroupTagMapPtrOutputWithContext(context.Background())
-}
-
-func (o RunGroupTagMapOutput) ToRunGroupTagMapPtrOutputWithContext(ctx context.Context) RunGroupTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunGroupTagMap) *RunGroupTagMap {
-		return &v
-	}).(RunGroupTagMapPtrOutput)
-}
-
-type RunGroupTagMapPtrOutput struct{ *pulumi.OutputState }
-
-func (RunGroupTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RunGroupTagMap)(nil)).Elem()
-}
-
-func (o RunGroupTagMapPtrOutput) ToRunGroupTagMapPtrOutput() RunGroupTagMapPtrOutput {
-	return o
-}
-
-func (o RunGroupTagMapPtrOutput) ToRunGroupTagMapPtrOutputWithContext(ctx context.Context) RunGroupTagMapPtrOutput {
-	return o
-}
-
-func (o RunGroupTagMapPtrOutput) Elem() RunGroupTagMapOutput {
-	return o.ApplyT(func(v *RunGroupTagMap) RunGroupTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret RunGroupTagMap
-		return ret
-	}).(RunGroupTagMapOutput)
-}
-
 // Server-side encryption (SSE) settings for a store.
 type SequenceStoreSseConfig struct {
 	// An encryption key ARN.
@@ -1465,124 +902,6 @@ func (o SequenceStoreSseConfigPtrOutput) Type() SequenceStoreEncryptionTypePtrOu
 		}
 		return &v.Type
 	}).(SequenceStoreEncryptionTypePtrOutput)
-}
-
-type SequenceStoreTagMap struct {
-}
-
-// SequenceStoreTagMapInput is an input type that accepts SequenceStoreTagMap and SequenceStoreTagMapOutput values.
-// You can construct a concrete instance of `SequenceStoreTagMapInput` via:
-//
-//	SequenceStoreTagMap{ "key": SequenceStoreTagArgs{...} }
-type SequenceStoreTagMapInput interface {
-	pulumi.Input
-
-	ToSequenceStoreTagMapOutput() SequenceStoreTagMapOutput
-	ToSequenceStoreTagMapOutputWithContext(context.Context) SequenceStoreTagMapOutput
-}
-
-type SequenceStoreTagMapArgs struct {
-}
-
-func (SequenceStoreTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SequenceStoreTagMap)(nil)).Elem()
-}
-
-func (i SequenceStoreTagMapArgs) ToSequenceStoreTagMapOutput() SequenceStoreTagMapOutput {
-	return i.ToSequenceStoreTagMapOutputWithContext(context.Background())
-}
-
-func (i SequenceStoreTagMapArgs) ToSequenceStoreTagMapOutputWithContext(ctx context.Context) SequenceStoreTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SequenceStoreTagMapOutput)
-}
-
-func (i SequenceStoreTagMapArgs) ToSequenceStoreTagMapPtrOutput() SequenceStoreTagMapPtrOutput {
-	return i.ToSequenceStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i SequenceStoreTagMapArgs) ToSequenceStoreTagMapPtrOutputWithContext(ctx context.Context) SequenceStoreTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SequenceStoreTagMapOutput).ToSequenceStoreTagMapPtrOutputWithContext(ctx)
-}
-
-// SequenceStoreTagMapPtrInput is an input type that accepts SequenceStoreTagMapArgs, SequenceStoreTagMapPtr and SequenceStoreTagMapPtrOutput values.
-// You can construct a concrete instance of `SequenceStoreTagMapPtrInput` via:
-//
-//	        SequenceStoreTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type SequenceStoreTagMapPtrInput interface {
-	pulumi.Input
-
-	ToSequenceStoreTagMapPtrOutput() SequenceStoreTagMapPtrOutput
-	ToSequenceStoreTagMapPtrOutputWithContext(context.Context) SequenceStoreTagMapPtrOutput
-}
-
-type sequenceStoreTagMapPtrType SequenceStoreTagMapArgs
-
-func SequenceStoreTagMapPtr(v *SequenceStoreTagMapArgs) SequenceStoreTagMapPtrInput {
-	return (*sequenceStoreTagMapPtrType)(v)
-}
-
-func (*sequenceStoreTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SequenceStoreTagMap)(nil)).Elem()
-}
-
-func (i *sequenceStoreTagMapPtrType) ToSequenceStoreTagMapPtrOutput() SequenceStoreTagMapPtrOutput {
-	return i.ToSequenceStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i *sequenceStoreTagMapPtrType) ToSequenceStoreTagMapPtrOutputWithContext(ctx context.Context) SequenceStoreTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SequenceStoreTagMapPtrOutput)
-}
-
-type SequenceStoreTagMapOutput struct{ *pulumi.OutputState }
-
-func (SequenceStoreTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SequenceStoreTagMap)(nil)).Elem()
-}
-
-func (o SequenceStoreTagMapOutput) ToSequenceStoreTagMapOutput() SequenceStoreTagMapOutput {
-	return o
-}
-
-func (o SequenceStoreTagMapOutput) ToSequenceStoreTagMapOutputWithContext(ctx context.Context) SequenceStoreTagMapOutput {
-	return o
-}
-
-func (o SequenceStoreTagMapOutput) ToSequenceStoreTagMapPtrOutput() SequenceStoreTagMapPtrOutput {
-	return o.ToSequenceStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (o SequenceStoreTagMapOutput) ToSequenceStoreTagMapPtrOutputWithContext(ctx context.Context) SequenceStoreTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SequenceStoreTagMap) *SequenceStoreTagMap {
-		return &v
-	}).(SequenceStoreTagMapPtrOutput)
-}
-
-type SequenceStoreTagMapPtrOutput struct{ *pulumi.OutputState }
-
-func (SequenceStoreTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SequenceStoreTagMap)(nil)).Elem()
-}
-
-func (o SequenceStoreTagMapPtrOutput) ToSequenceStoreTagMapPtrOutput() SequenceStoreTagMapPtrOutput {
-	return o
-}
-
-func (o SequenceStoreTagMapPtrOutput) ToSequenceStoreTagMapPtrOutputWithContext(ctx context.Context) SequenceStoreTagMapPtrOutput {
-	return o
-}
-
-func (o SequenceStoreTagMapPtrOutput) Elem() SequenceStoreTagMapOutput {
-	return o.ApplyT(func(v *SequenceStoreTagMap) SequenceStoreTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret SequenceStoreTagMap
-		return ret
-	}).(SequenceStoreTagMapOutput)
 }
 
 type VariantStoreReferenceItem struct {
@@ -1782,428 +1101,186 @@ func (o VariantStoreSseConfigPtrOutput) Type() VariantStoreEncryptionTypePtrOutp
 	}).(VariantStoreEncryptionTypePtrOutput)
 }
 
-type VariantStoreTagMap struct {
+type WorkflowParameter struct {
+	Description *string `pulumi:"description"`
+	Optional    *bool   `pulumi:"optional"`
 }
 
-// VariantStoreTagMapInput is an input type that accepts VariantStoreTagMap and VariantStoreTagMapOutput values.
-// You can construct a concrete instance of `VariantStoreTagMapInput` via:
+// WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
+// You can construct a concrete instance of `WorkflowParameterInput` via:
 //
-//	VariantStoreTagMap{ "key": VariantStoreTagArgs{...} }
-type VariantStoreTagMapInput interface {
+//	WorkflowParameterArgs{...}
+type WorkflowParameterInput interface {
 	pulumi.Input
 
-	ToVariantStoreTagMapOutput() VariantStoreTagMapOutput
-	ToVariantStoreTagMapOutputWithContext(context.Context) VariantStoreTagMapOutput
+	ToWorkflowParameterOutput() WorkflowParameterOutput
+	ToWorkflowParameterOutputWithContext(context.Context) WorkflowParameterOutput
 }
 
-type VariantStoreTagMapArgs struct {
+type WorkflowParameterArgs struct {
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Optional    pulumi.BoolPtrInput   `pulumi:"optional"`
 }
 
-func (VariantStoreTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariantStoreTagMap)(nil)).Elem()
+func (WorkflowParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameter)(nil)).Elem()
 }
 
-func (i VariantStoreTagMapArgs) ToVariantStoreTagMapOutput() VariantStoreTagMapOutput {
-	return i.ToVariantStoreTagMapOutputWithContext(context.Background())
+func (i WorkflowParameterArgs) ToWorkflowParameterOutput() WorkflowParameterOutput {
+	return i.ToWorkflowParameterOutputWithContext(context.Background())
 }
 
-func (i VariantStoreTagMapArgs) ToVariantStoreTagMapOutputWithContext(ctx context.Context) VariantStoreTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VariantStoreTagMapOutput)
+func (i WorkflowParameterArgs) ToWorkflowParameterOutputWithContext(ctx context.Context) WorkflowParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterOutput)
 }
 
-func (i VariantStoreTagMapArgs) ToVariantStoreTagMapPtrOutput() VariantStoreTagMapPtrOutput {
-	return i.ToVariantStoreTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i VariantStoreTagMapArgs) ToVariantStoreTagMapPtrOutputWithContext(ctx context.Context) VariantStoreTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VariantStoreTagMapOutput).ToVariantStoreTagMapPtrOutputWithContext(ctx)
-}
-
-// VariantStoreTagMapPtrInput is an input type that accepts VariantStoreTagMapArgs, VariantStoreTagMapPtr and VariantStoreTagMapPtrOutput values.
-// You can construct a concrete instance of `VariantStoreTagMapPtrInput` via:
+// WorkflowParameterMapInput is an input type that accepts WorkflowParameterMap and WorkflowParameterMapOutput values.
+// You can construct a concrete instance of `WorkflowParameterMapInput` via:
 //
-//	        VariantStoreTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type VariantStoreTagMapPtrInput interface {
+//	WorkflowParameterMap{ "key": WorkflowParameterArgs{...} }
+type WorkflowParameterMapInput interface {
 	pulumi.Input
 
-	ToVariantStoreTagMapPtrOutput() VariantStoreTagMapPtrOutput
-	ToVariantStoreTagMapPtrOutputWithContext(context.Context) VariantStoreTagMapPtrOutput
+	ToWorkflowParameterMapOutput() WorkflowParameterMapOutput
+	ToWorkflowParameterMapOutputWithContext(context.Context) WorkflowParameterMapOutput
 }
 
-type variantStoreTagMapPtrType VariantStoreTagMapArgs
+type WorkflowParameterMap map[string]WorkflowParameterInput
 
-func VariantStoreTagMapPtr(v *VariantStoreTagMapArgs) VariantStoreTagMapPtrInput {
-	return (*variantStoreTagMapPtrType)(v)
+func (WorkflowParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameter)(nil)).Elem()
 }
 
-func (*variantStoreTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VariantStoreTagMap)(nil)).Elem()
+func (i WorkflowParameterMap) ToWorkflowParameterMapOutput() WorkflowParameterMapOutput {
+	return i.ToWorkflowParameterMapOutputWithContext(context.Background())
 }
 
-func (i *variantStoreTagMapPtrType) ToVariantStoreTagMapPtrOutput() VariantStoreTagMapPtrOutput {
-	return i.ToVariantStoreTagMapPtrOutputWithContext(context.Background())
+func (i WorkflowParameterMap) ToWorkflowParameterMapOutputWithContext(ctx context.Context) WorkflowParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterMapOutput)
 }
 
-func (i *variantStoreTagMapPtrType) ToVariantStoreTagMapPtrOutputWithContext(ctx context.Context) VariantStoreTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VariantStoreTagMapPtrOutput)
+type WorkflowParameterOutput struct{ *pulumi.OutputState }
+
+func (WorkflowParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameter)(nil)).Elem()
 }
 
-type VariantStoreTagMapOutput struct{ *pulumi.OutputState }
-
-func (VariantStoreTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariantStoreTagMap)(nil)).Elem()
-}
-
-func (o VariantStoreTagMapOutput) ToVariantStoreTagMapOutput() VariantStoreTagMapOutput {
+func (o WorkflowParameterOutput) ToWorkflowParameterOutput() WorkflowParameterOutput {
 	return o
 }
 
-func (o VariantStoreTagMapOutput) ToVariantStoreTagMapOutputWithContext(ctx context.Context) VariantStoreTagMapOutput {
+func (o WorkflowParameterOutput) ToWorkflowParameterOutputWithContext(ctx context.Context) WorkflowParameterOutput {
 	return o
 }
 
-func (o VariantStoreTagMapOutput) ToVariantStoreTagMapPtrOutput() VariantStoreTagMapPtrOutput {
-	return o.ToVariantStoreTagMapPtrOutputWithContext(context.Background())
+func (o WorkflowParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o VariantStoreTagMapOutput) ToVariantStoreTagMapPtrOutputWithContext(ctx context.Context) VariantStoreTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VariantStoreTagMap) *VariantStoreTagMap {
-		return &v
-	}).(VariantStoreTagMapPtrOutput)
+func (o WorkflowParameterOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
 }
 
-type VariantStoreTagMapPtrOutput struct{ *pulumi.OutputState }
+type WorkflowParameterMapOutput struct{ *pulumi.OutputState }
 
-func (VariantStoreTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VariantStoreTagMap)(nil)).Elem()
+func (WorkflowParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameter)(nil)).Elem()
 }
 
-func (o VariantStoreTagMapPtrOutput) ToVariantStoreTagMapPtrOutput() VariantStoreTagMapPtrOutput {
+func (o WorkflowParameterMapOutput) ToWorkflowParameterMapOutput() WorkflowParameterMapOutput {
 	return o
 }
 
-func (o VariantStoreTagMapPtrOutput) ToVariantStoreTagMapPtrOutputWithContext(ctx context.Context) VariantStoreTagMapPtrOutput {
+func (o WorkflowParameterMapOutput) ToWorkflowParameterMapOutputWithContext(ctx context.Context) WorkflowParameterMapOutput {
 	return o
 }
 
-func (o VariantStoreTagMapPtrOutput) Elem() VariantStoreTagMapOutput {
-	return o.ApplyT(func(v *VariantStoreTagMap) VariantStoreTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret VariantStoreTagMap
-		return ret
-	}).(VariantStoreTagMapOutput)
+func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkflowParameter {
+		return vs[0].(map[string]WorkflowParameter)[vs[1].(string)]
+	}).(WorkflowParameterOutput)
 }
 
-type WorkflowParameterTemplate struct {
+type AnnotationStoreSchemaValueTypeMapArray []AnnotationStoreSchemaValueTypeMapInput
+
+func (AnnotationStoreSchemaValueTypeMapArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]map[string]AnnotationStoreSchemaValueType)(nil)).Elem()
 }
 
-// WorkflowParameterTemplateInput is an input type that accepts WorkflowParameterTemplateArgs and WorkflowParameterTemplateOutput values.
-// You can construct a concrete instance of `WorkflowParameterTemplateInput` via:
+func (i AnnotationStoreSchemaValueTypeMapArray) ToAnnotationStoreSchemaValueTypeMapArrayOutput() AnnotationStoreSchemaValueTypeMapArrayOutput {
+	return i.ToAnnotationStoreSchemaValueTypeMapArrayOutputWithContext(context.Background())
+}
+
+func (i AnnotationStoreSchemaValueTypeMapArray) ToAnnotationStoreSchemaValueTypeMapArrayOutputWithContext(ctx context.Context) AnnotationStoreSchemaValueTypeMapArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreSchemaValueTypeMapArrayOutput)
+}
+
+// AnnotationStoreSchemaValueTypeMapArrayInput is an input type that accepts AnnotationStoreSchemaValueTypeMapArray and AnnotationStoreSchemaValueTypeMapArrayOutput values.
+// You can construct a concrete instance of `AnnotationStoreSchemaValueTypeMapArrayInput` via:
 //
-//	WorkflowParameterTemplateArgs{...}
-type WorkflowParameterTemplateInput interface {
+//	AnnotationStoreSchemaValueTypeMapArray{ AnnotationStoreSchemaValueTypeMap{ "key": AnnotationStoreSchemaValueTypeArgs{...} } }
+type AnnotationStoreSchemaValueTypeMapArrayInput interface {
 	pulumi.Input
 
-	ToWorkflowParameterTemplateOutput() WorkflowParameterTemplateOutput
-	ToWorkflowParameterTemplateOutputWithContext(context.Context) WorkflowParameterTemplateOutput
+	ToAnnotationStoreSchemaValueTypeMapArrayOutput() AnnotationStoreSchemaValueTypeMapArrayOutput
+	ToAnnotationStoreSchemaValueTypeMapArrayOutputWithContext(context.Context) AnnotationStoreSchemaValueTypeMapArrayOutput
 }
 
-type WorkflowParameterTemplateArgs struct {
+type AnnotationStoreSchemaValueTypeMapArrayOutput struct{ *pulumi.OutputState }
+
+func (AnnotationStoreSchemaValueTypeMapArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]map[string]AnnotationStoreSchemaValueType)(nil)).Elem()
 }
 
-func (WorkflowParameterTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowParameterTemplate)(nil)).Elem()
-}
-
-func (i WorkflowParameterTemplateArgs) ToWorkflowParameterTemplateOutput() WorkflowParameterTemplateOutput {
-	return i.ToWorkflowParameterTemplateOutputWithContext(context.Background())
-}
-
-func (i WorkflowParameterTemplateArgs) ToWorkflowParameterTemplateOutputWithContext(ctx context.Context) WorkflowParameterTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterTemplateOutput)
-}
-
-func (i WorkflowParameterTemplateArgs) ToWorkflowParameterTemplatePtrOutput() WorkflowParameterTemplatePtrOutput {
-	return i.ToWorkflowParameterTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i WorkflowParameterTemplateArgs) ToWorkflowParameterTemplatePtrOutputWithContext(ctx context.Context) WorkflowParameterTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterTemplateOutput).ToWorkflowParameterTemplatePtrOutputWithContext(ctx)
-}
-
-// WorkflowParameterTemplatePtrInput is an input type that accepts WorkflowParameterTemplateArgs, WorkflowParameterTemplatePtr and WorkflowParameterTemplatePtrOutput values.
-// You can construct a concrete instance of `WorkflowParameterTemplatePtrInput` via:
-//
-//	        WorkflowParameterTemplateArgs{...}
-//
-//	or:
-//
-//	        nil
-type WorkflowParameterTemplatePtrInput interface {
-	pulumi.Input
-
-	ToWorkflowParameterTemplatePtrOutput() WorkflowParameterTemplatePtrOutput
-	ToWorkflowParameterTemplatePtrOutputWithContext(context.Context) WorkflowParameterTemplatePtrOutput
-}
-
-type workflowParameterTemplatePtrType WorkflowParameterTemplateArgs
-
-func WorkflowParameterTemplatePtr(v *WorkflowParameterTemplateArgs) WorkflowParameterTemplatePtrInput {
-	return (*workflowParameterTemplatePtrType)(v)
-}
-
-func (*workflowParameterTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkflowParameterTemplate)(nil)).Elem()
-}
-
-func (i *workflowParameterTemplatePtrType) ToWorkflowParameterTemplatePtrOutput() WorkflowParameterTemplatePtrOutput {
-	return i.ToWorkflowParameterTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *workflowParameterTemplatePtrType) ToWorkflowParameterTemplatePtrOutputWithContext(ctx context.Context) WorkflowParameterTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterTemplatePtrOutput)
-}
-
-type WorkflowParameterTemplateOutput struct{ *pulumi.OutputState }
-
-func (WorkflowParameterTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowParameterTemplate)(nil)).Elem()
-}
-
-func (o WorkflowParameterTemplateOutput) ToWorkflowParameterTemplateOutput() WorkflowParameterTemplateOutput {
+func (o AnnotationStoreSchemaValueTypeMapArrayOutput) ToAnnotationStoreSchemaValueTypeMapArrayOutput() AnnotationStoreSchemaValueTypeMapArrayOutput {
 	return o
 }
 
-func (o WorkflowParameterTemplateOutput) ToWorkflowParameterTemplateOutputWithContext(ctx context.Context) WorkflowParameterTemplateOutput {
+func (o AnnotationStoreSchemaValueTypeMapArrayOutput) ToAnnotationStoreSchemaValueTypeMapArrayOutputWithContext(ctx context.Context) AnnotationStoreSchemaValueTypeMapArrayOutput {
 	return o
 }
 
-func (o WorkflowParameterTemplateOutput) ToWorkflowParameterTemplatePtrOutput() WorkflowParameterTemplatePtrOutput {
-	return o.ToWorkflowParameterTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o WorkflowParameterTemplateOutput) ToWorkflowParameterTemplatePtrOutputWithContext(ctx context.Context) WorkflowParameterTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowParameterTemplate) *WorkflowParameterTemplate {
-		return &v
-	}).(WorkflowParameterTemplatePtrOutput)
-}
-
-type WorkflowParameterTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (WorkflowParameterTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkflowParameterTemplate)(nil)).Elem()
-}
-
-func (o WorkflowParameterTemplatePtrOutput) ToWorkflowParameterTemplatePtrOutput() WorkflowParameterTemplatePtrOutput {
-	return o
-}
-
-func (o WorkflowParameterTemplatePtrOutput) ToWorkflowParameterTemplatePtrOutputWithContext(ctx context.Context) WorkflowParameterTemplatePtrOutput {
-	return o
-}
-
-func (o WorkflowParameterTemplatePtrOutput) Elem() WorkflowParameterTemplateOutput {
-	return o.ApplyT(func(v *WorkflowParameterTemplate) WorkflowParameterTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret WorkflowParameterTemplate
-		return ret
-	}).(WorkflowParameterTemplateOutput)
-}
-
-// A map of resource tags
-type WorkflowTagMap struct {
-}
-
-// WorkflowTagMapInput is an input type that accepts WorkflowTagMap and WorkflowTagMapOutput values.
-// You can construct a concrete instance of `WorkflowTagMapInput` via:
-//
-//	WorkflowTagMap{ "key": WorkflowTagArgs{...} }
-type WorkflowTagMapInput interface {
-	pulumi.Input
-
-	ToWorkflowTagMapOutput() WorkflowTagMapOutput
-	ToWorkflowTagMapOutputWithContext(context.Context) WorkflowTagMapOutput
-}
-
-// A map of resource tags
-type WorkflowTagMapArgs struct {
-}
-
-func (WorkflowTagMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowTagMap)(nil)).Elem()
-}
-
-func (i WorkflowTagMapArgs) ToWorkflowTagMapOutput() WorkflowTagMapOutput {
-	return i.ToWorkflowTagMapOutputWithContext(context.Background())
-}
-
-func (i WorkflowTagMapArgs) ToWorkflowTagMapOutputWithContext(ctx context.Context) WorkflowTagMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagMapOutput)
-}
-
-func (i WorkflowTagMapArgs) ToWorkflowTagMapPtrOutput() WorkflowTagMapPtrOutput {
-	return i.ToWorkflowTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i WorkflowTagMapArgs) ToWorkflowTagMapPtrOutputWithContext(ctx context.Context) WorkflowTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagMapOutput).ToWorkflowTagMapPtrOutputWithContext(ctx)
-}
-
-// WorkflowTagMapPtrInput is an input type that accepts WorkflowTagMapArgs, WorkflowTagMapPtr and WorkflowTagMapPtrOutput values.
-// You can construct a concrete instance of `WorkflowTagMapPtrInput` via:
-//
-//	        WorkflowTagMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type WorkflowTagMapPtrInput interface {
-	pulumi.Input
-
-	ToWorkflowTagMapPtrOutput() WorkflowTagMapPtrOutput
-	ToWorkflowTagMapPtrOutputWithContext(context.Context) WorkflowTagMapPtrOutput
-}
-
-type workflowTagMapPtrType WorkflowTagMapArgs
-
-func WorkflowTagMapPtr(v *WorkflowTagMapArgs) WorkflowTagMapPtrInput {
-	return (*workflowTagMapPtrType)(v)
-}
-
-func (*workflowTagMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkflowTagMap)(nil)).Elem()
-}
-
-func (i *workflowTagMapPtrType) ToWorkflowTagMapPtrOutput() WorkflowTagMapPtrOutput {
-	return i.ToWorkflowTagMapPtrOutputWithContext(context.Background())
-}
-
-func (i *workflowTagMapPtrType) ToWorkflowTagMapPtrOutputWithContext(ctx context.Context) WorkflowTagMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagMapPtrOutput)
-}
-
-// A map of resource tags
-type WorkflowTagMapOutput struct{ *pulumi.OutputState }
-
-func (WorkflowTagMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowTagMap)(nil)).Elem()
-}
-
-func (o WorkflowTagMapOutput) ToWorkflowTagMapOutput() WorkflowTagMapOutput {
-	return o
-}
-
-func (o WorkflowTagMapOutput) ToWorkflowTagMapOutputWithContext(ctx context.Context) WorkflowTagMapOutput {
-	return o
-}
-
-func (o WorkflowTagMapOutput) ToWorkflowTagMapPtrOutput() WorkflowTagMapPtrOutput {
-	return o.ToWorkflowTagMapPtrOutputWithContext(context.Background())
-}
-
-func (o WorkflowTagMapOutput) ToWorkflowTagMapPtrOutputWithContext(ctx context.Context) WorkflowTagMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowTagMap) *WorkflowTagMap {
-		return &v
-	}).(WorkflowTagMapPtrOutput)
-}
-
-type WorkflowTagMapPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkflowTagMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkflowTagMap)(nil)).Elem()
-}
-
-func (o WorkflowTagMapPtrOutput) ToWorkflowTagMapPtrOutput() WorkflowTagMapPtrOutput {
-	return o
-}
-
-func (o WorkflowTagMapPtrOutput) ToWorkflowTagMapPtrOutputWithContext(ctx context.Context) WorkflowTagMapPtrOutput {
-	return o
-}
-
-func (o WorkflowTagMapPtrOutput) Elem() WorkflowTagMapOutput {
-	return o.ApplyT(func(v *WorkflowTagMap) WorkflowTagMap {
-		if v != nil {
-			return *v
-		}
-		var ret WorkflowTagMap
-		return ret
-	}).(WorkflowTagMapOutput)
+func (o AnnotationStoreSchemaValueTypeMapArrayOutput) Index(i pulumi.IntInput) AnnotationStoreSchemaValueTypeMapOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) map[string]AnnotationStoreSchemaValueType {
+		return vs[0].([]map[string]AnnotationStoreSchemaValueType)[vs[1].(int)]
+	}).(AnnotationStoreSchemaValueTypeMapOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreFormatToHeaderInput)(nil)).Elem(), AnnotationStoreFormatToHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreFormatToHeaderPtrInput)(nil)).Elem(), AnnotationStoreFormatToHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreReferenceItemInput)(nil)).Elem(), AnnotationStoreReferenceItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreReferenceItemPtrInput)(nil)).Elem(), AnnotationStoreReferenceItemArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSchemaItemInput)(nil)).Elem(), AnnotationStoreSchemaItemArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSchemaItemArrayInput)(nil)).Elem(), AnnotationStoreSchemaItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSseConfigInput)(nil)).Elem(), AnnotationStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSseConfigPtrInput)(nil)).Elem(), AnnotationStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreStoreOptionsPropertiesInput)(nil)).Elem(), AnnotationStoreStoreOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreStoreOptionsPropertiesPtrInput)(nil)).Elem(), AnnotationStoreStoreOptionsPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTagMapInput)(nil)).Elem(), AnnotationStoreTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTagMapPtrInput)(nil)).Elem(), AnnotationStoreTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTsvStoreOptionsInput)(nil)).Elem(), AnnotationStoreTsvStoreOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTsvStoreOptionsPtrInput)(nil)).Elem(), AnnotationStoreTsvStoreOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreSseConfigInput)(nil)).Elem(), ReferenceStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreSseConfigPtrInput)(nil)).Elem(), ReferenceStoreSseConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreTagMapInput)(nil)).Elem(), ReferenceStoreTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreTagMapPtrInput)(nil)).Elem(), ReferenceStoreTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RunGroupTagMapInput)(nil)).Elem(), RunGroupTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RunGroupTagMapPtrInput)(nil)).Elem(), RunGroupTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreSseConfigInput)(nil)).Elem(), SequenceStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreSseConfigPtrInput)(nil)).Elem(), SequenceStoreSseConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreTagMapInput)(nil)).Elem(), SequenceStoreTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreTagMapPtrInput)(nil)).Elem(), SequenceStoreTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreReferenceItemInput)(nil)).Elem(), VariantStoreReferenceItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreSseConfigInput)(nil)).Elem(), VariantStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreSseConfigPtrInput)(nil)).Elem(), VariantStoreSseConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreTagMapInput)(nil)).Elem(), VariantStoreTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreTagMapPtrInput)(nil)).Elem(), VariantStoreTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterTemplateInput)(nil)).Elem(), WorkflowParameterTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterTemplatePtrInput)(nil)).Elem(), WorkflowParameterTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagMapInput)(nil)).Elem(), WorkflowTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagMapPtrInput)(nil)).Elem(), WorkflowTagMapArgs{})
-	pulumi.RegisterOutputType(AnnotationStoreFormatToHeaderOutput{})
-	pulumi.RegisterOutputType(AnnotationStoreFormatToHeaderPtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterInput)(nil)).Elem(), WorkflowParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterMapInput)(nil)).Elem(), WorkflowParameterMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSchemaValueTypeMapArrayInput)(nil)).Elem(), AnnotationStoreSchemaValueTypeMapArray{})
 	pulumi.RegisterOutputType(AnnotationStoreReferenceItemOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreReferenceItemPtrOutput{})
-	pulumi.RegisterOutputType(AnnotationStoreSchemaItemOutput{})
-	pulumi.RegisterOutputType(AnnotationStoreSchemaItemArrayOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreSseConfigOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreSseConfigPtrOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreStoreOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreStoreOptionsPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(AnnotationStoreTagMapOutput{})
-	pulumi.RegisterOutputType(AnnotationStoreTagMapPtrOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreTsvStoreOptionsOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreTsvStoreOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreSseConfigOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreSseConfigPtrOutput{})
-	pulumi.RegisterOutputType(ReferenceStoreTagMapOutput{})
-	pulumi.RegisterOutputType(ReferenceStoreTagMapPtrOutput{})
-	pulumi.RegisterOutputType(RunGroupTagMapOutput{})
-	pulumi.RegisterOutputType(RunGroupTagMapPtrOutput{})
 	pulumi.RegisterOutputType(SequenceStoreSseConfigOutput{})
 	pulumi.RegisterOutputType(SequenceStoreSseConfigPtrOutput{})
-	pulumi.RegisterOutputType(SequenceStoreTagMapOutput{})
-	pulumi.RegisterOutputType(SequenceStoreTagMapPtrOutput{})
 	pulumi.RegisterOutputType(VariantStoreReferenceItemOutput{})
 	pulumi.RegisterOutputType(VariantStoreSseConfigOutput{})
 	pulumi.RegisterOutputType(VariantStoreSseConfigPtrOutput{})
-	pulumi.RegisterOutputType(VariantStoreTagMapOutput{})
-	pulumi.RegisterOutputType(VariantStoreTagMapPtrOutput{})
-	pulumi.RegisterOutputType(WorkflowParameterTemplateOutput{})
-	pulumi.RegisterOutputType(WorkflowParameterTemplatePtrOutput{})
-	pulumi.RegisterOutputType(WorkflowTagMapOutput{})
-	pulumi.RegisterOutputType(WorkflowTagMapPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
+	pulumi.RegisterOutputType(AnnotationStoreSchemaValueTypeMapArrayOutput{})
 }

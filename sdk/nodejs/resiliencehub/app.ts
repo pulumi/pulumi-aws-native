@@ -74,7 +74,7 @@ export class App extends pulumi.CustomResource {
      * An array of ResourceMapping objects.
      */
     public readonly resourceMappings!: pulumi.Output<outputs.resiliencehub.AppResourceMapping[]>;
-    public readonly tags!: pulumi.Output<outputs.resiliencehub.AppTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -157,5 +157,5 @@ export interface AppArgs {
      * An array of ResourceMapping objects.
      */
     resourceMappings: pulumi.Input<pulumi.Input<inputs.resiliencehub.AppResourceMappingArgs>[]>;
-    tags?: pulumi.Input<inputs.resiliencehub.AppTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

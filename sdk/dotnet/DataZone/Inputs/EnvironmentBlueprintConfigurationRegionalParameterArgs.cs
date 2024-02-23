@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     public sealed class EnvironmentBlueprintConfigurationRegionalParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameters")]
-        public Input<Inputs.EnvironmentBlueprintConfigurationParameterArgs>? Parameters { get; set; }
+        private InputMap<string>? _parameters;
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -33,7 +33,7 @@ export interface GetRobotApplicationResult {
      */
     readonly environment?: string;
     readonly robotSoftwareSuite?: outputs.robomaker.RobotApplicationRobotSoftwareSuite;
-    readonly tags?: outputs.robomaker.RobotApplicationTags;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * This schema is for testing purpose only.

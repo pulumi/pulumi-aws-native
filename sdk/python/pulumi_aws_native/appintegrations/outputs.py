@@ -11,7 +11,6 @@ from .. import _utilities
 
 __all__ = [
     'DataIntegrationFileConfiguration',
-    'DataIntegrationObjectConfiguration',
     'DataIntegrationScheduleConfig',
     'EventIntegrationEventFilter',
 ]
@@ -48,18 +47,6 @@ class DataIntegrationFileConfiguration(dict):
         Restrictions for what files should be pulled from the source.
         """
         return pulumi.get(self, "filters")
-
-
-@pulumi.output_type
-class DataIntegrationObjectConfiguration(dict):
-    """
-    The configuration for what data should be pulled from the source.
-    """
-    def __init__(__self__):
-        """
-        The configuration for what data should be pulled from the source.
-        """
-        pass
 
 
 @pulumi.output_type

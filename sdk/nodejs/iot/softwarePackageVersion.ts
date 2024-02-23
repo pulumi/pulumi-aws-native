@@ -37,7 +37,7 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === SoftwarePackageVersion.__pulumiType;
     }
 
-    public readonly attributes!: pulumi.Output<outputs.iot.SoftwarePackageVersionResourceAttributes | undefined>;
+    public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly errorReason!: pulumi.Output<string>;
     public readonly packageName!: pulumi.Output<string>;
@@ -92,7 +92,7 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a SoftwarePackageVersion resource.
  */
 export interface SoftwarePackageVersionArgs {
-    attributes?: pulumi.Input<inputs.iot.SoftwarePackageVersionResourceAttributesArgs>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     packageName: pulumi.Input<string>;
     /**

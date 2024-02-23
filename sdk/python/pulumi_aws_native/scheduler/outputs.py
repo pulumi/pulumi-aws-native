@@ -26,7 +26,6 @@ __all__ = [
     'ScheduleSageMakerPipelineParameter',
     'ScheduleSageMakerPipelineParameters',
     'ScheduleSqsParameters',
-    'ScheduleTagMap',
     'ScheduleTarget',
 ]
 
@@ -234,7 +233,7 @@ class ScheduleEcsParameters(dict):
                  platform_version: Optional[str] = None,
                  propagate_tags: Optional['SchedulePropagateTags'] = None,
                  reference_id: Optional[str] = None,
-                 tags: Optional[Sequence['outputs.ScheduleTagMap']] = None,
+                 tags: Optional[Sequence[Mapping[str, str]]] = None,
                  task_count: Optional[float] = None):
         """
         The custom parameters to be used when the target is an Amazon ECS task.
@@ -247,7 +246,7 @@ class ScheduleEcsParameters(dict):
         :param Sequence['SchedulePlacementStrategy'] placement_strategy: The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
         :param str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0.
         :param str reference_id: The reference ID to use for the task.
-        :param Sequence['ScheduleTagMap'] tags: The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
+        :param Sequence[Mapping[str, str]] tags: The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
         :param float task_count: The number of tasks to create based on TaskDefinition. The default is 1.
         """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
@@ -367,7 +366,7 @@ class ScheduleEcsParameters(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ScheduleTagMap']]:
+    def tags(self) -> Optional[Sequence[Mapping[str, str]]]:
         """
         The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
         """
@@ -781,12 +780,6 @@ class ScheduleSqsParameters(dict):
         The FIFO message group ID to use as the target.
         """
         return pulumi.get(self, "message_group_id")
-
-
-@pulumi.output_type
-class ScheduleTagMap(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type

@@ -45,7 +45,7 @@ class GetViewResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.ViewTagMap']:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property

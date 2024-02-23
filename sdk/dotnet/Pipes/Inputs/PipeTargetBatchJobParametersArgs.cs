@@ -33,7 +33,12 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<string> JobName { get; set; } = null!;
 
         [Input("parameters")]
-        public Input<Inputs.PipeBatchParametersMapArgs>? Parameters { get; set; }
+        private InputMap<string>? _parameters;
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         [Input("retryStrategy")]
         public Input<Inputs.PipeBatchRetryStrategyArgs>? RetryStrategy { get; set; }

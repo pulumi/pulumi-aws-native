@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Backup
         public Output<string> ProtectedResourceType { get; private set; } = null!;
 
         [Output("restoreMetadataOverrides")]
-        public Output<Outputs.RestoreTestingSelectionSensitiveStringMap?> RestoreMetadataOverrides { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> RestoreMetadataOverrides { get; private set; } = null!;
 
         [Output("restoreTestingPlanName")]
         public Output<string> RestoreTestingPlanName { get; private set; } = null!;
@@ -108,7 +108,12 @@ namespace Pulumi.AwsNative.Backup
         public Input<string> ProtectedResourceType { get; set; } = null!;
 
         [Input("restoreMetadataOverrides")]
-        public Input<Inputs.RestoreTestingSelectionSensitiveStringMapArgs>? RestoreMetadataOverrides { get; set; }
+        private InputMap<string>? _restoreMetadataOverrides;
+        public InputMap<string> RestoreMetadataOverrides
+        {
+            get => _restoreMetadataOverrides ?? (_restoreMetadataOverrides = new InputMap<string>());
+            set => _restoreMetadataOverrides = value;
+        }
 
         [Input("restoreTestingPlanName", required: true)]
         public Input<string> RestoreTestingPlanName { get; set; } = null!;

@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.Msk
     public sealed class GetVpcConnectionResult
     {
         public readonly string? Arn;
-        public readonly Outputs.VpcConnectionTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetVpcConnectionResult(
             string? arn,
 
-            Outputs.VpcConnectionTags? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Tags = tags;

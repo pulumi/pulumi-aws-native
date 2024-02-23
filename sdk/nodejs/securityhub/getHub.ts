@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +39,7 @@ export interface GetHubResult {
      * The date and time when Security Hub was enabled in the account.
      */
     readonly subscribedAt?: string;
-    readonly tags?: outputs.securityhub.HubTags;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.

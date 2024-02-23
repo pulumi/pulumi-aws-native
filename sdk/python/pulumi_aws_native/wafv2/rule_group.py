@@ -24,7 +24,7 @@ class RuleGroupArgs:
                  visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgs'],
                  available_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
                  consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
-                 custom_response_bodies: Optional[pulumi.Input['RuleGroupCustomResponseBodiesArgs']] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
@@ -106,11 +106,11 @@ class RuleGroupArgs:
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional[pulumi.Input['RuleGroupCustomResponseBodiesArgs']]:
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]:
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
-    def custom_response_bodies(self, value: Optional[pulumi.Input['RuleGroupCustomResponseBodiesArgs']]):
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]):
         pulumi.set(self, "custom_response_bodies", value)
 
     @property
@@ -161,7 +161,7 @@ class RuleGroup(pulumi.CustomResource):
                  available_labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodiesArgs']]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
@@ -205,7 +205,7 @@ class RuleGroup(pulumi.CustomResource):
                  available_labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodiesArgs']]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
@@ -305,7 +305,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> pulumi.Output[Optional['outputs.RuleGroupCustomResponseBodies']]:
+    def custom_response_bodies(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.RuleGroupCustomResponseBody']]]:
         return pulumi.get(self, "custom_response_bodies")
 
     @property

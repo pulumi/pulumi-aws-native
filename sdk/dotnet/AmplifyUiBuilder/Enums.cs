@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.AmplifyUiBuilder
 {
     [EnumType]
+    public readonly struct ComponentSortDirection : IEquatable<ComponentSortDirection>
+    {
+        private readonly string _value;
+
+        private ComponentSortDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComponentSortDirection Asc { get; } = new ComponentSortDirection("ASC");
+        public static ComponentSortDirection Desc { get; } = new ComponentSortDirection("DESC");
+
+        public static bool operator ==(ComponentSortDirection left, ComponentSortDirection right) => left.Equals(right);
+        public static bool operator !=(ComponentSortDirection left, ComponentSortDirection right) => !left.Equals(right);
+
+        public static explicit operator string(ComponentSortDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComponentSortDirection other && Equals(other);
+        public bool Equals(ComponentSortDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FormActionType : IEquatable<FormActionType>
     {
         private readonly string _value;
@@ -141,6 +169,35 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FormLabelDecorator other && Equals(other);
         public bool Equals(FormLabelDecorator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FormStorageAccessLevel : IEquatable<FormStorageAccessLevel>
+    {
+        private readonly string _value;
+
+        private FormStorageAccessLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FormStorageAccessLevel Public { get; } = new FormStorageAccessLevel("public");
+        public static FormStorageAccessLevel Protected { get; } = new FormStorageAccessLevel("protected");
+        public static FormStorageAccessLevel Private { get; } = new FormStorageAccessLevel("private");
+
+        public static bool operator ==(FormStorageAccessLevel left, FormStorageAccessLevel right) => left.Equals(right);
+        public static bool operator !=(FormStorageAccessLevel left, FormStorageAccessLevel right) => !left.Equals(right);
+
+        public static explicit operator string(FormStorageAccessLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FormStorageAccessLevel other && Equals(other);
+        public bool Equals(FormStorageAccessLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

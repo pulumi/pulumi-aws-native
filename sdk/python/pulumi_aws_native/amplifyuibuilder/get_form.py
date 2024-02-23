@@ -67,7 +67,7 @@ class GetFormResult:
 
     @property
     @pulumi.getter
-    def fields(self) -> Optional['outputs.FormFieldsMap']:
+    def fields(self) -> Optional[Mapping[str, 'outputs.FormFieldConfig']]:
         return pulumi.get(self, "fields")
 
     @property
@@ -97,7 +97,7 @@ class GetFormResult:
 
     @property
     @pulumi.getter(name="sectionalElements")
-    def sectional_elements(self) -> Optional['outputs.FormSectionalElementMap']:
+    def sectional_elements(self) -> Optional[Mapping[str, 'outputs.FormSectionalElement']]:
         return pulumi.get(self, "sectional_elements")
 
     @property
@@ -107,7 +107,7 @@ class GetFormResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.FormTags']:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

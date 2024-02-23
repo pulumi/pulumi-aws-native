@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public Output<string> Name { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.ApplicationTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -109,7 +109,12 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.ApplicationTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ApplicationArgs()
         {

@@ -24,13 +24,23 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string> ComponentType { get; set; } = null!;
 
         [Input("events")]
-        public Input<Inputs.ComponentEventsArgs>? Events { get; set; }
+        private InputMap<Inputs.ComponentEventArgs>? _events;
+        public InputMap<Inputs.ComponentEventArgs> Events
+        {
+            get => _events ?? (_events = new InputMap<Inputs.ComponentEventArgs>());
+            set => _events = value;
+        }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("properties", required: true)]
-        public Input<Inputs.ComponentPropertiesArgs> Properties { get; set; } = null!;
+        private InputMap<Inputs.ComponentPropertyArgs>? _properties;
+        public InputMap<Inputs.ComponentPropertyArgs> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<Inputs.ComponentPropertyArgs>());
+            set => _properties = value;
+        }
 
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }

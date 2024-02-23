@@ -3124,125 +3124,107 @@ func (o RuleGroupCustomResponsePtrOutput) ResponseHeaders() RuleGroupCustomHttpH
 	}).(RuleGroupCustomHttpHeaderArrayOutput)
 }
 
-// Custom response key and body map.
-type RuleGroupCustomResponseBodies struct {
+// Custom response body.
+type RuleGroupCustomResponseBody struct {
+	Content     string                       `pulumi:"content"`
+	ContentType RuleGroupResponseContentType `pulumi:"contentType"`
 }
 
-// RuleGroupCustomResponseBodiesInput is an input type that accepts RuleGroupCustomResponseBodiesArgs and RuleGroupCustomResponseBodiesOutput values.
-// You can construct a concrete instance of `RuleGroupCustomResponseBodiesInput` via:
+// RuleGroupCustomResponseBodyInput is an input type that accepts RuleGroupCustomResponseBodyArgs and RuleGroupCustomResponseBodyOutput values.
+// You can construct a concrete instance of `RuleGroupCustomResponseBodyInput` via:
 //
-//	RuleGroupCustomResponseBodiesArgs{...}
-type RuleGroupCustomResponseBodiesInput interface {
+//	RuleGroupCustomResponseBodyArgs{...}
+type RuleGroupCustomResponseBodyInput interface {
 	pulumi.Input
 
-	ToRuleGroupCustomResponseBodiesOutput() RuleGroupCustomResponseBodiesOutput
-	ToRuleGroupCustomResponseBodiesOutputWithContext(context.Context) RuleGroupCustomResponseBodiesOutput
+	ToRuleGroupCustomResponseBodyOutput() RuleGroupCustomResponseBodyOutput
+	ToRuleGroupCustomResponseBodyOutputWithContext(context.Context) RuleGroupCustomResponseBodyOutput
 }
 
-// Custom response key and body map.
-type RuleGroupCustomResponseBodiesArgs struct {
+// Custom response body.
+type RuleGroupCustomResponseBodyArgs struct {
+	Content     pulumi.StringInput                `pulumi:"content"`
+	ContentType RuleGroupResponseContentTypeInput `pulumi:"contentType"`
 }
 
-func (RuleGroupCustomResponseBodiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupCustomResponseBodies)(nil)).Elem()
+func (RuleGroupCustomResponseBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomResponseBody)(nil)).Elem()
 }
 
-func (i RuleGroupCustomResponseBodiesArgs) ToRuleGroupCustomResponseBodiesOutput() RuleGroupCustomResponseBodiesOutput {
-	return i.ToRuleGroupCustomResponseBodiesOutputWithContext(context.Background())
+func (i RuleGroupCustomResponseBodyArgs) ToRuleGroupCustomResponseBodyOutput() RuleGroupCustomResponseBodyOutput {
+	return i.ToRuleGroupCustomResponseBodyOutputWithContext(context.Background())
 }
 
-func (i RuleGroupCustomResponseBodiesArgs) ToRuleGroupCustomResponseBodiesOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodiesOutput)
+func (i RuleGroupCustomResponseBodyArgs) ToRuleGroupCustomResponseBodyOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodyOutput)
 }
 
-func (i RuleGroupCustomResponseBodiesArgs) ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput {
-	return i.ToRuleGroupCustomResponseBodiesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupCustomResponseBodiesArgs) ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodiesOutput).ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupCustomResponseBodiesPtrInput is an input type that accepts RuleGroupCustomResponseBodiesArgs, RuleGroupCustomResponseBodiesPtr and RuleGroupCustomResponseBodiesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupCustomResponseBodiesPtrInput` via:
+// RuleGroupCustomResponseBodyMapInput is an input type that accepts RuleGroupCustomResponseBodyMap and RuleGroupCustomResponseBodyMapOutput values.
+// You can construct a concrete instance of `RuleGroupCustomResponseBodyMapInput` via:
 //
-//	        RuleGroupCustomResponseBodiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type RuleGroupCustomResponseBodiesPtrInput interface {
+//	RuleGroupCustomResponseBodyMap{ "key": RuleGroupCustomResponseBodyArgs{...} }
+type RuleGroupCustomResponseBodyMapInput interface {
 	pulumi.Input
 
-	ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput
-	ToRuleGroupCustomResponseBodiesPtrOutputWithContext(context.Context) RuleGroupCustomResponseBodiesPtrOutput
+	ToRuleGroupCustomResponseBodyMapOutput() RuleGroupCustomResponseBodyMapOutput
+	ToRuleGroupCustomResponseBodyMapOutputWithContext(context.Context) RuleGroupCustomResponseBodyMapOutput
 }
 
-type ruleGroupCustomResponseBodiesPtrType RuleGroupCustomResponseBodiesArgs
+type RuleGroupCustomResponseBodyMap map[string]RuleGroupCustomResponseBodyInput
 
-func RuleGroupCustomResponseBodiesPtr(v *RuleGroupCustomResponseBodiesArgs) RuleGroupCustomResponseBodiesPtrInput {
-	return (*ruleGroupCustomResponseBodiesPtrType)(v)
+func (RuleGroupCustomResponseBodyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupCustomResponseBody)(nil)).Elem()
 }
 
-func (*ruleGroupCustomResponseBodiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupCustomResponseBodies)(nil)).Elem()
+func (i RuleGroupCustomResponseBodyMap) ToRuleGroupCustomResponseBodyMapOutput() RuleGroupCustomResponseBodyMapOutput {
+	return i.ToRuleGroupCustomResponseBodyMapOutputWithContext(context.Background())
 }
 
-func (i *ruleGroupCustomResponseBodiesPtrType) ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput {
-	return i.ToRuleGroupCustomResponseBodiesPtrOutputWithContext(context.Background())
+func (i RuleGroupCustomResponseBodyMap) ToRuleGroupCustomResponseBodyMapOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodyMapOutput)
 }
 
-func (i *ruleGroupCustomResponseBodiesPtrType) ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodiesPtrOutput)
+// Custom response body.
+type RuleGroupCustomResponseBodyOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomResponseBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomResponseBody)(nil)).Elem()
 }
 
-// Custom response key and body map.
-type RuleGroupCustomResponseBodiesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupCustomResponseBodiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupCustomResponseBodies)(nil)).Elem()
-}
-
-func (o RuleGroupCustomResponseBodiesOutput) ToRuleGroupCustomResponseBodiesOutput() RuleGroupCustomResponseBodiesOutput {
+func (o RuleGroupCustomResponseBodyOutput) ToRuleGroupCustomResponseBodyOutput() RuleGroupCustomResponseBodyOutput {
 	return o
 }
 
-func (o RuleGroupCustomResponseBodiesOutput) ToRuleGroupCustomResponseBodiesOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesOutput {
+func (o RuleGroupCustomResponseBodyOutput) ToRuleGroupCustomResponseBodyOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyOutput {
 	return o
 }
 
-func (o RuleGroupCustomResponseBodiesOutput) ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput {
-	return o.ToRuleGroupCustomResponseBodiesPtrOutputWithContext(context.Background())
+func (o RuleGroupCustomResponseBodyOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupCustomResponseBody) string { return v.Content }).(pulumi.StringOutput)
 }
 
-func (o RuleGroupCustomResponseBodiesOutput) ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCustomResponseBodies) *RuleGroupCustomResponseBodies {
-		return &v
-	}).(RuleGroupCustomResponseBodiesPtrOutput)
+func (o RuleGroupCustomResponseBodyOutput) ContentType() RuleGroupResponseContentTypeOutput {
+	return o.ApplyT(func(v RuleGroupCustomResponseBody) RuleGroupResponseContentType { return v.ContentType }).(RuleGroupResponseContentTypeOutput)
 }
 
-type RuleGroupCustomResponseBodiesPtrOutput struct{ *pulumi.OutputState }
+type RuleGroupCustomResponseBodyMapOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupCustomResponseBodiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupCustomResponseBodies)(nil)).Elem()
+func (RuleGroupCustomResponseBodyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupCustomResponseBody)(nil)).Elem()
 }
 
-func (o RuleGroupCustomResponseBodiesPtrOutput) ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput {
+func (o RuleGroupCustomResponseBodyMapOutput) ToRuleGroupCustomResponseBodyMapOutput() RuleGroupCustomResponseBodyMapOutput {
 	return o
 }
 
-func (o RuleGroupCustomResponseBodiesPtrOutput) ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesPtrOutput {
+func (o RuleGroupCustomResponseBodyMapOutput) ToRuleGroupCustomResponseBodyMapOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyMapOutput {
 	return o
 }
 
-func (o RuleGroupCustomResponseBodiesPtrOutput) Elem() RuleGroupCustomResponseBodiesOutput {
-	return o.ApplyT(func(v *RuleGroupCustomResponseBodies) RuleGroupCustomResponseBodies {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupCustomResponseBodies
-		return ret
-	}).(RuleGroupCustomResponseBodiesOutput)
+func (o RuleGroupCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) RuleGroupCustomResponseBodyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleGroupCustomResponseBody {
+		return vs[0].(map[string]RuleGroupCustomResponseBody)[vs[1].(string)]
+	}).(RuleGroupCustomResponseBodyOutput)
 }
 
 // Field of the request to match.
@@ -9438,7 +9420,7 @@ func (o WebAclAndStatementPtrOutput) Statements() WebAclStatementArrayOutput {
 
 // AssociationConfig for body inspection
 type WebAclAssociationConfig struct {
-	RequestBody *WebAclRequestBody `pulumi:"requestBody"`
+	RequestBody map[string]WebAclRequestBodyAssociatedResourceTypeConfig `pulumi:"requestBody"`
 }
 
 // WebAclAssociationConfigInput is an input type that accepts WebAclAssociationConfigArgs and WebAclAssociationConfigOutput values.
@@ -9454,7 +9436,7 @@ type WebAclAssociationConfigInput interface {
 
 // AssociationConfig for body inspection
 type WebAclAssociationConfigArgs struct {
-	RequestBody WebAclRequestBodyPtrInput `pulumi:"requestBody"`
+	RequestBody WebAclRequestBodyAssociatedResourceTypeConfigMapInput `pulumi:"requestBody"`
 }
 
 func (WebAclAssociationConfigArgs) ElementType() reflect.Type {
@@ -9535,8 +9517,10 @@ func (o WebAclAssociationConfigOutput) ToWebAclAssociationConfigPtrOutputWithCon
 	}).(WebAclAssociationConfigPtrOutput)
 }
 
-func (o WebAclAssociationConfigOutput) RequestBody() WebAclRequestBodyPtrOutput {
-	return o.ApplyT(func(v WebAclAssociationConfig) *WebAclRequestBody { return v.RequestBody }).(WebAclRequestBodyPtrOutput)
+func (o WebAclAssociationConfigOutput) RequestBody() WebAclRequestBodyAssociatedResourceTypeConfigMapOutput {
+	return o.ApplyT(func(v WebAclAssociationConfig) map[string]WebAclRequestBodyAssociatedResourceTypeConfig {
+		return v.RequestBody
+	}).(WebAclRequestBodyAssociatedResourceTypeConfigMapOutput)
 }
 
 type WebAclAssociationConfigPtrOutput struct{ *pulumi.OutputState }
@@ -9563,13 +9547,13 @@ func (o WebAclAssociationConfigPtrOutput) Elem() WebAclAssociationConfigOutput {
 	}).(WebAclAssociationConfigOutput)
 }
 
-func (o WebAclAssociationConfigPtrOutput) RequestBody() WebAclRequestBodyPtrOutput {
-	return o.ApplyT(func(v *WebAclAssociationConfig) *WebAclRequestBody {
+func (o WebAclAssociationConfigPtrOutput) RequestBody() WebAclRequestBodyAssociatedResourceTypeConfigMapOutput {
+	return o.ApplyT(func(v *WebAclAssociationConfig) map[string]WebAclRequestBodyAssociatedResourceTypeConfig {
 		if v == nil {
 			return nil
 		}
 		return v.RequestBody
-	}).(WebAclRequestBodyPtrOutput)
+	}).(WebAclRequestBodyAssociatedResourceTypeConfigMapOutput)
 }
 
 // Configures how to use the Account creation fraud prevention managed rule group in the web ACL
@@ -11997,125 +11981,107 @@ func (o WebAclCustomResponsePtrOutput) ResponseHeaders() WebAclCustomHttpHeaderA
 	}).(WebAclCustomHttpHeaderArrayOutput)
 }
 
-// Custom response key and body map.
-type WebAclCustomResponseBodies struct {
+// Custom response body.
+type WebAclCustomResponseBody struct {
+	Content     string                    `pulumi:"content"`
+	ContentType WebAclResponseContentType `pulumi:"contentType"`
 }
 
-// WebAclCustomResponseBodiesInput is an input type that accepts WebAclCustomResponseBodiesArgs and WebAclCustomResponseBodiesOutput values.
-// You can construct a concrete instance of `WebAclCustomResponseBodiesInput` via:
+// WebAclCustomResponseBodyInput is an input type that accepts WebAclCustomResponseBodyArgs and WebAclCustomResponseBodyOutput values.
+// You can construct a concrete instance of `WebAclCustomResponseBodyInput` via:
 //
-//	WebAclCustomResponseBodiesArgs{...}
-type WebAclCustomResponseBodiesInput interface {
+//	WebAclCustomResponseBodyArgs{...}
+type WebAclCustomResponseBodyInput interface {
 	pulumi.Input
 
-	ToWebAclCustomResponseBodiesOutput() WebAclCustomResponseBodiesOutput
-	ToWebAclCustomResponseBodiesOutputWithContext(context.Context) WebAclCustomResponseBodiesOutput
+	ToWebAclCustomResponseBodyOutput() WebAclCustomResponseBodyOutput
+	ToWebAclCustomResponseBodyOutputWithContext(context.Context) WebAclCustomResponseBodyOutput
 }
 
-// Custom response key and body map.
-type WebAclCustomResponseBodiesArgs struct {
+// Custom response body.
+type WebAclCustomResponseBodyArgs struct {
+	Content     pulumi.StringInput             `pulumi:"content"`
+	ContentType WebAclResponseContentTypeInput `pulumi:"contentType"`
 }
 
-func (WebAclCustomResponseBodiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclCustomResponseBodies)(nil)).Elem()
+func (WebAclCustomResponseBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclCustomResponseBody)(nil)).Elem()
 }
 
-func (i WebAclCustomResponseBodiesArgs) ToWebAclCustomResponseBodiesOutput() WebAclCustomResponseBodiesOutput {
-	return i.ToWebAclCustomResponseBodiesOutputWithContext(context.Background())
+func (i WebAclCustomResponseBodyArgs) ToWebAclCustomResponseBodyOutput() WebAclCustomResponseBodyOutput {
+	return i.ToWebAclCustomResponseBodyOutputWithContext(context.Background())
 }
 
-func (i WebAclCustomResponseBodiesArgs) ToWebAclCustomResponseBodiesOutputWithContext(ctx context.Context) WebAclCustomResponseBodiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclCustomResponseBodiesOutput)
+func (i WebAclCustomResponseBodyArgs) ToWebAclCustomResponseBodyOutputWithContext(ctx context.Context) WebAclCustomResponseBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclCustomResponseBodyOutput)
 }
 
-func (i WebAclCustomResponseBodiesArgs) ToWebAclCustomResponseBodiesPtrOutput() WebAclCustomResponseBodiesPtrOutput {
-	return i.ToWebAclCustomResponseBodiesPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclCustomResponseBodiesArgs) ToWebAclCustomResponseBodiesPtrOutputWithContext(ctx context.Context) WebAclCustomResponseBodiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclCustomResponseBodiesOutput).ToWebAclCustomResponseBodiesPtrOutputWithContext(ctx)
-}
-
-// WebAclCustomResponseBodiesPtrInput is an input type that accepts WebAclCustomResponseBodiesArgs, WebAclCustomResponseBodiesPtr and WebAclCustomResponseBodiesPtrOutput values.
-// You can construct a concrete instance of `WebAclCustomResponseBodiesPtrInput` via:
+// WebAclCustomResponseBodyMapInput is an input type that accepts WebAclCustomResponseBodyMap and WebAclCustomResponseBodyMapOutput values.
+// You can construct a concrete instance of `WebAclCustomResponseBodyMapInput` via:
 //
-//	        WebAclCustomResponseBodiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclCustomResponseBodiesPtrInput interface {
+//	WebAclCustomResponseBodyMap{ "key": WebAclCustomResponseBodyArgs{...} }
+type WebAclCustomResponseBodyMapInput interface {
 	pulumi.Input
 
-	ToWebAclCustomResponseBodiesPtrOutput() WebAclCustomResponseBodiesPtrOutput
-	ToWebAclCustomResponseBodiesPtrOutputWithContext(context.Context) WebAclCustomResponseBodiesPtrOutput
+	ToWebAclCustomResponseBodyMapOutput() WebAclCustomResponseBodyMapOutput
+	ToWebAclCustomResponseBodyMapOutputWithContext(context.Context) WebAclCustomResponseBodyMapOutput
 }
 
-type webAclCustomResponseBodiesPtrType WebAclCustomResponseBodiesArgs
+type WebAclCustomResponseBodyMap map[string]WebAclCustomResponseBodyInput
 
-func WebAclCustomResponseBodiesPtr(v *WebAclCustomResponseBodiesArgs) WebAclCustomResponseBodiesPtrInput {
-	return (*webAclCustomResponseBodiesPtrType)(v)
+func (WebAclCustomResponseBodyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebAclCustomResponseBody)(nil)).Elem()
 }
 
-func (*webAclCustomResponseBodiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclCustomResponseBodies)(nil)).Elem()
+func (i WebAclCustomResponseBodyMap) ToWebAclCustomResponseBodyMapOutput() WebAclCustomResponseBodyMapOutput {
+	return i.ToWebAclCustomResponseBodyMapOutputWithContext(context.Background())
 }
 
-func (i *webAclCustomResponseBodiesPtrType) ToWebAclCustomResponseBodiesPtrOutput() WebAclCustomResponseBodiesPtrOutput {
-	return i.ToWebAclCustomResponseBodiesPtrOutputWithContext(context.Background())
+func (i WebAclCustomResponseBodyMap) ToWebAclCustomResponseBodyMapOutputWithContext(ctx context.Context) WebAclCustomResponseBodyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclCustomResponseBodyMapOutput)
 }
 
-func (i *webAclCustomResponseBodiesPtrType) ToWebAclCustomResponseBodiesPtrOutputWithContext(ctx context.Context) WebAclCustomResponseBodiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclCustomResponseBodiesPtrOutput)
+// Custom response body.
+type WebAclCustomResponseBodyOutput struct{ *pulumi.OutputState }
+
+func (WebAclCustomResponseBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclCustomResponseBody)(nil)).Elem()
 }
 
-// Custom response key and body map.
-type WebAclCustomResponseBodiesOutput struct{ *pulumi.OutputState }
-
-func (WebAclCustomResponseBodiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclCustomResponseBodies)(nil)).Elem()
-}
-
-func (o WebAclCustomResponseBodiesOutput) ToWebAclCustomResponseBodiesOutput() WebAclCustomResponseBodiesOutput {
+func (o WebAclCustomResponseBodyOutput) ToWebAclCustomResponseBodyOutput() WebAclCustomResponseBodyOutput {
 	return o
 }
 
-func (o WebAclCustomResponseBodiesOutput) ToWebAclCustomResponseBodiesOutputWithContext(ctx context.Context) WebAclCustomResponseBodiesOutput {
+func (o WebAclCustomResponseBodyOutput) ToWebAclCustomResponseBodyOutputWithContext(ctx context.Context) WebAclCustomResponseBodyOutput {
 	return o
 }
 
-func (o WebAclCustomResponseBodiesOutput) ToWebAclCustomResponseBodiesPtrOutput() WebAclCustomResponseBodiesPtrOutput {
-	return o.ToWebAclCustomResponseBodiesPtrOutputWithContext(context.Background())
+func (o WebAclCustomResponseBodyOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclCustomResponseBody) string { return v.Content }).(pulumi.StringOutput)
 }
 
-func (o WebAclCustomResponseBodiesOutput) ToWebAclCustomResponseBodiesPtrOutputWithContext(ctx context.Context) WebAclCustomResponseBodiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclCustomResponseBodies) *WebAclCustomResponseBodies {
-		return &v
-	}).(WebAclCustomResponseBodiesPtrOutput)
+func (o WebAclCustomResponseBodyOutput) ContentType() WebAclResponseContentTypeOutput {
+	return o.ApplyT(func(v WebAclCustomResponseBody) WebAclResponseContentType { return v.ContentType }).(WebAclResponseContentTypeOutput)
 }
 
-type WebAclCustomResponseBodiesPtrOutput struct{ *pulumi.OutputState }
+type WebAclCustomResponseBodyMapOutput struct{ *pulumi.OutputState }
 
-func (WebAclCustomResponseBodiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclCustomResponseBodies)(nil)).Elem()
+func (WebAclCustomResponseBodyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebAclCustomResponseBody)(nil)).Elem()
 }
 
-func (o WebAclCustomResponseBodiesPtrOutput) ToWebAclCustomResponseBodiesPtrOutput() WebAclCustomResponseBodiesPtrOutput {
+func (o WebAclCustomResponseBodyMapOutput) ToWebAclCustomResponseBodyMapOutput() WebAclCustomResponseBodyMapOutput {
 	return o
 }
 
-func (o WebAclCustomResponseBodiesPtrOutput) ToWebAclCustomResponseBodiesPtrOutputWithContext(ctx context.Context) WebAclCustomResponseBodiesPtrOutput {
+func (o WebAclCustomResponseBodyMapOutput) ToWebAclCustomResponseBodyMapOutputWithContext(ctx context.Context) WebAclCustomResponseBodyMapOutput {
 	return o
 }
 
-func (o WebAclCustomResponseBodiesPtrOutput) Elem() WebAclCustomResponseBodiesOutput {
-	return o.ApplyT(func(v *WebAclCustomResponseBodies) WebAclCustomResponseBodies {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclCustomResponseBodies
-		return ret
-	}).(WebAclCustomResponseBodiesOutput)
+func (o WebAclCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) WebAclCustomResponseBodyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebAclCustomResponseBody {
+		return vs[0].(map[string]WebAclCustomResponseBody)[vs[1].(string)]
+	}).(WebAclCustomResponseBodyOutput)
 }
 
 // Default Action WebACL will take against ingress traffic when there is no matching Rule.
@@ -17424,125 +17390,103 @@ func (o WebAclRegexPatternSetReferenceStatementPtrOutput) TextTransformations() 
 	}).(WebAclTextTransformationArrayOutput)
 }
 
-// Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
-type WebAclRequestBody struct {
+// Configures the inspection size in the request body.
+type WebAclRequestBodyAssociatedResourceTypeConfig struct {
+	DefaultSizeInspectionLimit WebAclSizeInspectionLimit `pulumi:"defaultSizeInspectionLimit"`
 }
 
-// WebAclRequestBodyInput is an input type that accepts WebAclRequestBodyArgs and WebAclRequestBodyOutput values.
-// You can construct a concrete instance of `WebAclRequestBodyInput` via:
+// WebAclRequestBodyAssociatedResourceTypeConfigInput is an input type that accepts WebAclRequestBodyAssociatedResourceTypeConfigArgs and WebAclRequestBodyAssociatedResourceTypeConfigOutput values.
+// You can construct a concrete instance of `WebAclRequestBodyAssociatedResourceTypeConfigInput` via:
 //
-//	WebAclRequestBodyArgs{...}
-type WebAclRequestBodyInput interface {
+//	WebAclRequestBodyAssociatedResourceTypeConfigArgs{...}
+type WebAclRequestBodyAssociatedResourceTypeConfigInput interface {
 	pulumi.Input
 
-	ToWebAclRequestBodyOutput() WebAclRequestBodyOutput
-	ToWebAclRequestBodyOutputWithContext(context.Context) WebAclRequestBodyOutput
+	ToWebAclRequestBodyAssociatedResourceTypeConfigOutput() WebAclRequestBodyAssociatedResourceTypeConfigOutput
+	ToWebAclRequestBodyAssociatedResourceTypeConfigOutputWithContext(context.Context) WebAclRequestBodyAssociatedResourceTypeConfigOutput
 }
 
-// Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
-type WebAclRequestBodyArgs struct {
+// Configures the inspection size in the request body.
+type WebAclRequestBodyAssociatedResourceTypeConfigArgs struct {
+	DefaultSizeInspectionLimit WebAclSizeInspectionLimitInput `pulumi:"defaultSizeInspectionLimit"`
 }
 
-func (WebAclRequestBodyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRequestBody)(nil)).Elem()
+func (WebAclRequestBodyAssociatedResourceTypeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRequestBodyAssociatedResourceTypeConfig)(nil)).Elem()
 }
 
-func (i WebAclRequestBodyArgs) ToWebAclRequestBodyOutput() WebAclRequestBodyOutput {
-	return i.ToWebAclRequestBodyOutputWithContext(context.Background())
+func (i WebAclRequestBodyAssociatedResourceTypeConfigArgs) ToWebAclRequestBodyAssociatedResourceTypeConfigOutput() WebAclRequestBodyAssociatedResourceTypeConfigOutput {
+	return i.ToWebAclRequestBodyAssociatedResourceTypeConfigOutputWithContext(context.Background())
 }
 
-func (i WebAclRequestBodyArgs) ToWebAclRequestBodyOutputWithContext(ctx context.Context) WebAclRequestBodyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRequestBodyOutput)
+func (i WebAclRequestBodyAssociatedResourceTypeConfigArgs) ToWebAclRequestBodyAssociatedResourceTypeConfigOutputWithContext(ctx context.Context) WebAclRequestBodyAssociatedResourceTypeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRequestBodyAssociatedResourceTypeConfigOutput)
 }
 
-func (i WebAclRequestBodyArgs) ToWebAclRequestBodyPtrOutput() WebAclRequestBodyPtrOutput {
-	return i.ToWebAclRequestBodyPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRequestBodyArgs) ToWebAclRequestBodyPtrOutputWithContext(ctx context.Context) WebAclRequestBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRequestBodyOutput).ToWebAclRequestBodyPtrOutputWithContext(ctx)
-}
-
-// WebAclRequestBodyPtrInput is an input type that accepts WebAclRequestBodyArgs, WebAclRequestBodyPtr and WebAclRequestBodyPtrOutput values.
-// You can construct a concrete instance of `WebAclRequestBodyPtrInput` via:
+// WebAclRequestBodyAssociatedResourceTypeConfigMapInput is an input type that accepts WebAclRequestBodyAssociatedResourceTypeConfigMap and WebAclRequestBodyAssociatedResourceTypeConfigMapOutput values.
+// You can construct a concrete instance of `WebAclRequestBodyAssociatedResourceTypeConfigMapInput` via:
 //
-//	        WebAclRequestBodyArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRequestBodyPtrInput interface {
+//	WebAclRequestBodyAssociatedResourceTypeConfigMap{ "key": WebAclRequestBodyAssociatedResourceTypeConfigArgs{...} }
+type WebAclRequestBodyAssociatedResourceTypeConfigMapInput interface {
 	pulumi.Input
 
-	ToWebAclRequestBodyPtrOutput() WebAclRequestBodyPtrOutput
-	ToWebAclRequestBodyPtrOutputWithContext(context.Context) WebAclRequestBodyPtrOutput
+	ToWebAclRequestBodyAssociatedResourceTypeConfigMapOutput() WebAclRequestBodyAssociatedResourceTypeConfigMapOutput
+	ToWebAclRequestBodyAssociatedResourceTypeConfigMapOutputWithContext(context.Context) WebAclRequestBodyAssociatedResourceTypeConfigMapOutput
 }
 
-type webAclRequestBodyPtrType WebAclRequestBodyArgs
+type WebAclRequestBodyAssociatedResourceTypeConfigMap map[string]WebAclRequestBodyAssociatedResourceTypeConfigInput
 
-func WebAclRequestBodyPtr(v *WebAclRequestBodyArgs) WebAclRequestBodyPtrInput {
-	return (*webAclRequestBodyPtrType)(v)
+func (WebAclRequestBodyAssociatedResourceTypeConfigMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebAclRequestBodyAssociatedResourceTypeConfig)(nil)).Elem()
 }
 
-func (*webAclRequestBodyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRequestBody)(nil)).Elem()
+func (i WebAclRequestBodyAssociatedResourceTypeConfigMap) ToWebAclRequestBodyAssociatedResourceTypeConfigMapOutput() WebAclRequestBodyAssociatedResourceTypeConfigMapOutput {
+	return i.ToWebAclRequestBodyAssociatedResourceTypeConfigMapOutputWithContext(context.Background())
 }
 
-func (i *webAclRequestBodyPtrType) ToWebAclRequestBodyPtrOutput() WebAclRequestBodyPtrOutput {
-	return i.ToWebAclRequestBodyPtrOutputWithContext(context.Background())
+func (i WebAclRequestBodyAssociatedResourceTypeConfigMap) ToWebAclRequestBodyAssociatedResourceTypeConfigMapOutputWithContext(ctx context.Context) WebAclRequestBodyAssociatedResourceTypeConfigMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRequestBodyAssociatedResourceTypeConfigMapOutput)
 }
 
-func (i *webAclRequestBodyPtrType) ToWebAclRequestBodyPtrOutputWithContext(ctx context.Context) WebAclRequestBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRequestBodyPtrOutput)
+// Configures the inspection size in the request body.
+type WebAclRequestBodyAssociatedResourceTypeConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclRequestBodyAssociatedResourceTypeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRequestBodyAssociatedResourceTypeConfig)(nil)).Elem()
 }
 
-// Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
-type WebAclRequestBodyOutput struct{ *pulumi.OutputState }
-
-func (WebAclRequestBodyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRequestBody)(nil)).Elem()
-}
-
-func (o WebAclRequestBodyOutput) ToWebAclRequestBodyOutput() WebAclRequestBodyOutput {
+func (o WebAclRequestBodyAssociatedResourceTypeConfigOutput) ToWebAclRequestBodyAssociatedResourceTypeConfigOutput() WebAclRequestBodyAssociatedResourceTypeConfigOutput {
 	return o
 }
 
-func (o WebAclRequestBodyOutput) ToWebAclRequestBodyOutputWithContext(ctx context.Context) WebAclRequestBodyOutput {
+func (o WebAclRequestBodyAssociatedResourceTypeConfigOutput) ToWebAclRequestBodyAssociatedResourceTypeConfigOutputWithContext(ctx context.Context) WebAclRequestBodyAssociatedResourceTypeConfigOutput {
 	return o
 }
 
-func (o WebAclRequestBodyOutput) ToWebAclRequestBodyPtrOutput() WebAclRequestBodyPtrOutput {
-	return o.ToWebAclRequestBodyPtrOutputWithContext(context.Background())
+func (o WebAclRequestBodyAssociatedResourceTypeConfigOutput) DefaultSizeInspectionLimit() WebAclSizeInspectionLimitOutput {
+	return o.ApplyT(func(v WebAclRequestBodyAssociatedResourceTypeConfig) WebAclSizeInspectionLimit {
+		return v.DefaultSizeInspectionLimit
+	}).(WebAclSizeInspectionLimitOutput)
 }
 
-func (o WebAclRequestBodyOutput) ToWebAclRequestBodyPtrOutputWithContext(ctx context.Context) WebAclRequestBodyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRequestBody) *WebAclRequestBody {
-		return &v
-	}).(WebAclRequestBodyPtrOutput)
+type WebAclRequestBodyAssociatedResourceTypeConfigMapOutput struct{ *pulumi.OutputState }
+
+func (WebAclRequestBodyAssociatedResourceTypeConfigMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebAclRequestBodyAssociatedResourceTypeConfig)(nil)).Elem()
 }
 
-type WebAclRequestBodyPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRequestBodyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRequestBody)(nil)).Elem()
-}
-
-func (o WebAclRequestBodyPtrOutput) ToWebAclRequestBodyPtrOutput() WebAclRequestBodyPtrOutput {
+func (o WebAclRequestBodyAssociatedResourceTypeConfigMapOutput) ToWebAclRequestBodyAssociatedResourceTypeConfigMapOutput() WebAclRequestBodyAssociatedResourceTypeConfigMapOutput {
 	return o
 }
 
-func (o WebAclRequestBodyPtrOutput) ToWebAclRequestBodyPtrOutputWithContext(ctx context.Context) WebAclRequestBodyPtrOutput {
+func (o WebAclRequestBodyAssociatedResourceTypeConfigMapOutput) ToWebAclRequestBodyAssociatedResourceTypeConfigMapOutputWithContext(ctx context.Context) WebAclRequestBodyAssociatedResourceTypeConfigMapOutput {
 	return o
 }
 
-func (o WebAclRequestBodyPtrOutput) Elem() WebAclRequestBodyOutput {
-	return o.ApplyT(func(v *WebAclRequestBody) WebAclRequestBody {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRequestBody
-		return ret
-	}).(WebAclRequestBodyOutput)
+func (o WebAclRequestBodyAssociatedResourceTypeConfigMapOutput) MapIndex(k pulumi.StringInput) WebAclRequestBodyAssociatedResourceTypeConfigOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebAclRequestBodyAssociatedResourceTypeConfig {
+		return vs[0].(map[string]WebAclRequestBodyAssociatedResourceTypeConfig)[vs[1].(string)]
+	}).(WebAclRequestBodyAssociatedResourceTypeConfigOutput)
 }
 
 // Configures the inspection of login requests
@@ -20512,8 +20456,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomRequestHandlingPtrInput)(nil)).Elem(), RuleGroupCustomRequestHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomResponseInput)(nil)).Elem(), RuleGroupCustomResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomResponsePtrInput)(nil)).Elem(), RuleGroupCustomResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomResponseBodiesInput)(nil)).Elem(), RuleGroupCustomResponseBodiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomResponseBodiesPtrInput)(nil)).Elem(), RuleGroupCustomResponseBodiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomResponseBodyInput)(nil)).Elem(), RuleGroupCustomResponseBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomResponseBodyMapInput)(nil)).Elem(), RuleGroupCustomResponseBodyMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupFieldToMatchInput)(nil)).Elem(), RuleGroupFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupFieldToMatchPtrInput)(nil)).Elem(), RuleGroupFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupFieldToMatchSingleHeaderPropertiesInput)(nil)).Elem(), RuleGroupFieldToMatchSingleHeaderPropertiesArgs{})
@@ -20628,8 +20572,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomRequestHandlingPtrInput)(nil)).Elem(), WebAclCustomRequestHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponseInput)(nil)).Elem(), WebAclCustomResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponsePtrInput)(nil)).Elem(), WebAclCustomResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponseBodiesInput)(nil)).Elem(), WebAclCustomResponseBodiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponseBodiesPtrInput)(nil)).Elem(), WebAclCustomResponseBodiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponseBodyInput)(nil)).Elem(), WebAclCustomResponseBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclCustomResponseBodyMapInput)(nil)).Elem(), WebAclCustomResponseBodyMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDefaultActionInput)(nil)).Elem(), WebAclDefaultActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclExcludedRuleInput)(nil)).Elem(), WebAclExcludedRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclExcludedRuleArrayInput)(nil)).Elem(), WebAclExcludedRuleArray{})
@@ -20700,8 +20644,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRegexMatchStatementPtrInput)(nil)).Elem(), WebAclRegexMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRegexPatternSetReferenceStatementInput)(nil)).Elem(), WebAclRegexPatternSetReferenceStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRegexPatternSetReferenceStatementPtrInput)(nil)).Elem(), WebAclRegexPatternSetReferenceStatementArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestBodyInput)(nil)).Elem(), WebAclRequestBodyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestBodyPtrInput)(nil)).Elem(), WebAclRequestBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestBodyAssociatedResourceTypeConfigInput)(nil)).Elem(), WebAclRequestBodyAssociatedResourceTypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestBodyAssociatedResourceTypeConfigMapInput)(nil)).Elem(), WebAclRequestBodyAssociatedResourceTypeConfigMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionInput)(nil)).Elem(), WebAclRequestInspectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionPtrInput)(nil)).Elem(), WebAclRequestInspectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRequestInspectionAcfpInput)(nil)).Elem(), WebAclRequestInspectionAcfpArgs{})
@@ -20780,8 +20724,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupCustomRequestHandlingPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomResponseOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomResponsePtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupCustomResponseBodiesOutput{})
-	pulumi.RegisterOutputType(RuleGroupCustomResponseBodiesPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomResponseBodyOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomResponseBodyMapOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchSingleHeaderPropertiesOutput{})
@@ -20897,8 +20841,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclCustomRequestHandlingPtrOutput{})
 	pulumi.RegisterOutputType(WebAclCustomResponseOutput{})
 	pulumi.RegisterOutputType(WebAclCustomResponsePtrOutput{})
-	pulumi.RegisterOutputType(WebAclCustomResponseBodiesOutput{})
-	pulumi.RegisterOutputType(WebAclCustomResponseBodiesPtrOutput{})
+	pulumi.RegisterOutputType(WebAclCustomResponseBodyOutput{})
+	pulumi.RegisterOutputType(WebAclCustomResponseBodyMapOutput{})
 	pulumi.RegisterOutputType(WebAclDefaultActionOutput{})
 	pulumi.RegisterOutputType(WebAclDefaultActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclExcludedRuleOutput{})
@@ -20970,8 +20914,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRegexMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRegexPatternSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(WebAclRegexPatternSetReferenceStatementPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRequestBodyOutput{})
-	pulumi.RegisterOutputType(WebAclRequestBodyPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRequestBodyAssociatedResourceTypeConfigOutput{})
+	pulumi.RegisterOutputType(WebAclRequestBodyAssociatedResourceTypeConfigMapOutput{})
 	pulumi.RegisterOutputType(WebAclRequestInspectionOutput{})
 	pulumi.RegisterOutputType(WebAclRequestInspectionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRequestInspectionAcfpOutput{})

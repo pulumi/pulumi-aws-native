@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Pipes
         public Output<string> StateReason { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.PipeTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
@@ -153,7 +153,12 @@ namespace Pulumi.AwsNative.Pipes
         public Input<Inputs.PipeSourceParametersArgs>? SourceParameters { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.PipeTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

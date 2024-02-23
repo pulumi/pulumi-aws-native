@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclAssociationConfig
     {
-        public readonly Outputs.WebAclRequestBody? RequestBody;
+        public readonly ImmutableDictionary<string, Outputs.WebAclRequestBodyAssociatedResourceTypeConfig>? RequestBody;
 
         [OutputConstructor]
-        private WebAclAssociationConfig(Outputs.WebAclRequestBody? requestBody)
+        private WebAclAssociationConfig(ImmutableDictionary<string, Outputs.WebAclRequestBodyAssociatedResourceTypeConfig>? requestBody)
         {
             RequestBody = requestBody;
         }

@@ -20,7 +20,7 @@ class CisScanConfigurationArgs:
                  scan_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['CisScanConfigurationScheduleArgs']] = None,
                  security_level: Optional[pulumi.Input['CisScanConfigurationCisSecurityLevel']] = None,
-                 tags: Optional[pulumi.Input['CisScanConfigurationCisTagMapArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targets: Optional[pulumi.Input['CisScanConfigurationCisTargetsArgs']] = None):
         """
         The set of arguments for constructing a CisScanConfiguration resource.
@@ -69,11 +69,11 @@ class CisScanConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['CisScanConfigurationCisTagMapArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['CisScanConfigurationCisTagMapArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -94,7 +94,7 @@ class CisScanConfiguration(pulumi.CustomResource):
                  scan_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['CisScanConfigurationScheduleArgs']]] = None,
                  security_level: Optional[pulumi.Input['CisScanConfigurationCisSecurityLevel']] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['CisScanConfigurationCisTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targets: Optional[pulumi.Input[pulumi.InputType['CisScanConfigurationCisTargetsArgs']]] = None,
                  __props__=None):
         """
@@ -131,7 +131,7 @@ class CisScanConfiguration(pulumi.CustomResource):
                  scan_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['CisScanConfigurationScheduleArgs']]] = None,
                  security_level: Optional[pulumi.Input['CisScanConfigurationCisSecurityLevel']] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['CisScanConfigurationCisTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  targets: Optional[pulumi.Input[pulumi.InputType['CisScanConfigurationCisTargetsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -206,7 +206,7 @@ class CisScanConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.CisScanConfigurationCisTagMap']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

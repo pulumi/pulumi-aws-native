@@ -24,7 +24,7 @@ export interface GetIdentityProviderArgs {
 
 export interface GetIdentityProviderResult {
     readonly identityProviderArn?: string;
-    readonly identityProviderDetails?: outputs.workspacesweb.IdentityProviderDetails;
+    readonly identityProviderDetails?: {[key: string]: string};
     readonly identityProviderName?: string;
     readonly identityProviderType?: enums.workspacesweb.IdentityProviderType;
 }

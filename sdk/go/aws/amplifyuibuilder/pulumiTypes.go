@@ -13,131 +13,612 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type ComponentBindingProperties struct {
+type ComponentActionParameters struct {
+	Anchor *ComponentProperty                        `pulumi:"anchor"`
+	Fields map[string]ComponentProperty              `pulumi:"fields"`
+	Global *ComponentProperty                        `pulumi:"global"`
+	Id     *ComponentProperty                        `pulumi:"id"`
+	Model  *string                                   `pulumi:"model"`
+	State  *ComponentMutationActionSetStateParameter `pulumi:"state"`
+	Target *ComponentProperty                        `pulumi:"target"`
+	Type   *ComponentProperty                        `pulumi:"type"`
+	Url    *ComponentProperty                        `pulumi:"url"`
 }
 
-// ComponentBindingPropertiesInput is an input type that accepts ComponentBindingPropertiesArgs and ComponentBindingPropertiesOutput values.
-// You can construct a concrete instance of `ComponentBindingPropertiesInput` via:
+// ComponentActionParametersInput is an input type that accepts ComponentActionParametersArgs and ComponentActionParametersOutput values.
+// You can construct a concrete instance of `ComponentActionParametersInput` via:
 //
-//	ComponentBindingPropertiesArgs{...}
-type ComponentBindingPropertiesInput interface {
+//	ComponentActionParametersArgs{...}
+type ComponentActionParametersInput interface {
 	pulumi.Input
 
-	ToComponentBindingPropertiesOutput() ComponentBindingPropertiesOutput
-	ToComponentBindingPropertiesOutputWithContext(context.Context) ComponentBindingPropertiesOutput
+	ToComponentActionParametersOutput() ComponentActionParametersOutput
+	ToComponentActionParametersOutputWithContext(context.Context) ComponentActionParametersOutput
 }
 
-type ComponentBindingPropertiesArgs struct {
+type ComponentActionParametersArgs struct {
+	Anchor ComponentPropertyPtrInput                        `pulumi:"anchor"`
+	Fields ComponentPropertyMapInput                        `pulumi:"fields"`
+	Global ComponentPropertyPtrInput                        `pulumi:"global"`
+	Id     ComponentPropertyPtrInput                        `pulumi:"id"`
+	Model  pulumi.StringPtrInput                            `pulumi:"model"`
+	State  ComponentMutationActionSetStateParameterPtrInput `pulumi:"state"`
+	Target ComponentPropertyPtrInput                        `pulumi:"target"`
+	Type   ComponentPropertyPtrInput                        `pulumi:"type"`
+	Url    ComponentPropertyPtrInput                        `pulumi:"url"`
 }
 
-func (ComponentBindingPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentBindingProperties)(nil)).Elem()
+func (ComponentActionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentActionParameters)(nil)).Elem()
 }
 
-func (i ComponentBindingPropertiesArgs) ToComponentBindingPropertiesOutput() ComponentBindingPropertiesOutput {
-	return i.ToComponentBindingPropertiesOutputWithContext(context.Background())
+func (i ComponentActionParametersArgs) ToComponentActionParametersOutput() ComponentActionParametersOutput {
+	return i.ToComponentActionParametersOutputWithContext(context.Background())
 }
 
-func (i ComponentBindingPropertiesArgs) ToComponentBindingPropertiesOutputWithContext(ctx context.Context) ComponentBindingPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesOutput)
+func (i ComponentActionParametersArgs) ToComponentActionParametersOutputWithContext(ctx context.Context) ComponentActionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentActionParametersOutput)
 }
 
-func (i ComponentBindingPropertiesArgs) ToComponentBindingPropertiesPtrOutput() ComponentBindingPropertiesPtrOutput {
-	return i.ToComponentBindingPropertiesPtrOutputWithContext(context.Background())
+func (i ComponentActionParametersArgs) ToComponentActionParametersPtrOutput() ComponentActionParametersPtrOutput {
+	return i.ToComponentActionParametersPtrOutputWithContext(context.Background())
 }
 
-func (i ComponentBindingPropertiesArgs) ToComponentBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesOutput).ToComponentBindingPropertiesPtrOutputWithContext(ctx)
+func (i ComponentActionParametersArgs) ToComponentActionParametersPtrOutputWithContext(ctx context.Context) ComponentActionParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentActionParametersOutput).ToComponentActionParametersPtrOutputWithContext(ctx)
 }
 
-// ComponentBindingPropertiesPtrInput is an input type that accepts ComponentBindingPropertiesArgs, ComponentBindingPropertiesPtr and ComponentBindingPropertiesPtrOutput values.
-// You can construct a concrete instance of `ComponentBindingPropertiesPtrInput` via:
+// ComponentActionParametersPtrInput is an input type that accepts ComponentActionParametersArgs, ComponentActionParametersPtr and ComponentActionParametersPtrOutput values.
+// You can construct a concrete instance of `ComponentActionParametersPtrInput` via:
 //
-//	        ComponentBindingPropertiesArgs{...}
+//	        ComponentActionParametersArgs{...}
 //
 //	or:
 //
 //	        nil
-type ComponentBindingPropertiesPtrInput interface {
+type ComponentActionParametersPtrInput interface {
 	pulumi.Input
 
-	ToComponentBindingPropertiesPtrOutput() ComponentBindingPropertiesPtrOutput
-	ToComponentBindingPropertiesPtrOutputWithContext(context.Context) ComponentBindingPropertiesPtrOutput
+	ToComponentActionParametersPtrOutput() ComponentActionParametersPtrOutput
+	ToComponentActionParametersPtrOutputWithContext(context.Context) ComponentActionParametersPtrOutput
 }
 
-type componentBindingPropertiesPtrType ComponentBindingPropertiesArgs
+type componentActionParametersPtrType ComponentActionParametersArgs
 
-func ComponentBindingPropertiesPtr(v *ComponentBindingPropertiesArgs) ComponentBindingPropertiesPtrInput {
-	return (*componentBindingPropertiesPtrType)(v)
+func ComponentActionParametersPtr(v *ComponentActionParametersArgs) ComponentActionParametersPtrInput {
+	return (*componentActionParametersPtrType)(v)
 }
 
-func (*componentBindingPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentBindingProperties)(nil)).Elem()
+func (*componentActionParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentActionParameters)(nil)).Elem()
 }
 
-func (i *componentBindingPropertiesPtrType) ToComponentBindingPropertiesPtrOutput() ComponentBindingPropertiesPtrOutput {
-	return i.ToComponentBindingPropertiesPtrOutputWithContext(context.Background())
+func (i *componentActionParametersPtrType) ToComponentActionParametersPtrOutput() ComponentActionParametersPtrOutput {
+	return i.ToComponentActionParametersPtrOutputWithContext(context.Background())
 }
 
-func (i *componentBindingPropertiesPtrType) ToComponentBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesPtrOutput)
+func (i *componentActionParametersPtrType) ToComponentActionParametersPtrOutputWithContext(ctx context.Context) ComponentActionParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentActionParametersPtrOutput)
 }
 
-type ComponentBindingPropertiesOutput struct{ *pulumi.OutputState }
+type ComponentActionParametersOutput struct{ *pulumi.OutputState }
 
-func (ComponentBindingPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentBindingProperties)(nil)).Elem()
+func (ComponentActionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentActionParameters)(nil)).Elem()
 }
 
-func (o ComponentBindingPropertiesOutput) ToComponentBindingPropertiesOutput() ComponentBindingPropertiesOutput {
+func (o ComponentActionParametersOutput) ToComponentActionParametersOutput() ComponentActionParametersOutput {
 	return o
 }
 
-func (o ComponentBindingPropertiesOutput) ToComponentBindingPropertiesOutputWithContext(ctx context.Context) ComponentBindingPropertiesOutput {
+func (o ComponentActionParametersOutput) ToComponentActionParametersOutputWithContext(ctx context.Context) ComponentActionParametersOutput {
 	return o
 }
 
-func (o ComponentBindingPropertiesOutput) ToComponentBindingPropertiesPtrOutput() ComponentBindingPropertiesPtrOutput {
-	return o.ToComponentBindingPropertiesPtrOutputWithContext(context.Background())
+func (o ComponentActionParametersOutput) ToComponentActionParametersPtrOutput() ComponentActionParametersPtrOutput {
+	return o.ToComponentActionParametersPtrOutputWithContext(context.Background())
 }
 
-func (o ComponentBindingPropertiesOutput) ToComponentBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentBindingProperties) *ComponentBindingProperties {
+func (o ComponentActionParametersOutput) ToComponentActionParametersPtrOutputWithContext(ctx context.Context) ComponentActionParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentActionParameters) *ComponentActionParameters {
 		return &v
-	}).(ComponentBindingPropertiesPtrOutput)
+	}).(ComponentActionParametersPtrOutput)
 }
 
-type ComponentBindingPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ComponentBindingPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentBindingProperties)(nil)).Elem()
+func (o ComponentActionParametersOutput) Anchor() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Anchor }).(ComponentPropertyPtrOutput)
 }
 
-func (o ComponentBindingPropertiesPtrOutput) ToComponentBindingPropertiesPtrOutput() ComponentBindingPropertiesPtrOutput {
+func (o ComponentActionParametersOutput) Fields() ComponentPropertyMapOutput {
+	return o.ApplyT(func(v ComponentActionParameters) map[string]ComponentProperty { return v.Fields }).(ComponentPropertyMapOutput)
+}
+
+func (o ComponentActionParametersOutput) Global() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Global }).(ComponentPropertyPtrOutput)
+}
+
+func (o ComponentActionParametersOutput) Id() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Id }).(ComponentPropertyPtrOutput)
+}
+
+func (o ComponentActionParametersOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentActionParameters) *string { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentActionParametersOutput) State() ComponentMutationActionSetStateParameterPtrOutput {
+	return o.ApplyT(func(v ComponentActionParameters) *ComponentMutationActionSetStateParameter { return v.State }).(ComponentMutationActionSetStateParameterPtrOutput)
+}
+
+func (o ComponentActionParametersOutput) Target() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Target }).(ComponentPropertyPtrOutput)
+}
+
+func (o ComponentActionParametersOutput) Type() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Type }).(ComponentPropertyPtrOutput)
+}
+
+func (o ComponentActionParametersOutput) Url() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v ComponentActionParameters) *ComponentProperty { return v.Url }).(ComponentPropertyPtrOutput)
+}
+
+type ComponentActionParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentActionParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentActionParameters)(nil)).Elem()
+}
+
+func (o ComponentActionParametersPtrOutput) ToComponentActionParametersPtrOutput() ComponentActionParametersPtrOutput {
 	return o
 }
 
-func (o ComponentBindingPropertiesPtrOutput) ToComponentBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesPtrOutput {
+func (o ComponentActionParametersPtrOutput) ToComponentActionParametersPtrOutputWithContext(ctx context.Context) ComponentActionParametersPtrOutput {
 	return o
 }
 
-func (o ComponentBindingPropertiesPtrOutput) Elem() ComponentBindingPropertiesOutput {
-	return o.ApplyT(func(v *ComponentBindingProperties) ComponentBindingProperties {
+func (o ComponentActionParametersPtrOutput) Elem() ComponentActionParametersOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) ComponentActionParameters {
 		if v != nil {
 			return *v
 		}
-		var ret ComponentBindingProperties
+		var ret ComponentActionParameters
 		return ret
-	}).(ComponentBindingPropertiesOutput)
+	}).(ComponentActionParametersOutput)
+}
+
+func (o ComponentActionParametersPtrOutput) Anchor() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Anchor
+	}).(ComponentPropertyPtrOutput)
+}
+
+func (o ComponentActionParametersPtrOutput) Fields() ComponentPropertyMapOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) map[string]ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(ComponentPropertyMapOutput)
+}
+
+func (o ComponentActionParametersPtrOutput) Global() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Global
+	}).(ComponentPropertyPtrOutput)
+}
+
+func (o ComponentActionParametersPtrOutput) Id() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(ComponentPropertyPtrOutput)
+}
+
+func (o ComponentActionParametersPtrOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Model
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentActionParametersPtrOutput) State() ComponentMutationActionSetStateParameterPtrOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) *ComponentMutationActionSetStateParameter {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(ComponentMutationActionSetStateParameterPtrOutput)
+}
+
+func (o ComponentActionParametersPtrOutput) Target() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(ComponentPropertyPtrOutput)
+}
+
+func (o ComponentActionParametersPtrOutput) Type() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(ComponentPropertyPtrOutput)
+}
+
+func (o ComponentActionParametersPtrOutput) Url() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentActionParameters) *ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(ComponentPropertyPtrOutput)
+}
+
+type ComponentBindingPropertiesValue struct {
+	BindingProperties *ComponentBindingPropertiesValueProperties `pulumi:"bindingProperties"`
+	DefaultValue      *string                                    `pulumi:"defaultValue"`
+	Type              *string                                    `pulumi:"type"`
+}
+
+// ComponentBindingPropertiesValueInput is an input type that accepts ComponentBindingPropertiesValueArgs and ComponentBindingPropertiesValueOutput values.
+// You can construct a concrete instance of `ComponentBindingPropertiesValueInput` via:
+//
+//	ComponentBindingPropertiesValueArgs{...}
+type ComponentBindingPropertiesValueInput interface {
+	pulumi.Input
+
+	ToComponentBindingPropertiesValueOutput() ComponentBindingPropertiesValueOutput
+	ToComponentBindingPropertiesValueOutputWithContext(context.Context) ComponentBindingPropertiesValueOutput
+}
+
+type ComponentBindingPropertiesValueArgs struct {
+	BindingProperties ComponentBindingPropertiesValuePropertiesPtrInput `pulumi:"bindingProperties"`
+	DefaultValue      pulumi.StringPtrInput                             `pulumi:"defaultValue"`
+	Type              pulumi.StringPtrInput                             `pulumi:"type"`
+}
+
+func (ComponentBindingPropertiesValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentBindingPropertiesValue)(nil)).Elem()
+}
+
+func (i ComponentBindingPropertiesValueArgs) ToComponentBindingPropertiesValueOutput() ComponentBindingPropertiesValueOutput {
+	return i.ToComponentBindingPropertiesValueOutputWithContext(context.Background())
+}
+
+func (i ComponentBindingPropertiesValueArgs) ToComponentBindingPropertiesValueOutputWithContext(ctx context.Context) ComponentBindingPropertiesValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesValueOutput)
+}
+
+// ComponentBindingPropertiesValueMapInput is an input type that accepts ComponentBindingPropertiesValueMap and ComponentBindingPropertiesValueMapOutput values.
+// You can construct a concrete instance of `ComponentBindingPropertiesValueMapInput` via:
+//
+//	ComponentBindingPropertiesValueMap{ "key": ComponentBindingPropertiesValueArgs{...} }
+type ComponentBindingPropertiesValueMapInput interface {
+	pulumi.Input
+
+	ToComponentBindingPropertiesValueMapOutput() ComponentBindingPropertiesValueMapOutput
+	ToComponentBindingPropertiesValueMapOutputWithContext(context.Context) ComponentBindingPropertiesValueMapOutput
+}
+
+type ComponentBindingPropertiesValueMap map[string]ComponentBindingPropertiesValueInput
+
+func (ComponentBindingPropertiesValueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentBindingPropertiesValue)(nil)).Elem()
+}
+
+func (i ComponentBindingPropertiesValueMap) ToComponentBindingPropertiesValueMapOutput() ComponentBindingPropertiesValueMapOutput {
+	return i.ToComponentBindingPropertiesValueMapOutputWithContext(context.Background())
+}
+
+func (i ComponentBindingPropertiesValueMap) ToComponentBindingPropertiesValueMapOutputWithContext(ctx context.Context) ComponentBindingPropertiesValueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesValueMapOutput)
+}
+
+type ComponentBindingPropertiesValueOutput struct{ *pulumi.OutputState }
+
+func (ComponentBindingPropertiesValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentBindingPropertiesValue)(nil)).Elem()
+}
+
+func (o ComponentBindingPropertiesValueOutput) ToComponentBindingPropertiesValueOutput() ComponentBindingPropertiesValueOutput {
+	return o
+}
+
+func (o ComponentBindingPropertiesValueOutput) ToComponentBindingPropertiesValueOutputWithContext(ctx context.Context) ComponentBindingPropertiesValueOutput {
+	return o
+}
+
+func (o ComponentBindingPropertiesValueOutput) BindingProperties() ComponentBindingPropertiesValuePropertiesPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValue) *ComponentBindingPropertiesValueProperties {
+		return v.BindingProperties
+	}).(ComponentBindingPropertiesValuePropertiesPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValueOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValue) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ComponentBindingPropertiesValueMapOutput struct{ *pulumi.OutputState }
+
+func (ComponentBindingPropertiesValueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentBindingPropertiesValue)(nil)).Elem()
+}
+
+func (o ComponentBindingPropertiesValueMapOutput) ToComponentBindingPropertiesValueMapOutput() ComponentBindingPropertiesValueMapOutput {
+	return o
+}
+
+func (o ComponentBindingPropertiesValueMapOutput) ToComponentBindingPropertiesValueMapOutputWithContext(ctx context.Context) ComponentBindingPropertiesValueMapOutput {
+	return o
+}
+
+func (o ComponentBindingPropertiesValueMapOutput) MapIndex(k pulumi.StringInput) ComponentBindingPropertiesValueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComponentBindingPropertiesValue {
+		return vs[0].(map[string]ComponentBindingPropertiesValue)[vs[1].(string)]
+	}).(ComponentBindingPropertiesValueOutput)
+}
+
+type ComponentBindingPropertiesValueProperties struct {
+	Bucket        *string              `pulumi:"bucket"`
+	DefaultValue  *string              `pulumi:"defaultValue"`
+	Field         *string              `pulumi:"field"`
+	Key           *string              `pulumi:"key"`
+	Model         *string              `pulumi:"model"`
+	Predicates    []ComponentPredicate `pulumi:"predicates"`
+	SlotName      *string              `pulumi:"slotName"`
+	UserAttribute *string              `pulumi:"userAttribute"`
+}
+
+// ComponentBindingPropertiesValuePropertiesInput is an input type that accepts ComponentBindingPropertiesValuePropertiesArgs and ComponentBindingPropertiesValuePropertiesOutput values.
+// You can construct a concrete instance of `ComponentBindingPropertiesValuePropertiesInput` via:
+//
+//	ComponentBindingPropertiesValuePropertiesArgs{...}
+type ComponentBindingPropertiesValuePropertiesInput interface {
+	pulumi.Input
+
+	ToComponentBindingPropertiesValuePropertiesOutput() ComponentBindingPropertiesValuePropertiesOutput
+	ToComponentBindingPropertiesValuePropertiesOutputWithContext(context.Context) ComponentBindingPropertiesValuePropertiesOutput
+}
+
+type ComponentBindingPropertiesValuePropertiesArgs struct {
+	Bucket        pulumi.StringPtrInput        `pulumi:"bucket"`
+	DefaultValue  pulumi.StringPtrInput        `pulumi:"defaultValue"`
+	Field         pulumi.StringPtrInput        `pulumi:"field"`
+	Key           pulumi.StringPtrInput        `pulumi:"key"`
+	Model         pulumi.StringPtrInput        `pulumi:"model"`
+	Predicates    ComponentPredicateArrayInput `pulumi:"predicates"`
+	SlotName      pulumi.StringPtrInput        `pulumi:"slotName"`
+	UserAttribute pulumi.StringPtrInput        `pulumi:"userAttribute"`
+}
+
+func (ComponentBindingPropertiesValuePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentBindingPropertiesValueProperties)(nil)).Elem()
+}
+
+func (i ComponentBindingPropertiesValuePropertiesArgs) ToComponentBindingPropertiesValuePropertiesOutput() ComponentBindingPropertiesValuePropertiesOutput {
+	return i.ToComponentBindingPropertiesValuePropertiesOutputWithContext(context.Background())
+}
+
+func (i ComponentBindingPropertiesValuePropertiesArgs) ToComponentBindingPropertiesValuePropertiesOutputWithContext(ctx context.Context) ComponentBindingPropertiesValuePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesValuePropertiesOutput)
+}
+
+func (i ComponentBindingPropertiesValuePropertiesArgs) ToComponentBindingPropertiesValuePropertiesPtrOutput() ComponentBindingPropertiesValuePropertiesPtrOutput {
+	return i.ToComponentBindingPropertiesValuePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ComponentBindingPropertiesValuePropertiesArgs) ToComponentBindingPropertiesValuePropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesValuePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesValuePropertiesOutput).ToComponentBindingPropertiesValuePropertiesPtrOutputWithContext(ctx)
+}
+
+// ComponentBindingPropertiesValuePropertiesPtrInput is an input type that accepts ComponentBindingPropertiesValuePropertiesArgs, ComponentBindingPropertiesValuePropertiesPtr and ComponentBindingPropertiesValuePropertiesPtrOutput values.
+// You can construct a concrete instance of `ComponentBindingPropertiesValuePropertiesPtrInput` via:
+//
+//	        ComponentBindingPropertiesValuePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ComponentBindingPropertiesValuePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToComponentBindingPropertiesValuePropertiesPtrOutput() ComponentBindingPropertiesValuePropertiesPtrOutput
+	ToComponentBindingPropertiesValuePropertiesPtrOutputWithContext(context.Context) ComponentBindingPropertiesValuePropertiesPtrOutput
+}
+
+type componentBindingPropertiesValuePropertiesPtrType ComponentBindingPropertiesValuePropertiesArgs
+
+func ComponentBindingPropertiesValuePropertiesPtr(v *ComponentBindingPropertiesValuePropertiesArgs) ComponentBindingPropertiesValuePropertiesPtrInput {
+	return (*componentBindingPropertiesValuePropertiesPtrType)(v)
+}
+
+func (*componentBindingPropertiesValuePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentBindingPropertiesValueProperties)(nil)).Elem()
+}
+
+func (i *componentBindingPropertiesValuePropertiesPtrType) ToComponentBindingPropertiesValuePropertiesPtrOutput() ComponentBindingPropertiesValuePropertiesPtrOutput {
+	return i.ToComponentBindingPropertiesValuePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *componentBindingPropertiesValuePropertiesPtrType) ToComponentBindingPropertiesValuePropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesValuePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentBindingPropertiesValuePropertiesPtrOutput)
+}
+
+type ComponentBindingPropertiesValuePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ComponentBindingPropertiesValuePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentBindingPropertiesValueProperties)(nil)).Elem()
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) ToComponentBindingPropertiesValuePropertiesOutput() ComponentBindingPropertiesValuePropertiesOutput {
+	return o
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) ToComponentBindingPropertiesValuePropertiesOutputWithContext(ctx context.Context) ComponentBindingPropertiesValuePropertiesOutput {
+	return o
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) ToComponentBindingPropertiesValuePropertiesPtrOutput() ComponentBindingPropertiesValuePropertiesPtrOutput {
+	return o.ToComponentBindingPropertiesValuePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) ToComponentBindingPropertiesValuePropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesValuePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentBindingPropertiesValueProperties) *ComponentBindingPropertiesValueProperties {
+		return &v
+	}).(ComponentBindingPropertiesValuePropertiesPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) Predicates() ComponentPredicateArrayOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) []ComponentPredicate { return v.Predicates }).(ComponentPredicateArrayOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) SlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.SlotName }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentBindingPropertiesValueProperties) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
+}
+
+type ComponentBindingPropertiesValuePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentBindingPropertiesValuePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentBindingPropertiesValueProperties)(nil)).Elem()
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) ToComponentBindingPropertiesValuePropertiesPtrOutput() ComponentBindingPropertiesValuePropertiesPtrOutput {
+	return o
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) ToComponentBindingPropertiesValuePropertiesPtrOutputWithContext(ctx context.Context) ComponentBindingPropertiesValuePropertiesPtrOutput {
+	return o
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Elem() ComponentBindingPropertiesValuePropertiesOutput {
+	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) ComponentBindingPropertiesValueProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ComponentBindingPropertiesValueProperties
+		return ret
+	}).(ComponentBindingPropertiesValuePropertiesOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Field
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Model
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) Predicates() ComponentPredicateArrayOutput {
+	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) []ComponentPredicate {
+		if v == nil {
+			return nil
+		}
+		return v.Predicates
+	}).(ComponentPredicateArrayOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) SlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SlotName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentBindingPropertiesValuePropertiesPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentBindingPropertiesValueProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttribute
+	}).(pulumi.StringPtrOutput)
 }
 
 type ComponentChild struct {
-	Children      []ComponentChild    `pulumi:"children"`
-	ComponentType string              `pulumi:"componentType"`
-	Events        *ComponentEvents    `pulumi:"events"`
-	Name          string              `pulumi:"name"`
-	Properties    ComponentProperties `pulumi:"properties"`
-	SourceId      *string             `pulumi:"sourceId"`
+	Children      []ComponentChild             `pulumi:"children"`
+	ComponentType string                       `pulumi:"componentType"`
+	Events        map[string]ComponentEvent    `pulumi:"events"`
+	Name          string                       `pulumi:"name"`
+	Properties    map[string]ComponentProperty `pulumi:"properties"`
+	SourceId      *string                      `pulumi:"sourceId"`
 }
 
 // ComponentChildInput is an input type that accepts ComponentChildArgs and ComponentChildOutput values.
@@ -152,12 +633,12 @@ type ComponentChildInput interface {
 }
 
 type ComponentChildArgs struct {
-	Children      ComponentChildArrayInput `pulumi:"children"`
-	ComponentType pulumi.StringInput       `pulumi:"componentType"`
-	Events        ComponentEventsPtrInput  `pulumi:"events"`
-	Name          pulumi.StringInput       `pulumi:"name"`
-	Properties    ComponentPropertiesInput `pulumi:"properties"`
-	SourceId      pulumi.StringPtrInput    `pulumi:"sourceId"`
+	Children      ComponentChildArrayInput  `pulumi:"children"`
+	ComponentType pulumi.StringInput        `pulumi:"componentType"`
+	Events        ComponentEventMapInput    `pulumi:"events"`
+	Name          pulumi.StringInput        `pulumi:"name"`
+	Properties    ComponentPropertyMapInput `pulumi:"properties"`
+	SourceId      pulumi.StringPtrInput     `pulumi:"sourceId"`
 }
 
 func (ComponentChildArgs) ElementType() reflect.Type {
@@ -219,16 +700,16 @@ func (o ComponentChildOutput) ComponentType() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentChild) string { return v.ComponentType }).(pulumi.StringOutput)
 }
 
-func (o ComponentChildOutput) Events() ComponentEventsPtrOutput {
-	return o.ApplyT(func(v ComponentChild) *ComponentEvents { return v.Events }).(ComponentEventsPtrOutput)
+func (o ComponentChildOutput) Events() ComponentEventMapOutput {
+	return o.ApplyT(func(v ComponentChild) map[string]ComponentEvent { return v.Events }).(ComponentEventMapOutput)
 }
 
 func (o ComponentChildOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ComponentChild) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ComponentChildOutput) Properties() ComponentPropertiesOutput {
-	return o.ApplyT(func(v ComponentChild) ComponentProperties { return v.Properties }).(ComponentPropertiesOutput)
+func (o ComponentChildOutput) Properties() ComponentPropertyMapOutput {
+	return o.ApplyT(func(v ComponentChild) map[string]ComponentProperty { return v.Properties }).(ComponentPropertyMapOutput)
 }
 
 func (o ComponentChildOutput) SourceId() pulumi.StringPtrOutput {
@@ -255,599 +736,1647 @@ func (o ComponentChildArrayOutput) Index(i pulumi.IntInput) ComponentChildOutput
 	}).(ComponentChildOutput)
 }
 
-type ComponentCollectionProperties struct {
+type ComponentConditionProperty struct {
+	Else        *ComponentProperty `pulumi:"else"`
+	Field       *string            `pulumi:"field"`
+	Operand     *string            `pulumi:"operand"`
+	OperandType *string            `pulumi:"operandType"`
+	Operator    *string            `pulumi:"operator"`
+	Property    *string            `pulumi:"property"`
+	Then        *ComponentProperty `pulumi:"then"`
 }
 
-// ComponentCollectionPropertiesInput is an input type that accepts ComponentCollectionPropertiesArgs and ComponentCollectionPropertiesOutput values.
-// You can construct a concrete instance of `ComponentCollectionPropertiesInput` via:
+// ComponentConditionPropertyInput is an input type that accepts ComponentConditionPropertyArgs and ComponentConditionPropertyOutput values.
+// You can construct a concrete instance of `ComponentConditionPropertyInput` via:
 //
-//	ComponentCollectionPropertiesArgs{...}
-type ComponentCollectionPropertiesInput interface {
+//	ComponentConditionPropertyArgs{...}
+type ComponentConditionPropertyInput interface {
 	pulumi.Input
 
-	ToComponentCollectionPropertiesOutput() ComponentCollectionPropertiesOutput
-	ToComponentCollectionPropertiesOutputWithContext(context.Context) ComponentCollectionPropertiesOutput
+	ToComponentConditionPropertyOutput() ComponentConditionPropertyOutput
+	ToComponentConditionPropertyOutputWithContext(context.Context) ComponentConditionPropertyOutput
 }
 
-type ComponentCollectionPropertiesArgs struct {
+type ComponentConditionPropertyArgs struct {
+	Else        ComponentPropertyPtrInput `pulumi:"else"`
+	Field       pulumi.StringPtrInput     `pulumi:"field"`
+	Operand     pulumi.StringPtrInput     `pulumi:"operand"`
+	OperandType pulumi.StringPtrInput     `pulumi:"operandType"`
+	Operator    pulumi.StringPtrInput     `pulumi:"operator"`
+	Property    pulumi.StringPtrInput     `pulumi:"property"`
+	Then        ComponentPropertyPtrInput `pulumi:"then"`
 }
 
-func (ComponentCollectionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentCollectionProperties)(nil)).Elem()
+func (ComponentConditionPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentConditionProperty)(nil)).Elem()
 }
 
-func (i ComponentCollectionPropertiesArgs) ToComponentCollectionPropertiesOutput() ComponentCollectionPropertiesOutput {
-	return i.ToComponentCollectionPropertiesOutputWithContext(context.Background())
+func (i ComponentConditionPropertyArgs) ToComponentConditionPropertyOutput() ComponentConditionPropertyOutput {
+	return i.ToComponentConditionPropertyOutputWithContext(context.Background())
 }
 
-func (i ComponentCollectionPropertiesArgs) ToComponentCollectionPropertiesOutputWithContext(ctx context.Context) ComponentCollectionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentCollectionPropertiesOutput)
+func (i ComponentConditionPropertyArgs) ToComponentConditionPropertyOutputWithContext(ctx context.Context) ComponentConditionPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentConditionPropertyOutput)
 }
 
-func (i ComponentCollectionPropertiesArgs) ToComponentCollectionPropertiesPtrOutput() ComponentCollectionPropertiesPtrOutput {
-	return i.ToComponentCollectionPropertiesPtrOutputWithContext(context.Background())
+func (i ComponentConditionPropertyArgs) ToComponentConditionPropertyPtrOutput() ComponentConditionPropertyPtrOutput {
+	return i.ToComponentConditionPropertyPtrOutputWithContext(context.Background())
 }
 
-func (i ComponentCollectionPropertiesArgs) ToComponentCollectionPropertiesPtrOutputWithContext(ctx context.Context) ComponentCollectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentCollectionPropertiesOutput).ToComponentCollectionPropertiesPtrOutputWithContext(ctx)
+func (i ComponentConditionPropertyArgs) ToComponentConditionPropertyPtrOutputWithContext(ctx context.Context) ComponentConditionPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentConditionPropertyOutput).ToComponentConditionPropertyPtrOutputWithContext(ctx)
 }
 
-// ComponentCollectionPropertiesPtrInput is an input type that accepts ComponentCollectionPropertiesArgs, ComponentCollectionPropertiesPtr and ComponentCollectionPropertiesPtrOutput values.
-// You can construct a concrete instance of `ComponentCollectionPropertiesPtrInput` via:
+// ComponentConditionPropertyPtrInput is an input type that accepts ComponentConditionPropertyArgs, ComponentConditionPropertyPtr and ComponentConditionPropertyPtrOutput values.
+// You can construct a concrete instance of `ComponentConditionPropertyPtrInput` via:
 //
-//	        ComponentCollectionPropertiesArgs{...}
+//	        ComponentConditionPropertyArgs{...}
 //
 //	or:
 //
 //	        nil
-type ComponentCollectionPropertiesPtrInput interface {
+type ComponentConditionPropertyPtrInput interface {
 	pulumi.Input
 
-	ToComponentCollectionPropertiesPtrOutput() ComponentCollectionPropertiesPtrOutput
-	ToComponentCollectionPropertiesPtrOutputWithContext(context.Context) ComponentCollectionPropertiesPtrOutput
+	ToComponentConditionPropertyPtrOutput() ComponentConditionPropertyPtrOutput
+	ToComponentConditionPropertyPtrOutputWithContext(context.Context) ComponentConditionPropertyPtrOutput
 }
 
-type componentCollectionPropertiesPtrType ComponentCollectionPropertiesArgs
+type componentConditionPropertyPtrType ComponentConditionPropertyArgs
 
-func ComponentCollectionPropertiesPtr(v *ComponentCollectionPropertiesArgs) ComponentCollectionPropertiesPtrInput {
-	return (*componentCollectionPropertiesPtrType)(v)
+func ComponentConditionPropertyPtr(v *ComponentConditionPropertyArgs) ComponentConditionPropertyPtrInput {
+	return (*componentConditionPropertyPtrType)(v)
 }
 
-func (*componentCollectionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentCollectionProperties)(nil)).Elem()
+func (*componentConditionPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentConditionProperty)(nil)).Elem()
 }
 
-func (i *componentCollectionPropertiesPtrType) ToComponentCollectionPropertiesPtrOutput() ComponentCollectionPropertiesPtrOutput {
-	return i.ToComponentCollectionPropertiesPtrOutputWithContext(context.Background())
+func (i *componentConditionPropertyPtrType) ToComponentConditionPropertyPtrOutput() ComponentConditionPropertyPtrOutput {
+	return i.ToComponentConditionPropertyPtrOutputWithContext(context.Background())
 }
 
-func (i *componentCollectionPropertiesPtrType) ToComponentCollectionPropertiesPtrOutputWithContext(ctx context.Context) ComponentCollectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentCollectionPropertiesPtrOutput)
+func (i *componentConditionPropertyPtrType) ToComponentConditionPropertyPtrOutputWithContext(ctx context.Context) ComponentConditionPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentConditionPropertyPtrOutput)
 }
 
-type ComponentCollectionPropertiesOutput struct{ *pulumi.OutputState }
+type ComponentConditionPropertyOutput struct{ *pulumi.OutputState }
 
-func (ComponentCollectionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentCollectionProperties)(nil)).Elem()
+func (ComponentConditionPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentConditionProperty)(nil)).Elem()
 }
 
-func (o ComponentCollectionPropertiesOutput) ToComponentCollectionPropertiesOutput() ComponentCollectionPropertiesOutput {
+func (o ComponentConditionPropertyOutput) ToComponentConditionPropertyOutput() ComponentConditionPropertyOutput {
 	return o
 }
 
-func (o ComponentCollectionPropertiesOutput) ToComponentCollectionPropertiesOutputWithContext(ctx context.Context) ComponentCollectionPropertiesOutput {
+func (o ComponentConditionPropertyOutput) ToComponentConditionPropertyOutputWithContext(ctx context.Context) ComponentConditionPropertyOutput {
 	return o
 }
 
-func (o ComponentCollectionPropertiesOutput) ToComponentCollectionPropertiesPtrOutput() ComponentCollectionPropertiesPtrOutput {
-	return o.ToComponentCollectionPropertiesPtrOutputWithContext(context.Background())
+func (o ComponentConditionPropertyOutput) ToComponentConditionPropertyPtrOutput() ComponentConditionPropertyPtrOutput {
+	return o.ToComponentConditionPropertyPtrOutputWithContext(context.Background())
 }
 
-func (o ComponentCollectionPropertiesOutput) ToComponentCollectionPropertiesPtrOutputWithContext(ctx context.Context) ComponentCollectionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentCollectionProperties) *ComponentCollectionProperties {
+func (o ComponentConditionPropertyOutput) ToComponentConditionPropertyPtrOutputWithContext(ctx context.Context) ComponentConditionPropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentConditionProperty) *ComponentConditionProperty {
 		return &v
-	}).(ComponentCollectionPropertiesPtrOutput)
+	}).(ComponentConditionPropertyPtrOutput)
 }
 
-type ComponentCollectionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ComponentCollectionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentCollectionProperties)(nil)).Elem()
+func (o ComponentConditionPropertyOutput) Else() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v ComponentConditionProperty) *ComponentProperty { return v.Else }).(ComponentPropertyPtrOutput)
 }
 
-func (o ComponentCollectionPropertiesPtrOutput) ToComponentCollectionPropertiesPtrOutput() ComponentCollectionPropertiesPtrOutput {
+func (o ComponentConditionPropertyOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyOutput) Operand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.Operand }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyOutput) OperandType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.OperandType }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentConditionProperty) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyOutput) Then() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v ComponentConditionProperty) *ComponentProperty { return v.Then }).(ComponentPropertyPtrOutput)
+}
+
+type ComponentConditionPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentConditionPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentConditionProperty)(nil)).Elem()
+}
+
+func (o ComponentConditionPropertyPtrOutput) ToComponentConditionPropertyPtrOutput() ComponentConditionPropertyPtrOutput {
 	return o
 }
 
-func (o ComponentCollectionPropertiesPtrOutput) ToComponentCollectionPropertiesPtrOutputWithContext(ctx context.Context) ComponentCollectionPropertiesPtrOutput {
+func (o ComponentConditionPropertyPtrOutput) ToComponentConditionPropertyPtrOutputWithContext(ctx context.Context) ComponentConditionPropertyPtrOutput {
 	return o
 }
 
-func (o ComponentCollectionPropertiesPtrOutput) Elem() ComponentCollectionPropertiesOutput {
-	return o.ApplyT(func(v *ComponentCollectionProperties) ComponentCollectionProperties {
+func (o ComponentConditionPropertyPtrOutput) Elem() ComponentConditionPropertyOutput {
+	return o.ApplyT(func(v *ComponentConditionProperty) ComponentConditionProperty {
 		if v != nil {
 			return *v
 		}
-		var ret ComponentCollectionProperties
+		var ret ComponentConditionProperty
 		return ret
-	}).(ComponentCollectionPropertiesOutput)
+	}).(ComponentConditionPropertyOutput)
 }
 
-type ComponentEvents struct {
+func (o ComponentConditionPropertyPtrOutput) Else() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentConditionProperty) *ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Else
+	}).(ComponentPropertyPtrOutput)
 }
 
-// ComponentEventsInput is an input type that accepts ComponentEventsArgs and ComponentEventsOutput values.
-// You can construct a concrete instance of `ComponentEventsInput` via:
+func (o ComponentConditionPropertyPtrOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentConditionProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Field
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyPtrOutput) Operand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentConditionProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operand
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyPtrOutput) OperandType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentConditionProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperandType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentConditionProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyPtrOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentConditionProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Property
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentConditionPropertyPtrOutput) Then() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentConditionProperty) *ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Then
+	}).(ComponentPropertyPtrOutput)
+}
+
+type ComponentDataConfiguration struct {
+	Identifiers []string                `pulumi:"identifiers"`
+	Model       string                  `pulumi:"model"`
+	Predicate   *ComponentPredicate     `pulumi:"predicate"`
+	Sort        []ComponentSortProperty `pulumi:"sort"`
+}
+
+// ComponentDataConfigurationInput is an input type that accepts ComponentDataConfigurationArgs and ComponentDataConfigurationOutput values.
+// You can construct a concrete instance of `ComponentDataConfigurationInput` via:
 //
-//	ComponentEventsArgs{...}
-type ComponentEventsInput interface {
+//	ComponentDataConfigurationArgs{...}
+type ComponentDataConfigurationInput interface {
 	pulumi.Input
 
-	ToComponentEventsOutput() ComponentEventsOutput
-	ToComponentEventsOutputWithContext(context.Context) ComponentEventsOutput
+	ToComponentDataConfigurationOutput() ComponentDataConfigurationOutput
+	ToComponentDataConfigurationOutputWithContext(context.Context) ComponentDataConfigurationOutput
 }
 
-type ComponentEventsArgs struct {
+type ComponentDataConfigurationArgs struct {
+	Identifiers pulumi.StringArrayInput         `pulumi:"identifiers"`
+	Model       pulumi.StringInput              `pulumi:"model"`
+	Predicate   ComponentPredicatePtrInput      `pulumi:"predicate"`
+	Sort        ComponentSortPropertyArrayInput `pulumi:"sort"`
 }
 
-func (ComponentEventsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentEvents)(nil)).Elem()
+func (ComponentDataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentDataConfiguration)(nil)).Elem()
 }
 
-func (i ComponentEventsArgs) ToComponentEventsOutput() ComponentEventsOutput {
-	return i.ToComponentEventsOutputWithContext(context.Background())
+func (i ComponentDataConfigurationArgs) ToComponentDataConfigurationOutput() ComponentDataConfigurationOutput {
+	return i.ToComponentDataConfigurationOutputWithContext(context.Background())
 }
 
-func (i ComponentEventsArgs) ToComponentEventsOutputWithContext(ctx context.Context) ComponentEventsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventsOutput)
+func (i ComponentDataConfigurationArgs) ToComponentDataConfigurationOutputWithContext(ctx context.Context) ComponentDataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentDataConfigurationOutput)
 }
 
-func (i ComponentEventsArgs) ToComponentEventsPtrOutput() ComponentEventsPtrOutput {
-	return i.ToComponentEventsPtrOutputWithContext(context.Background())
-}
-
-func (i ComponentEventsArgs) ToComponentEventsPtrOutputWithContext(ctx context.Context) ComponentEventsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventsOutput).ToComponentEventsPtrOutputWithContext(ctx)
-}
-
-// ComponentEventsPtrInput is an input type that accepts ComponentEventsArgs, ComponentEventsPtr and ComponentEventsPtrOutput values.
-// You can construct a concrete instance of `ComponentEventsPtrInput` via:
+// ComponentDataConfigurationMapInput is an input type that accepts ComponentDataConfigurationMap and ComponentDataConfigurationMapOutput values.
+// You can construct a concrete instance of `ComponentDataConfigurationMapInput` via:
 //
-//	        ComponentEventsArgs{...}
+//	ComponentDataConfigurationMap{ "key": ComponentDataConfigurationArgs{...} }
+type ComponentDataConfigurationMapInput interface {
+	pulumi.Input
+
+	ToComponentDataConfigurationMapOutput() ComponentDataConfigurationMapOutput
+	ToComponentDataConfigurationMapOutputWithContext(context.Context) ComponentDataConfigurationMapOutput
+}
+
+type ComponentDataConfigurationMap map[string]ComponentDataConfigurationInput
+
+func (ComponentDataConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentDataConfiguration)(nil)).Elem()
+}
+
+func (i ComponentDataConfigurationMap) ToComponentDataConfigurationMapOutput() ComponentDataConfigurationMapOutput {
+	return i.ToComponentDataConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i ComponentDataConfigurationMap) ToComponentDataConfigurationMapOutputWithContext(ctx context.Context) ComponentDataConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentDataConfigurationMapOutput)
+}
+
+type ComponentDataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ComponentDataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentDataConfiguration)(nil)).Elem()
+}
+
+func (o ComponentDataConfigurationOutput) ToComponentDataConfigurationOutput() ComponentDataConfigurationOutput {
+	return o
+}
+
+func (o ComponentDataConfigurationOutput) ToComponentDataConfigurationOutputWithContext(ctx context.Context) ComponentDataConfigurationOutput {
+	return o
+}
+
+func (o ComponentDataConfigurationOutput) Identifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ComponentDataConfiguration) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
+}
+
+func (o ComponentDataConfigurationOutput) Model() pulumi.StringOutput {
+	return o.ApplyT(func(v ComponentDataConfiguration) string { return v.Model }).(pulumi.StringOutput)
+}
+
+func (o ComponentDataConfigurationOutput) Predicate() ComponentPredicatePtrOutput {
+	return o.ApplyT(func(v ComponentDataConfiguration) *ComponentPredicate { return v.Predicate }).(ComponentPredicatePtrOutput)
+}
+
+func (o ComponentDataConfigurationOutput) Sort() ComponentSortPropertyArrayOutput {
+	return o.ApplyT(func(v ComponentDataConfiguration) []ComponentSortProperty { return v.Sort }).(ComponentSortPropertyArrayOutput)
+}
+
+type ComponentDataConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (ComponentDataConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentDataConfiguration)(nil)).Elem()
+}
+
+func (o ComponentDataConfigurationMapOutput) ToComponentDataConfigurationMapOutput() ComponentDataConfigurationMapOutput {
+	return o
+}
+
+func (o ComponentDataConfigurationMapOutput) ToComponentDataConfigurationMapOutputWithContext(ctx context.Context) ComponentDataConfigurationMapOutput {
+	return o
+}
+
+func (o ComponentDataConfigurationMapOutput) MapIndex(k pulumi.StringInput) ComponentDataConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComponentDataConfiguration {
+		return vs[0].(map[string]ComponentDataConfiguration)[vs[1].(string)]
+	}).(ComponentDataConfigurationOutput)
+}
+
+type ComponentEvent struct {
+	Action       *string                    `pulumi:"action"`
+	BindingEvent *string                    `pulumi:"bindingEvent"`
+	Parameters   *ComponentActionParameters `pulumi:"parameters"`
+}
+
+// ComponentEventInput is an input type that accepts ComponentEventArgs and ComponentEventOutput values.
+// You can construct a concrete instance of `ComponentEventInput` via:
+//
+//	ComponentEventArgs{...}
+type ComponentEventInput interface {
+	pulumi.Input
+
+	ToComponentEventOutput() ComponentEventOutput
+	ToComponentEventOutputWithContext(context.Context) ComponentEventOutput
+}
+
+type ComponentEventArgs struct {
+	Action       pulumi.StringPtrInput             `pulumi:"action"`
+	BindingEvent pulumi.StringPtrInput             `pulumi:"bindingEvent"`
+	Parameters   ComponentActionParametersPtrInput `pulumi:"parameters"`
+}
+
+func (ComponentEventArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentEvent)(nil)).Elem()
+}
+
+func (i ComponentEventArgs) ToComponentEventOutput() ComponentEventOutput {
+	return i.ToComponentEventOutputWithContext(context.Background())
+}
+
+func (i ComponentEventArgs) ToComponentEventOutputWithContext(ctx context.Context) ComponentEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventOutput)
+}
+
+// ComponentEventMapInput is an input type that accepts ComponentEventMap and ComponentEventMapOutput values.
+// You can construct a concrete instance of `ComponentEventMapInput` via:
+//
+//	ComponentEventMap{ "key": ComponentEventArgs{...} }
+type ComponentEventMapInput interface {
+	pulumi.Input
+
+	ToComponentEventMapOutput() ComponentEventMapOutput
+	ToComponentEventMapOutputWithContext(context.Context) ComponentEventMapOutput
+}
+
+type ComponentEventMap map[string]ComponentEventInput
+
+func (ComponentEventMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentEvent)(nil)).Elem()
+}
+
+func (i ComponentEventMap) ToComponentEventMapOutput() ComponentEventMapOutput {
+	return i.ToComponentEventMapOutputWithContext(context.Background())
+}
+
+func (i ComponentEventMap) ToComponentEventMapOutputWithContext(ctx context.Context) ComponentEventMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventMapOutput)
+}
+
+type ComponentEventOutput struct{ *pulumi.OutputState }
+
+func (ComponentEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentEvent)(nil)).Elem()
+}
+
+func (o ComponentEventOutput) ToComponentEventOutput() ComponentEventOutput {
+	return o
+}
+
+func (o ComponentEventOutput) ToComponentEventOutputWithContext(ctx context.Context) ComponentEventOutput {
+	return o
+}
+
+func (o ComponentEventOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentEvent) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentEventOutput) BindingEvent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentEvent) *string { return v.BindingEvent }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentEventOutput) Parameters() ComponentActionParametersPtrOutput {
+	return o.ApplyT(func(v ComponentEvent) *ComponentActionParameters { return v.Parameters }).(ComponentActionParametersPtrOutput)
+}
+
+type ComponentEventMapOutput struct{ *pulumi.OutputState }
+
+func (ComponentEventMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentEvent)(nil)).Elem()
+}
+
+func (o ComponentEventMapOutput) ToComponentEventMapOutput() ComponentEventMapOutput {
+	return o
+}
+
+func (o ComponentEventMapOutput) ToComponentEventMapOutputWithContext(ctx context.Context) ComponentEventMapOutput {
+	return o
+}
+
+func (o ComponentEventMapOutput) MapIndex(k pulumi.StringInput) ComponentEventOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComponentEvent {
+		return vs[0].(map[string]ComponentEvent)[vs[1].(string)]
+	}).(ComponentEventOutput)
+}
+
+type ComponentFormBindingElement struct {
+	Element  string `pulumi:"element"`
+	Property string `pulumi:"property"`
+}
+
+// ComponentFormBindingElementInput is an input type that accepts ComponentFormBindingElementArgs and ComponentFormBindingElementOutput values.
+// You can construct a concrete instance of `ComponentFormBindingElementInput` via:
+//
+//	ComponentFormBindingElementArgs{...}
+type ComponentFormBindingElementInput interface {
+	pulumi.Input
+
+	ToComponentFormBindingElementOutput() ComponentFormBindingElementOutput
+	ToComponentFormBindingElementOutputWithContext(context.Context) ComponentFormBindingElementOutput
+}
+
+type ComponentFormBindingElementArgs struct {
+	Element  pulumi.StringInput `pulumi:"element"`
+	Property pulumi.StringInput `pulumi:"property"`
+}
+
+func (ComponentFormBindingElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentFormBindingElement)(nil)).Elem()
+}
+
+func (i ComponentFormBindingElementArgs) ToComponentFormBindingElementOutput() ComponentFormBindingElementOutput {
+	return i.ToComponentFormBindingElementOutputWithContext(context.Background())
+}
+
+func (i ComponentFormBindingElementArgs) ToComponentFormBindingElementOutputWithContext(ctx context.Context) ComponentFormBindingElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentFormBindingElementOutput)
+}
+
+// ComponentFormBindingElementMapInput is an input type that accepts ComponentFormBindingElementMap and ComponentFormBindingElementMapOutput values.
+// You can construct a concrete instance of `ComponentFormBindingElementMapInput` via:
+//
+//	ComponentFormBindingElementMap{ "key": ComponentFormBindingElementArgs{...} }
+type ComponentFormBindingElementMapInput interface {
+	pulumi.Input
+
+	ToComponentFormBindingElementMapOutput() ComponentFormBindingElementMapOutput
+	ToComponentFormBindingElementMapOutputWithContext(context.Context) ComponentFormBindingElementMapOutput
+}
+
+type ComponentFormBindingElementMap map[string]ComponentFormBindingElementInput
+
+func (ComponentFormBindingElementMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentFormBindingElement)(nil)).Elem()
+}
+
+func (i ComponentFormBindingElementMap) ToComponentFormBindingElementMapOutput() ComponentFormBindingElementMapOutput {
+	return i.ToComponentFormBindingElementMapOutputWithContext(context.Background())
+}
+
+func (i ComponentFormBindingElementMap) ToComponentFormBindingElementMapOutputWithContext(ctx context.Context) ComponentFormBindingElementMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentFormBindingElementMapOutput)
+}
+
+type ComponentFormBindingElementOutput struct{ *pulumi.OutputState }
+
+func (ComponentFormBindingElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentFormBindingElement)(nil)).Elem()
+}
+
+func (o ComponentFormBindingElementOutput) ToComponentFormBindingElementOutput() ComponentFormBindingElementOutput {
+	return o
+}
+
+func (o ComponentFormBindingElementOutput) ToComponentFormBindingElementOutputWithContext(ctx context.Context) ComponentFormBindingElementOutput {
+	return o
+}
+
+func (o ComponentFormBindingElementOutput) Element() pulumi.StringOutput {
+	return o.ApplyT(func(v ComponentFormBindingElement) string { return v.Element }).(pulumi.StringOutput)
+}
+
+func (o ComponentFormBindingElementOutput) Property() pulumi.StringOutput {
+	return o.ApplyT(func(v ComponentFormBindingElement) string { return v.Property }).(pulumi.StringOutput)
+}
+
+type ComponentFormBindingElementMapOutput struct{ *pulumi.OutputState }
+
+func (ComponentFormBindingElementMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentFormBindingElement)(nil)).Elem()
+}
+
+func (o ComponentFormBindingElementMapOutput) ToComponentFormBindingElementMapOutput() ComponentFormBindingElementMapOutput {
+	return o
+}
+
+func (o ComponentFormBindingElementMapOutput) ToComponentFormBindingElementMapOutputWithContext(ctx context.Context) ComponentFormBindingElementMapOutput {
+	return o
+}
+
+func (o ComponentFormBindingElementMapOutput) MapIndex(k pulumi.StringInput) ComponentFormBindingElementOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComponentFormBindingElement {
+		return vs[0].(map[string]ComponentFormBindingElement)[vs[1].(string)]
+	}).(ComponentFormBindingElementOutput)
+}
+
+type ComponentMutationActionSetStateParameter struct {
+	ComponentName string            `pulumi:"componentName"`
+	Property      string            `pulumi:"property"`
+	Set           ComponentProperty `pulumi:"set"`
+}
+
+// ComponentMutationActionSetStateParameterInput is an input type that accepts ComponentMutationActionSetStateParameterArgs and ComponentMutationActionSetStateParameterOutput values.
+// You can construct a concrete instance of `ComponentMutationActionSetStateParameterInput` via:
+//
+//	ComponentMutationActionSetStateParameterArgs{...}
+type ComponentMutationActionSetStateParameterInput interface {
+	pulumi.Input
+
+	ToComponentMutationActionSetStateParameterOutput() ComponentMutationActionSetStateParameterOutput
+	ToComponentMutationActionSetStateParameterOutputWithContext(context.Context) ComponentMutationActionSetStateParameterOutput
+}
+
+type ComponentMutationActionSetStateParameterArgs struct {
+	ComponentName pulumi.StringInput     `pulumi:"componentName"`
+	Property      pulumi.StringInput     `pulumi:"property"`
+	Set           ComponentPropertyInput `pulumi:"set"`
+}
+
+func (ComponentMutationActionSetStateParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentMutationActionSetStateParameter)(nil)).Elem()
+}
+
+func (i ComponentMutationActionSetStateParameterArgs) ToComponentMutationActionSetStateParameterOutput() ComponentMutationActionSetStateParameterOutput {
+	return i.ToComponentMutationActionSetStateParameterOutputWithContext(context.Background())
+}
+
+func (i ComponentMutationActionSetStateParameterArgs) ToComponentMutationActionSetStateParameterOutputWithContext(ctx context.Context) ComponentMutationActionSetStateParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentMutationActionSetStateParameterOutput)
+}
+
+func (i ComponentMutationActionSetStateParameterArgs) ToComponentMutationActionSetStateParameterPtrOutput() ComponentMutationActionSetStateParameterPtrOutput {
+	return i.ToComponentMutationActionSetStateParameterPtrOutputWithContext(context.Background())
+}
+
+func (i ComponentMutationActionSetStateParameterArgs) ToComponentMutationActionSetStateParameterPtrOutputWithContext(ctx context.Context) ComponentMutationActionSetStateParameterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentMutationActionSetStateParameterOutput).ToComponentMutationActionSetStateParameterPtrOutputWithContext(ctx)
+}
+
+// ComponentMutationActionSetStateParameterPtrInput is an input type that accepts ComponentMutationActionSetStateParameterArgs, ComponentMutationActionSetStateParameterPtr and ComponentMutationActionSetStateParameterPtrOutput values.
+// You can construct a concrete instance of `ComponentMutationActionSetStateParameterPtrInput` via:
+//
+//	        ComponentMutationActionSetStateParameterArgs{...}
 //
 //	or:
 //
 //	        nil
-type ComponentEventsPtrInput interface {
+type ComponentMutationActionSetStateParameterPtrInput interface {
 	pulumi.Input
 
-	ToComponentEventsPtrOutput() ComponentEventsPtrOutput
-	ToComponentEventsPtrOutputWithContext(context.Context) ComponentEventsPtrOutput
+	ToComponentMutationActionSetStateParameterPtrOutput() ComponentMutationActionSetStateParameterPtrOutput
+	ToComponentMutationActionSetStateParameterPtrOutputWithContext(context.Context) ComponentMutationActionSetStateParameterPtrOutput
 }
 
-type componentEventsPtrType ComponentEventsArgs
+type componentMutationActionSetStateParameterPtrType ComponentMutationActionSetStateParameterArgs
 
-func ComponentEventsPtr(v *ComponentEventsArgs) ComponentEventsPtrInput {
-	return (*componentEventsPtrType)(v)
+func ComponentMutationActionSetStateParameterPtr(v *ComponentMutationActionSetStateParameterArgs) ComponentMutationActionSetStateParameterPtrInput {
+	return (*componentMutationActionSetStateParameterPtrType)(v)
 }
 
-func (*componentEventsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentEvents)(nil)).Elem()
+func (*componentMutationActionSetStateParameterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentMutationActionSetStateParameter)(nil)).Elem()
 }
 
-func (i *componentEventsPtrType) ToComponentEventsPtrOutput() ComponentEventsPtrOutput {
-	return i.ToComponentEventsPtrOutputWithContext(context.Background())
+func (i *componentMutationActionSetStateParameterPtrType) ToComponentMutationActionSetStateParameterPtrOutput() ComponentMutationActionSetStateParameterPtrOutput {
+	return i.ToComponentMutationActionSetStateParameterPtrOutputWithContext(context.Background())
 }
 
-func (i *componentEventsPtrType) ToComponentEventsPtrOutputWithContext(ctx context.Context) ComponentEventsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentEventsPtrOutput)
+func (i *componentMutationActionSetStateParameterPtrType) ToComponentMutationActionSetStateParameterPtrOutputWithContext(ctx context.Context) ComponentMutationActionSetStateParameterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentMutationActionSetStateParameterPtrOutput)
 }
 
-type ComponentEventsOutput struct{ *pulumi.OutputState }
+type ComponentMutationActionSetStateParameterOutput struct{ *pulumi.OutputState }
 
-func (ComponentEventsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentEvents)(nil)).Elem()
+func (ComponentMutationActionSetStateParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentMutationActionSetStateParameter)(nil)).Elem()
 }
 
-func (o ComponentEventsOutput) ToComponentEventsOutput() ComponentEventsOutput {
+func (o ComponentMutationActionSetStateParameterOutput) ToComponentMutationActionSetStateParameterOutput() ComponentMutationActionSetStateParameterOutput {
 	return o
 }
 
-func (o ComponentEventsOutput) ToComponentEventsOutputWithContext(ctx context.Context) ComponentEventsOutput {
+func (o ComponentMutationActionSetStateParameterOutput) ToComponentMutationActionSetStateParameterOutputWithContext(ctx context.Context) ComponentMutationActionSetStateParameterOutput {
 	return o
 }
 
-func (o ComponentEventsOutput) ToComponentEventsPtrOutput() ComponentEventsPtrOutput {
-	return o.ToComponentEventsPtrOutputWithContext(context.Background())
+func (o ComponentMutationActionSetStateParameterOutput) ToComponentMutationActionSetStateParameterPtrOutput() ComponentMutationActionSetStateParameterPtrOutput {
+	return o.ToComponentMutationActionSetStateParameterPtrOutputWithContext(context.Background())
 }
 
-func (o ComponentEventsOutput) ToComponentEventsPtrOutputWithContext(ctx context.Context) ComponentEventsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentEvents) *ComponentEvents {
+func (o ComponentMutationActionSetStateParameterOutput) ToComponentMutationActionSetStateParameterPtrOutputWithContext(ctx context.Context) ComponentMutationActionSetStateParameterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentMutationActionSetStateParameter) *ComponentMutationActionSetStateParameter {
 		return &v
-	}).(ComponentEventsPtrOutput)
+	}).(ComponentMutationActionSetStateParameterPtrOutput)
 }
 
-type ComponentEventsPtrOutput struct{ *pulumi.OutputState }
-
-func (ComponentEventsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentEvents)(nil)).Elem()
+func (o ComponentMutationActionSetStateParameterOutput) ComponentName() pulumi.StringOutput {
+	return o.ApplyT(func(v ComponentMutationActionSetStateParameter) string { return v.ComponentName }).(pulumi.StringOutput)
 }
 
-func (o ComponentEventsPtrOutput) ToComponentEventsPtrOutput() ComponentEventsPtrOutput {
+func (o ComponentMutationActionSetStateParameterOutput) Property() pulumi.StringOutput {
+	return o.ApplyT(func(v ComponentMutationActionSetStateParameter) string { return v.Property }).(pulumi.StringOutput)
+}
+
+func (o ComponentMutationActionSetStateParameterOutput) Set() ComponentPropertyOutput {
+	return o.ApplyT(func(v ComponentMutationActionSetStateParameter) ComponentProperty { return v.Set }).(ComponentPropertyOutput)
+}
+
+type ComponentMutationActionSetStateParameterPtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentMutationActionSetStateParameterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentMutationActionSetStateParameter)(nil)).Elem()
+}
+
+func (o ComponentMutationActionSetStateParameterPtrOutput) ToComponentMutationActionSetStateParameterPtrOutput() ComponentMutationActionSetStateParameterPtrOutput {
 	return o
 }
 
-func (o ComponentEventsPtrOutput) ToComponentEventsPtrOutputWithContext(ctx context.Context) ComponentEventsPtrOutput {
+func (o ComponentMutationActionSetStateParameterPtrOutput) ToComponentMutationActionSetStateParameterPtrOutputWithContext(ctx context.Context) ComponentMutationActionSetStateParameterPtrOutput {
 	return o
 }
 
-func (o ComponentEventsPtrOutput) Elem() ComponentEventsOutput {
-	return o.ApplyT(func(v *ComponentEvents) ComponentEvents {
+func (o ComponentMutationActionSetStateParameterPtrOutput) Elem() ComponentMutationActionSetStateParameterOutput {
+	return o.ApplyT(func(v *ComponentMutationActionSetStateParameter) ComponentMutationActionSetStateParameter {
 		if v != nil {
 			return *v
 		}
-		var ret ComponentEvents
+		var ret ComponentMutationActionSetStateParameter
 		return ret
-	}).(ComponentEventsOutput)
+	}).(ComponentMutationActionSetStateParameterOutput)
 }
 
-type ComponentOverrides struct {
+func (o ComponentMutationActionSetStateParameterPtrOutput) ComponentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentMutationActionSetStateParameter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComponentName
+	}).(pulumi.StringPtrOutput)
 }
 
-// ComponentOverridesInput is an input type that accepts ComponentOverridesArgs and ComponentOverridesOutput values.
-// You can construct a concrete instance of `ComponentOverridesInput` via:
+func (o ComponentMutationActionSetStateParameterPtrOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentMutationActionSetStateParameter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Property
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentMutationActionSetStateParameterPtrOutput) Set() ComponentPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentMutationActionSetStateParameter) *ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return &v.Set
+	}).(ComponentPropertyPtrOutput)
+}
+
+type ComponentPredicate struct {
+	And         []ComponentPredicate `pulumi:"and"`
+	Field       *string              `pulumi:"field"`
+	Operand     *string              `pulumi:"operand"`
+	OperandType *string              `pulumi:"operandType"`
+	Operator    *string              `pulumi:"operator"`
+	Or          []ComponentPredicate `pulumi:"or"`
+}
+
+// ComponentPredicateInput is an input type that accepts ComponentPredicateArgs and ComponentPredicateOutput values.
+// You can construct a concrete instance of `ComponentPredicateInput` via:
 //
-//	ComponentOverridesArgs{...}
-type ComponentOverridesInput interface {
+//	ComponentPredicateArgs{...}
+type ComponentPredicateInput interface {
 	pulumi.Input
 
-	ToComponentOverridesOutput() ComponentOverridesOutput
-	ToComponentOverridesOutputWithContext(context.Context) ComponentOverridesOutput
+	ToComponentPredicateOutput() ComponentPredicateOutput
+	ToComponentPredicateOutputWithContext(context.Context) ComponentPredicateOutput
 }
 
-type ComponentOverridesArgs struct {
+type ComponentPredicateArgs struct {
+	And         ComponentPredicateArrayInput `pulumi:"and"`
+	Field       pulumi.StringPtrInput        `pulumi:"field"`
+	Operand     pulumi.StringPtrInput        `pulumi:"operand"`
+	OperandType pulumi.StringPtrInput        `pulumi:"operandType"`
+	Operator    pulumi.StringPtrInput        `pulumi:"operator"`
+	Or          ComponentPredicateArrayInput `pulumi:"or"`
 }
 
-func (ComponentOverridesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentOverrides)(nil)).Elem()
+func (ComponentPredicateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentPredicate)(nil)).Elem()
 }
 
-func (i ComponentOverridesArgs) ToComponentOverridesOutput() ComponentOverridesOutput {
-	return i.ToComponentOverridesOutputWithContext(context.Background())
+func (i ComponentPredicateArgs) ToComponentPredicateOutput() ComponentPredicateOutput {
+	return i.ToComponentPredicateOutputWithContext(context.Background())
 }
 
-func (i ComponentOverridesArgs) ToComponentOverridesOutputWithContext(ctx context.Context) ComponentOverridesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentOverridesOutput)
+func (i ComponentPredicateArgs) ToComponentPredicateOutputWithContext(ctx context.Context) ComponentPredicateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPredicateOutput)
 }
 
-func (i ComponentOverridesArgs) ToComponentOverridesPtrOutput() ComponentOverridesPtrOutput {
-	return i.ToComponentOverridesPtrOutputWithContext(context.Background())
+func (i ComponentPredicateArgs) ToComponentPredicatePtrOutput() ComponentPredicatePtrOutput {
+	return i.ToComponentPredicatePtrOutputWithContext(context.Background())
 }
 
-func (i ComponentOverridesArgs) ToComponentOverridesPtrOutputWithContext(ctx context.Context) ComponentOverridesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentOverridesOutput).ToComponentOverridesPtrOutputWithContext(ctx)
+func (i ComponentPredicateArgs) ToComponentPredicatePtrOutputWithContext(ctx context.Context) ComponentPredicatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPredicateOutput).ToComponentPredicatePtrOutputWithContext(ctx)
 }
 
-// ComponentOverridesPtrInput is an input type that accepts ComponentOverridesArgs, ComponentOverridesPtr and ComponentOverridesPtrOutput values.
-// You can construct a concrete instance of `ComponentOverridesPtrInput` via:
+// ComponentPredicatePtrInput is an input type that accepts ComponentPredicateArgs, ComponentPredicatePtr and ComponentPredicatePtrOutput values.
+// You can construct a concrete instance of `ComponentPredicatePtrInput` via:
 //
-//	        ComponentOverridesArgs{...}
+//	        ComponentPredicateArgs{...}
 //
 //	or:
 //
 //	        nil
-type ComponentOverridesPtrInput interface {
+type ComponentPredicatePtrInput interface {
 	pulumi.Input
 
-	ToComponentOverridesPtrOutput() ComponentOverridesPtrOutput
-	ToComponentOverridesPtrOutputWithContext(context.Context) ComponentOverridesPtrOutput
+	ToComponentPredicatePtrOutput() ComponentPredicatePtrOutput
+	ToComponentPredicatePtrOutputWithContext(context.Context) ComponentPredicatePtrOutput
 }
 
-type componentOverridesPtrType ComponentOverridesArgs
+type componentPredicatePtrType ComponentPredicateArgs
 
-func ComponentOverridesPtr(v *ComponentOverridesArgs) ComponentOverridesPtrInput {
-	return (*componentOverridesPtrType)(v)
+func ComponentPredicatePtr(v *ComponentPredicateArgs) ComponentPredicatePtrInput {
+	return (*componentPredicatePtrType)(v)
 }
 
-func (*componentOverridesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentOverrides)(nil)).Elem()
+func (*componentPredicatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentPredicate)(nil)).Elem()
 }
 
-func (i *componentOverridesPtrType) ToComponentOverridesPtrOutput() ComponentOverridesPtrOutput {
-	return i.ToComponentOverridesPtrOutputWithContext(context.Background())
+func (i *componentPredicatePtrType) ToComponentPredicatePtrOutput() ComponentPredicatePtrOutput {
+	return i.ToComponentPredicatePtrOutputWithContext(context.Background())
 }
 
-func (i *componentOverridesPtrType) ToComponentOverridesPtrOutputWithContext(ctx context.Context) ComponentOverridesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentOverridesPtrOutput)
+func (i *componentPredicatePtrType) ToComponentPredicatePtrOutputWithContext(ctx context.Context) ComponentPredicatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPredicatePtrOutput)
 }
 
-type ComponentOverridesOutput struct{ *pulumi.OutputState }
+// ComponentPredicateArrayInput is an input type that accepts ComponentPredicateArray and ComponentPredicateArrayOutput values.
+// You can construct a concrete instance of `ComponentPredicateArrayInput` via:
+//
+//	ComponentPredicateArray{ ComponentPredicateArgs{...} }
+type ComponentPredicateArrayInput interface {
+	pulumi.Input
 
-func (ComponentOverridesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentOverrides)(nil)).Elem()
+	ToComponentPredicateArrayOutput() ComponentPredicateArrayOutput
+	ToComponentPredicateArrayOutputWithContext(context.Context) ComponentPredicateArrayOutput
 }
 
-func (o ComponentOverridesOutput) ToComponentOverridesOutput() ComponentOverridesOutput {
+type ComponentPredicateArray []ComponentPredicateInput
+
+func (ComponentPredicateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComponentPredicate)(nil)).Elem()
+}
+
+func (i ComponentPredicateArray) ToComponentPredicateArrayOutput() ComponentPredicateArrayOutput {
+	return i.ToComponentPredicateArrayOutputWithContext(context.Background())
+}
+
+func (i ComponentPredicateArray) ToComponentPredicateArrayOutputWithContext(ctx context.Context) ComponentPredicateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPredicateArrayOutput)
+}
+
+type ComponentPredicateOutput struct{ *pulumi.OutputState }
+
+func (ComponentPredicateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentPredicate)(nil)).Elem()
+}
+
+func (o ComponentPredicateOutput) ToComponentPredicateOutput() ComponentPredicateOutput {
 	return o
 }
 
-func (o ComponentOverridesOutput) ToComponentOverridesOutputWithContext(ctx context.Context) ComponentOverridesOutput {
+func (o ComponentPredicateOutput) ToComponentPredicateOutputWithContext(ctx context.Context) ComponentPredicateOutput {
 	return o
 }
 
-func (o ComponentOverridesOutput) ToComponentOverridesPtrOutput() ComponentOverridesPtrOutput {
-	return o.ToComponentOverridesPtrOutputWithContext(context.Background())
+func (o ComponentPredicateOutput) ToComponentPredicatePtrOutput() ComponentPredicatePtrOutput {
+	return o.ToComponentPredicatePtrOutputWithContext(context.Background())
 }
 
-func (o ComponentOverridesOutput) ToComponentOverridesPtrOutputWithContext(ctx context.Context) ComponentOverridesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentOverrides) *ComponentOverrides {
+func (o ComponentPredicateOutput) ToComponentPredicatePtrOutputWithContext(ctx context.Context) ComponentPredicatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentPredicate) *ComponentPredicate {
 		return &v
-	}).(ComponentOverridesPtrOutput)
+	}).(ComponentPredicatePtrOutput)
 }
 
-type ComponentOverridesPtrOutput struct{ *pulumi.OutputState }
-
-func (ComponentOverridesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentOverrides)(nil)).Elem()
+func (o ComponentPredicateOutput) And() ComponentPredicateArrayOutput {
+	return o.ApplyT(func(v ComponentPredicate) []ComponentPredicate { return v.And }).(ComponentPredicateArrayOutput)
 }
 
-func (o ComponentOverridesPtrOutput) ToComponentOverridesPtrOutput() ComponentOverridesPtrOutput {
+func (o ComponentPredicateOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentPredicate) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPredicateOutput) Operand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentPredicate) *string { return v.Operand }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPredicateOutput) OperandType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentPredicate) *string { return v.OperandType }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPredicateOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentPredicate) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPredicateOutput) Or() ComponentPredicateArrayOutput {
+	return o.ApplyT(func(v ComponentPredicate) []ComponentPredicate { return v.Or }).(ComponentPredicateArrayOutput)
+}
+
+type ComponentPredicatePtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentPredicatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentPredicate)(nil)).Elem()
+}
+
+func (o ComponentPredicatePtrOutput) ToComponentPredicatePtrOutput() ComponentPredicatePtrOutput {
 	return o
 }
 
-func (o ComponentOverridesPtrOutput) ToComponentOverridesPtrOutputWithContext(ctx context.Context) ComponentOverridesPtrOutput {
+func (o ComponentPredicatePtrOutput) ToComponentPredicatePtrOutputWithContext(ctx context.Context) ComponentPredicatePtrOutput {
 	return o
 }
 
-func (o ComponentOverridesPtrOutput) Elem() ComponentOverridesOutput {
-	return o.ApplyT(func(v *ComponentOverrides) ComponentOverrides {
+func (o ComponentPredicatePtrOutput) Elem() ComponentPredicateOutput {
+	return o.ApplyT(func(v *ComponentPredicate) ComponentPredicate {
 		if v != nil {
 			return *v
 		}
-		var ret ComponentOverrides
+		var ret ComponentPredicate
 		return ret
-	}).(ComponentOverridesOutput)
+	}).(ComponentPredicateOutput)
 }
 
-type ComponentProperties struct {
+func (o ComponentPredicatePtrOutput) And() ComponentPredicateArrayOutput {
+	return o.ApplyT(func(v *ComponentPredicate) []ComponentPredicate {
+		if v == nil {
+			return nil
+		}
+		return v.And
+	}).(ComponentPredicateArrayOutput)
 }
 
-// ComponentPropertiesInput is an input type that accepts ComponentPropertiesArgs and ComponentPropertiesOutput values.
-// You can construct a concrete instance of `ComponentPropertiesInput` via:
+func (o ComponentPredicatePtrOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentPredicate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Field
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPredicatePtrOutput) Operand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentPredicate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operand
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPredicatePtrOutput) OperandType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentPredicate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperandType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPredicatePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentPredicate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPredicatePtrOutput) Or() ComponentPredicateArrayOutput {
+	return o.ApplyT(func(v *ComponentPredicate) []ComponentPredicate {
+		if v == nil {
+			return nil
+		}
+		return v.Or
+	}).(ComponentPredicateArrayOutput)
+}
+
+type ComponentPredicateArrayOutput struct{ *pulumi.OutputState }
+
+func (ComponentPredicateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComponentPredicate)(nil)).Elem()
+}
+
+func (o ComponentPredicateArrayOutput) ToComponentPredicateArrayOutput() ComponentPredicateArrayOutput {
+	return o
+}
+
+func (o ComponentPredicateArrayOutput) ToComponentPredicateArrayOutputWithContext(ctx context.Context) ComponentPredicateArrayOutput {
+	return o
+}
+
+func (o ComponentPredicateArrayOutput) Index(i pulumi.IntInput) ComponentPredicateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComponentPredicate {
+		return vs[0].([]ComponentPredicate)[vs[1].(int)]
+	}).(ComponentPredicateOutput)
+}
+
+type ComponentProperty struct {
+	BindingProperties           *ComponentPropertyBindingProperties    `pulumi:"bindingProperties"`
+	Bindings                    map[string]ComponentFormBindingElement `pulumi:"bindings"`
+	CollectionBindingProperties *ComponentPropertyBindingProperties    `pulumi:"collectionBindingProperties"`
+	ComponentName               *string                                `pulumi:"componentName"`
+	Concat                      []ComponentProperty                    `pulumi:"concat"`
+	Condition                   *ComponentConditionProperty            `pulumi:"condition"`
+	Configured                  *bool                                  `pulumi:"configured"`
+	DefaultValue                *string                                `pulumi:"defaultValue"`
+	Event                       *string                                `pulumi:"event"`
+	ImportedValue               *string                                `pulumi:"importedValue"`
+	Model                       *string                                `pulumi:"model"`
+	Property                    *string                                `pulumi:"property"`
+	Type                        *string                                `pulumi:"type"`
+	UserAttribute               *string                                `pulumi:"userAttribute"`
+	Value                       *string                                `pulumi:"value"`
+}
+
+// ComponentPropertyInput is an input type that accepts ComponentPropertyArgs and ComponentPropertyOutput values.
+// You can construct a concrete instance of `ComponentPropertyInput` via:
 //
-//	ComponentPropertiesArgs{...}
-type ComponentPropertiesInput interface {
+//	ComponentPropertyArgs{...}
+type ComponentPropertyInput interface {
 	pulumi.Input
 
-	ToComponentPropertiesOutput() ComponentPropertiesOutput
-	ToComponentPropertiesOutputWithContext(context.Context) ComponentPropertiesOutput
+	ToComponentPropertyOutput() ComponentPropertyOutput
+	ToComponentPropertyOutputWithContext(context.Context) ComponentPropertyOutput
 }
 
-type ComponentPropertiesArgs struct {
+type ComponentPropertyArgs struct {
+	BindingProperties           ComponentPropertyBindingPropertiesPtrInput `pulumi:"bindingProperties"`
+	Bindings                    ComponentFormBindingElementMapInput        `pulumi:"bindings"`
+	CollectionBindingProperties ComponentPropertyBindingPropertiesPtrInput `pulumi:"collectionBindingProperties"`
+	ComponentName               pulumi.StringPtrInput                      `pulumi:"componentName"`
+	Concat                      ComponentPropertyArrayInput                `pulumi:"concat"`
+	Condition                   ComponentConditionPropertyPtrInput         `pulumi:"condition"`
+	Configured                  pulumi.BoolPtrInput                        `pulumi:"configured"`
+	DefaultValue                pulumi.StringPtrInput                      `pulumi:"defaultValue"`
+	Event                       pulumi.StringPtrInput                      `pulumi:"event"`
+	ImportedValue               pulumi.StringPtrInput                      `pulumi:"importedValue"`
+	Model                       pulumi.StringPtrInput                      `pulumi:"model"`
+	Property                    pulumi.StringPtrInput                      `pulumi:"property"`
+	Type                        pulumi.StringPtrInput                      `pulumi:"type"`
+	UserAttribute               pulumi.StringPtrInput                      `pulumi:"userAttribute"`
+	Value                       pulumi.StringPtrInput                      `pulumi:"value"`
 }
 
-func (ComponentPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentProperties)(nil)).Elem()
+func (ComponentPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentProperty)(nil)).Elem()
 }
 
-func (i ComponentPropertiesArgs) ToComponentPropertiesOutput() ComponentPropertiesOutput {
-	return i.ToComponentPropertiesOutputWithContext(context.Background())
+func (i ComponentPropertyArgs) ToComponentPropertyOutput() ComponentPropertyOutput {
+	return i.ToComponentPropertyOutputWithContext(context.Background())
 }
 
-func (i ComponentPropertiesArgs) ToComponentPropertiesOutputWithContext(ctx context.Context) ComponentPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertiesOutput)
+func (i ComponentPropertyArgs) ToComponentPropertyOutputWithContext(ctx context.Context) ComponentPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertyOutput)
 }
 
-func (i ComponentPropertiesArgs) ToComponentPropertiesPtrOutput() ComponentPropertiesPtrOutput {
-	return i.ToComponentPropertiesPtrOutputWithContext(context.Background())
+func (i ComponentPropertyArgs) ToComponentPropertyPtrOutput() ComponentPropertyPtrOutput {
+	return i.ToComponentPropertyPtrOutputWithContext(context.Background())
 }
 
-func (i ComponentPropertiesArgs) ToComponentPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertiesOutput).ToComponentPropertiesPtrOutputWithContext(ctx)
+func (i ComponentPropertyArgs) ToComponentPropertyPtrOutputWithContext(ctx context.Context) ComponentPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertyOutput).ToComponentPropertyPtrOutputWithContext(ctx)
 }
 
-// ComponentPropertiesPtrInput is an input type that accepts ComponentPropertiesArgs, ComponentPropertiesPtr and ComponentPropertiesPtrOutput values.
-// You can construct a concrete instance of `ComponentPropertiesPtrInput` via:
+// ComponentPropertyPtrInput is an input type that accepts ComponentPropertyArgs, ComponentPropertyPtr and ComponentPropertyPtrOutput values.
+// You can construct a concrete instance of `ComponentPropertyPtrInput` via:
 //
-//	        ComponentPropertiesArgs{...}
+//	        ComponentPropertyArgs{...}
 //
 //	or:
 //
 //	        nil
-type ComponentPropertiesPtrInput interface {
+type ComponentPropertyPtrInput interface {
 	pulumi.Input
 
-	ToComponentPropertiesPtrOutput() ComponentPropertiesPtrOutput
-	ToComponentPropertiesPtrOutputWithContext(context.Context) ComponentPropertiesPtrOutput
+	ToComponentPropertyPtrOutput() ComponentPropertyPtrOutput
+	ToComponentPropertyPtrOutputWithContext(context.Context) ComponentPropertyPtrOutput
 }
 
-type componentPropertiesPtrType ComponentPropertiesArgs
+type componentPropertyPtrType ComponentPropertyArgs
 
-func ComponentPropertiesPtr(v *ComponentPropertiesArgs) ComponentPropertiesPtrInput {
-	return (*componentPropertiesPtrType)(v)
+func ComponentPropertyPtr(v *ComponentPropertyArgs) ComponentPropertyPtrInput {
+	return (*componentPropertyPtrType)(v)
 }
 
-func (*componentPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentProperties)(nil)).Elem()
+func (*componentPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentProperty)(nil)).Elem()
 }
 
-func (i *componentPropertiesPtrType) ToComponentPropertiesPtrOutput() ComponentPropertiesPtrOutput {
-	return i.ToComponentPropertiesPtrOutputWithContext(context.Background())
+func (i *componentPropertyPtrType) ToComponentPropertyPtrOutput() ComponentPropertyPtrOutput {
+	return i.ToComponentPropertyPtrOutputWithContext(context.Background())
 }
 
-func (i *componentPropertiesPtrType) ToComponentPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertiesPtrOutput)
+func (i *componentPropertyPtrType) ToComponentPropertyPtrOutputWithContext(ctx context.Context) ComponentPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertyPtrOutput)
 }
 
-type ComponentPropertiesOutput struct{ *pulumi.OutputState }
+// ComponentPropertyArrayInput is an input type that accepts ComponentPropertyArray and ComponentPropertyArrayOutput values.
+// You can construct a concrete instance of `ComponentPropertyArrayInput` via:
+//
+//	ComponentPropertyArray{ ComponentPropertyArgs{...} }
+type ComponentPropertyArrayInput interface {
+	pulumi.Input
 
-func (ComponentPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentProperties)(nil)).Elem()
+	ToComponentPropertyArrayOutput() ComponentPropertyArrayOutput
+	ToComponentPropertyArrayOutputWithContext(context.Context) ComponentPropertyArrayOutput
 }
 
-func (o ComponentPropertiesOutput) ToComponentPropertiesOutput() ComponentPropertiesOutput {
+type ComponentPropertyArray []ComponentPropertyInput
+
+func (ComponentPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComponentProperty)(nil)).Elem()
+}
+
+func (i ComponentPropertyArray) ToComponentPropertyArrayOutput() ComponentPropertyArrayOutput {
+	return i.ToComponentPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i ComponentPropertyArray) ToComponentPropertyArrayOutputWithContext(ctx context.Context) ComponentPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertyArrayOutput)
+}
+
+// ComponentPropertyMapInput is an input type that accepts ComponentPropertyMap and ComponentPropertyMapOutput values.
+// You can construct a concrete instance of `ComponentPropertyMapInput` via:
+//
+//	ComponentPropertyMap{ "key": ComponentPropertyArgs{...} }
+type ComponentPropertyMapInput interface {
+	pulumi.Input
+
+	ToComponentPropertyMapOutput() ComponentPropertyMapOutput
+	ToComponentPropertyMapOutputWithContext(context.Context) ComponentPropertyMapOutput
+}
+
+type ComponentPropertyMap map[string]ComponentPropertyInput
+
+func (ComponentPropertyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentProperty)(nil)).Elem()
+}
+
+func (i ComponentPropertyMap) ToComponentPropertyMapOutput() ComponentPropertyMapOutput {
+	return i.ToComponentPropertyMapOutputWithContext(context.Background())
+}
+
+func (i ComponentPropertyMap) ToComponentPropertyMapOutputWithContext(ctx context.Context) ComponentPropertyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertyMapOutput)
+}
+
+type ComponentPropertyOutput struct{ *pulumi.OutputState }
+
+func (ComponentPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentProperty)(nil)).Elem()
+}
+
+func (o ComponentPropertyOutput) ToComponentPropertyOutput() ComponentPropertyOutput {
 	return o
 }
 
-func (o ComponentPropertiesOutput) ToComponentPropertiesOutputWithContext(ctx context.Context) ComponentPropertiesOutput {
+func (o ComponentPropertyOutput) ToComponentPropertyOutputWithContext(ctx context.Context) ComponentPropertyOutput {
 	return o
 }
 
-func (o ComponentPropertiesOutput) ToComponentPropertiesPtrOutput() ComponentPropertiesPtrOutput {
-	return o.ToComponentPropertiesPtrOutputWithContext(context.Background())
+func (o ComponentPropertyOutput) ToComponentPropertyPtrOutput() ComponentPropertyPtrOutput {
+	return o.ToComponentPropertyPtrOutputWithContext(context.Background())
 }
 
-func (o ComponentPropertiesOutput) ToComponentPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentProperties) *ComponentProperties {
+func (o ComponentPropertyOutput) ToComponentPropertyPtrOutputWithContext(ctx context.Context) ComponentPropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentProperty) *ComponentProperty {
 		return &v
-	}).(ComponentPropertiesPtrOutput)
+	}).(ComponentPropertyPtrOutput)
 }
 
-type ComponentPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ComponentPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentProperties)(nil)).Elem()
+func (o ComponentPropertyOutput) BindingProperties() ComponentPropertyBindingPropertiesPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *ComponentPropertyBindingProperties { return v.BindingProperties }).(ComponentPropertyBindingPropertiesPtrOutput)
 }
 
-func (o ComponentPropertiesPtrOutput) ToComponentPropertiesPtrOutput() ComponentPropertiesPtrOutput {
+func (o ComponentPropertyOutput) Bindings() ComponentFormBindingElementMapOutput {
+	return o.ApplyT(func(v ComponentProperty) map[string]ComponentFormBindingElement { return v.Bindings }).(ComponentFormBindingElementMapOutput)
+}
+
+func (o ComponentPropertyOutput) CollectionBindingProperties() ComponentPropertyBindingPropertiesPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *ComponentPropertyBindingProperties { return v.CollectionBindingProperties }).(ComponentPropertyBindingPropertiesPtrOutput)
+}
+
+func (o ComponentPropertyOutput) ComponentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *string { return v.ComponentName }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyOutput) Concat() ComponentPropertyArrayOutput {
+	return o.ApplyT(func(v ComponentProperty) []ComponentProperty { return v.Concat }).(ComponentPropertyArrayOutput)
+}
+
+func (o ComponentPropertyOutput) Condition() ComponentConditionPropertyPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *ComponentConditionProperty { return v.Condition }).(ComponentConditionPropertyPtrOutput)
+}
+
+func (o ComponentPropertyOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
+}
+
+func (o ComponentPropertyOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyOutput) Event() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *string { return v.Event }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyOutput) ImportedValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *string { return v.ImportedValue }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *string { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ComponentPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentProperty)(nil)).Elem()
+}
+
+func (o ComponentPropertyPtrOutput) ToComponentPropertyPtrOutput() ComponentPropertyPtrOutput {
 	return o
 }
 
-func (o ComponentPropertiesPtrOutput) ToComponentPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertiesPtrOutput {
+func (o ComponentPropertyPtrOutput) ToComponentPropertyPtrOutputWithContext(ctx context.Context) ComponentPropertyPtrOutput {
 	return o
 }
 
-func (o ComponentPropertiesPtrOutput) Elem() ComponentPropertiesOutput {
-	return o.ApplyT(func(v *ComponentProperties) ComponentProperties {
+func (o ComponentPropertyPtrOutput) Elem() ComponentPropertyOutput {
+	return o.ApplyT(func(v *ComponentProperty) ComponentProperty {
 		if v != nil {
 			return *v
 		}
-		var ret ComponentProperties
+		var ret ComponentProperty
 		return ret
-	}).(ComponentPropertiesOutput)
+	}).(ComponentPropertyOutput)
 }
 
-type ComponentTags struct {
+func (o ComponentPropertyPtrOutput) BindingProperties() ComponentPropertyBindingPropertiesPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *ComponentPropertyBindingProperties {
+		if v == nil {
+			return nil
+		}
+		return v.BindingProperties
+	}).(ComponentPropertyBindingPropertiesPtrOutput)
 }
 
-// ComponentTagsInput is an input type that accepts ComponentTagsArgs and ComponentTagsOutput values.
-// You can construct a concrete instance of `ComponentTagsInput` via:
+func (o ComponentPropertyPtrOutput) Bindings() ComponentFormBindingElementMapOutput {
+	return o.ApplyT(func(v *ComponentProperty) map[string]ComponentFormBindingElement {
+		if v == nil {
+			return nil
+		}
+		return v.Bindings
+	}).(ComponentFormBindingElementMapOutput)
+}
+
+func (o ComponentPropertyPtrOutput) CollectionBindingProperties() ComponentPropertyBindingPropertiesPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *ComponentPropertyBindingProperties {
+		if v == nil {
+			return nil
+		}
+		return v.CollectionBindingProperties
+	}).(ComponentPropertyBindingPropertiesPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) ComponentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComponentName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) Concat() ComponentPropertyArrayOutput {
+	return o.ApplyT(func(v *ComponentProperty) []ComponentProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Concat
+	}).(ComponentPropertyArrayOutput)
+}
+
+func (o ComponentPropertyPtrOutput) Condition() ComponentConditionPropertyPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *ComponentConditionProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Condition
+	}).(ComponentConditionPropertyPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Configured
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) Event() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Event
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) ImportedValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImportedValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Model
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Property
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComponentPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (ComponentPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComponentProperty)(nil)).Elem()
+}
+
+func (o ComponentPropertyArrayOutput) ToComponentPropertyArrayOutput() ComponentPropertyArrayOutput {
+	return o
+}
+
+func (o ComponentPropertyArrayOutput) ToComponentPropertyArrayOutputWithContext(ctx context.Context) ComponentPropertyArrayOutput {
+	return o
+}
+
+func (o ComponentPropertyArrayOutput) Index(i pulumi.IntInput) ComponentPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComponentProperty {
+		return vs[0].([]ComponentProperty)[vs[1].(int)]
+	}).(ComponentPropertyOutput)
+}
+
+type ComponentPropertyMapOutput struct{ *pulumi.OutputState }
+
+func (ComponentPropertyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ComponentProperty)(nil)).Elem()
+}
+
+func (o ComponentPropertyMapOutput) ToComponentPropertyMapOutput() ComponentPropertyMapOutput {
+	return o
+}
+
+func (o ComponentPropertyMapOutput) ToComponentPropertyMapOutputWithContext(ctx context.Context) ComponentPropertyMapOutput {
+	return o
+}
+
+func (o ComponentPropertyMapOutput) MapIndex(k pulumi.StringInput) ComponentPropertyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComponentProperty {
+		return vs[0].(map[string]ComponentProperty)[vs[1].(string)]
+	}).(ComponentPropertyOutput)
+}
+
+type ComponentPropertyBindingProperties struct {
+	Field    *string `pulumi:"field"`
+	Property string  `pulumi:"property"`
+}
+
+// ComponentPropertyBindingPropertiesInput is an input type that accepts ComponentPropertyBindingPropertiesArgs and ComponentPropertyBindingPropertiesOutput values.
+// You can construct a concrete instance of `ComponentPropertyBindingPropertiesInput` via:
 //
-//	ComponentTagsArgs{...}
-type ComponentTagsInput interface {
+//	ComponentPropertyBindingPropertiesArgs{...}
+type ComponentPropertyBindingPropertiesInput interface {
 	pulumi.Input
 
-	ToComponentTagsOutput() ComponentTagsOutput
-	ToComponentTagsOutputWithContext(context.Context) ComponentTagsOutput
+	ToComponentPropertyBindingPropertiesOutput() ComponentPropertyBindingPropertiesOutput
+	ToComponentPropertyBindingPropertiesOutputWithContext(context.Context) ComponentPropertyBindingPropertiesOutput
 }
 
-type ComponentTagsArgs struct {
+type ComponentPropertyBindingPropertiesArgs struct {
+	Field    pulumi.StringPtrInput `pulumi:"field"`
+	Property pulumi.StringInput    `pulumi:"property"`
 }
 
-func (ComponentTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentTags)(nil)).Elem()
+func (ComponentPropertyBindingPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentPropertyBindingProperties)(nil)).Elem()
 }
 
-func (i ComponentTagsArgs) ToComponentTagsOutput() ComponentTagsOutput {
-	return i.ToComponentTagsOutputWithContext(context.Background())
+func (i ComponentPropertyBindingPropertiesArgs) ToComponentPropertyBindingPropertiesOutput() ComponentPropertyBindingPropertiesOutput {
+	return i.ToComponentPropertyBindingPropertiesOutputWithContext(context.Background())
 }
 
-func (i ComponentTagsArgs) ToComponentTagsOutputWithContext(ctx context.Context) ComponentTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentTagsOutput)
+func (i ComponentPropertyBindingPropertiesArgs) ToComponentPropertyBindingPropertiesOutputWithContext(ctx context.Context) ComponentPropertyBindingPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertyBindingPropertiesOutput)
 }
 
-func (i ComponentTagsArgs) ToComponentTagsPtrOutput() ComponentTagsPtrOutput {
-	return i.ToComponentTagsPtrOutputWithContext(context.Background())
+func (i ComponentPropertyBindingPropertiesArgs) ToComponentPropertyBindingPropertiesPtrOutput() ComponentPropertyBindingPropertiesPtrOutput {
+	return i.ToComponentPropertyBindingPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i ComponentTagsArgs) ToComponentTagsPtrOutputWithContext(ctx context.Context) ComponentTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentTagsOutput).ToComponentTagsPtrOutputWithContext(ctx)
+func (i ComponentPropertyBindingPropertiesArgs) ToComponentPropertyBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertyBindingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertyBindingPropertiesOutput).ToComponentPropertyBindingPropertiesPtrOutputWithContext(ctx)
 }
 
-// ComponentTagsPtrInput is an input type that accepts ComponentTagsArgs, ComponentTagsPtr and ComponentTagsPtrOutput values.
-// You can construct a concrete instance of `ComponentTagsPtrInput` via:
+// ComponentPropertyBindingPropertiesPtrInput is an input type that accepts ComponentPropertyBindingPropertiesArgs, ComponentPropertyBindingPropertiesPtr and ComponentPropertyBindingPropertiesPtrOutput values.
+// You can construct a concrete instance of `ComponentPropertyBindingPropertiesPtrInput` via:
 //
-//	        ComponentTagsArgs{...}
+//	        ComponentPropertyBindingPropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type ComponentTagsPtrInput interface {
+type ComponentPropertyBindingPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToComponentTagsPtrOutput() ComponentTagsPtrOutput
-	ToComponentTagsPtrOutputWithContext(context.Context) ComponentTagsPtrOutput
+	ToComponentPropertyBindingPropertiesPtrOutput() ComponentPropertyBindingPropertiesPtrOutput
+	ToComponentPropertyBindingPropertiesPtrOutputWithContext(context.Context) ComponentPropertyBindingPropertiesPtrOutput
 }
 
-type componentTagsPtrType ComponentTagsArgs
+type componentPropertyBindingPropertiesPtrType ComponentPropertyBindingPropertiesArgs
 
-func ComponentTagsPtr(v *ComponentTagsArgs) ComponentTagsPtrInput {
-	return (*componentTagsPtrType)(v)
+func ComponentPropertyBindingPropertiesPtr(v *ComponentPropertyBindingPropertiesArgs) ComponentPropertyBindingPropertiesPtrInput {
+	return (*componentPropertyBindingPropertiesPtrType)(v)
 }
 
-func (*componentTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentTags)(nil)).Elem()
+func (*componentPropertyBindingPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentPropertyBindingProperties)(nil)).Elem()
 }
 
-func (i *componentTagsPtrType) ToComponentTagsPtrOutput() ComponentTagsPtrOutput {
-	return i.ToComponentTagsPtrOutputWithContext(context.Background())
+func (i *componentPropertyBindingPropertiesPtrType) ToComponentPropertyBindingPropertiesPtrOutput() ComponentPropertyBindingPropertiesPtrOutput {
+	return i.ToComponentPropertyBindingPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *componentTagsPtrType) ToComponentTagsPtrOutputWithContext(ctx context.Context) ComponentTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentTagsPtrOutput)
+func (i *componentPropertyBindingPropertiesPtrType) ToComponentPropertyBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertyBindingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentPropertyBindingPropertiesPtrOutput)
 }
 
-type ComponentTagsOutput struct{ *pulumi.OutputState }
+type ComponentPropertyBindingPropertiesOutput struct{ *pulumi.OutputState }
 
-func (ComponentTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentTags)(nil)).Elem()
+func (ComponentPropertyBindingPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentPropertyBindingProperties)(nil)).Elem()
 }
 
-func (o ComponentTagsOutput) ToComponentTagsOutput() ComponentTagsOutput {
+func (o ComponentPropertyBindingPropertiesOutput) ToComponentPropertyBindingPropertiesOutput() ComponentPropertyBindingPropertiesOutput {
 	return o
 }
 
-func (o ComponentTagsOutput) ToComponentTagsOutputWithContext(ctx context.Context) ComponentTagsOutput {
+func (o ComponentPropertyBindingPropertiesOutput) ToComponentPropertyBindingPropertiesOutputWithContext(ctx context.Context) ComponentPropertyBindingPropertiesOutput {
 	return o
 }
 
-func (o ComponentTagsOutput) ToComponentTagsPtrOutput() ComponentTagsPtrOutput {
-	return o.ToComponentTagsPtrOutputWithContext(context.Background())
+func (o ComponentPropertyBindingPropertiesOutput) ToComponentPropertyBindingPropertiesPtrOutput() ComponentPropertyBindingPropertiesPtrOutput {
+	return o.ToComponentPropertyBindingPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o ComponentTagsOutput) ToComponentTagsPtrOutputWithContext(ctx context.Context) ComponentTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentTags) *ComponentTags {
+func (o ComponentPropertyBindingPropertiesOutput) ToComponentPropertyBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertyBindingPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentPropertyBindingProperties) *ComponentPropertyBindingProperties {
 		return &v
-	}).(ComponentTagsPtrOutput)
+	}).(ComponentPropertyBindingPropertiesPtrOutput)
 }
 
-type ComponentTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (ComponentTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentTags)(nil)).Elem()
+func (o ComponentPropertyBindingPropertiesOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentPropertyBindingProperties) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentTagsPtrOutput) ToComponentTagsPtrOutput() ComponentTagsPtrOutput {
+func (o ComponentPropertyBindingPropertiesOutput) Property() pulumi.StringOutput {
+	return o.ApplyT(func(v ComponentPropertyBindingProperties) string { return v.Property }).(pulumi.StringOutput)
+}
+
+type ComponentPropertyBindingPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ComponentPropertyBindingPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComponentPropertyBindingProperties)(nil)).Elem()
+}
+
+func (o ComponentPropertyBindingPropertiesPtrOutput) ToComponentPropertyBindingPropertiesPtrOutput() ComponentPropertyBindingPropertiesPtrOutput {
 	return o
 }
 
-func (o ComponentTagsPtrOutput) ToComponentTagsPtrOutputWithContext(ctx context.Context) ComponentTagsPtrOutput {
+func (o ComponentPropertyBindingPropertiesPtrOutput) ToComponentPropertyBindingPropertiesPtrOutputWithContext(ctx context.Context) ComponentPropertyBindingPropertiesPtrOutput {
 	return o
 }
 
-func (o ComponentTagsPtrOutput) Elem() ComponentTagsOutput {
-	return o.ApplyT(func(v *ComponentTags) ComponentTags {
+func (o ComponentPropertyBindingPropertiesPtrOutput) Elem() ComponentPropertyBindingPropertiesOutput {
+	return o.ApplyT(func(v *ComponentPropertyBindingProperties) ComponentPropertyBindingProperties {
 		if v != nil {
 			return *v
 		}
-		var ret ComponentTags
+		var ret ComponentPropertyBindingProperties
 		return ret
-	}).(ComponentTagsOutput)
+	}).(ComponentPropertyBindingPropertiesOutput)
+}
+
+func (o ComponentPropertyBindingPropertiesPtrOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentPropertyBindingProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Field
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentPropertyBindingPropertiesPtrOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentPropertyBindingProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Property
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComponentSortProperty struct {
+	Direction ComponentSortDirection `pulumi:"direction"`
+	Field     string                 `pulumi:"field"`
+}
+
+// ComponentSortPropertyInput is an input type that accepts ComponentSortPropertyArgs and ComponentSortPropertyOutput values.
+// You can construct a concrete instance of `ComponentSortPropertyInput` via:
+//
+//	ComponentSortPropertyArgs{...}
+type ComponentSortPropertyInput interface {
+	pulumi.Input
+
+	ToComponentSortPropertyOutput() ComponentSortPropertyOutput
+	ToComponentSortPropertyOutputWithContext(context.Context) ComponentSortPropertyOutput
+}
+
+type ComponentSortPropertyArgs struct {
+	Direction ComponentSortDirectionInput `pulumi:"direction"`
+	Field     pulumi.StringInput          `pulumi:"field"`
+}
+
+func (ComponentSortPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentSortProperty)(nil)).Elem()
+}
+
+func (i ComponentSortPropertyArgs) ToComponentSortPropertyOutput() ComponentSortPropertyOutput {
+	return i.ToComponentSortPropertyOutputWithContext(context.Background())
+}
+
+func (i ComponentSortPropertyArgs) ToComponentSortPropertyOutputWithContext(ctx context.Context) ComponentSortPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentSortPropertyOutput)
+}
+
+// ComponentSortPropertyArrayInput is an input type that accepts ComponentSortPropertyArray and ComponentSortPropertyArrayOutput values.
+// You can construct a concrete instance of `ComponentSortPropertyArrayInput` via:
+//
+//	ComponentSortPropertyArray{ ComponentSortPropertyArgs{...} }
+type ComponentSortPropertyArrayInput interface {
+	pulumi.Input
+
+	ToComponentSortPropertyArrayOutput() ComponentSortPropertyArrayOutput
+	ToComponentSortPropertyArrayOutputWithContext(context.Context) ComponentSortPropertyArrayOutput
+}
+
+type ComponentSortPropertyArray []ComponentSortPropertyInput
+
+func (ComponentSortPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComponentSortProperty)(nil)).Elem()
+}
+
+func (i ComponentSortPropertyArray) ToComponentSortPropertyArrayOutput() ComponentSortPropertyArrayOutput {
+	return i.ToComponentSortPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i ComponentSortPropertyArray) ToComponentSortPropertyArrayOutputWithContext(ctx context.Context) ComponentSortPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentSortPropertyArrayOutput)
+}
+
+type ComponentSortPropertyOutput struct{ *pulumi.OutputState }
+
+func (ComponentSortPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentSortProperty)(nil)).Elem()
+}
+
+func (o ComponentSortPropertyOutput) ToComponentSortPropertyOutput() ComponentSortPropertyOutput {
+	return o
+}
+
+func (o ComponentSortPropertyOutput) ToComponentSortPropertyOutputWithContext(ctx context.Context) ComponentSortPropertyOutput {
+	return o
+}
+
+func (o ComponentSortPropertyOutput) Direction() ComponentSortDirectionOutput {
+	return o.ApplyT(func(v ComponentSortProperty) ComponentSortDirection { return v.Direction }).(ComponentSortDirectionOutput)
+}
+
+func (o ComponentSortPropertyOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v ComponentSortProperty) string { return v.Field }).(pulumi.StringOutput)
+}
+
+type ComponentSortPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (ComponentSortPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComponentSortProperty)(nil)).Elem()
+}
+
+func (o ComponentSortPropertyArrayOutput) ToComponentSortPropertyArrayOutput() ComponentSortPropertyArrayOutput {
+	return o
+}
+
+func (o ComponentSortPropertyArrayOutput) ToComponentSortPropertyArrayOutputWithContext(ctx context.Context) ComponentSortPropertyArrayOutput {
+	return o
+}
+
+func (o ComponentSortPropertyArrayOutput) Index(i pulumi.IntInput) ComponentSortPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComponentSortProperty {
+		return vs[0].([]ComponentSortProperty)[vs[1].(int)]
+	}).(ComponentSortPropertyOutput)
 }
 
 type ComponentVariant struct {
-	Overrides     *ComponentOverrides     `pulumi:"overrides"`
-	VariantValues *ComponentVariantValues `pulumi:"variantValues"`
+	Overrides     map[string]interface{} `pulumi:"overrides"`
+	VariantValues map[string]string      `pulumi:"variantValues"`
 }
 
 // ComponentVariantInput is an input type that accepts ComponentVariantArgs and ComponentVariantOutput values.
@@ -862,8 +2391,8 @@ type ComponentVariantInput interface {
 }
 
 type ComponentVariantArgs struct {
-	Overrides     ComponentOverridesPtrInput     `pulumi:"overrides"`
-	VariantValues ComponentVariantValuesPtrInput `pulumi:"variantValues"`
+	Overrides     pulumi.MapInput       `pulumi:"overrides"`
+	VariantValues pulumi.StringMapInput `pulumi:"variantValues"`
 }
 
 func (ComponentVariantArgs) ElementType() reflect.Type {
@@ -917,12 +2446,12 @@ func (o ComponentVariantOutput) ToComponentVariantOutputWithContext(ctx context.
 	return o
 }
 
-func (o ComponentVariantOutput) Overrides() ComponentOverridesPtrOutput {
-	return o.ApplyT(func(v ComponentVariant) *ComponentOverrides { return v.Overrides }).(ComponentOverridesPtrOutput)
+func (o ComponentVariantOutput) Overrides() pulumi.MapOutput {
+	return o.ApplyT(func(v ComponentVariant) map[string]interface{} { return v.Overrides }).(pulumi.MapOutput)
 }
 
-func (o ComponentVariantOutput) VariantValues() ComponentVariantValuesPtrOutput {
-	return o.ApplyT(func(v ComponentVariant) *ComponentVariantValues { return v.VariantValues }).(ComponentVariantValuesPtrOutput)
+func (o ComponentVariantOutput) VariantValues() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentVariant) map[string]string { return v.VariantValues }).(pulumi.StringMapOutput)
 }
 
 type ComponentVariantArrayOutput struct{ *pulumi.OutputState }
@@ -943,124 +2472,6 @@ func (o ComponentVariantArrayOutput) Index(i pulumi.IntInput) ComponentVariantOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComponentVariant {
 		return vs[0].([]ComponentVariant)[vs[1].(int)]
 	}).(ComponentVariantOutput)
-}
-
-type ComponentVariantValues struct {
-}
-
-// ComponentVariantValuesInput is an input type that accepts ComponentVariantValuesArgs and ComponentVariantValuesOutput values.
-// You can construct a concrete instance of `ComponentVariantValuesInput` via:
-//
-//	ComponentVariantValuesArgs{...}
-type ComponentVariantValuesInput interface {
-	pulumi.Input
-
-	ToComponentVariantValuesOutput() ComponentVariantValuesOutput
-	ToComponentVariantValuesOutputWithContext(context.Context) ComponentVariantValuesOutput
-}
-
-type ComponentVariantValuesArgs struct {
-}
-
-func (ComponentVariantValuesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentVariantValues)(nil)).Elem()
-}
-
-func (i ComponentVariantValuesArgs) ToComponentVariantValuesOutput() ComponentVariantValuesOutput {
-	return i.ToComponentVariantValuesOutputWithContext(context.Background())
-}
-
-func (i ComponentVariantValuesArgs) ToComponentVariantValuesOutputWithContext(ctx context.Context) ComponentVariantValuesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentVariantValuesOutput)
-}
-
-func (i ComponentVariantValuesArgs) ToComponentVariantValuesPtrOutput() ComponentVariantValuesPtrOutput {
-	return i.ToComponentVariantValuesPtrOutputWithContext(context.Background())
-}
-
-func (i ComponentVariantValuesArgs) ToComponentVariantValuesPtrOutputWithContext(ctx context.Context) ComponentVariantValuesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentVariantValuesOutput).ToComponentVariantValuesPtrOutputWithContext(ctx)
-}
-
-// ComponentVariantValuesPtrInput is an input type that accepts ComponentVariantValuesArgs, ComponentVariantValuesPtr and ComponentVariantValuesPtrOutput values.
-// You can construct a concrete instance of `ComponentVariantValuesPtrInput` via:
-//
-//	        ComponentVariantValuesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ComponentVariantValuesPtrInput interface {
-	pulumi.Input
-
-	ToComponentVariantValuesPtrOutput() ComponentVariantValuesPtrOutput
-	ToComponentVariantValuesPtrOutputWithContext(context.Context) ComponentVariantValuesPtrOutput
-}
-
-type componentVariantValuesPtrType ComponentVariantValuesArgs
-
-func ComponentVariantValuesPtr(v *ComponentVariantValuesArgs) ComponentVariantValuesPtrInput {
-	return (*componentVariantValuesPtrType)(v)
-}
-
-func (*componentVariantValuesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentVariantValues)(nil)).Elem()
-}
-
-func (i *componentVariantValuesPtrType) ToComponentVariantValuesPtrOutput() ComponentVariantValuesPtrOutput {
-	return i.ToComponentVariantValuesPtrOutputWithContext(context.Background())
-}
-
-func (i *componentVariantValuesPtrType) ToComponentVariantValuesPtrOutputWithContext(ctx context.Context) ComponentVariantValuesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentVariantValuesPtrOutput)
-}
-
-type ComponentVariantValuesOutput struct{ *pulumi.OutputState }
-
-func (ComponentVariantValuesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentVariantValues)(nil)).Elem()
-}
-
-func (o ComponentVariantValuesOutput) ToComponentVariantValuesOutput() ComponentVariantValuesOutput {
-	return o
-}
-
-func (o ComponentVariantValuesOutput) ToComponentVariantValuesOutputWithContext(ctx context.Context) ComponentVariantValuesOutput {
-	return o
-}
-
-func (o ComponentVariantValuesOutput) ToComponentVariantValuesPtrOutput() ComponentVariantValuesPtrOutput {
-	return o.ToComponentVariantValuesPtrOutputWithContext(context.Background())
-}
-
-func (o ComponentVariantValuesOutput) ToComponentVariantValuesPtrOutputWithContext(ctx context.Context) ComponentVariantValuesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentVariantValues) *ComponentVariantValues {
-		return &v
-	}).(ComponentVariantValuesPtrOutput)
-}
-
-type ComponentVariantValuesPtrOutput struct{ *pulumi.OutputState }
-
-func (ComponentVariantValuesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ComponentVariantValues)(nil)).Elem()
-}
-
-func (o ComponentVariantValuesPtrOutput) ToComponentVariantValuesPtrOutput() ComponentVariantValuesPtrOutput {
-	return o
-}
-
-func (o ComponentVariantValuesPtrOutput) ToComponentVariantValuesPtrOutputWithContext(ctx context.Context) ComponentVariantValuesPtrOutput {
-	return o
-}
-
-func (o ComponentVariantValuesPtrOutput) Elem() ComponentVariantValuesOutput {
-	return o.ApplyT(func(v *ComponentVariantValues) ComponentVariantValues {
-		if v != nil {
-			return *v
-		}
-		var ret ComponentVariantValues
-		return ret
-	}).(ComponentVariantValuesOutput)
 }
 
 type FormButton struct {
@@ -1552,6 +2963,482 @@ func (o FormDataTypeConfigPtrOutput) DataTypeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FormFieldConfig struct {
+	Excluded    *bool                              `pulumi:"excluded"`
+	InputType   *FormFieldInputConfig              `pulumi:"inputType"`
+	Label       *string                            `pulumi:"label"`
+	Position    interface{}                        `pulumi:"position"`
+	Validations []FormFieldValidationConfiguration `pulumi:"validations"`
+}
+
+// FormFieldConfigInput is an input type that accepts FormFieldConfigArgs and FormFieldConfigOutput values.
+// You can construct a concrete instance of `FormFieldConfigInput` via:
+//
+//	FormFieldConfigArgs{...}
+type FormFieldConfigInput interface {
+	pulumi.Input
+
+	ToFormFieldConfigOutput() FormFieldConfigOutput
+	ToFormFieldConfigOutputWithContext(context.Context) FormFieldConfigOutput
+}
+
+type FormFieldConfigArgs struct {
+	Excluded    pulumi.BoolPtrInput                        `pulumi:"excluded"`
+	InputType   FormFieldInputConfigPtrInput               `pulumi:"inputType"`
+	Label       pulumi.StringPtrInput                      `pulumi:"label"`
+	Position    pulumi.Input                               `pulumi:"position"`
+	Validations FormFieldValidationConfigurationArrayInput `pulumi:"validations"`
+}
+
+func (FormFieldConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldConfig)(nil)).Elem()
+}
+
+func (i FormFieldConfigArgs) ToFormFieldConfigOutput() FormFieldConfigOutput {
+	return i.ToFormFieldConfigOutputWithContext(context.Background())
+}
+
+func (i FormFieldConfigArgs) ToFormFieldConfigOutputWithContext(ctx context.Context) FormFieldConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldConfigOutput)
+}
+
+// FormFieldConfigMapInput is an input type that accepts FormFieldConfigMap and FormFieldConfigMapOutput values.
+// You can construct a concrete instance of `FormFieldConfigMapInput` via:
+//
+//	FormFieldConfigMap{ "key": FormFieldConfigArgs{...} }
+type FormFieldConfigMapInput interface {
+	pulumi.Input
+
+	ToFormFieldConfigMapOutput() FormFieldConfigMapOutput
+	ToFormFieldConfigMapOutputWithContext(context.Context) FormFieldConfigMapOutput
+}
+
+type FormFieldConfigMap map[string]FormFieldConfigInput
+
+func (FormFieldConfigMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FormFieldConfig)(nil)).Elem()
+}
+
+func (i FormFieldConfigMap) ToFormFieldConfigMapOutput() FormFieldConfigMapOutput {
+	return i.ToFormFieldConfigMapOutputWithContext(context.Background())
+}
+
+func (i FormFieldConfigMap) ToFormFieldConfigMapOutputWithContext(ctx context.Context) FormFieldConfigMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldConfigMapOutput)
+}
+
+type FormFieldConfigOutput struct{ *pulumi.OutputState }
+
+func (FormFieldConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldConfig)(nil)).Elem()
+}
+
+func (o FormFieldConfigOutput) ToFormFieldConfigOutput() FormFieldConfigOutput {
+	return o
+}
+
+func (o FormFieldConfigOutput) ToFormFieldConfigOutputWithContext(ctx context.Context) FormFieldConfigOutput {
+	return o
+}
+
+func (o FormFieldConfigOutput) Excluded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FormFieldConfig) *bool { return v.Excluded }).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFieldConfigOutput) InputType() FormFieldInputConfigPtrOutput {
+	return o.ApplyT(func(v FormFieldConfig) *FormFieldInputConfig { return v.InputType }).(FormFieldInputConfigPtrOutput)
+}
+
+func (o FormFieldConfigOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormFieldConfig) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldConfigOutput) Position() pulumi.AnyOutput {
+	return o.ApplyT(func(v FormFieldConfig) interface{} { return v.Position }).(pulumi.AnyOutput)
+}
+
+func (o FormFieldConfigOutput) Validations() FormFieldValidationConfigurationArrayOutput {
+	return o.ApplyT(func(v FormFieldConfig) []FormFieldValidationConfiguration { return v.Validations }).(FormFieldValidationConfigurationArrayOutput)
+}
+
+type FormFieldConfigMapOutput struct{ *pulumi.OutputState }
+
+func (FormFieldConfigMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FormFieldConfig)(nil)).Elem()
+}
+
+func (o FormFieldConfigMapOutput) ToFormFieldConfigMapOutput() FormFieldConfigMapOutput {
+	return o
+}
+
+func (o FormFieldConfigMapOutput) ToFormFieldConfigMapOutputWithContext(ctx context.Context) FormFieldConfigMapOutput {
+	return o
+}
+
+func (o FormFieldConfigMapOutput) MapIndex(k pulumi.StringInput) FormFieldConfigOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FormFieldConfig {
+		return vs[0].(map[string]FormFieldConfig)[vs[1].(string)]
+	}).(FormFieldConfigOutput)
+}
+
+type FormFieldInputConfig struct {
+	DefaultChecked     *bool                        `pulumi:"defaultChecked"`
+	DefaultCountryCode *string                      `pulumi:"defaultCountryCode"`
+	DefaultValue       *string                      `pulumi:"defaultValue"`
+	DescriptiveText    *string                      `pulumi:"descriptiveText"`
+	FileUploaderConfig *FormFileUploaderFieldConfig `pulumi:"fileUploaderConfig"`
+	IsArray            *bool                        `pulumi:"isArray"`
+	MaxValue           *float64                     `pulumi:"maxValue"`
+	MinValue           *float64                     `pulumi:"minValue"`
+	Name               *string                      `pulumi:"name"`
+	Placeholder        *string                      `pulumi:"placeholder"`
+	ReadOnly           *bool                        `pulumi:"readOnly"`
+	Required           *bool                        `pulumi:"required"`
+	Step               *float64                     `pulumi:"step"`
+	Type               string                       `pulumi:"type"`
+	Value              *string                      `pulumi:"value"`
+	ValueMappings      *FormValueMappings           `pulumi:"valueMappings"`
+}
+
+// FormFieldInputConfigInput is an input type that accepts FormFieldInputConfigArgs and FormFieldInputConfigOutput values.
+// You can construct a concrete instance of `FormFieldInputConfigInput` via:
+//
+//	FormFieldInputConfigArgs{...}
+type FormFieldInputConfigInput interface {
+	pulumi.Input
+
+	ToFormFieldInputConfigOutput() FormFieldInputConfigOutput
+	ToFormFieldInputConfigOutputWithContext(context.Context) FormFieldInputConfigOutput
+}
+
+type FormFieldInputConfigArgs struct {
+	DefaultChecked     pulumi.BoolPtrInput                 `pulumi:"defaultChecked"`
+	DefaultCountryCode pulumi.StringPtrInput               `pulumi:"defaultCountryCode"`
+	DefaultValue       pulumi.StringPtrInput               `pulumi:"defaultValue"`
+	DescriptiveText    pulumi.StringPtrInput               `pulumi:"descriptiveText"`
+	FileUploaderConfig FormFileUploaderFieldConfigPtrInput `pulumi:"fileUploaderConfig"`
+	IsArray            pulumi.BoolPtrInput                 `pulumi:"isArray"`
+	MaxValue           pulumi.Float64PtrInput              `pulumi:"maxValue"`
+	MinValue           pulumi.Float64PtrInput              `pulumi:"minValue"`
+	Name               pulumi.StringPtrInput               `pulumi:"name"`
+	Placeholder        pulumi.StringPtrInput               `pulumi:"placeholder"`
+	ReadOnly           pulumi.BoolPtrInput                 `pulumi:"readOnly"`
+	Required           pulumi.BoolPtrInput                 `pulumi:"required"`
+	Step               pulumi.Float64PtrInput              `pulumi:"step"`
+	Type               pulumi.StringInput                  `pulumi:"type"`
+	Value              pulumi.StringPtrInput               `pulumi:"value"`
+	ValueMappings      FormValueMappingsPtrInput           `pulumi:"valueMappings"`
+}
+
+func (FormFieldInputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldInputConfig)(nil)).Elem()
+}
+
+func (i FormFieldInputConfigArgs) ToFormFieldInputConfigOutput() FormFieldInputConfigOutput {
+	return i.ToFormFieldInputConfigOutputWithContext(context.Background())
+}
+
+func (i FormFieldInputConfigArgs) ToFormFieldInputConfigOutputWithContext(ctx context.Context) FormFieldInputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldInputConfigOutput)
+}
+
+func (i FormFieldInputConfigArgs) ToFormFieldInputConfigPtrOutput() FormFieldInputConfigPtrOutput {
+	return i.ToFormFieldInputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FormFieldInputConfigArgs) ToFormFieldInputConfigPtrOutputWithContext(ctx context.Context) FormFieldInputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldInputConfigOutput).ToFormFieldInputConfigPtrOutputWithContext(ctx)
+}
+
+// FormFieldInputConfigPtrInput is an input type that accepts FormFieldInputConfigArgs, FormFieldInputConfigPtr and FormFieldInputConfigPtrOutput values.
+// You can construct a concrete instance of `FormFieldInputConfigPtrInput` via:
+//
+//	        FormFieldInputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormFieldInputConfigPtrInput interface {
+	pulumi.Input
+
+	ToFormFieldInputConfigPtrOutput() FormFieldInputConfigPtrOutput
+	ToFormFieldInputConfigPtrOutputWithContext(context.Context) FormFieldInputConfigPtrOutput
+}
+
+type formFieldInputConfigPtrType FormFieldInputConfigArgs
+
+func FormFieldInputConfigPtr(v *FormFieldInputConfigArgs) FormFieldInputConfigPtrInput {
+	return (*formFieldInputConfigPtrType)(v)
+}
+
+func (*formFieldInputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFieldInputConfig)(nil)).Elem()
+}
+
+func (i *formFieldInputConfigPtrType) ToFormFieldInputConfigPtrOutput() FormFieldInputConfigPtrOutput {
+	return i.ToFormFieldInputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *formFieldInputConfigPtrType) ToFormFieldInputConfigPtrOutputWithContext(ctx context.Context) FormFieldInputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldInputConfigPtrOutput)
+}
+
+type FormFieldInputConfigOutput struct{ *pulumi.OutputState }
+
+func (FormFieldInputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldInputConfig)(nil)).Elem()
+}
+
+func (o FormFieldInputConfigOutput) ToFormFieldInputConfigOutput() FormFieldInputConfigOutput {
+	return o
+}
+
+func (o FormFieldInputConfigOutput) ToFormFieldInputConfigOutputWithContext(ctx context.Context) FormFieldInputConfigOutput {
+	return o
+}
+
+func (o FormFieldInputConfigOutput) ToFormFieldInputConfigPtrOutput() FormFieldInputConfigPtrOutput {
+	return o.ToFormFieldInputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FormFieldInputConfigOutput) ToFormFieldInputConfigPtrOutputWithContext(ctx context.Context) FormFieldInputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormFieldInputConfig) *FormFieldInputConfig {
+		return &v
+	}).(FormFieldInputConfigPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) DefaultChecked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *bool { return v.DefaultChecked }).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) DefaultCountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.DefaultCountryCode }).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) DescriptiveText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.DescriptiveText }).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) FileUploaderConfig() FormFileUploaderFieldConfigPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *FormFileUploaderFieldConfig { return v.FileUploaderConfig }).(FormFileUploaderFieldConfigPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) IsArray() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *bool { return v.IsArray }).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) MaxValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *float64 { return v.MaxValue }).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) MinValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *float64 { return v.MinValue }).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) Placeholder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.Placeholder }).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) Step() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *float64 { return v.Step }).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o FormFieldInputConfigOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigOutput) ValueMappings() FormValueMappingsPtrOutput {
+	return o.ApplyT(func(v FormFieldInputConfig) *FormValueMappings { return v.ValueMappings }).(FormValueMappingsPtrOutput)
+}
+
+type FormFieldInputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FormFieldInputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFieldInputConfig)(nil)).Elem()
+}
+
+func (o FormFieldInputConfigPtrOutput) ToFormFieldInputConfigPtrOutput() FormFieldInputConfigPtrOutput {
+	return o
+}
+
+func (o FormFieldInputConfigPtrOutput) ToFormFieldInputConfigPtrOutputWithContext(ctx context.Context) FormFieldInputConfigPtrOutput {
+	return o
+}
+
+func (o FormFieldInputConfigPtrOutput) Elem() FormFieldInputConfigOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) FormFieldInputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FormFieldInputConfig
+		return ret
+	}).(FormFieldInputConfigOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) DefaultChecked() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultChecked
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) DefaultCountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultCountryCode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) DescriptiveText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DescriptiveText
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) FileUploaderConfig() FormFileUploaderFieldConfigPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *FormFileUploaderFieldConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FileUploaderConfig
+	}).(FormFileUploaderFieldConfigPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) IsArray() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsArray
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) MaxValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) MinValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) Placeholder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Placeholder
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) Step() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Step
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FormFieldInputConfigPtrOutput) ValueMappings() FormValueMappingsPtrOutput {
+	return o.ApplyT(func(v *FormFieldInputConfig) *FormValueMappings {
+		if v == nil {
+			return nil
+		}
+		return v.ValueMappings
+	}).(FormValueMappingsPtrOutput)
+}
+
 type FormFieldPosition0Properties struct {
 	Fixed FormFixedPosition `pulumi:"fixed"`
 }
@@ -1951,125 +3838,956 @@ func (o FormFieldPosition2PropertiesPtrOutput) Below() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type FormFieldsMap struct {
+type FormFieldValidationConfiguration struct {
+	NumValues         []float64 `pulumi:"numValues"`
+	StrValues         []string  `pulumi:"strValues"`
+	Type              string    `pulumi:"type"`
+	ValidationMessage *string   `pulumi:"validationMessage"`
 }
 
-// FormFieldsMapInput is an input type that accepts FormFieldsMap and FormFieldsMapOutput values.
-// You can construct a concrete instance of `FormFieldsMapInput` via:
+// FormFieldValidationConfigurationInput is an input type that accepts FormFieldValidationConfigurationArgs and FormFieldValidationConfigurationOutput values.
+// You can construct a concrete instance of `FormFieldValidationConfigurationInput` via:
 //
-//	FormFieldsMap{ "key": FormFieldsArgs{...} }
-type FormFieldsMapInput interface {
+//	FormFieldValidationConfigurationArgs{...}
+type FormFieldValidationConfigurationInput interface {
 	pulumi.Input
 
-	ToFormFieldsMapOutput() FormFieldsMapOutput
-	ToFormFieldsMapOutputWithContext(context.Context) FormFieldsMapOutput
+	ToFormFieldValidationConfigurationOutput() FormFieldValidationConfigurationOutput
+	ToFormFieldValidationConfigurationOutputWithContext(context.Context) FormFieldValidationConfigurationOutput
 }
 
-type FormFieldsMapArgs struct {
+type FormFieldValidationConfigurationArgs struct {
+	NumValues         pulumi.Float64ArrayInput `pulumi:"numValues"`
+	StrValues         pulumi.StringArrayInput  `pulumi:"strValues"`
+	Type              pulumi.StringInput       `pulumi:"type"`
+	ValidationMessage pulumi.StringPtrInput    `pulumi:"validationMessage"`
 }
 
-func (FormFieldsMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormFieldsMap)(nil)).Elem()
+func (FormFieldValidationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldValidationConfiguration)(nil)).Elem()
 }
 
-func (i FormFieldsMapArgs) ToFormFieldsMapOutput() FormFieldsMapOutput {
-	return i.ToFormFieldsMapOutputWithContext(context.Background())
+func (i FormFieldValidationConfigurationArgs) ToFormFieldValidationConfigurationOutput() FormFieldValidationConfigurationOutput {
+	return i.ToFormFieldValidationConfigurationOutputWithContext(context.Background())
 }
 
-func (i FormFieldsMapArgs) ToFormFieldsMapOutputWithContext(ctx context.Context) FormFieldsMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormFieldsMapOutput)
+func (i FormFieldValidationConfigurationArgs) ToFormFieldValidationConfigurationOutputWithContext(ctx context.Context) FormFieldValidationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldValidationConfigurationOutput)
 }
 
-func (i FormFieldsMapArgs) ToFormFieldsMapPtrOutput() FormFieldsMapPtrOutput {
-	return i.ToFormFieldsMapPtrOutputWithContext(context.Background())
-}
-
-func (i FormFieldsMapArgs) ToFormFieldsMapPtrOutputWithContext(ctx context.Context) FormFieldsMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormFieldsMapOutput).ToFormFieldsMapPtrOutputWithContext(ctx)
-}
-
-// FormFieldsMapPtrInput is an input type that accepts FormFieldsMapArgs, FormFieldsMapPtr and FormFieldsMapPtrOutput values.
-// You can construct a concrete instance of `FormFieldsMapPtrInput` via:
+// FormFieldValidationConfigurationArrayInput is an input type that accepts FormFieldValidationConfigurationArray and FormFieldValidationConfigurationArrayOutput values.
+// You can construct a concrete instance of `FormFieldValidationConfigurationArrayInput` via:
 //
-//	        FormFieldsMapArgs{...}
+//	FormFieldValidationConfigurationArray{ FormFieldValidationConfigurationArgs{...} }
+type FormFieldValidationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFormFieldValidationConfigurationArrayOutput() FormFieldValidationConfigurationArrayOutput
+	ToFormFieldValidationConfigurationArrayOutputWithContext(context.Context) FormFieldValidationConfigurationArrayOutput
+}
+
+type FormFieldValidationConfigurationArray []FormFieldValidationConfigurationInput
+
+func (FormFieldValidationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FormFieldValidationConfiguration)(nil)).Elem()
+}
+
+func (i FormFieldValidationConfigurationArray) ToFormFieldValidationConfigurationArrayOutput() FormFieldValidationConfigurationArrayOutput {
+	return i.ToFormFieldValidationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FormFieldValidationConfigurationArray) ToFormFieldValidationConfigurationArrayOutputWithContext(ctx context.Context) FormFieldValidationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFieldValidationConfigurationArrayOutput)
+}
+
+type FormFieldValidationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FormFieldValidationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFieldValidationConfiguration)(nil)).Elem()
+}
+
+func (o FormFieldValidationConfigurationOutput) ToFormFieldValidationConfigurationOutput() FormFieldValidationConfigurationOutput {
+	return o
+}
+
+func (o FormFieldValidationConfigurationOutput) ToFormFieldValidationConfigurationOutputWithContext(ctx context.Context) FormFieldValidationConfigurationOutput {
+	return o
+}
+
+func (o FormFieldValidationConfigurationOutput) NumValues() pulumi.Float64ArrayOutput {
+	return o.ApplyT(func(v FormFieldValidationConfiguration) []float64 { return v.NumValues }).(pulumi.Float64ArrayOutput)
+}
+
+func (o FormFieldValidationConfigurationOutput) StrValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FormFieldValidationConfiguration) []string { return v.StrValues }).(pulumi.StringArrayOutput)
+}
+
+func (o FormFieldValidationConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FormFieldValidationConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o FormFieldValidationConfigurationOutput) ValidationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormFieldValidationConfiguration) *string { return v.ValidationMessage }).(pulumi.StringPtrOutput)
+}
+
+type FormFieldValidationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FormFieldValidationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FormFieldValidationConfiguration)(nil)).Elem()
+}
+
+func (o FormFieldValidationConfigurationArrayOutput) ToFormFieldValidationConfigurationArrayOutput() FormFieldValidationConfigurationArrayOutput {
+	return o
+}
+
+func (o FormFieldValidationConfigurationArrayOutput) ToFormFieldValidationConfigurationArrayOutputWithContext(ctx context.Context) FormFieldValidationConfigurationArrayOutput {
+	return o
+}
+
+func (o FormFieldValidationConfigurationArrayOutput) Index(i pulumi.IntInput) FormFieldValidationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FormFieldValidationConfiguration {
+		return vs[0].([]FormFieldValidationConfiguration)[vs[1].(int)]
+	}).(FormFieldValidationConfigurationOutput)
+}
+
+type FormFileUploaderFieldConfig struct {
+	AcceptedFileTypes []string               `pulumi:"acceptedFileTypes"`
+	AccessLevel       FormStorageAccessLevel `pulumi:"accessLevel"`
+	IsResumable       *bool                  `pulumi:"isResumable"`
+	MaxFileCount      *float64               `pulumi:"maxFileCount"`
+	MaxSize           *float64               `pulumi:"maxSize"`
+	ShowThumbnails    *bool                  `pulumi:"showThumbnails"`
+}
+
+// FormFileUploaderFieldConfigInput is an input type that accepts FormFileUploaderFieldConfigArgs and FormFileUploaderFieldConfigOutput values.
+// You can construct a concrete instance of `FormFileUploaderFieldConfigInput` via:
+//
+//	FormFileUploaderFieldConfigArgs{...}
+type FormFileUploaderFieldConfigInput interface {
+	pulumi.Input
+
+	ToFormFileUploaderFieldConfigOutput() FormFileUploaderFieldConfigOutput
+	ToFormFileUploaderFieldConfigOutputWithContext(context.Context) FormFileUploaderFieldConfigOutput
+}
+
+type FormFileUploaderFieldConfigArgs struct {
+	AcceptedFileTypes pulumi.StringArrayInput     `pulumi:"acceptedFileTypes"`
+	AccessLevel       FormStorageAccessLevelInput `pulumi:"accessLevel"`
+	IsResumable       pulumi.BoolPtrInput         `pulumi:"isResumable"`
+	MaxFileCount      pulumi.Float64PtrInput      `pulumi:"maxFileCount"`
+	MaxSize           pulumi.Float64PtrInput      `pulumi:"maxSize"`
+	ShowThumbnails    pulumi.BoolPtrInput         `pulumi:"showThumbnails"`
+}
+
+func (FormFileUploaderFieldConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFileUploaderFieldConfig)(nil)).Elem()
+}
+
+func (i FormFileUploaderFieldConfigArgs) ToFormFileUploaderFieldConfigOutput() FormFileUploaderFieldConfigOutput {
+	return i.ToFormFileUploaderFieldConfigOutputWithContext(context.Background())
+}
+
+func (i FormFileUploaderFieldConfigArgs) ToFormFileUploaderFieldConfigOutputWithContext(ctx context.Context) FormFileUploaderFieldConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFileUploaderFieldConfigOutput)
+}
+
+func (i FormFileUploaderFieldConfigArgs) ToFormFileUploaderFieldConfigPtrOutput() FormFileUploaderFieldConfigPtrOutput {
+	return i.ToFormFileUploaderFieldConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FormFileUploaderFieldConfigArgs) ToFormFileUploaderFieldConfigPtrOutputWithContext(ctx context.Context) FormFileUploaderFieldConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFileUploaderFieldConfigOutput).ToFormFileUploaderFieldConfigPtrOutputWithContext(ctx)
+}
+
+// FormFileUploaderFieldConfigPtrInput is an input type that accepts FormFileUploaderFieldConfigArgs, FormFileUploaderFieldConfigPtr and FormFileUploaderFieldConfigPtrOutput values.
+// You can construct a concrete instance of `FormFileUploaderFieldConfigPtrInput` via:
+//
+//	        FormFileUploaderFieldConfigArgs{...}
 //
 //	or:
 //
 //	        nil
-type FormFieldsMapPtrInput interface {
+type FormFileUploaderFieldConfigPtrInput interface {
 	pulumi.Input
 
-	ToFormFieldsMapPtrOutput() FormFieldsMapPtrOutput
-	ToFormFieldsMapPtrOutputWithContext(context.Context) FormFieldsMapPtrOutput
+	ToFormFileUploaderFieldConfigPtrOutput() FormFileUploaderFieldConfigPtrOutput
+	ToFormFileUploaderFieldConfigPtrOutputWithContext(context.Context) FormFileUploaderFieldConfigPtrOutput
 }
 
-type formFieldsMapPtrType FormFieldsMapArgs
+type formFileUploaderFieldConfigPtrType FormFileUploaderFieldConfigArgs
 
-func FormFieldsMapPtr(v *FormFieldsMapArgs) FormFieldsMapPtrInput {
-	return (*formFieldsMapPtrType)(v)
+func FormFileUploaderFieldConfigPtr(v *FormFileUploaderFieldConfigArgs) FormFileUploaderFieldConfigPtrInput {
+	return (*formFileUploaderFieldConfigPtrType)(v)
 }
 
-func (*formFieldsMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormFieldsMap)(nil)).Elem()
+func (*formFileUploaderFieldConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFileUploaderFieldConfig)(nil)).Elem()
 }
 
-func (i *formFieldsMapPtrType) ToFormFieldsMapPtrOutput() FormFieldsMapPtrOutput {
-	return i.ToFormFieldsMapPtrOutputWithContext(context.Background())
+func (i *formFileUploaderFieldConfigPtrType) ToFormFileUploaderFieldConfigPtrOutput() FormFileUploaderFieldConfigPtrOutput {
+	return i.ToFormFileUploaderFieldConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *formFieldsMapPtrType) ToFormFieldsMapPtrOutputWithContext(ctx context.Context) FormFieldsMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormFieldsMapPtrOutput)
+func (i *formFileUploaderFieldConfigPtrType) ToFormFileUploaderFieldConfigPtrOutputWithContext(ctx context.Context) FormFileUploaderFieldConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormFileUploaderFieldConfigPtrOutput)
 }
 
-type FormFieldsMapOutput struct{ *pulumi.OutputState }
+type FormFileUploaderFieldConfigOutput struct{ *pulumi.OutputState }
 
-func (FormFieldsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormFieldsMap)(nil)).Elem()
+func (FormFileUploaderFieldConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFileUploaderFieldConfig)(nil)).Elem()
 }
 
-func (o FormFieldsMapOutput) ToFormFieldsMapOutput() FormFieldsMapOutput {
+func (o FormFileUploaderFieldConfigOutput) ToFormFileUploaderFieldConfigOutput() FormFileUploaderFieldConfigOutput {
 	return o
 }
 
-func (o FormFieldsMapOutput) ToFormFieldsMapOutputWithContext(ctx context.Context) FormFieldsMapOutput {
+func (o FormFileUploaderFieldConfigOutput) ToFormFileUploaderFieldConfigOutputWithContext(ctx context.Context) FormFileUploaderFieldConfigOutput {
 	return o
 }
 
-func (o FormFieldsMapOutput) ToFormFieldsMapPtrOutput() FormFieldsMapPtrOutput {
-	return o.ToFormFieldsMapPtrOutputWithContext(context.Background())
+func (o FormFileUploaderFieldConfigOutput) ToFormFileUploaderFieldConfigPtrOutput() FormFileUploaderFieldConfigPtrOutput {
+	return o.ToFormFileUploaderFieldConfigPtrOutputWithContext(context.Background())
 }
 
-func (o FormFieldsMapOutput) ToFormFieldsMapPtrOutputWithContext(ctx context.Context) FormFieldsMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormFieldsMap) *FormFieldsMap {
+func (o FormFileUploaderFieldConfigOutput) ToFormFileUploaderFieldConfigPtrOutputWithContext(ctx context.Context) FormFileUploaderFieldConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormFileUploaderFieldConfig) *FormFileUploaderFieldConfig {
 		return &v
-	}).(FormFieldsMapPtrOutput)
+	}).(FormFileUploaderFieldConfigPtrOutput)
 }
 
-type FormFieldsMapPtrOutput struct{ *pulumi.OutputState }
-
-func (FormFieldsMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormFieldsMap)(nil)).Elem()
+func (o FormFileUploaderFieldConfigOutput) AcceptedFileTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FormFileUploaderFieldConfig) []string { return v.AcceptedFileTypes }).(pulumi.StringArrayOutput)
 }
 
-func (o FormFieldsMapPtrOutput) ToFormFieldsMapPtrOutput() FormFieldsMapPtrOutput {
+func (o FormFileUploaderFieldConfigOutput) AccessLevel() FormStorageAccessLevelOutput {
+	return o.ApplyT(func(v FormFileUploaderFieldConfig) FormStorageAccessLevel { return v.AccessLevel }).(FormStorageAccessLevelOutput)
+}
+
+func (o FormFileUploaderFieldConfigOutput) IsResumable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FormFileUploaderFieldConfig) *bool { return v.IsResumable }).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFileUploaderFieldConfigOutput) MaxFileCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FormFileUploaderFieldConfig) *float64 { return v.MaxFileCount }).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFileUploaderFieldConfigOutput) MaxSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FormFileUploaderFieldConfig) *float64 { return v.MaxSize }).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFileUploaderFieldConfigOutput) ShowThumbnails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FormFileUploaderFieldConfig) *bool { return v.ShowThumbnails }).(pulumi.BoolPtrOutput)
+}
+
+type FormFileUploaderFieldConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FormFileUploaderFieldConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFileUploaderFieldConfig)(nil)).Elem()
+}
+
+func (o FormFileUploaderFieldConfigPtrOutput) ToFormFileUploaderFieldConfigPtrOutput() FormFileUploaderFieldConfigPtrOutput {
 	return o
 }
 
-func (o FormFieldsMapPtrOutput) ToFormFieldsMapPtrOutputWithContext(ctx context.Context) FormFieldsMapPtrOutput {
+func (o FormFileUploaderFieldConfigPtrOutput) ToFormFileUploaderFieldConfigPtrOutputWithContext(ctx context.Context) FormFileUploaderFieldConfigPtrOutput {
 	return o
 }
 
-func (o FormFieldsMapPtrOutput) Elem() FormFieldsMapOutput {
-	return o.ApplyT(func(v *FormFieldsMap) FormFieldsMap {
+func (o FormFileUploaderFieldConfigPtrOutput) Elem() FormFileUploaderFieldConfigOutput {
+	return o.ApplyT(func(v *FormFileUploaderFieldConfig) FormFileUploaderFieldConfig {
 		if v != nil {
 			return *v
 		}
-		var ret FormFieldsMap
+		var ret FormFileUploaderFieldConfig
 		return ret
-	}).(FormFieldsMapOutput)
+	}).(FormFileUploaderFieldConfigOutput)
 }
 
-type FormSectionalElementMap struct {
+func (o FormFileUploaderFieldConfigPtrOutput) AcceptedFileTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FormFileUploaderFieldConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptedFileTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FormFileUploaderFieldConfigPtrOutput) AccessLevel() FormStorageAccessLevelPtrOutput {
+	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *FormStorageAccessLevel {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessLevel
+	}).(FormStorageAccessLevelPtrOutput)
+}
+
+func (o FormFileUploaderFieldConfigPtrOutput) IsResumable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsResumable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FormFileUploaderFieldConfigPtrOutput) MaxFileCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFileUploaderFieldConfigPtrOutput) MaxSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o FormFileUploaderFieldConfigPtrOutput) ShowThumbnails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FormFileUploaderFieldConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowThumbnails
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FormInputBindingPropertiesValue struct {
+	BindingProperties *FormInputBindingPropertiesValueProperties `pulumi:"bindingProperties"`
+	Type              *string                                    `pulumi:"type"`
+}
+
+// FormInputBindingPropertiesValueInput is an input type that accepts FormInputBindingPropertiesValueArgs and FormInputBindingPropertiesValueOutput values.
+// You can construct a concrete instance of `FormInputBindingPropertiesValueInput` via:
+//
+//	FormInputBindingPropertiesValueArgs{...}
+type FormInputBindingPropertiesValueInput interface {
+	pulumi.Input
+
+	ToFormInputBindingPropertiesValueOutput() FormInputBindingPropertiesValueOutput
+	ToFormInputBindingPropertiesValueOutputWithContext(context.Context) FormInputBindingPropertiesValueOutput
+}
+
+type FormInputBindingPropertiesValueArgs struct {
+	BindingProperties FormInputBindingPropertiesValuePropertiesPtrInput `pulumi:"bindingProperties"`
+	Type              pulumi.StringPtrInput                             `pulumi:"type"`
+}
+
+func (FormInputBindingPropertiesValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormInputBindingPropertiesValue)(nil)).Elem()
+}
+
+func (i FormInputBindingPropertiesValueArgs) ToFormInputBindingPropertiesValueOutput() FormInputBindingPropertiesValueOutput {
+	return i.ToFormInputBindingPropertiesValueOutputWithContext(context.Background())
+}
+
+func (i FormInputBindingPropertiesValueArgs) ToFormInputBindingPropertiesValueOutputWithContext(ctx context.Context) FormInputBindingPropertiesValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputBindingPropertiesValueOutput)
+}
+
+// FormInputBindingPropertiesValueMapInput is an input type that accepts FormInputBindingPropertiesValueMap and FormInputBindingPropertiesValueMapOutput values.
+// You can construct a concrete instance of `FormInputBindingPropertiesValueMapInput` via:
+//
+//	FormInputBindingPropertiesValueMap{ "key": FormInputBindingPropertiesValueArgs{...} }
+type FormInputBindingPropertiesValueMapInput interface {
+	pulumi.Input
+
+	ToFormInputBindingPropertiesValueMapOutput() FormInputBindingPropertiesValueMapOutput
+	ToFormInputBindingPropertiesValueMapOutputWithContext(context.Context) FormInputBindingPropertiesValueMapOutput
+}
+
+type FormInputBindingPropertiesValueMap map[string]FormInputBindingPropertiesValueInput
+
+func (FormInputBindingPropertiesValueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FormInputBindingPropertiesValue)(nil)).Elem()
+}
+
+func (i FormInputBindingPropertiesValueMap) ToFormInputBindingPropertiesValueMapOutput() FormInputBindingPropertiesValueMapOutput {
+	return i.ToFormInputBindingPropertiesValueMapOutputWithContext(context.Background())
+}
+
+func (i FormInputBindingPropertiesValueMap) ToFormInputBindingPropertiesValueMapOutputWithContext(ctx context.Context) FormInputBindingPropertiesValueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputBindingPropertiesValueMapOutput)
+}
+
+type FormInputBindingPropertiesValueOutput struct{ *pulumi.OutputState }
+
+func (FormInputBindingPropertiesValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormInputBindingPropertiesValue)(nil)).Elem()
+}
+
+func (o FormInputBindingPropertiesValueOutput) ToFormInputBindingPropertiesValueOutput() FormInputBindingPropertiesValueOutput {
+	return o
+}
+
+func (o FormInputBindingPropertiesValueOutput) ToFormInputBindingPropertiesValueOutputWithContext(ctx context.Context) FormInputBindingPropertiesValueOutput {
+	return o
+}
+
+func (o FormInputBindingPropertiesValueOutput) BindingProperties() FormInputBindingPropertiesValuePropertiesPtrOutput {
+	return o.ApplyT(func(v FormInputBindingPropertiesValue) *FormInputBindingPropertiesValueProperties {
+		return v.BindingProperties
+	}).(FormInputBindingPropertiesValuePropertiesPtrOutput)
+}
+
+func (o FormInputBindingPropertiesValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormInputBindingPropertiesValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type FormInputBindingPropertiesValueMapOutput struct{ *pulumi.OutputState }
+
+func (FormInputBindingPropertiesValueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FormInputBindingPropertiesValue)(nil)).Elem()
+}
+
+func (o FormInputBindingPropertiesValueMapOutput) ToFormInputBindingPropertiesValueMapOutput() FormInputBindingPropertiesValueMapOutput {
+	return o
+}
+
+func (o FormInputBindingPropertiesValueMapOutput) ToFormInputBindingPropertiesValueMapOutputWithContext(ctx context.Context) FormInputBindingPropertiesValueMapOutput {
+	return o
+}
+
+func (o FormInputBindingPropertiesValueMapOutput) MapIndex(k pulumi.StringInput) FormInputBindingPropertiesValueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FormInputBindingPropertiesValue {
+		return vs[0].(map[string]FormInputBindingPropertiesValue)[vs[1].(string)]
+	}).(FormInputBindingPropertiesValueOutput)
+}
+
+type FormInputBindingPropertiesValueProperties struct {
+	Model *string `pulumi:"model"`
+}
+
+// FormInputBindingPropertiesValuePropertiesInput is an input type that accepts FormInputBindingPropertiesValuePropertiesArgs and FormInputBindingPropertiesValuePropertiesOutput values.
+// You can construct a concrete instance of `FormInputBindingPropertiesValuePropertiesInput` via:
+//
+//	FormInputBindingPropertiesValuePropertiesArgs{...}
+type FormInputBindingPropertiesValuePropertiesInput interface {
+	pulumi.Input
+
+	ToFormInputBindingPropertiesValuePropertiesOutput() FormInputBindingPropertiesValuePropertiesOutput
+	ToFormInputBindingPropertiesValuePropertiesOutputWithContext(context.Context) FormInputBindingPropertiesValuePropertiesOutput
+}
+
+type FormInputBindingPropertiesValuePropertiesArgs struct {
+	Model pulumi.StringPtrInput `pulumi:"model"`
+}
+
+func (FormInputBindingPropertiesValuePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormInputBindingPropertiesValueProperties)(nil)).Elem()
+}
+
+func (i FormInputBindingPropertiesValuePropertiesArgs) ToFormInputBindingPropertiesValuePropertiesOutput() FormInputBindingPropertiesValuePropertiesOutput {
+	return i.ToFormInputBindingPropertiesValuePropertiesOutputWithContext(context.Background())
+}
+
+func (i FormInputBindingPropertiesValuePropertiesArgs) ToFormInputBindingPropertiesValuePropertiesOutputWithContext(ctx context.Context) FormInputBindingPropertiesValuePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputBindingPropertiesValuePropertiesOutput)
+}
+
+func (i FormInputBindingPropertiesValuePropertiesArgs) ToFormInputBindingPropertiesValuePropertiesPtrOutput() FormInputBindingPropertiesValuePropertiesPtrOutput {
+	return i.ToFormInputBindingPropertiesValuePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FormInputBindingPropertiesValuePropertiesArgs) ToFormInputBindingPropertiesValuePropertiesPtrOutputWithContext(ctx context.Context) FormInputBindingPropertiesValuePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputBindingPropertiesValuePropertiesOutput).ToFormInputBindingPropertiesValuePropertiesPtrOutputWithContext(ctx)
+}
+
+// FormInputBindingPropertiesValuePropertiesPtrInput is an input type that accepts FormInputBindingPropertiesValuePropertiesArgs, FormInputBindingPropertiesValuePropertiesPtr and FormInputBindingPropertiesValuePropertiesPtrOutput values.
+// You can construct a concrete instance of `FormInputBindingPropertiesValuePropertiesPtrInput` via:
+//
+//	        FormInputBindingPropertiesValuePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormInputBindingPropertiesValuePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFormInputBindingPropertiesValuePropertiesPtrOutput() FormInputBindingPropertiesValuePropertiesPtrOutput
+	ToFormInputBindingPropertiesValuePropertiesPtrOutputWithContext(context.Context) FormInputBindingPropertiesValuePropertiesPtrOutput
+}
+
+type formInputBindingPropertiesValuePropertiesPtrType FormInputBindingPropertiesValuePropertiesArgs
+
+func FormInputBindingPropertiesValuePropertiesPtr(v *FormInputBindingPropertiesValuePropertiesArgs) FormInputBindingPropertiesValuePropertiesPtrInput {
+	return (*formInputBindingPropertiesValuePropertiesPtrType)(v)
+}
+
+func (*formInputBindingPropertiesValuePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormInputBindingPropertiesValueProperties)(nil)).Elem()
+}
+
+func (i *formInputBindingPropertiesValuePropertiesPtrType) ToFormInputBindingPropertiesValuePropertiesPtrOutput() FormInputBindingPropertiesValuePropertiesPtrOutput {
+	return i.ToFormInputBindingPropertiesValuePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *formInputBindingPropertiesValuePropertiesPtrType) ToFormInputBindingPropertiesValuePropertiesPtrOutputWithContext(ctx context.Context) FormInputBindingPropertiesValuePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputBindingPropertiesValuePropertiesPtrOutput)
+}
+
+type FormInputBindingPropertiesValuePropertiesOutput struct{ *pulumi.OutputState }
+
+func (FormInputBindingPropertiesValuePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormInputBindingPropertiesValueProperties)(nil)).Elem()
+}
+
+func (o FormInputBindingPropertiesValuePropertiesOutput) ToFormInputBindingPropertiesValuePropertiesOutput() FormInputBindingPropertiesValuePropertiesOutput {
+	return o
+}
+
+func (o FormInputBindingPropertiesValuePropertiesOutput) ToFormInputBindingPropertiesValuePropertiesOutputWithContext(ctx context.Context) FormInputBindingPropertiesValuePropertiesOutput {
+	return o
+}
+
+func (o FormInputBindingPropertiesValuePropertiesOutput) ToFormInputBindingPropertiesValuePropertiesPtrOutput() FormInputBindingPropertiesValuePropertiesPtrOutput {
+	return o.ToFormInputBindingPropertiesValuePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FormInputBindingPropertiesValuePropertiesOutput) ToFormInputBindingPropertiesValuePropertiesPtrOutputWithContext(ctx context.Context) FormInputBindingPropertiesValuePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormInputBindingPropertiesValueProperties) *FormInputBindingPropertiesValueProperties {
+		return &v
+	}).(FormInputBindingPropertiesValuePropertiesPtrOutput)
+}
+
+func (o FormInputBindingPropertiesValuePropertiesOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormInputBindingPropertiesValueProperties) *string { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+type FormInputBindingPropertiesValuePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FormInputBindingPropertiesValuePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormInputBindingPropertiesValueProperties)(nil)).Elem()
+}
+
+func (o FormInputBindingPropertiesValuePropertiesPtrOutput) ToFormInputBindingPropertiesValuePropertiesPtrOutput() FormInputBindingPropertiesValuePropertiesPtrOutput {
+	return o
+}
+
+func (o FormInputBindingPropertiesValuePropertiesPtrOutput) ToFormInputBindingPropertiesValuePropertiesPtrOutputWithContext(ctx context.Context) FormInputBindingPropertiesValuePropertiesPtrOutput {
+	return o
+}
+
+func (o FormInputBindingPropertiesValuePropertiesPtrOutput) Elem() FormInputBindingPropertiesValuePropertiesOutput {
+	return o.ApplyT(func(v *FormInputBindingPropertiesValueProperties) FormInputBindingPropertiesValueProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FormInputBindingPropertiesValueProperties
+		return ret
+	}).(FormInputBindingPropertiesValuePropertiesOutput)
+}
+
+func (o FormInputBindingPropertiesValuePropertiesPtrOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormInputBindingPropertiesValueProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Model
+	}).(pulumi.StringPtrOutput)
+}
+
+type FormInputValueProperty struct {
+	BindingProperties *FormInputValuePropertyBindingProperties `pulumi:"bindingProperties"`
+	Concat            []FormInputValueProperty                 `pulumi:"concat"`
+	Value             *string                                  `pulumi:"value"`
+}
+
+// FormInputValuePropertyInput is an input type that accepts FormInputValuePropertyArgs and FormInputValuePropertyOutput values.
+// You can construct a concrete instance of `FormInputValuePropertyInput` via:
+//
+//	FormInputValuePropertyArgs{...}
+type FormInputValuePropertyInput interface {
+	pulumi.Input
+
+	ToFormInputValuePropertyOutput() FormInputValuePropertyOutput
+	ToFormInputValuePropertyOutputWithContext(context.Context) FormInputValuePropertyOutput
+}
+
+type FormInputValuePropertyArgs struct {
+	BindingProperties FormInputValuePropertyBindingPropertiesPtrInput `pulumi:"bindingProperties"`
+	Concat            FormInputValuePropertyArrayInput                `pulumi:"concat"`
+	Value             pulumi.StringPtrInput                           `pulumi:"value"`
+}
+
+func (FormInputValuePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormInputValueProperty)(nil)).Elem()
+}
+
+func (i FormInputValuePropertyArgs) ToFormInputValuePropertyOutput() FormInputValuePropertyOutput {
+	return i.ToFormInputValuePropertyOutputWithContext(context.Background())
+}
+
+func (i FormInputValuePropertyArgs) ToFormInputValuePropertyOutputWithContext(ctx context.Context) FormInputValuePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputValuePropertyOutput)
+}
+
+func (i FormInputValuePropertyArgs) ToFormInputValuePropertyPtrOutput() FormInputValuePropertyPtrOutput {
+	return i.ToFormInputValuePropertyPtrOutputWithContext(context.Background())
+}
+
+func (i FormInputValuePropertyArgs) ToFormInputValuePropertyPtrOutputWithContext(ctx context.Context) FormInputValuePropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputValuePropertyOutput).ToFormInputValuePropertyPtrOutputWithContext(ctx)
+}
+
+// FormInputValuePropertyPtrInput is an input type that accepts FormInputValuePropertyArgs, FormInputValuePropertyPtr and FormInputValuePropertyPtrOutput values.
+// You can construct a concrete instance of `FormInputValuePropertyPtrInput` via:
+//
+//	        FormInputValuePropertyArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormInputValuePropertyPtrInput interface {
+	pulumi.Input
+
+	ToFormInputValuePropertyPtrOutput() FormInputValuePropertyPtrOutput
+	ToFormInputValuePropertyPtrOutputWithContext(context.Context) FormInputValuePropertyPtrOutput
+}
+
+type formInputValuePropertyPtrType FormInputValuePropertyArgs
+
+func FormInputValuePropertyPtr(v *FormInputValuePropertyArgs) FormInputValuePropertyPtrInput {
+	return (*formInputValuePropertyPtrType)(v)
+}
+
+func (*formInputValuePropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormInputValueProperty)(nil)).Elem()
+}
+
+func (i *formInputValuePropertyPtrType) ToFormInputValuePropertyPtrOutput() FormInputValuePropertyPtrOutput {
+	return i.ToFormInputValuePropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *formInputValuePropertyPtrType) ToFormInputValuePropertyPtrOutputWithContext(ctx context.Context) FormInputValuePropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputValuePropertyPtrOutput)
+}
+
+// FormInputValuePropertyArrayInput is an input type that accepts FormInputValuePropertyArray and FormInputValuePropertyArrayOutput values.
+// You can construct a concrete instance of `FormInputValuePropertyArrayInput` via:
+//
+//	FormInputValuePropertyArray{ FormInputValuePropertyArgs{...} }
+type FormInputValuePropertyArrayInput interface {
+	pulumi.Input
+
+	ToFormInputValuePropertyArrayOutput() FormInputValuePropertyArrayOutput
+	ToFormInputValuePropertyArrayOutputWithContext(context.Context) FormInputValuePropertyArrayOutput
+}
+
+type FormInputValuePropertyArray []FormInputValuePropertyInput
+
+func (FormInputValuePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FormInputValueProperty)(nil)).Elem()
+}
+
+func (i FormInputValuePropertyArray) ToFormInputValuePropertyArrayOutput() FormInputValuePropertyArrayOutput {
+	return i.ToFormInputValuePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i FormInputValuePropertyArray) ToFormInputValuePropertyArrayOutputWithContext(ctx context.Context) FormInputValuePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputValuePropertyArrayOutput)
+}
+
+type FormInputValuePropertyOutput struct{ *pulumi.OutputState }
+
+func (FormInputValuePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormInputValueProperty)(nil)).Elem()
+}
+
+func (o FormInputValuePropertyOutput) ToFormInputValuePropertyOutput() FormInputValuePropertyOutput {
+	return o
+}
+
+func (o FormInputValuePropertyOutput) ToFormInputValuePropertyOutputWithContext(ctx context.Context) FormInputValuePropertyOutput {
+	return o
+}
+
+func (o FormInputValuePropertyOutput) ToFormInputValuePropertyPtrOutput() FormInputValuePropertyPtrOutput {
+	return o.ToFormInputValuePropertyPtrOutputWithContext(context.Background())
+}
+
+func (o FormInputValuePropertyOutput) ToFormInputValuePropertyPtrOutputWithContext(ctx context.Context) FormInputValuePropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormInputValueProperty) *FormInputValueProperty {
+		return &v
+	}).(FormInputValuePropertyPtrOutput)
+}
+
+func (o FormInputValuePropertyOutput) BindingProperties() FormInputValuePropertyBindingPropertiesPtrOutput {
+	return o.ApplyT(func(v FormInputValueProperty) *FormInputValuePropertyBindingProperties { return v.BindingProperties }).(FormInputValuePropertyBindingPropertiesPtrOutput)
+}
+
+func (o FormInputValuePropertyOutput) Concat() FormInputValuePropertyArrayOutput {
+	return o.ApplyT(func(v FormInputValueProperty) []FormInputValueProperty { return v.Concat }).(FormInputValuePropertyArrayOutput)
+}
+
+func (o FormInputValuePropertyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormInputValueProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type FormInputValuePropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (FormInputValuePropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormInputValueProperty)(nil)).Elem()
+}
+
+func (o FormInputValuePropertyPtrOutput) ToFormInputValuePropertyPtrOutput() FormInputValuePropertyPtrOutput {
+	return o
+}
+
+func (o FormInputValuePropertyPtrOutput) ToFormInputValuePropertyPtrOutputWithContext(ctx context.Context) FormInputValuePropertyPtrOutput {
+	return o
+}
+
+func (o FormInputValuePropertyPtrOutput) Elem() FormInputValuePropertyOutput {
+	return o.ApplyT(func(v *FormInputValueProperty) FormInputValueProperty {
+		if v != nil {
+			return *v
+		}
+		var ret FormInputValueProperty
+		return ret
+	}).(FormInputValuePropertyOutput)
+}
+
+func (o FormInputValuePropertyPtrOutput) BindingProperties() FormInputValuePropertyBindingPropertiesPtrOutput {
+	return o.ApplyT(func(v *FormInputValueProperty) *FormInputValuePropertyBindingProperties {
+		if v == nil {
+			return nil
+		}
+		return v.BindingProperties
+	}).(FormInputValuePropertyBindingPropertiesPtrOutput)
+}
+
+func (o FormInputValuePropertyPtrOutput) Concat() FormInputValuePropertyArrayOutput {
+	return o.ApplyT(func(v *FormInputValueProperty) []FormInputValueProperty {
+		if v == nil {
+			return nil
+		}
+		return v.Concat
+	}).(FormInputValuePropertyArrayOutput)
+}
+
+func (o FormInputValuePropertyPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormInputValueProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type FormInputValuePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (FormInputValuePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FormInputValueProperty)(nil)).Elem()
+}
+
+func (o FormInputValuePropertyArrayOutput) ToFormInputValuePropertyArrayOutput() FormInputValuePropertyArrayOutput {
+	return o
+}
+
+func (o FormInputValuePropertyArrayOutput) ToFormInputValuePropertyArrayOutputWithContext(ctx context.Context) FormInputValuePropertyArrayOutput {
+	return o
+}
+
+func (o FormInputValuePropertyArrayOutput) Index(i pulumi.IntInput) FormInputValuePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FormInputValueProperty {
+		return vs[0].([]FormInputValueProperty)[vs[1].(int)]
+	}).(FormInputValuePropertyOutput)
+}
+
+type FormInputValuePropertyBindingProperties struct {
+	Field    *string `pulumi:"field"`
+	Property string  `pulumi:"property"`
+}
+
+// FormInputValuePropertyBindingPropertiesInput is an input type that accepts FormInputValuePropertyBindingPropertiesArgs and FormInputValuePropertyBindingPropertiesOutput values.
+// You can construct a concrete instance of `FormInputValuePropertyBindingPropertiesInput` via:
+//
+//	FormInputValuePropertyBindingPropertiesArgs{...}
+type FormInputValuePropertyBindingPropertiesInput interface {
+	pulumi.Input
+
+	ToFormInputValuePropertyBindingPropertiesOutput() FormInputValuePropertyBindingPropertiesOutput
+	ToFormInputValuePropertyBindingPropertiesOutputWithContext(context.Context) FormInputValuePropertyBindingPropertiesOutput
+}
+
+type FormInputValuePropertyBindingPropertiesArgs struct {
+	Field    pulumi.StringPtrInput `pulumi:"field"`
+	Property pulumi.StringInput    `pulumi:"property"`
+}
+
+func (FormInputValuePropertyBindingPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormInputValuePropertyBindingProperties)(nil)).Elem()
+}
+
+func (i FormInputValuePropertyBindingPropertiesArgs) ToFormInputValuePropertyBindingPropertiesOutput() FormInputValuePropertyBindingPropertiesOutput {
+	return i.ToFormInputValuePropertyBindingPropertiesOutputWithContext(context.Background())
+}
+
+func (i FormInputValuePropertyBindingPropertiesArgs) ToFormInputValuePropertyBindingPropertiesOutputWithContext(ctx context.Context) FormInputValuePropertyBindingPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputValuePropertyBindingPropertiesOutput)
+}
+
+func (i FormInputValuePropertyBindingPropertiesArgs) ToFormInputValuePropertyBindingPropertiesPtrOutput() FormInputValuePropertyBindingPropertiesPtrOutput {
+	return i.ToFormInputValuePropertyBindingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FormInputValuePropertyBindingPropertiesArgs) ToFormInputValuePropertyBindingPropertiesPtrOutputWithContext(ctx context.Context) FormInputValuePropertyBindingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputValuePropertyBindingPropertiesOutput).ToFormInputValuePropertyBindingPropertiesPtrOutputWithContext(ctx)
+}
+
+// FormInputValuePropertyBindingPropertiesPtrInput is an input type that accepts FormInputValuePropertyBindingPropertiesArgs, FormInputValuePropertyBindingPropertiesPtr and FormInputValuePropertyBindingPropertiesPtrOutput values.
+// You can construct a concrete instance of `FormInputValuePropertyBindingPropertiesPtrInput` via:
+//
+//	        FormInputValuePropertyBindingPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormInputValuePropertyBindingPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFormInputValuePropertyBindingPropertiesPtrOutput() FormInputValuePropertyBindingPropertiesPtrOutput
+	ToFormInputValuePropertyBindingPropertiesPtrOutputWithContext(context.Context) FormInputValuePropertyBindingPropertiesPtrOutput
+}
+
+type formInputValuePropertyBindingPropertiesPtrType FormInputValuePropertyBindingPropertiesArgs
+
+func FormInputValuePropertyBindingPropertiesPtr(v *FormInputValuePropertyBindingPropertiesArgs) FormInputValuePropertyBindingPropertiesPtrInput {
+	return (*formInputValuePropertyBindingPropertiesPtrType)(v)
+}
+
+func (*formInputValuePropertyBindingPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormInputValuePropertyBindingProperties)(nil)).Elem()
+}
+
+func (i *formInputValuePropertyBindingPropertiesPtrType) ToFormInputValuePropertyBindingPropertiesPtrOutput() FormInputValuePropertyBindingPropertiesPtrOutput {
+	return i.ToFormInputValuePropertyBindingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *formInputValuePropertyBindingPropertiesPtrType) ToFormInputValuePropertyBindingPropertiesPtrOutputWithContext(ctx context.Context) FormInputValuePropertyBindingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormInputValuePropertyBindingPropertiesPtrOutput)
+}
+
+type FormInputValuePropertyBindingPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FormInputValuePropertyBindingPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormInputValuePropertyBindingProperties)(nil)).Elem()
+}
+
+func (o FormInputValuePropertyBindingPropertiesOutput) ToFormInputValuePropertyBindingPropertiesOutput() FormInputValuePropertyBindingPropertiesOutput {
+	return o
+}
+
+func (o FormInputValuePropertyBindingPropertiesOutput) ToFormInputValuePropertyBindingPropertiesOutputWithContext(ctx context.Context) FormInputValuePropertyBindingPropertiesOutput {
+	return o
+}
+
+func (o FormInputValuePropertyBindingPropertiesOutput) ToFormInputValuePropertyBindingPropertiesPtrOutput() FormInputValuePropertyBindingPropertiesPtrOutput {
+	return o.ToFormInputValuePropertyBindingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FormInputValuePropertyBindingPropertiesOutput) ToFormInputValuePropertyBindingPropertiesPtrOutputWithContext(ctx context.Context) FormInputValuePropertyBindingPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormInputValuePropertyBindingProperties) *FormInputValuePropertyBindingProperties {
+		return &v
+	}).(FormInputValuePropertyBindingPropertiesPtrOutput)
+}
+
+func (o FormInputValuePropertyBindingPropertiesOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormInputValuePropertyBindingProperties) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+func (o FormInputValuePropertyBindingPropertiesOutput) Property() pulumi.StringOutput {
+	return o.ApplyT(func(v FormInputValuePropertyBindingProperties) string { return v.Property }).(pulumi.StringOutput)
+}
+
+type FormInputValuePropertyBindingPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FormInputValuePropertyBindingPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormInputValuePropertyBindingProperties)(nil)).Elem()
+}
+
+func (o FormInputValuePropertyBindingPropertiesPtrOutput) ToFormInputValuePropertyBindingPropertiesPtrOutput() FormInputValuePropertyBindingPropertiesPtrOutput {
+	return o
+}
+
+func (o FormInputValuePropertyBindingPropertiesPtrOutput) ToFormInputValuePropertyBindingPropertiesPtrOutputWithContext(ctx context.Context) FormInputValuePropertyBindingPropertiesPtrOutput {
+	return o
+}
+
+func (o FormInputValuePropertyBindingPropertiesPtrOutput) Elem() FormInputValuePropertyBindingPropertiesOutput {
+	return o.ApplyT(func(v *FormInputValuePropertyBindingProperties) FormInputValuePropertyBindingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FormInputValuePropertyBindingProperties
+		return ret
+	}).(FormInputValuePropertyBindingPropertiesOutput)
+}
+
+func (o FormInputValuePropertyBindingPropertiesPtrOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormInputValuePropertyBindingProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Field
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FormInputValuePropertyBindingPropertiesPtrOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormInputValuePropertyBindingProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Property
+	}).(pulumi.StringPtrOutput)
+}
+
+type FormSectionalElement struct {
+	Excluded    *bool       `pulumi:"excluded"`
+	Level       *float64    `pulumi:"level"`
+	Orientation *string     `pulumi:"orientation"`
+	Position    interface{} `pulumi:"position"`
+	Text        *string     `pulumi:"text"`
+	Type        string      `pulumi:"type"`
+}
+
+// FormSectionalElementInput is an input type that accepts FormSectionalElementArgs and FormSectionalElementOutput values.
+// You can construct a concrete instance of `FormSectionalElementInput` via:
+//
+//	FormSectionalElementArgs{...}
+type FormSectionalElementInput interface {
+	pulumi.Input
+
+	ToFormSectionalElementOutput() FormSectionalElementOutput
+	ToFormSectionalElementOutputWithContext(context.Context) FormSectionalElementOutput
+}
+
+type FormSectionalElementArgs struct {
+	Excluded    pulumi.BoolPtrInput    `pulumi:"excluded"`
+	Level       pulumi.Float64PtrInput `pulumi:"level"`
+	Orientation pulumi.StringPtrInput  `pulumi:"orientation"`
+	Position    pulumi.Input           `pulumi:"position"`
+	Text        pulumi.StringPtrInput  `pulumi:"text"`
+	Type        pulumi.StringInput     `pulumi:"type"`
+}
+
+func (FormSectionalElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormSectionalElement)(nil)).Elem()
+}
+
+func (i FormSectionalElementArgs) ToFormSectionalElementOutput() FormSectionalElementOutput {
+	return i.ToFormSectionalElementOutputWithContext(context.Background())
+}
+
+func (i FormSectionalElementArgs) ToFormSectionalElementOutputWithContext(ctx context.Context) FormSectionalElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormSectionalElementOutput)
 }
 
 // FormSectionalElementMapInput is an input type that accepts FormSectionalElementMap and FormSectionalElementMapOutput values.
@@ -2083,66 +4801,62 @@ type FormSectionalElementMapInput interface {
 	ToFormSectionalElementMapOutputWithContext(context.Context) FormSectionalElementMapOutput
 }
 
-type FormSectionalElementMapArgs struct {
+type FormSectionalElementMap map[string]FormSectionalElementInput
+
+func (FormSectionalElementMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FormSectionalElement)(nil)).Elem()
 }
 
-func (FormSectionalElementMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormSectionalElementMap)(nil)).Elem()
-}
-
-func (i FormSectionalElementMapArgs) ToFormSectionalElementMapOutput() FormSectionalElementMapOutput {
+func (i FormSectionalElementMap) ToFormSectionalElementMapOutput() FormSectionalElementMapOutput {
 	return i.ToFormSectionalElementMapOutputWithContext(context.Background())
 }
 
-func (i FormSectionalElementMapArgs) ToFormSectionalElementMapOutputWithContext(ctx context.Context) FormSectionalElementMapOutput {
+func (i FormSectionalElementMap) ToFormSectionalElementMapOutputWithContext(ctx context.Context) FormSectionalElementMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FormSectionalElementMapOutput)
 }
 
-func (i FormSectionalElementMapArgs) ToFormSectionalElementMapPtrOutput() FormSectionalElementMapPtrOutput {
-	return i.ToFormSectionalElementMapPtrOutputWithContext(context.Background())
+type FormSectionalElementOutput struct{ *pulumi.OutputState }
+
+func (FormSectionalElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormSectionalElement)(nil)).Elem()
 }
 
-func (i FormSectionalElementMapArgs) ToFormSectionalElementMapPtrOutputWithContext(ctx context.Context) FormSectionalElementMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormSectionalElementMapOutput).ToFormSectionalElementMapPtrOutputWithContext(ctx)
+func (o FormSectionalElementOutput) ToFormSectionalElementOutput() FormSectionalElementOutput {
+	return o
 }
 
-// FormSectionalElementMapPtrInput is an input type that accepts FormSectionalElementMapArgs, FormSectionalElementMapPtr and FormSectionalElementMapPtrOutput values.
-// You can construct a concrete instance of `FormSectionalElementMapPtrInput` via:
-//
-//	        FormSectionalElementMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type FormSectionalElementMapPtrInput interface {
-	pulumi.Input
-
-	ToFormSectionalElementMapPtrOutput() FormSectionalElementMapPtrOutput
-	ToFormSectionalElementMapPtrOutputWithContext(context.Context) FormSectionalElementMapPtrOutput
+func (o FormSectionalElementOutput) ToFormSectionalElementOutputWithContext(ctx context.Context) FormSectionalElementOutput {
+	return o
 }
 
-type formSectionalElementMapPtrType FormSectionalElementMapArgs
-
-func FormSectionalElementMapPtr(v *FormSectionalElementMapArgs) FormSectionalElementMapPtrInput {
-	return (*formSectionalElementMapPtrType)(v)
+func (o FormSectionalElementOutput) Excluded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FormSectionalElement) *bool { return v.Excluded }).(pulumi.BoolPtrOutput)
 }
 
-func (*formSectionalElementMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormSectionalElementMap)(nil)).Elem()
+func (o FormSectionalElementOutput) Level() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FormSectionalElement) *float64 { return v.Level }).(pulumi.Float64PtrOutput)
 }
 
-func (i *formSectionalElementMapPtrType) ToFormSectionalElementMapPtrOutput() FormSectionalElementMapPtrOutput {
-	return i.ToFormSectionalElementMapPtrOutputWithContext(context.Background())
+func (o FormSectionalElementOutput) Orientation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormSectionalElement) *string { return v.Orientation }).(pulumi.StringPtrOutput)
 }
 
-func (i *formSectionalElementMapPtrType) ToFormSectionalElementMapPtrOutputWithContext(ctx context.Context) FormSectionalElementMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormSectionalElementMapPtrOutput)
+func (o FormSectionalElementOutput) Position() pulumi.AnyOutput {
+	return o.ApplyT(func(v FormSectionalElement) interface{} { return v.Position }).(pulumi.AnyOutput)
+}
+
+func (o FormSectionalElementOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormSectionalElement) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+func (o FormSectionalElementOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FormSectionalElement) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type FormSectionalElementMapOutput struct{ *pulumi.OutputState }
 
 func (FormSectionalElementMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormSectionalElementMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]FormSectionalElement)(nil)).Elem()
 }
 
 func (o FormSectionalElementMapOutput) ToFormSectionalElementMapOutput() FormSectionalElementMapOutput {
@@ -2153,38 +4867,10 @@ func (o FormSectionalElementMapOutput) ToFormSectionalElementMapOutputWithContex
 	return o
 }
 
-func (o FormSectionalElementMapOutput) ToFormSectionalElementMapPtrOutput() FormSectionalElementMapPtrOutput {
-	return o.ToFormSectionalElementMapPtrOutputWithContext(context.Background())
-}
-
-func (o FormSectionalElementMapOutput) ToFormSectionalElementMapPtrOutputWithContext(ctx context.Context) FormSectionalElementMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormSectionalElementMap) *FormSectionalElementMap {
-		return &v
-	}).(FormSectionalElementMapPtrOutput)
-}
-
-type FormSectionalElementMapPtrOutput struct{ *pulumi.OutputState }
-
-func (FormSectionalElementMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormSectionalElementMap)(nil)).Elem()
-}
-
-func (o FormSectionalElementMapPtrOutput) ToFormSectionalElementMapPtrOutput() FormSectionalElementMapPtrOutput {
-	return o
-}
-
-func (o FormSectionalElementMapPtrOutput) ToFormSectionalElementMapPtrOutputWithContext(ctx context.Context) FormSectionalElementMapPtrOutput {
-	return o
-}
-
-func (o FormSectionalElementMapPtrOutput) Elem() FormSectionalElementMapOutput {
-	return o.ApplyT(func(v *FormSectionalElementMap) FormSectionalElementMap {
-		if v != nil {
-			return *v
-		}
-		var ret FormSectionalElementMap
-		return ret
-	}).(FormSectionalElementMapOutput)
+func (o FormSectionalElementMapOutput) MapIndex(k pulumi.StringInput) FormSectionalElementOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FormSectionalElement {
+		return vs[0].(map[string]FormSectionalElement)[vs[1].(string)]
+	}).(FormSectionalElementOutput)
 }
 
 type FormStyle struct {
@@ -2616,240 +5302,252 @@ func (o FormStyleConfig1PropertiesPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type FormTags struct {
+type FormValueMapping struct {
+	DisplayValue *FormInputValueProperty `pulumi:"displayValue"`
+	Value        FormInputValueProperty  `pulumi:"value"`
 }
 
-// FormTagsInput is an input type that accepts FormTagsArgs and FormTagsOutput values.
-// You can construct a concrete instance of `FormTagsInput` via:
+// FormValueMappingInput is an input type that accepts FormValueMappingArgs and FormValueMappingOutput values.
+// You can construct a concrete instance of `FormValueMappingInput` via:
 //
-//	FormTagsArgs{...}
-type FormTagsInput interface {
+//	FormValueMappingArgs{...}
+type FormValueMappingInput interface {
 	pulumi.Input
 
-	ToFormTagsOutput() FormTagsOutput
-	ToFormTagsOutputWithContext(context.Context) FormTagsOutput
+	ToFormValueMappingOutput() FormValueMappingOutput
+	ToFormValueMappingOutputWithContext(context.Context) FormValueMappingOutput
 }
 
-type FormTagsArgs struct {
+type FormValueMappingArgs struct {
+	DisplayValue FormInputValuePropertyPtrInput `pulumi:"displayValue"`
+	Value        FormInputValuePropertyInput    `pulumi:"value"`
 }
 
-func (FormTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormTags)(nil)).Elem()
+func (FormValueMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormValueMapping)(nil)).Elem()
 }
 
-func (i FormTagsArgs) ToFormTagsOutput() FormTagsOutput {
-	return i.ToFormTagsOutputWithContext(context.Background())
+func (i FormValueMappingArgs) ToFormValueMappingOutput() FormValueMappingOutput {
+	return i.ToFormValueMappingOutputWithContext(context.Background())
 }
 
-func (i FormTagsArgs) ToFormTagsOutputWithContext(ctx context.Context) FormTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormTagsOutput)
+func (i FormValueMappingArgs) ToFormValueMappingOutputWithContext(ctx context.Context) FormValueMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormValueMappingOutput)
 }
 
-func (i FormTagsArgs) ToFormTagsPtrOutput() FormTagsPtrOutput {
-	return i.ToFormTagsPtrOutputWithContext(context.Background())
-}
-
-func (i FormTagsArgs) ToFormTagsPtrOutputWithContext(ctx context.Context) FormTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormTagsOutput).ToFormTagsPtrOutputWithContext(ctx)
-}
-
-// FormTagsPtrInput is an input type that accepts FormTagsArgs, FormTagsPtr and FormTagsPtrOutput values.
-// You can construct a concrete instance of `FormTagsPtrInput` via:
+// FormValueMappingArrayInput is an input type that accepts FormValueMappingArray and FormValueMappingArrayOutput values.
+// You can construct a concrete instance of `FormValueMappingArrayInput` via:
 //
-//	        FormTagsArgs{...}
+//	FormValueMappingArray{ FormValueMappingArgs{...} }
+type FormValueMappingArrayInput interface {
+	pulumi.Input
+
+	ToFormValueMappingArrayOutput() FormValueMappingArrayOutput
+	ToFormValueMappingArrayOutputWithContext(context.Context) FormValueMappingArrayOutput
+}
+
+type FormValueMappingArray []FormValueMappingInput
+
+func (FormValueMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FormValueMapping)(nil)).Elem()
+}
+
+func (i FormValueMappingArray) ToFormValueMappingArrayOutput() FormValueMappingArrayOutput {
+	return i.ToFormValueMappingArrayOutputWithContext(context.Background())
+}
+
+func (i FormValueMappingArray) ToFormValueMappingArrayOutputWithContext(ctx context.Context) FormValueMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormValueMappingArrayOutput)
+}
+
+type FormValueMappingOutput struct{ *pulumi.OutputState }
+
+func (FormValueMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormValueMapping)(nil)).Elem()
+}
+
+func (o FormValueMappingOutput) ToFormValueMappingOutput() FormValueMappingOutput {
+	return o
+}
+
+func (o FormValueMappingOutput) ToFormValueMappingOutputWithContext(ctx context.Context) FormValueMappingOutput {
+	return o
+}
+
+func (o FormValueMappingOutput) DisplayValue() FormInputValuePropertyPtrOutput {
+	return o.ApplyT(func(v FormValueMapping) *FormInputValueProperty { return v.DisplayValue }).(FormInputValuePropertyPtrOutput)
+}
+
+func (o FormValueMappingOutput) Value() FormInputValuePropertyOutput {
+	return o.ApplyT(func(v FormValueMapping) FormInputValueProperty { return v.Value }).(FormInputValuePropertyOutput)
+}
+
+type FormValueMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (FormValueMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FormValueMapping)(nil)).Elem()
+}
+
+func (o FormValueMappingArrayOutput) ToFormValueMappingArrayOutput() FormValueMappingArrayOutput {
+	return o
+}
+
+func (o FormValueMappingArrayOutput) ToFormValueMappingArrayOutputWithContext(ctx context.Context) FormValueMappingArrayOutput {
+	return o
+}
+
+func (o FormValueMappingArrayOutput) Index(i pulumi.IntInput) FormValueMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FormValueMapping {
+		return vs[0].([]FormValueMapping)[vs[1].(int)]
+	}).(FormValueMappingOutput)
+}
+
+type FormValueMappings struct {
+	BindingProperties map[string]FormInputBindingPropertiesValue `pulumi:"bindingProperties"`
+	Values            []FormValueMapping                         `pulumi:"values"`
+}
+
+// FormValueMappingsInput is an input type that accepts FormValueMappingsArgs and FormValueMappingsOutput values.
+// You can construct a concrete instance of `FormValueMappingsInput` via:
+//
+//	FormValueMappingsArgs{...}
+type FormValueMappingsInput interface {
+	pulumi.Input
+
+	ToFormValueMappingsOutput() FormValueMappingsOutput
+	ToFormValueMappingsOutputWithContext(context.Context) FormValueMappingsOutput
+}
+
+type FormValueMappingsArgs struct {
+	BindingProperties FormInputBindingPropertiesValueMapInput `pulumi:"bindingProperties"`
+	Values            FormValueMappingArrayInput              `pulumi:"values"`
+}
+
+func (FormValueMappingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormValueMappings)(nil)).Elem()
+}
+
+func (i FormValueMappingsArgs) ToFormValueMappingsOutput() FormValueMappingsOutput {
+	return i.ToFormValueMappingsOutputWithContext(context.Background())
+}
+
+func (i FormValueMappingsArgs) ToFormValueMappingsOutputWithContext(ctx context.Context) FormValueMappingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormValueMappingsOutput)
+}
+
+func (i FormValueMappingsArgs) ToFormValueMappingsPtrOutput() FormValueMappingsPtrOutput {
+	return i.ToFormValueMappingsPtrOutputWithContext(context.Background())
+}
+
+func (i FormValueMappingsArgs) ToFormValueMappingsPtrOutputWithContext(ctx context.Context) FormValueMappingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormValueMappingsOutput).ToFormValueMappingsPtrOutputWithContext(ctx)
+}
+
+// FormValueMappingsPtrInput is an input type that accepts FormValueMappingsArgs, FormValueMappingsPtr and FormValueMappingsPtrOutput values.
+// You can construct a concrete instance of `FormValueMappingsPtrInput` via:
+//
+//	        FormValueMappingsArgs{...}
 //
 //	or:
 //
 //	        nil
-type FormTagsPtrInput interface {
+type FormValueMappingsPtrInput interface {
 	pulumi.Input
 
-	ToFormTagsPtrOutput() FormTagsPtrOutput
-	ToFormTagsPtrOutputWithContext(context.Context) FormTagsPtrOutput
+	ToFormValueMappingsPtrOutput() FormValueMappingsPtrOutput
+	ToFormValueMappingsPtrOutputWithContext(context.Context) FormValueMappingsPtrOutput
 }
 
-type formTagsPtrType FormTagsArgs
+type formValueMappingsPtrType FormValueMappingsArgs
 
-func FormTagsPtr(v *FormTagsArgs) FormTagsPtrInput {
-	return (*formTagsPtrType)(v)
+func FormValueMappingsPtr(v *FormValueMappingsArgs) FormValueMappingsPtrInput {
+	return (*formValueMappingsPtrType)(v)
 }
 
-func (*formTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormTags)(nil)).Elem()
+func (*formValueMappingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormValueMappings)(nil)).Elem()
 }
 
-func (i *formTagsPtrType) ToFormTagsPtrOutput() FormTagsPtrOutput {
-	return i.ToFormTagsPtrOutputWithContext(context.Background())
+func (i *formValueMappingsPtrType) ToFormValueMappingsPtrOutput() FormValueMappingsPtrOutput {
+	return i.ToFormValueMappingsPtrOutputWithContext(context.Background())
 }
 
-func (i *formTagsPtrType) ToFormTagsPtrOutputWithContext(ctx context.Context) FormTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormTagsPtrOutput)
+func (i *formValueMappingsPtrType) ToFormValueMappingsPtrOutputWithContext(ctx context.Context) FormValueMappingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormValueMappingsPtrOutput)
 }
 
-type FormTagsOutput struct{ *pulumi.OutputState }
+type FormValueMappingsOutput struct{ *pulumi.OutputState }
 
-func (FormTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormTags)(nil)).Elem()
+func (FormValueMappingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormValueMappings)(nil)).Elem()
 }
 
-func (o FormTagsOutput) ToFormTagsOutput() FormTagsOutput {
+func (o FormValueMappingsOutput) ToFormValueMappingsOutput() FormValueMappingsOutput {
 	return o
 }
 
-func (o FormTagsOutput) ToFormTagsOutputWithContext(ctx context.Context) FormTagsOutput {
+func (o FormValueMappingsOutput) ToFormValueMappingsOutputWithContext(ctx context.Context) FormValueMappingsOutput {
 	return o
 }
 
-func (o FormTagsOutput) ToFormTagsPtrOutput() FormTagsPtrOutput {
-	return o.ToFormTagsPtrOutputWithContext(context.Background())
+func (o FormValueMappingsOutput) ToFormValueMappingsPtrOutput() FormValueMappingsPtrOutput {
+	return o.ToFormValueMappingsPtrOutputWithContext(context.Background())
 }
 
-func (o FormTagsOutput) ToFormTagsPtrOutputWithContext(ctx context.Context) FormTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormTags) *FormTags {
+func (o FormValueMappingsOutput) ToFormValueMappingsPtrOutputWithContext(ctx context.Context) FormValueMappingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormValueMappings) *FormValueMappings {
 		return &v
-	}).(FormTagsPtrOutput)
+	}).(FormValueMappingsPtrOutput)
 }
 
-type FormTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (FormTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormTags)(nil)).Elem()
+func (o FormValueMappingsOutput) BindingProperties() FormInputBindingPropertiesValueMapOutput {
+	return o.ApplyT(func(v FormValueMappings) map[string]FormInputBindingPropertiesValue { return v.BindingProperties }).(FormInputBindingPropertiesValueMapOutput)
 }
 
-func (o FormTagsPtrOutput) ToFormTagsPtrOutput() FormTagsPtrOutput {
+func (o FormValueMappingsOutput) Values() FormValueMappingArrayOutput {
+	return o.ApplyT(func(v FormValueMappings) []FormValueMapping { return v.Values }).(FormValueMappingArrayOutput)
+}
+
+type FormValueMappingsPtrOutput struct{ *pulumi.OutputState }
+
+func (FormValueMappingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormValueMappings)(nil)).Elem()
+}
+
+func (o FormValueMappingsPtrOutput) ToFormValueMappingsPtrOutput() FormValueMappingsPtrOutput {
 	return o
 }
 
-func (o FormTagsPtrOutput) ToFormTagsPtrOutputWithContext(ctx context.Context) FormTagsPtrOutput {
+func (o FormValueMappingsPtrOutput) ToFormValueMappingsPtrOutputWithContext(ctx context.Context) FormValueMappingsPtrOutput {
 	return o
 }
 
-func (o FormTagsPtrOutput) Elem() FormTagsOutput {
-	return o.ApplyT(func(v *FormTags) FormTags {
+func (o FormValueMappingsPtrOutput) Elem() FormValueMappingsOutput {
+	return o.ApplyT(func(v *FormValueMappings) FormValueMappings {
 		if v != nil {
 			return *v
 		}
-		var ret FormTags
+		var ret FormValueMappings
 		return ret
-	}).(FormTagsOutput)
+	}).(FormValueMappingsOutput)
 }
 
-type ThemeTags struct {
-}
-
-// ThemeTagsInput is an input type that accepts ThemeTagsArgs and ThemeTagsOutput values.
-// You can construct a concrete instance of `ThemeTagsInput` via:
-//
-//	ThemeTagsArgs{...}
-type ThemeTagsInput interface {
-	pulumi.Input
-
-	ToThemeTagsOutput() ThemeTagsOutput
-	ToThemeTagsOutputWithContext(context.Context) ThemeTagsOutput
-}
-
-type ThemeTagsArgs struct {
-}
-
-func (ThemeTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeTags)(nil)).Elem()
-}
-
-func (i ThemeTagsArgs) ToThemeTagsOutput() ThemeTagsOutput {
-	return i.ToThemeTagsOutputWithContext(context.Background())
-}
-
-func (i ThemeTagsArgs) ToThemeTagsOutputWithContext(ctx context.Context) ThemeTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagsOutput)
-}
-
-func (i ThemeTagsArgs) ToThemeTagsPtrOutput() ThemeTagsPtrOutput {
-	return i.ToThemeTagsPtrOutputWithContext(context.Background())
-}
-
-func (i ThemeTagsArgs) ToThemeTagsPtrOutputWithContext(ctx context.Context) ThemeTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagsOutput).ToThemeTagsPtrOutputWithContext(ctx)
-}
-
-// ThemeTagsPtrInput is an input type that accepts ThemeTagsArgs, ThemeTagsPtr and ThemeTagsPtrOutput values.
-// You can construct a concrete instance of `ThemeTagsPtrInput` via:
-//
-//	        ThemeTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ThemeTagsPtrInput interface {
-	pulumi.Input
-
-	ToThemeTagsPtrOutput() ThemeTagsPtrOutput
-	ToThemeTagsPtrOutputWithContext(context.Context) ThemeTagsPtrOutput
-}
-
-type themeTagsPtrType ThemeTagsArgs
-
-func ThemeTagsPtr(v *ThemeTagsArgs) ThemeTagsPtrInput {
-	return (*themeTagsPtrType)(v)
-}
-
-func (*themeTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThemeTags)(nil)).Elem()
-}
-
-func (i *themeTagsPtrType) ToThemeTagsPtrOutput() ThemeTagsPtrOutput {
-	return i.ToThemeTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *themeTagsPtrType) ToThemeTagsPtrOutputWithContext(ctx context.Context) ThemeTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagsPtrOutput)
-}
-
-type ThemeTagsOutput struct{ *pulumi.OutputState }
-
-func (ThemeTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeTags)(nil)).Elem()
-}
-
-func (o ThemeTagsOutput) ToThemeTagsOutput() ThemeTagsOutput {
-	return o
-}
-
-func (o ThemeTagsOutput) ToThemeTagsOutputWithContext(ctx context.Context) ThemeTagsOutput {
-	return o
-}
-
-func (o ThemeTagsOutput) ToThemeTagsPtrOutput() ThemeTagsPtrOutput {
-	return o.ToThemeTagsPtrOutputWithContext(context.Background())
-}
-
-func (o ThemeTagsOutput) ToThemeTagsPtrOutputWithContext(ctx context.Context) ThemeTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeTags) *ThemeTags {
-		return &v
-	}).(ThemeTagsPtrOutput)
-}
-
-type ThemeTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (ThemeTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThemeTags)(nil)).Elem()
-}
-
-func (o ThemeTagsPtrOutput) ToThemeTagsPtrOutput() ThemeTagsPtrOutput {
-	return o
-}
-
-func (o ThemeTagsPtrOutput) ToThemeTagsPtrOutputWithContext(ctx context.Context) ThemeTagsPtrOutput {
-	return o
-}
-
-func (o ThemeTagsPtrOutput) Elem() ThemeTagsOutput {
-	return o.ApplyT(func(v *ThemeTags) ThemeTags {
-		if v != nil {
-			return *v
+func (o FormValueMappingsPtrOutput) BindingProperties() FormInputBindingPropertiesValueMapOutput {
+	return o.ApplyT(func(v *FormValueMappings) map[string]FormInputBindingPropertiesValue {
+		if v == nil {
+			return nil
 		}
-		var ret ThemeTags
-		return ret
-	}).(ThemeTagsOutput)
+		return v.BindingProperties
+	}).(FormInputBindingPropertiesValueMapOutput)
+}
+
+func (o FormValueMappingsPtrOutput) Values() FormValueMappingArrayOutput {
+	return o.ApplyT(func(v *FormValueMappings) []FormValueMapping {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(FormValueMappingArrayOutput)
 }
 
 type ThemeValue struct {
@@ -3101,98 +5799,154 @@ func (o ThemeValuesArrayOutput) Index(i pulumi.IntInput) ThemeValuesOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentBindingPropertiesInput)(nil)).Elem(), ComponentBindingPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentBindingPropertiesPtrInput)(nil)).Elem(), ComponentBindingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentActionParametersInput)(nil)).Elem(), ComponentActionParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentActionParametersPtrInput)(nil)).Elem(), ComponentActionParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentBindingPropertiesValueInput)(nil)).Elem(), ComponentBindingPropertiesValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentBindingPropertiesValueMapInput)(nil)).Elem(), ComponentBindingPropertiesValueMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentBindingPropertiesValuePropertiesInput)(nil)).Elem(), ComponentBindingPropertiesValuePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentBindingPropertiesValuePropertiesPtrInput)(nil)).Elem(), ComponentBindingPropertiesValuePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentChildInput)(nil)).Elem(), ComponentChildArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentChildArrayInput)(nil)).Elem(), ComponentChildArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentCollectionPropertiesInput)(nil)).Elem(), ComponentCollectionPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentCollectionPropertiesPtrInput)(nil)).Elem(), ComponentCollectionPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentEventsInput)(nil)).Elem(), ComponentEventsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentEventsPtrInput)(nil)).Elem(), ComponentEventsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentOverridesInput)(nil)).Elem(), ComponentOverridesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentOverridesPtrInput)(nil)).Elem(), ComponentOverridesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertiesInput)(nil)).Elem(), ComponentPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertiesPtrInput)(nil)).Elem(), ComponentPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTagsInput)(nil)).Elem(), ComponentTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentTagsPtrInput)(nil)).Elem(), ComponentTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentConditionPropertyInput)(nil)).Elem(), ComponentConditionPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentConditionPropertyPtrInput)(nil)).Elem(), ComponentConditionPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentDataConfigurationInput)(nil)).Elem(), ComponentDataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentDataConfigurationMapInput)(nil)).Elem(), ComponentDataConfigurationMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentEventInput)(nil)).Elem(), ComponentEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentEventMapInput)(nil)).Elem(), ComponentEventMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentFormBindingElementInput)(nil)).Elem(), ComponentFormBindingElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentFormBindingElementMapInput)(nil)).Elem(), ComponentFormBindingElementMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentMutationActionSetStateParameterInput)(nil)).Elem(), ComponentMutationActionSetStateParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentMutationActionSetStateParameterPtrInput)(nil)).Elem(), ComponentMutationActionSetStateParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPredicateInput)(nil)).Elem(), ComponentPredicateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPredicatePtrInput)(nil)).Elem(), ComponentPredicateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPredicateArrayInput)(nil)).Elem(), ComponentPredicateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertyInput)(nil)).Elem(), ComponentPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertyPtrInput)(nil)).Elem(), ComponentPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertyArrayInput)(nil)).Elem(), ComponentPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertyMapInput)(nil)).Elem(), ComponentPropertyMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertyBindingPropertiesInput)(nil)).Elem(), ComponentPropertyBindingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPropertyBindingPropertiesPtrInput)(nil)).Elem(), ComponentPropertyBindingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentSortPropertyInput)(nil)).Elem(), ComponentSortPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComponentSortPropertyArrayInput)(nil)).Elem(), ComponentSortPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVariantInput)(nil)).Elem(), ComponentVariantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVariantArrayInput)(nil)).Elem(), ComponentVariantArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVariantValuesInput)(nil)).Elem(), ComponentVariantValuesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVariantValuesPtrInput)(nil)).Elem(), ComponentVariantValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormButtonInput)(nil)).Elem(), FormButtonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormButtonPtrInput)(nil)).Elem(), FormButtonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormCtaInput)(nil)).Elem(), FormCtaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormCtaPtrInput)(nil)).Elem(), FormCtaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormDataTypeConfigInput)(nil)).Elem(), FormDataTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormDataTypeConfigPtrInput)(nil)).Elem(), FormDataTypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldConfigInput)(nil)).Elem(), FormFieldConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldConfigMapInput)(nil)).Elem(), FormFieldConfigMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldInputConfigInput)(nil)).Elem(), FormFieldInputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldInputConfigPtrInput)(nil)).Elem(), FormFieldInputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition0PropertiesInput)(nil)).Elem(), FormFieldPosition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition0PropertiesPtrInput)(nil)).Elem(), FormFieldPosition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition1PropertiesInput)(nil)).Elem(), FormFieldPosition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition1PropertiesPtrInput)(nil)).Elem(), FormFieldPosition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition2PropertiesInput)(nil)).Elem(), FormFieldPosition2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPosition2PropertiesPtrInput)(nil)).Elem(), FormFieldPosition2PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldsMapInput)(nil)).Elem(), FormFieldsMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldsMapPtrInput)(nil)).Elem(), FormFieldsMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormSectionalElementMapInput)(nil)).Elem(), FormSectionalElementMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormSectionalElementMapPtrInput)(nil)).Elem(), FormSectionalElementMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldValidationConfigurationInput)(nil)).Elem(), FormFieldValidationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldValidationConfigurationArrayInput)(nil)).Elem(), FormFieldValidationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFileUploaderFieldConfigInput)(nil)).Elem(), FormFileUploaderFieldConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFileUploaderFieldConfigPtrInput)(nil)).Elem(), FormFileUploaderFieldConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormInputBindingPropertiesValueInput)(nil)).Elem(), FormInputBindingPropertiesValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormInputBindingPropertiesValueMapInput)(nil)).Elem(), FormInputBindingPropertiesValueMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormInputBindingPropertiesValuePropertiesInput)(nil)).Elem(), FormInputBindingPropertiesValuePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormInputBindingPropertiesValuePropertiesPtrInput)(nil)).Elem(), FormInputBindingPropertiesValuePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormInputValuePropertyInput)(nil)).Elem(), FormInputValuePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormInputValuePropertyPtrInput)(nil)).Elem(), FormInputValuePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormInputValuePropertyArrayInput)(nil)).Elem(), FormInputValuePropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormInputValuePropertyBindingPropertiesInput)(nil)).Elem(), FormInputValuePropertyBindingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormInputValuePropertyBindingPropertiesPtrInput)(nil)).Elem(), FormInputValuePropertyBindingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormSectionalElementInput)(nil)).Elem(), FormSectionalElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormSectionalElementMapInput)(nil)).Elem(), FormSectionalElementMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleInput)(nil)).Elem(), FormStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormStylePtrInput)(nil)).Elem(), FormStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfig0PropertiesInput)(nil)).Elem(), FormStyleConfig0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfig0PropertiesPtrInput)(nil)).Elem(), FormStyleConfig0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfig1PropertiesInput)(nil)).Elem(), FormStyleConfig1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfig1PropertiesPtrInput)(nil)).Elem(), FormStyleConfig1PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormTagsInput)(nil)).Elem(), FormTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormTagsPtrInput)(nil)).Elem(), FormTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagsInput)(nil)).Elem(), ThemeTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagsPtrInput)(nil)).Elem(), ThemeTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormValueMappingInput)(nil)).Elem(), FormValueMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormValueMappingArrayInput)(nil)).Elem(), FormValueMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormValueMappingsInput)(nil)).Elem(), FormValueMappingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormValueMappingsPtrInput)(nil)).Elem(), FormValueMappingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeValueInput)(nil)).Elem(), ThemeValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeValuePtrInput)(nil)).Elem(), ThemeValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeValuesInput)(nil)).Elem(), ThemeValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeValuesArrayInput)(nil)).Elem(), ThemeValuesArray{})
-	pulumi.RegisterOutputType(ComponentBindingPropertiesOutput{})
-	pulumi.RegisterOutputType(ComponentBindingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ComponentActionParametersOutput{})
+	pulumi.RegisterOutputType(ComponentActionParametersPtrOutput{})
+	pulumi.RegisterOutputType(ComponentBindingPropertiesValueOutput{})
+	pulumi.RegisterOutputType(ComponentBindingPropertiesValueMapOutput{})
+	pulumi.RegisterOutputType(ComponentBindingPropertiesValuePropertiesOutput{})
+	pulumi.RegisterOutputType(ComponentBindingPropertiesValuePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ComponentChildOutput{})
 	pulumi.RegisterOutputType(ComponentChildArrayOutput{})
-	pulumi.RegisterOutputType(ComponentCollectionPropertiesOutput{})
-	pulumi.RegisterOutputType(ComponentCollectionPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ComponentEventsOutput{})
-	pulumi.RegisterOutputType(ComponentEventsPtrOutput{})
-	pulumi.RegisterOutputType(ComponentOverridesOutput{})
-	pulumi.RegisterOutputType(ComponentOverridesPtrOutput{})
-	pulumi.RegisterOutputType(ComponentPropertiesOutput{})
-	pulumi.RegisterOutputType(ComponentPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ComponentTagsOutput{})
-	pulumi.RegisterOutputType(ComponentTagsPtrOutput{})
+	pulumi.RegisterOutputType(ComponentConditionPropertyOutput{})
+	pulumi.RegisterOutputType(ComponentConditionPropertyPtrOutput{})
+	pulumi.RegisterOutputType(ComponentDataConfigurationOutput{})
+	pulumi.RegisterOutputType(ComponentDataConfigurationMapOutput{})
+	pulumi.RegisterOutputType(ComponentEventOutput{})
+	pulumi.RegisterOutputType(ComponentEventMapOutput{})
+	pulumi.RegisterOutputType(ComponentFormBindingElementOutput{})
+	pulumi.RegisterOutputType(ComponentFormBindingElementMapOutput{})
+	pulumi.RegisterOutputType(ComponentMutationActionSetStateParameterOutput{})
+	pulumi.RegisterOutputType(ComponentMutationActionSetStateParameterPtrOutput{})
+	pulumi.RegisterOutputType(ComponentPredicateOutput{})
+	pulumi.RegisterOutputType(ComponentPredicatePtrOutput{})
+	pulumi.RegisterOutputType(ComponentPredicateArrayOutput{})
+	pulumi.RegisterOutputType(ComponentPropertyOutput{})
+	pulumi.RegisterOutputType(ComponentPropertyPtrOutput{})
+	pulumi.RegisterOutputType(ComponentPropertyArrayOutput{})
+	pulumi.RegisterOutputType(ComponentPropertyMapOutput{})
+	pulumi.RegisterOutputType(ComponentPropertyBindingPropertiesOutput{})
+	pulumi.RegisterOutputType(ComponentPropertyBindingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ComponentSortPropertyOutput{})
+	pulumi.RegisterOutputType(ComponentSortPropertyArrayOutput{})
 	pulumi.RegisterOutputType(ComponentVariantOutput{})
 	pulumi.RegisterOutputType(ComponentVariantArrayOutput{})
-	pulumi.RegisterOutputType(ComponentVariantValuesOutput{})
-	pulumi.RegisterOutputType(ComponentVariantValuesPtrOutput{})
 	pulumi.RegisterOutputType(FormButtonOutput{})
 	pulumi.RegisterOutputType(FormButtonPtrOutput{})
 	pulumi.RegisterOutputType(FormCtaOutput{})
 	pulumi.RegisterOutputType(FormCtaPtrOutput{})
 	pulumi.RegisterOutputType(FormDataTypeConfigOutput{})
 	pulumi.RegisterOutputType(FormDataTypeConfigPtrOutput{})
+	pulumi.RegisterOutputType(FormFieldConfigOutput{})
+	pulumi.RegisterOutputType(FormFieldConfigMapOutput{})
+	pulumi.RegisterOutputType(FormFieldInputConfigOutput{})
+	pulumi.RegisterOutputType(FormFieldInputConfigPtrOutput{})
 	pulumi.RegisterOutputType(FormFieldPosition0PropertiesOutput{})
 	pulumi.RegisterOutputType(FormFieldPosition0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FormFieldPosition1PropertiesOutput{})
 	pulumi.RegisterOutputType(FormFieldPosition1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FormFieldPosition2PropertiesOutput{})
 	pulumi.RegisterOutputType(FormFieldPosition2PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(FormFieldsMapOutput{})
-	pulumi.RegisterOutputType(FormFieldsMapPtrOutput{})
+	pulumi.RegisterOutputType(FormFieldValidationConfigurationOutput{})
+	pulumi.RegisterOutputType(FormFieldValidationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FormFileUploaderFieldConfigOutput{})
+	pulumi.RegisterOutputType(FormFileUploaderFieldConfigPtrOutput{})
+	pulumi.RegisterOutputType(FormInputBindingPropertiesValueOutput{})
+	pulumi.RegisterOutputType(FormInputBindingPropertiesValueMapOutput{})
+	pulumi.RegisterOutputType(FormInputBindingPropertiesValuePropertiesOutput{})
+	pulumi.RegisterOutputType(FormInputBindingPropertiesValuePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FormInputValuePropertyOutput{})
+	pulumi.RegisterOutputType(FormInputValuePropertyPtrOutput{})
+	pulumi.RegisterOutputType(FormInputValuePropertyArrayOutput{})
+	pulumi.RegisterOutputType(FormInputValuePropertyBindingPropertiesOutput{})
+	pulumi.RegisterOutputType(FormInputValuePropertyBindingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FormSectionalElementOutput{})
 	pulumi.RegisterOutputType(FormSectionalElementMapOutput{})
-	pulumi.RegisterOutputType(FormSectionalElementMapPtrOutput{})
 	pulumi.RegisterOutputType(FormStyleOutput{})
 	pulumi.RegisterOutputType(FormStylePtrOutput{})
 	pulumi.RegisterOutputType(FormStyleConfig0PropertiesOutput{})
 	pulumi.RegisterOutputType(FormStyleConfig0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FormStyleConfig1PropertiesOutput{})
 	pulumi.RegisterOutputType(FormStyleConfig1PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(FormTagsOutput{})
-	pulumi.RegisterOutputType(FormTagsPtrOutput{})
-	pulumi.RegisterOutputType(ThemeTagsOutput{})
-	pulumi.RegisterOutputType(ThemeTagsPtrOutput{})
+	pulumi.RegisterOutputType(FormValueMappingOutput{})
+	pulumi.RegisterOutputType(FormValueMappingArrayOutput{})
+	pulumi.RegisterOutputType(FormValueMappingsOutput{})
+	pulumi.RegisterOutputType(FormValueMappingsPtrOutput{})
 	pulumi.RegisterOutputType(ThemeValueOutput{})
 	pulumi.RegisterOutputType(ThemeValuePtrOutput{})
 	pulumi.RegisterOutputType(ThemeValuesOutput{})

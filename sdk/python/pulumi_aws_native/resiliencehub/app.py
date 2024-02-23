@@ -25,7 +25,7 @@ class AppArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  permission_model: Optional[pulumi.Input['AppPermissionModelArgs']] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['AppTagMapArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a App resource.
         :param pulumi.Input[str] app_template_body: A string containing full ResilienceHub app template body.
@@ -148,11 +148,11 @@ class AppArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['AppTagMapArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['AppTagMapArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -169,7 +169,7 @@ class App(pulumi.CustomResource):
                  permission_model: Optional[pulumi.Input[pulumi.InputType['AppPermissionModelArgs']]] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
                  resource_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppResourceMappingArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['AppTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::ResilienceHub::App.
@@ -216,7 +216,7 @@ class App(pulumi.CustomResource):
                  permission_model: Optional[pulumi.Input[pulumi.InputType['AppPermissionModelArgs']]] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
                  resource_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppResourceMappingArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['AppTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -357,6 +357,6 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.AppTagMap']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 

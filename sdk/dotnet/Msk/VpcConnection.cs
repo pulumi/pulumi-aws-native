@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Msk
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.VpcConnectionTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target cluster
@@ -112,7 +112,12 @@ namespace Pulumi.AwsNative.Msk
         }
 
         [Input("tags")]
-        public Input<Inputs.VpcConnectionTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target cluster

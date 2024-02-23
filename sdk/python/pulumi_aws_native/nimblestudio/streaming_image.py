@@ -10,7 +10,6 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['StreamingImageArgs', 'StreamingImage']
 
@@ -21,7 +20,7 @@ class StreamingImageArgs:
                  studio_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['StreamingImageTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StreamingImage resource.
         :param pulumi.Input[str] ec2_image_id: <p>The ID of an EC2 machine image with which to create this streaming image.</p>
@@ -88,11 +87,11 @@ class StreamingImageArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['StreamingImageTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['StreamingImageTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -105,7 +104,7 @@ class StreamingImage(pulumi.CustomResource):
                  ec2_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['StreamingImageTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a streaming session machine image that can be used to launch a streaming session
@@ -145,7 +144,7 @@ class StreamingImage(pulumi.CustomResource):
                  ec2_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['StreamingImageTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -169,7 +168,7 @@ class StreamingImage(pulumi.CustomResource):
             __props__.__dict__["owner"] = None
             __props__.__dict__["platform"] = None
             __props__.__dict__["streaming_image_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_image_id", "studio_id", "tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_image_id", "studio_id", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StreamingImage, __self__).__init__(
             'aws-native:nimblestudio:StreamingImage',
@@ -273,6 +272,6 @@ class StreamingImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.StreamingImageTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 

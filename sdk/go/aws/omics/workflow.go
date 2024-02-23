@@ -15,19 +15,19 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	Accelerators      WorkflowAcceleratorsPtrOutput      `pulumi:"accelerators"`
-	Arn               pulumi.StringOutput                `pulumi:"arn"`
-	CreationTime      pulumi.StringOutput                `pulumi:"creationTime"`
-	DefinitionUri     pulumi.StringPtrOutput             `pulumi:"definitionUri"`
-	Description       pulumi.StringPtrOutput             `pulumi:"description"`
-	Engine            WorkflowEnginePtrOutput            `pulumi:"engine"`
-	Main              pulumi.StringPtrOutput             `pulumi:"main"`
-	Name              pulumi.StringPtrOutput             `pulumi:"name"`
-	ParameterTemplate WorkflowParameterTemplatePtrOutput `pulumi:"parameterTemplate"`
-	Status            WorkflowStatusOutput               `pulumi:"status"`
-	StorageCapacity   pulumi.Float64PtrOutput            `pulumi:"storageCapacity"`
-	Tags              WorkflowTagMapPtrOutput            `pulumi:"tags"`
-	Type              WorkflowTypeOutput                 `pulumi:"type"`
+	Accelerators      WorkflowAcceleratorsPtrOutput `pulumi:"accelerators"`
+	Arn               pulumi.StringOutput           `pulumi:"arn"`
+	CreationTime      pulumi.StringOutput           `pulumi:"creationTime"`
+	DefinitionUri     pulumi.StringPtrOutput        `pulumi:"definitionUri"`
+	Description       pulumi.StringPtrOutput        `pulumi:"description"`
+	Engine            WorkflowEnginePtrOutput       `pulumi:"engine"`
+	Main              pulumi.StringPtrOutput        `pulumi:"main"`
+	Name              pulumi.StringPtrOutput        `pulumi:"name"`
+	ParameterTemplate WorkflowParameterMapOutput    `pulumi:"parameterTemplate"`
+	Status            WorkflowStatusOutput          `pulumi:"status"`
+	StorageCapacity   pulumi.Float64PtrOutput       `pulumi:"storageCapacity"`
+	Tags              pulumi.StringMapOutput        `pulumi:"tags"`
+	Type              WorkflowTypeOutput            `pulumi:"type"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -42,7 +42,7 @@ func NewWorkflow(ctx *pulumi.Context,
 		"definitionUri",
 		"engine",
 		"main",
-		"parameterTemplate",
+		"parameterTemplate.*",
 		"storageCapacity",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -79,15 +79,15 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
-	Accelerators      *WorkflowAccelerators      `pulumi:"accelerators"`
-	DefinitionUri     *string                    `pulumi:"definitionUri"`
-	Description       *string                    `pulumi:"description"`
-	Engine            *WorkflowEngine            `pulumi:"engine"`
-	Main              *string                    `pulumi:"main"`
-	Name              *string                    `pulumi:"name"`
-	ParameterTemplate *WorkflowParameterTemplate `pulumi:"parameterTemplate"`
-	StorageCapacity   *float64                   `pulumi:"storageCapacity"`
-	Tags              *WorkflowTagMap            `pulumi:"tags"`
+	Accelerators      *WorkflowAccelerators        `pulumi:"accelerators"`
+	DefinitionUri     *string                      `pulumi:"definitionUri"`
+	Description       *string                      `pulumi:"description"`
+	Engine            *WorkflowEngine              `pulumi:"engine"`
+	Main              *string                      `pulumi:"main"`
+	Name              *string                      `pulumi:"name"`
+	ParameterTemplate map[string]WorkflowParameter `pulumi:"parameterTemplate"`
+	StorageCapacity   *float64                     `pulumi:"storageCapacity"`
+	Tags              map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workflow resource.
@@ -98,9 +98,9 @@ type WorkflowArgs struct {
 	Engine            WorkflowEnginePtrInput
 	Main              pulumi.StringPtrInput
 	Name              pulumi.StringPtrInput
-	ParameterTemplate WorkflowParameterTemplatePtrInput
+	ParameterTemplate WorkflowParameterMapInput
 	StorageCapacity   pulumi.Float64PtrInput
-	Tags              WorkflowTagMapPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -172,8 +172,8 @@ func (o WorkflowOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o WorkflowOutput) ParameterTemplate() WorkflowParameterTemplatePtrOutput {
-	return o.ApplyT(func(v *Workflow) WorkflowParameterTemplatePtrOutput { return v.ParameterTemplate }).(WorkflowParameterTemplatePtrOutput)
+func (o WorkflowOutput) ParameterTemplate() WorkflowParameterMapOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowParameterMapOutput { return v.ParameterTemplate }).(WorkflowParameterMapOutput)
 }
 
 func (o WorkflowOutput) Status() WorkflowStatusOutput {
@@ -184,8 +184,8 @@ func (o WorkflowOutput) StorageCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.Float64PtrOutput { return v.StorageCapacity }).(pulumi.Float64PtrOutput)
 }
 
-func (o WorkflowOutput) Tags() WorkflowTagMapPtrOutput {
-	return o.ApplyT(func(v *Workflow) WorkflowTagMapPtrOutput { return v.Tags }).(WorkflowTagMapPtrOutput)
+func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o WorkflowOutput) Type() WorkflowTypeOutput {

@@ -21,7 +21,7 @@ __all__ = [
     'DomainNameConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
     'IntegrationTlsConfigArgs',
-    'RouteResponseRouteParametersArgs',
+    'RouteResponseParameterConstraintsArgs',
     'StageAccessLogSettingsArgs',
     'StageRouteSettingsArgs',
 ]
@@ -667,9 +667,26 @@ class IntegrationTlsConfigArgs:
 
 
 @pulumi.input_type
-class RouteResponseRouteParametersArgs:
-    def __init__(__self__):
-        pass
+class RouteResponseParameterConstraintsArgs:
+    def __init__(__self__, *,
+                 required: pulumi.Input[bool]):
+        """
+        Specifies whether the parameter is required.
+        :param pulumi.Input[bool] required: Specifies whether the parameter is required.
+        """
+        pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def required(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether the parameter is required.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "required", value)
 
 
 @pulumi.input_type

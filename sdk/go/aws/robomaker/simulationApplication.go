@@ -31,7 +31,7 @@ type SimulationApplication struct {
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuiteOutput `pulumi:"simulationSoftwareSuite"`
 	// The sources of the simulation application.
 	Sources SimulationApplicationSourceConfigArrayOutput `pulumi:"sources"`
-	Tags    SimulationApplicationTagsPtrOutput           `pulumi:"tags"`
+	Tags    pulumi.StringMapOutput                       `pulumi:"tags"`
 }
 
 // NewSimulationApplication registers a new resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ type simulationApplicationArgs struct {
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuite `pulumi:"simulationSoftwareSuite"`
 	// The sources of the simulation application.
 	Sources []SimulationApplicationSourceConfig `pulumi:"sources"`
-	Tags    *SimulationApplicationTags          `pulumi:"tags"`
+	Tags    map[string]string                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SimulationApplication resource.
@@ -117,7 +117,7 @@ type SimulationApplicationArgs struct {
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuiteInput
 	// The sources of the simulation application.
 	Sources SimulationApplicationSourceConfigArrayInput
-	Tags    SimulationApplicationTagsPtrInput
+	Tags    pulumi.StringMapInput
 }
 
 func (SimulationApplicationArgs) ElementType() reflect.Type {
@@ -200,8 +200,8 @@ func (o SimulationApplicationOutput) Sources() SimulationApplicationSourceConfig
 	return o.ApplyT(func(v *SimulationApplication) SimulationApplicationSourceConfigArrayOutput { return v.Sources }).(SimulationApplicationSourceConfigArrayOutput)
 }
 
-func (o SimulationApplicationOutput) Tags() SimulationApplicationTagsPtrOutput {
-	return o.ApplyT(func(v *SimulationApplication) SimulationApplicationTagsPtrOutput { return v.Tags }).(SimulationApplicationTagsPtrOutput)
+func (o SimulationApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SimulationApplication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

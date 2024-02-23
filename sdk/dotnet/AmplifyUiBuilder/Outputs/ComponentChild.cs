@@ -15,9 +15,9 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     {
         public readonly ImmutableArray<Outputs.ComponentChild> Children;
         public readonly string ComponentType;
-        public readonly Outputs.ComponentEvents? Events;
+        public readonly ImmutableDictionary<string, Outputs.ComponentEvent>? Events;
         public readonly string Name;
-        public readonly Outputs.ComponentProperties Properties;
+        public readonly ImmutableDictionary<string, Outputs.ComponentProperty> Properties;
         public readonly string? SourceId;
 
         [OutputConstructor]
@@ -26,11 +26,11 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
 
             string componentType,
 
-            Outputs.ComponentEvents? events,
+            ImmutableDictionary<string, Outputs.ComponentEvent>? events,
 
             string name,
 
-            Outputs.ComponentProperties properties,
+            ImmutableDictionary<string, Outputs.ComponentProperty> properties,
 
             string? sourceId)
         {

@@ -41,7 +41,7 @@ export class Template extends pulumi.CustomResource {
     public readonly definition!: pulumi.Output<outputs.pcaconnectorad.TemplateDefinition0Properties | outputs.pcaconnectorad.TemplateDefinition1Properties | outputs.pcaconnectorad.TemplateDefinition2Properties>;
     public readonly name!: pulumi.Output<string>;
     public readonly reenrollAllCertificateHolders!: pulumi.Output<boolean | undefined>;
-    public readonly tags!: pulumi.Output<outputs.pcaconnectorad.TemplateTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly templateArn!: pulumi.Output<string>;
 
     /**
@@ -90,5 +90,5 @@ export interface TemplateArgs {
     definition: pulumi.Input<inputs.pcaconnectorad.TemplateDefinition0PropertiesArgs | inputs.pcaconnectorad.TemplateDefinition1PropertiesArgs | inputs.pcaconnectorad.TemplateDefinition2PropertiesArgs>;
     name?: pulumi.Input<string>;
     reenrollAllCertificateHolders?: pulumi.Input<boolean>;
-    tags?: pulumi.Input<inputs.pcaconnectorad.TemplateTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

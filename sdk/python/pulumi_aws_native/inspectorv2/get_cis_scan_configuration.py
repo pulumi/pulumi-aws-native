@@ -68,7 +68,7 @@ class GetCisScanConfigurationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.CisScanConfigurationCisTagMap']:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
     @property

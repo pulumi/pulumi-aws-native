@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<string?> AppId { get; private set; } = null!;
 
         [Output("bindingProperties")]
-        public Output<Outputs.ComponentBindingProperties?> BindingProperties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ComponentBindingPropertiesValue>?> BindingProperties { get; private set; } = null!;
 
         [Output("children")]
         public Output<ImmutableArray<Outputs.ComponentChild>> Children { get; private set; } = null!;
 
         [Output("collectionProperties")]
-        public Output<Outputs.ComponentCollectionProperties?> CollectionProperties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ComponentDataConfiguration>?> CollectionProperties { get; private set; } = null!;
 
         [Output("componentType")]
         public Output<string?> ComponentType { get; private set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<string?> EnvironmentName { get; private set; } = null!;
 
         [Output("events")]
-        public Output<Outputs.ComponentEvents?> Events { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ComponentEvent>?> Events { get; private set; } = null!;
 
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
@@ -46,10 +46,10 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<string?> Name { get; private set; } = null!;
 
         [Output("overrides")]
-        public Output<Outputs.ComponentOverrides?> Overrides { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Overrides { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.ComponentProperties?> Properties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ComponentProperty>?> Properties { get; private set; } = null!;
 
         [Output("schemaVersion")]
         public Output<string?> SchemaVersion { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<string?> SourceId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.ComponentTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("variants")]
         public Output<ImmutableArray<Outputs.ComponentVariant>> Variants { get; private set; } = null!;
@@ -117,7 +117,12 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Input<string>? AppId { get; set; }
 
         [Input("bindingProperties")]
-        public Input<Inputs.ComponentBindingPropertiesArgs>? BindingProperties { get; set; }
+        private InputMap<Inputs.ComponentBindingPropertiesValueArgs>? _bindingProperties;
+        public InputMap<Inputs.ComponentBindingPropertiesValueArgs> BindingProperties
+        {
+            get => _bindingProperties ?? (_bindingProperties = new InputMap<Inputs.ComponentBindingPropertiesValueArgs>());
+            set => _bindingProperties = value;
+        }
 
         [Input("children")]
         private InputList<Inputs.ComponentChildArgs>? _children;
@@ -128,7 +133,12 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         }
 
         [Input("collectionProperties")]
-        public Input<Inputs.ComponentCollectionPropertiesArgs>? CollectionProperties { get; set; }
+        private InputMap<Inputs.ComponentDataConfigurationArgs>? _collectionProperties;
+        public InputMap<Inputs.ComponentDataConfigurationArgs> CollectionProperties
+        {
+            get => _collectionProperties ?? (_collectionProperties = new InputMap<Inputs.ComponentDataConfigurationArgs>());
+            set => _collectionProperties = value;
+        }
 
         [Input("componentType")]
         public Input<string>? ComponentType { get; set; }
@@ -137,16 +147,31 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Input<string>? EnvironmentName { get; set; }
 
         [Input("events")]
-        public Input<Inputs.ComponentEventsArgs>? Events { get; set; }
+        private InputMap<Inputs.ComponentEventArgs>? _events;
+        public InputMap<Inputs.ComponentEventArgs> Events
+        {
+            get => _events ?? (_events = new InputMap<Inputs.ComponentEventArgs>());
+            set => _events = value;
+        }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("overrides")]
-        public Input<Inputs.ComponentOverridesArgs>? Overrides { get; set; }
+        private InputMap<object>? _overrides;
+        public InputMap<object> Overrides
+        {
+            get => _overrides ?? (_overrides = new InputMap<object>());
+            set => _overrides = value;
+        }
 
         [Input("properties")]
-        public Input<Inputs.ComponentPropertiesArgs>? Properties { get; set; }
+        private InputMap<Inputs.ComponentPropertyArgs>? _properties;
+        public InputMap<Inputs.ComponentPropertyArgs> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<Inputs.ComponentPropertyArgs>());
+            set => _properties = value;
+        }
 
         [Input("schemaVersion")]
         public Input<string>? SchemaVersion { get; set; }
@@ -155,7 +180,12 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Input<string>? SourceId { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.ComponentTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("variants")]
         private InputList<Inputs.ComponentVariantArgs>? _variants;

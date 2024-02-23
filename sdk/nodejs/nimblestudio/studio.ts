@@ -63,7 +63,7 @@ export class Studio extends pulumi.CustomResource {
      * <p>The address of the web page for the studio.</p>
      */
     public /*out*/ readonly studioUrl!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.nimblestudio.StudioTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
      */
@@ -112,7 +112,7 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["userRoleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["studioName", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["studioName", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Studio.__pulumiType, name, resourceInputs, opts);
     }
@@ -135,7 +135,7 @@ export interface StudioArgs {
      * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
      */
     studioName?: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.nimblestudio.StudioTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
      */

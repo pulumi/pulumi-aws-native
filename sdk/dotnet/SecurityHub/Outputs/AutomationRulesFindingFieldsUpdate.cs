@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
         /// </summary>
         public readonly Outputs.AutomationRuleSeverityUpdate? Severity;
         public readonly ImmutableArray<string> Types;
-        public readonly Outputs.AutomationRulemap? UserDefinedFields;
+        public readonly ImmutableDictionary<string, string>? UserDefinedFields;
         public readonly Pulumi.AwsNative.SecurityHub.AutomationRulesFindingFieldsUpdateVerificationState? VerificationState;
         /// <summary>
         /// The rule action will update the ``Workflow`` field of a finding.
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
 
             ImmutableArray<string> types,
 
-            Outputs.AutomationRulemap? userDefinedFields,
+            ImmutableDictionary<string, string>? userDefinedFields,
 
             Pulumi.AwsNative.SecurityHub.AutomationRulesFindingFieldsUpdateVerificationState? verificationState,
 

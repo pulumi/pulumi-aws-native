@@ -26,7 +26,6 @@ __all__ = [
     'DataSourceRelationalFilterConfigurationArgs',
     'DataSourceScheduleConfigurationArgs',
     'DomainSingleSignOnArgs',
-    'EnvironmentBlueprintConfigurationParameterArgs',
     'EnvironmentBlueprintConfigurationRegionalParameterArgs',
     'EnvironmentParameterArgs',
     'EnvironmentProfileEnvironmentParameterArgs',
@@ -536,15 +535,9 @@ class DomainSingleSignOnArgs:
 
 
 @pulumi.input_type
-class EnvironmentBlueprintConfigurationParameterArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class EnvironmentBlueprintConfigurationRegionalParameterArgs:
     def __init__(__self__, *,
-                 parameters: Optional[pulumi.Input['EnvironmentBlueprintConfigurationParameterArgs']] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  region: Optional[pulumi.Input[str]] = None):
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -553,11 +546,11 @@ class EnvironmentBlueprintConfigurationRegionalParameterArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['EnvironmentBlueprintConfigurationParameterArgs']]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['EnvironmentBlueprintConfigurationParameterArgs']]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
     @property

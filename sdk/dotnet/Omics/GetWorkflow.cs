@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Omics
         public readonly string? Id;
         public readonly string? Name;
         public readonly Pulumi.AwsNative.Omics.WorkflowStatus? Status;
-        public readonly Outputs.WorkflowTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly Pulumi.AwsNative.Omics.WorkflowType? Type;
 
         [OutputConstructor]
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Omics
 
             Pulumi.AwsNative.Omics.WorkflowStatus? status,
 
-            Outputs.WorkflowTagMap? tags,
+            ImmutableDictionary<string, string>? tags,
 
             Pulumi.AwsNative.Omics.WorkflowType? type)
         {

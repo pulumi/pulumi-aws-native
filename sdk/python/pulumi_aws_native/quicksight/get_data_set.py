@@ -148,7 +148,7 @@ class GetDataSetResult:
 
     @property
     @pulumi.getter(name="logicalTableMap")
-    def logical_table_map(self) -> Optional['outputs.DataSetLogicalTableMap']:
+    def logical_table_map(self) -> Optional[Mapping[str, 'outputs.DataSetLogicalTable']]:
         return pulumi.get(self, "logical_table_map")
 
     @property
@@ -178,7 +178,7 @@ class GetDataSetResult:
 
     @property
     @pulumi.getter(name="physicalTableMap")
-    def physical_table_map(self) -> Optional['outputs.DataSetPhysicalTableMap']:
+    def physical_table_map(self) -> Optional[Mapping[str, 'outputs.DataSetPhysicalTable']]:
         return pulumi.get(self, "physical_table_map")
 
     @property

@@ -41,7 +41,7 @@ export class VpcConnection extends pulumi.CustomResource {
     public readonly authentication!: pulumi.Output<enums.msk.VpcConnectionAuthentication>;
     public readonly clientSubnets!: pulumi.Output<string[]>;
     public readonly securityGroups!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.msk.VpcConnectionTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target cluster
      */
@@ -104,7 +104,7 @@ export interface VpcConnectionArgs {
     authentication: pulumi.Input<enums.msk.VpcConnectionAuthentication>;
     clientSubnets: pulumi.Input<pulumi.Input<string>[]>;
     securityGroups: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<inputs.msk.VpcConnectionTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Resource Name (ARN) of the target cluster
      */

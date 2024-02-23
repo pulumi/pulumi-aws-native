@@ -19,7 +19,7 @@ __all__ = ['IpAccessSettingsArgs', 'IpAccessSettings']
 class IpAccessSettingsArgs:
     def __init__(__self__, *,
                  ip_rules: pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]],
-                 additional_encryption_context: Optional[pulumi.Input['IpAccessSettingsEncryptionContextMapArgs']] = None,
+                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -50,11 +50,11 @@ class IpAccessSettingsArgs:
 
     @property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> Optional[pulumi.Input['IpAccessSettingsEncryptionContextMapArgs']]:
+    def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
-    def additional_encryption_context(self, value: Optional[pulumi.Input['IpAccessSettingsEncryptionContextMapArgs']]):
+    def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
 
     @property
@@ -99,7 +99,7 @@ class IpAccessSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[pulumi.InputType['IpAccessSettingsEncryptionContextMapArgs']]] = None,
+                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -136,7 +136,7 @@ class IpAccessSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[pulumi.InputType['IpAccessSettingsEncryptionContextMapArgs']]] = None,
+                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class IpAccessSettings(pulumi.CustomResource):
             __props__.__dict__["associated_portal_arns"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["ip_access_settings_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context", "customer_managed_key"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context.*", "customer_managed_key"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpAccessSettings, __self__).__init__(
             'aws-native:workspacesweb:IpAccessSettings',
@@ -199,7 +199,7 @@ class IpAccessSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> pulumi.Output[Optional['outputs.IpAccessSettingsEncryptionContextMap']]:
+    def additional_encryption_context(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "additional_encryption_context")
 
     @property

@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.M2
         public readonly string? ApplicationArn;
         public readonly string? ApplicationId;
         public readonly string? Description;
-        public readonly Outputs.ApplicationTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.M2
 
             string? description,
 
-            Outputs.ApplicationTagMap? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             ApplicationArn = applicationArn;
             ApplicationId = applicationId;

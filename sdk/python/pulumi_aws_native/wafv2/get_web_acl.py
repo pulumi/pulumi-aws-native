@@ -92,7 +92,7 @@ class GetWebAclResult:
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional['outputs.WebAclCustomResponseBodies']:
+    def custom_response_bodies(self) -> Optional[Mapping[str, 'outputs.WebAclCustomResponseBody']]:
         return pulumi.get(self, "custom_response_bodies")
 
     @property

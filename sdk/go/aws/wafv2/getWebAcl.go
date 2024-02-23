@@ -30,16 +30,16 @@ type LookupWebAclArgs struct {
 }
 
 type LookupWebAclResult struct {
-	Arn                  *string                     `pulumi:"arn"`
-	AssociationConfig    *WebAclAssociationConfig    `pulumi:"associationConfig"`
-	Capacity             *int                        `pulumi:"capacity"`
-	CaptchaConfig        *WebAclCaptchaConfig        `pulumi:"captchaConfig"`
-	ChallengeConfig      *WebAclChallengeConfig      `pulumi:"challengeConfig"`
-	CustomResponseBodies *WebAclCustomResponseBodies `pulumi:"customResponseBodies"`
-	DefaultAction        *WebAclDefaultAction        `pulumi:"defaultAction"`
-	Description          *string                     `pulumi:"description"`
-	Id                   *string                     `pulumi:"id"`
-	LabelNamespace       *string                     `pulumi:"labelNamespace"`
+	Arn                  *string                             `pulumi:"arn"`
+	AssociationConfig    *WebAclAssociationConfig            `pulumi:"associationConfig"`
+	Capacity             *int                                `pulumi:"capacity"`
+	CaptchaConfig        *WebAclCaptchaConfig                `pulumi:"captchaConfig"`
+	ChallengeConfig      *WebAclChallengeConfig              `pulumi:"challengeConfig"`
+	CustomResponseBodies map[string]WebAclCustomResponseBody `pulumi:"customResponseBodies"`
+	DefaultAction        *WebAclDefaultAction                `pulumi:"defaultAction"`
+	Description          *string                             `pulumi:"description"`
+	Id                   *string                             `pulumi:"id"`
+	LabelNamespace       *string                             `pulumi:"labelNamespace"`
 	// Collection of Rules.
 	Rules            []WebAclRule            `pulumi:"rules"`
 	Tags             []aws.Tag               `pulumi:"tags"`
@@ -104,8 +104,8 @@ func (o LookupWebAclResultOutput) ChallengeConfig() WebAclChallengeConfigPtrOutp
 	return o.ApplyT(func(v LookupWebAclResult) *WebAclChallengeConfig { return v.ChallengeConfig }).(WebAclChallengeConfigPtrOutput)
 }
 
-func (o LookupWebAclResultOutput) CustomResponseBodies() WebAclCustomResponseBodiesPtrOutput {
-	return o.ApplyT(func(v LookupWebAclResult) *WebAclCustomResponseBodies { return v.CustomResponseBodies }).(WebAclCustomResponseBodiesPtrOutput)
+func (o LookupWebAclResultOutput) CustomResponseBodies() WebAclCustomResponseBodyMapOutput {
+	return o.ApplyT(func(v LookupWebAclResult) map[string]WebAclCustomResponseBody { return v.CustomResponseBodies }).(WebAclCustomResponseBodyMapOutput)
 }
 
 func (o LookupWebAclResultOutput) DefaultAction() WebAclDefaultActionPtrOutput {

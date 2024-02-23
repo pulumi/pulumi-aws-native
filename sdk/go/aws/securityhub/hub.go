@@ -24,8 +24,8 @@ type Hub struct {
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
 	EnableDefaultStandards pulumi.BoolPtrOutput `pulumi:"enableDefaultStandards"`
 	// The date and time when Security Hub was enabled in the account.
-	SubscribedAt pulumi.StringOutput `pulumi:"subscribedAt"`
-	Tags         HubTagsPtrOutput    `pulumi:"tags"`
+	SubscribedAt pulumi.StringOutput    `pulumi:"subscribedAt"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewHub registers a new resource with the given unique name, arguments, and options.
@@ -73,8 +73,8 @@ type hubArgs struct {
 	// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
 	ControlFindingGenerator *string `pulumi:"controlFindingGenerator"`
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
-	EnableDefaultStandards *bool    `pulumi:"enableDefaultStandards"`
-	Tags                   *HubTags `pulumi:"tags"`
+	EnableDefaultStandards *bool             `pulumi:"enableDefaultStandards"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Hub resource.
@@ -85,7 +85,7 @@ type HubArgs struct {
 	ControlFindingGenerator pulumi.StringPtrInput
 	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
 	EnableDefaultStandards pulumi.BoolPtrInput
-	Tags                   HubTagsPtrInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (HubArgs) ElementType() reflect.Type {
@@ -150,8 +150,8 @@ func (o HubOutput) SubscribedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.SubscribedAt }).(pulumi.StringOutput)
 }
 
-func (o HubOutput) Tags() HubTagsPtrOutput {
-	return o.ApplyT(func(v *Hub) HubTagsPtrOutput { return v.Tags }).(HubTagsPtrOutput)
+func (o HubOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

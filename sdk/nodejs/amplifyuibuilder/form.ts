@@ -41,14 +41,14 @@ export class Form extends pulumi.CustomResource {
     public readonly cta!: pulumi.Output<outputs.amplifyuibuilder.FormCta | undefined>;
     public readonly dataType!: pulumi.Output<outputs.amplifyuibuilder.FormDataTypeConfig | undefined>;
     public readonly environmentName!: pulumi.Output<string | undefined>;
-    public readonly fields!: pulumi.Output<outputs.amplifyuibuilder.FormFieldsMap | undefined>;
+    public readonly fields!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.FormFieldConfig} | undefined>;
     public readonly formActionType!: pulumi.Output<enums.amplifyuibuilder.FormActionType | undefined>;
     public readonly labelDecorator!: pulumi.Output<enums.amplifyuibuilder.FormLabelDecorator | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly schemaVersion!: pulumi.Output<string | undefined>;
-    public readonly sectionalElements!: pulumi.Output<outputs.amplifyuibuilder.FormSectionalElementMap | undefined>;
+    public readonly sectionalElements!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.FormSectionalElement} | undefined>;
     public readonly style!: pulumi.Output<outputs.amplifyuibuilder.FormStyle | undefined>;
-    public readonly tags!: pulumi.Output<outputs.amplifyuibuilder.FormTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Form resource with the given unique name, arguments, and options.
@@ -102,12 +102,12 @@ export interface FormArgs {
     cta?: pulumi.Input<inputs.amplifyuibuilder.FormCtaArgs>;
     dataType?: pulumi.Input<inputs.amplifyuibuilder.FormDataTypeConfigArgs>;
     environmentName?: pulumi.Input<string>;
-    fields?: pulumi.Input<inputs.amplifyuibuilder.FormFieldsMapArgs>;
+    fields?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormFieldConfigArgs>}>;
     formActionType?: pulumi.Input<enums.amplifyuibuilder.FormActionType>;
     labelDecorator?: pulumi.Input<enums.amplifyuibuilder.FormLabelDecorator>;
     name?: pulumi.Input<string>;
     schemaVersion?: pulumi.Input<string>;
-    sectionalElements?: pulumi.Input<inputs.amplifyuibuilder.FormSectionalElementMapArgs>;
+    sectionalElements?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormSectionalElementArgs>}>;
     style?: pulumi.Input<inputs.amplifyuibuilder.FormStyleArgs>;
-    tags?: pulumi.Input<inputs.amplifyuibuilder.FormTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

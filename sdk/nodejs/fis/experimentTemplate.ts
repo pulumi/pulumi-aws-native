@@ -37,14 +37,14 @@ export class ExperimentTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExperimentTemplate.__pulumiType;
     }
 
-    public readonly actions!: pulumi.Output<outputs.fis.ExperimentTemplateActionMap | undefined>;
+    public readonly actions!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateAction} | undefined>;
     public readonly description!: pulumi.Output<string>;
     public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions | undefined>;
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
-    public readonly targets!: pulumi.Output<outputs.fis.ExperimentTemplateTargetMap>;
+    public readonly targets!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateTarget}>;
 
     /**
      * Create a ExperimentTemplate resource with the given unique name, arguments, and options.
@@ -101,12 +101,12 @@ export class ExperimentTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a ExperimentTemplate resource.
  */
 export interface ExperimentTemplateArgs {
-    actions?: pulumi.Input<inputs.fis.ExperimentTemplateActionMapArgs>;
+    actions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateActionArgs>}>;
     description: pulumi.Input<string>;
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptionsArgs>;
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationArgs>;
     roleArn: pulumi.Input<string>;
     stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopConditionArgs>[]>;
     tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    targets: pulumi.Input<inputs.fis.ExperimentTemplateTargetMapArgs>;
+    targets: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateTargetArgs>}>;
 }

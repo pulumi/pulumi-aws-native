@@ -12,25 +12,91 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ExperimentTemplateActionMap',
+    'ExperimentTemplateAction',
     'ExperimentTemplateExperimentOptions',
     'ExperimentTemplateLogConfiguration',
     'ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties',
     'ExperimentTemplateLogConfigurationS3ConfigurationProperties',
     'ExperimentTemplateStopCondition',
-    'ExperimentTemplateTargetMap',
+    'ExperimentTemplateTarget',
+    'ExperimentTemplateTargetFilter',
 ]
 
 @pulumi.output_type
-class ExperimentTemplateActionMap(dict):
+class ExperimentTemplateAction(dict):
     """
-    The actions for the experiment.
+    Specifies an action for the experiment template.
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionId":
+            suggest = "action_id"
+        elif key == "startAfter":
+            suggest = "start_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_id: str,
+                 description: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 start_after: Optional[Sequence[str]] = None,
+                 targets: Optional[Mapping[str, str]] = None):
         """
-        The actions for the experiment.
+        Specifies an action for the experiment template.
+        :param Mapping[str, str] parameters: The parameters for the action, if applicable.
+        :param Mapping[str, str] targets: One or more targets for the action.
         """
-        pass
+        pulumi.set(__self__, "action_id", action_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if start_after is not None:
+            pulumi.set(__self__, "start_after", start_after)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter(name="actionId")
+    def action_id(self) -> str:
+        return pulumi.get(self, "action_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        The parameters for the action, if applicable.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="startAfter")
+    def start_after(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "start_after")
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Optional[Mapping[str, str]]:
+        """
+        One or more targets for the action.
+        """
+        return pulumi.get(self, "targets")
 
 
 @pulumi.output_type
@@ -219,14 +285,107 @@ class ExperimentTemplateStopCondition(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateTargetMap(dict):
+class ExperimentTemplateTarget(dict):
     """
-    The targets for the experiment.
+    Specifies a target for an experiment.
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "selectionMode":
+            suggest = "selection_mode"
+        elif key == "resourceArns":
+            suggest = "resource_arns"
+        elif key == "resourceTags":
+            suggest = "resource_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: str,
+                 selection_mode: str,
+                 filters: Optional[Sequence['outputs.ExperimentTemplateTargetFilter']] = None,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 resource_arns: Optional[Sequence[str]] = None,
+                 resource_tags: Optional[Mapping[str, str]] = None):
         """
-        The targets for the experiment.
+        Specifies a target for an experiment.
         """
-        pass
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "selection_mode", selection_mode)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if resource_arns is not None:
+            pulumi.set(__self__, "resource_arns", resource_arns)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="selectionMode")
+    def selection_mode(self) -> str:
+        return pulumi.get(self, "selection_mode")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.ExperimentTemplateTargetFilter']]:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="resourceArns")
+    def resource_arns(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "resource_arns")
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "resource_tags")
+
+
+@pulumi.output_type
+class ExperimentTemplateTargetFilter(dict):
+    """
+    Describes a filter used for the target resource input in an experiment template.
+    """
+    def __init__(__self__, *,
+                 path: str,
+                 values: Sequence[str]):
+        """
+        Describes a filter used for the target resource input in an experiment template.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
 
 

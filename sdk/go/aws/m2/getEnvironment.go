@@ -40,7 +40,7 @@ type LookupEnvironmentResult struct {
 	// Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Tags associated to this environment.
-	Tags *EnvironmentTagMap `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentResultOutput {
@@ -109,8 +109,8 @@ func (o LookupEnvironmentResultOutput) PreferredMaintenanceWindow() pulumi.Strin
 }
 
 // Tags associated to this environment.
-func (o LookupEnvironmentResultOutput) Tags() EnvironmentTagMapPtrOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentTagMap { return v.Tags }).(EnvironmentTagMapPtrOutput)
+func (o LookupEnvironmentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -50,7 +50,7 @@ export interface GetEnvironmentResult {
     /**
      * Tags associated to this environment.
      */
-    readonly tags?: outputs.m2.EnvironmentTagMap;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Represents a runtime environment that can run migrated mainframe applications.

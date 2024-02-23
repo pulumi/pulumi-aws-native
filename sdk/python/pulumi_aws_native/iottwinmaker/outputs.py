@@ -30,7 +30,6 @@ __all__ = [
     'EntityDataValue',
     'EntityDataValueRelationshipValueProperties',
     'EntityProperty',
-    'EntityPropertyDefinitionConfiguration',
     'EntityPropertyDefinitionProperties',
     'EntityPropertyGroup',
     'EntityRelationship',
@@ -1323,18 +1322,6 @@ class EntityProperty(dict):
 
 
 @pulumi.output_type
-class EntityPropertyDefinitionConfiguration(dict):
-    """
-    An object that specifies information about a property.
-    """
-    def __init__(__self__):
-        """
-        An object that specifies information about a property.
-        """
-        pass
-
-
-@pulumi.output_type
 class EntityPropertyDefinitionProperties(dict):
     """
     An object that specifies information about a property.
@@ -1373,7 +1360,7 @@ class EntityPropertyDefinitionProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 configuration: Optional['outputs.EntityPropertyDefinitionConfiguration'] = None,
+                 configuration: Optional[Mapping[str, str]] = None,
                  data_type: Optional['outputs.EntityDataType'] = None,
                  default_value: Optional['outputs.EntityDataValue'] = None,
                  is_external_id: Optional[bool] = None,
@@ -1385,7 +1372,7 @@ class EntityPropertyDefinitionProperties(dict):
                  is_time_series: Optional[bool] = None):
         """
         An object that specifies information about a property.
-        :param 'EntityPropertyDefinitionConfiguration' configuration: An object that specifies information about a property.
+        :param Mapping[str, str] configuration: An object that specifies information about a property.
         :param 'EntityDataType' data_type: An object that contains information about the data type.
         :param 'EntityDataValue' default_value: An object that contains the default value.
         :param bool is_external_id: A Boolean value that specifies whether the property ID comes from an external data store.
@@ -1419,7 +1406,7 @@ class EntityPropertyDefinitionProperties(dict):
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional['outputs.EntityPropertyDefinitionConfiguration']:
+    def configuration(self) -> Optional[Mapping[str, str]]:
         """
         An object that specifies information about a property.
         """

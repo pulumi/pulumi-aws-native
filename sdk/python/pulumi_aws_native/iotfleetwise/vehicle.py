@@ -8,11 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['VehicleArgs', 'Vehicle']
 
@@ -22,7 +20,7 @@ class VehicleArgs:
                  decoder_manifest_arn: pulumi.Input[str],
                  model_manifest_arn: pulumi.Input[str],
                  association_behavior: Optional[pulumi.Input['VehicleAssociationBehavior']] = None,
-                 attributes: Optional[pulumi.Input['VehicleattributesMapArgs']] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -68,11 +66,11 @@ class VehicleArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input['VehicleattributesMapArgs']]:
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input['VehicleattributesMapArgs']]):
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "attributes", value)
 
     @property
@@ -105,7 +103,7 @@ class Vehicle(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_behavior: Optional[pulumi.Input['VehicleAssociationBehavior']] = None,
-                 attributes: Optional[pulumi.Input[pulumi.InputType['VehicleattributesMapArgs']]] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  decoder_manifest_arn: Optional[pulumi.Input[str]] = None,
                  model_manifest_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -142,7 +140,7 @@ class Vehicle(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_behavior: Optional[pulumi.Input['VehicleAssociationBehavior']] = None,
-                 attributes: Optional[pulumi.Input[pulumi.InputType['VehicleattributesMapArgs']]] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  decoder_manifest_arn: Optional[pulumi.Input[str]] = None,
                  model_manifest_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -217,7 +215,7 @@ class Vehicle(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Output[Optional['outputs.VehicleattributesMap']]:
+    def attributes(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "attributes")
 
     @property

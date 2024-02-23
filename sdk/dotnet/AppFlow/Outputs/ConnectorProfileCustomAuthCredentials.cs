@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileCustomAuthCredentials
     {
-        public readonly Outputs.ConnectorProfileCredentialsMap? CredentialsMap;
+        public readonly ImmutableDictionary<string, string>? CredentialsMap;
         public readonly string CustomAuthenticationType;
 
         [OutputConstructor]
         private ConnectorProfileCustomAuthCredentials(
-            Outputs.ConnectorProfileCredentialsMap? credentialsMap,
+            ImmutableDictionary<string, string>? credentialsMap,
 
             string customAuthenticationType)
         {

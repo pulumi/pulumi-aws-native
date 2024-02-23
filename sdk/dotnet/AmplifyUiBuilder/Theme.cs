@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<ImmutableArray<Outputs.ThemeValues>> Overrides { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.ThemeTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("values")]
         public Output<ImmutableArray<Outputs.ThemeValues>> Values { get; private set; } = null!;
@@ -107,7 +107,12 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         }
 
         [Input("tags")]
-        public Input<Inputs.ThemeTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("values")]
         private InputList<Inputs.ThemeValuesArgs>? _values;

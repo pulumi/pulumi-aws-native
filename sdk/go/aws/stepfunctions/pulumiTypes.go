@@ -587,124 +587,6 @@ func (o StateMachineDefinitionPtrOutput) Elem() StateMachineDefinitionOutput {
 	}).(StateMachineDefinitionOutput)
 }
 
-type StateMachineDefinitionSubstitutions struct {
-}
-
-// StateMachineDefinitionSubstitutionsInput is an input type that accepts StateMachineDefinitionSubstitutionsArgs and StateMachineDefinitionSubstitutionsOutput values.
-// You can construct a concrete instance of `StateMachineDefinitionSubstitutionsInput` via:
-//
-//	StateMachineDefinitionSubstitutionsArgs{...}
-type StateMachineDefinitionSubstitutionsInput interface {
-	pulumi.Input
-
-	ToStateMachineDefinitionSubstitutionsOutput() StateMachineDefinitionSubstitutionsOutput
-	ToStateMachineDefinitionSubstitutionsOutputWithContext(context.Context) StateMachineDefinitionSubstitutionsOutput
-}
-
-type StateMachineDefinitionSubstitutionsArgs struct {
-}
-
-func (StateMachineDefinitionSubstitutionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachineDefinitionSubstitutions)(nil)).Elem()
-}
-
-func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsOutput() StateMachineDefinitionSubstitutionsOutput {
-	return i.ToStateMachineDefinitionSubstitutionsOutputWithContext(context.Background())
-}
-
-func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionSubstitutionsOutput)
-}
-
-func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput {
-	return i.ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(context.Background())
-}
-
-func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionSubstitutionsOutput).ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx)
-}
-
-// StateMachineDefinitionSubstitutionsPtrInput is an input type that accepts StateMachineDefinitionSubstitutionsArgs, StateMachineDefinitionSubstitutionsPtr and StateMachineDefinitionSubstitutionsPtrOutput values.
-// You can construct a concrete instance of `StateMachineDefinitionSubstitutionsPtrInput` via:
-//
-//	        StateMachineDefinitionSubstitutionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type StateMachineDefinitionSubstitutionsPtrInput interface {
-	pulumi.Input
-
-	ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput
-	ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(context.Context) StateMachineDefinitionSubstitutionsPtrOutput
-}
-
-type stateMachineDefinitionSubstitutionsPtrType StateMachineDefinitionSubstitutionsArgs
-
-func StateMachineDefinitionSubstitutionsPtr(v *StateMachineDefinitionSubstitutionsArgs) StateMachineDefinitionSubstitutionsPtrInput {
-	return (*stateMachineDefinitionSubstitutionsPtrType)(v)
-}
-
-func (*stateMachineDefinitionSubstitutionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StateMachineDefinitionSubstitutions)(nil)).Elem()
-}
-
-func (i *stateMachineDefinitionSubstitutionsPtrType) ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput {
-	return i.ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(context.Background())
-}
-
-func (i *stateMachineDefinitionSubstitutionsPtrType) ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionSubstitutionsPtrOutput)
-}
-
-type StateMachineDefinitionSubstitutionsOutput struct{ *pulumi.OutputState }
-
-func (StateMachineDefinitionSubstitutionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StateMachineDefinitionSubstitutions)(nil)).Elem()
-}
-
-func (o StateMachineDefinitionSubstitutionsOutput) ToStateMachineDefinitionSubstitutionsOutput() StateMachineDefinitionSubstitutionsOutput {
-	return o
-}
-
-func (o StateMachineDefinitionSubstitutionsOutput) ToStateMachineDefinitionSubstitutionsOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsOutput {
-	return o
-}
-
-func (o StateMachineDefinitionSubstitutionsOutput) ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput {
-	return o.ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(context.Background())
-}
-
-func (o StateMachineDefinitionSubstitutionsOutput) ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineDefinitionSubstitutions) *StateMachineDefinitionSubstitutions {
-		return &v
-	}).(StateMachineDefinitionSubstitutionsPtrOutput)
-}
-
-type StateMachineDefinitionSubstitutionsPtrOutput struct{ *pulumi.OutputState }
-
-func (StateMachineDefinitionSubstitutionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StateMachineDefinitionSubstitutions)(nil)).Elem()
-}
-
-func (o StateMachineDefinitionSubstitutionsPtrOutput) ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput {
-	return o
-}
-
-func (o StateMachineDefinitionSubstitutionsPtrOutput) ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsPtrOutput {
-	return o
-}
-
-func (o StateMachineDefinitionSubstitutionsPtrOutput) Elem() StateMachineDefinitionSubstitutionsOutput {
-	return o.ApplyT(func(v *StateMachineDefinitionSubstitutions) StateMachineDefinitionSubstitutions {
-		if v != nil {
-			return *v
-		}
-		var ret StateMachineDefinitionSubstitutions
-		return ret
-	}).(StateMachineDefinitionSubstitutionsOutput)
-}
-
 type StateMachineLogDestination struct {
 	CloudWatchLogsLogGroup *StateMachineCloudWatchLogsLogGroup `pulumi:"cloudWatchLogsLogGroup"`
 }
@@ -1274,8 +1156,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineCloudWatchLogsLogGroupPtrInput)(nil)).Elem(), StateMachineCloudWatchLogsLogGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineDefinitionInput)(nil)).Elem(), StateMachineDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineDefinitionPtrInput)(nil)).Elem(), StateMachineDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineDefinitionSubstitutionsInput)(nil)).Elem(), StateMachineDefinitionSubstitutionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineDefinitionSubstitutionsPtrInput)(nil)).Elem(), StateMachineDefinitionSubstitutionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLogDestinationInput)(nil)).Elem(), StateMachineLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLogDestinationArrayInput)(nil)).Elem(), StateMachineLogDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationInput)(nil)).Elem(), StateMachineLoggingConfigurationArgs{})
@@ -1292,8 +1172,6 @@ func init() {
 	pulumi.RegisterOutputType(StateMachineCloudWatchLogsLogGroupPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineDefinitionOutput{})
 	pulumi.RegisterOutputType(StateMachineDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(StateMachineDefinitionSubstitutionsOutput{})
-	pulumi.RegisterOutputType(StateMachineDefinitionSubstitutionsPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineLogDestinationOutput{})
 	pulumi.RegisterOutputType(StateMachineLogDestinationArrayOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationOutput{})

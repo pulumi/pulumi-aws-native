@@ -26,7 +26,6 @@ __all__ = [
     'DbProxyAuthFormat',
     'DbProxyTargetGroupConnectionPoolConfigurationInfoFormat',
     'DbSecurityGroupIngress',
-    'IntegrationEncryptionContextMap',
     'OptionGroupOptionConfiguration',
     'OptionGroupOptionSetting',
 ]
@@ -847,18 +846,6 @@ class DbSecurityGroupIngress(dict):
     @pulumi.getter(name="ec2SecurityGroupOwnerId")
     def ec2_security_group_owner_id(self) -> Optional[str]:
         return pulumi.get(self, "ec2_security_group_owner_id")
-
-
-@pulumi.output_type
-class IntegrationEncryptionContextMap(dict):
-    """
-    An optional set of non-secret key–value pairs that contains additional contextual information about the data.
-    """
-    def __init__(__self__):
-        """
-        An optional set of non-secret key–value pairs that contains additional contextual information about the data.
-        """
-        pass
 
 
 @pulumi.output_type

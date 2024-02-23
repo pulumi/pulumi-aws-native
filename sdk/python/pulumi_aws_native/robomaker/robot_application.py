@@ -22,7 +22,7 @@ class RobotApplicationArgs:
                  environment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]]] = None,
-                 tags: Optional[pulumi.Input['RobotApplicationTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RobotApplication resource.
         :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
@@ -101,11 +101,11 @@ class RobotApplicationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['RobotApplicationTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['RobotApplicationTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -119,7 +119,7 @@ class RobotApplication(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  robot_software_suite: Optional[pulumi.Input[pulumi.InputType['RobotApplicationRobotSoftwareSuiteArgs']]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RobotApplicationSourceConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['RobotApplicationTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         This schema is for testing purpose only.
@@ -160,7 +160,7 @@ class RobotApplication(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  robot_software_suite: Optional[pulumi.Input[pulumi.InputType['RobotApplicationRobotSoftwareSuiteArgs']]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RobotApplicationSourceConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['RobotApplicationTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,6 +256,6 @@ class RobotApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.RobotApplicationTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 

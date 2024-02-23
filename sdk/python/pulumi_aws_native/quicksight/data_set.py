@@ -26,13 +26,13 @@ class DataSetArgs:
                  data_set_refresh_properties: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']] = None,
                  data_set_usage_configuration: Optional[pulumi.Input['DataSetUsageConfigurationArgs']] = None,
                  dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]]] = None,
-                 field_folders: Optional[pulumi.Input['DataSetFieldFolderMapArgs']] = None,
+                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input['DataSetIngestionWaitPolicyArgs']] = None,
-                 logical_table_map: Optional[pulumi.Input['DataSetLogicalTableMapArgs']] = None,
+                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]]] = None,
-                 physical_table_map: Optional[pulumi.Input['DataSetPhysicalTableMapArgs']] = None,
+                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -150,11 +150,11 @@ class DataSetArgs:
 
     @property
     @pulumi.getter(name="fieldFolders")
-    def field_folders(self) -> Optional[pulumi.Input['DataSetFieldFolderMapArgs']]:
+    def field_folders(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]]]:
         return pulumi.get(self, "field_folders")
 
     @field_folders.setter
-    def field_folders(self, value: Optional[pulumi.Input['DataSetFieldFolderMapArgs']]):
+    def field_folders(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]]]):
         pulumi.set(self, "field_folders", value)
 
     @property
@@ -177,11 +177,11 @@ class DataSetArgs:
 
     @property
     @pulumi.getter(name="logicalTableMap")
-    def logical_table_map(self) -> Optional[pulumi.Input['DataSetLogicalTableMapArgs']]:
+    def logical_table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]]:
         return pulumi.get(self, "logical_table_map")
 
     @logical_table_map.setter
-    def logical_table_map(self, value: Optional[pulumi.Input['DataSetLogicalTableMapArgs']]):
+    def logical_table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]]):
         pulumi.set(self, "logical_table_map", value)
 
     @property
@@ -210,11 +210,11 @@ class DataSetArgs:
 
     @property
     @pulumi.getter(name="physicalTableMap")
-    def physical_table_map(self) -> Optional[pulumi.Input['DataSetPhysicalTableMapArgs']]:
+    def physical_table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]]:
         return pulumi.get(self, "physical_table_map")
 
     @physical_table_map.setter
-    def physical_table_map(self, value: Optional[pulumi.Input['DataSetPhysicalTableMapArgs']]):
+    def physical_table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]]):
         pulumi.set(self, "physical_table_map", value)
 
     @property
@@ -260,13 +260,13 @@ class DataSet(pulumi.CustomResource):
                  data_set_refresh_properties: Optional[pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']]] = None,
                  data_set_usage_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']]] = None,
                  dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]]] = None,
-                 field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
+                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetFieldFolderArgs']]]]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
-                 logical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetLogicalTableMapArgs']]] = None,
+                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetLogicalTableArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]]] = None,
-                 physical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]] = None,
+                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetPhysicalTableArgs']]]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -313,13 +313,13 @@ class DataSet(pulumi.CustomResource):
                  data_set_refresh_properties: Optional[pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']]] = None,
                  data_set_usage_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetUsageConfigurationArgs']]] = None,
                  dataset_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetDatasetParameterArgs']]]]] = None,
-                 field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
+                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetFieldFolderArgs']]]]] = None,
                  import_mode: Optional[pulumi.Input['DataSetImportMode']] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
-                 logical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetLogicalTableMapArgs']]] = None,
+                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetLogicalTableArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]]] = None,
-                 physical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]] = None,
+                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetPhysicalTableArgs']]]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -470,7 +470,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fieldFolders")
-    def field_folders(self) -> pulumi.Output[Optional['outputs.DataSetFieldFolderMap']]:
+    def field_folders(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetFieldFolder']]]:
         return pulumi.get(self, "field_folders")
 
     @property
@@ -493,7 +493,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logicalTableMap")
-    def logical_table_map(self) -> pulumi.Output[Optional['outputs.DataSetLogicalTableMap']]:
+    def logical_table_map(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetLogicalTable']]]:
         return pulumi.get(self, "logical_table_map")
 
     @property
@@ -523,7 +523,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="physicalTableMap")
-    def physical_table_map(self) -> pulumi.Output[Optional['outputs.DataSetPhysicalTableMap']]:
+    def physical_table_map(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetPhysicalTable']]]:
         return pulumi.get(self, "physical_table_map")
 
     @property

@@ -29,15 +29,15 @@ export interface GetFormArgs {
 export interface GetFormResult {
     readonly cta?: outputs.amplifyuibuilder.FormCta;
     readonly dataType?: outputs.amplifyuibuilder.FormDataTypeConfig;
-    readonly fields?: outputs.amplifyuibuilder.FormFieldsMap;
+    readonly fields?: {[key: string]: outputs.amplifyuibuilder.FormFieldConfig};
     readonly formActionType?: enums.amplifyuibuilder.FormActionType;
     readonly id?: string;
     readonly labelDecorator?: enums.amplifyuibuilder.FormLabelDecorator;
     readonly name?: string;
     readonly schemaVersion?: string;
-    readonly sectionalElements?: outputs.amplifyuibuilder.FormSectionalElementMap;
+    readonly sectionalElements?: {[key: string]: outputs.amplifyuibuilder.FormSectionalElement};
     readonly style?: outputs.amplifyuibuilder.FormStyle;
-    readonly tags?: outputs.amplifyuibuilder.FormTags;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Definition of AWS::AmplifyUIBuilder::Form Resource Type

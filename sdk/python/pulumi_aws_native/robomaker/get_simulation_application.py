@@ -79,7 +79,7 @@ class GetSimulationApplicationResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.SimulationApplicationTags']:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

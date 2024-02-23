@@ -172,127 +172,6 @@ func (o DataIntegrationFileConfigurationPtrOutput) Folders() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration for what data should be pulled from the source.
-type DataIntegrationObjectConfiguration struct {
-}
-
-// DataIntegrationObjectConfigurationInput is an input type that accepts DataIntegrationObjectConfigurationArgs and DataIntegrationObjectConfigurationOutput values.
-// You can construct a concrete instance of `DataIntegrationObjectConfigurationInput` via:
-//
-//	DataIntegrationObjectConfigurationArgs{...}
-type DataIntegrationObjectConfigurationInput interface {
-	pulumi.Input
-
-	ToDataIntegrationObjectConfigurationOutput() DataIntegrationObjectConfigurationOutput
-	ToDataIntegrationObjectConfigurationOutputWithContext(context.Context) DataIntegrationObjectConfigurationOutput
-}
-
-// The configuration for what data should be pulled from the source.
-type DataIntegrationObjectConfigurationArgs struct {
-}
-
-func (DataIntegrationObjectConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataIntegrationObjectConfiguration)(nil)).Elem()
-}
-
-func (i DataIntegrationObjectConfigurationArgs) ToDataIntegrationObjectConfigurationOutput() DataIntegrationObjectConfigurationOutput {
-	return i.ToDataIntegrationObjectConfigurationOutputWithContext(context.Background())
-}
-
-func (i DataIntegrationObjectConfigurationArgs) ToDataIntegrationObjectConfigurationOutputWithContext(ctx context.Context) DataIntegrationObjectConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationObjectConfigurationOutput)
-}
-
-func (i DataIntegrationObjectConfigurationArgs) ToDataIntegrationObjectConfigurationPtrOutput() DataIntegrationObjectConfigurationPtrOutput {
-	return i.ToDataIntegrationObjectConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DataIntegrationObjectConfigurationArgs) ToDataIntegrationObjectConfigurationPtrOutputWithContext(ctx context.Context) DataIntegrationObjectConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationObjectConfigurationOutput).ToDataIntegrationObjectConfigurationPtrOutputWithContext(ctx)
-}
-
-// DataIntegrationObjectConfigurationPtrInput is an input type that accepts DataIntegrationObjectConfigurationArgs, DataIntegrationObjectConfigurationPtr and DataIntegrationObjectConfigurationPtrOutput values.
-// You can construct a concrete instance of `DataIntegrationObjectConfigurationPtrInput` via:
-//
-//	        DataIntegrationObjectConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DataIntegrationObjectConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDataIntegrationObjectConfigurationPtrOutput() DataIntegrationObjectConfigurationPtrOutput
-	ToDataIntegrationObjectConfigurationPtrOutputWithContext(context.Context) DataIntegrationObjectConfigurationPtrOutput
-}
-
-type dataIntegrationObjectConfigurationPtrType DataIntegrationObjectConfigurationArgs
-
-func DataIntegrationObjectConfigurationPtr(v *DataIntegrationObjectConfigurationArgs) DataIntegrationObjectConfigurationPtrInput {
-	return (*dataIntegrationObjectConfigurationPtrType)(v)
-}
-
-func (*dataIntegrationObjectConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataIntegrationObjectConfiguration)(nil)).Elem()
-}
-
-func (i *dataIntegrationObjectConfigurationPtrType) ToDataIntegrationObjectConfigurationPtrOutput() DataIntegrationObjectConfigurationPtrOutput {
-	return i.ToDataIntegrationObjectConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataIntegrationObjectConfigurationPtrType) ToDataIntegrationObjectConfigurationPtrOutputWithContext(ctx context.Context) DataIntegrationObjectConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationObjectConfigurationPtrOutput)
-}
-
-// The configuration for what data should be pulled from the source.
-type DataIntegrationObjectConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DataIntegrationObjectConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataIntegrationObjectConfiguration)(nil)).Elem()
-}
-
-func (o DataIntegrationObjectConfigurationOutput) ToDataIntegrationObjectConfigurationOutput() DataIntegrationObjectConfigurationOutput {
-	return o
-}
-
-func (o DataIntegrationObjectConfigurationOutput) ToDataIntegrationObjectConfigurationOutputWithContext(ctx context.Context) DataIntegrationObjectConfigurationOutput {
-	return o
-}
-
-func (o DataIntegrationObjectConfigurationOutput) ToDataIntegrationObjectConfigurationPtrOutput() DataIntegrationObjectConfigurationPtrOutput {
-	return o.ToDataIntegrationObjectConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DataIntegrationObjectConfigurationOutput) ToDataIntegrationObjectConfigurationPtrOutputWithContext(ctx context.Context) DataIntegrationObjectConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataIntegrationObjectConfiguration) *DataIntegrationObjectConfiguration {
-		return &v
-	}).(DataIntegrationObjectConfigurationPtrOutput)
-}
-
-type DataIntegrationObjectConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataIntegrationObjectConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataIntegrationObjectConfiguration)(nil)).Elem()
-}
-
-func (o DataIntegrationObjectConfigurationPtrOutput) ToDataIntegrationObjectConfigurationPtrOutput() DataIntegrationObjectConfigurationPtrOutput {
-	return o
-}
-
-func (o DataIntegrationObjectConfigurationPtrOutput) ToDataIntegrationObjectConfigurationPtrOutputWithContext(ctx context.Context) DataIntegrationObjectConfigurationPtrOutput {
-	return o
-}
-
-func (o DataIntegrationObjectConfigurationPtrOutput) Elem() DataIntegrationObjectConfigurationOutput {
-	return o.ApplyT(func(v *DataIntegrationObjectConfiguration) DataIntegrationObjectConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DataIntegrationObjectConfiguration
-		return ret
-	}).(DataIntegrationObjectConfigurationOutput)
-}
-
 type DataIntegrationScheduleConfig struct {
 	// The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
 	FirstExecutionFrom *string `pulumi:"firstExecutionFrom"`
@@ -538,15 +417,11 @@ type EventIntegrationTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationFileConfigurationInput)(nil)).Elem(), DataIntegrationFileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationFileConfigurationPtrInput)(nil)).Elem(), DataIntegrationFileConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationObjectConfigurationInput)(nil)).Elem(), DataIntegrationObjectConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationObjectConfigurationPtrInput)(nil)).Elem(), DataIntegrationObjectConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigPtrInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
 	pulumi.RegisterOutputType(DataIntegrationFileConfigurationOutput{})
 	pulumi.RegisterOutputType(DataIntegrationFileConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DataIntegrationObjectConfigurationOutput{})
-	pulumi.RegisterOutputType(DataIntegrationObjectConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataIntegrationScheduleConfigOutput{})
 	pulumi.RegisterOutputType(DataIntegrationScheduleConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})

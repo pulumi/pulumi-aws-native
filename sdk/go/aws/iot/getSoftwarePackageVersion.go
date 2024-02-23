@@ -29,7 +29,7 @@ type LookupSoftwarePackageVersionArgs struct {
 }
 
 type LookupSoftwarePackageVersionResult struct {
-	Attributes        *SoftwarePackageVersionResourceAttributes   `pulumi:"attributes"`
+	Attributes        map[string]string                           `pulumi:"attributes"`
 	Description       *string                                     `pulumi:"description"`
 	ErrorReason       *string                                     `pulumi:"errorReason"`
 	PackageVersionArn *string                                     `pulumi:"packageVersionArn"`
@@ -74,10 +74,8 @@ func (o LookupSoftwarePackageVersionResultOutput) ToLookupSoftwarePackageVersion
 	return o
 }
 
-func (o LookupSoftwarePackageVersionResultOutput) Attributes() SoftwarePackageVersionResourceAttributesPtrOutput {
-	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *SoftwarePackageVersionResourceAttributes {
-		return v.Attributes
-	}).(SoftwarePackageVersionResourceAttributesPtrOutput)
+func (o LookupSoftwarePackageVersionResultOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o LookupSoftwarePackageVersionResultOutput) Description() pulumi.StringPtrOutput {

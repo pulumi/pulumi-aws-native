@@ -16,7 +16,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TopicNamedEntityAggType>? Aggregation { get; set; }
 
         [Input("aggregationFunctionParameters")]
-        public Input<Inputs.TopicAggregationFunctionParametersArgs>? AggregationFunctionParameters { get; set; }
+        private InputMap<string>? _aggregationFunctionParameters;
+        public InputMap<string> AggregationFunctionParameters
+        {
+            get => _aggregationFunctionParameters ?? (_aggregationFunctionParameters = new InputMap<string>());
+            set => _aggregationFunctionParameters = value;
+        }
 
         public TopicNamedEntityDefinitionMetricArgs()
         {

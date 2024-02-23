@@ -28,7 +28,7 @@ class StudioComponentArgs:
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]] = None,
                  secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
-                 tags: Optional[pulumi.Input['StudioComponentTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StudioComponent resource.
         :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
@@ -180,11 +180,11 @@ class StudioComponentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['StudioComponentTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['StudioComponentTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -203,7 +203,7 @@ class StudioComponent(pulumi.CustomResource):
                  secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['StudioComponentTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input['StudioComponentType']] = None,
                  __props__=None):
         """
@@ -252,7 +252,7 @@ class StudioComponent(pulumi.CustomResource):
                  secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['StudioComponentTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input['StudioComponentType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -280,7 +280,7 @@ class StudioComponent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["studio_component_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["studio_id", "subtype", "tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["studio_id", "subtype", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StudioComponent, __self__).__init__(
             'aws-native:nimblestudio:StudioComponent',
@@ -394,7 +394,7 @@ class StudioComponent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.StudioComponentTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

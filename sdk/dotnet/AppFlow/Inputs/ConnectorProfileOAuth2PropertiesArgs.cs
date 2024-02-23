@@ -19,7 +19,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<string>? TokenUrl { get; set; }
 
         [Input("tokenUrlCustomProperties")]
-        public Input<Inputs.ConnectorProfileTokenUrlCustomPropertiesArgs>? TokenUrlCustomProperties { get; set; }
+        private InputMap<string>? _tokenUrlCustomProperties;
+        public InputMap<string> TokenUrlCustomProperties
+        {
+            get => _tokenUrlCustomProperties ?? (_tokenUrlCustomProperties = new InputMap<string>());
+            set => _tokenUrlCustomProperties = value;
+        }
 
         public ConnectorProfileOAuth2PropertiesArgs()
         {

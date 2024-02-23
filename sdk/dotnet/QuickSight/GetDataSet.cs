@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The last time that this dataset was updated.&lt;/p&gt;
         /// </summary>
         public readonly string? LastUpdatedTime;
-        public readonly Outputs.DataSetLogicalTableMap? LogicalTableMap;
+        public readonly ImmutableDictionary<string, Outputs.DataSetLogicalTable>? LogicalTableMap;
         /// <summary>
         /// &lt;p&gt;The display name for the dataset.&lt;/p&gt;
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;A list of resource permissions on the dataset.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetResourcePermission> Permissions;
-        public readonly Outputs.DataSetPhysicalTableMap? PhysicalTableMap;
+        public readonly ImmutableDictionary<string, Outputs.DataSetPhysicalTable>? PhysicalTableMap;
         public readonly Outputs.DataSetRowLevelPermissionDataSet? RowLevelPermissionDataSet;
         public readonly Outputs.DataSetRowLevelPermissionTagConfiguration? RowLevelPermissionTagConfiguration;
         /// <summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.QuickSight
 
             string? lastUpdatedTime,
 
-            Outputs.DataSetLogicalTableMap? logicalTableMap,
+            ImmutableDictionary<string, Outputs.DataSetLogicalTable>? logicalTableMap,
 
             string? name,
 
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.DataSetResourcePermission> permissions,
 
-            Outputs.DataSetPhysicalTableMap? physicalTableMap,
+            ImmutableDictionary<string, Outputs.DataSetPhysicalTable>? physicalTableMap,
 
             Outputs.DataSetRowLevelPermissionDataSet? rowLevelPermissionDataSet,
 

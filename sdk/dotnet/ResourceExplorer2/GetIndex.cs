@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     {
         public readonly string? Arn;
         public readonly Pulumi.AwsNative.ResourceExplorer2.IndexState? IndexState;
-        public readonly Outputs.IndexTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly Pulumi.AwsNative.ResourceExplorer2.IndexType? Type;
 
         [OutputConstructor]
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
             Pulumi.AwsNative.ResourceExplorer2.IndexState? indexState,
 
-            Outputs.IndexTagMap? tags,
+            ImmutableDictionary<string, string>? tags,
 
             Pulumi.AwsNative.ResourceExplorer2.IndexType? type)
         {

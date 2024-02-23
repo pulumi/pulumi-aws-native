@@ -21,7 +21,7 @@ type Theme struct {
 	ModifiedAt      pulumi.StringOutput    `pulumi:"modifiedAt"`
 	Name            pulumi.StringPtrOutput `pulumi:"name"`
 	Overrides       ThemeValuesArrayOutput `pulumi:"overrides"`
-	Tags            ThemeTagsPtrOutput     `pulumi:"tags"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
 	Values          ThemeValuesArrayOutput `pulumi:"values"`
 }
 
@@ -70,12 +70,12 @@ func (ThemeState) ElementType() reflect.Type {
 }
 
 type themeArgs struct {
-	AppId           *string       `pulumi:"appId"`
-	EnvironmentName *string       `pulumi:"environmentName"`
-	Name            *string       `pulumi:"name"`
-	Overrides       []ThemeValues `pulumi:"overrides"`
-	Tags            *ThemeTags    `pulumi:"tags"`
-	Values          []ThemeValues `pulumi:"values"`
+	AppId           *string           `pulumi:"appId"`
+	EnvironmentName *string           `pulumi:"environmentName"`
+	Name            *string           `pulumi:"name"`
+	Overrides       []ThemeValues     `pulumi:"overrides"`
+	Tags            map[string]string `pulumi:"tags"`
+	Values          []ThemeValues     `pulumi:"values"`
 }
 
 // The set of arguments for constructing a Theme resource.
@@ -84,7 +84,7 @@ type ThemeArgs struct {
 	EnvironmentName pulumi.StringPtrInput
 	Name            pulumi.StringPtrInput
 	Overrides       ThemeValuesArrayInput
-	Tags            ThemeTagsPtrInput
+	Tags            pulumi.StringMapInput
 	Values          ThemeValuesArrayInput
 }
 
@@ -149,8 +149,8 @@ func (o ThemeOutput) Overrides() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemeValuesArrayOutput { return v.Overrides }).(ThemeValuesArrayOutput)
 }
 
-func (o ThemeOutput) Tags() ThemeTagsPtrOutput {
-	return o.ApplyT(func(v *Theme) ThemeTagsPtrOutput { return v.Tags }).(ThemeTagsPtrOutput)
+func (o ThemeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o ThemeOutput) Values() ThemeValuesArrayOutput {

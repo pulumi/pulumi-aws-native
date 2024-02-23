@@ -23,9 +23,9 @@ class WorkflowArgs:
                  engine: Optional[pulumi.Input['WorkflowEngine']] = None,
                  main: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameter_template: Optional[pulumi.Input['WorkflowParameterTemplateArgs']] = None,
+                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]] = None,
                  storage_capacity: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input['WorkflowTagMapArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
         """
@@ -104,11 +104,11 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter(name="parameterTemplate")
-    def parameter_template(self) -> Optional[pulumi.Input['WorkflowParameterTemplateArgs']]:
+    def parameter_template(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]]:
         return pulumi.get(self, "parameter_template")
 
     @parameter_template.setter
-    def parameter_template(self, value: Optional[pulumi.Input['WorkflowParameterTemplateArgs']]):
+    def parameter_template(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowParameterArgs']]]]):
         pulumi.set(self, "parameter_template", value)
 
     @property
@@ -122,11 +122,11 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['WorkflowTagMapArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['WorkflowTagMapArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -141,9 +141,9 @@ class Workflow(pulumi.CustomResource):
                  engine: Optional[pulumi.Input['WorkflowEngine']] = None,
                  main: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameter_template: Optional[pulumi.Input[pulumi.InputType['WorkflowParameterTemplateArgs']]] = None,
+                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
                  storage_capacity: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['WorkflowTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Omics::Workflow Resource Type
@@ -181,9 +181,9 @@ class Workflow(pulumi.CustomResource):
                  engine: Optional[pulumi.Input['WorkflowEngine']] = None,
                  main: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameter_template: Optional[pulumi.Input[pulumi.InputType['WorkflowParameterTemplateArgs']]] = None,
+                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
                  storage_capacity: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['WorkflowTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -206,7 +206,7 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accelerators", "definition_uri", "engine", "main", "parameter_template", "storage_capacity"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accelerators", "definition_uri", "engine", "main", "parameter_template.*", "storage_capacity"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workflow, __self__).__init__(
             'aws-native:omics:Workflow',
@@ -287,7 +287,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterTemplate")
-    def parameter_template(self) -> pulumi.Output[Optional['outputs.WorkflowParameterTemplate']]:
+    def parameter_template(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.WorkflowParameter']]]:
         return pulumi.get(self, "parameter_template")
 
     @property
@@ -302,7 +302,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.WorkflowTagMap']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

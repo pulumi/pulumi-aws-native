@@ -47,7 +47,7 @@ export class CisScanConfiguration extends pulumi.CustomResource {
     public readonly scanName!: pulumi.Output<string | undefined>;
     public readonly schedule!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationSchedule | undefined>;
     public readonly securityLevel!: pulumi.Output<enums.inspectorv2.CisScanConfigurationCisSecurityLevel | undefined>;
-    public readonly tags!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationCisTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly targets!: pulumi.Output<outputs.inspectorv2.CisScanConfigurationCisTargets | undefined>;
 
     /**
@@ -90,6 +90,6 @@ export interface CisScanConfigurationArgs {
     scanName?: pulumi.Input<string>;
     schedule?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationScheduleArgs>;
     securityLevel?: pulumi.Input<enums.inspectorv2.CisScanConfigurationCisSecurityLevel>;
-    tags?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationCisTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     targets?: pulumi.Input<inputs.inspectorv2.CisScanConfigurationCisTargetsArgs>;
 }

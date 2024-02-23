@@ -37,7 +37,7 @@ export interface GetRuleGroupResult {
      * Collection of Consumed Labels.
      */
     readonly consumedLabels?: outputs.wafv2.RuleGroupLabelSummary[];
-    readonly customResponseBodies?: outputs.wafv2.RuleGroupCustomResponseBodies;
+    readonly customResponseBodies?: {[key: string]: outputs.wafv2.RuleGroupCustomResponseBody};
     readonly description?: string;
     readonly id?: string;
     readonly labelNamespace?: string;

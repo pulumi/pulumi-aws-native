@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public Input<string> Operation { get; set; } = null!;
 
         [Input("parameters")]
-        public InputUnion<Inputs.RecipeParametersArgs, Inputs.RecipeParameterMapArgs>? Parameters { get; set; }
+        public InputUnion<Inputs.RecipeParametersArgs, ImmutableDictionary<string, string>>? Parameters { get; set; }
 
         public RecipeActionArgs()
         {

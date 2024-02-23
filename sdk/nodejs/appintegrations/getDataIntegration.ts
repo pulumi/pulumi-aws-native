@@ -49,7 +49,7 @@ export interface GetDataIntegrationResult {
     /**
      * The configuration for what data should be pulled from the source.
      */
-    readonly objectConfiguration?: outputs.appintegrations.DataIntegrationObjectConfiguration;
+    readonly objectConfiguration?: {[key: string]: any};
     /**
      * The tags (keys and values) associated with the data integration.
      */

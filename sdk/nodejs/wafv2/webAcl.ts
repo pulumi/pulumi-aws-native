@@ -42,7 +42,7 @@ export class WebAcl extends pulumi.CustomResource {
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
     public readonly challengeConfig!: pulumi.Output<outputs.wafv2.WebAclChallengeConfig | undefined>;
-    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebAclCustomResponseBodies | undefined>;
+    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.WebAclCustomResponseBody} | undefined>;
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly labelNamespace!: pulumi.Output<string>;
@@ -122,7 +122,7 @@ export interface WebAclArgs {
     associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfigArgs>;
     captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfigArgs>;
     challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfigArgs>;
-    customResponseBodies?: pulumi.Input<inputs.wafv2.WebAclCustomResponseBodiesArgs>;
+    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.WebAclCustomResponseBodyArgs>}>;
     defaultAction: pulumi.Input<inputs.wafv2.WebAclDefaultActionArgs>;
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;

@@ -45,8 +45,8 @@ type LookupDataSetResult struct {
 	DatasetParameters []DataSetDatasetParameter `pulumi:"datasetParameters"`
 	ImportMode        *DataSetImportMode        `pulumi:"importMode"`
 	// <p>The last time that this dataset was updated.</p>
-	LastUpdatedTime *string                 `pulumi:"lastUpdatedTime"`
-	LogicalTableMap *DataSetLogicalTableMap `pulumi:"logicalTableMap"`
+	LastUpdatedTime *string                        `pulumi:"lastUpdatedTime"`
+	LogicalTableMap map[string]DataSetLogicalTable `pulumi:"logicalTableMap"`
 	// <p>The display name for the dataset.</p>
 	Name *string `pulumi:"name"`
 	// <p>The list of columns after all transforms. These columns are available in templates,
@@ -54,7 +54,7 @@ type LookupDataSetResult struct {
 	OutputColumns []DataSetOutputColumn `pulumi:"outputColumns"`
 	// <p>A list of resource permissions on the dataset.</p>
 	Permissions                        []DataSetResourcePermission                `pulumi:"permissions"`
-	PhysicalTableMap                   *DataSetPhysicalTableMap                   `pulumi:"physicalTableMap"`
+	PhysicalTableMap                   map[string]DataSetPhysicalTable            `pulumi:"physicalTableMap"`
 	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
@@ -145,8 +145,8 @@ func (o LookupDataSetResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDataSetResultOutput) LogicalTableMap() DataSetLogicalTableMapPtrOutput {
-	return o.ApplyT(func(v LookupDataSetResult) *DataSetLogicalTableMap { return v.LogicalTableMap }).(DataSetLogicalTableMapPtrOutput)
+func (o LookupDataSetResultOutput) LogicalTableMap() DataSetLogicalTableMapOutput {
+	return o.ApplyT(func(v LookupDataSetResult) map[string]DataSetLogicalTable { return v.LogicalTableMap }).(DataSetLogicalTableMapOutput)
 }
 
 // <p>The display name for the dataset.</p>
@@ -166,8 +166,8 @@ func (o LookupDataSetResultOutput) Permissions() DataSetResourcePermissionArrayO
 	return o.ApplyT(func(v LookupDataSetResult) []DataSetResourcePermission { return v.Permissions }).(DataSetResourcePermissionArrayOutput)
 }
 
-func (o LookupDataSetResultOutput) PhysicalTableMap() DataSetPhysicalTableMapPtrOutput {
-	return o.ApplyT(func(v LookupDataSetResult) *DataSetPhysicalTableMap { return v.PhysicalTableMap }).(DataSetPhysicalTableMapPtrOutput)
+func (o LookupDataSetResultOutput) PhysicalTableMap() DataSetPhysicalTableMapOutput {
+	return o.ApplyT(func(v LookupDataSetResult) map[string]DataSetPhysicalTable { return v.PhysicalTableMap }).(DataSetPhysicalTableMapOutput)
 }
 
 func (o LookupDataSetResultOutput) RowLevelPermissionDataSet() DataSetRowLevelPermissionDataSetPtrOutput {

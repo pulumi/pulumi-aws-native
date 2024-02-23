@@ -16,25 +16,25 @@ import (
 type Portal struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext  PortalEncryptionContextMapPtrOutput `pulumi:"additionalEncryptionContext"`
-	AuthenticationType           PortalAuthenticationTypePtrOutput   `pulumi:"authenticationType"`
-	BrowserSettingsArn           pulumi.StringPtrOutput              `pulumi:"browserSettingsArn"`
-	BrowserType                  PortalBrowserTypeOutput             `pulumi:"browserType"`
-	CreationDate                 pulumi.StringOutput                 `pulumi:"creationDate"`
-	CustomerManagedKey           pulumi.StringPtrOutput              `pulumi:"customerManagedKey"`
-	DisplayName                  pulumi.StringPtrOutput              `pulumi:"displayName"`
-	IpAccessSettingsArn          pulumi.StringPtrOutput              `pulumi:"ipAccessSettingsArn"`
-	NetworkSettingsArn           pulumi.StringPtrOutput              `pulumi:"networkSettingsArn"`
-	PortalArn                    pulumi.StringOutput                 `pulumi:"portalArn"`
-	PortalEndpoint               pulumi.StringOutput                 `pulumi:"portalEndpoint"`
-	PortalStatus                 PortalStatusOutput                  `pulumi:"portalStatus"`
-	RendererType                 PortalRendererTypeOutput            `pulumi:"rendererType"`
-	ServiceProviderSamlMetadata  pulumi.StringOutput                 `pulumi:"serviceProviderSamlMetadata"`
-	StatusReason                 pulumi.StringOutput                 `pulumi:"statusReason"`
-	Tags                         aws.TagArrayOutput                  `pulumi:"tags"`
-	TrustStoreArn                pulumi.StringPtrOutput              `pulumi:"trustStoreArn"`
-	UserAccessLoggingSettingsArn pulumi.StringPtrOutput              `pulumi:"userAccessLoggingSettingsArn"`
-	UserSettingsArn              pulumi.StringPtrOutput              `pulumi:"userSettingsArn"`
+	AdditionalEncryptionContext  pulumi.StringMapOutput            `pulumi:"additionalEncryptionContext"`
+	AuthenticationType           PortalAuthenticationTypePtrOutput `pulumi:"authenticationType"`
+	BrowserSettingsArn           pulumi.StringPtrOutput            `pulumi:"browserSettingsArn"`
+	BrowserType                  PortalBrowserTypeOutput           `pulumi:"browserType"`
+	CreationDate                 pulumi.StringOutput               `pulumi:"creationDate"`
+	CustomerManagedKey           pulumi.StringPtrOutput            `pulumi:"customerManagedKey"`
+	DisplayName                  pulumi.StringPtrOutput            `pulumi:"displayName"`
+	IpAccessSettingsArn          pulumi.StringPtrOutput            `pulumi:"ipAccessSettingsArn"`
+	NetworkSettingsArn           pulumi.StringPtrOutput            `pulumi:"networkSettingsArn"`
+	PortalArn                    pulumi.StringOutput               `pulumi:"portalArn"`
+	PortalEndpoint               pulumi.StringOutput               `pulumi:"portalEndpoint"`
+	PortalStatus                 PortalStatusOutput                `pulumi:"portalStatus"`
+	RendererType                 PortalRendererTypeOutput          `pulumi:"rendererType"`
+	ServiceProviderSamlMetadata  pulumi.StringOutput               `pulumi:"serviceProviderSamlMetadata"`
+	StatusReason                 pulumi.StringOutput               `pulumi:"statusReason"`
+	Tags                         aws.TagArrayOutput                `pulumi:"tags"`
+	TrustStoreArn                pulumi.StringPtrOutput            `pulumi:"trustStoreArn"`
+	UserAccessLoggingSettingsArn pulumi.StringPtrOutput            `pulumi:"userAccessLoggingSettingsArn"`
+	UserSettingsArn              pulumi.StringPtrOutput            `pulumi:"userSettingsArn"`
 }
 
 // NewPortal registers a new resource with the given unique name, arguments, and options.
@@ -45,7 +45,7 @@ func NewPortal(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"additionalEncryptionContext",
+		"additionalEncryptionContext.*",
 		"customerManagedKey",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -82,22 +82,22 @@ func (PortalState) ElementType() reflect.Type {
 }
 
 type portalArgs struct {
-	AdditionalEncryptionContext  *PortalEncryptionContextMap `pulumi:"additionalEncryptionContext"`
-	AuthenticationType           *PortalAuthenticationType   `pulumi:"authenticationType"`
-	BrowserSettingsArn           *string                     `pulumi:"browserSettingsArn"`
-	CustomerManagedKey           *string                     `pulumi:"customerManagedKey"`
-	DisplayName                  *string                     `pulumi:"displayName"`
-	IpAccessSettingsArn          *string                     `pulumi:"ipAccessSettingsArn"`
-	NetworkSettingsArn           *string                     `pulumi:"networkSettingsArn"`
-	Tags                         []aws.Tag                   `pulumi:"tags"`
-	TrustStoreArn                *string                     `pulumi:"trustStoreArn"`
-	UserAccessLoggingSettingsArn *string                     `pulumi:"userAccessLoggingSettingsArn"`
-	UserSettingsArn              *string                     `pulumi:"userSettingsArn"`
+	AdditionalEncryptionContext  map[string]string         `pulumi:"additionalEncryptionContext"`
+	AuthenticationType           *PortalAuthenticationType `pulumi:"authenticationType"`
+	BrowserSettingsArn           *string                   `pulumi:"browserSettingsArn"`
+	CustomerManagedKey           *string                   `pulumi:"customerManagedKey"`
+	DisplayName                  *string                   `pulumi:"displayName"`
+	IpAccessSettingsArn          *string                   `pulumi:"ipAccessSettingsArn"`
+	NetworkSettingsArn           *string                   `pulumi:"networkSettingsArn"`
+	Tags                         []aws.Tag                 `pulumi:"tags"`
+	TrustStoreArn                *string                   `pulumi:"trustStoreArn"`
+	UserAccessLoggingSettingsArn *string                   `pulumi:"userAccessLoggingSettingsArn"`
+	UserSettingsArn              *string                   `pulumi:"userSettingsArn"`
 }
 
 // The set of arguments for constructing a Portal resource.
 type PortalArgs struct {
-	AdditionalEncryptionContext  PortalEncryptionContextMapPtrInput
+	AdditionalEncryptionContext  pulumi.StringMapInput
 	AuthenticationType           PortalAuthenticationTypePtrInput
 	BrowserSettingsArn           pulumi.StringPtrInput
 	CustomerManagedKey           pulumi.StringPtrInput
@@ -147,8 +147,8 @@ func (o PortalOutput) ToPortalOutputWithContext(ctx context.Context) PortalOutpu
 	return o
 }
 
-func (o PortalOutput) AdditionalEncryptionContext() PortalEncryptionContextMapPtrOutput {
-	return o.ApplyT(func(v *Portal) PortalEncryptionContextMapPtrOutput { return v.AdditionalEncryptionContext }).(PortalEncryptionContextMapPtrOutput)
+func (o PortalOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
 func (o PortalOutput) AuthenticationType() PortalAuthenticationTypePtrOutput {

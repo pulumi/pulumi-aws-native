@@ -19,7 +19,7 @@ type Connector struct {
 	CertificateAuthorityArn pulumi.StringOutput           `pulumi:"certificateAuthorityArn"`
 	ConnectorArn            pulumi.StringOutput           `pulumi:"connectorArn"`
 	DirectoryId             pulumi.StringOutput           `pulumi:"directoryId"`
-	Tags                    ConnectorTagsPtrOutput        `pulumi:"tags"`
+	Tags                    pulumi.StringMapOutput        `pulumi:"tags"`
 	VpcInformation          ConnectorVpcInformationOutput `pulumi:"vpcInformation"`
 }
 
@@ -80,7 +80,7 @@ func (ConnectorState) ElementType() reflect.Type {
 type connectorArgs struct {
 	CertificateAuthorityArn string                  `pulumi:"certificateAuthorityArn"`
 	DirectoryId             string                  `pulumi:"directoryId"`
-	Tags                    *ConnectorTags          `pulumi:"tags"`
+	Tags                    map[string]string       `pulumi:"tags"`
 	VpcInformation          ConnectorVpcInformation `pulumi:"vpcInformation"`
 }
 
@@ -88,7 +88,7 @@ type connectorArgs struct {
 type ConnectorArgs struct {
 	CertificateAuthorityArn pulumi.StringInput
 	DirectoryId             pulumi.StringInput
-	Tags                    ConnectorTagsPtrInput
+	Tags                    pulumi.StringMapInput
 	VpcInformation          ConnectorVpcInformationInput
 }
 
@@ -141,8 +141,8 @@ func (o ConnectorOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
-func (o ConnectorOutput) Tags() ConnectorTagsPtrOutput {
-	return o.ApplyT(func(v *Connector) ConnectorTagsPtrOutput { return v.Tags }).(ConnectorTagsPtrOutput)
+func (o ConnectorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o ConnectorOutput) VpcInformation() ConnectorVpcInformationOutput {

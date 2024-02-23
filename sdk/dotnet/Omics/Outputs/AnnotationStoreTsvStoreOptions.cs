@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.Omics.Outputs
     public sealed class AnnotationStoreTsvStoreOptions
     {
         public readonly Pulumi.AwsNative.Omics.AnnotationStoreAnnotationType? AnnotationType;
-        public readonly Outputs.AnnotationStoreFormatToHeader? FormatToHeader;
-        public readonly ImmutableArray<Outputs.AnnotationStoreSchemaItem> Schema;
+        public readonly ImmutableDictionary<string, string>? FormatToHeader;
+        public readonly ImmutableArray<ImmutableDictionary<string, Pulumi.AwsNative.Omics.AnnotationStoreSchemaValueType>> Schema;
 
         [OutputConstructor]
         private AnnotationStoreTsvStoreOptions(
             Pulumi.AwsNative.Omics.AnnotationStoreAnnotationType? annotationType,
 
-            Outputs.AnnotationStoreFormatToHeader? formatToHeader,
+            ImmutableDictionary<string, string>? formatToHeader,
 
-            ImmutableArray<Outputs.AnnotationStoreSchemaItem> schema)
+            ImmutableArray<ImmutableDictionary<string, Pulumi.AwsNative.Omics.AnnotationStoreSchemaValueType>> schema)
         {
             AnnotationType = annotationType;
             FormatToHeader = formatToHeader;

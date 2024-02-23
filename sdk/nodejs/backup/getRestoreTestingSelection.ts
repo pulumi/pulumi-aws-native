@@ -28,7 +28,7 @@ export interface GetRestoreTestingSelectionResult {
     readonly iamRoleArn?: string;
     readonly protectedResourceArns?: string[];
     readonly protectedResourceConditions?: outputs.backup.RestoreTestingSelectionProtectedResourceConditions;
-    readonly restoreMetadataOverrides?: outputs.backup.RestoreTestingSelectionSensitiveStringMap;
+    readonly restoreMetadataOverrides?: {[key: string]: string};
     readonly validationWindowHours?: number;
 }
 /**

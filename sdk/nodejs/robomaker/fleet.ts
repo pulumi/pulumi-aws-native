@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +39,7 @@ export class Fleet extends pulumi.CustomResource {
      * The name of the fleet.
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.robomaker.FleetTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -78,5 +75,5 @@ export interface FleetArgs {
      * The name of the fleet.
      */
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.robomaker.FleetTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

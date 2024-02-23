@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Fis
     public partial class ExperimentTemplate : global::Pulumi.CustomResource
     {
         [Output("actions")]
-        public Output<Outputs.ExperimentTemplateActionMap?> Actions { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ExperimentTemplateAction>?> Actions { get; private set; } = null!;
 
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Fis
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         [Output("targets")]
-        public Output<Outputs.ExperimentTemplateTargetMap> Targets { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ExperimentTemplateTarget>> Targets { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,7 +89,12 @@ namespace Pulumi.AwsNative.Fis
     public sealed class ExperimentTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
-        public Input<Inputs.ExperimentTemplateActionMapArgs>? Actions { get; set; }
+        private InputMap<Inputs.ExperimentTemplateActionArgs>? _actions;
+        public InputMap<Inputs.ExperimentTemplateActionArgs> Actions
+        {
+            get => _actions ?? (_actions = new InputMap<Inputs.ExperimentTemplateActionArgs>());
+            set => _actions = value;
+        }
 
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -120,7 +125,12 @@ namespace Pulumi.AwsNative.Fis
         }
 
         [Input("targets", required: true)]
-        public Input<Inputs.ExperimentTemplateTargetMapArgs> Targets { get; set; } = null!;
+        private InputMap<Inputs.ExperimentTemplateTargetArgs>? _targets;
+        public InputMap<Inputs.ExperimentTemplateTargetArgs> Targets
+        {
+            get => _targets ?? (_targets = new InputMap<Inputs.ExperimentTemplateTargetArgs>());
+            set => _targets = value;
+        }
 
         public ExperimentTemplateArgs()
         {

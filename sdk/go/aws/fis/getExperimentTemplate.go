@@ -27,14 +27,14 @@ type LookupExperimentTemplateArgs struct {
 }
 
 type LookupExperimentTemplateResult struct {
-	Actions           *ExperimentTemplateActionMap         `pulumi:"actions"`
+	Actions           map[string]ExperimentTemplateAction  `pulumi:"actions"`
 	Description       *string                              `pulumi:"description"`
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
 	Id                *string                              `pulumi:"id"`
 	LogConfiguration  *ExperimentTemplateLogConfiguration  `pulumi:"logConfiguration"`
 	RoleArn           *string                              `pulumi:"roleArn"`
 	StopConditions    []ExperimentTemplateStopCondition    `pulumi:"stopConditions"`
-	Targets           *ExperimentTemplateTargetMap         `pulumi:"targets"`
+	Targets           map[string]ExperimentTemplateTarget  `pulumi:"targets"`
 }
 
 func LookupExperimentTemplateOutput(ctx *pulumi.Context, args LookupExperimentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupExperimentTemplateResultOutput {
@@ -72,8 +72,8 @@ func (o LookupExperimentTemplateResultOutput) ToLookupExperimentTemplateResultOu
 	return o
 }
 
-func (o LookupExperimentTemplateResultOutput) Actions() ExperimentTemplateActionMapPtrOutput {
-	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateActionMap { return v.Actions }).(ExperimentTemplateActionMapPtrOutput)
+func (o LookupExperimentTemplateResultOutput) Actions() ExperimentTemplateActionMapOutput {
+	return o.ApplyT(func(v LookupExperimentTemplateResult) map[string]ExperimentTemplateAction { return v.Actions }).(ExperimentTemplateActionMapOutput)
 }
 
 func (o LookupExperimentTemplateResultOutput) Description() pulumi.StringPtrOutput {
@@ -102,8 +102,8 @@ func (o LookupExperimentTemplateResultOutput) StopConditions() ExperimentTemplat
 	return o.ApplyT(func(v LookupExperimentTemplateResult) []ExperimentTemplateStopCondition { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
 }
 
-func (o LookupExperimentTemplateResultOutput) Targets() ExperimentTemplateTargetMapPtrOutput {
-	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateTargetMap { return v.Targets }).(ExperimentTemplateTargetMapPtrOutput)
+func (o LookupExperimentTemplateResultOutput) Targets() ExperimentTemplateTargetMapOutput {
+	return o.ApplyT(func(v LookupExperimentTemplateResult) map[string]ExperimentTemplateTarget { return v.Targets }).(ExperimentTemplateTargetMapOutput)
 }
 
 func init() {

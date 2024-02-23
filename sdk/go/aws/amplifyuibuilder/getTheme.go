@@ -29,13 +29,13 @@ type LookupThemeArgs struct {
 }
 
 type LookupThemeResult struct {
-	CreatedAt  *string       `pulumi:"createdAt"`
-	Id         *string       `pulumi:"id"`
-	ModifiedAt *string       `pulumi:"modifiedAt"`
-	Name       *string       `pulumi:"name"`
-	Overrides  []ThemeValues `pulumi:"overrides"`
-	Tags       *ThemeTags    `pulumi:"tags"`
-	Values     []ThemeValues `pulumi:"values"`
+	CreatedAt  *string           `pulumi:"createdAt"`
+	Id         *string           `pulumi:"id"`
+	ModifiedAt *string           `pulumi:"modifiedAt"`
+	Name       *string           `pulumi:"name"`
+	Overrides  []ThemeValues     `pulumi:"overrides"`
+	Tags       map[string]string `pulumi:"tags"`
+	Values     []ThemeValues     `pulumi:"values"`
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
@@ -95,8 +95,8 @@ func (o LookupThemeResultOutput) Overrides() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeValues { return v.Overrides }).(ThemeValuesArrayOutput)
 }
 
-func (o LookupThemeResultOutput) Tags() ThemeTagsPtrOutput {
-	return o.ApplyT(func(v LookupThemeResult) *ThemeTags { return v.Tags }).(ThemeTagsPtrOutput)
+func (o LookupThemeResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupThemeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupThemeResultOutput) Values() ThemeValuesArrayOutput {

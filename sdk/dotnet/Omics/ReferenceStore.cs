@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Omics
         public Output<Outputs.ReferenceStoreSseConfig?> SseConfig { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.ReferenceStoreTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Omics
                     "description",
                     "name",
                     "sseConfig",
-                    "tags",
+                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,7 +116,12 @@ namespace Pulumi.AwsNative.Omics
         public Input<Inputs.ReferenceStoreSseConfigArgs>? SseConfig { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.ReferenceStoreTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ReferenceStoreArgs()
         {

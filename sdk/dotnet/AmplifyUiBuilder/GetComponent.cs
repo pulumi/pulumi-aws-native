@@ -63,35 +63,35 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     [OutputType]
     public sealed class GetComponentResult
     {
-        public readonly Outputs.ComponentBindingProperties? BindingProperties;
+        public readonly ImmutableDictionary<string, Outputs.ComponentBindingPropertiesValue>? BindingProperties;
         public readonly ImmutableArray<Outputs.ComponentChild> Children;
-        public readonly Outputs.ComponentCollectionProperties? CollectionProperties;
+        public readonly ImmutableDictionary<string, Outputs.ComponentDataConfiguration>? CollectionProperties;
         public readonly string? ComponentType;
         public readonly string? CreatedAt;
-        public readonly Outputs.ComponentEvents? Events;
+        public readonly ImmutableDictionary<string, Outputs.ComponentEvent>? Events;
         public readonly string? Id;
         public readonly string? ModifiedAt;
         public readonly string? Name;
-        public readonly Outputs.ComponentOverrides? Overrides;
-        public readonly Outputs.ComponentProperties? Properties;
+        public readonly ImmutableDictionary<string, object>? Overrides;
+        public readonly ImmutableDictionary<string, Outputs.ComponentProperty>? Properties;
         public readonly string? SchemaVersion;
         public readonly string? SourceId;
-        public readonly Outputs.ComponentTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly ImmutableArray<Outputs.ComponentVariant> Variants;
 
         [OutputConstructor]
         private GetComponentResult(
-            Outputs.ComponentBindingProperties? bindingProperties,
+            ImmutableDictionary<string, Outputs.ComponentBindingPropertiesValue>? bindingProperties,
 
             ImmutableArray<Outputs.ComponentChild> children,
 
-            Outputs.ComponentCollectionProperties? collectionProperties,
+            ImmutableDictionary<string, Outputs.ComponentDataConfiguration>? collectionProperties,
 
             string? componentType,
 
             string? createdAt,
 
-            Outputs.ComponentEvents? events,
+            ImmutableDictionary<string, Outputs.ComponentEvent>? events,
 
             string? id,
 
@@ -99,15 +99,15 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
             string? name,
 
-            Outputs.ComponentOverrides? overrides,
+            ImmutableDictionary<string, object>? overrides,
 
-            Outputs.ComponentProperties? properties,
+            ImmutableDictionary<string, Outputs.ComponentProperty>? properties,
 
             string? schemaVersion,
 
             string? sourceId,
 
-            Outputs.ComponentTags? tags,
+            ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.ComponentVariant> variants)
         {

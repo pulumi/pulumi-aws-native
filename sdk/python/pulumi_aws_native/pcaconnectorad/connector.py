@@ -19,7 +19,7 @@ class ConnectorArgs:
                  certificate_authority_arn: pulumi.Input[str],
                  directory_id: pulumi.Input[str],
                  vpc_information: pulumi.Input['ConnectorVpcInformationArgs'],
-                 tags: Optional[pulumi.Input['ConnectorTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
         """
@@ -58,11 +58,11 @@ class ConnectorArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['ConnectorTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['ConnectorTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -73,7 +73,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ConnectorTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_information: Optional[pulumi.Input[pulumi.InputType['ConnectorVpcInformationArgs']]] = None,
                  __props__=None):
         """
@@ -108,7 +108,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ConnectorTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_information: Optional[pulumi.Input[pulumi.InputType['ConnectorVpcInformationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -178,7 +178,7 @@ class Connector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.ConnectorTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

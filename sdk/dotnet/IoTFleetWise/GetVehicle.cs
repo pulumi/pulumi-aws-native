@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
     public sealed class GetVehicleResult
     {
         public readonly string? Arn;
-        public readonly Outputs.VehicleattributesMap? Attributes;
+        public readonly ImmutableDictionary<string, string>? Attributes;
         public readonly string? CreationTime;
         public readonly string? DecoderManifestArn;
         public readonly string? LastModificationTime;
@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         private GetVehicleResult(
             string? arn,
 
-            Outputs.VehicleattributesMap? attributes,
+            ImmutableDictionary<string, string>? attributes,
 
             string? creationTime,
 

@@ -27,7 +27,7 @@ class PipeArgs:
                  log_configuration: Optional[pulumi.Input['PipeLogConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
-                 tags: Optional[pulumi.Input['PipeTagMapArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None):
         """
         The set of arguments for constructing a Pipe resource.
@@ -146,11 +146,11 @@ class PipeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['PipeTagMapArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['PipeTagMapArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -177,7 +177,7 @@ class Pipe(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_parameters: Optional[pulumi.Input[pulumi.InputType['PipeSourceParametersArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['PipeTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_parameters: Optional[pulumi.Input[pulumi.InputType['PipeTargetParametersArgs']]] = None,
                  __props__=None):
@@ -220,7 +220,7 @@ class Pipe(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_parameters: Optional[pulumi.Input[pulumi.InputType['PipeSourceParametersArgs']]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['PipeTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_parameters: Optional[pulumi.Input[pulumi.InputType['PipeTargetParametersArgs']]] = None,
                  __props__=None):
@@ -370,7 +370,7 @@ class Pipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.PipeTagMap']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

@@ -41,7 +41,7 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
     public readonly protectedResourceArns!: pulumi.Output<string[] | undefined>;
     public readonly protectedResourceConditions!: pulumi.Output<outputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
     public readonly protectedResourceType!: pulumi.Output<string>;
-    public readonly restoreMetadataOverrides!: pulumi.Output<outputs.backup.RestoreTestingSelectionSensitiveStringMap | undefined>;
+    public readonly restoreMetadataOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly restoreTestingPlanName!: pulumi.Output<string>;
     public readonly restoreTestingSelectionName!: pulumi.Output<string>;
     public readonly validationWindowHours!: pulumi.Output<number | undefined>;
@@ -99,7 +99,7 @@ export interface RestoreTestingSelectionArgs {
     protectedResourceArns?: pulumi.Input<pulumi.Input<string>[]>;
     protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditionsArgs>;
     protectedResourceType: pulumi.Input<string>;
-    restoreMetadataOverrides?: pulumi.Input<inputs.backup.RestoreTestingSelectionSensitiveStringMapArgs>;
+    restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     restoreTestingPlanName: pulumi.Input<string>;
     restoreTestingSelectionName?: pulumi.Input<string>;
     validationWindowHours?: pulumi.Input<number>;

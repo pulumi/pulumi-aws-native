@@ -31,7 +31,7 @@ type LookupRestoreTestingSelectionResult struct {
 	IamRoleArn                  *string                                             `pulumi:"iamRoleArn"`
 	ProtectedResourceArns       []string                                            `pulumi:"protectedResourceArns"`
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
-	RestoreMetadataOverrides    *RestoreTestingSelectionSensitiveStringMap          `pulumi:"restoreMetadataOverrides"`
+	RestoreMetadataOverrides    map[string]string                                   `pulumi:"restoreMetadataOverrides"`
 	ValidationWindowHours       *int                                                `pulumi:"validationWindowHours"`
 }
 
@@ -85,10 +85,8 @@ func (o LookupRestoreTestingSelectionResultOutput) ProtectedResourceConditions()
 	}).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
 }
 
-func (o LookupRestoreTestingSelectionResultOutput) RestoreMetadataOverrides() RestoreTestingSelectionSensitiveStringMapPtrOutput {
-	return o.ApplyT(func(v LookupRestoreTestingSelectionResult) *RestoreTestingSelectionSensitiveStringMap {
-		return v.RestoreMetadataOverrides
-	}).(RestoreTestingSelectionSensitiveStringMapPtrOutput)
+func (o LookupRestoreTestingSelectionResultOutput) RestoreMetadataOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRestoreTestingSelectionResult) map[string]string { return v.RestoreMetadataOverrides }).(pulumi.StringMapOutput)
 }
 
 func (o LookupRestoreTestingSelectionResultOutput) ValidationWindowHours() pulumi.IntPtrOutput {

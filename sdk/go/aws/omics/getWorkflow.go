@@ -27,14 +27,14 @@ type LookupWorkflowArgs struct {
 }
 
 type LookupWorkflowResult struct {
-	Arn          *string         `pulumi:"arn"`
-	CreationTime *string         `pulumi:"creationTime"`
-	Description  *string         `pulumi:"description"`
-	Id           *string         `pulumi:"id"`
-	Name         *string         `pulumi:"name"`
-	Status       *WorkflowStatus `pulumi:"status"`
-	Tags         *WorkflowTagMap `pulumi:"tags"`
-	Type         *WorkflowType   `pulumi:"type"`
+	Arn          *string           `pulumi:"arn"`
+	CreationTime *string           `pulumi:"creationTime"`
+	Description  *string           `pulumi:"description"`
+	Id           *string           `pulumi:"id"`
+	Name         *string           `pulumi:"name"`
+	Status       *WorkflowStatus   `pulumi:"status"`
+	Tags         map[string]string `pulumi:"tags"`
+	Type         *WorkflowType     `pulumi:"type"`
 }
 
 func LookupWorkflowOutput(ctx *pulumi.Context, args LookupWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowResultOutput {
@@ -96,8 +96,8 @@ func (o LookupWorkflowResultOutput) Status() WorkflowStatusPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowStatus { return v.Status }).(WorkflowStatusPtrOutput)
 }
 
-func (o LookupWorkflowResultOutput) Tags() WorkflowTagMapPtrOutput {
-	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowTagMap { return v.Tags }).(WorkflowTagMapPtrOutput)
+func (o LookupWorkflowResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupWorkflowResultOutput) Type() WorkflowTypePtrOutput {

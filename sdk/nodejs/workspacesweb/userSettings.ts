@@ -37,7 +37,7 @@ export class UserSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserSettings.__pulumiType;
     }
 
-    public readonly additionalEncryptionContext!: pulumi.Output<outputs.workspacesweb.UserSettingsEncryptionContextMap | undefined>;
+    public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
     public readonly cookieSynchronizationConfiguration!: pulumi.Output<outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration | undefined>;
     public readonly copyAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
@@ -106,7 +106,7 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext", "customerManagedKey"] };
+        const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext.*", "customerManagedKey"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserSettings.__pulumiType, name, resourceInputs, opts);
     }
@@ -116,7 +116,7 @@ export class UserSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a UserSettings resource.
  */
 export interface UserSettingsArgs {
-    additionalEncryptionContext?: pulumi.Input<inputs.workspacesweb.UserSettingsEncryptionContextMapArgs>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfigurationArgs>;
     copyAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
     customerManagedKey?: pulumi.Input<string>;

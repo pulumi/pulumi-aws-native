@@ -22,7 +22,7 @@ class StudioArgs:
                  user_role_arn: pulumi.Input[str],
                  studio_encryption_configuration: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']] = None,
                  studio_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['StudioTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Studio resource.
         :param pulumi.Input[str] admin_role_arn: <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
@@ -99,11 +99,11 @@ class StudioArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['StudioTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['StudioTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -116,7 +116,7 @@ class Studio(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioEncryptionConfigurationArgs']]] = None,
                  studio_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['StudioTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -157,7 +157,7 @@ class Studio(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioEncryptionConfigurationArgs']]] = None,
                  studio_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['StudioTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -184,7 +184,7 @@ class Studio(pulumi.CustomResource):
             __props__.__dict__["sso_client_id"] = None
             __props__.__dict__["studio_id"] = None
             __props__.__dict__["studio_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["studio_name", "tags"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["studio_name", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Studio, __self__).__init__(
             'aws-native:nimblestudio:Studio',
@@ -280,7 +280,7 @@ class Studio(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.StudioTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

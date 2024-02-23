@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.Macie.Inputs
     public sealed class FindingsFilterFindingCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("criterion")]
-        public Input<Inputs.FindingsFilterCriterionArgs>? Criterion { get; set; }
+        private InputMap<Inputs.FindingsFilterCriterionAdditionalPropertiesArgs>? _criterion;
+        public InputMap<Inputs.FindingsFilterCriterionAdditionalPropertiesArgs> Criterion
+        {
+            get => _criterion ?? (_criterion = new InputMap<Inputs.FindingsFilterCriterionAdditionalPropertiesArgs>());
+            set => _criterion = value;
+        }
 
         public FindingsFilterFindingCriteriaArgs()
         {

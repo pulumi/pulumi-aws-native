@@ -25,7 +25,7 @@ type Robot struct {
 	GreengrassGroupId pulumi.StringOutput `pulumi:"greengrassGroupId"`
 	// The name for the robot.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	Tags RobotTagsPtrOutput     `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewRobot registers a new resource with the given unique name, arguments, and options.
@@ -88,8 +88,8 @@ type robotArgs struct {
 	// The Greengrass group id.
 	GreengrassGroupId string `pulumi:"greengrassGroupId"`
 	// The name for the robot.
-	Name *string    `pulumi:"name"`
-	Tags *RobotTags `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Robot resource.
@@ -102,7 +102,7 @@ type RobotArgs struct {
 	GreengrassGroupId pulumi.StringInput
 	// The name for the robot.
 	Name pulumi.StringPtrInput
-	Tags RobotTagsPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (RobotArgs) ElementType() reflect.Type {
@@ -166,8 +166,8 @@ func (o RobotOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Robot) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o RobotOutput) Tags() RobotTagsPtrOutput {
-	return o.ApplyT(func(v *Robot) RobotTagsPtrOutput { return v.Tags }).(RobotTagsPtrOutput)
+func (o RobotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Robot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

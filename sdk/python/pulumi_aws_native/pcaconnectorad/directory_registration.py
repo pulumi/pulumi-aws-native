@@ -8,8 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['DirectoryRegistrationArgs', 'DirectoryRegistration']
 
@@ -17,7 +15,7 @@ __all__ = ['DirectoryRegistrationArgs', 'DirectoryRegistration']
 class DirectoryRegistrationArgs:
     def __init__(__self__, *,
                  directory_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input['DirectoryRegistrationTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DirectoryRegistration resource.
         """
@@ -36,11 +34,11 @@ class DirectoryRegistrationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['DirectoryRegistrationTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['DirectoryRegistrationTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -50,7 +48,7 @@ class DirectoryRegistration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['DirectoryRegistrationTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
@@ -83,7 +81,7 @@ class DirectoryRegistration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['DirectoryRegistrationTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -139,6 +137,6 @@ class DirectoryRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.DirectoryRegistrationTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 

@@ -32,7 +32,7 @@ export interface GetWebAclResult {
     readonly capacity?: number;
     readonly captchaConfig?: outputs.wafv2.WebAclCaptchaConfig;
     readonly challengeConfig?: outputs.wafv2.WebAclChallengeConfig;
-    readonly customResponseBodies?: outputs.wafv2.WebAclCustomResponseBodies;
+    readonly customResponseBodies?: {[key: string]: outputs.wafv2.WebAclCustomResponseBody};
     readonly defaultAction?: outputs.wafv2.WebAclDefaultAction;
     readonly description?: string;
     readonly id?: string;

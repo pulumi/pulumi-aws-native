@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         public Output<bool?> ReenrollAllCertificateHolders { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.TemplateTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("templateArn")]
         public Output<string> TemplateArn { get; private set; } = null!;
@@ -96,7 +96,12 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         public Input<bool>? ReenrollAllCertificateHolders { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.TemplateTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public TemplateArgs()
         {

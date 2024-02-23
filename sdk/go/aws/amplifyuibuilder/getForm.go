@@ -29,17 +29,17 @@ type LookupFormArgs struct {
 }
 
 type LookupFormResult struct {
-	Cta               *FormCta                 `pulumi:"cta"`
-	DataType          *FormDataTypeConfig      `pulumi:"dataType"`
-	Fields            *FormFieldsMap           `pulumi:"fields"`
-	FormActionType    *FormActionType          `pulumi:"formActionType"`
-	Id                *string                  `pulumi:"id"`
-	LabelDecorator    *FormLabelDecorator      `pulumi:"labelDecorator"`
-	Name              *string                  `pulumi:"name"`
-	SchemaVersion     *string                  `pulumi:"schemaVersion"`
-	SectionalElements *FormSectionalElementMap `pulumi:"sectionalElements"`
-	Style             *FormStyle               `pulumi:"style"`
-	Tags              *FormTags                `pulumi:"tags"`
+	Cta               *FormCta                        `pulumi:"cta"`
+	DataType          *FormDataTypeConfig             `pulumi:"dataType"`
+	Fields            map[string]FormFieldConfig      `pulumi:"fields"`
+	FormActionType    *FormActionType                 `pulumi:"formActionType"`
+	Id                *string                         `pulumi:"id"`
+	LabelDecorator    *FormLabelDecorator             `pulumi:"labelDecorator"`
+	Name              *string                         `pulumi:"name"`
+	SchemaVersion     *string                         `pulumi:"schemaVersion"`
+	SectionalElements map[string]FormSectionalElement `pulumi:"sectionalElements"`
+	Style             *FormStyle                      `pulumi:"style"`
+	Tags              map[string]string               `pulumi:"tags"`
 }
 
 func LookupFormOutput(ctx *pulumi.Context, args LookupFormOutputArgs, opts ...pulumi.InvokeOption) LookupFormResultOutput {
@@ -87,8 +87,8 @@ func (o LookupFormResultOutput) DataType() FormDataTypeConfigPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormDataTypeConfig { return v.DataType }).(FormDataTypeConfigPtrOutput)
 }
 
-func (o LookupFormResultOutput) Fields() FormFieldsMapPtrOutput {
-	return o.ApplyT(func(v LookupFormResult) *FormFieldsMap { return v.Fields }).(FormFieldsMapPtrOutput)
+func (o LookupFormResultOutput) Fields() FormFieldConfigMapOutput {
+	return o.ApplyT(func(v LookupFormResult) map[string]FormFieldConfig { return v.Fields }).(FormFieldConfigMapOutput)
 }
 
 func (o LookupFormResultOutput) FormActionType() FormActionTypePtrOutput {
@@ -111,16 +111,16 @@ func (o LookupFormResultOutput) SchemaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *string { return v.SchemaVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupFormResultOutput) SectionalElements() FormSectionalElementMapPtrOutput {
-	return o.ApplyT(func(v LookupFormResult) *FormSectionalElementMap { return v.SectionalElements }).(FormSectionalElementMapPtrOutput)
+func (o LookupFormResultOutput) SectionalElements() FormSectionalElementMapOutput {
+	return o.ApplyT(func(v LookupFormResult) map[string]FormSectionalElement { return v.SectionalElements }).(FormSectionalElementMapOutput)
 }
 
 func (o LookupFormResultOutput) Style() FormStylePtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormStyle { return v.Style }).(FormStylePtrOutput)
 }
 
-func (o LookupFormResultOutput) Tags() FormTagsPtrOutput {
-	return o.ApplyT(func(v LookupFormResult) *FormTags { return v.Tags }).(FormTagsPtrOutput)
+func (o LookupFormResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupFormResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

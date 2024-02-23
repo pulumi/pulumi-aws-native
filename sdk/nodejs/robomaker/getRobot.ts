@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -24,7 +21,7 @@ export interface GetRobotArgs {
 
 export interface GetRobotResult {
     readonly arn?: string;
-    readonly tags?: outputs.robomaker.RobotTags;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.

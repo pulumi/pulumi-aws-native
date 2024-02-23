@@ -2148,127 +2148,9 @@ type DomainTag struct {
 	Value string `pulumi:"value"`
 }
 
-type EnvironmentBlueprintConfigurationParameter struct {
-}
-
-// EnvironmentBlueprintConfigurationParameterInput is an input type that accepts EnvironmentBlueprintConfigurationParameterArgs and EnvironmentBlueprintConfigurationParameterOutput values.
-// You can construct a concrete instance of `EnvironmentBlueprintConfigurationParameterInput` via:
-//
-//	EnvironmentBlueprintConfigurationParameterArgs{...}
-type EnvironmentBlueprintConfigurationParameterInput interface {
-	pulumi.Input
-
-	ToEnvironmentBlueprintConfigurationParameterOutput() EnvironmentBlueprintConfigurationParameterOutput
-	ToEnvironmentBlueprintConfigurationParameterOutputWithContext(context.Context) EnvironmentBlueprintConfigurationParameterOutput
-}
-
-type EnvironmentBlueprintConfigurationParameterArgs struct {
-}
-
-func (EnvironmentBlueprintConfigurationParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentBlueprintConfigurationParameter)(nil)).Elem()
-}
-
-func (i EnvironmentBlueprintConfigurationParameterArgs) ToEnvironmentBlueprintConfigurationParameterOutput() EnvironmentBlueprintConfigurationParameterOutput {
-	return i.ToEnvironmentBlueprintConfigurationParameterOutputWithContext(context.Background())
-}
-
-func (i EnvironmentBlueprintConfigurationParameterArgs) ToEnvironmentBlueprintConfigurationParameterOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationParameterOutput)
-}
-
-func (i EnvironmentBlueprintConfigurationParameterArgs) ToEnvironmentBlueprintConfigurationParameterPtrOutput() EnvironmentBlueprintConfigurationParameterPtrOutput {
-	return i.ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentBlueprintConfigurationParameterArgs) ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationParameterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationParameterOutput).ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(ctx)
-}
-
-// EnvironmentBlueprintConfigurationParameterPtrInput is an input type that accepts EnvironmentBlueprintConfigurationParameterArgs, EnvironmentBlueprintConfigurationParameterPtr and EnvironmentBlueprintConfigurationParameterPtrOutput values.
-// You can construct a concrete instance of `EnvironmentBlueprintConfigurationParameterPtrInput` via:
-//
-//	        EnvironmentBlueprintConfigurationParameterArgs{...}
-//
-//	or:
-//
-//	        nil
-type EnvironmentBlueprintConfigurationParameterPtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentBlueprintConfigurationParameterPtrOutput() EnvironmentBlueprintConfigurationParameterPtrOutput
-	ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(context.Context) EnvironmentBlueprintConfigurationParameterPtrOutput
-}
-
-type environmentBlueprintConfigurationParameterPtrType EnvironmentBlueprintConfigurationParameterArgs
-
-func EnvironmentBlueprintConfigurationParameterPtr(v *EnvironmentBlueprintConfigurationParameterArgs) EnvironmentBlueprintConfigurationParameterPtrInput {
-	return (*environmentBlueprintConfigurationParameterPtrType)(v)
-}
-
-func (*environmentBlueprintConfigurationParameterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentBlueprintConfigurationParameter)(nil)).Elem()
-}
-
-func (i *environmentBlueprintConfigurationParameterPtrType) ToEnvironmentBlueprintConfigurationParameterPtrOutput() EnvironmentBlueprintConfigurationParameterPtrOutput {
-	return i.ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(context.Background())
-}
-
-func (i *environmentBlueprintConfigurationParameterPtrType) ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationParameterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentBlueprintConfigurationParameterPtrOutput)
-}
-
-type EnvironmentBlueprintConfigurationParameterOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentBlueprintConfigurationParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentBlueprintConfigurationParameter)(nil)).Elem()
-}
-
-func (o EnvironmentBlueprintConfigurationParameterOutput) ToEnvironmentBlueprintConfigurationParameterOutput() EnvironmentBlueprintConfigurationParameterOutput {
-	return o
-}
-
-func (o EnvironmentBlueprintConfigurationParameterOutput) ToEnvironmentBlueprintConfigurationParameterOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationParameterOutput {
-	return o
-}
-
-func (o EnvironmentBlueprintConfigurationParameterOutput) ToEnvironmentBlueprintConfigurationParameterPtrOutput() EnvironmentBlueprintConfigurationParameterPtrOutput {
-	return o.ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentBlueprintConfigurationParameterOutput) ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationParameterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentBlueprintConfigurationParameter) *EnvironmentBlueprintConfigurationParameter {
-		return &v
-	}).(EnvironmentBlueprintConfigurationParameterPtrOutput)
-}
-
-type EnvironmentBlueprintConfigurationParameterPtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentBlueprintConfigurationParameterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentBlueprintConfigurationParameter)(nil)).Elem()
-}
-
-func (o EnvironmentBlueprintConfigurationParameterPtrOutput) ToEnvironmentBlueprintConfigurationParameterPtrOutput() EnvironmentBlueprintConfigurationParameterPtrOutput {
-	return o
-}
-
-func (o EnvironmentBlueprintConfigurationParameterPtrOutput) ToEnvironmentBlueprintConfigurationParameterPtrOutputWithContext(ctx context.Context) EnvironmentBlueprintConfigurationParameterPtrOutput {
-	return o
-}
-
-func (o EnvironmentBlueprintConfigurationParameterPtrOutput) Elem() EnvironmentBlueprintConfigurationParameterOutput {
-	return o.ApplyT(func(v *EnvironmentBlueprintConfigurationParameter) EnvironmentBlueprintConfigurationParameter {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentBlueprintConfigurationParameter
-		return ret
-	}).(EnvironmentBlueprintConfigurationParameterOutput)
-}
-
 type EnvironmentBlueprintConfigurationRegionalParameter struct {
-	Parameters *EnvironmentBlueprintConfigurationParameter `pulumi:"parameters"`
-	Region     *string                                     `pulumi:"region"`
+	Parameters map[string]string `pulumi:"parameters"`
+	Region     *string           `pulumi:"region"`
 }
 
 // EnvironmentBlueprintConfigurationRegionalParameterInput is an input type that accepts EnvironmentBlueprintConfigurationRegionalParameterArgs and EnvironmentBlueprintConfigurationRegionalParameterOutput values.
@@ -2283,8 +2165,8 @@ type EnvironmentBlueprintConfigurationRegionalParameterInput interface {
 }
 
 type EnvironmentBlueprintConfigurationRegionalParameterArgs struct {
-	Parameters EnvironmentBlueprintConfigurationParameterPtrInput `pulumi:"parameters"`
-	Region     pulumi.StringPtrInput                              `pulumi:"region"`
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (EnvironmentBlueprintConfigurationRegionalParameterArgs) ElementType() reflect.Type {
@@ -2338,10 +2220,8 @@ func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) ToEnvironmentB
 	return o
 }
 
-func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) Parameters() EnvironmentBlueprintConfigurationParameterPtrOutput {
-	return o.ApplyT(func(v EnvironmentBlueprintConfigurationRegionalParameter) *EnvironmentBlueprintConfigurationParameter {
-		return v.Parameters
-	}).(EnvironmentBlueprintConfigurationParameterPtrOutput)
+func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EnvironmentBlueprintConfigurationRegionalParameter) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 func (o EnvironmentBlueprintConfigurationRegionalParameterOutput) Region() pulumi.StringPtrOutput {
@@ -2726,8 +2606,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceScheduleConfigurationPtrInput)(nil)).Elem(), DataSourceScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnPtrInput)(nil)).Elem(), DomainSingleSignOnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationParameterInput)(nil)).Elem(), EnvironmentBlueprintConfigurationParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationParameterPtrInput)(nil)).Elem(), EnvironmentBlueprintConfigurationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationRegionalParameterInput)(nil)).Elem(), EnvironmentBlueprintConfigurationRegionalParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentBlueprintConfigurationRegionalParameterArrayInput)(nil)).Elem(), EnvironmentBlueprintConfigurationRegionalParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentParameterInput)(nil)).Elem(), EnvironmentParameterArgs{})
@@ -2766,8 +2644,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceScheduleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnPtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationParameterOutput{})
-	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationParameterPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationRegionalParameterOutput{})
 	pulumi.RegisterOutputType(EnvironmentBlueprintConfigurationRegionalParameterArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentParameterOutput{})

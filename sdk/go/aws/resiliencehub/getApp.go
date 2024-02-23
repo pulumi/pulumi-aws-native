@@ -45,7 +45,7 @@ type LookupAppResult struct {
 	ResiliencyPolicyArn *string `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
 	ResourceMappings []AppResourceMapping `pulumi:"resourceMappings"`
-	Tags             *AppTagMap           `pulumi:"tags"`
+	Tags             map[string]string    `pulumi:"tags"`
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
@@ -128,8 +128,8 @@ func (o LookupAppResultOutput) ResourceMappings() AppResourceMappingArrayOutput 
 	return o.ApplyT(func(v LookupAppResult) []AppResourceMapping { return v.ResourceMappings }).(AppResourceMappingArrayOutput)
 }
 
-func (o LookupAppResultOutput) Tags() AppTagMapPtrOutput {
-	return o.ApplyT(func(v LookupAppResult) *AppTagMap { return v.Tags }).(AppTagMapPtrOutput)
+func (o LookupAppResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

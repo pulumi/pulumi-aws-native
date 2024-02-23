@@ -54,7 +54,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         }
 
         [Input("userDefinedFields")]
-        public Input<Inputs.AutomationRulemapArgs>? UserDefinedFields { get; set; }
+        private InputMap<string>? _userDefinedFields;
+        public InputMap<string> UserDefinedFields
+        {
+            get => _userDefinedFields ?? (_userDefinedFields = new InputMap<string>());
+            set => _userDefinedFields = value;
+        }
 
         [Input("verificationState")]
         public Input<Pulumi.AwsNative.SecurityHub.AutomationRulesFindingFieldsUpdateVerificationState>? VerificationState { get; set; }

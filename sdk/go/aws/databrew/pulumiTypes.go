@@ -3822,49 +3822,6 @@ func (o JobOutputLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type JobParameterMap struct {
-}
-
-// JobParameterMapInput is an input type that accepts JobParameterMap and JobParameterMapOutput values.
-// You can construct a concrete instance of `JobParameterMapInput` via:
-//
-//	JobParameterMap{ "key": JobParameterArgs{...} }
-type JobParameterMapInput interface {
-	pulumi.Input
-
-	ToJobParameterMapOutput() JobParameterMapOutput
-	ToJobParameterMapOutputWithContext(context.Context) JobParameterMapOutput
-}
-
-type JobParameterMapArgs struct {
-}
-
-func (JobParameterMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobParameterMap)(nil)).Elem()
-}
-
-func (i JobParameterMapArgs) ToJobParameterMapOutput() JobParameterMapOutput {
-	return i.ToJobParameterMapOutputWithContext(context.Background())
-}
-
-func (i JobParameterMapArgs) ToJobParameterMapOutputWithContext(ctx context.Context) JobParameterMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobParameterMapOutput)
-}
-
-type JobParameterMapOutput struct{ *pulumi.OutputState }
-
-func (JobParameterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobParameterMap)(nil)).Elem()
-}
-
-func (o JobParameterMapOutput) ToJobParameterMapOutput() JobParameterMapOutput {
-	return o
-}
-
-func (o JobParameterMapOutput) ToJobParameterMapOutputWithContext(ctx context.Context) JobParameterMapOutput {
-	return o
-}
-
 type JobProfileConfiguration struct {
 	ColumnStatisticsConfigurations []JobColumnStatisticsConfiguration `pulumi:"columnStatisticsConfigurations"`
 	DatasetStatisticsConfiguration *JobStatisticsConfiguration        `pulumi:"datasetStatisticsConfiguration"`
@@ -4652,8 +4609,8 @@ func (o JobSamplePtrOutput) Size() pulumi.IntPtrOutput {
 }
 
 type JobStatisticOverride struct {
-	Parameters JobParameterMap `pulumi:"parameters"`
-	Statistic  string          `pulumi:"statistic"`
+	Parameters map[string]string `pulumi:"parameters"`
+	Statistic  string            `pulumi:"statistic"`
 }
 
 // JobStatisticOverrideInput is an input type that accepts JobStatisticOverrideArgs and JobStatisticOverrideOutput values.
@@ -4668,8 +4625,8 @@ type JobStatisticOverrideInput interface {
 }
 
 type JobStatisticOverrideArgs struct {
-	Parameters JobParameterMapInput `pulumi:"parameters"`
-	Statistic  pulumi.StringInput   `pulumi:"statistic"`
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Statistic  pulumi.StringInput    `pulumi:"statistic"`
 }
 
 func (JobStatisticOverrideArgs) ElementType() reflect.Type {
@@ -4723,8 +4680,8 @@ func (o JobStatisticOverrideOutput) ToJobStatisticOverrideOutputWithContext(ctx 
 	return o
 }
 
-func (o JobStatisticOverrideOutput) Parameters() JobParameterMapOutput {
-	return o.ApplyT(func(v JobStatisticOverride) JobParameterMap { return v.Parameters }).(JobParameterMapOutput)
+func (o JobStatisticOverrideOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobStatisticOverride) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 func (o JobStatisticOverrideOutput) Statistic() pulumi.StringOutput {
@@ -5537,124 +5494,6 @@ func (o RecipeDataCatalogInputDefinitionPtrOutput) TempDirectory() RecipeS3Locat
 		}
 		return v.TempDirectory
 	}).(RecipeS3LocationPtrOutput)
-}
-
-type RecipeParameterMap struct {
-}
-
-// RecipeParameterMapInput is an input type that accepts RecipeParameterMap and RecipeParameterMapOutput values.
-// You can construct a concrete instance of `RecipeParameterMapInput` via:
-//
-//	RecipeParameterMap{ "key": RecipeParameterArgs{...} }
-type RecipeParameterMapInput interface {
-	pulumi.Input
-
-	ToRecipeParameterMapOutput() RecipeParameterMapOutput
-	ToRecipeParameterMapOutputWithContext(context.Context) RecipeParameterMapOutput
-}
-
-type RecipeParameterMapArgs struct {
-}
-
-func (RecipeParameterMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecipeParameterMap)(nil)).Elem()
-}
-
-func (i RecipeParameterMapArgs) ToRecipeParameterMapOutput() RecipeParameterMapOutput {
-	return i.ToRecipeParameterMapOutputWithContext(context.Background())
-}
-
-func (i RecipeParameterMapArgs) ToRecipeParameterMapOutputWithContext(ctx context.Context) RecipeParameterMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeParameterMapOutput)
-}
-
-func (i RecipeParameterMapArgs) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
-	return i.ToRecipeParameterMapPtrOutputWithContext(context.Background())
-}
-
-func (i RecipeParameterMapArgs) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeParameterMapOutput).ToRecipeParameterMapPtrOutputWithContext(ctx)
-}
-
-// RecipeParameterMapPtrInput is an input type that accepts RecipeParameterMapArgs, RecipeParameterMapPtr and RecipeParameterMapPtrOutput values.
-// You can construct a concrete instance of `RecipeParameterMapPtrInput` via:
-//
-//	        RecipeParameterMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type RecipeParameterMapPtrInput interface {
-	pulumi.Input
-
-	ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput
-	ToRecipeParameterMapPtrOutputWithContext(context.Context) RecipeParameterMapPtrOutput
-}
-
-type recipeParameterMapPtrType RecipeParameterMapArgs
-
-func RecipeParameterMapPtr(v *RecipeParameterMapArgs) RecipeParameterMapPtrInput {
-	return (*recipeParameterMapPtrType)(v)
-}
-
-func (*recipeParameterMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecipeParameterMap)(nil)).Elem()
-}
-
-func (i *recipeParameterMapPtrType) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
-	return i.ToRecipeParameterMapPtrOutputWithContext(context.Background())
-}
-
-func (i *recipeParameterMapPtrType) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeParameterMapPtrOutput)
-}
-
-type RecipeParameterMapOutput struct{ *pulumi.OutputState }
-
-func (RecipeParameterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecipeParameterMap)(nil)).Elem()
-}
-
-func (o RecipeParameterMapOutput) ToRecipeParameterMapOutput() RecipeParameterMapOutput {
-	return o
-}
-
-func (o RecipeParameterMapOutput) ToRecipeParameterMapOutputWithContext(ctx context.Context) RecipeParameterMapOutput {
-	return o
-}
-
-func (o RecipeParameterMapOutput) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
-	return o.ToRecipeParameterMapPtrOutputWithContext(context.Background())
-}
-
-func (o RecipeParameterMapOutput) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecipeParameterMap) *RecipeParameterMap {
-		return &v
-	}).(RecipeParameterMapPtrOutput)
-}
-
-type RecipeParameterMapPtrOutput struct{ *pulumi.OutputState }
-
-func (RecipeParameterMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecipeParameterMap)(nil)).Elem()
-}
-
-func (o RecipeParameterMapPtrOutput) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
-	return o
-}
-
-func (o RecipeParameterMapPtrOutput) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
-	return o
-}
-
-func (o RecipeParameterMapPtrOutput) Elem() RecipeParameterMapOutput {
-	return o.ApplyT(func(v *RecipeParameterMap) RecipeParameterMap {
-		if v != nil {
-			return *v
-		}
-		var ret RecipeParameterMap
-		return ret
-	}).(RecipeParameterMapOutput)
 }
 
 type RecipeParameters struct {
@@ -8386,7 +8225,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobOutputFormatOptionsPtrInput)(nil)).Elem(), JobOutputFormatOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobOutputLocationInput)(nil)).Elem(), JobOutputLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobOutputLocationPtrInput)(nil)).Elem(), JobOutputLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobParameterMapInput)(nil)).Elem(), JobParameterMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobProfileConfigurationInput)(nil)).Elem(), JobProfileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobProfileConfigurationPtrInput)(nil)).Elem(), JobProfileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobRecipeInput)(nil)).Elem(), JobRecipeArgs{})
@@ -8410,8 +8248,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeConditionExpressionArrayInput)(nil)).Elem(), RecipeConditionExpressionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeDataCatalogInputDefinitionInput)(nil)).Elem(), RecipeDataCatalogInputDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeDataCatalogInputDefinitionPtrInput)(nil)).Elem(), RecipeDataCatalogInputDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecipeParameterMapInput)(nil)).Elem(), RecipeParameterMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecipeParameterMapPtrInput)(nil)).Elem(), RecipeParameterMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeParametersInput)(nil)).Elem(), RecipeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeParametersPtrInput)(nil)).Elem(), RecipeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecipeParametersInputPropertiesInput)(nil)).Elem(), RecipeParametersInputPropertiesArgs{})
@@ -8483,7 +8319,6 @@ func init() {
 	pulumi.RegisterOutputType(JobOutputFormatOptionsPtrOutput{})
 	pulumi.RegisterOutputType(JobOutputLocationOutput{})
 	pulumi.RegisterOutputType(JobOutputLocationPtrOutput{})
-	pulumi.RegisterOutputType(JobParameterMapOutput{})
 	pulumi.RegisterOutputType(JobProfileConfigurationOutput{})
 	pulumi.RegisterOutputType(JobProfileConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobRecipeOutput{})
@@ -8507,8 +8342,6 @@ func init() {
 	pulumi.RegisterOutputType(RecipeConditionExpressionArrayOutput{})
 	pulumi.RegisterOutputType(RecipeDataCatalogInputDefinitionOutput{})
 	pulumi.RegisterOutputType(RecipeDataCatalogInputDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(RecipeParameterMapOutput{})
-	pulumi.RegisterOutputType(RecipeParameterMapPtrOutput{})
 	pulumi.RegisterOutputType(RecipeParametersOutput{})
 	pulumi.RegisterOutputType(RecipeParametersPtrOutput{})
 	pulumi.RegisterOutputType(RecipeParametersInputPropertiesOutput{})

@@ -11,33 +11,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'BrowserSettingsEncryptionContextMapArgs',
-    'IdentityProviderDetailsArgs',
-    'IpAccessSettingsEncryptionContextMapArgs',
     'IpAccessSettingsIpRuleArgs',
-    'PortalEncryptionContextMapArgs',
     'UserSettingsCookieSpecificationArgs',
     'UserSettingsCookieSynchronizationConfigurationArgs',
-    'UserSettingsEncryptionContextMapArgs',
 ]
-
-@pulumi.input_type
-class BrowserSettingsEncryptionContextMapArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
-class IdentityProviderDetailsArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
-class IpAccessSettingsEncryptionContextMapArgs:
-    def __init__(__self__):
-        pass
-
 
 @pulumi.input_type
 class IpAccessSettingsIpRuleArgs:
@@ -71,12 +48,6 @@ class IpAccessSettingsIpRuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-
-@pulumi.input_type
-class PortalEncryptionContextMapArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -145,11 +116,5 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
     @blocklist.setter
     def blocklist(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]]):
         pulumi.set(self, "blocklist", value)
-
-
-@pulumi.input_type
-class UserSettingsEncryptionContextMapArgs:
-    def __init__(__self__):
-        pass
 
 

@@ -38,8 +38,8 @@ type LookupApplicationResult struct {
 	Description *string `pulumi:"description"`
 	Id          *string `pulumi:"id"`
 	// The name of the application.
-	Name *string          `pulumi:"name"`
-	Tags *ApplicationTags `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -110,8 +110,8 @@ func (o LookupApplicationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupApplicationResultOutput) Tags() ApplicationTagsPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *ApplicationTags { return v.Tags }).(ApplicationTagsPtrOutput)
+func (o LookupApplicationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

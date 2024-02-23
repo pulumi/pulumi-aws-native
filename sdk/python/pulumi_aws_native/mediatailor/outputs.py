@@ -23,7 +23,6 @@ __all__ = [
     'PlaybackConfigurationAvailSuppression',
     'PlaybackConfigurationBumper',
     'PlaybackConfigurationCdnConfiguration',
-    'PlaybackConfigurationConfigurationAliases',
     'PlaybackConfigurationDashConfiguration',
     'PlaybackConfigurationHlsConfiguration',
     'PlaybackConfigurationLivePreRollConfiguration',
@@ -598,18 +597,6 @@ class PlaybackConfigurationCdnConfiguration(dict):
         A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
         """
         return pulumi.get(self, "content_segment_url_prefix")
-
-
-@pulumi.output_type
-class PlaybackConfigurationConfigurationAliases(dict):
-    """
-    The predefined aliases for dynamic variables.
-    """
-    def __init__(__self__):
-        """
-        The predefined aliases for dynamic variables.
-        """
-        pass
 
 
 @pulumi.output_type

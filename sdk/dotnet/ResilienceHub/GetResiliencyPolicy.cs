@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// Data Location Constraint of the Policy.
         /// </summary>
         public readonly Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint? DataLocationConstraint;
-        public readonly Outputs.ResiliencyPolicyPolicyMap? Policy;
+        public readonly ImmutableDictionary<string, Outputs.ResiliencyPolicyFailurePolicy>? Policy;
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// Name of Resiliency Policy.
         /// </summary>
         public readonly string? PolicyName;
-        public readonly Outputs.ResiliencyPolicyTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Resiliency Policy Tier.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         private GetResiliencyPolicyResult(
             Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint? dataLocationConstraint,
 
-            Outputs.ResiliencyPolicyPolicyMap? policy,
+            ImmutableDictionary<string, Outputs.ResiliencyPolicyFailurePolicy>? policy,
 
             string? policyArn,
 
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.ResilienceHub
 
             string? policyName,
 
-            Outputs.ResiliencyPolicyTagMap? tags,
+            ImmutableDictionary<string, string>? tags,
 
             Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyTier? tier)
         {

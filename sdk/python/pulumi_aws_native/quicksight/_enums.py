@@ -240,12 +240,17 @@ __all__ = [
     'DataSetColumnDataType',
     'DataSetColumnSubDataType',
     'DataSetDatasetParameterValueType',
+    'DataSetFileFormat',
     'DataSetGeoSpatialCountryCode',
+    'DataSetGeoSpatialDataRole',
     'DataSetImportMode',
+    'DataSetInputColumnDataType',
+    'DataSetJoinType',
     'DataSetRowLevelPermissionFormatVersion',
     'DataSetRowLevelPermissionPolicy',
     'DataSetSizeUnit',
     'DataSetStatus',
+    'DataSetTextQualifier',
     'DataSetTimeGranularity',
     'DataSourceErrorInfoType',
     'DataSourceResourceStatus',
@@ -1854,13 +1859,50 @@ class DataSetDatasetParameterValueType(str, Enum):
     SINGLE_VALUED = "SINGLE_VALUED"
 
 
+class DataSetFileFormat(str, Enum):
+    CSV = "CSV"
+    TSV = "TSV"
+    CLF = "CLF"
+    ELF = "ELF"
+    XLSX = "XLSX"
+    JSON = "JSON"
+
+
 class DataSetGeoSpatialCountryCode(str, Enum):
     US = "US"
+
+
+class DataSetGeoSpatialDataRole(str, Enum):
+    COUNTRY = "COUNTRY"
+    STATE = "STATE"
+    COUNTY = "COUNTY"
+    CITY = "CITY"
+    POSTCODE = "POSTCODE"
+    LONGITUDE = "LONGITUDE"
+    LATITUDE = "LATITUDE"
+    POLITICAL1 = "POLITICAL1"
 
 
 class DataSetImportMode(str, Enum):
     SPICE = "SPICE"
     DIRECT_QUERY = "DIRECT_QUERY"
+
+
+class DataSetInputColumnDataType(str, Enum):
+    STRING = "STRING"
+    INTEGER = "INTEGER"
+    DECIMAL = "DECIMAL"
+    DATETIME = "DATETIME"
+    BIT = "BIT"
+    BOOLEAN = "BOOLEAN"
+    JSON = "JSON"
+
+
+class DataSetJoinType(str, Enum):
+    INNER = "INNER"
+    OUTER = "OUTER"
+    LEFT = "LEFT"
+    RIGHT = "RIGHT"
 
 
 class DataSetRowLevelPermissionFormatVersion(str, Enum):
@@ -1882,6 +1924,11 @@ class DataSetSizeUnit(str, Enum):
 class DataSetStatus(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class DataSetTextQualifier(str, Enum):
+    DOUBLE_QUOTE = "DOUBLE_QUOTE"
+    SINGLE_QUOTE = "SINGLE_QUOTE"
 
 
 class DataSetTimeGranularity(str, Enum):

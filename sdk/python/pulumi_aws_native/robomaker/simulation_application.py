@@ -24,7 +24,7 @@ class SimulationApplicationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  rendering_engine: Optional[pulumi.Input['SimulationApplicationRenderingEngineArgs']] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]] = None,
-                 tags: Optional[pulumi.Input['SimulationApplicationTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SimulationApplication resource.
         :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs'] robot_software_suite: The robot software suite used by the simulation application.
@@ -136,11 +136,11 @@ class SimulationApplicationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['SimulationApplicationTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['SimulationApplicationTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -156,7 +156,7 @@ class SimulationApplication(pulumi.CustomResource):
                  robot_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']]] = None,
                  simulation_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         This schema is for testing purpose only.
@@ -202,7 +202,7 @@ class SimulationApplication(pulumi.CustomResource):
                  robot_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']]] = None,
                  simulation_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,6 +323,6 @@ class SimulationApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.SimulationApplicationTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 

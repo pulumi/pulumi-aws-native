@@ -48,7 +48,7 @@ export class AnnotationStore extends pulumi.CustomResource {
     public readonly storeFormat!: pulumi.Output<enums.omics.AnnotationStoreStoreFormat>;
     public readonly storeOptions!: pulumi.Output<outputs.omics.AnnotationStoreStoreOptionsProperties | undefined>;
     public /*out*/ readonly storeSizeBytes!: pulumi.Output<number>;
-    public readonly tags!: pulumi.Output<outputs.omics.AnnotationStoreTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -94,7 +94,7 @@ export class AnnotationStore extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "reference", "sseConfig", "storeFormat", "storeOptions", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "reference", "sseConfig", "storeFormat", "storeOptions", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AnnotationStore.__pulumiType, name, resourceInputs, opts);
     }
@@ -110,5 +110,5 @@ export interface AnnotationStoreArgs {
     sseConfig?: pulumi.Input<inputs.omics.AnnotationStoreSseConfigArgs>;
     storeFormat: pulumi.Input<enums.omics.AnnotationStoreStoreFormat>;
     storeOptions?: pulumi.Input<inputs.omics.AnnotationStoreStoreOptionsPropertiesArgs>;
-    tags?: pulumi.Input<inputs.omics.AnnotationStoreTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

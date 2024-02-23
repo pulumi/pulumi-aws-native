@@ -1941,7 +1941,37 @@ func (o ApplicationWorkerConfigurationOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationWorkerConfiguration) string { return v.Memory }).(pulumi.StringOutput)
 }
 
-type ApplicationWorkerTypeSpecificationInputMap struct {
+// The specifications for a worker type.
+type ApplicationWorkerTypeSpecificationInput struct {
+	ImageConfiguration *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
+}
+
+// ApplicationWorkerTypeSpecificationInputInput is an input type that accepts ApplicationWorkerTypeSpecificationInputArgs and ApplicationWorkerTypeSpecificationInputOutput values.
+// You can construct a concrete instance of `ApplicationWorkerTypeSpecificationInputInput` via:
+//
+//	ApplicationWorkerTypeSpecificationInputArgs{...}
+type ApplicationWorkerTypeSpecificationInputInput interface {
+	pulumi.Input
+
+	ToApplicationWorkerTypeSpecificationInputOutput() ApplicationWorkerTypeSpecificationInputOutput
+	ToApplicationWorkerTypeSpecificationInputOutputWithContext(context.Context) ApplicationWorkerTypeSpecificationInputOutput
+}
+
+// The specifications for a worker type.
+type ApplicationWorkerTypeSpecificationInputArgs struct {
+	ImageConfiguration ApplicationImageConfigurationInputPtrInput `pulumi:"imageConfiguration"`
+}
+
+func (ApplicationWorkerTypeSpecificationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationWorkerTypeSpecificationInput)(nil)).Elem()
+}
+
+func (i ApplicationWorkerTypeSpecificationInputArgs) ToApplicationWorkerTypeSpecificationInputOutput() ApplicationWorkerTypeSpecificationInputOutput {
+	return i.ToApplicationWorkerTypeSpecificationInputOutputWithContext(context.Background())
+}
+
+func (i ApplicationWorkerTypeSpecificationInputArgs) ToApplicationWorkerTypeSpecificationInputOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerTypeSpecificationInputOutput)
 }
 
 // ApplicationWorkerTypeSpecificationInputMapInput is an input type that accepts ApplicationWorkerTypeSpecificationInputMap and ApplicationWorkerTypeSpecificationInputMapOutput values.
@@ -1955,66 +1985,45 @@ type ApplicationWorkerTypeSpecificationInputMapInput interface {
 	ToApplicationWorkerTypeSpecificationInputMapOutputWithContext(context.Context) ApplicationWorkerTypeSpecificationInputMapOutput
 }
 
-type ApplicationWorkerTypeSpecificationInputMapArgs struct {
+type ApplicationWorkerTypeSpecificationInputMap map[string]ApplicationWorkerTypeSpecificationInputInput
+
+func (ApplicationWorkerTypeSpecificationInputMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationWorkerTypeSpecificationInput)(nil)).Elem()
 }
 
-func (ApplicationWorkerTypeSpecificationInputMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMap)(nil)).Elem()
-}
-
-func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeSpecificationInputMapOutput() ApplicationWorkerTypeSpecificationInputMapOutput {
+func (i ApplicationWorkerTypeSpecificationInputMap) ToApplicationWorkerTypeSpecificationInputMapOutput() ApplicationWorkerTypeSpecificationInputMapOutput {
 	return i.ToApplicationWorkerTypeSpecificationInputMapOutputWithContext(context.Background())
 }
 
-func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeSpecificationInputMapOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapOutput {
+func (i ApplicationWorkerTypeSpecificationInputMap) ToApplicationWorkerTypeSpecificationInputMapOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerTypeSpecificationInputMapOutput)
 }
 
-func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return i.ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(context.Background())
+// The specifications for a worker type.
+type ApplicationWorkerTypeSpecificationInputOutput struct{ *pulumi.OutputState }
+
+func (ApplicationWorkerTypeSpecificationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationWorkerTypeSpecificationInput)(nil)).Elem()
 }
 
-func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerTypeSpecificationInputMapOutput).ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx)
+func (o ApplicationWorkerTypeSpecificationInputOutput) ToApplicationWorkerTypeSpecificationInputOutput() ApplicationWorkerTypeSpecificationInputOutput {
+	return o
 }
 
-// ApplicationWorkerTypeSpecificationInputMapPtrInput is an input type that accepts ApplicationWorkerTypeSpecificationInputMapArgs, ApplicationWorkerTypeSpecificationInputMapPtr and ApplicationWorkerTypeSpecificationInputMapPtrOutput values.
-// You can construct a concrete instance of `ApplicationWorkerTypeSpecificationInputMapPtrInput` via:
-//
-//	        ApplicationWorkerTypeSpecificationInputMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type ApplicationWorkerTypeSpecificationInputMapPtrInput interface {
-	pulumi.Input
-
-	ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput
-	ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput
+func (o ApplicationWorkerTypeSpecificationInputOutput) ToApplicationWorkerTypeSpecificationInputOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputOutput {
+	return o
 }
 
-type applicationWorkerTypeSpecificationInputMapPtrType ApplicationWorkerTypeSpecificationInputMapArgs
-
-func ApplicationWorkerTypeSpecificationInputMapPtr(v *ApplicationWorkerTypeSpecificationInputMapArgs) ApplicationWorkerTypeSpecificationInputMapPtrInput {
-	return (*applicationWorkerTypeSpecificationInputMapPtrType)(v)
-}
-
-func (*applicationWorkerTypeSpecificationInputMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationWorkerTypeSpecificationInputMap)(nil)).Elem()
-}
-
-func (i *applicationWorkerTypeSpecificationInputMapPtrType) ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return i.ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationWorkerTypeSpecificationInputMapPtrType) ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
+func (o ApplicationWorkerTypeSpecificationInputOutput) ImageConfiguration() ApplicationImageConfigurationInputPtrOutput {
+	return o.ApplyT(func(v ApplicationWorkerTypeSpecificationInput) *ApplicationImageConfigurationInput {
+		return v.ImageConfiguration
+	}).(ApplicationImageConfigurationInputPtrOutput)
 }
 
 type ApplicationWorkerTypeSpecificationInputMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationWorkerTypeSpecificationInputMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]ApplicationWorkerTypeSpecificationInput)(nil)).Elem()
 }
 
 func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToApplicationWorkerTypeSpecificationInputMapOutput() ApplicationWorkerTypeSpecificationInputMapOutput {
@@ -2025,38 +2034,10 @@ func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToApplicationWorkerTyp
 	return o
 }
 
-func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return o.ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationWorkerTypeSpecificationInputMap) *ApplicationWorkerTypeSpecificationInputMap {
-		return &v
-	}).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
-}
-
-type ApplicationWorkerTypeSpecificationInputMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationWorkerTypeSpecificationInputMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationWorkerTypeSpecificationInputMap)(nil)).Elem()
-}
-
-func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return o
-}
-
-func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return o
-}
-
-func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) Elem() ApplicationWorkerTypeSpecificationInputMapOutput {
-	return o.ApplyT(func(v *ApplicationWorkerTypeSpecificationInputMap) ApplicationWorkerTypeSpecificationInputMap {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationWorkerTypeSpecificationInputMap
-		return ret
-	}).(ApplicationWorkerTypeSpecificationInputMapOutput)
+func (o ApplicationWorkerTypeSpecificationInputMapOutput) MapIndex(k pulumi.StringInput) ApplicationWorkerTypeSpecificationInputOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationWorkerTypeSpecificationInput {
+		return vs[0].(map[string]ApplicationWorkerTypeSpecificationInput)[vs[1].(string)]
+	}).(ApplicationWorkerTypeSpecificationInputOutput)
 }
 
 func init() {
@@ -2086,8 +2067,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3MonitoringConfigurationInput)(nil)).Elem(), ApplicationS3MonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3MonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationS3MonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerConfigurationInput)(nil)).Elem(), ApplicationWorkerConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMapInput)(nil)).Elem(), ApplicationWorkerTypeSpecificationInputMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMapPtrInput)(nil)).Elem(), ApplicationWorkerTypeSpecificationInputMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputInput)(nil)).Elem(), ApplicationWorkerTypeSpecificationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMapInput)(nil)).Elem(), ApplicationWorkerTypeSpecificationInputMap{})
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationOutput{})
@@ -2114,6 +2095,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationS3MonitoringConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationS3MonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationWorkerConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationWorkerTypeSpecificationInputOutput{})
 	pulumi.RegisterOutputType(ApplicationWorkerTypeSpecificationInputMapOutput{})
-	pulumi.RegisterOutputType(ApplicationWorkerTypeSpecificationInputMapPtrOutput{})
 }

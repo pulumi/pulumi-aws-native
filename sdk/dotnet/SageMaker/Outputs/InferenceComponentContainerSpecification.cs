@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         public readonly string? ArtifactUrl;
         public readonly Outputs.InferenceComponentDeployedImage? DeployedImage;
-        public readonly Outputs.InferenceComponentEnvironmentMap? Environment;
+        public readonly ImmutableDictionary<string, string>? Environment;
         public readonly string? Image;
 
         [OutputConstructor]
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.InferenceComponentDeployedImage? deployedImage,
 
-            Outputs.InferenceComponentEnvironmentMap? environment,
+            ImmutableDictionary<string, string>? environment,
 
             string? image)
         {

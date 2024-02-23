@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     {
         public readonly Outputs.ViewSearchFilter? Filters;
         public readonly ImmutableArray<Outputs.ViewIncludedProperty> IncludedProperties;
-        public readonly Outputs.ViewTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? ViewArn;
 
         [OutputConstructor]
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.ResourceExplorer2
 
             ImmutableArray<Outputs.ViewIncludedProperty> includedProperties,
 
-            Outputs.ViewTagMap? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string? viewArn)
         {

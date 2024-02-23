@@ -25,7 +25,7 @@ class WebAclArgs:
                  association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
                  captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
                  challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
-                 custom_response_bodies: Optional[pulumi.Input['WebAclCustomResponseBodiesArgs']] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
@@ -113,11 +113,11 @@ class WebAclArgs:
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional[pulumi.Input['WebAclCustomResponseBodiesArgs']]:
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
-    def custom_response_bodies(self, value: Optional[pulumi.Input['WebAclCustomResponseBodiesArgs']]):
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
         pulumi.set(self, "custom_response_bodies", value)
 
     @property
@@ -177,7 +177,7 @@ class WebAcl(pulumi.CustomResource):
                  association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
                  challenge_config: Optional[pulumi.Input[pulumi.InputType['WebAclChallengeConfigArgs']]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodiesArgs']]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -221,7 +221,7 @@ class WebAcl(pulumi.CustomResource):
                  association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
                  challenge_config: Optional[pulumi.Input[pulumi.InputType['WebAclChallengeConfigArgs']]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodiesArgs']]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -328,7 +328,7 @@ class WebAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> pulumi.Output[Optional['outputs.WebAclCustomResponseBodies']]:
+    def custom_response_bodies(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.WebAclCustomResponseBody']]]:
         return pulumi.get(self, "custom_response_bodies")
 
     @property

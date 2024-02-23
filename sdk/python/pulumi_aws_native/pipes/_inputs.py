@@ -16,7 +16,6 @@ __all__ = [
     'PipeBatchContainerOverridesArgs',
     'PipeBatchEnvironmentVariableArgs',
     'PipeBatchJobDependencyArgs',
-    'PipeBatchParametersMapArgs',
     'PipeBatchResourceRequirementArgs',
     'PipeBatchRetryStrategyArgs',
     'PipeCapacityProviderStrategyItemArgs',
@@ -34,7 +33,6 @@ __all__ = [
     'PipeFilterCriteriaArgs',
     'PipeFilterArgs',
     'PipeFirehoseLogDestinationArgs',
-    'PipeHeaderParametersMapArgs',
     'PipeLogConfigurationArgs',
     'PipeMqBrokerAccessCredentialsPropertiesArgs',
     'PipeMskAccessCredentials0PropertiesArgs',
@@ -42,7 +40,6 @@ __all__ = [
     'PipeNetworkConfigurationArgs',
     'PipePlacementConstraintArgs',
     'PipePlacementStrategyArgs',
-    'PipeQueryStringParametersMapArgs',
     'PipeS3LogDestinationArgs',
     'PipeSageMakerPipelineParameterArgs',
     'PipeSelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs',
@@ -58,7 +55,6 @@ __all__ = [
     'PipeSourceRabbitMqBrokerParametersArgs',
     'PipeSourceSelfManagedKafkaParametersArgs',
     'PipeSourceSqsQueueParametersArgs',
-    'PipeTagMapArgs',
     'PipeTagArgs',
     'PipeTargetBatchJobParametersArgs',
     'PipeTargetCloudWatchLogsParametersArgs',
@@ -240,12 +236,6 @@ class PipeBatchJobDependencyArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['PipeBatchJobDependencyType']]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class PipeBatchParametersMapArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -687,9 +677,9 @@ class PipeEcsTaskOverrideArgs:
 @pulumi.input_type
 class PipeEnrichmentHttpParametersArgs:
     def __init__(__self__, *,
-                 header_parameters: Optional[pulumi.Input['PipeHeaderParametersMapArgs']] = None,
+                 header_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path_parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 query_string_parameters: Optional[pulumi.Input['PipeQueryStringParametersMapArgs']] = None):
+                 query_string_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         if header_parameters is not None:
             pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -699,11 +689,11 @@ class PipeEnrichmentHttpParametersArgs:
 
     @property
     @pulumi.getter(name="headerParameters")
-    def header_parameters(self) -> Optional[pulumi.Input['PipeHeaderParametersMapArgs']]:
+    def header_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "header_parameters")
 
     @header_parameters.setter
-    def header_parameters(self, value: Optional[pulumi.Input['PipeHeaderParametersMapArgs']]):
+    def header_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "header_parameters", value)
 
     @property
@@ -717,11 +707,11 @@ class PipeEnrichmentHttpParametersArgs:
 
     @property
     @pulumi.getter(name="queryStringParameters")
-    def query_string_parameters(self) -> Optional[pulumi.Input['PipeQueryStringParametersMapArgs']]:
+    def query_string_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "query_string_parameters")
 
     @query_string_parameters.setter
-    def query_string_parameters(self, value: Optional[pulumi.Input['PipeQueryStringParametersMapArgs']]):
+    def query_string_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "query_string_parameters", value)
 
 
@@ -803,12 +793,6 @@ class PipeFirehoseLogDestinationArgs:
     @delivery_stream_arn.setter
     def delivery_stream_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delivery_stream_arn", value)
-
-
-@pulumi.input_type
-class PipeHeaderParametersMapArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -1015,12 +999,6 @@ class PipePlacementStrategyArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['PipePlacementStrategyType']]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class PipeQueryStringParametersMapArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -1881,12 +1859,6 @@ class PipeSourceSqsQueueParametersArgs:
 
 
 @pulumi.input_type
-class PipeTagMapArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class PipeTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -1921,7 +1893,7 @@ class PipeTargetBatchJobParametersArgs:
                  array_properties: Optional[pulumi.Input['PipeBatchArrayPropertiesArgs']] = None,
                  container_overrides: Optional[pulumi.Input['PipeBatchContainerOverridesArgs']] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['PipeBatchJobDependencyArgs']]]] = None,
-                 parameters: Optional[pulumi.Input['PipeBatchParametersMapArgs']] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  retry_strategy: Optional[pulumi.Input['PipeBatchRetryStrategyArgs']] = None):
         pulumi.set(__self__, "job_definition", job_definition)
         pulumi.set(__self__, "job_name", job_name)
@@ -1983,11 +1955,11 @@ class PipeTargetBatchJobParametersArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['PipeBatchParametersMapArgs']]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['PipeBatchParametersMapArgs']]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -2281,9 +2253,9 @@ class PipeTargetEventBridgeEventBusParametersArgs:
 @pulumi.input_type
 class PipeTargetHttpParametersArgs:
     def __init__(__self__, *,
-                 header_parameters: Optional[pulumi.Input['PipeHeaderParametersMapArgs']] = None,
+                 header_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path_parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 query_string_parameters: Optional[pulumi.Input['PipeQueryStringParametersMapArgs']] = None):
+                 query_string_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         if header_parameters is not None:
             pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -2293,11 +2265,11 @@ class PipeTargetHttpParametersArgs:
 
     @property
     @pulumi.getter(name="headerParameters")
-    def header_parameters(self) -> Optional[pulumi.Input['PipeHeaderParametersMapArgs']]:
+    def header_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "header_parameters")
 
     @header_parameters.setter
-    def header_parameters(self, value: Optional[pulumi.Input['PipeHeaderParametersMapArgs']]):
+    def header_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "header_parameters", value)
 
     @property
@@ -2311,11 +2283,11 @@ class PipeTargetHttpParametersArgs:
 
     @property
     @pulumi.getter(name="queryStringParameters")
-    def query_string_parameters(self) -> Optional[pulumi.Input['PipeQueryStringParametersMapArgs']]:
+    def query_string_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "query_string_parameters")
 
     @query_string_parameters.setter
-    def query_string_parameters(self, value: Optional[pulumi.Input['PipeQueryStringParametersMapArgs']]):
+    def query_string_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "query_string_parameters", value)
 
 

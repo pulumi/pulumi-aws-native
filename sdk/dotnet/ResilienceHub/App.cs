@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Output<ImmutableArray<Outputs.AppResourceMapping>> ResourceMappings { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.AppTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -182,7 +182,12 @@ namespace Pulumi.AwsNative.ResilienceHub
         }
 
         [Input("tags")]
-        public Input<Inputs.AppTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public AppArgs()
         {

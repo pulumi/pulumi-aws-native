@@ -996,127 +996,6 @@ func (o AutomationRuleStringFilterArrayOutput) Index(i pulumi.IntInput) Automati
 	}).(AutomationRuleStringFilterOutput)
 }
 
-// A key-value pair to associate with a resource.
-type AutomationRuleTags struct {
-}
-
-// AutomationRuleTagsInput is an input type that accepts AutomationRuleTagsArgs and AutomationRuleTagsOutput values.
-// You can construct a concrete instance of `AutomationRuleTagsInput` via:
-//
-//	AutomationRuleTagsArgs{...}
-type AutomationRuleTagsInput interface {
-	pulumi.Input
-
-	ToAutomationRuleTagsOutput() AutomationRuleTagsOutput
-	ToAutomationRuleTagsOutputWithContext(context.Context) AutomationRuleTagsOutput
-}
-
-// A key-value pair to associate with a resource.
-type AutomationRuleTagsArgs struct {
-}
-
-func (AutomationRuleTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRuleTags)(nil)).Elem()
-}
-
-func (i AutomationRuleTagsArgs) ToAutomationRuleTagsOutput() AutomationRuleTagsOutput {
-	return i.ToAutomationRuleTagsOutputWithContext(context.Background())
-}
-
-func (i AutomationRuleTagsArgs) ToAutomationRuleTagsOutputWithContext(ctx context.Context) AutomationRuleTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTagsOutput)
-}
-
-func (i AutomationRuleTagsArgs) ToAutomationRuleTagsPtrOutput() AutomationRuleTagsPtrOutput {
-	return i.ToAutomationRuleTagsPtrOutputWithContext(context.Background())
-}
-
-func (i AutomationRuleTagsArgs) ToAutomationRuleTagsPtrOutputWithContext(ctx context.Context) AutomationRuleTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTagsOutput).ToAutomationRuleTagsPtrOutputWithContext(ctx)
-}
-
-// AutomationRuleTagsPtrInput is an input type that accepts AutomationRuleTagsArgs, AutomationRuleTagsPtr and AutomationRuleTagsPtrOutput values.
-// You can construct a concrete instance of `AutomationRuleTagsPtrInput` via:
-//
-//	        AutomationRuleTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AutomationRuleTagsPtrInput interface {
-	pulumi.Input
-
-	ToAutomationRuleTagsPtrOutput() AutomationRuleTagsPtrOutput
-	ToAutomationRuleTagsPtrOutputWithContext(context.Context) AutomationRuleTagsPtrOutput
-}
-
-type automationRuleTagsPtrType AutomationRuleTagsArgs
-
-func AutomationRuleTagsPtr(v *AutomationRuleTagsArgs) AutomationRuleTagsPtrInput {
-	return (*automationRuleTagsPtrType)(v)
-}
-
-func (*automationRuleTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutomationRuleTags)(nil)).Elem()
-}
-
-func (i *automationRuleTagsPtrType) ToAutomationRuleTagsPtrOutput() AutomationRuleTagsPtrOutput {
-	return i.ToAutomationRuleTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *automationRuleTagsPtrType) ToAutomationRuleTagsPtrOutputWithContext(ctx context.Context) AutomationRuleTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTagsPtrOutput)
-}
-
-// A key-value pair to associate with a resource.
-type AutomationRuleTagsOutput struct{ *pulumi.OutputState }
-
-func (AutomationRuleTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRuleTags)(nil)).Elem()
-}
-
-func (o AutomationRuleTagsOutput) ToAutomationRuleTagsOutput() AutomationRuleTagsOutput {
-	return o
-}
-
-func (o AutomationRuleTagsOutput) ToAutomationRuleTagsOutputWithContext(ctx context.Context) AutomationRuleTagsOutput {
-	return o
-}
-
-func (o AutomationRuleTagsOutput) ToAutomationRuleTagsPtrOutput() AutomationRuleTagsPtrOutput {
-	return o.ToAutomationRuleTagsPtrOutputWithContext(context.Background())
-}
-
-func (o AutomationRuleTagsOutput) ToAutomationRuleTagsPtrOutputWithContext(ctx context.Context) AutomationRuleTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleTags) *AutomationRuleTags {
-		return &v
-	}).(AutomationRuleTagsPtrOutput)
-}
-
-type AutomationRuleTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (AutomationRuleTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutomationRuleTags)(nil)).Elem()
-}
-
-func (o AutomationRuleTagsPtrOutput) ToAutomationRuleTagsPtrOutput() AutomationRuleTagsPtrOutput {
-	return o
-}
-
-func (o AutomationRuleTagsPtrOutput) ToAutomationRuleTagsPtrOutputWithContext(ctx context.Context) AutomationRuleTagsPtrOutput {
-	return o
-}
-
-func (o AutomationRuleTagsPtrOutput) Elem() AutomationRuleTagsOutput {
-	return o.ApplyT(func(v *AutomationRuleTags) AutomationRuleTags {
-		if v != nil {
-			return *v
-		}
-		var ret AutomationRuleTags
-		return ret
-	}).(AutomationRuleTagsOutput)
-}
-
 type AutomationRuleWorkflowUpdate struct {
 	Status AutomationRuleWorkflowUpdateStatus `pulumi:"status"`
 }
@@ -1250,127 +1129,6 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Status() AutomationRuleWorkflowUp
 	}).(AutomationRuleWorkflowUpdateStatusPtrOutput)
 }
 
-// An object of user-defined name and value string pair added to a finding.
-type AutomationRulemap struct {
-}
-
-// AutomationRulemapInput is an input type that accepts AutomationRulemapArgs and AutomationRulemapOutput values.
-// You can construct a concrete instance of `AutomationRulemapInput` via:
-//
-//	AutomationRulemapArgs{...}
-type AutomationRulemapInput interface {
-	pulumi.Input
-
-	ToAutomationRulemapOutput() AutomationRulemapOutput
-	ToAutomationRulemapOutputWithContext(context.Context) AutomationRulemapOutput
-}
-
-// An object of user-defined name and value string pair added to a finding.
-type AutomationRulemapArgs struct {
-}
-
-func (AutomationRulemapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRulemap)(nil)).Elem()
-}
-
-func (i AutomationRulemapArgs) ToAutomationRulemapOutput() AutomationRulemapOutput {
-	return i.ToAutomationRulemapOutputWithContext(context.Background())
-}
-
-func (i AutomationRulemapArgs) ToAutomationRulemapOutputWithContext(ctx context.Context) AutomationRulemapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulemapOutput)
-}
-
-func (i AutomationRulemapArgs) ToAutomationRulemapPtrOutput() AutomationRulemapPtrOutput {
-	return i.ToAutomationRulemapPtrOutputWithContext(context.Background())
-}
-
-func (i AutomationRulemapArgs) ToAutomationRulemapPtrOutputWithContext(ctx context.Context) AutomationRulemapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulemapOutput).ToAutomationRulemapPtrOutputWithContext(ctx)
-}
-
-// AutomationRulemapPtrInput is an input type that accepts AutomationRulemapArgs, AutomationRulemapPtr and AutomationRulemapPtrOutput values.
-// You can construct a concrete instance of `AutomationRulemapPtrInput` via:
-//
-//	        AutomationRulemapArgs{...}
-//
-//	or:
-//
-//	        nil
-type AutomationRulemapPtrInput interface {
-	pulumi.Input
-
-	ToAutomationRulemapPtrOutput() AutomationRulemapPtrOutput
-	ToAutomationRulemapPtrOutputWithContext(context.Context) AutomationRulemapPtrOutput
-}
-
-type automationRulemapPtrType AutomationRulemapArgs
-
-func AutomationRulemapPtr(v *AutomationRulemapArgs) AutomationRulemapPtrInput {
-	return (*automationRulemapPtrType)(v)
-}
-
-func (*automationRulemapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutomationRulemap)(nil)).Elem()
-}
-
-func (i *automationRulemapPtrType) ToAutomationRulemapPtrOutput() AutomationRulemapPtrOutput {
-	return i.ToAutomationRulemapPtrOutputWithContext(context.Background())
-}
-
-func (i *automationRulemapPtrType) ToAutomationRulemapPtrOutputWithContext(ctx context.Context) AutomationRulemapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulemapPtrOutput)
-}
-
-// An object of user-defined name and value string pair added to a finding.
-type AutomationRulemapOutput struct{ *pulumi.OutputState }
-
-func (AutomationRulemapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRulemap)(nil)).Elem()
-}
-
-func (o AutomationRulemapOutput) ToAutomationRulemapOutput() AutomationRulemapOutput {
-	return o
-}
-
-func (o AutomationRulemapOutput) ToAutomationRulemapOutputWithContext(ctx context.Context) AutomationRulemapOutput {
-	return o
-}
-
-func (o AutomationRulemapOutput) ToAutomationRulemapPtrOutput() AutomationRulemapPtrOutput {
-	return o.ToAutomationRulemapPtrOutputWithContext(context.Background())
-}
-
-func (o AutomationRulemapOutput) ToAutomationRulemapPtrOutputWithContext(ctx context.Context) AutomationRulemapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRulemap) *AutomationRulemap {
-		return &v
-	}).(AutomationRulemapPtrOutput)
-}
-
-type AutomationRulemapPtrOutput struct{ *pulumi.OutputState }
-
-func (AutomationRulemapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutomationRulemap)(nil)).Elem()
-}
-
-func (o AutomationRulemapPtrOutput) ToAutomationRulemapPtrOutput() AutomationRulemapPtrOutput {
-	return o
-}
-
-func (o AutomationRulemapPtrOutput) ToAutomationRulemapPtrOutputWithContext(ctx context.Context) AutomationRulemapPtrOutput {
-	return o
-}
-
-func (o AutomationRulemapPtrOutput) Elem() AutomationRulemapOutput {
-	return o.ApplyT(func(v *AutomationRulemap) AutomationRulemap {
-		if v != nil {
-			return *v
-		}
-		var ret AutomationRulemap
-		return ret
-	}).(AutomationRulemapOutput)
-}
-
 type AutomationRulesAction struct {
 	FindingFieldsUpdate AutomationRulesFindingFieldsUpdate `pulumi:"findingFieldsUpdate"`
 	Type                AutomationRulesActionType          `pulumi:"type"`
@@ -1482,7 +1240,7 @@ type AutomationRulesFindingFieldsUpdate struct {
 	// The rule action will update the ``Severity`` field of a finding.
 	Severity          *AutomationRuleSeverityUpdate                        `pulumi:"severity"`
 	Types             []string                                             `pulumi:"types"`
-	UserDefinedFields *AutomationRulemap                                   `pulumi:"userDefinedFields"`
+	UserDefinedFields map[string]string                                    `pulumi:"userDefinedFields"`
 	VerificationState *AutomationRulesFindingFieldsUpdateVerificationState `pulumi:"verificationState"`
 	// The rule action will update the ``Workflow`` field of a finding.
 	Workflow *AutomationRuleWorkflowUpdate `pulumi:"workflow"`
@@ -1510,7 +1268,7 @@ type AutomationRulesFindingFieldsUpdateArgs struct {
 	// The rule action will update the ``Severity`` field of a finding.
 	Severity          AutomationRuleSeverityUpdatePtrInput                        `pulumi:"severity"`
 	Types             pulumi.StringArrayInput                                     `pulumi:"types"`
-	UserDefinedFields AutomationRulemapPtrInput                                   `pulumi:"userDefinedFields"`
+	UserDefinedFields pulumi.StringMapInput                                       `pulumi:"userDefinedFields"`
 	VerificationState AutomationRulesFindingFieldsUpdateVerificationStatePtrInput `pulumi:"verificationState"`
 	// The rule action will update the ``Workflow`` field of a finding.
 	Workflow AutomationRuleWorkflowUpdatePtrInput `pulumi:"workflow"`
@@ -1570,8 +1328,8 @@ func (o AutomationRulesFindingFieldsUpdateOutput) Types() pulumi.StringArrayOutp
 	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
 
-func (o AutomationRulesFindingFieldsUpdateOutput) UserDefinedFields() AutomationRulemapPtrOutput {
-	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) *AutomationRulemap { return v.UserDefinedFields }).(AutomationRulemapPtrOutput)
+func (o AutomationRulesFindingFieldsUpdateOutput) UserDefinedFields() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AutomationRulesFindingFieldsUpdate) map[string]string { return v.UserDefinedFields }).(pulumi.StringMapOutput)
 }
 
 func (o AutomationRulesFindingFieldsUpdateOutput) VerificationState() AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput {
@@ -2232,127 +1990,6 @@ func (o AutomationRulesFindingFiltersPtrOutput) WorkflowStatus() AutomationRuleS
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// A key-value pair to associate with a resource.
-type HubTags struct {
-}
-
-// HubTagsInput is an input type that accepts HubTagsArgs and HubTagsOutput values.
-// You can construct a concrete instance of `HubTagsInput` via:
-//
-//	HubTagsArgs{...}
-type HubTagsInput interface {
-	pulumi.Input
-
-	ToHubTagsOutput() HubTagsOutput
-	ToHubTagsOutputWithContext(context.Context) HubTagsOutput
-}
-
-// A key-value pair to associate with a resource.
-type HubTagsArgs struct {
-}
-
-func (HubTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubTags)(nil)).Elem()
-}
-
-func (i HubTagsArgs) ToHubTagsOutput() HubTagsOutput {
-	return i.ToHubTagsOutputWithContext(context.Background())
-}
-
-func (i HubTagsArgs) ToHubTagsOutputWithContext(ctx context.Context) HubTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubTagsOutput)
-}
-
-func (i HubTagsArgs) ToHubTagsPtrOutput() HubTagsPtrOutput {
-	return i.ToHubTagsPtrOutputWithContext(context.Background())
-}
-
-func (i HubTagsArgs) ToHubTagsPtrOutputWithContext(ctx context.Context) HubTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubTagsOutput).ToHubTagsPtrOutputWithContext(ctx)
-}
-
-// HubTagsPtrInput is an input type that accepts HubTagsArgs, HubTagsPtr and HubTagsPtrOutput values.
-// You can construct a concrete instance of `HubTagsPtrInput` via:
-//
-//	        HubTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type HubTagsPtrInput interface {
-	pulumi.Input
-
-	ToHubTagsPtrOutput() HubTagsPtrOutput
-	ToHubTagsPtrOutputWithContext(context.Context) HubTagsPtrOutput
-}
-
-type hubTagsPtrType HubTagsArgs
-
-func HubTagsPtr(v *HubTagsArgs) HubTagsPtrInput {
-	return (*hubTagsPtrType)(v)
-}
-
-func (*hubTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HubTags)(nil)).Elem()
-}
-
-func (i *hubTagsPtrType) ToHubTagsPtrOutput() HubTagsPtrOutput {
-	return i.ToHubTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *hubTagsPtrType) ToHubTagsPtrOutputWithContext(ctx context.Context) HubTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubTagsPtrOutput)
-}
-
-// A key-value pair to associate with a resource.
-type HubTagsOutput struct{ *pulumi.OutputState }
-
-func (HubTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubTags)(nil)).Elem()
-}
-
-func (o HubTagsOutput) ToHubTagsOutput() HubTagsOutput {
-	return o
-}
-
-func (o HubTagsOutput) ToHubTagsOutputWithContext(ctx context.Context) HubTagsOutput {
-	return o
-}
-
-func (o HubTagsOutput) ToHubTagsPtrOutput() HubTagsPtrOutput {
-	return o.ToHubTagsPtrOutputWithContext(context.Background())
-}
-
-func (o HubTagsOutput) ToHubTagsPtrOutputWithContext(ctx context.Context) HubTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubTags) *HubTags {
-		return &v
-	}).(HubTagsPtrOutput)
-}
-
-type HubTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (HubTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HubTags)(nil)).Elem()
-}
-
-func (o HubTagsPtrOutput) ToHubTagsPtrOutput() HubTagsPtrOutput {
-	return o
-}
-
-func (o HubTagsPtrOutput) ToHubTagsPtrOutputWithContext(ctx context.Context) HubTagsPtrOutput {
-	return o
-}
-
-func (o HubTagsPtrOutput) Elem() HubTagsOutput {
-	return o.ApplyT(func(v *HubTags) HubTags {
-		if v != nil {
-			return *v
-		}
-		var ret HubTags
-		return ret
-	}).(HubTagsOutput)
-}
-
 // Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
 type StandardsControl struct {
 	// A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
@@ -2479,19 +2116,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleSeverityUpdatePtrInput)(nil)).Elem(), AutomationRuleSeverityUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleStringFilterInput)(nil)).Elem(), AutomationRuleStringFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleStringFilterArrayInput)(nil)).Elem(), AutomationRuleStringFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleTagsInput)(nil)).Elem(), AutomationRuleTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleTagsPtrInput)(nil)).Elem(), AutomationRuleTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleWorkflowUpdateInput)(nil)).Elem(), AutomationRuleWorkflowUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleWorkflowUpdatePtrInput)(nil)).Elem(), AutomationRuleWorkflowUpdateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulemapInput)(nil)).Elem(), AutomationRulemapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulemapPtrInput)(nil)).Elem(), AutomationRulemapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesActionInput)(nil)).Elem(), AutomationRulesActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesActionArrayInput)(nil)).Elem(), AutomationRulesActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFieldsUpdateInput)(nil)).Elem(), AutomationRulesFindingFieldsUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFiltersInput)(nil)).Elem(), AutomationRulesFindingFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFiltersPtrInput)(nil)).Elem(), AutomationRulesFindingFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HubTagsInput)(nil)).Elem(), HubTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HubTagsPtrInput)(nil)).Elem(), HubTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlInput)(nil)).Elem(), StandardsControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlArrayInput)(nil)).Elem(), StandardsControlArray{})
 	pulumi.RegisterOutputType(AutomationRuleDateFilterOutput{})
@@ -2510,19 +2141,13 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRuleSeverityUpdatePtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleStringFilterOutput{})
 	pulumi.RegisterOutputType(AutomationRuleStringFilterArrayOutput{})
-	pulumi.RegisterOutputType(AutomationRuleTagsOutput{})
-	pulumi.RegisterOutputType(AutomationRuleTagsPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleWorkflowUpdateOutput{})
 	pulumi.RegisterOutputType(AutomationRuleWorkflowUpdatePtrOutput{})
-	pulumi.RegisterOutputType(AutomationRulemapOutput{})
-	pulumi.RegisterOutputType(AutomationRulemapPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRulesActionOutput{})
 	pulumi.RegisterOutputType(AutomationRulesActionArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFieldsUpdateOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFiltersOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFiltersPtrOutput{})
-	pulumi.RegisterOutputType(HubTagsOutput{})
-	pulumi.RegisterOutputType(HubTagsPtrOutput{})
 	pulumi.RegisterOutputType(StandardsControlOutput{})
 	pulumi.RegisterOutputType(StandardsControlArrayOutput{})
 }

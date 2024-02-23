@@ -8,9 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['VpcConnectionArgs', 'VpcConnection']
 
@@ -22,7 +20,7 @@ class VpcConnectionArgs:
                  security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
                  target_cluster_arn: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input['VpcConnectionTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
         :param pulumi.Input[str] target_cluster_arn: The Amazon Resource Name (ARN) of the target cluster
@@ -85,11 +83,11 @@ class VpcConnectionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['VpcConnectionTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['VpcConnectionTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -101,7 +99,7 @@ class VpcConnection(pulumi.CustomResource):
                  authentication: Optional[pulumi.Input['VpcConnectionAuthentication']] = None,
                  client_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_cluster_arn: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -139,7 +137,7 @@ class VpcConnection(pulumi.CustomResource):
                  authentication: Optional[pulumi.Input['VpcConnectionAuthentication']] = None,
                  client_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_cluster_arn: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -223,7 +221,7 @@ class VpcConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.VpcConnectionTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

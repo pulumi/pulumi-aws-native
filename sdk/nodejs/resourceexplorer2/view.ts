@@ -40,7 +40,7 @@ export class View extends pulumi.CustomResource {
     public readonly filters!: pulumi.Output<outputs.resourceexplorer2.ViewSearchFilter | undefined>;
     public readonly includedProperties!: pulumi.Output<outputs.resourceexplorer2.ViewIncludedProperty[] | undefined>;
     public readonly scope!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.resourceexplorer2.ViewTagMap | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly viewArn!: pulumi.Output<string>;
     public readonly viewName!: pulumi.Output<string>;
 
@@ -83,6 +83,6 @@ export interface ViewArgs {
     filters?: pulumi.Input<inputs.resourceexplorer2.ViewSearchFilterArgs>;
     includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer2.ViewIncludedPropertyArgs>[]>;
     scope?: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.resourceexplorer2.ViewTagMapArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     viewName?: pulumi.Input<string>;
 }

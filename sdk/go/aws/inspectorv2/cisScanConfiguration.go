@@ -21,7 +21,7 @@ type CisScanConfiguration struct {
 	ScanName      pulumi.StringPtrOutput                        `pulumi:"scanName"`
 	Schedule      CisScanConfigurationSchedulePtrOutput         `pulumi:"schedule"`
 	SecurityLevel CisScanConfigurationCisSecurityLevelPtrOutput `pulumi:"securityLevel"`
-	Tags          CisScanConfigurationCisTagMapPtrOutput        `pulumi:"tags"`
+	Tags          pulumi.StringMapOutput                        `pulumi:"tags"`
 	Targets       CisScanConfigurationCisTargetsPtrOutput       `pulumi:"targets"`
 }
 
@@ -69,7 +69,7 @@ type cisScanConfigurationArgs struct {
 	ScanName      *string                               `pulumi:"scanName"`
 	Schedule      *CisScanConfigurationSchedule         `pulumi:"schedule"`
 	SecurityLevel *CisScanConfigurationCisSecurityLevel `pulumi:"securityLevel"`
-	Tags          *CisScanConfigurationCisTagMap        `pulumi:"tags"`
+	Tags          map[string]string                     `pulumi:"tags"`
 	Targets       *CisScanConfigurationCisTargets       `pulumi:"targets"`
 }
 
@@ -79,7 +79,7 @@ type CisScanConfigurationArgs struct {
 	ScanName      pulumi.StringPtrInput
 	Schedule      CisScanConfigurationSchedulePtrInput
 	SecurityLevel CisScanConfigurationCisSecurityLevelPtrInput
-	Tags          CisScanConfigurationCisTagMapPtrInput
+	Tags          pulumi.StringMapInput
 	Targets       CisScanConfigurationCisTargetsPtrInput
 }
 
@@ -138,8 +138,8 @@ func (o CisScanConfigurationOutput) SecurityLevel() CisScanConfigurationCisSecur
 	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationCisSecurityLevelPtrOutput { return v.SecurityLevel }).(CisScanConfigurationCisSecurityLevelPtrOutput)
 }
 
-func (o CisScanConfigurationOutput) Tags() CisScanConfigurationCisTagMapPtrOutput {
-	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationCisTagMapPtrOutput { return v.Tags }).(CisScanConfigurationCisTagMapPtrOutput)
+func (o CisScanConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CisScanConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o CisScanConfigurationOutput) Targets() CisScanConfigurationCisTargetsPtrOutput {

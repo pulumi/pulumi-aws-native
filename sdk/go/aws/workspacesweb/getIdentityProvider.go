@@ -27,10 +27,10 @@ type LookupIdentityProviderArgs struct {
 }
 
 type LookupIdentityProviderResult struct {
-	IdentityProviderArn     *string                  `pulumi:"identityProviderArn"`
-	IdentityProviderDetails *IdentityProviderDetails `pulumi:"identityProviderDetails"`
-	IdentityProviderName    *string                  `pulumi:"identityProviderName"`
-	IdentityProviderType    *IdentityProviderType    `pulumi:"identityProviderType"`
+	IdentityProviderArn     *string               `pulumi:"identityProviderArn"`
+	IdentityProviderDetails map[string]string     `pulumi:"identityProviderDetails"`
+	IdentityProviderName    *string               `pulumi:"identityProviderName"`
+	IdentityProviderType    *IdentityProviderType `pulumi:"identityProviderType"`
 }
 
 func LookupIdentityProviderOutput(ctx *pulumi.Context, args LookupIdentityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityProviderResultOutput {
@@ -72,8 +72,8 @@ func (o LookupIdentityProviderResultOutput) IdentityProviderArn() pulumi.StringP
 	return o.ApplyT(func(v LookupIdentityProviderResult) *string { return v.IdentityProviderArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupIdentityProviderResultOutput) IdentityProviderDetails() IdentityProviderDetailsPtrOutput {
-	return o.ApplyT(func(v LookupIdentityProviderResult) *IdentityProviderDetails { return v.IdentityProviderDetails }).(IdentityProviderDetailsPtrOutput)
+func (o LookupIdentityProviderResultOutput) IdentityProviderDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupIdentityProviderResult) map[string]string { return v.IdentityProviderDetails }).(pulumi.StringMapOutput)
 }
 
 func (o LookupIdentityProviderResultOutput) IdentityProviderName() pulumi.StringPtrOutput {

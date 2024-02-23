@@ -27,8 +27,8 @@ type LookupVpcConnectionArgs struct {
 }
 
 type LookupVpcConnectionResult struct {
-	Arn  *string            `pulumi:"arn"`
-	Tags *VpcConnectionTags `pulumi:"tags"`
+	Arn  *string           `pulumi:"arn"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupVpcConnectionOutput(ctx *pulumi.Context, args LookupVpcConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcConnectionResultOutput {
@@ -70,8 +70,8 @@ func (o LookupVpcConnectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpcConnectionResultOutput) Tags() VpcConnectionTagsPtrOutput {
-	return o.ApplyT(func(v LookupVpcConnectionResult) *VpcConnectionTags { return v.Tags }).(VpcConnectionTagsPtrOutput)
+func (o LookupVpcConnectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVpcConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.Pipes.Inputs
     public sealed class PipeTargetHttpParametersArgs : global::Pulumi.ResourceArgs
     {
         [Input("headerParameters")]
-        public Input<Inputs.PipeHeaderParametersMapArgs>? HeaderParameters { get; set; }
+        private InputMap<string>? _headerParameters;
+        public InputMap<string> HeaderParameters
+        {
+            get => _headerParameters ?? (_headerParameters = new InputMap<string>());
+            set => _headerParameters = value;
+        }
 
         [Input("pathParameterValues")]
         private InputList<string>? _pathParameterValues;
@@ -24,7 +29,12 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         }
 
         [Input("queryStringParameters")]
-        public Input<Inputs.PipeQueryStringParametersMapArgs>? QueryStringParameters { get; set; }
+        private InputMap<string>? _queryStringParameters;
+        public InputMap<string> QueryStringParameters
+        {
+            get => _queryStringParameters ?? (_queryStringParameters = new InputMap<string>());
+            set => _queryStringParameters = value;
+        }
 
         public PipeTargetHttpParametersArgs()
         {

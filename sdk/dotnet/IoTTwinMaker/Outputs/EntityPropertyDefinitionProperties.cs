@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
         /// <summary>
         /// An object that specifies information about a property.
         /// </summary>
-        public readonly Outputs.EntityPropertyDefinitionConfiguration? Configuration;
+        public readonly ImmutableDictionary<string, string>? Configuration;
         /// <summary>
         /// An object that contains information about the data type.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
 
         [OutputConstructor]
         private EntityPropertyDefinitionProperties(
-            Outputs.EntityPropertyDefinitionConfiguration? configuration,
+            ImmutableDictionary<string, string>? configuration,
 
             Outputs.EntityDataType? dataType,
 

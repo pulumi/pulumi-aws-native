@@ -84,7 +84,7 @@ class GetRuleGroupResult:
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional['outputs.RuleGroupCustomResponseBodies']:
+    def custom_response_bodies(self) -> Optional[Mapping[str, 'outputs.RuleGroupCustomResponseBody']]:
         return pulumi.get(self, "custom_response_bodies")
 
     @property

@@ -27,15 +27,15 @@ type LookupRunGroupArgs struct {
 }
 
 type LookupRunGroupResult struct {
-	Arn          *string         `pulumi:"arn"`
-	CreationTime *string         `pulumi:"creationTime"`
-	Id           *string         `pulumi:"id"`
-	MaxCpus      *float64        `pulumi:"maxCpus"`
-	MaxDuration  *float64        `pulumi:"maxDuration"`
-	MaxGpus      *float64        `pulumi:"maxGpus"`
-	MaxRuns      *float64        `pulumi:"maxRuns"`
-	Name         *string         `pulumi:"name"`
-	Tags         *RunGroupTagMap `pulumi:"tags"`
+	Arn          *string           `pulumi:"arn"`
+	CreationTime *string           `pulumi:"creationTime"`
+	Id           *string           `pulumi:"id"`
+	MaxCpus      *float64          `pulumi:"maxCpus"`
+	MaxDuration  *float64          `pulumi:"maxDuration"`
+	MaxGpus      *float64          `pulumi:"maxGpus"`
+	MaxRuns      *float64          `pulumi:"maxRuns"`
+	Name         *string           `pulumi:"name"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 func LookupRunGroupOutput(ctx *pulumi.Context, args LookupRunGroupOutputArgs, opts ...pulumi.InvokeOption) LookupRunGroupResultOutput {
@@ -105,8 +105,8 @@ func (o LookupRunGroupResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRunGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRunGroupResultOutput) Tags() RunGroupTagMapPtrOutput {
-	return o.ApplyT(func(v LookupRunGroupResult) *RunGroupTagMap { return v.Tags }).(RunGroupTagMapPtrOutput)
+func (o LookupRunGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRunGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

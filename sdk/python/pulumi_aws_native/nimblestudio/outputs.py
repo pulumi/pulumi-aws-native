@@ -16,10 +16,8 @@ __all__ = [
     'LaunchProfileStreamConfigurationSessionBackup',
     'LaunchProfileStreamConfigurationSessionStorage',
     'LaunchProfileStreamingSessionStorageRoot',
-    'LaunchProfileTags',
     'LaunchProfileVolumeConfiguration',
     'StreamingImageEncryptionConfiguration',
-    'StreamingImageTags',
     'StudioComponentActiveDirectoryComputerAttribute',
     'StudioComponentActiveDirectoryConfiguration',
     'StudioComponentComputeFarmConfiguration',
@@ -31,9 +29,7 @@ __all__ = [
     'StudioComponentLicenseServiceConfiguration',
     'StudioComponentScriptParameterKeyValue',
     'StudioComponentSharedFileSystemConfiguration',
-    'StudioComponentTags',
     'StudioEncryptionConfiguration',
-    'StudioTags',
 ]
 
 @pulumi.output_type
@@ -337,12 +333,6 @@ class LaunchProfileStreamingSessionStorageRoot(dict):
 
 
 @pulumi.output_type
-class LaunchProfileTags(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class LaunchProfileVolumeConfiguration(dict):
     """
     <p>Custom volume configuration for the root volumes that are attached to streaming
@@ -448,12 +438,6 @@ class StreamingImageEncryptionConfiguration(dict):
         <p>The ARN for a KMS key that is used to encrypt studio data.</p>
         """
         return pulumi.get(self, "key_arn")
-
-
-@pulumi.output_type
-class StreamingImageTags(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -996,12 +980,6 @@ class StudioComponentSharedFileSystemConfiguration(dict):
 
 
 @pulumi.output_type
-class StudioComponentTags(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class StudioEncryptionConfiguration(dict):
     """
     <p>Configuration of the encryption method that is used for the studio.</p>
@@ -1048,11 +1026,5 @@ class StudioEncryptionConfiguration(dict):
         <p>The ARN for a KMS key that is used to encrypt studio data.</p>
         """
         return pulumi.get(self, "key_arn")
-
-
-@pulumi.output_type
-class StudioTags(dict):
-    def __init__(__self__):
-        pass
 
 

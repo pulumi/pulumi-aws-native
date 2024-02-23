@@ -21,7 +21,12 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         }
 
         [Input("targetResourceTags")]
-        public Input<Inputs.CisScanConfigurationTargetResourceTagsArgs>? TargetResourceTags { get; set; }
+        private InputMap<object>? _targetResourceTags;
+        public InputMap<object> TargetResourceTags
+        {
+            get => _targetResourceTags ?? (_targetResourceTags = new InputMap<object>());
+            set => _targetResourceTags = value;
+        }
 
         public CisScanConfigurationCisTargetsArgs()
         {

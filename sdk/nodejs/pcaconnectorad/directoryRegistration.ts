@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +36,7 @@ export class DirectoryRegistration extends pulumi.CustomResource {
 
     public readonly directoryId!: pulumi.Output<string>;
     public /*out*/ readonly directoryRegistrationArn!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.pcaconnectorad.DirectoryRegistrationTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DirectoryRegistration resource with the given unique name, arguments, and options.
@@ -75,5 +72,5 @@ export class DirectoryRegistration extends pulumi.CustomResource {
  */
 export interface DirectoryRegistrationArgs {
     directoryId: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.pcaconnectorad.DirectoryRegistrationTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

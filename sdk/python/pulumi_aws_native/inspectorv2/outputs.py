@@ -12,13 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'CisScanConfigurationCisTagMap',
     'CisScanConfigurationCisTargets',
     'CisScanConfigurationDailySchedule',
     'CisScanConfigurationMonthlySchedule',
     'CisScanConfigurationOneTimeSchedule',
     'CisScanConfigurationSchedule',
-    'CisScanConfigurationTargetResourceTags',
     'CisScanConfigurationTime',
     'CisScanConfigurationWeeklySchedule',
     'FilterCriteria',
@@ -29,12 +27,6 @@ __all__ = [
     'FilterPortRangeFilter',
     'FilterStringFilter',
 ]
-
-@pulumi.output_type
-class CisScanConfigurationCisTagMap(dict):
-    def __init__(__self__):
-        pass
-
 
 @pulumi.output_type
 class CisScanConfigurationCisTargets(dict):
@@ -59,7 +51,7 @@ class CisScanConfigurationCisTargets(dict):
 
     def __init__(__self__, *,
                  account_ids: Sequence[str],
-                 target_resource_tags: Optional['outputs.CisScanConfigurationTargetResourceTags'] = None):
+                 target_resource_tags: Optional[Mapping[str, Any]] = None):
         pulumi.set(__self__, "account_ids", account_ids)
         if target_resource_tags is not None:
             pulumi.set(__self__, "target_resource_tags", target_resource_tags)
@@ -71,7 +63,7 @@ class CisScanConfigurationCisTargets(dict):
 
     @property
     @pulumi.getter(name="targetResourceTags")
-    def target_resource_tags(self) -> Optional['outputs.CisScanConfigurationTargetResourceTags']:
+    def target_resource_tags(self) -> Optional[Mapping[str, Any]]:
         return pulumi.get(self, "target_resource_tags")
 
 
@@ -204,12 +196,6 @@ class CisScanConfigurationSchedule(dict):
     @pulumi.getter
     def weekly(self) -> Optional['outputs.CisScanConfigurationWeeklySchedule']:
         return pulumi.get(self, "weekly")
-
-
-@pulumi.output_type
-class CisScanConfigurationTargetResourceTags(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type

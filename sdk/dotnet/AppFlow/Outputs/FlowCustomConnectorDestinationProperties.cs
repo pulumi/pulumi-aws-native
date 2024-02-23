@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowCustomConnectorDestinationProperties
     {
-        public readonly Outputs.FlowCustomProperties? CustomProperties;
+        public readonly ImmutableDictionary<string, string>? CustomProperties;
         public readonly string EntityName;
         public readonly Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowCustomConnectorDestinationProperties(
-            Outputs.FlowCustomProperties? customProperties,
+            ImmutableDictionary<string, string>? customProperties,
 
             string entityName,
 

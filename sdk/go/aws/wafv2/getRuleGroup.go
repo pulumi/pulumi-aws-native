@@ -35,11 +35,11 @@ type LookupRuleGroupResult struct {
 	AvailableLabels []RuleGroupLabelSummary `pulumi:"availableLabels"`
 	Capacity        *int                    `pulumi:"capacity"`
 	// Collection of Consumed Labels.
-	ConsumedLabels       []RuleGroupLabelSummary        `pulumi:"consumedLabels"`
-	CustomResponseBodies *RuleGroupCustomResponseBodies `pulumi:"customResponseBodies"`
-	Description          *string                        `pulumi:"description"`
-	Id                   *string                        `pulumi:"id"`
-	LabelNamespace       *string                        `pulumi:"labelNamespace"`
+	ConsumedLabels       []RuleGroupLabelSummary                `pulumi:"consumedLabels"`
+	CustomResponseBodies map[string]RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
+	Description          *string                                `pulumi:"description"`
+	Id                   *string                                `pulumi:"id"`
+	LabelNamespace       *string                                `pulumi:"labelNamespace"`
 	// Collection of Rules.
 	Rules            []RuleGroupRule            `pulumi:"rules"`
 	Tags             []aws.Tag                  `pulumi:"tags"`
@@ -101,8 +101,8 @@ func (o LookupRuleGroupResultOutput) ConsumedLabels() RuleGroupLabelSummaryArray
 	return o.ApplyT(func(v LookupRuleGroupResult) []RuleGroupLabelSummary { return v.ConsumedLabels }).(RuleGroupLabelSummaryArrayOutput)
 }
 
-func (o LookupRuleGroupResultOutput) CustomResponseBodies() RuleGroupCustomResponseBodiesPtrOutput {
-	return o.ApplyT(func(v LookupRuleGroupResult) *RuleGroupCustomResponseBodies { return v.CustomResponseBodies }).(RuleGroupCustomResponseBodiesPtrOutput)
+func (o LookupRuleGroupResultOutput) CustomResponseBodies() RuleGroupCustomResponseBodyMapOutput {
+	return o.ApplyT(func(v LookupRuleGroupResult) map[string]RuleGroupCustomResponseBody { return v.CustomResponseBodies }).(RuleGroupCustomResponseBodyMapOutput)
 }
 
 func (o LookupRuleGroupResultOutput) Description() pulumi.StringPtrOutput {

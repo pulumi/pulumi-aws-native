@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
         /// </summary>
         [Output("configurationAliases")]
-        public Output<Outputs.PlaybackConfigurationConfigurationAliases?> ConfigurationAliases { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> ConfigurationAliases { get; private set; } = null!;
 
         /// <summary>
         /// The configuration for DASH content.
@@ -196,11 +196,17 @@ namespace Pulumi.AwsNative.MediaTailor
         [Input("cdnConfiguration")]
         public Input<Inputs.PlaybackConfigurationCdnConfigurationArgs>? CdnConfiguration { get; set; }
 
+        [Input("configurationAliases")]
+        private InputMap<object>? _configurationAliases;
+
         /// <summary>
         /// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
         /// </summary>
-        [Input("configurationAliases")]
-        public Input<Inputs.PlaybackConfigurationConfigurationAliasesArgs>? ConfigurationAliases { get; set; }
+        public InputMap<object> ConfigurationAliases
+        {
+            get => _configurationAliases ?? (_configurationAliases = new InputMap<object>());
+            set => _configurationAliases = value;
+        }
 
         /// <summary>
         /// The configuration for DASH content.

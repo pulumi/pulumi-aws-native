@@ -29,7 +29,7 @@ export interface GetWorkflowResult {
     readonly id?: string;
     readonly name?: string;
     readonly status?: enums.omics.WorkflowStatus;
-    readonly tags?: outputs.omics.WorkflowTagMap;
+    readonly tags?: {[key: string]: string};
     readonly type?: enums.omics.WorkflowType;
 }
 /**

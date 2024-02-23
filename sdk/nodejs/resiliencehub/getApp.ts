@@ -59,7 +59,7 @@ export interface GetAppResult {
      * An array of ResourceMapping objects.
      */
     readonly resourceMappings?: outputs.resiliencehub.AppResourceMapping[];
-    readonly tags?: outputs.resiliencehub.AppTagMap;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource Type Definition for AWS::ResilienceHub::App.

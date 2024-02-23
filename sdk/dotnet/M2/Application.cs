@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.M2
         public Output<string?> RoleArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.ApplicationTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,7 +119,12 @@ namespace Pulumi.AwsNative.M2
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.ApplicationTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ApplicationArgs()
         {

@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Omics
         public Output<double> StoreSizeBytes { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.AnnotationStoreTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Omics
                     "sseConfig",
                     "storeFormat",
                     "storeOptions",
-                    "tags",
+                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -127,7 +127,12 @@ namespace Pulumi.AwsNative.Omics
         public Input<Inputs.AnnotationStoreStoreOptionsPropertiesArgs>? StoreOptions { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.AnnotationStoreTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public AnnotationStoreArgs()
         {

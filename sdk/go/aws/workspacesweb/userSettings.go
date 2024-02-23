@@ -17,7 +17,7 @@ import (
 type UserSettings struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext        UserSettingsEncryptionContextMapPtrOutput               `pulumi:"additionalEncryptionContext"`
+	AdditionalEncryptionContext        pulumi.StringMapOutput                                  `pulumi:"additionalEncryptionContext"`
 	AssociatedPortalArns               pulumi.StringArrayOutput                                `pulumi:"associatedPortalArns"`
 	CookieSynchronizationConfiguration UserSettingsCookieSynchronizationConfigurationPtrOutput `pulumi:"cookieSynchronizationConfiguration"`
 	CopyAllowed                        UserSettingsEnabledTypeOutput                           `pulumi:"copyAllowed"`
@@ -55,7 +55,7 @@ func NewUserSettings(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UploadAllowed'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"additionalEncryptionContext",
+		"additionalEncryptionContext.*",
 		"customerManagedKey",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -92,7 +92,7 @@ func (UserSettingsState) ElementType() reflect.Type {
 }
 
 type userSettingsArgs struct {
-	AdditionalEncryptionContext        *UserSettingsEncryptionContextMap               `pulumi:"additionalEncryptionContext"`
+	AdditionalEncryptionContext        map[string]string                               `pulumi:"additionalEncryptionContext"`
 	CookieSynchronizationConfiguration *UserSettingsCookieSynchronizationConfiguration `pulumi:"cookieSynchronizationConfiguration"`
 	CopyAllowed                        UserSettingsEnabledType                         `pulumi:"copyAllowed"`
 	CustomerManagedKey                 *string                                         `pulumi:"customerManagedKey"`
@@ -107,7 +107,7 @@ type userSettingsArgs struct {
 
 // The set of arguments for constructing a UserSettings resource.
 type UserSettingsArgs struct {
-	AdditionalEncryptionContext        UserSettingsEncryptionContextMapPtrInput
+	AdditionalEncryptionContext        pulumi.StringMapInput
 	CookieSynchronizationConfiguration UserSettingsCookieSynchronizationConfigurationPtrInput
 	CopyAllowed                        UserSettingsEnabledTypeInput
 	CustomerManagedKey                 pulumi.StringPtrInput
@@ -157,8 +157,8 @@ func (o UserSettingsOutput) ToUserSettingsOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o UserSettingsOutput) AdditionalEncryptionContext() UserSettingsEncryptionContextMapPtrOutput {
-	return o.ApplyT(func(v *UserSettings) UserSettingsEncryptionContextMapPtrOutput { return v.AdditionalEncryptionContext }).(UserSettingsEncryptionContextMapPtrOutput)
+func (o UserSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UserSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
 func (o UserSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

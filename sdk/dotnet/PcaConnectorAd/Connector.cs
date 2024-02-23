@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         public Output<string> DirectoryId { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.ConnectorTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("vpcInformation")]
         public Output<Outputs.ConnectorVpcInformation> VpcInformation { get; private set; } = null!;
@@ -88,7 +88,12 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         public Input<string> DirectoryId { get; set; } = null!;
 
         [Input("tags")]
-        public Input<Inputs.ConnectorTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("vpcInformation", required: true)]
         public Input<Inputs.ConnectorVpcInformationArgs> VpcInformation { get; set; } = null!;

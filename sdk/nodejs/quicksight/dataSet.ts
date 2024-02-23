@@ -63,14 +63,14 @@ export class DataSet extends pulumi.CustomResource {
      * <p>The parameters declared in the dataset.</p>
      */
     public readonly datasetParameters!: pulumi.Output<outputs.quicksight.DataSetDatasetParameter[] | undefined>;
-    public readonly fieldFolders!: pulumi.Output<outputs.quicksight.DataSetFieldFolderMap | undefined>;
+    public readonly fieldFolders!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetFieldFolder} | undefined>;
     public readonly importMode!: pulumi.Output<enums.quicksight.DataSetImportMode | undefined>;
     public readonly ingestionWaitPolicy!: pulumi.Output<outputs.quicksight.DataSetIngestionWaitPolicy | undefined>;
     /**
      * <p>The last time that this dataset was updated.</p>
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    public readonly logicalTableMap!: pulumi.Output<outputs.quicksight.DataSetLogicalTableMap | undefined>;
+    public readonly logicalTableMap!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetLogicalTable} | undefined>;
     /**
      * <p>The display name for the dataset.</p>
      */
@@ -84,7 +84,7 @@ export class DataSet extends pulumi.CustomResource {
      * <p>A list of resource permissions on the dataset.</p>
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSetResourcePermission[] | undefined>;
-    public readonly physicalTableMap!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap | undefined>;
+    public readonly physicalTableMap!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetPhysicalTable} | undefined>;
     public readonly rowLevelPermissionDataSet!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
     public readonly rowLevelPermissionTagConfiguration!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionTagConfiguration | undefined>;
     /**
@@ -173,10 +173,10 @@ export interface DataSetArgs {
      * <p>The parameters declared in the dataset.</p>
      */
     datasetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetDatasetParameterArgs>[]>;
-    fieldFolders?: pulumi.Input<inputs.quicksight.DataSetFieldFolderMapArgs>;
+    fieldFolders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetFieldFolderArgs>}>;
     importMode?: pulumi.Input<enums.quicksight.DataSetImportMode>;
     ingestionWaitPolicy?: pulumi.Input<inputs.quicksight.DataSetIngestionWaitPolicyArgs>;
-    logicalTableMap?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapArgs>;
+    logicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetLogicalTableArgs>}>;
     /**
      * <p>The display name for the dataset.</p>
      */
@@ -185,7 +185,7 @@ export interface DataSetArgs {
      * <p>A list of resource permissions on the dataset.</p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetResourcePermissionArgs>[]>;
-    physicalTableMap?: pulumi.Input<inputs.quicksight.DataSetPhysicalTableMapArgs>;
+    physicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetPhysicalTableArgs>}>;
     rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSetArgs>;
     rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagConfigurationArgs>;
     /**

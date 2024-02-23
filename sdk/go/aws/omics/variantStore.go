@@ -25,7 +25,7 @@ type VariantStore struct {
 	StatusMessage  pulumi.StringOutput             `pulumi:"statusMessage"`
 	StoreArn       pulumi.StringOutput             `pulumi:"storeArn"`
 	StoreSizeBytes pulumi.Float64Output            `pulumi:"storeSizeBytes"`
-	Tags           VariantStoreTagMapPtrOutput     `pulumi:"tags"`
+	Tags           pulumi.StringMapOutput          `pulumi:"tags"`
 	UpdateTime     pulumi.StringOutput             `pulumi:"updateTime"`
 }
 
@@ -43,7 +43,7 @@ func NewVariantStore(ctx *pulumi.Context,
 		"name",
 		"reference",
 		"sseConfig",
-		"tags",
+		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -83,7 +83,7 @@ type variantStoreArgs struct {
 	Name        *string                   `pulumi:"name"`
 	Reference   VariantStoreReferenceItem `pulumi:"reference"`
 	SseConfig   *VariantStoreSseConfig    `pulumi:"sseConfig"`
-	Tags        *VariantStoreTagMap       `pulumi:"tags"`
+	Tags        map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VariantStore resource.
@@ -92,7 +92,7 @@ type VariantStoreArgs struct {
 	Name        pulumi.StringPtrInput
 	Reference   VariantStoreReferenceItemInput
 	SseConfig   VariantStoreSseConfigPtrInput
-	Tags        VariantStoreTagMapPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (VariantStoreArgs) ElementType() reflect.Type {
@@ -168,8 +168,8 @@ func (o VariantStoreOutput) StoreSizeBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v *VariantStore) pulumi.Float64Output { return v.StoreSizeBytes }).(pulumi.Float64Output)
 }
 
-func (o VariantStoreOutput) Tags() VariantStoreTagMapPtrOutput {
-	return o.ApplyT(func(v *VariantStore) VariantStoreTagMapPtrOutput { return v.Tags }).(VariantStoreTagMapPtrOutput)
+func (o VariantStoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VariantStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o VariantStoreOutput) UpdateTime() pulumi.StringOutput {

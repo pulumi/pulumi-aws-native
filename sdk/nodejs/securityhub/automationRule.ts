@@ -53,7 +53,7 @@ export class AutomationRule extends pulumi.CustomResource {
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
     public readonly ruleStatus!: pulumi.Output<enums.securityhub.AutomationRuleRuleStatus | undefined>;
-    public readonly tags!: pulumi.Output<outputs.securityhub.AutomationRuleTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -115,5 +115,5 @@ export interface AutomationRuleArgs {
      * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
      */
     ruleStatus?: pulumi.Input<enums.securityhub.AutomationRuleRuleStatus>;
-    tags?: pulumi.Input<inputs.securityhub.AutomationRuleTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

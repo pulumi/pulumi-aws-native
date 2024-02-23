@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     public partial class BrowserSettings : global::Pulumi.CustomResource
     {
         [Output("additionalEncryptionContext")]
-        public Output<Outputs.BrowserSettingsEncryptionContextMap?> AdditionalEncryptionContext { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "additionalEncryptionContext",
+                    "additionalEncryptionContext.*",
                     "customerManagedKey",
                 },
             };
@@ -84,7 +84,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     public sealed class BrowserSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalEncryptionContext")]
-        public Input<Inputs.BrowserSettingsEncryptionContextMapArgs>? AdditionalEncryptionContext { get; set; }
+        private InputMap<string>? _additionalEncryptionContext;
+        public InputMap<string> AdditionalEncryptionContext
+        {
+            get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
+            set => _additionalEncryptionContext = value;
+        }
 
         [Input("browserPolicy")]
         public Input<string>? BrowserPolicy { get; set; }

@@ -21,7 +21,7 @@ type Vehicle struct {
 
 	Arn                  pulumi.StringOutput                 `pulumi:"arn"`
 	AssociationBehavior  VehicleAssociationBehaviorPtrOutput `pulumi:"associationBehavior"`
-	Attributes           VehicleattributesMapPtrOutput       `pulumi:"attributes"`
+	Attributes           pulumi.StringMapOutput              `pulumi:"attributes"`
 	CreationTime         pulumi.StringOutput                 `pulumi:"creationTime"`
 	DecoderManifestArn   pulumi.StringOutput                 `pulumi:"decoderManifestArn"`
 	LastModificationTime pulumi.StringOutput                 `pulumi:"lastModificationTime"`
@@ -81,7 +81,7 @@ func (VehicleState) ElementType() reflect.Type {
 
 type vehicleArgs struct {
 	AssociationBehavior *VehicleAssociationBehavior `pulumi:"associationBehavior"`
-	Attributes          *VehicleattributesMap       `pulumi:"attributes"`
+	Attributes          map[string]string           `pulumi:"attributes"`
 	DecoderManifestArn  string                      `pulumi:"decoderManifestArn"`
 	ModelManifestArn    string                      `pulumi:"modelManifestArn"`
 	Name                *string                     `pulumi:"name"`
@@ -91,7 +91,7 @@ type vehicleArgs struct {
 // The set of arguments for constructing a Vehicle resource.
 type VehicleArgs struct {
 	AssociationBehavior VehicleAssociationBehaviorPtrInput
-	Attributes          VehicleattributesMapPtrInput
+	Attributes          pulumi.StringMapInput
 	DecoderManifestArn  pulumi.StringInput
 	ModelManifestArn    pulumi.StringInput
 	Name                pulumi.StringPtrInput
@@ -143,8 +143,8 @@ func (o VehicleOutput) AssociationBehavior() VehicleAssociationBehaviorPtrOutput
 	return o.ApplyT(func(v *Vehicle) VehicleAssociationBehaviorPtrOutput { return v.AssociationBehavior }).(VehicleAssociationBehaviorPtrOutput)
 }
 
-func (o VehicleOutput) Attributes() VehicleattributesMapPtrOutput {
-	return o.ApplyT(func(v *Vehicle) VehicleattributesMapPtrOutput { return v.Attributes }).(VehicleattributesMapPtrOutput)
+func (o VehicleOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Vehicle) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
 func (o VehicleOutput) CreationTime() pulumi.StringOutput {

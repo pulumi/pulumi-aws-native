@@ -43,7 +43,7 @@ type Environment struct {
 	// The unique identifiers of the subnets assigned to this runtime environment.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Tags associated to this environment.
-	Tags EnvironmentTagMapPtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -126,7 +126,7 @@ type environmentArgs struct {
 	// The unique identifiers of the subnets assigned to this runtime environment.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Tags associated to this environment.
-	Tags *EnvironmentTagMap `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -154,7 +154,7 @@ type EnvironmentArgs struct {
 	// The unique identifiers of the subnets assigned to this runtime environment.
 	SubnetIds pulumi.StringArrayInput
 	// Tags associated to this environment.
-	Tags EnvironmentTagMapPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -263,8 +263,8 @@ func (o EnvironmentOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // Tags associated to this environment.
-func (o EnvironmentOutput) Tags() EnvironmentTagMapPtrOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentTagMapPtrOutput { return v.Tags }).(EnvironmentTagMapPtrOutput)
+func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

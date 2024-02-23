@@ -11,30 +11,16 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AnnotationStoreFormatToHeaderArgs',
     'AnnotationStoreReferenceItemArgs',
-    'AnnotationStoreSchemaItemArgs',
     'AnnotationStoreSseConfigArgs',
     'AnnotationStoreStoreOptionsPropertiesArgs',
-    'AnnotationStoreTagMapArgs',
     'AnnotationStoreTsvStoreOptionsArgs',
     'ReferenceStoreSseConfigArgs',
-    'ReferenceStoreTagMapArgs',
-    'RunGroupTagMapArgs',
     'SequenceStoreSseConfigArgs',
-    'SequenceStoreTagMapArgs',
     'VariantStoreReferenceItemArgs',
     'VariantStoreSseConfigArgs',
-    'VariantStoreTagMapArgs',
-    'WorkflowParameterTemplateArgs',
-    'WorkflowTagMapArgs',
+    'WorkflowParameterArgs',
 ]
-
-@pulumi.input_type
-class AnnotationStoreFormatToHeaderArgs:
-    def __init__(__self__):
-        pass
-
 
 @pulumi.input_type
 class AnnotationStoreReferenceItemArgs:
@@ -50,12 +36,6 @@ class AnnotationStoreReferenceItemArgs:
     @reference_arn.setter
     def reference_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "reference_arn", value)
-
-
-@pulumi.input_type
-class AnnotationStoreSchemaItemArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -103,17 +83,11 @@ class AnnotationStoreStoreOptionsPropertiesArgs:
 
 
 @pulumi.input_type
-class AnnotationStoreTagMapArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class AnnotationStoreTsvStoreOptionsArgs:
     def __init__(__self__, *,
                  annotation_type: Optional[pulumi.Input['AnnotationStoreAnnotationType']] = None,
-                 format_to_header: Optional[pulumi.Input['AnnotationStoreFormatToHeaderArgs']] = None,
-                 schema: Optional[pulumi.Input[Sequence[pulumi.Input['AnnotationStoreSchemaItemArgs']]]] = None):
+                 format_to_header: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 schema: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]] = None):
         if annotation_type is not None:
             pulumi.set(__self__, "annotation_type", annotation_type)
         if format_to_header is not None:
@@ -132,20 +106,20 @@ class AnnotationStoreTsvStoreOptionsArgs:
 
     @property
     @pulumi.getter(name="formatToHeader")
-    def format_to_header(self) -> Optional[pulumi.Input['AnnotationStoreFormatToHeaderArgs']]:
+    def format_to_header(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "format_to_header")
 
     @format_to_header.setter
-    def format_to_header(self, value: Optional[pulumi.Input['AnnotationStoreFormatToHeaderArgs']]):
+    def format_to_header(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "format_to_header", value)
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnnotationStoreSchemaItemArgs']]]]:
+    def schema(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]:
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnnotationStoreSchemaItemArgs']]]]):
+    def schema(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input['AnnotationStoreSchemaValueType']]]]]]):
         pulumi.set(self, "schema", value)
 
 
@@ -185,21 +159,6 @@ class ReferenceStoreSseConfigArgs:
 
 
 @pulumi.input_type
-class ReferenceStoreTagMapArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
-class RunGroupTagMapArgs:
-    def __init__(__self__):
-        """
-        A map of resource tags
-        """
-        pass
-
-
-@pulumi.input_type
 class SequenceStoreSseConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['SequenceStoreEncryptionType'],
@@ -232,12 +191,6 @@ class SequenceStoreSseConfigArgs:
     @key_arn.setter
     def key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_arn", value)
-
-
-@pulumi.input_type
-class SequenceStoreTagMapArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -285,23 +238,31 @@ class VariantStoreSseConfigArgs:
 
 
 @pulumi.input_type
-class VariantStoreTagMapArgs:
-    def __init__(__self__):
-        pass
+class WorkflowParameterArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 optional: Optional[pulumi.Input[bool]] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
 
-@pulumi.input_type
-class WorkflowParameterTemplateArgs:
-    def __init__(__self__):
-        pass
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "optional")
 
-@pulumi.input_type
-class WorkflowTagMapArgs:
-    def __init__(__self__):
-        """
-        A map of resource tags
-        """
-        pass
+    @optional.setter
+    def optional(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optional", value)
 
 

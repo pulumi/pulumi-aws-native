@@ -1335,130 +1335,9 @@ func (o ConnectorProfileCredentialsPtrOutput) Zendesk() ConnectorProfileZendeskC
 	}).(ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput)
 }
 
-// A map for properties for custom authentication.
-type ConnectorProfileCredentialsMap struct {
-}
-
-// ConnectorProfileCredentialsMapInput is an input type that accepts ConnectorProfileCredentialsMap and ConnectorProfileCredentialsMapOutput values.
-// You can construct a concrete instance of `ConnectorProfileCredentialsMapInput` via:
-//
-//	ConnectorProfileCredentialsMap{ "key": ConnectorProfileCredentialsArgs{...} }
-type ConnectorProfileCredentialsMapInput interface {
-	pulumi.Input
-
-	ToConnectorProfileCredentialsMapOutput() ConnectorProfileCredentialsMapOutput
-	ToConnectorProfileCredentialsMapOutputWithContext(context.Context) ConnectorProfileCredentialsMapOutput
-}
-
-// A map for properties for custom authentication.
-type ConnectorProfileCredentialsMapArgs struct {
-}
-
-func (ConnectorProfileCredentialsMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileCredentialsMap)(nil)).Elem()
-}
-
-func (i ConnectorProfileCredentialsMapArgs) ToConnectorProfileCredentialsMapOutput() ConnectorProfileCredentialsMapOutput {
-	return i.ToConnectorProfileCredentialsMapOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileCredentialsMapArgs) ToConnectorProfileCredentialsMapOutputWithContext(ctx context.Context) ConnectorProfileCredentialsMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileCredentialsMapOutput)
-}
-
-func (i ConnectorProfileCredentialsMapArgs) ToConnectorProfileCredentialsMapPtrOutput() ConnectorProfileCredentialsMapPtrOutput {
-	return i.ToConnectorProfileCredentialsMapPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileCredentialsMapArgs) ToConnectorProfileCredentialsMapPtrOutputWithContext(ctx context.Context) ConnectorProfileCredentialsMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileCredentialsMapOutput).ToConnectorProfileCredentialsMapPtrOutputWithContext(ctx)
-}
-
-// ConnectorProfileCredentialsMapPtrInput is an input type that accepts ConnectorProfileCredentialsMapArgs, ConnectorProfileCredentialsMapPtr and ConnectorProfileCredentialsMapPtrOutput values.
-// You can construct a concrete instance of `ConnectorProfileCredentialsMapPtrInput` via:
-//
-//	        ConnectorProfileCredentialsMapArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectorProfileCredentialsMapPtrInput interface {
-	pulumi.Input
-
-	ToConnectorProfileCredentialsMapPtrOutput() ConnectorProfileCredentialsMapPtrOutput
-	ToConnectorProfileCredentialsMapPtrOutputWithContext(context.Context) ConnectorProfileCredentialsMapPtrOutput
-}
-
-type connectorProfileCredentialsMapPtrType ConnectorProfileCredentialsMapArgs
-
-func ConnectorProfileCredentialsMapPtr(v *ConnectorProfileCredentialsMapArgs) ConnectorProfileCredentialsMapPtrInput {
-	return (*connectorProfileCredentialsMapPtrType)(v)
-}
-
-func (*connectorProfileCredentialsMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileCredentialsMap)(nil)).Elem()
-}
-
-func (i *connectorProfileCredentialsMapPtrType) ToConnectorProfileCredentialsMapPtrOutput() ConnectorProfileCredentialsMapPtrOutput {
-	return i.ToConnectorProfileCredentialsMapPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorProfileCredentialsMapPtrType) ToConnectorProfileCredentialsMapPtrOutputWithContext(ctx context.Context) ConnectorProfileCredentialsMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileCredentialsMapPtrOutput)
-}
-
-// A map for properties for custom authentication.
-type ConnectorProfileCredentialsMapOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileCredentialsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileCredentialsMap)(nil)).Elem()
-}
-
-func (o ConnectorProfileCredentialsMapOutput) ToConnectorProfileCredentialsMapOutput() ConnectorProfileCredentialsMapOutput {
-	return o
-}
-
-func (o ConnectorProfileCredentialsMapOutput) ToConnectorProfileCredentialsMapOutputWithContext(ctx context.Context) ConnectorProfileCredentialsMapOutput {
-	return o
-}
-
-func (o ConnectorProfileCredentialsMapOutput) ToConnectorProfileCredentialsMapPtrOutput() ConnectorProfileCredentialsMapPtrOutput {
-	return o.ToConnectorProfileCredentialsMapPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorProfileCredentialsMapOutput) ToConnectorProfileCredentialsMapPtrOutputWithContext(ctx context.Context) ConnectorProfileCredentialsMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileCredentialsMap) *ConnectorProfileCredentialsMap {
-		return &v
-	}).(ConnectorProfileCredentialsMapPtrOutput)
-}
-
-type ConnectorProfileCredentialsMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileCredentialsMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileCredentialsMap)(nil)).Elem()
-}
-
-func (o ConnectorProfileCredentialsMapPtrOutput) ToConnectorProfileCredentialsMapPtrOutput() ConnectorProfileCredentialsMapPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileCredentialsMapPtrOutput) ToConnectorProfileCredentialsMapPtrOutputWithContext(ctx context.Context) ConnectorProfileCredentialsMapPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileCredentialsMapPtrOutput) Elem() ConnectorProfileCredentialsMapOutput {
-	return o.ApplyT(func(v *ConnectorProfileCredentialsMap) ConnectorProfileCredentialsMap {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorProfileCredentialsMap
-		return ret
-	}).(ConnectorProfileCredentialsMapOutput)
-}
-
 type ConnectorProfileCustomAuthCredentials struct {
-	CredentialsMap           *ConnectorProfileCredentialsMap `pulumi:"credentialsMap"`
-	CustomAuthenticationType string                          `pulumi:"customAuthenticationType"`
+	CredentialsMap           map[string]string `pulumi:"credentialsMap"`
+	CustomAuthenticationType string            `pulumi:"customAuthenticationType"`
 }
 
 // ConnectorProfileCustomAuthCredentialsInput is an input type that accepts ConnectorProfileCustomAuthCredentialsArgs and ConnectorProfileCustomAuthCredentialsOutput values.
@@ -1473,8 +1352,8 @@ type ConnectorProfileCustomAuthCredentialsInput interface {
 }
 
 type ConnectorProfileCustomAuthCredentialsArgs struct {
-	CredentialsMap           ConnectorProfileCredentialsMapPtrInput `pulumi:"credentialsMap"`
-	CustomAuthenticationType pulumi.StringInput                     `pulumi:"customAuthenticationType"`
+	CredentialsMap           pulumi.StringMapInput `pulumi:"credentialsMap"`
+	CustomAuthenticationType pulumi.StringInput    `pulumi:"customAuthenticationType"`
 }
 
 func (ConnectorProfileCustomAuthCredentialsArgs) ElementType() reflect.Type {
@@ -1554,8 +1433,8 @@ func (o ConnectorProfileCustomAuthCredentialsOutput) ToConnectorProfileCustomAut
 	}).(ConnectorProfileCustomAuthCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileCustomAuthCredentialsOutput) CredentialsMap() ConnectorProfileCredentialsMapPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileCustomAuthCredentials) *ConnectorProfileCredentialsMap { return v.CredentialsMap }).(ConnectorProfileCredentialsMapPtrOutput)
+func (o ConnectorProfileCustomAuthCredentialsOutput) CredentialsMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectorProfileCustomAuthCredentials) map[string]string { return v.CredentialsMap }).(pulumi.StringMapOutput)
 }
 
 func (o ConnectorProfileCustomAuthCredentialsOutput) CustomAuthenticationType() pulumi.StringOutput {
@@ -1586,13 +1465,13 @@ func (o ConnectorProfileCustomAuthCredentialsPtrOutput) Elem() ConnectorProfileC
 	}).(ConnectorProfileCustomAuthCredentialsOutput)
 }
 
-func (o ConnectorProfileCustomAuthCredentialsPtrOutput) CredentialsMap() ConnectorProfileCredentialsMapPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileCustomAuthCredentials) *ConnectorProfileCredentialsMap {
+func (o ConnectorProfileCustomAuthCredentialsPtrOutput) CredentialsMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectorProfileCustomAuthCredentials) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.CredentialsMap
-	}).(ConnectorProfileCredentialsMapPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o ConnectorProfileCustomAuthCredentialsPtrOutput) CustomAuthenticationType() pulumi.StringPtrOutput {
@@ -1808,8 +1687,8 @@ func (o ConnectorProfileCustomConnectorProfileCredentialsPtrOutput) Oauth2() Con
 }
 
 type ConnectorProfileCustomConnectorProfileProperties struct {
-	OAuth2Properties  *ConnectorProfileOAuth2Properties  `pulumi:"oAuth2Properties"`
-	ProfileProperties *ConnectorProfileProfileProperties `pulumi:"profileProperties"`
+	OAuth2Properties  *ConnectorProfileOAuth2Properties `pulumi:"oAuth2Properties"`
+	ProfileProperties map[string]string                 `pulumi:"profileProperties"`
 }
 
 // ConnectorProfileCustomConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileCustomConnectorProfilePropertiesArgs and ConnectorProfileCustomConnectorProfilePropertiesOutput values.
@@ -1824,8 +1703,8 @@ type ConnectorProfileCustomConnectorProfilePropertiesInput interface {
 }
 
 type ConnectorProfileCustomConnectorProfilePropertiesArgs struct {
-	OAuth2Properties  ConnectorProfileOAuth2PropertiesPtrInput  `pulumi:"oAuth2Properties"`
-	ProfileProperties ConnectorProfileProfilePropertiesPtrInput `pulumi:"profileProperties"`
+	OAuth2Properties  ConnectorProfileOAuth2PropertiesPtrInput `pulumi:"oAuth2Properties"`
+	ProfileProperties pulumi.StringMapInput                    `pulumi:"profileProperties"`
 }
 
 func (ConnectorProfileCustomConnectorProfilePropertiesArgs) ElementType() reflect.Type {
@@ -1911,10 +1790,8 @@ func (o ConnectorProfileCustomConnectorProfilePropertiesOutput) OAuth2Properties
 	}).(ConnectorProfileOAuth2PropertiesPtrOutput)
 }
 
-func (o ConnectorProfileCustomConnectorProfilePropertiesOutput) ProfileProperties() ConnectorProfileProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileCustomConnectorProfileProperties) *ConnectorProfileProfileProperties {
-		return v.ProfileProperties
-	}).(ConnectorProfileProfilePropertiesPtrOutput)
+func (o ConnectorProfileCustomConnectorProfilePropertiesOutput) ProfileProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectorProfileCustomConnectorProfileProperties) map[string]string { return v.ProfileProperties }).(pulumi.StringMapOutput)
 }
 
 type ConnectorProfileCustomConnectorProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1950,13 +1827,13 @@ func (o ConnectorProfileCustomConnectorProfilePropertiesPtrOutput) OAuth2Propert
 	}).(ConnectorProfileOAuth2PropertiesPtrOutput)
 }
 
-func (o ConnectorProfileCustomConnectorProfilePropertiesPtrOutput) ProfileProperties() ConnectorProfileProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileCustomConnectorProfileProperties) *ConnectorProfileProfileProperties {
+func (o ConnectorProfileCustomConnectorProfilePropertiesPtrOutput) ProfileProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectorProfileCustomConnectorProfileProperties) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ProfileProperties
-	}).(ConnectorProfileProfilePropertiesPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type ConnectorProfileDatadogConnectorProfileCredentials struct {
@@ -3601,9 +3478,9 @@ func (o ConnectorProfileOAuth2CredentialsPtrOutput) RefreshToken() pulumi.String
 }
 
 type ConnectorProfileOAuth2Properties struct {
-	OAuth2GrantType          *ConnectorProfileOAuth2GrantType          `pulumi:"oAuth2GrantType"`
-	TokenUrl                 *string                                   `pulumi:"tokenUrl"`
-	TokenUrlCustomProperties *ConnectorProfileTokenUrlCustomProperties `pulumi:"tokenUrlCustomProperties"`
+	OAuth2GrantType          *ConnectorProfileOAuth2GrantType `pulumi:"oAuth2GrantType"`
+	TokenUrl                 *string                          `pulumi:"tokenUrl"`
+	TokenUrlCustomProperties map[string]string                `pulumi:"tokenUrlCustomProperties"`
 }
 
 // ConnectorProfileOAuth2PropertiesInput is an input type that accepts ConnectorProfileOAuth2PropertiesArgs and ConnectorProfileOAuth2PropertiesOutput values.
@@ -3618,9 +3495,9 @@ type ConnectorProfileOAuth2PropertiesInput interface {
 }
 
 type ConnectorProfileOAuth2PropertiesArgs struct {
-	OAuth2GrantType          ConnectorProfileOAuth2GrantTypePtrInput          `pulumi:"oAuth2GrantType"`
-	TokenUrl                 pulumi.StringPtrInput                            `pulumi:"tokenUrl"`
-	TokenUrlCustomProperties ConnectorProfileTokenUrlCustomPropertiesPtrInput `pulumi:"tokenUrlCustomProperties"`
+	OAuth2GrantType          ConnectorProfileOAuth2GrantTypePtrInput `pulumi:"oAuth2GrantType"`
+	TokenUrl                 pulumi.StringPtrInput                   `pulumi:"tokenUrl"`
+	TokenUrlCustomProperties pulumi.StringMapInput                   `pulumi:"tokenUrlCustomProperties"`
 }
 
 func (ConnectorProfileOAuth2PropertiesArgs) ElementType() reflect.Type {
@@ -3708,10 +3585,8 @@ func (o ConnectorProfileOAuth2PropertiesOutput) TokenUrl() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ConnectorProfileOAuth2Properties) *string { return v.TokenUrl }).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectorProfileOAuth2PropertiesOutput) TokenUrlCustomProperties() ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileOAuth2Properties) *ConnectorProfileTokenUrlCustomProperties {
-		return v.TokenUrlCustomProperties
-	}).(ConnectorProfileTokenUrlCustomPropertiesPtrOutput)
+func (o ConnectorProfileOAuth2PropertiesOutput) TokenUrlCustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectorProfileOAuth2Properties) map[string]string { return v.TokenUrlCustomProperties }).(pulumi.StringMapOutput)
 }
 
 type ConnectorProfileOAuth2PropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -3756,13 +3631,13 @@ func (o ConnectorProfileOAuth2PropertiesPtrOutput) TokenUrl() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectorProfileOAuth2PropertiesPtrOutput) TokenUrlCustomProperties() ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileOAuth2Properties) *ConnectorProfileTokenUrlCustomProperties {
+func (o ConnectorProfileOAuth2PropertiesPtrOutput) TokenUrlCustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectorProfileOAuth2Properties) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.TokenUrlCustomProperties
-	}).(ConnectorProfileTokenUrlCustomPropertiesPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type ConnectorProfileOAuthProperties struct {
@@ -4297,127 +4172,6 @@ func (o ConnectorProfilePardotConnectorProfilePropertiesPtrOutput) IsSandboxEnvi
 		}
 		return v.IsSandboxEnvironment
 	}).(pulumi.BoolPtrOutput)
-}
-
-// A map for properties for custom connector.
-type ConnectorProfileProfileProperties struct {
-}
-
-// ConnectorProfileProfilePropertiesInput is an input type that accepts ConnectorProfileProfilePropertiesArgs and ConnectorProfileProfilePropertiesOutput values.
-// You can construct a concrete instance of `ConnectorProfileProfilePropertiesInput` via:
-//
-//	ConnectorProfileProfilePropertiesArgs{...}
-type ConnectorProfileProfilePropertiesInput interface {
-	pulumi.Input
-
-	ToConnectorProfileProfilePropertiesOutput() ConnectorProfileProfilePropertiesOutput
-	ToConnectorProfileProfilePropertiesOutputWithContext(context.Context) ConnectorProfileProfilePropertiesOutput
-}
-
-// A map for properties for custom connector.
-type ConnectorProfileProfilePropertiesArgs struct {
-}
-
-func (ConnectorProfileProfilePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileProfileProperties)(nil)).Elem()
-}
-
-func (i ConnectorProfileProfilePropertiesArgs) ToConnectorProfileProfilePropertiesOutput() ConnectorProfileProfilePropertiesOutput {
-	return i.ToConnectorProfileProfilePropertiesOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileProfilePropertiesArgs) ToConnectorProfileProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfileProfilePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileProfilePropertiesOutput)
-}
-
-func (i ConnectorProfileProfilePropertiesArgs) ToConnectorProfileProfilePropertiesPtrOutput() ConnectorProfileProfilePropertiesPtrOutput {
-	return i.ToConnectorProfileProfilePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileProfilePropertiesArgs) ToConnectorProfileProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileProfilePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileProfilePropertiesOutput).ToConnectorProfileProfilePropertiesPtrOutputWithContext(ctx)
-}
-
-// ConnectorProfileProfilePropertiesPtrInput is an input type that accepts ConnectorProfileProfilePropertiesArgs, ConnectorProfileProfilePropertiesPtr and ConnectorProfileProfilePropertiesPtrOutput values.
-// You can construct a concrete instance of `ConnectorProfileProfilePropertiesPtrInput` via:
-//
-//	        ConnectorProfileProfilePropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectorProfileProfilePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToConnectorProfileProfilePropertiesPtrOutput() ConnectorProfileProfilePropertiesPtrOutput
-	ToConnectorProfileProfilePropertiesPtrOutputWithContext(context.Context) ConnectorProfileProfilePropertiesPtrOutput
-}
-
-type connectorProfileProfilePropertiesPtrType ConnectorProfileProfilePropertiesArgs
-
-func ConnectorProfileProfilePropertiesPtr(v *ConnectorProfileProfilePropertiesArgs) ConnectorProfileProfilePropertiesPtrInput {
-	return (*connectorProfileProfilePropertiesPtrType)(v)
-}
-
-func (*connectorProfileProfilePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileProfileProperties)(nil)).Elem()
-}
-
-func (i *connectorProfileProfilePropertiesPtrType) ToConnectorProfileProfilePropertiesPtrOutput() ConnectorProfileProfilePropertiesPtrOutput {
-	return i.ToConnectorProfileProfilePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorProfileProfilePropertiesPtrType) ToConnectorProfileProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileProfilePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileProfilePropertiesPtrOutput)
-}
-
-// A map for properties for custom connector.
-type ConnectorProfileProfilePropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileProfilePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileProfileProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileProfilePropertiesOutput) ToConnectorProfileProfilePropertiesOutput() ConnectorProfileProfilePropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileProfilePropertiesOutput) ToConnectorProfileProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfileProfilePropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileProfilePropertiesOutput) ToConnectorProfileProfilePropertiesPtrOutput() ConnectorProfileProfilePropertiesPtrOutput {
-	return o.ToConnectorProfileProfilePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorProfileProfilePropertiesOutput) ToConnectorProfileProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileProfilePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileProfileProperties) *ConnectorProfileProfileProperties {
-		return &v
-	}).(ConnectorProfileProfilePropertiesPtrOutput)
-}
-
-type ConnectorProfileProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileProfilePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileProfileProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileProfilePropertiesPtrOutput) ToConnectorProfileProfilePropertiesPtrOutput() ConnectorProfileProfilePropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileProfilePropertiesPtrOutput) ToConnectorProfileProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileProfilePropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileProfilePropertiesPtrOutput) Elem() ConnectorProfileProfilePropertiesOutput {
-	return o.ApplyT(func(v *ConnectorProfileProfileProperties) ConnectorProfileProfileProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorProfileProfileProperties
-		return ret
-	}).(ConnectorProfileProfilePropertiesOutput)
 }
 
 // Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
@@ -7425,127 +7179,6 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) Warehouse(
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map for properties for custom connector Token Url.
-type ConnectorProfileTokenUrlCustomProperties struct {
-}
-
-// ConnectorProfileTokenUrlCustomPropertiesInput is an input type that accepts ConnectorProfileTokenUrlCustomPropertiesArgs and ConnectorProfileTokenUrlCustomPropertiesOutput values.
-// You can construct a concrete instance of `ConnectorProfileTokenUrlCustomPropertiesInput` via:
-//
-//	ConnectorProfileTokenUrlCustomPropertiesArgs{...}
-type ConnectorProfileTokenUrlCustomPropertiesInput interface {
-	pulumi.Input
-
-	ToConnectorProfileTokenUrlCustomPropertiesOutput() ConnectorProfileTokenUrlCustomPropertiesOutput
-	ToConnectorProfileTokenUrlCustomPropertiesOutputWithContext(context.Context) ConnectorProfileTokenUrlCustomPropertiesOutput
-}
-
-// A map for properties for custom connector Token Url.
-type ConnectorProfileTokenUrlCustomPropertiesArgs struct {
-}
-
-func (ConnectorProfileTokenUrlCustomPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileTokenUrlCustomProperties)(nil)).Elem()
-}
-
-func (i ConnectorProfileTokenUrlCustomPropertiesArgs) ToConnectorProfileTokenUrlCustomPropertiesOutput() ConnectorProfileTokenUrlCustomPropertiesOutput {
-	return i.ToConnectorProfileTokenUrlCustomPropertiesOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileTokenUrlCustomPropertiesArgs) ToConnectorProfileTokenUrlCustomPropertiesOutputWithContext(ctx context.Context) ConnectorProfileTokenUrlCustomPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileTokenUrlCustomPropertiesOutput)
-}
-
-func (i ConnectorProfileTokenUrlCustomPropertiesArgs) ToConnectorProfileTokenUrlCustomPropertiesPtrOutput() ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return i.ToConnectorProfileTokenUrlCustomPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileTokenUrlCustomPropertiesArgs) ToConnectorProfileTokenUrlCustomPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileTokenUrlCustomPropertiesOutput).ToConnectorProfileTokenUrlCustomPropertiesPtrOutputWithContext(ctx)
-}
-
-// ConnectorProfileTokenUrlCustomPropertiesPtrInput is an input type that accepts ConnectorProfileTokenUrlCustomPropertiesArgs, ConnectorProfileTokenUrlCustomPropertiesPtr and ConnectorProfileTokenUrlCustomPropertiesPtrOutput values.
-// You can construct a concrete instance of `ConnectorProfileTokenUrlCustomPropertiesPtrInput` via:
-//
-//	        ConnectorProfileTokenUrlCustomPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectorProfileTokenUrlCustomPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToConnectorProfileTokenUrlCustomPropertiesPtrOutput() ConnectorProfileTokenUrlCustomPropertiesPtrOutput
-	ToConnectorProfileTokenUrlCustomPropertiesPtrOutputWithContext(context.Context) ConnectorProfileTokenUrlCustomPropertiesPtrOutput
-}
-
-type connectorProfileTokenUrlCustomPropertiesPtrType ConnectorProfileTokenUrlCustomPropertiesArgs
-
-func ConnectorProfileTokenUrlCustomPropertiesPtr(v *ConnectorProfileTokenUrlCustomPropertiesArgs) ConnectorProfileTokenUrlCustomPropertiesPtrInput {
-	return (*connectorProfileTokenUrlCustomPropertiesPtrType)(v)
-}
-
-func (*connectorProfileTokenUrlCustomPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileTokenUrlCustomProperties)(nil)).Elem()
-}
-
-func (i *connectorProfileTokenUrlCustomPropertiesPtrType) ToConnectorProfileTokenUrlCustomPropertiesPtrOutput() ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return i.ToConnectorProfileTokenUrlCustomPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorProfileTokenUrlCustomPropertiesPtrType) ToConnectorProfileTokenUrlCustomPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileTokenUrlCustomPropertiesPtrOutput)
-}
-
-// A map for properties for custom connector Token Url.
-type ConnectorProfileTokenUrlCustomPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileTokenUrlCustomPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileTokenUrlCustomProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileTokenUrlCustomPropertiesOutput) ToConnectorProfileTokenUrlCustomPropertiesOutput() ConnectorProfileTokenUrlCustomPropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileTokenUrlCustomPropertiesOutput) ToConnectorProfileTokenUrlCustomPropertiesOutputWithContext(ctx context.Context) ConnectorProfileTokenUrlCustomPropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileTokenUrlCustomPropertiesOutput) ToConnectorProfileTokenUrlCustomPropertiesPtrOutput() ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return o.ToConnectorProfileTokenUrlCustomPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorProfileTokenUrlCustomPropertiesOutput) ToConnectorProfileTokenUrlCustomPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileTokenUrlCustomProperties) *ConnectorProfileTokenUrlCustomProperties {
-		return &v
-	}).(ConnectorProfileTokenUrlCustomPropertiesPtrOutput)
-}
-
-type ConnectorProfileTokenUrlCustomPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileTokenUrlCustomPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileTokenUrlCustomProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileTokenUrlCustomPropertiesPtrOutput) ToConnectorProfileTokenUrlCustomPropertiesPtrOutput() ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileTokenUrlCustomPropertiesPtrOutput) ToConnectorProfileTokenUrlCustomPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileTokenUrlCustomPropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileTokenUrlCustomPropertiesPtrOutput) Elem() ConnectorProfileTokenUrlCustomPropertiesOutput {
-	return o.ApplyT(func(v *ConnectorProfileTokenUrlCustomProperties) ConnectorProfileTokenUrlCustomProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorProfileTokenUrlCustomProperties
-		return ret
-	}).(ConnectorProfileTokenUrlCustomPropertiesOutput)
-}
-
 type ConnectorProfileTrendmicroConnectorProfileCredentials struct {
 	// The Secret Access Key portion of the credentials.
 	ApiSecretKey string `pulumi:"apiSecretKey"`
@@ -9056,7 +8689,7 @@ func (o FlowConnectorOperatorPtrOutput) Zendesk() FlowZendeskConnectorOperatorPt
 }
 
 type FlowCustomConnectorDestinationProperties struct {
-	CustomProperties    *FlowCustomProperties    `pulumi:"customProperties"`
+	CustomProperties    map[string]string        `pulumi:"customProperties"`
 	EntityName          string                   `pulumi:"entityName"`
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
@@ -9076,7 +8709,7 @@ type FlowCustomConnectorDestinationPropertiesInput interface {
 }
 
 type FlowCustomConnectorDestinationPropertiesArgs struct {
-	CustomProperties    FlowCustomPropertiesPtrInput    `pulumi:"customProperties"`
+	CustomProperties    pulumi.StringMapInput           `pulumi:"customProperties"`
 	EntityName          pulumi.StringInput              `pulumi:"entityName"`
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
@@ -9161,8 +8794,8 @@ func (o FlowCustomConnectorDestinationPropertiesOutput) ToFlowCustomConnectorDes
 	}).(FlowCustomConnectorDestinationPropertiesPtrOutput)
 }
 
-func (o FlowCustomConnectorDestinationPropertiesOutput) CustomProperties() FlowCustomPropertiesPtrOutput {
-	return o.ApplyT(func(v FlowCustomConnectorDestinationProperties) *FlowCustomProperties { return v.CustomProperties }).(FlowCustomPropertiesPtrOutput)
+func (o FlowCustomConnectorDestinationPropertiesOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowCustomConnectorDestinationProperties) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
 
 func (o FlowCustomConnectorDestinationPropertiesOutput) EntityName() pulumi.StringOutput {
@@ -9208,13 +8841,13 @@ func (o FlowCustomConnectorDestinationPropertiesPtrOutput) Elem() FlowCustomConn
 	}).(FlowCustomConnectorDestinationPropertiesOutput)
 }
 
-func (o FlowCustomConnectorDestinationPropertiesPtrOutput) CustomProperties() FlowCustomPropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowCustomConnectorDestinationProperties) *FlowCustomProperties {
+func (o FlowCustomConnectorDestinationPropertiesPtrOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowCustomConnectorDestinationProperties) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.CustomProperties
-	}).(FlowCustomPropertiesPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o FlowCustomConnectorDestinationPropertiesPtrOutput) EntityName() pulumi.StringPtrOutput {
@@ -9255,7 +8888,7 @@ func (o FlowCustomConnectorDestinationPropertiesPtrOutput) WriteOperationType() 
 }
 
 type FlowCustomConnectorSourceProperties struct {
-	CustomProperties *FlowCustomProperties                                         `pulumi:"customProperties"`
+	CustomProperties map[string]string                                             `pulumi:"customProperties"`
 	DataTransferApi  *FlowCustomConnectorSourcePropertiesDataTransferApiProperties `pulumi:"dataTransferApi"`
 	EntityName       string                                                        `pulumi:"entityName"`
 }
@@ -9272,7 +8905,7 @@ type FlowCustomConnectorSourcePropertiesInput interface {
 }
 
 type FlowCustomConnectorSourcePropertiesArgs struct {
-	CustomProperties FlowCustomPropertiesPtrInput                                         `pulumi:"customProperties"`
+	CustomProperties pulumi.StringMapInput                                                `pulumi:"customProperties"`
 	DataTransferApi  FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrInput `pulumi:"dataTransferApi"`
 	EntityName       pulumi.StringInput                                                   `pulumi:"entityName"`
 }
@@ -9354,8 +8987,8 @@ func (o FlowCustomConnectorSourcePropertiesOutput) ToFlowCustomConnectorSourcePr
 	}).(FlowCustomConnectorSourcePropertiesPtrOutput)
 }
 
-func (o FlowCustomConnectorSourcePropertiesOutput) CustomProperties() FlowCustomPropertiesPtrOutput {
-	return o.ApplyT(func(v FlowCustomConnectorSourceProperties) *FlowCustomProperties { return v.CustomProperties }).(FlowCustomPropertiesPtrOutput)
+func (o FlowCustomConnectorSourcePropertiesOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowCustomConnectorSourceProperties) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
 
 func (o FlowCustomConnectorSourcePropertiesOutput) DataTransferApi() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
@@ -9392,13 +9025,13 @@ func (o FlowCustomConnectorSourcePropertiesPtrOutput) Elem() FlowCustomConnector
 	}).(FlowCustomConnectorSourcePropertiesOutput)
 }
 
-func (o FlowCustomConnectorSourcePropertiesPtrOutput) CustomProperties() FlowCustomPropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowCustomConnectorSourceProperties) *FlowCustomProperties {
+func (o FlowCustomConnectorSourcePropertiesPtrOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowCustomConnectorSourceProperties) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.CustomProperties
-	}).(FlowCustomPropertiesPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func (o FlowCustomConnectorSourcePropertiesPtrOutput) DataTransferApi() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
@@ -9567,127 +9200,6 @@ func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput) T
 		}
 		return &v.Type
 	}).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput)
-}
-
-// A map for properties for custom connector.
-type FlowCustomProperties struct {
-}
-
-// FlowCustomPropertiesInput is an input type that accepts FlowCustomPropertiesArgs and FlowCustomPropertiesOutput values.
-// You can construct a concrete instance of `FlowCustomPropertiesInput` via:
-//
-//	FlowCustomPropertiesArgs{...}
-type FlowCustomPropertiesInput interface {
-	pulumi.Input
-
-	ToFlowCustomPropertiesOutput() FlowCustomPropertiesOutput
-	ToFlowCustomPropertiesOutputWithContext(context.Context) FlowCustomPropertiesOutput
-}
-
-// A map for properties for custom connector.
-type FlowCustomPropertiesArgs struct {
-}
-
-func (FlowCustomPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowCustomProperties)(nil)).Elem()
-}
-
-func (i FlowCustomPropertiesArgs) ToFlowCustomPropertiesOutput() FlowCustomPropertiesOutput {
-	return i.ToFlowCustomPropertiesOutputWithContext(context.Background())
-}
-
-func (i FlowCustomPropertiesArgs) ToFlowCustomPropertiesOutputWithContext(ctx context.Context) FlowCustomPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowCustomPropertiesOutput)
-}
-
-func (i FlowCustomPropertiesArgs) ToFlowCustomPropertiesPtrOutput() FlowCustomPropertiesPtrOutput {
-	return i.ToFlowCustomPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i FlowCustomPropertiesArgs) ToFlowCustomPropertiesPtrOutputWithContext(ctx context.Context) FlowCustomPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowCustomPropertiesOutput).ToFlowCustomPropertiesPtrOutputWithContext(ctx)
-}
-
-// FlowCustomPropertiesPtrInput is an input type that accepts FlowCustomPropertiesArgs, FlowCustomPropertiesPtr and FlowCustomPropertiesPtrOutput values.
-// You can construct a concrete instance of `FlowCustomPropertiesPtrInput` via:
-//
-//	        FlowCustomPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type FlowCustomPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToFlowCustomPropertiesPtrOutput() FlowCustomPropertiesPtrOutput
-	ToFlowCustomPropertiesPtrOutputWithContext(context.Context) FlowCustomPropertiesPtrOutput
-}
-
-type flowCustomPropertiesPtrType FlowCustomPropertiesArgs
-
-func FlowCustomPropertiesPtr(v *FlowCustomPropertiesArgs) FlowCustomPropertiesPtrInput {
-	return (*flowCustomPropertiesPtrType)(v)
-}
-
-func (*flowCustomPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowCustomProperties)(nil)).Elem()
-}
-
-func (i *flowCustomPropertiesPtrType) ToFlowCustomPropertiesPtrOutput() FlowCustomPropertiesPtrOutput {
-	return i.ToFlowCustomPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *flowCustomPropertiesPtrType) ToFlowCustomPropertiesPtrOutputWithContext(ctx context.Context) FlowCustomPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowCustomPropertiesPtrOutput)
-}
-
-// A map for properties for custom connector.
-type FlowCustomPropertiesOutput struct{ *pulumi.OutputState }
-
-func (FlowCustomPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowCustomProperties)(nil)).Elem()
-}
-
-func (o FlowCustomPropertiesOutput) ToFlowCustomPropertiesOutput() FlowCustomPropertiesOutput {
-	return o
-}
-
-func (o FlowCustomPropertiesOutput) ToFlowCustomPropertiesOutputWithContext(ctx context.Context) FlowCustomPropertiesOutput {
-	return o
-}
-
-func (o FlowCustomPropertiesOutput) ToFlowCustomPropertiesPtrOutput() FlowCustomPropertiesPtrOutput {
-	return o.ToFlowCustomPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o FlowCustomPropertiesOutput) ToFlowCustomPropertiesPtrOutputWithContext(ctx context.Context) FlowCustomPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowCustomProperties) *FlowCustomProperties {
-		return &v
-	}).(FlowCustomPropertiesPtrOutput)
-}
-
-type FlowCustomPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowCustomPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowCustomProperties)(nil)).Elem()
-}
-
-func (o FlowCustomPropertiesPtrOutput) ToFlowCustomPropertiesPtrOutput() FlowCustomPropertiesPtrOutput {
-	return o
-}
-
-func (o FlowCustomPropertiesPtrOutput) ToFlowCustomPropertiesPtrOutputWithContext(ctx context.Context) FlowCustomPropertiesPtrOutput {
-	return o
-}
-
-func (o FlowCustomPropertiesPtrOutput) Elem() FlowCustomPropertiesOutput {
-	return o.ApplyT(func(v *FlowCustomProperties) FlowCustomProperties {
-		if v != nil {
-			return *v
-		}
-		var ret FlowCustomProperties
-		return ret
-	}).(FlowCustomPropertiesOutput)
 }
 
 type FlowDatadogSourceProperties struct {
@@ -16560,8 +16072,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileConnectorOAuthRequestPtrInput)(nil)).Elem(), ConnectorProfileConnectorOAuthRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileCredentialsMapInput)(nil)).Elem(), ConnectorProfileCredentialsMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileCredentialsMapPtrInput)(nil)).Elem(), ConnectorProfileCredentialsMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileCustomAuthCredentialsInput)(nil)).Elem(), ConnectorProfileCustomAuthCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileCustomAuthCredentialsPtrInput)(nil)).Elem(), ConnectorProfileCustomAuthCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileCustomConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileCustomConnectorProfileCredentialsArgs{})
@@ -16596,8 +16106,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePardotConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfilePardotConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePardotConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfilePardotConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePardotConnectorProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfilePardotConnectorProfilePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileProfilePropertiesInput)(nil)).Elem(), ConnectorProfileProfilePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfileProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileRedshiftConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileRedshiftConnectorProfileCredentialsArgs{})
@@ -16628,8 +16136,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSnowflakeConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileSnowflakeConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSnowflakeConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfileSnowflakeConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileSnowflakeConnectorProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfileSnowflakeConnectorProfilePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileTokenUrlCustomPropertiesInput)(nil)).Elem(), ConnectorProfileTokenUrlCustomPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileTokenUrlCustomPropertiesPtrInput)(nil)).Elem(), ConnectorProfileTokenUrlCustomPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileTrendmicroConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileTrendmicroConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileTrendmicroConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileTrendmicroConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileVeevaConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileVeevaConnectorProfileCredentialsArgs{})
@@ -16653,8 +16159,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomConnectorSourcePropertiesPtrInput)(nil)).Elem(), FlowCustomConnectorSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesInput)(nil)).Elem(), FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrInput)(nil)).Elem(), FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomPropertiesInput)(nil)).Elem(), FlowCustomPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomPropertiesPtrInput)(nil)).Elem(), FlowCustomPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDatadogSourcePropertiesInput)(nil)).Elem(), FlowDatadogSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDatadogSourcePropertiesPtrInput)(nil)).Elem(), FlowDatadogSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDestinationConnectorPropertiesInput)(nil)).Elem(), FlowDestinationConnectorPropertiesArgs{})
@@ -16753,8 +16257,6 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorProfileConnectorOAuthRequestPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileCredentialsPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileCredentialsMapOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileCredentialsMapPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileCustomAuthCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileCustomAuthCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileCustomConnectorProfileCredentialsOutput{})
@@ -16789,8 +16291,6 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorProfilePardotConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfilePardotConnectorProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorProfilePardotConnectorProfilePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileProfilePropertiesOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileProfilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorProfilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileRedshiftConnectorProfileCredentialsOutput{})
@@ -16821,8 +16321,6 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileSnowflakeConnectorProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileTokenUrlCustomPropertiesOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileTokenUrlCustomPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileTrendmicroConnectorProfileCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileVeevaConnectorProfileCredentialsOutput{})
@@ -16847,8 +16345,6 @@ func init() {
 	pulumi.RegisterOutputType(FlowCustomConnectorSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(FlowCustomPropertiesOutput{})
-	pulumi.RegisterOutputType(FlowCustomPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowDatadogSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowDatadogSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowDestinationConnectorPropertiesOutput{})

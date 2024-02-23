@@ -17,19 +17,19 @@ import (
 type StateMachine struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                          `pulumi:"arn"`
-	Definition              StateMachineDefinitionPtrOutput              `pulumi:"definition"`
-	DefinitionS3Location    StateMachineS3LocationPtrOutput              `pulumi:"definitionS3Location"`
-	DefinitionString        pulumi.StringPtrOutput                       `pulumi:"definitionString"`
-	DefinitionSubstitutions StateMachineDefinitionSubstitutionsPtrOutput `pulumi:"definitionSubstitutions"`
-	LoggingConfiguration    StateMachineLoggingConfigurationPtrOutput    `pulumi:"loggingConfiguration"`
-	Name                    pulumi.StringOutput                          `pulumi:"name"`
-	RoleArn                 pulumi.StringOutput                          `pulumi:"roleArn"`
-	StateMachineName        pulumi.StringPtrOutput                       `pulumi:"stateMachineName"`
-	StateMachineRevisionId  pulumi.StringOutput                          `pulumi:"stateMachineRevisionId"`
-	StateMachineType        StateMachineTypePtrOutput                    `pulumi:"stateMachineType"`
-	Tags                    aws.TagArrayOutput                           `pulumi:"tags"`
-	TracingConfiguration    StateMachineTracingConfigurationPtrOutput    `pulumi:"tracingConfiguration"`
+	Arn                     pulumi.StringOutput                       `pulumi:"arn"`
+	Definition              StateMachineDefinitionPtrOutput           `pulumi:"definition"`
+	DefinitionS3Location    StateMachineS3LocationPtrOutput           `pulumi:"definitionS3Location"`
+	DefinitionString        pulumi.StringPtrOutput                    `pulumi:"definitionString"`
+	DefinitionSubstitutions pulumi.MapOutput                          `pulumi:"definitionSubstitutions"`
+	LoggingConfiguration    StateMachineLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
+	Name                    pulumi.StringOutput                       `pulumi:"name"`
+	RoleArn                 pulumi.StringOutput                       `pulumi:"roleArn"`
+	StateMachineName        pulumi.StringPtrOutput                    `pulumi:"stateMachineName"`
+	StateMachineRevisionId  pulumi.StringOutput                       `pulumi:"stateMachineRevisionId"`
+	StateMachineType        StateMachineTypePtrOutput                 `pulumi:"stateMachineType"`
+	Tags                    aws.TagArrayOutput                        `pulumi:"tags"`
+	TracingConfiguration    StateMachineTracingConfigurationPtrOutput `pulumi:"tracingConfiguration"`
 }
 
 // NewStateMachine registers a new resource with the given unique name, arguments, and options.
@@ -80,16 +80,16 @@ func (StateMachineState) ElementType() reflect.Type {
 }
 
 type stateMachineArgs struct {
-	Definition              *StateMachineDefinition              `pulumi:"definition"`
-	DefinitionS3Location    *StateMachineS3Location              `pulumi:"definitionS3Location"`
-	DefinitionString        *string                              `pulumi:"definitionString"`
-	DefinitionSubstitutions *StateMachineDefinitionSubstitutions `pulumi:"definitionSubstitutions"`
-	LoggingConfiguration    *StateMachineLoggingConfiguration    `pulumi:"loggingConfiguration"`
-	RoleArn                 string                               `pulumi:"roleArn"`
-	StateMachineName        *string                              `pulumi:"stateMachineName"`
-	StateMachineType        *StateMachineType                    `pulumi:"stateMachineType"`
-	Tags                    []aws.Tag                            `pulumi:"tags"`
-	TracingConfiguration    *StateMachineTracingConfiguration    `pulumi:"tracingConfiguration"`
+	Definition              *StateMachineDefinition           `pulumi:"definition"`
+	DefinitionS3Location    *StateMachineS3Location           `pulumi:"definitionS3Location"`
+	DefinitionString        *string                           `pulumi:"definitionString"`
+	DefinitionSubstitutions map[string]interface{}            `pulumi:"definitionSubstitutions"`
+	LoggingConfiguration    *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
+	RoleArn                 string                            `pulumi:"roleArn"`
+	StateMachineName        *string                           `pulumi:"stateMachineName"`
+	StateMachineType        *StateMachineType                 `pulumi:"stateMachineType"`
+	Tags                    []aws.Tag                         `pulumi:"tags"`
+	TracingConfiguration    *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
 }
 
 // The set of arguments for constructing a StateMachine resource.
@@ -97,7 +97,7 @@ type StateMachineArgs struct {
 	Definition              StateMachineDefinitionPtrInput
 	DefinitionS3Location    StateMachineS3LocationPtrInput
 	DefinitionString        pulumi.StringPtrInput
-	DefinitionSubstitutions StateMachineDefinitionSubstitutionsPtrInput
+	DefinitionSubstitutions pulumi.MapInput
 	LoggingConfiguration    StateMachineLoggingConfigurationPtrInput
 	RoleArn                 pulumi.StringInput
 	StateMachineName        pulumi.StringPtrInput
@@ -159,8 +159,8 @@ func (o StateMachineOutput) DefinitionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringPtrOutput { return v.DefinitionString }).(pulumi.StringPtrOutput)
 }
 
-func (o StateMachineOutput) DefinitionSubstitutions() StateMachineDefinitionSubstitutionsPtrOutput {
-	return o.ApplyT(func(v *StateMachine) StateMachineDefinitionSubstitutionsPtrOutput { return v.DefinitionSubstitutions }).(StateMachineDefinitionSubstitutionsPtrOutput)
+func (o StateMachineOutput) DefinitionSubstitutions() pulumi.MapOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.MapOutput { return v.DefinitionSubstitutions }).(pulumi.MapOutput)
 }
 
 func (o StateMachineOutput) LoggingConfiguration() StateMachineLoggingConfigurationPtrOutput {

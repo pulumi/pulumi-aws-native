@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.IoT
     public partial class SoftwarePackageVersion : global::Pulumi.CustomResource
     {
         [Output("attributes")]
-        public Output<Outputs.SoftwarePackageVersionResourceAttributes?> Attributes { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -93,7 +93,12 @@ namespace Pulumi.AwsNative.IoT
     public sealed class SoftwarePackageVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
-        public Input<Inputs.SoftwarePackageVersionResourceAttributesArgs>? Attributes { get; set; }
+        private InputMap<string>? _attributes;
+        public InputMap<string> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<string>());
+            set => _attributes = value;
+        }
 
         [Input("description")]
         public Input<string>? Description { get; set; }

@@ -18,7 +18,7 @@ type Fleet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the fleet.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	Tags FleetTagsPtrOutput     `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -66,15 +66,15 @@ func (FleetState) ElementType() reflect.Type {
 
 type fleetArgs struct {
 	// The name of the fleet.
-	Name *string    `pulumi:"name"`
-	Tags *FleetTags `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
 	// The name of the fleet.
 	Name pulumi.StringPtrInput
-	Tags FleetTagsPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {
@@ -123,8 +123,8 @@ func (o FleetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o FleetOutput) Tags() FleetTagsPtrOutput {
-	return o.ApplyT(func(v *Fleet) FleetTagsPtrOutput { return v.Tags }).(FleetTagsPtrOutput)
+func (o FleetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

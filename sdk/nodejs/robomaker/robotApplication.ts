@@ -55,7 +55,7 @@ export class RobotApplication extends pulumi.CustomResource {
      * The sources of the robot application.
      */
     public readonly sources!: pulumi.Output<outputs.robomaker.RobotApplicationSourceConfig[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.robomaker.RobotApplicationTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RobotApplication resource with the given unique name, arguments, and options.
@@ -115,5 +115,5 @@ export interface RobotApplicationArgs {
      * The sources of the robot application.
      */
     sources?: pulumi.Input<pulumi.Input<inputs.robomaker.RobotApplicationSourceConfigArgs>[]>;
-    tags?: pulumi.Input<inputs.robomaker.RobotApplicationTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

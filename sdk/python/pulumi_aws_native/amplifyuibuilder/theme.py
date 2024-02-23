@@ -20,7 +20,7 @@ class ThemeArgs:
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None,
-                 tags: Optional[pulumi.Input['ThemeTagsArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]] = None):
         """
         The set of arguments for constructing a Theme resource.
@@ -76,11 +76,11 @@ class ThemeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['ThemeTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['ThemeTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -102,7 +102,7 @@ class Theme(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ThemeTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]]] = None,
                  __props__=None):
         """
@@ -139,7 +139,7 @@ class Theme(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ThemeTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -224,7 +224,7 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.ThemeTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

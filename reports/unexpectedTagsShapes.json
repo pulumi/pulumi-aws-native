@@ -1,13 +1,4 @@
 {
-  "aws-native:amplifyuibuilder:Component": {
-    "$ref": "#/definitions/Tags"
-  },
-  "aws-native:amplifyuibuilder:Form": {
-    "$ref": "#/definitions/Tags"
-  },
-  "aws-native:amplifyuibuilder:Theme": {
-    "$ref": "#/definitions/Tags"
-  },
   "aws-native:appstream:AppBlock": {
     "insertionOrder": false,
     "items": {
@@ -30,12 +21,5 @@
       "$ref": "#/definitions/TagProperty"
     },
     "type": "array"
-  },
-  "aws-native:m2:Application": {
-    "$ref": "#/definitions/TagMap"
-  },
-  "aws-native:m2:Environment": {
-    "$ref": "#/definitions/TagMap",
-    "description": "Tags associated to this environment."
   }
 }

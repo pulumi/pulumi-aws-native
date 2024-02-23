@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -24,7 +21,7 @@ export interface GetVpcConnectionArgs {
 
 export interface GetVpcConnectionResult {
     readonly arn?: string;
-    readonly tags?: outputs.msk.VpcConnectionTags;
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Resource Type definition for AWS::MSK::VpcConnection

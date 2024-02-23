@@ -47,7 +47,6 @@ __all__ = [
     'SecurityProfileMetricToRetainArgs',
     'SecurityProfileMetricValueArgs',
     'SecurityProfileStatisticalThresholdArgs',
-    'SoftwarePackageVersionResourceAttributesArgs',
     'ThingAttributePayloadArgs',
     'ThingGroupAttributePayloadArgs',
     'ThingGroupPropertiesPropertiesArgs',
@@ -1651,12 +1650,6 @@ class SecurityProfileStatisticalThresholdArgs:
     @statistic.setter
     def statistic(self, value: Optional[pulumi.Input['SecurityProfileStatisticalThresholdStatistic']]):
         pulumi.set(self, "statistic", value)
-
-
-@pulumi.input_type
-class SoftwarePackageVersionResourceAttributesArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type

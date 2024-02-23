@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// The name of the attribute group. 
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.AttributeGroupTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetAttributeGroupResult(
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
             string? name,
 
-            Outputs.AttributeGroupTags? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Attributes = attributes;

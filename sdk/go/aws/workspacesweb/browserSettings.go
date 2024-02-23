@@ -16,12 +16,12 @@ import (
 type BrowserSettings struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext BrowserSettingsEncryptionContextMapPtrOutput `pulumi:"additionalEncryptionContext"`
-	AssociatedPortalArns        pulumi.StringArrayOutput                     `pulumi:"associatedPortalArns"`
-	BrowserPolicy               pulumi.StringPtrOutput                       `pulumi:"browserPolicy"`
-	BrowserSettingsArn          pulumi.StringOutput                          `pulumi:"browserSettingsArn"`
-	CustomerManagedKey          pulumi.StringPtrOutput                       `pulumi:"customerManagedKey"`
-	Tags                        aws.TagArrayOutput                           `pulumi:"tags"`
+	AdditionalEncryptionContext pulumi.StringMapOutput   `pulumi:"additionalEncryptionContext"`
+	AssociatedPortalArns        pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
+	BrowserPolicy               pulumi.StringPtrOutput   `pulumi:"browserPolicy"`
+	BrowserSettingsArn          pulumi.StringOutput      `pulumi:"browserSettingsArn"`
+	CustomerManagedKey          pulumi.StringPtrOutput   `pulumi:"customerManagedKey"`
+	Tags                        aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewBrowserSettings registers a new resource with the given unique name, arguments, and options.
@@ -32,7 +32,7 @@ func NewBrowserSettings(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"additionalEncryptionContext",
+		"additionalEncryptionContext.*",
 		"customerManagedKey",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -69,15 +69,15 @@ func (BrowserSettingsState) ElementType() reflect.Type {
 }
 
 type browserSettingsArgs struct {
-	AdditionalEncryptionContext *BrowserSettingsEncryptionContextMap `pulumi:"additionalEncryptionContext"`
-	BrowserPolicy               *string                              `pulumi:"browserPolicy"`
-	CustomerManagedKey          *string                              `pulumi:"customerManagedKey"`
-	Tags                        []aws.Tag                            `pulumi:"tags"`
+	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
+	BrowserPolicy               *string           `pulumi:"browserPolicy"`
+	CustomerManagedKey          *string           `pulumi:"customerManagedKey"`
+	Tags                        []aws.Tag         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BrowserSettings resource.
 type BrowserSettingsArgs struct {
-	AdditionalEncryptionContext BrowserSettingsEncryptionContextMapPtrInput
+	AdditionalEncryptionContext pulumi.StringMapInput
 	BrowserPolicy               pulumi.StringPtrInput
 	CustomerManagedKey          pulumi.StringPtrInput
 	Tags                        aws.TagArrayInput
@@ -120,10 +120,8 @@ func (o BrowserSettingsOutput) ToBrowserSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o BrowserSettingsOutput) AdditionalEncryptionContext() BrowserSettingsEncryptionContextMapPtrOutput {
-	return o.ApplyT(func(v *BrowserSettings) BrowserSettingsEncryptionContextMapPtrOutput {
-		return v.AdditionalEncryptionContext
-	}).(BrowserSettingsEncryptionContextMapPtrOutput)
+func (o BrowserSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BrowserSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
 func (o BrowserSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

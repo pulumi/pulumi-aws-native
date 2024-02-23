@@ -22,8 +22,8 @@ type AttributeGroup struct {
 	// The description of the attribute group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the attribute group.
-	Name pulumi.StringOutput         `pulumi:"name"`
-	Tags AttributeGroupTagsPtrOutput `pulumi:"tags"`
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAttributeGroup registers a new resource with the given unique name, arguments, and options.
@@ -74,8 +74,8 @@ type attributeGroupArgs struct {
 	// The description of the attribute group.
 	Description *string `pulumi:"description"`
 	// The name of the attribute group.
-	Name *string             `pulumi:"name"`
-	Tags *AttributeGroupTags `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AttributeGroup resource.
@@ -86,7 +86,7 @@ type AttributeGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the attribute group.
 	Name pulumi.StringPtrInput
-	Tags AttributeGroupTagsPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (AttributeGroupArgs) ElementType() reflect.Type {
@@ -145,8 +145,8 @@ func (o AttributeGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttributeGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o AttributeGroupOutput) Tags() AttributeGroupTagsPtrOutput {
-	return o.ApplyT(func(v *AttributeGroup) AttributeGroupTagsPtrOutput { return v.Tags }).(AttributeGroupTagsPtrOutput)
+func (o AttributeGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AttributeGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -5725,124 +5725,6 @@ type SoftwarePackageTag struct {
 	Value string `pulumi:"value"`
 }
 
-type SoftwarePackageVersionResourceAttributes struct {
-}
-
-// SoftwarePackageVersionResourceAttributesInput is an input type that accepts SoftwarePackageVersionResourceAttributesArgs and SoftwarePackageVersionResourceAttributesOutput values.
-// You can construct a concrete instance of `SoftwarePackageVersionResourceAttributesInput` via:
-//
-//	SoftwarePackageVersionResourceAttributesArgs{...}
-type SoftwarePackageVersionResourceAttributesInput interface {
-	pulumi.Input
-
-	ToSoftwarePackageVersionResourceAttributesOutput() SoftwarePackageVersionResourceAttributesOutput
-	ToSoftwarePackageVersionResourceAttributesOutputWithContext(context.Context) SoftwarePackageVersionResourceAttributesOutput
-}
-
-type SoftwarePackageVersionResourceAttributesArgs struct {
-}
-
-func (SoftwarePackageVersionResourceAttributesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwarePackageVersionResourceAttributes)(nil)).Elem()
-}
-
-func (i SoftwarePackageVersionResourceAttributesArgs) ToSoftwarePackageVersionResourceAttributesOutput() SoftwarePackageVersionResourceAttributesOutput {
-	return i.ToSoftwarePackageVersionResourceAttributesOutputWithContext(context.Background())
-}
-
-func (i SoftwarePackageVersionResourceAttributesArgs) ToSoftwarePackageVersionResourceAttributesOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionResourceAttributesOutput)
-}
-
-func (i SoftwarePackageVersionResourceAttributesArgs) ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput {
-	return i.ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(context.Background())
-}
-
-func (i SoftwarePackageVersionResourceAttributesArgs) ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionResourceAttributesOutput).ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx)
-}
-
-// SoftwarePackageVersionResourceAttributesPtrInput is an input type that accepts SoftwarePackageVersionResourceAttributesArgs, SoftwarePackageVersionResourceAttributesPtr and SoftwarePackageVersionResourceAttributesPtrOutput values.
-// You can construct a concrete instance of `SoftwarePackageVersionResourceAttributesPtrInput` via:
-//
-//	        SoftwarePackageVersionResourceAttributesArgs{...}
-//
-//	or:
-//
-//	        nil
-type SoftwarePackageVersionResourceAttributesPtrInput interface {
-	pulumi.Input
-
-	ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput
-	ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(context.Context) SoftwarePackageVersionResourceAttributesPtrOutput
-}
-
-type softwarePackageVersionResourceAttributesPtrType SoftwarePackageVersionResourceAttributesArgs
-
-func SoftwarePackageVersionResourceAttributesPtr(v *SoftwarePackageVersionResourceAttributesArgs) SoftwarePackageVersionResourceAttributesPtrInput {
-	return (*softwarePackageVersionResourceAttributesPtrType)(v)
-}
-
-func (*softwarePackageVersionResourceAttributesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SoftwarePackageVersionResourceAttributes)(nil)).Elem()
-}
-
-func (i *softwarePackageVersionResourceAttributesPtrType) ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput {
-	return i.ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(context.Background())
-}
-
-func (i *softwarePackageVersionResourceAttributesPtrType) ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwarePackageVersionResourceAttributesPtrOutput)
-}
-
-type SoftwarePackageVersionResourceAttributesOutput struct{ *pulumi.OutputState }
-
-func (SoftwarePackageVersionResourceAttributesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwarePackageVersionResourceAttributes)(nil)).Elem()
-}
-
-func (o SoftwarePackageVersionResourceAttributesOutput) ToSoftwarePackageVersionResourceAttributesOutput() SoftwarePackageVersionResourceAttributesOutput {
-	return o
-}
-
-func (o SoftwarePackageVersionResourceAttributesOutput) ToSoftwarePackageVersionResourceAttributesOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesOutput {
-	return o
-}
-
-func (o SoftwarePackageVersionResourceAttributesOutput) ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput {
-	return o.ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(context.Background())
-}
-
-func (o SoftwarePackageVersionResourceAttributesOutput) ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwarePackageVersionResourceAttributes) *SoftwarePackageVersionResourceAttributes {
-		return &v
-	}).(SoftwarePackageVersionResourceAttributesPtrOutput)
-}
-
-type SoftwarePackageVersionResourceAttributesPtrOutput struct{ *pulumi.OutputState }
-
-func (SoftwarePackageVersionResourceAttributesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SoftwarePackageVersionResourceAttributes)(nil)).Elem()
-}
-
-func (o SoftwarePackageVersionResourceAttributesPtrOutput) ToSoftwarePackageVersionResourceAttributesPtrOutput() SoftwarePackageVersionResourceAttributesPtrOutput {
-	return o
-}
-
-func (o SoftwarePackageVersionResourceAttributesPtrOutput) ToSoftwarePackageVersionResourceAttributesPtrOutputWithContext(ctx context.Context) SoftwarePackageVersionResourceAttributesPtrOutput {
-	return o
-}
-
-func (o SoftwarePackageVersionResourceAttributesPtrOutput) Elem() SoftwarePackageVersionResourceAttributesOutput {
-	return o.ApplyT(func(v *SoftwarePackageVersionResourceAttributes) SoftwarePackageVersionResourceAttributes {
-		if v != nil {
-			return *v
-		}
-		var ret SoftwarePackageVersionResourceAttributes
-		return ret
-	}).(SoftwarePackageVersionResourceAttributesOutput)
-}
-
 // A key-value pair to associate with a resource.
 type SoftwarePackageVersionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -13214,8 +13096,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileMetricValuePtrInput)(nil)).Elem(), SecurityProfileMetricValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileStatisticalThresholdInput)(nil)).Elem(), SecurityProfileStatisticalThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileStatisticalThresholdPtrInput)(nil)).Elem(), SecurityProfileStatisticalThresholdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionResourceAttributesInput)(nil)).Elem(), SoftwarePackageVersionResourceAttributesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionResourceAttributesPtrInput)(nil)).Elem(), SoftwarePackageVersionResourceAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadInput)(nil)).Elem(), ThingAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadPtrInput)(nil)).Elem(), ThingAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupAttributePayloadInput)(nil)).Elem(), ThingGroupAttributePayloadArgs{})
@@ -13378,8 +13258,6 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileMetricValuePtrOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdPtrOutput{})
-	pulumi.RegisterOutputType(SoftwarePackageVersionResourceAttributesOutput{})
-	pulumi.RegisterOutputType(SoftwarePackageVersionResourceAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadPtrOutput{})
 	pulumi.RegisterOutputType(ThingGroupAttributePayloadOutput{})

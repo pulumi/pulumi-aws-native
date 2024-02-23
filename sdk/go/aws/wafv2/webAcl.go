@@ -17,16 +17,16 @@ import (
 type WebAcl struct {
 	pulumi.CustomResourceState
 
-	Arn                  pulumi.StringOutput                 `pulumi:"arn"`
-	AssociationConfig    WebAclAssociationConfigPtrOutput    `pulumi:"associationConfig"`
-	Capacity             pulumi.IntOutput                    `pulumi:"capacity"`
-	CaptchaConfig        WebAclCaptchaConfigPtrOutput        `pulumi:"captchaConfig"`
-	ChallengeConfig      WebAclChallengeConfigPtrOutput      `pulumi:"challengeConfig"`
-	CustomResponseBodies WebAclCustomResponseBodiesPtrOutput `pulumi:"customResponseBodies"`
-	DefaultAction        WebAclDefaultActionOutput           `pulumi:"defaultAction"`
-	Description          pulumi.StringPtrOutput              `pulumi:"description"`
-	LabelNamespace       pulumi.StringOutput                 `pulumi:"labelNamespace"`
-	Name                 pulumi.StringPtrOutput              `pulumi:"name"`
+	Arn                  pulumi.StringOutput               `pulumi:"arn"`
+	AssociationConfig    WebAclAssociationConfigPtrOutput  `pulumi:"associationConfig"`
+	Capacity             pulumi.IntOutput                  `pulumi:"capacity"`
+	CaptchaConfig        WebAclCaptchaConfigPtrOutput      `pulumi:"captchaConfig"`
+	ChallengeConfig      WebAclChallengeConfigPtrOutput    `pulumi:"challengeConfig"`
+	CustomResponseBodies WebAclCustomResponseBodyMapOutput `pulumi:"customResponseBodies"`
+	DefaultAction        WebAclDefaultActionOutput         `pulumi:"defaultAction"`
+	Description          pulumi.StringPtrOutput            `pulumi:"description"`
+	LabelNamespace       pulumi.StringOutput               `pulumi:"labelNamespace"`
+	Name                 pulumi.StringPtrOutput            `pulumi:"name"`
 	// Collection of Rules.
 	Rules            WebAclRuleArrayOutput        `pulumi:"rules"`
 	Scope            WebAclScopeOutput            `pulumi:"scope"`
@@ -89,13 +89,13 @@ func (WebAclState) ElementType() reflect.Type {
 }
 
 type webAclArgs struct {
-	AssociationConfig    *WebAclAssociationConfig    `pulumi:"associationConfig"`
-	CaptchaConfig        *WebAclCaptchaConfig        `pulumi:"captchaConfig"`
-	ChallengeConfig      *WebAclChallengeConfig      `pulumi:"challengeConfig"`
-	CustomResponseBodies *WebAclCustomResponseBodies `pulumi:"customResponseBodies"`
-	DefaultAction        WebAclDefaultAction         `pulumi:"defaultAction"`
-	Description          *string                     `pulumi:"description"`
-	Name                 *string                     `pulumi:"name"`
+	AssociationConfig    *WebAclAssociationConfig            `pulumi:"associationConfig"`
+	CaptchaConfig        *WebAclCaptchaConfig                `pulumi:"captchaConfig"`
+	ChallengeConfig      *WebAclChallengeConfig              `pulumi:"challengeConfig"`
+	CustomResponseBodies map[string]WebAclCustomResponseBody `pulumi:"customResponseBodies"`
+	DefaultAction        WebAclDefaultAction                 `pulumi:"defaultAction"`
+	Description          *string                             `pulumi:"description"`
+	Name                 *string                             `pulumi:"name"`
 	// Collection of Rules.
 	Rules            []WebAclRule           `pulumi:"rules"`
 	Scope            WebAclScope            `pulumi:"scope"`
@@ -109,7 +109,7 @@ type WebAclArgs struct {
 	AssociationConfig    WebAclAssociationConfigPtrInput
 	CaptchaConfig        WebAclCaptchaConfigPtrInput
 	ChallengeConfig      WebAclChallengeConfigPtrInput
-	CustomResponseBodies WebAclCustomResponseBodiesPtrInput
+	CustomResponseBodies WebAclCustomResponseBodyMapInput
 	DefaultAction        WebAclDefaultActionInput
 	Description          pulumi.StringPtrInput
 	Name                 pulumi.StringPtrInput
@@ -178,8 +178,8 @@ func (o WebAclOutput) ChallengeConfig() WebAclChallengeConfigPtrOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclChallengeConfigPtrOutput { return v.ChallengeConfig }).(WebAclChallengeConfigPtrOutput)
 }
 
-func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodiesPtrOutput {
-	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodiesPtrOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodiesPtrOutput)
+func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodyMapOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodyMapOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodyMapOutput)
 }
 
 func (o WebAclOutput) DefaultAction() WebAclDefaultActionOutput {

@@ -35,7 +35,7 @@ type App struct {
 	ResiliencyPolicyArn pulumi.StringPtrOutput `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
 	ResourceMappings AppResourceMappingArrayOutput `pulumi:"resourceMappings"`
-	Tags             AppTagMapPtrOutput            `pulumi:"tags"`
+	Tags             pulumi.StringMapOutput        `pulumi:"tags"`
 }
 
 // NewApp registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ type appArgs struct {
 	ResiliencyPolicyArn *string `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
 	ResourceMappings []AppResourceMapping `pulumi:"resourceMappings"`
-	Tags             *AppTagMap           `pulumi:"tags"`
+	Tags             map[string]string    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a App resource.
@@ -123,7 +123,7 @@ type AppArgs struct {
 	ResiliencyPolicyArn pulumi.StringPtrInput
 	// An array of ResourceMapping objects.
 	ResourceMappings AppResourceMappingArrayInput
-	Tags             AppTagMapPtrInput
+	Tags             pulumi.StringMapInput
 }
 
 func (AppArgs) ElementType() reflect.Type {
@@ -212,8 +212,8 @@ func (o AppOutput) ResourceMappings() AppResourceMappingArrayOutput {
 	return o.ApplyT(func(v *App) AppResourceMappingArrayOutput { return v.ResourceMappings }).(AppResourceMappingArrayOutput)
 }
 
-func (o AppOutput) Tags() AppTagMapPtrOutput {
-	return o.ApplyT(func(v *App) AppTagMapPtrOutput { return v.Tags }).(AppTagMapPtrOutput)
+func (o AppOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

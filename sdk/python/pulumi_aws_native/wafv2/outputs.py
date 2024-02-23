@@ -34,7 +34,7 @@ __all__ = [
     'RuleGroupCustomHttpHeader',
     'RuleGroupCustomRequestHandling',
     'RuleGroupCustomResponse',
-    'RuleGroupCustomResponseBodies',
+    'RuleGroupCustomResponseBody',
     'RuleGroupFieldToMatch',
     'RuleGroupFieldToMatchSingleHeaderProperties',
     'RuleGroupFieldToMatchSingleQueryArgumentProperties',
@@ -92,7 +92,7 @@ __all__ = [
     'WebAclCustomHttpHeader',
     'WebAclCustomRequestHandling',
     'WebAclCustomResponse',
-    'WebAclCustomResponseBodies',
+    'WebAclCustomResponseBody',
     'WebAclDefaultAction',
     'WebAclExcludedRule',
     'WebAclFieldIdentifier',
@@ -128,7 +128,7 @@ __all__ = [
     'WebAclRateLimitUriPath',
     'WebAclRegexMatchStatement',
     'WebAclRegexPatternSetReferenceStatement',
-    'WebAclRequestBody',
+    'WebAclRequestBodyAssociatedResourceTypeConfig',
     'WebAclRequestInspection',
     'WebAclRequestInspectionAcfp',
     'WebAclResponseInspection',
@@ -1051,15 +1051,45 @@ class RuleGroupCustomResponse(dict):
 
 
 @pulumi.output_type
-class RuleGroupCustomResponseBodies(dict):
+class RuleGroupCustomResponseBody(dict):
     """
-    Custom response key and body map.
+    Custom response body.
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCustomResponseBody. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupCustomResponseBody.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupCustomResponseBody.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: str,
+                 content_type: 'RuleGroupResponseContentType'):
         """
-        Custom response key and body map.
+        Custom response body.
         """
-        pass
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> 'RuleGroupResponseContentType':
+        return pulumi.get(self, "content_type")
 
 
 @pulumi.output_type
@@ -2862,7 +2892,7 @@ class WebAclAssociationConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 request_body: Optional['outputs.WebAclRequestBody'] = None):
+                 request_body: Optional[Mapping[str, 'outputs.WebAclRequestBodyAssociatedResourceTypeConfig']] = None):
         """
         AssociationConfig for body inspection
         """
@@ -2871,7 +2901,7 @@ class WebAclAssociationConfig(dict):
 
     @property
     @pulumi.getter(name="requestBody")
-    def request_body(self) -> Optional['outputs.WebAclRequestBody']:
+    def request_body(self) -> Optional[Mapping[str, 'outputs.WebAclRequestBodyAssociatedResourceTypeConfig']]:
         return pulumi.get(self, "request_body")
 
 
@@ -3610,15 +3640,45 @@ class WebAclCustomResponse(dict):
 
 
 @pulumi.output_type
-class WebAclCustomResponseBodies(dict):
+class WebAclCustomResponseBody(dict):
     """
-    Custom response key and body map.
+    Custom response body.
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclCustomResponseBody. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclCustomResponseBody.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclCustomResponseBody.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: str,
+                 content_type: 'WebAclResponseContentType'):
         """
-        Custom response key and body map.
+        Custom response body.
         """
-        pass
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> 'WebAclResponseContentType':
+        return pulumi.get(self, "content_type")
 
 
 @pulumi.output_type
@@ -5079,15 +5139,38 @@ class WebAclRegexPatternSetReferenceStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRequestBody(dict):
+class WebAclRequestBodyAssociatedResourceTypeConfig(dict):
     """
-    Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+    Configures the inspection size in the request body.
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSizeInspectionLimit":
+            suggest = "default_size_inspection_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRequestBodyAssociatedResourceTypeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRequestBodyAssociatedResourceTypeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRequestBodyAssociatedResourceTypeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_size_inspection_limit: 'WebAclSizeInspectionLimit'):
         """
-        Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+        Configures the inspection size in the request body.
         """
-        pass
+        pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
+
+    @property
+    @pulumi.getter(name="defaultSizeInspectionLimit")
+    def default_size_inspection_limit(self) -> 'WebAclSizeInspectionLimit':
+        return pulumi.get(self, "default_size_inspection_limit")
 
 
 @pulumi.output_type

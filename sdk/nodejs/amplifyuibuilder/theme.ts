@@ -43,7 +43,7 @@ export class Theme extends pulumi.CustomResource {
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly overrides!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
-    public readonly tags!: pulumi.Output<outputs.amplifyuibuilder.ThemeTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly values!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
 
     /**
@@ -90,6 +90,6 @@ export interface ThemeArgs {
     environmentName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     overrides?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
-    tags?: pulumi.Input<inputs.amplifyuibuilder.ThemeTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     values?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
 }

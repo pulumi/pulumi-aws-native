@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.HealthImaging
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.DatastoreTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.HealthImaging
                 {
                     "datastoreName",
                     "kmsKeyArn",
-                    "tags",
+                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -97,7 +97,12 @@ namespace Pulumi.AwsNative.HealthImaging
         public Input<string>? KmsKeyArn { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.DatastoreTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public DatastoreArgs()
         {

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Omics
         public Output<string?> Name { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.RunGroupTagMap?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -100,7 +100,12 @@ namespace Pulumi.AwsNative.Omics
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.RunGroupTagMapArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public RunGroupArgs()
         {

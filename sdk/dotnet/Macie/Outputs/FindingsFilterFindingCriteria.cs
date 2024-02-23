@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.Macie.Outputs
     [OutputType]
     public sealed class FindingsFilterFindingCriteria
     {
-        public readonly Outputs.FindingsFilterCriterion? Criterion;
+        public readonly ImmutableDictionary<string, Outputs.FindingsFilterCriterionAdditionalProperties>? Criterion;
 
         [OutputConstructor]
-        private FindingsFilterFindingCriteria(Outputs.FindingsFilterCriterion? criterion)
+        private FindingsFilterFindingCriteria(ImmutableDictionary<string, Outputs.FindingsFilterCriterionAdditionalProperties>? criterion)
         {
             Criterion = criterion;
         }

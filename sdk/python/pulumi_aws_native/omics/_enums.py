@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AnnotationStoreAnnotationType',
     'AnnotationStoreEncryptionType',
+    'AnnotationStoreSchemaValueType',
     'AnnotationStoreStoreFormat',
     'AnnotationStoreStoreStatus',
     'ReferenceStoreEncryptionType',
@@ -32,6 +33,15 @@ class AnnotationStoreAnnotationType(str, Enum):
 
 class AnnotationStoreEncryptionType(str, Enum):
     KMS = "KMS"
+
+
+class AnnotationStoreSchemaValueType(str, Enum):
+    LONG = "LONG"
+    INT = "INT"
+    STRING = "STRING"
+    FLOAT = "FLOAT"
+    DOUBLE = "DOUBLE"
+    BOOLEAN = "BOOLEAN"
 
 
 class AnnotationStoreStoreFormat(str, Enum):

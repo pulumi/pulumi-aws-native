@@ -19,7 +19,7 @@ class ViewArgs:
                  filters: Optional[pulumi.Input['ViewSearchFilterArgs']] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['ViewTagMapArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  view_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a View resource.
@@ -64,11 +64,11 @@ class ViewArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['ViewTagMapArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['ViewTagMapArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -89,7 +89,7 @@ class View(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[pulumi.InputType['ViewSearchFilterArgs']]] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ViewTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -125,7 +125,7 @@ class View(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[pulumi.InputType['ViewSearchFilterArgs']]] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['ViewTagMapArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -191,7 +191,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.ViewTagMap']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

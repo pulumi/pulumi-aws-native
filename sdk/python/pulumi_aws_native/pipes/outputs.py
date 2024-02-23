@@ -17,7 +17,6 @@ __all__ = [
     'PipeBatchContainerOverrides',
     'PipeBatchEnvironmentVariable',
     'PipeBatchJobDependency',
-    'PipeBatchParametersMap',
     'PipeBatchResourceRequirement',
     'PipeBatchRetryStrategy',
     'PipeCapacityProviderStrategyItem',
@@ -35,7 +34,6 @@ __all__ = [
     'PipeFilter',
     'PipeFilterCriteria',
     'PipeFirehoseLogDestination',
-    'PipeHeaderParametersMap',
     'PipeLogConfiguration',
     'PipeMqBrokerAccessCredentialsProperties',
     'PipeMskAccessCredentials0Properties',
@@ -43,7 +41,6 @@ __all__ = [
     'PipeNetworkConfiguration',
     'PipePlacementConstraint',
     'PipePlacementStrategy',
-    'PipeQueryStringParametersMap',
     'PipeS3LogDestination',
     'PipeSageMakerPipelineParameter',
     'PipeSelfManagedKafkaAccessConfigurationCredentials0Properties',
@@ -60,7 +57,6 @@ __all__ = [
     'PipeSourceSelfManagedKafkaParameters',
     'PipeSourceSqsQueueParameters',
     'PipeTag',
-    'PipeTagMap',
     'PipeTargetBatchJobParameters',
     'PipeTargetCloudWatchLogsParameters',
     'PipeTargetEcsTaskParameters',
@@ -248,12 +244,6 @@ class PipeBatchJobDependency(dict):
     @pulumi.getter
     def type(self) -> Optional['PipeBatchJobDependencyType']:
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class PipeBatchParametersMap(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -704,9 +694,9 @@ class PipeEnrichmentHttpParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 header_parameters: Optional['outputs.PipeHeaderParametersMap'] = None,
+                 header_parameters: Optional[Mapping[str, str]] = None,
                  path_parameter_values: Optional[Sequence[str]] = None,
-                 query_string_parameters: Optional['outputs.PipeQueryStringParametersMap'] = None):
+                 query_string_parameters: Optional[Mapping[str, str]] = None):
         if header_parameters is not None:
             pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -716,7 +706,7 @@ class PipeEnrichmentHttpParameters(dict):
 
     @property
     @pulumi.getter(name="headerParameters")
-    def header_parameters(self) -> Optional['outputs.PipeHeaderParametersMap']:
+    def header_parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "header_parameters")
 
     @property
@@ -726,7 +716,7 @@ class PipeEnrichmentHttpParameters(dict):
 
     @property
     @pulumi.getter(name="queryStringParameters")
-    def query_string_parameters(self) -> Optional['outputs.PipeQueryStringParametersMap']:
+    def query_string_parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "query_string_parameters")
 
 
@@ -824,12 +814,6 @@ class PipeFirehoseLogDestination(dict):
     @pulumi.getter(name="deliveryStreamArn")
     def delivery_stream_arn(self) -> Optional[str]:
         return pulumi.get(self, "delivery_stream_arn")
-
-
-@pulumi.output_type
-class PipeHeaderParametersMap(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -1075,12 +1059,6 @@ class PipePlacementStrategy(dict):
     @pulumi.getter
     def type(self) -> Optional['PipePlacementStrategyType']:
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class PipeQueryStringParametersMap(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -2026,12 +2004,6 @@ class PipeTag(dict):
 
 
 @pulumi.output_type
-class PipeTagMap(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class PipeTargetBatchJobParameters(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2066,7 +2038,7 @@ class PipeTargetBatchJobParameters(dict):
                  array_properties: Optional['outputs.PipeBatchArrayProperties'] = None,
                  container_overrides: Optional['outputs.PipeBatchContainerOverrides'] = None,
                  depends_on: Optional[Sequence['outputs.PipeBatchJobDependency']] = None,
-                 parameters: Optional['outputs.PipeBatchParametersMap'] = None,
+                 parameters: Optional[Mapping[str, str]] = None,
                  retry_strategy: Optional['outputs.PipeBatchRetryStrategy'] = None):
         pulumi.set(__self__, "job_definition", job_definition)
         pulumi.set(__self__, "job_name", job_name)
@@ -2108,7 +2080,7 @@ class PipeTargetBatchJobParameters(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional['outputs.PipeBatchParametersMap']:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "parameters")
 
     @property
@@ -2406,9 +2378,9 @@ class PipeTargetHttpParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 header_parameters: Optional['outputs.PipeHeaderParametersMap'] = None,
+                 header_parameters: Optional[Mapping[str, str]] = None,
                  path_parameter_values: Optional[Sequence[str]] = None,
-                 query_string_parameters: Optional['outputs.PipeQueryStringParametersMap'] = None):
+                 query_string_parameters: Optional[Mapping[str, str]] = None):
         if header_parameters is not None:
             pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -2418,7 +2390,7 @@ class PipeTargetHttpParameters(dict):
 
     @property
     @pulumi.getter(name="headerParameters")
-    def header_parameters(self) -> Optional['outputs.PipeHeaderParametersMap']:
+    def header_parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "header_parameters")
 
     @property
@@ -2428,7 +2400,7 @@ class PipeTargetHttpParameters(dict):
 
     @property
     @pulumi.getter(name="queryStringParameters")
-    def query_string_parameters(self) -> Optional['outputs.PipeQueryStringParametersMap']:
+    def query_string_parameters(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "query_string_parameters")
 
 

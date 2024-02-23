@@ -25,7 +25,7 @@ type RouteResponse struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 	ResponseModels pulumi.AnyOutput `pulumi:"responseModels"`
 	// The route response parameters.
-	ResponseParameters RouteResponseRouteParametersPtrOutput `pulumi:"responseParameters"`
+	ResponseParameters RouteResponseParameterConstraintsMapOutput `pulumi:"responseParameters"`
 	// The route ID.
 	RouteId         pulumi.StringOutput `pulumi:"routeId"`
 	RouteResponseId pulumi.StringOutput `pulumi:"routeResponseId"`
@@ -96,7 +96,7 @@ type routeResponseArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 	ResponseModels interface{} `pulumi:"responseModels"`
 	// The route response parameters.
-	ResponseParameters *RouteResponseRouteParameters `pulumi:"responseParameters"`
+	ResponseParameters map[string]RouteResponseParameterConstraints `pulumi:"responseParameters"`
 	// The route ID.
 	RouteId string `pulumi:"routeId"`
 	// The route response key.
@@ -114,7 +114,7 @@ type RouteResponseArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
 	ResponseModels pulumi.Input
 	// The route response parameters.
-	ResponseParameters RouteResponseRouteParametersPtrInput
+	ResponseParameters RouteResponseParameterConstraintsMapInput
 	// The route ID.
 	RouteId pulumi.StringInput
 	// The route response key.
@@ -176,8 +176,8 @@ func (o RouteResponseOutput) ResponseModels() pulumi.AnyOutput {
 }
 
 // The route response parameters.
-func (o RouteResponseOutput) ResponseParameters() RouteResponseRouteParametersPtrOutput {
-	return o.ApplyT(func(v *RouteResponse) RouteResponseRouteParametersPtrOutput { return v.ResponseParameters }).(RouteResponseRouteParametersPtrOutput)
+func (o RouteResponseOutput) ResponseParameters() RouteResponseParameterConstraintsMapOutput {
+	return o.ApplyT(func(v *RouteResponse) RouteResponseParameterConstraintsMapOutput { return v.ResponseParameters }).(RouteResponseParameterConstraintsMapOutput)
 }
 
 // The route ID.

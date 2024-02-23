@@ -12,33 +12,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'BrowserSettingsEncryptionContextMap',
-    'IdentityProviderDetails',
-    'IpAccessSettingsEncryptionContextMap',
     'IpAccessSettingsIpRule',
-    'PortalEncryptionContextMap',
     'UserSettingsCookieSpecification',
     'UserSettingsCookieSynchronizationConfiguration',
-    'UserSettingsEncryptionContextMap',
 ]
-
-@pulumi.output_type
-class BrowserSettingsEncryptionContextMap(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
-class IdentityProviderDetails(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
-class IpAccessSettingsEncryptionContextMap(dict):
-    def __init__(__self__):
-        pass
-
 
 @pulumi.output_type
 class IpAccessSettingsIpRule(dict):
@@ -81,12 +58,6 @@ class IpAccessSettingsIpRule(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
-
-
-@pulumi.output_type
-class PortalEncryptionContextMap(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -135,11 +106,5 @@ class UserSettingsCookieSynchronizationConfiguration(dict):
     @pulumi.getter
     def blocklist(self) -> Optional[Sequence['outputs.UserSettingsCookieSpecification']]:
         return pulumi.get(self, "blocklist")
-
-
-@pulumi.output_type
-class UserSettingsEncryptionContextMap(dict):
-    def __init__(__self__):
-        pass
 
 

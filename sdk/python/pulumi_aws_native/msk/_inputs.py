@@ -53,7 +53,6 @@ __all__ = [
     'ServerlessClusterIamArgs',
     'ServerlessClusterSaslArgs',
     'ServerlessClusterVpcConfigArgs',
-    'VpcConnectionTagsArgs',
 ]
 
 @pulumi.input_type
@@ -1308,14 +1307,5 @@ class ServerlessClusterVpcConfigArgs:
     @security_groups.setter
     def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_groups", value)
-
-
-@pulumi.input_type
-class VpcConnectionTagsArgs:
-    def __init__(__self__):
-        """
-        A key-value pair to associate with a resource.
-        """
-        pass
 
 

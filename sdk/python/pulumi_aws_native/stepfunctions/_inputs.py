@@ -14,7 +14,6 @@ __all__ = [
     'StateMachineAliasDeploymentPreferenceArgs',
     'StateMachineAliasRoutingConfigurationVersionArgs',
     'StateMachineCloudWatchLogsLogGroupArgs',
-    'StateMachineDefinitionSubstitutionsArgs',
     'StateMachineDefinitionArgs',
     'StateMachineLogDestinationArgs',
     'StateMachineLoggingConfigurationArgs',
@@ -156,12 +155,6 @@ class StateMachineCloudWatchLogsLogGroupArgs:
     @log_group_arn.setter
     def log_group_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_group_arn", value)
-
-
-@pulumi.input_type
-class StateMachineDefinitionSubstitutionsArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type

@@ -38,7 +38,7 @@ type LookupPipeResult struct {
 	LogConfiguration     *PipeLogConfiguration     `pulumi:"logConfiguration"`
 	RoleArn              *string                   `pulumi:"roleArn"`
 	StateReason          *string                   `pulumi:"stateReason"`
-	Tags                 *PipeTagMap               `pulumi:"tags"`
+	Tags                 map[string]string         `pulumi:"tags"`
 	Target               *string                   `pulumi:"target"`
 }
 
@@ -121,8 +121,8 @@ func (o LookupPipeResultOutput) StateReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.StateReason }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPipeResultOutput) Tags() PipeTagMapPtrOutput {
-	return o.ApplyT(func(v LookupPipeResult) *PipeTagMap { return v.Tags }).(PipeTagMapPtrOutput)
+func (o LookupPipeResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPipeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupPipeResultOutput) Target() pulumi.StringPtrOutput {

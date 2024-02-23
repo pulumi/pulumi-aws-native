@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     public sealed class JobStatisticOverrideArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameters", required: true)]
-        public Input<Inputs.JobParameterMapArgs> Parameters { get; set; } = null!;
+        private InputMap<string>? _parameters;
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;

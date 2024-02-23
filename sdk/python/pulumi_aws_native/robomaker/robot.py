@@ -8,9 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['RobotArgs', 'Robot']
 
@@ -21,7 +19,7 @@ class RobotArgs:
                  greengrass_group_id: pulumi.Input[str],
                  fleet: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input['RobotTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Robot resource.
         :param pulumi.Input['RobotArchitecture'] architecture: The target architecture of the robot.
@@ -88,11 +86,11 @@ class RobotArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['RobotTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['RobotTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -105,7 +103,7 @@ class Robot(pulumi.CustomResource):
                  fleet: Optional[pulumi.Input[str]] = None,
                  greengrass_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['RobotTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
@@ -145,7 +143,7 @@ class Robot(pulumi.CustomResource):
                  fleet: Optional[pulumi.Input[str]] = None,
                  greengrass_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['RobotTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -236,6 +234,6 @@ class Robot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.RobotTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 

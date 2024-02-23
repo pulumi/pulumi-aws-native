@@ -6869,6 +6869,38 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DataSetFileFormat : IEquatable<DataSetFileFormat>
+    {
+        private readonly string _value;
+
+        private DataSetFileFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetFileFormat Csv { get; } = new DataSetFileFormat("CSV");
+        public static DataSetFileFormat Tsv { get; } = new DataSetFileFormat("TSV");
+        public static DataSetFileFormat Clf { get; } = new DataSetFileFormat("CLF");
+        public static DataSetFileFormat Elf { get; } = new DataSetFileFormat("ELF");
+        public static DataSetFileFormat Xlsx { get; } = new DataSetFileFormat("XLSX");
+        public static DataSetFileFormat Json { get; } = new DataSetFileFormat("JSON");
+
+        public static bool operator ==(DataSetFileFormat left, DataSetFileFormat right) => left.Equals(right);
+        public static bool operator !=(DataSetFileFormat left, DataSetFileFormat right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetFileFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetFileFormat other && Equals(other);
+        public bool Equals(DataSetFileFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSetGeoSpatialCountryCode : IEquatable<DataSetGeoSpatialCountryCode>
     {
         private readonly string _value;
@@ -6888,6 +6920,40 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSetGeoSpatialCountryCode other && Equals(other);
         public bool Equals(DataSetGeoSpatialCountryCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetGeoSpatialDataRole : IEquatable<DataSetGeoSpatialDataRole>
+    {
+        private readonly string _value;
+
+        private DataSetGeoSpatialDataRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetGeoSpatialDataRole Country { get; } = new DataSetGeoSpatialDataRole("COUNTRY");
+        public static DataSetGeoSpatialDataRole State { get; } = new DataSetGeoSpatialDataRole("STATE");
+        public static DataSetGeoSpatialDataRole County { get; } = new DataSetGeoSpatialDataRole("COUNTY");
+        public static DataSetGeoSpatialDataRole City { get; } = new DataSetGeoSpatialDataRole("CITY");
+        public static DataSetGeoSpatialDataRole Postcode { get; } = new DataSetGeoSpatialDataRole("POSTCODE");
+        public static DataSetGeoSpatialDataRole Longitude { get; } = new DataSetGeoSpatialDataRole("LONGITUDE");
+        public static DataSetGeoSpatialDataRole Latitude { get; } = new DataSetGeoSpatialDataRole("LATITUDE");
+        public static DataSetGeoSpatialDataRole Political1 { get; } = new DataSetGeoSpatialDataRole("POLITICAL1");
+
+        public static bool operator ==(DataSetGeoSpatialDataRole left, DataSetGeoSpatialDataRole right) => left.Equals(right);
+        public static bool operator !=(DataSetGeoSpatialDataRole left, DataSetGeoSpatialDataRole right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetGeoSpatialDataRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetGeoSpatialDataRole other && Equals(other);
+        public bool Equals(DataSetGeoSpatialDataRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -6916,6 +6982,69 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSetImportMode other && Equals(other);
         public bool Equals(DataSetImportMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetInputColumnDataType : IEquatable<DataSetInputColumnDataType>
+    {
+        private readonly string _value;
+
+        private DataSetInputColumnDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetInputColumnDataType String { get; } = new DataSetInputColumnDataType("STRING");
+        public static DataSetInputColumnDataType Integer { get; } = new DataSetInputColumnDataType("INTEGER");
+        public static DataSetInputColumnDataType Decimal { get; } = new DataSetInputColumnDataType("DECIMAL");
+        public static DataSetInputColumnDataType Datetime { get; } = new DataSetInputColumnDataType("DATETIME");
+        public static DataSetInputColumnDataType Bit { get; } = new DataSetInputColumnDataType("BIT");
+        public static DataSetInputColumnDataType Boolean { get; } = new DataSetInputColumnDataType("BOOLEAN");
+        public static DataSetInputColumnDataType Json { get; } = new DataSetInputColumnDataType("JSON");
+
+        public static bool operator ==(DataSetInputColumnDataType left, DataSetInputColumnDataType right) => left.Equals(right);
+        public static bool operator !=(DataSetInputColumnDataType left, DataSetInputColumnDataType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetInputColumnDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetInputColumnDataType other && Equals(other);
+        public bool Equals(DataSetInputColumnDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetJoinType : IEquatable<DataSetJoinType>
+    {
+        private readonly string _value;
+
+        private DataSetJoinType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetJoinType Inner { get; } = new DataSetJoinType("INNER");
+        public static DataSetJoinType Outer { get; } = new DataSetJoinType("OUTER");
+        public static DataSetJoinType Left { get; } = new DataSetJoinType("LEFT");
+        public static DataSetJoinType Right { get; } = new DataSetJoinType("RIGHT");
+
+        public static bool operator ==(DataSetJoinType left, DataSetJoinType right) => left.Equals(right);
+        public static bool operator !=(DataSetJoinType left, DataSetJoinType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetJoinType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetJoinType other && Equals(other);
+        public bool Equals(DataSetJoinType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -7029,6 +7158,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSetStatus other && Equals(other);
         public bool Equals(DataSetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetTextQualifier : IEquatable<DataSetTextQualifier>
+    {
+        private readonly string _value;
+
+        private DataSetTextQualifier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetTextQualifier DoubleQuote { get; } = new DataSetTextQualifier("DOUBLE_QUOTE");
+        public static DataSetTextQualifier SingleQuote { get; } = new DataSetTextQualifier("SINGLE_QUOTE");
+
+        public static bool operator ==(DataSetTextQualifier left, DataSetTextQualifier right) => left.Equals(right);
+        public static bool operator !=(DataSetTextQualifier left, DataSetTextQualifier right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetTextQualifier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetTextQualifier other && Equals(other);
+        public bool Equals(DataSetTextQualifier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

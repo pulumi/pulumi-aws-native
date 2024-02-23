@@ -30,7 +30,7 @@ export interface GetResiliencyPolicyResult {
      * Data Location Constraint of the Policy.
      */
     readonly dataLocationConstraint?: enums.resiliencehub.ResiliencyPolicyDataLocationConstraint;
-    readonly policy?: outputs.resiliencehub.ResiliencyPolicyPolicyMap;
+    readonly policy?: {[key: string]: outputs.resiliencehub.ResiliencyPolicyFailurePolicy};
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
@@ -43,7 +43,7 @@ export interface GetResiliencyPolicyResult {
      * Name of Resiliency Policy.
      */
     readonly policyName?: string;
-    readonly tags?: outputs.resiliencehub.ResiliencyPolicyTagMap;
+    readonly tags?: {[key: string]: string};
     /**
      * Resiliency Policy Tier.
      */

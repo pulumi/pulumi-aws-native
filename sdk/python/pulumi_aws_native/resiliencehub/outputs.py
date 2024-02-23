@@ -16,9 +16,7 @@ __all__ = [
     'AppPermissionModel',
     'AppPhysicalResourceId',
     'AppResourceMapping',
-    'AppTagMap',
-    'ResiliencyPolicyPolicyMap',
-    'ResiliencyPolicyTagMap',
+    'ResiliencyPolicyFailurePolicy',
 ]
 
 @pulumi.output_type
@@ -289,20 +287,54 @@ class AppResourceMapping(dict):
 
 
 @pulumi.output_type
-class AppTagMap(dict):
-    def __init__(__self__):
-        pass
+class ResiliencyPolicyFailurePolicy(dict):
+    """
+    Failure Policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rpoInSecs":
+            suggest = "rpo_in_secs"
+        elif key == "rtoInSecs":
+            suggest = "rto_in_secs"
 
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResiliencyPolicyFailurePolicy. Access the value via the '{suggest}' property getter instead.")
 
-@pulumi.output_type
-class ResiliencyPolicyPolicyMap(dict):
-    def __init__(__self__):
-        pass
+    def __getitem__(self, key: str) -> Any:
+        ResiliencyPolicyFailurePolicy.__key_warning(key)
+        return super().__getitem__(key)
 
+    def get(self, key: str, default = None) -> Any:
+        ResiliencyPolicyFailurePolicy.__key_warning(key)
+        return super().get(key, default)
 
-@pulumi.output_type
-class ResiliencyPolicyTagMap(dict):
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 rpo_in_secs: int,
+                 rto_in_secs: int):
+        """
+        Failure Policy.
+        :param int rpo_in_secs: RPO in seconds.
+        :param int rto_in_secs: RTO in seconds.
+        """
+        pulumi.set(__self__, "rpo_in_secs", rpo_in_secs)
+        pulumi.set(__self__, "rto_in_secs", rto_in_secs)
+
+    @property
+    @pulumi.getter(name="rpoInSecs")
+    def rpo_in_secs(self) -> int:
+        """
+        RPO in seconds.
+        """
+        return pulumi.get(self, "rpo_in_secs")
+
+    @property
+    @pulumi.getter(name="rtoInSecs")
+    def rto_in_secs(self) -> int:
+        """
+        RTO in seconds.
+        """
+        return pulumi.get(self, "rto_in_secs")
 
 

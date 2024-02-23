@@ -47,7 +47,7 @@ export class RuleGroup extends pulumi.CustomResource {
      * Collection of Consumed Labels.
      */
     public readonly consumedLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[] | undefined>;
-    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.RuleGroupCustomResponseBodies | undefined>;
+    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.RuleGroupCustomResponseBody} | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly labelNamespace!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -125,7 +125,7 @@ export interface RuleGroupArgs {
      * Collection of Consumed Labels.
      */
     consumedLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupLabelSummaryArgs>[]>;
-    customResponseBodies?: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBodiesArgs>;
+    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBodyArgs>}>;
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**

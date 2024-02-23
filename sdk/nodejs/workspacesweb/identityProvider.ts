@@ -38,7 +38,7 @@ export class IdentityProvider extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly identityProviderArn!: pulumi.Output<string>;
-    public readonly identityProviderDetails!: pulumi.Output<outputs.workspacesweb.IdentityProviderDetails>;
+    public readonly identityProviderDetails!: pulumi.Output<{[key: string]: string}>;
     public readonly identityProviderName!: pulumi.Output<string>;
     public readonly identityProviderType!: pulumi.Output<enums.workspacesweb.IdentityProviderType>;
     public readonly portalArn!: pulumi.Output<string | undefined>;
@@ -83,7 +83,7 @@ export class IdentityProvider extends pulumi.CustomResource {
  * The set of arguments for constructing a IdentityProvider resource.
  */
 export interface IdentityProviderArgs {
-    identityProviderDetails: pulumi.Input<inputs.workspacesweb.IdentityProviderDetailsArgs>;
+    identityProviderDetails: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     identityProviderName?: pulumi.Input<string>;
     identityProviderType: pulumi.Input<enums.workspacesweb.IdentityProviderType>;
     portalArn?: pulumi.Input<string>;

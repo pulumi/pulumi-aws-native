@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowCustomConnectorSourceProperties
     {
-        public readonly Outputs.FlowCustomProperties? CustomProperties;
+        public readonly ImmutableDictionary<string, string>? CustomProperties;
         public readonly Outputs.FlowCustomConnectorSourcePropertiesDataTransferApiProperties? DataTransferApi;
         public readonly string EntityName;
 
         [OutputConstructor]
         private FlowCustomConnectorSourceProperties(
-            Outputs.FlowCustomProperties? customProperties,
+            ImmutableDictionary<string, string>? customProperties,
 
             Outputs.FlowCustomConnectorSourcePropertiesDataTransferApiProperties? dataTransferApi,
 

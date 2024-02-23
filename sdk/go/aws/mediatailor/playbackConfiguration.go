@@ -26,7 +26,7 @@ type PlaybackConfiguration struct {
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 	CdnConfiguration PlaybackConfigurationCdnConfigurationPtrOutput `pulumi:"cdnConfiguration"`
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-	ConfigurationAliases PlaybackConfigurationConfigurationAliasesPtrOutput `pulumi:"configurationAliases"`
+	ConfigurationAliases pulumi.MapOutput `pulumi:"configurationAliases"`
 	// The configuration for DASH content.
 	DashConfiguration PlaybackConfigurationDashConfigurationPtrOutput `pulumi:"dashConfiguration"`
 	// The configuration for HLS content.
@@ -114,7 +114,7 @@ type playbackConfigurationArgs struct {
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 	CdnConfiguration *PlaybackConfigurationCdnConfiguration `pulumi:"cdnConfiguration"`
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-	ConfigurationAliases *PlaybackConfigurationConfigurationAliases `pulumi:"configurationAliases"`
+	ConfigurationAliases map[string]interface{} `pulumi:"configurationAliases"`
 	// The configuration for DASH content.
 	DashConfiguration *PlaybackConfigurationDashConfiguration `pulumi:"dashConfiguration"`
 	// The configuration for HLS content.
@@ -148,7 +148,7 @@ type PlaybackConfigurationArgs struct {
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 	CdnConfiguration PlaybackConfigurationCdnConfigurationPtrInput
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-	ConfigurationAliases PlaybackConfigurationConfigurationAliasesPtrInput
+	ConfigurationAliases pulumi.MapInput
 	// The configuration for DASH content.
 	DashConfiguration PlaybackConfigurationDashConfigurationPtrInput
 	// The configuration for HLS content.
@@ -233,10 +233,8 @@ func (o PlaybackConfigurationOutput) CdnConfiguration() PlaybackConfigurationCdn
 }
 
 // The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-func (o PlaybackConfigurationOutput) ConfigurationAliases() PlaybackConfigurationConfigurationAliasesPtrOutput {
-	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationConfigurationAliasesPtrOutput {
-		return v.ConfigurationAliases
-	}).(PlaybackConfigurationConfigurationAliasesPtrOutput)
+func (o PlaybackConfigurationOutput) ConfigurationAliases() pulumi.MapOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.MapOutput { return v.ConfigurationAliases }).(pulumi.MapOutput)
 }
 
 // The configuration for DASH content.

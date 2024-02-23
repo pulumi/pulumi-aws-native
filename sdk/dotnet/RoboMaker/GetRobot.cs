@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.RoboMaker
     public sealed class GetRobotResult
     {
         public readonly string? Arn;
-        public readonly Outputs.RobotTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetRobotResult(
             string? arn,
 
-            Outputs.RobotTags? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Tags = tags;

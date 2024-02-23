@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeEnrichmentHttpParameters
     {
-        public readonly Outputs.PipeHeaderParametersMap? HeaderParameters;
+        public readonly ImmutableDictionary<string, string>? HeaderParameters;
         public readonly ImmutableArray<string> PathParameterValues;
-        public readonly Outputs.PipeQueryStringParametersMap? QueryStringParameters;
+        public readonly ImmutableDictionary<string, string>? QueryStringParameters;
 
         [OutputConstructor]
         private PipeEnrichmentHttpParameters(
-            Outputs.PipeHeaderParametersMap? headerParameters,
+            ImmutableDictionary<string, string>? headerParameters,
 
             ImmutableArray<string> pathParameterValues,
 
-            Outputs.PipeQueryStringParametersMap? queryStringParameters)
+            ImmutableDictionary<string, string>? queryStringParameters)
         {
             HeaderParameters = headerParameters;
             PathParameterValues = pathParameterValues;

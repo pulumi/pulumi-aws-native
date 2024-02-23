@@ -15,9 +15,7 @@ __all__ = [
     'LaunchProfileStreamConfigurationSessionStorageArgs',
     'LaunchProfileStreamConfigurationArgs',
     'LaunchProfileStreamingSessionStorageRootArgs',
-    'LaunchProfileTagsArgs',
     'LaunchProfileVolumeConfigurationArgs',
-    'StreamingImageTagsArgs',
     'StudioComponentActiveDirectoryComputerAttributeArgs',
     'StudioComponentActiveDirectoryConfigurationArgs',
     'StudioComponentComputeFarmConfigurationArgs',
@@ -29,9 +27,7 @@ __all__ = [
     'StudioComponentLicenseServiceConfigurationArgs',
     'StudioComponentScriptParameterKeyValueArgs',
     'StudioComponentSharedFileSystemConfigurationArgs',
-    'StudioComponentTagsArgs',
     'StudioEncryptionConfigurationArgs',
-    'StudioTagsArgs',
 ]
 
 @pulumi.input_type
@@ -333,12 +329,6 @@ class LaunchProfileStreamingSessionStorageRootArgs:
 
 
 @pulumi.input_type
-class LaunchProfileTagsArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class LaunchProfileVolumeConfigurationArgs:
     def __init__(__self__, *,
                  iops: Optional[pulumi.Input[float]] = None,
@@ -401,12 +391,6 @@ class LaunchProfileVolumeConfigurationArgs:
     @throughput.setter
     def throughput(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "throughput", value)
-
-
-@pulumi.input_type
-class StreamingImageTagsArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -856,12 +840,6 @@ class StudioComponentSharedFileSystemConfigurationArgs:
 
 
 @pulumi.input_type
-class StudioComponentTagsArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class StudioEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  key_type: pulumi.Input['StudioEncryptionConfigurationKeyType'],
@@ -894,11 +872,5 @@ class StudioEncryptionConfigurationArgs:
     @key_arn.setter
     def key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_arn", value)
-
-
-@pulumi.input_type
-class StudioTagsArgs:
-    def __init__(__self__):
-        pass
 
 

@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetSoftwarePackageVersionResult
     {
-        public readonly Outputs.SoftwarePackageVersionResourceAttributes? Attributes;
+        public readonly ImmutableDictionary<string, string>? Attributes;
         public readonly string? Description;
         public readonly string? ErrorReason;
         public readonly string? PackageVersionArn;
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.IoT
 
         [OutputConstructor]
         private GetSoftwarePackageVersionResult(
-            Outputs.SoftwarePackageVersionResourceAttributes? attributes,
+            ImmutableDictionary<string, string>? attributes,
 
             string? description,
 

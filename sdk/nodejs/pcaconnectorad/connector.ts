@@ -40,7 +40,7 @@ export class Connector extends pulumi.CustomResource {
     public readonly certificateAuthorityArn!: pulumi.Output<string>;
     public /*out*/ readonly connectorArn!: pulumi.Output<string>;
     public readonly directoryId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<outputs.pcaconnectorad.ConnectorTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly vpcInformation!: pulumi.Output<outputs.pcaconnectorad.ConnectorVpcInformation>;
 
     /**
@@ -88,6 +88,6 @@ export class Connector extends pulumi.CustomResource {
 export interface ConnectorArgs {
     certificateAuthorityArn: pulumi.Input<string>;
     directoryId: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.pcaconnectorad.ConnectorTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     vpcInformation: pulumi.Input<inputs.pcaconnectorad.ConnectorVpcInformationArgs>;
 }

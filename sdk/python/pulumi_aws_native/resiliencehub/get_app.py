@@ -123,7 +123,7 @@ class GetAppResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['outputs.AppTagMap']:
+    def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
 

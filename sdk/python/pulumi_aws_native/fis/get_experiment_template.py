@@ -48,7 +48,7 @@ class GetExperimentTemplateResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional['outputs.ExperimentTemplateActionMap']:
+    def actions(self) -> Optional[Mapping[str, 'outputs.ExperimentTemplateAction']]:
         return pulumi.get(self, "actions")
 
     @property
@@ -83,7 +83,7 @@ class GetExperimentTemplateResult:
 
     @property
     @pulumi.getter
-    def targets(self) -> Optional['outputs.ExperimentTemplateTargetMap']:
+    def targets(self) -> Optional[Mapping[str, 'outputs.ExperimentTemplateTarget']]:
         return pulumi.get(self, "targets")
 
 

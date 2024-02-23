@@ -21,7 +21,7 @@ class TemplateArgs:
                  definition: pulumi.Input[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition1PropertiesArgs', 'TemplateDefinition2PropertiesArgs']],
                  name: Optional[pulumi.Input[str]] = None,
                  reenroll_all_certificate_holders: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input['TemplateTagsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Template resource.
         """
@@ -72,11 +72,11 @@ class TemplateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['TemplateTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['TemplateTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -89,7 +89,7 @@ class Template(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[Union[pulumi.InputType['TemplateDefinition0PropertiesArgs'], pulumi.InputType['TemplateDefinition1PropertiesArgs'], pulumi.InputType['TemplateDefinition2PropertiesArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reenroll_all_certificate_holders: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['TemplateTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a template that defines certificate configurations, both for issuance and client handling
@@ -125,7 +125,7 @@ class Template(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[Union[pulumi.InputType['TemplateDefinition0PropertiesArgs'], pulumi.InputType['TemplateDefinition1PropertiesArgs'], pulumi.InputType['TemplateDefinition2PropertiesArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reenroll_all_certificate_holders: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[pulumi.InputType['TemplateTagsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -199,7 +199,7 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional['outputs.TemplateTags']]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property

@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.DataSetDatasetParameter>> DatasetParameters { get; private set; } = null!;
 
         [Output("fieldFolders")]
-        public Output<Outputs.DataSetFieldFolderMap?> FieldFolders { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.DataSetFieldFolder>?> FieldFolders { get; private set; } = null!;
 
         [Output("importMode")]
         public Output<Pulumi.AwsNative.QuickSight.DataSetImportMode?> ImportMode { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         [Output("logicalTableMap")]
-        public Output<Outputs.DataSetLogicalTableMap?> LogicalTableMap { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.DataSetLogicalTable>?> LogicalTableMap { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The display name for the dataset.&lt;/p&gt;
@@ -99,7 +99,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.DataSetResourcePermission>> Permissions { get; private set; } = null!;
 
         [Output("physicalTableMap")]
-        public Output<Outputs.DataSetPhysicalTableMap?> PhysicalTableMap { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.DataSetPhysicalTable>?> PhysicalTableMap { get; private set; } = null!;
 
         [Output("rowLevelPermissionDataSet")]
         public Output<Outputs.DataSetRowLevelPermissionDataSet?> RowLevelPermissionDataSet { get; private set; } = null!;
@@ -208,7 +208,12 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("fieldFolders")]
-        public Input<Inputs.DataSetFieldFolderMapArgs>? FieldFolders { get; set; }
+        private InputMap<Inputs.DataSetFieldFolderArgs>? _fieldFolders;
+        public InputMap<Inputs.DataSetFieldFolderArgs> FieldFolders
+        {
+            get => _fieldFolders ?? (_fieldFolders = new InputMap<Inputs.DataSetFieldFolderArgs>());
+            set => _fieldFolders = value;
+        }
 
         [Input("importMode")]
         public Input<Pulumi.AwsNative.QuickSight.DataSetImportMode>? ImportMode { get; set; }
@@ -217,7 +222,12 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<Inputs.DataSetIngestionWaitPolicyArgs>? IngestionWaitPolicy { get; set; }
 
         [Input("logicalTableMap")]
-        public Input<Inputs.DataSetLogicalTableMapArgs>? LogicalTableMap { get; set; }
+        private InputMap<Inputs.DataSetLogicalTableArgs>? _logicalTableMap;
+        public InputMap<Inputs.DataSetLogicalTableArgs> LogicalTableMap
+        {
+            get => _logicalTableMap ?? (_logicalTableMap = new InputMap<Inputs.DataSetLogicalTableArgs>());
+            set => _logicalTableMap = value;
+        }
 
         /// <summary>
         /// &lt;p&gt;The display name for the dataset.&lt;/p&gt;
@@ -238,7 +248,12 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("physicalTableMap")]
-        public Input<Inputs.DataSetPhysicalTableMapArgs>? PhysicalTableMap { get; set; }
+        private InputMap<Inputs.DataSetPhysicalTableArgs>? _physicalTableMap;
+        public InputMap<Inputs.DataSetPhysicalTableArgs> PhysicalTableMap
+        {
+            get => _physicalTableMap ?? (_physicalTableMap = new InputMap<Inputs.DataSetPhysicalTableArgs>());
+            set => _physicalTableMap = value;
+        }
 
         [Input("rowLevelPermissionDataSet")]
         public Input<Inputs.DataSetRowLevelPermissionDataSetArgs>? RowLevelPermissionDataSet { get; set; }

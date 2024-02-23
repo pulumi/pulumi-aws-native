@@ -54,7 +54,7 @@ export interface GetDataSetResult {
      * <p>The last time that this dataset was updated.</p>
      */
     readonly lastUpdatedTime?: string;
-    readonly logicalTableMap?: outputs.quicksight.DataSetLogicalTableMap;
+    readonly logicalTableMap?: {[key: string]: outputs.quicksight.DataSetLogicalTable};
     /**
      * <p>The display name for the dataset.</p>
      */
@@ -68,7 +68,7 @@ export interface GetDataSetResult {
      * <p>A list of resource permissions on the dataset.</p>
      */
     readonly permissions?: outputs.quicksight.DataSetResourcePermission[];
-    readonly physicalTableMap?: outputs.quicksight.DataSetPhysicalTableMap;
+    readonly physicalTableMap?: {[key: string]: outputs.quicksight.DataSetPhysicalTable};
     readonly rowLevelPermissionDataSet?: outputs.quicksight.DataSetRowLevelPermissionDataSet;
     readonly rowLevelPermissionTagConfiguration?: outputs.quicksight.DataSetRowLevelPermissionTagConfiguration;
     /**

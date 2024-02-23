@@ -44,7 +44,7 @@ type Application struct {
 	// The type of the application
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
-	WorkerTypeSpecifications ApplicationWorkerTypeSpecificationInputMapPtrOutput `pulumi:"workerTypeSpecifications"`
+	WorkerTypeSpecifications ApplicationWorkerTypeSpecificationInputMapOutput `pulumi:"workerTypeSpecifications"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -121,7 +121,7 @@ type applicationArgs struct {
 	// The type of the application
 	Type string `pulumi:"type"`
 	// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
-	WorkerTypeSpecifications *ApplicationWorkerTypeSpecificationInputMap `pulumi:"workerTypeSpecifications"`
+	WorkerTypeSpecifications map[string]ApplicationWorkerTypeSpecificationInput `pulumi:"workerTypeSpecifications"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -149,7 +149,7 @@ type ApplicationArgs struct {
 	// The type of the application
 	Type pulumi.StringInput
 	// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
-	WorkerTypeSpecifications ApplicationWorkerTypeSpecificationInputMapPtrInput
+	WorkerTypeSpecifications ApplicationWorkerTypeSpecificationInputMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -261,10 +261,10 @@ func (o ApplicationOutput) Type() pulumi.StringOutput {
 }
 
 // The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
-func (o ApplicationOutput) WorkerTypeSpecifications() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
-	return o.ApplyT(func(v *Application) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+func (o ApplicationOutput) WorkerTypeSpecifications() ApplicationWorkerTypeSpecificationInputMapOutput {
+	return o.ApplyT(func(v *Application) ApplicationWorkerTypeSpecificationInputMapOutput {
 		return v.WorkerTypeSpecifications
-	}).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
+	}).(ApplicationWorkerTypeSpecificationInputMapOutput)
 }
 
 func init() {

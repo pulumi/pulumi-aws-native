@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<string?> EnvironmentName { get; private set; } = null!;
 
         [Output("fields")]
-        public Output<Outputs.FormFieldsMap?> Fields { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.FormFieldConfig>?> Fields { get; private set; } = null!;
 
         [Output("formActionType")]
         public Output<Pulumi.AwsNative.AmplifyUiBuilder.FormActionType?> FormActionType { get; private set; } = null!;
@@ -43,13 +43,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<string?> SchemaVersion { get; private set; } = null!;
 
         [Output("sectionalElements")]
-        public Output<Outputs.FormSectionalElementMap?> SectionalElements { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.FormSectionalElement>?> SectionalElements { get; private set; } = null!;
 
         [Output("style")]
         public Output<Outputs.FormStyle?> Style { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<Outputs.FormTags?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,7 +114,12 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Input<string>? EnvironmentName { get; set; }
 
         [Input("fields")]
-        public Input<Inputs.FormFieldsMapArgs>? Fields { get; set; }
+        private InputMap<Inputs.FormFieldConfigArgs>? _fields;
+        public InputMap<Inputs.FormFieldConfigArgs> Fields
+        {
+            get => _fields ?? (_fields = new InputMap<Inputs.FormFieldConfigArgs>());
+            set => _fields = value;
+        }
 
         [Input("formActionType")]
         public Input<Pulumi.AwsNative.AmplifyUiBuilder.FormActionType>? FormActionType { get; set; }
@@ -129,13 +134,23 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Input<string>? SchemaVersion { get; set; }
 
         [Input("sectionalElements")]
-        public Input<Inputs.FormSectionalElementMapArgs>? SectionalElements { get; set; }
+        private InputMap<Inputs.FormSectionalElementArgs>? _sectionalElements;
+        public InputMap<Inputs.FormSectionalElementArgs> SectionalElements
+        {
+            get => _sectionalElements ?? (_sectionalElements = new InputMap<Inputs.FormSectionalElementArgs>());
+            set => _sectionalElements = value;
+        }
 
         [Input("style")]
         public Input<Inputs.FormStyleArgs>? Style { get; set; }
 
         [Input("tags")]
-        public Input<Inputs.FormTagsArgs>? Tags { get; set; }
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public FormArgs()
         {

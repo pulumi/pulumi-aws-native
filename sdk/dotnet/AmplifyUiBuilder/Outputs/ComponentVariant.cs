@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     [OutputType]
     public sealed class ComponentVariant
     {
-        public readonly Outputs.ComponentOverrides? Overrides;
-        public readonly Outputs.ComponentVariantValues? VariantValues;
+        public readonly ImmutableDictionary<string, object>? Overrides;
+        public readonly ImmutableDictionary<string, string>? VariantValues;
 
         [OutputConstructor]
         private ComponentVariant(
-            Outputs.ComponentOverrides? overrides,
+            ImmutableDictionary<string, object>? overrides,
 
-            Outputs.ComponentVariantValues? variantValues)
+            ImmutableDictionary<string, string>? variantValues)
         {
             Overrides = overrides;
             VariantValues = variantValues;

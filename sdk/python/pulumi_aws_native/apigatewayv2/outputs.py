@@ -22,7 +22,7 @@ __all__ = [
     'DomainNameConfiguration',
     'DomainNameMutualTlsAuthentication',
     'IntegrationTlsConfig',
-    'RouteResponseRouteParameters',
+    'RouteResponseParameterConstraints',
     'StageAccessLogSettings',
     'StageRouteSettings',
 ]
@@ -712,9 +712,25 @@ class IntegrationTlsConfig(dict):
 
 
 @pulumi.output_type
-class RouteResponseRouteParameters(dict):
-    def __init__(__self__):
-        pass
+class RouteResponseParameterConstraints(dict):
+    """
+    Specifies whether the parameter is required.
+    """
+    def __init__(__self__, *,
+                 required: bool):
+        """
+        Specifies whether the parameter is required.
+        :param bool required: Specifies whether the parameter is required.
+        """
+        pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def required(self) -> bool:
+        """
+        Specifies whether the parameter is required.
+        """
+        return pulumi.get(self, "required")
 
 
 @pulumi.output_type

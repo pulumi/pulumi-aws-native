@@ -91,14 +91,14 @@ namespace Pulumi.AwsNative.Scheduler.Inputs
         public Input<string>? ReferenceId { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ScheduleTagMapArgs>? _tags;
+        private InputList<ImmutableDictionary<string, string>>? _tags;
 
         /// <summary>
         /// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
         /// </summary>
-        public InputList<Inputs.ScheduleTagMapArgs> Tags
+        public InputList<ImmutableDictionary<string, string>> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ScheduleTagMapArgs>());
+            get => _tags ?? (_tags = new InputList<ImmutableDictionary<string, string>>());
             set => _tags = value;
         }
 

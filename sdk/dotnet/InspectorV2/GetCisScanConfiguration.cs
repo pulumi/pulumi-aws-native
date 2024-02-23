@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.InspectorV2
         public readonly string? ScanName;
         public readonly Outputs.CisScanConfigurationSchedule? Schedule;
         public readonly Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel? SecurityLevel;
-        public readonly Outputs.CisScanConfigurationCisTagMap? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly Outputs.CisScanConfigurationCisTargets? Targets;
 
         [OutputConstructor]
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.InspectorV2
 
             Pulumi.AwsNative.InspectorV2.CisScanConfigurationCisSecurityLevel? securityLevel,
 
-            Outputs.CisScanConfigurationCisTagMap? tags,
+            ImmutableDictionary<string, string>? tags,
 
             Outputs.CisScanConfigurationCisTargets? targets)
         {

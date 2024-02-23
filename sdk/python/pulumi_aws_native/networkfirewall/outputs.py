@@ -16,9 +16,9 @@ __all__ = [
     'FirewallPolicyActionDefinition',
     'FirewallPolicyCustomAction',
     'FirewallPolicyDimension',
+    'FirewallPolicyIpSet',
     'FirewallPolicyPolicyVariablesProperties',
     'FirewallPolicyPublishMetricAction',
-    'FirewallPolicyRuleVariables',
     'FirewallPolicyStatefulEngineOptions',
     'FirewallPolicyStatefulRuleGroupOverride',
     'FirewallPolicyStatefulRuleGroupReference',
@@ -247,6 +247,19 @@ class FirewallPolicyDimension(dict):
 
 
 @pulumi.output_type
+class FirewallPolicyIpSet(dict):
+    def __init__(__self__, *,
+                 definition: Optional[Sequence[str]] = None):
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "definition")
+
+
+@pulumi.output_type
 class FirewallPolicyPolicyVariablesProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -266,13 +279,13 @@ class FirewallPolicyPolicyVariablesProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 rule_variables: Optional['outputs.FirewallPolicyRuleVariables'] = None):
+                 rule_variables: Optional[Mapping[str, 'outputs.FirewallPolicyIpSet']] = None):
         if rule_variables is not None:
             pulumi.set(__self__, "rule_variables", rule_variables)
 
     @property
     @pulumi.getter(name="ruleVariables")
-    def rule_variables(self) -> Optional['outputs.FirewallPolicyRuleVariables']:
+    def rule_variables(self) -> Optional[Mapping[str, 'outputs.FirewallPolicyIpSet']]:
         return pulumi.get(self, "rule_variables")
 
 
@@ -286,12 +299,6 @@ class FirewallPolicyPublishMetricAction(dict):
     @pulumi.getter
     def dimensions(self) -> Sequence['outputs.FirewallPolicyDimension']:
         return pulumi.get(self, "dimensions")
-
-
-@pulumi.output_type
-class FirewallPolicyRuleVariables(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type

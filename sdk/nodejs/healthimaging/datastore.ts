@@ -43,7 +43,7 @@ export class Datastore extends pulumi.CustomResource {
     public readonly datastoreName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly datastoreStatus!: pulumi.Output<enums.healthimaging.DatastoreStatus>;
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.healthimaging.DatastoreTags | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -76,7 +76,7 @@ export class Datastore extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["datastoreName", "kmsKeyArn", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["datastoreName", "kmsKeyArn", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Datastore.__pulumiType, name, resourceInputs, opts);
     }
@@ -88,5 +88,5 @@ export class Datastore extends pulumi.CustomResource {
 export interface DatastoreArgs {
     datastoreName?: pulumi.Input<string>;
     kmsKeyArn?: pulumi.Input<string>;
-    tags?: pulumi.Input<inputs.healthimaging.DatastoreTagsArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

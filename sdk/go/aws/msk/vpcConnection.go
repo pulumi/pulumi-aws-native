@@ -20,7 +20,7 @@ type VpcConnection struct {
 	Authentication VpcConnectionAuthenticationOutput `pulumi:"authentication"`
 	ClientSubnets  pulumi.StringArrayOutput          `pulumi:"clientSubnets"`
 	SecurityGroups pulumi.StringArrayOutput          `pulumi:"securityGroups"`
-	Tags           VpcConnectionTagsPtrOutput        `pulumi:"tags"`
+	Tags           pulumi.StringMapOutput            `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the target cluster
 	TargetClusterArn pulumi.StringOutput `pulumi:"targetClusterArn"`
 	VpcId            pulumi.StringOutput `pulumi:"vpcId"`
@@ -92,7 +92,7 @@ type vpcConnectionArgs struct {
 	Authentication VpcConnectionAuthentication `pulumi:"authentication"`
 	ClientSubnets  []string                    `pulumi:"clientSubnets"`
 	SecurityGroups []string                    `pulumi:"securityGroups"`
-	Tags           *VpcConnectionTags          `pulumi:"tags"`
+	Tags           map[string]string           `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the target cluster
 	TargetClusterArn string `pulumi:"targetClusterArn"`
 	VpcId            string `pulumi:"vpcId"`
@@ -103,7 +103,7 @@ type VpcConnectionArgs struct {
 	Authentication VpcConnectionAuthenticationInput
 	ClientSubnets  pulumi.StringArrayInput
 	SecurityGroups pulumi.StringArrayInput
-	Tags           VpcConnectionTagsPtrInput
+	Tags           pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) of the target cluster
 	TargetClusterArn pulumi.StringInput
 	VpcId            pulumi.StringInput
@@ -162,8 +162,8 @@ func (o VpcConnectionOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-func (o VpcConnectionOutput) Tags() VpcConnectionTagsPtrOutput {
-	return o.ApplyT(func(v *VpcConnection) VpcConnectionTagsPtrOutput { return v.Tags }).(VpcConnectionTagsPtrOutput)
+func (o VpcConnectionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VpcConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The Amazon Resource Name (ARN) of the target cluster

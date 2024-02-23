@@ -56,7 +56,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
     /**
      * The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
      */
-    public readonly configurationAliases!: pulumi.Output<outputs.mediatailor.PlaybackConfigurationConfigurationAliases | undefined>;
+    public readonly configurationAliases!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The configuration for DASH content.
      */
@@ -195,7 +195,7 @@ export interface PlaybackConfigurationArgs {
     /**
      * The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
      */
-    configurationAliases?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationConfigurationAliasesArgs>;
+    configurationAliases?: pulumi.Input<{[key: string]: any}>;
     /**
      * The configuration for DASH content.
      */

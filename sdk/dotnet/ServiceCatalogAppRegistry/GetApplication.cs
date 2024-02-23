@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// The name of the application. 
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.ApplicationTags? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
             string? name,
 
-            Outputs.ApplicationTags? tags)
+            ImmutableDictionary<string, string>? tags)
         {
             ApplicationName = applicationName;
             ApplicationTagKey = applicationTagKey;

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<string> IdentityProviderArn { get; private set; } = null!;
 
         [Output("identityProviderDetails")]
-        public Output<Outputs.IdentityProviderDetails> IdentityProviderDetails { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> IdentityProviderDetails { get; private set; } = null!;
 
         [Output("identityProviderName")]
         public Output<string> IdentityProviderName { get; private set; } = null!;
@@ -80,7 +80,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     public sealed class IdentityProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityProviderDetails", required: true)]
-        public Input<Inputs.IdentityProviderDetailsArgs> IdentityProviderDetails { get; set; } = null!;
+        private InputMap<string>? _identityProviderDetails;
+        public InputMap<string> IdentityProviderDetails
+        {
+            get => _identityProviderDetails ?? (_identityProviderDetails = new InputMap<string>());
+            set => _identityProviderDetails = value;
+        }
 
         [Input("identityProviderName")]
         public Input<string>? IdentityProviderName { get; set; }

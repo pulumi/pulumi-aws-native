@@ -16,7 +16,12 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class WebAclAssociationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("requestBody")]
-        public Input<Inputs.WebAclRequestBodyArgs>? RequestBody { get; set; }
+        private InputMap<Inputs.WebAclRequestBodyAssociatedResourceTypeConfigArgs>? _requestBody;
+        public InputMap<Inputs.WebAclRequestBodyAssociatedResourceTypeConfigArgs> RequestBody
+        {
+            get => _requestBody ?? (_requestBody = new InputMap<Inputs.WebAclRequestBodyAssociatedResourceTypeConfigArgs>());
+            set => _requestBody = value;
+        }
 
         public WebAclAssociationConfigArgs()
         {

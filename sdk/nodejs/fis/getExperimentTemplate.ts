@@ -23,14 +23,14 @@ export interface GetExperimentTemplateArgs {
 }
 
 export interface GetExperimentTemplateResult {
-    readonly actions?: outputs.fis.ExperimentTemplateActionMap;
+    readonly actions?: {[key: string]: outputs.fis.ExperimentTemplateAction};
     readonly description?: string;
     readonly experimentOptions?: outputs.fis.ExperimentTemplateExperimentOptions;
     readonly id?: string;
     readonly logConfiguration?: outputs.fis.ExperimentTemplateLogConfiguration;
     readonly roleArn?: string;
     readonly stopConditions?: outputs.fis.ExperimentTemplateStopCondition[];
-    readonly targets?: outputs.fis.ExperimentTemplateTargetMap;
+    readonly targets?: {[key: string]: outputs.fis.ExperimentTemplateTarget};
 }
 /**
  * Resource schema for AWS::FIS::ExperimentTemplate
