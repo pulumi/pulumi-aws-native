@@ -72,7 +72,7 @@ func TestGetTagsStyle(t *testing.T) {
 				Ref: "#/types/pulumi:types:input:common:ComponentResourceOptions:TagsEntry",
 			},
 		}
-		assert.NotEqual(t, TagsStyleKeyValueArray, ctx.GetTagsStyle("Tags", typeSpec))
+		assert.Equal(t, TagsStyleKeyValueArrayWithExtraProperties, ctx.GetTagsStyle("Tags", typeSpec))
 	})
 	t.Run("key value create-only array style if causes replacement", func(t *testing.T) {
 		ctx := &context{

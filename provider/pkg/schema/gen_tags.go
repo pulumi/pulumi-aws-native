@@ -21,6 +21,9 @@ const (
 	// TagsStyleKeyValueCreateOnlyArray is a style where the tags are represented as an array of key-value pairs, but
 	// the tags are create-only.
 	TagsStyleKeyValueCreateOnlyArray TagsStyle = "keyValueCreateOnlyArray"
+	// TagsStyleKeyValueArrayWithExtraProperties is a style where the tags are represented as an array of key-value pairs
+	// but can have extra properties.
+	TagsStyleKeyValueArrayWithExtraProperties TagsStyle = "keyValueArrayWithExtraProperties"
 )
 
 func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
@@ -56,18 +59,22 @@ func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) Ta
 		return TagsStyleStringMap
 	}
 
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeCreateOnly */) {
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeCreateOnly */, false /* includeExtraProperties */) {
 		return TagsStyleKeyValueArray
 	}
 
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeCreateOnly */) {
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeCreateOnly */, false /* includeExtraProperties */) {
 		return TagsStyleKeyValueCreateOnlyArray
+	}
+
+	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeCreateOnly */, true /* includeExtraProperties */) {
+		return TagsStyleKeyValueArrayWithExtraProperties
 	}
 
 	return TagsStyleUnknown
 }
 
-func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, includeCreateOnly bool) bool {
+func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, includeCreateOnly bool, includeExtraProperties bool) bool {
 	if typeSpec == nil || typeSpec.Items == nil || typeSpec.Items.Ref == "" {
 		return false
 	}
@@ -86,7 +93,7 @@ func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.T
 		keyProp, keyPropExists := refType.Properties["key"]
 		valueProp, valuePropExists := refType.Properties["value"]
 		// Check if the type has exactly two properties, "key" and "value", both of type "string"
-		if keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string" && len(refType.Properties) == 2 {
+		if keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string" && (len(refType.Properties) == 2 || includeExtraProperties) {
 			return true
 		}
 	}

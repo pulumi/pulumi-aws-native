@@ -14,12 +14,5 @@
     },
     "type": "array",
     "uniqueItems": true
-  },
-  "aws-native:autoscaling:AutoScalingGroup": {
-    "insertionOrder": false,
-    "items": {
-      "$ref": "#/definitions/TagProperty"
-    },
-    "type": "array"
   }
 }

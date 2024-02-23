@@ -1003,6 +1003,8 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 			oldRef := propertySpec.TypeSpec.Items.Ref
 			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalCreateOnlyTagToken
 			delete(ctx.pkg.Types, oldRef)
+		case TagsStyleKeyValueArrayWithExtraProperties:
+			// Keep custom type
 		default: // Unknown
 			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 		}
