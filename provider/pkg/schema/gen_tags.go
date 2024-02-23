@@ -12,15 +12,17 @@ type TagsStyle string
 const (
 	// TagsStyleUnknown indicates we can't identify the style of tags.
 	TagsStyleUnknown TagsStyle = ""
+	// TagsStyleUntyped indicates the resource has no tags
+	TagsStyleNone TagsStyle = "none"
 	// TagsStyleUntyped is a style where the tags are represented as "Any" - without a schema.
 	TagsStyleUntyped TagsStyle = "untyped"
 	// TagsStyleStringMap is a style where the tags are represented as a map of strings.
 	TagsStyleStringMap TagsStyle = "stringMap"
 	// TagsStyleKeyValueArray is a style where the tags are represented as an array of key-value pairs.
 	TagsStyleKeyValueArray TagsStyle = "keyValueArray"
-	// TagsStyleKeyValueCreateOnlyArray is a style where the tags are represented as an array of key-value pairs, but
+	// TagsStyleKeyValueArrayCreateOnly is a style where the tags are represented as an array of key-value pairs, but
 	// the tags are create-only.
-	TagsStyleKeyValueCreateOnlyArray TagsStyle = "keyValueCreateOnlyArray"
+	TagsStyleKeyValueArrayCreateOnly TagsStyle = "keyValueArrayCreateOnly"
 	// TagsStyleKeyValueArrayWithExtraProperties is a style where the tags are represented as an array of key-value pairs
 	// but can have extra properties.
 	TagsStyleKeyValueArrayWithExtraProperties TagsStyle = "keyValueArrayWithExtraProperties"
@@ -29,24 +31,62 @@ const (
 	TagsStyleKeyValueArrayWithAlternateType TagsStyle = "keyValueArrayWithAlternateType"
 )
 
+func (ts TagsStyle) IsStringMap() bool {
+	return ts == TagsStyleStringMap
+}
+
+func (ts TagsStyle) IsKeyValueArray() bool {
+	return strings.HasPrefix(string(ts), "keyValueArray")
+}
+
+func (ctx *context) ApplyTagsTransformation(propertySpec *pschema.PropertySpec, spec *jsschema.Schema, tagsStyle TagsStyle) {
+	switch tagsStyle {
+	case TagsStyleUntyped:
+	case TagsStyleStringMap:
+		// Nothing to do
+	case TagsStyleKeyValueArray:
+		// Swap referenced type to shared definition and remove custom type.
+		propertySpec.TypeSpec.Items.Ref = "#/types/" + globalTagToken
+	case TagsStyleKeyValueArrayCreateOnly:
+		// Swap referenced type to shared definition and remove custom type.
+		propertySpec.TypeSpec.Items.Ref = "#/types/" + globalCreateOnlyTagToken
+	case TagsStyleKeyValueArrayWithExtraProperties:
+		// Keep custom type
+	case TagsStyleKeyValueArrayWithAlternateType:
+		// Keep custom type
+	default: // Unknown
+		ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
+	}
+}
+
 func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
-	tagging, ok := originalSpec.Root().Extras["tagging"]
-	if !ok {
-		return "", false
+	fromTaggingMetadata, ok := func() (string, bool) {
+		tagging, ok := originalSpec.Root().Extras["tagging"]
+		if !ok {
+			return "", false
+		}
+		asInterface, ok := tagging.(map[string]interface{})
+		if !ok {
+			return "", false
+		}
+		tagProperty, ok := asInterface["tagProperty"]
+		if !ok {
+			return "", false
+		}
+		tagPropertyString, ok := tagProperty.(string)
+		if !ok {
+			return "", false
+		}
+		// Some property paths have a leading #, some don't
+		return strings.TrimPrefix(strings.TrimPrefix(tagPropertyString, "#"), "/properties/"), true
+	}()
+	if ok {
+		return fromTaggingMetadata, true
 	}
-	asInterface, ok := tagging.(map[string]interface{})
-	if !ok {
-		return "", false
+	if originalSpec.Properties != nil && originalSpec.Properties["Tags"] != nil {
+		return "Tags", true
 	}
-	tagProperty, ok := asInterface["tagProperty"]
-	if !ok {
-		return "", false
-	}
-	tagPropertyString, ok := tagProperty.(string)
-	if !ok {
-		return "", false
-	}
-	return strings.TrimPrefix(tagPropertyString, "/properties/"), true
+	return "", false
 }
 
 func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) TagsStyle {
@@ -64,7 +104,7 @@ func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) Ta
 
 	if isKeyValueArray, style := ctx.tagStyleIsKeyValueArray(propName, typeSpec); isKeyValueArray {
 		if style == TagsStyleKeyValueArray && ctx.isPropCreateOnly(propName) {
-			return TagsStyleKeyValueCreateOnlyArray
+			return TagsStyleKeyValueArrayCreateOnly
 		}
 		if style != TagsStyleUnknown {
 			return style

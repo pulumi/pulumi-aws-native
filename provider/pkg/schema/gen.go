@@ -761,6 +761,8 @@ func (ctx *context) gatherInvoke() error {
 	writeOnlyProperties := readPropNames(ctx.resourceSpec, "writeOnlyProperties")
 	createOnlyProperties := readPropNames(ctx.resourceSpec, "createOnlyProperties")
 	nonOutputProperties := codegen.NewStringSet(append(writeOnlyProperties, createOnlyProperties...)...)
+	tagsProp, hasTags := GetTagsProperty(ctx.resourceSpec)
+	var tagsStyle TagsStyle
 
 	outputs := map[string]pschema.PropertySpec{}
 	for k, v := range ctx.resourceSpec.Properties {
@@ -771,6 +773,16 @@ func (ctx *context) gatherInvoke() error {
 		p, err := ctx.propertySpec(k, resourceTypeName, v)
 		if err != nil {
 			return err
+		}
+		if hasTags && k == tagsProp {
+			tagsStyle = ctx.GetTagsStyle(k, &p.TypeSpec)
+			ctx.ApplyTagsTransformation(p, v, tagsStyle)
+		}
+		if p.Ref == "pulumi.json#/Any" {
+			if p.Description != "" {
+				p.Description += "\n\n"
+			}
+			p.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", ctx.cfTypeName)
 		}
 		outputs[sdkName] = *p
 	}
@@ -838,6 +850,8 @@ func (ctx *context) gatherResourceType() error {
 	writeOnlyProperties := readPropSdkNames(ctx.resourceSpec, "writeOnlyProperties")
 	createOnlyProperties := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
 	readOnlyProperties := codegen.NewStringSet(readPropNames(ctx.resourceSpec, "readOnlyProperties")...)
+	tagsProp, hasTags := GetTagsProperty(ctx.resourceSpec)
+	var tagsStyle TagsStyle
 
 	irreversibleNames := map[string]string{}
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
@@ -850,6 +864,16 @@ func (ctx *context) gatherResourceType() error {
 		propertySpec, err := ctx.propertySpec(prop, resourceTypeName, spec)
 		if err != nil {
 			return err
+		}
+		if hasTags && prop == tagsProp {
+			tagsStyle = ctx.GetTagsStyle(prop, &propertySpec.TypeSpec)
+			ctx.ApplyTagsTransformation(propertySpec, spec, tagsStyle)
+		}
+		if propertySpec.Ref == "pulumi.json#/Any" {
+			if propertySpec.Description != "" {
+				propertySpec.Description += "\n\n"
+			}
+			propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", ctx.cfTypeName)
 		}
 		properties[sdkName] = *propertySpec
 		if createOnlyProperties.Has(sdkName) || !readOnlyProperties.Has(prop) {
@@ -978,37 +1002,6 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 			"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
 				Name: propName + "Value",
 			}),
-		}
-	}
-
-	if propertySpec.Ref == "pulumi.json#/Any" {
-		if propertySpec.Description != "" {
-			propertySpec.Description += "\n\n"
-		}
-		propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", ctx.cfTypeName)
-	}
-
-	if tagsProp, hasCustomTagsProp := GetTagsProperty(spec); propName == "Tags" || (hasCustomTagsProp && propName == tagsProp) {
-		switch ctx.GetTagsStyle(propName, typeSpec) {
-		case TagsStyleUntyped:
-		case TagsStyleStringMap:
-			// Nothing to do
-		case TagsStyleKeyValueArray:
-			// Swap referenced type to shared definition and remove custom type.
-			oldRef := propertySpec.TypeSpec.Items.Ref
-			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalTagToken
-			delete(ctx.pkg.Types, oldRef)
-		case TagsStyleKeyValueCreateOnlyArray:
-			// Swap referenced type to shared definition and remove custom type.
-			oldRef := propertySpec.TypeSpec.Items.Ref
-			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalCreateOnlyTagToken
-			delete(ctx.pkg.Types, oldRef)
-		case TagsStyleKeyValueArrayWithExtraProperties:
-			// Keep custom type
-		case TagsStyleKeyValueArrayWithAlternateType:
-			// Keep custom type
-		default: // Unknown
-			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 		}
 	}
 
