@@ -39,9 +39,6 @@
         "type" : "string"
       }
     },
-    "ClientRouteMonitoringOptions" : {
-      "$ref" : "#/definitions/ClientRouteMonitoringOptions"
-    },
     "SecurityGroupIds" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -149,15 +146,6 @@
         }
       },
       "required" : [ "ClientRootCertificateChainArn" ]
-    },
-    "ClientRouteMonitoringOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        }
-      }
     },
     "ClientAuthenticationRequest" : {
       "type" : "object",
