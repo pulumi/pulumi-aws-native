@@ -21,6 +21,12 @@ const (
 	// TagsStyleKeyValueCreateOnlyArray is a style where the tags are represented as an array of key-value pairs, but
 	// the tags are create-only.
 	TagsStyleKeyValueCreateOnlyArray TagsStyle = "keyValueCreateOnlyArray"
+	// TagsStyleKeyValueArrayWithExtraProperties is a style where the tags are represented as an array of key-value pairs
+	// but can have extra properties.
+	TagsStyleKeyValueArrayWithExtraProperties TagsStyle = "keyValueArrayWithExtraProperties"
+	// TagsStyleKeyValueArrayWithAlternateType is a style where the tags are represented as an array of key-value pairs
+	// but the value can also be of a different type.
+	TagsStyleKeyValueArrayWithAlternateType TagsStyle = "keyValueArrayWithAlternateType"
 )
 
 func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
@@ -56,40 +62,70 @@ func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) Ta
 		return TagsStyleStringMap
 	}
 
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, false /* includeCreateOnly */) {
-		return TagsStyleKeyValueArray
-	}
-
-	if ctx.tagStyleIsKeyValueArray(propName, typeSpec, true /* includeCreateOnly */) {
-		return TagsStyleKeyValueCreateOnlyArray
+	if isKeyValueArray, style := ctx.tagStyleIsKeyValueArray(propName, typeSpec); isKeyValueArray {
+		if style == TagsStyleKeyValueArray && ctx.isPropCreateOnly(propName) {
+			return TagsStyleKeyValueCreateOnlyArray
+		}
+		if style != TagsStyleUnknown {
+			return style
+		}
 	}
 
 	return TagsStyleUnknown
 }
 
-func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec, includeCreateOnly bool) bool {
-	if typeSpec == nil || typeSpec.Items == nil || typeSpec.Items.Ref == "" {
-		return false
+func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec) (bool, TagsStyle) {
+	if typeSpec == nil || typeSpec.Items == nil {
+		return false, TagsStyleUnknown
 	}
 
-	typeToken, hasPrefix := strings.CutPrefix(typeSpec.Items.Ref, "#/types/")
-	if !hasPrefix {
-		return false
-	}
+	if typeSpec.Items.Ref != "" {
+		typeToken, hasPrefix := strings.CutPrefix(typeSpec.Items.Ref, "#/types/")
+		if !hasPrefix {
+			return false, TagsStyleUnknown
+		}
 
-	// We can't include tags which are create-only properties because this has to be added on the tags type but this is a shared type
-	if createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties"); createOnlyProps.Has(ToSdkName(propName)) && !includeCreateOnly {
-		return false
-	}
-
-	if refType, ok := ctx.pkg.Types[typeToken]; ok {
-		keyProp, keyPropExists := refType.Properties["key"]
-		valueProp, valuePropExists := refType.Properties["value"]
-		// Check if the type has exactly two properties, "key" and "value", both of type "string"
-		if keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string" && len(refType.Properties) == 2 {
-			return true
+		if refType, ok := ctx.pkg.Types[typeToken]; ok {
+			if isKeyValue, hasAdditions := hasKeyValueStringPropertiesAndAdditions(&refType); isKeyValue {
+				if hasAdditions {
+					return true, TagsStyleKeyValueArrayWithExtraProperties
+				}
+				return true, TagsStyleKeyValueArray
+			}
 		}
 	}
 
-	return false
+	if typeSpec.Items.OneOf != nil {
+		for _, item := range typeSpec.Items.OneOf {
+			typeToken := strings.TrimPrefix(item.Ref, "#/types/")
+			if typeToken != "" {
+				if refType, ok := ctx.pkg.Types[typeToken]; ok {
+					if isKeyValue, _ := hasKeyValueStringPropertiesAndAdditions(&refType); isKeyValue {
+						return true, TagsStyleKeyValueArrayWithAlternateType
+					}
+				}
+			}
+		}
+	}
+
+	return false, TagsStyleUnknown
+}
+
+func (ctx *context) isPropCreateOnly(propName string) bool {
+	createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
+	return createOnlyProps.Has(ToSdkName(propName))
+}
+
+func hasKeyValueStringPropertiesAndAdditions(typeSpec *pschema.ComplexTypeSpec) (hasKeyValueStringProperties bool, hasExtraProperties bool) {
+	if typeSpec == nil || typeSpec.Properties == nil {
+		return false, false
+	}
+	keyProp, keyPropExists := typeSpec.Properties["key"]
+	valueProp, valuePropExists := typeSpec.Properties["value"]
+	// Check if the type has exactly two properties, "key" and "value", both of type "string"
+	hasKeyValueStrings := keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string"
+	if !hasKeyValueStrings {
+		return false, false
+	}
+	return true, len(typeSpec.Properties) != 2
 }
