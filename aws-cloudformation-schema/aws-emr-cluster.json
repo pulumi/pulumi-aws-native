@@ -533,6 +533,9 @@
         "TerminationProtected" : {
           "type" : "boolean"
         },
+        "UnhealthyNodeReplacement" : {
+          "type" : "boolean"
+        },
         "KeepJobFlowAliveWhenNoSteps" : {
           "type" : "boolean"
         },

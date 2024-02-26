@@ -1,5 +1,4 @@
 {
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "typeName" : "AWS::QuickSight::Analysis",
   "description" : "Definition of the AWS::QuickSight::Analysis Resource Type.",
   "definitions" : {
@@ -6780,6 +6779,14 @@
         "TotalsVisibility" : {
           "$ref" : "#/definitions/Visibility"
         },
+        "TotalAggregationOptions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TotalAggregationOption"
+          },
+          "maxItems" : 200,
+          "minItems" : 0
+        },
         "Placement" : {
           "$ref" : "#/definitions/TableTotalsPlacement"
         },
@@ -6797,14 +6804,6 @@
         },
         "MetricHeaderCellStyle" : {
           "$ref" : "#/definitions/TableCellStyle"
-        },
-        "TotalAggregationOptions" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/TotalAggregationOption"
-          },
-          "maxItems" : 200,
-          "minItems" : 0
         }
       },
       "additionalProperties" : false
@@ -8902,6 +8901,9 @@
           "type" : "string",
           "format" : "date-time"
         },
+        "RollingDate" : {
+          "$ref" : "#/definitions/RollingDateConfiguration"
+        },
         "ParameterName" : {
           "type" : "string",
           "maxLength" : 2048,
@@ -8910,9 +8912,6 @@
         },
         "TimeGranularity" : {
           "$ref" : "#/definitions/TimeGranularity"
-        },
-        "RollingDate" : {
-          "$ref" : "#/definitions/RollingDateConfiguration"
         }
       },
       "required" : [ "Column", "FilterId" ],
@@ -9194,6 +9193,14 @@
         "TotalsVisibility" : {
           "$ref" : "#/definitions/Visibility"
         },
+        "TotalAggregationOptions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TotalAggregationOption"
+          },
+          "maxItems" : 200,
+          "minItems" : 0
+        },
         "Placement" : {
           "$ref" : "#/definitions/TableTotalsPlacement"
         },
@@ -9205,14 +9212,6 @@
         },
         "TotalCellStyle" : {
           "$ref" : "#/definitions/TableCellStyle"
-        },
-        "TotalAggregationOptions" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/TotalAggregationOption"
-          },
-          "maxItems" : 200,
-          "minItems" : 0
         }
       },
       "additionalProperties" : false
@@ -10045,5 +10044,6 @@
     }
   },
   "additionalProperties" : false,
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "required" : [ "AwsAccountId", "AnalysisId", "Name" ]
 }
