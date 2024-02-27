@@ -40,7 +40,8 @@ func (ts TagsStyle) IsKeyValueArray() bool {
 	return strings.HasPrefix(string(ts), tagStyleKeyValueArrayPrefix)
 }
 
-func (ctx *context) ApplyTagsTransformation(propertySpec *pschema.PropertySpec, spec *jsschema.Schema, tagsStyle TagsStyle) {
+func (ctx *context) ApplyTagsTransformation(propName string, propertySpec *pschema.PropertySpec, spec *jsschema.Schema) TagsStyle {
+	tagsStyle := ctx.getTagsStyle(propName, &propertySpec.TypeSpec)
 	switch tagsStyle {
 	case TagsStyleUntyped:
 	case TagsStyleStringMap:
@@ -58,6 +59,7 @@ func (ctx *context) ApplyTagsTransformation(propertySpec *pschema.PropertySpec, 
 	default: // Unknown
 		ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 	}
+	return tagsStyle
 }
 
 func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
@@ -90,7 +92,7 @@ func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
 	return "", false
 }
 
-func (ctx *context) GetTagsStyle(propName string, typeSpec *pschema.TypeSpec) TagsStyle {
+func (ctx *context) getTagsStyle(propName string, typeSpec *pschema.TypeSpec) TagsStyle {
 	if typeSpec == nil {
 		return TagsStyleUnknown
 	}

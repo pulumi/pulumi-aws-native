@@ -762,7 +762,6 @@ func (ctx *context) gatherInvoke() error {
 	createOnlyProperties := readPropNames(ctx.resourceSpec, "createOnlyProperties")
 	nonOutputProperties := codegen.NewStringSet(append(writeOnlyProperties, createOnlyProperties...)...)
 	tagsProp, hasTags := GetTagsProperty(ctx.resourceSpec)
-	var tagsStyle TagsStyle
 
 	outputs := map[string]pschema.PropertySpec{}
 	for k, v := range ctx.resourceSpec.Properties {
@@ -775,15 +774,9 @@ func (ctx *context) gatherInvoke() error {
 			return err
 		}
 		if hasTags && k == tagsProp {
-			tagsStyle = ctx.GetTagsStyle(k, &p.TypeSpec)
-			ctx.ApplyTagsTransformation(p, v, tagsStyle)
+			ctx.ApplyTagsTransformation(k, p, v)
 		}
-		if p.Ref == "pulumi.json#/Any" {
-			if p.Description != "" {
-				p.Description += "\n\n"
-			}
-			p.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", ctx.cfTypeName)
-		}
+		addUntypedPropDocs(p, ctx.cfTypeName)
 		outputs[sdkName] = *p
 	}
 
@@ -866,15 +859,9 @@ func (ctx *context) gatherResourceType() error {
 			return err
 		}
 		if hasTags && prop == tagsProp {
-			tagsStyle = ctx.GetTagsStyle(prop, &propertySpec.TypeSpec)
-			ctx.ApplyTagsTransformation(propertySpec, spec, tagsStyle)
+			tagsStyle = ctx.ApplyTagsTransformation(prop, propertySpec, spec)
 		}
-		if propertySpec.Ref == "pulumi.json#/Any" {
-			if propertySpec.Description != "" {
-				propertySpec.Description += "\n\n"
-			}
-			propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", ctx.cfTypeName)
-		}
+		addUntypedPropDocs(propertySpec, ctx.cfTypeName)
 		properties[sdkName] = *propertySpec
 		if createOnlyProperties.Has(sdkName) || !readOnlyProperties.Has(prop) {
 			inputProperties[sdkName] = *propertySpec
@@ -943,6 +930,15 @@ func (ctx *context) gatherResourceType() error {
 		TagsStyle:         tagsStyle,
 	}
 	return nil
+}
+
+func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
+	if propertySpec.Ref == "pulumi.json#/Any" {
+		if propertySpec.Description != "" {
+			propertySpec.Description += "\n\n"
+		}
+		propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", cfTypeName)
+	}
 }
 
 func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resourceTypeName string, properties map[string]pschema.PropertySpec) *AutoNamingSpec {
