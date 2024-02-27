@@ -461,11 +461,11 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		var defaultTags map[string]string
 		err := json.Unmarshal([]byte(defaultTagsJson), &defaultTags)
 		if err != nil {
-			return nil, fmt.Errorf("failed to unmarshal 'forbiddenAccountIds' config: %w", err)
+			return nil, fmt.Errorf("failed to unmarshal 'skipCredentialsValidation' config: %w", err)
 		}
 		p.defaultTags = defaultTags
 	} else {
-		p.defaultTags = make(map[string]string)
+		p.defaultTags = nil
 	}
 
 	p.cfn = cloudformation.NewFromConfig(cfg)

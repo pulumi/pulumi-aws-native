@@ -10,6 +10,7 @@ import (
 type TagsStyle string
 
 const (
+	tagStyleKeyValueArrayPrefix = "keyValueArray"
 	// TagsStyleUnknown indicates we can't identify the style of tags.
 	TagsStyleUnknown TagsStyle = ""
 	// TagsStyleUntyped indicates the resource has no tags
@@ -19,16 +20,16 @@ const (
 	// TagsStyleStringMap is a style where the tags are represented as a map of strings.
 	TagsStyleStringMap TagsStyle = "stringMap"
 	// TagsStyleKeyValueArray is a style where the tags are represented as an array of key-value pairs.
-	TagsStyleKeyValueArray TagsStyle = "keyValueArray"
+	TagsStyleKeyValueArray TagsStyle = tagStyleKeyValueArrayPrefix
 	// TagsStyleKeyValueArrayCreateOnly is a style where the tags are represented as an array of key-value pairs, but
 	// the tags are create-only.
-	TagsStyleKeyValueArrayCreateOnly TagsStyle = "keyValueArrayCreateOnly"
+	TagsStyleKeyValueArrayCreateOnly TagsStyle = tagStyleKeyValueArrayPrefix + "CreateOnly"
 	// TagsStyleKeyValueArrayWithExtraProperties is a style where the tags are represented as an array of key-value pairs
 	// but can have extra properties.
-	TagsStyleKeyValueArrayWithExtraProperties TagsStyle = "keyValueArrayWithExtraProperties"
+	TagsStyleKeyValueArrayWithExtraProperties TagsStyle = tagStyleKeyValueArrayPrefix + "WithExtraProperties"
 	// TagsStyleKeyValueArrayWithAlternateType is a style where the tags are represented as an array of key-value pairs
 	// but the value can also be of a different type.
-	TagsStyleKeyValueArrayWithAlternateType TagsStyle = "keyValueArrayWithAlternateType"
+	TagsStyleKeyValueArrayWithAlternateType TagsStyle = tagStyleKeyValueArrayPrefix + "WithAlternateType"
 )
 
 func (ts TagsStyle) IsStringMap() bool {
@@ -36,7 +37,7 @@ func (ts TagsStyle) IsStringMap() bool {
 }
 
 func (ts TagsStyle) IsKeyValueArray() bool {
-	return strings.HasPrefix(string(ts), "keyValueArray")
+	return strings.HasPrefix(string(ts), tagStyleKeyValueArrayPrefix)
 }
 
 func (ctx *context) ApplyTagsTransformation(propertySpec *pschema.PropertySpec, spec *jsschema.Schema, tagsStyle TagsStyle) {

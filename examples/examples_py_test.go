@@ -45,7 +45,7 @@ func TestDefaultTagsPython(t *testing.T) {
 				assert.Equal(t, map[string]interface{}{
 					"defaultTag": "defaultTagValue",
 					"localTag":   "localTagValue",
-				}, stackInfo.Outputs["hubTags"])
+				}, stackInfo.Outputs["policyTags"])
 			},
 		})
 
