@@ -8,6 +8,9 @@ import (
 )
 
 func mergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string, tagsStyle schema.TagsStyle) (resource.PropertyValue, error) {
+	if len(defaultTags) == 0 {
+		return tags, nil
+	}
 	if tags.IsComputed() {
 		return tags, nil
 	}
@@ -30,11 +33,13 @@ func mergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string
 	}
 
 	if tagsStyle.IsKeyValueArray() {
-		if !tags.IsArray() {
+		var asArray []resource.PropertyValue
+
+		if tags.IsArray() {
+			asArray = tags.ArrayValue()
+		} else if !tags.IsNull() {
 			return resource.NewArrayProperty(nil), fmt.Errorf("expected tags to be an array but found %v", tags.TypeString())
 		}
-
-		asArray := tags.ArrayValue()
 		existingKeys := make(map[string]bool)
 		for _, tag := range asArray {
 			if !tag.IsObject() {
