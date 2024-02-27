@@ -306,6 +306,7 @@
   "writeOnlyProperties" : [ "/properties/TemplateURL", "/properties/OperationPreferences", "/properties/StackInstancesGroup", "/properties/CallAs" ],
   "readOnlyProperties" : [ "/properties/StackSetId" ],
   "primaryIdentifier" : [ "/properties/StackSetId" ],
+  "additionalIdentifiers" : [ [ "/properties/StackSetName" ] ],
   "handlers" : {
     "create" : {
       "permissions" : [ "cloudformation:GetTemplateSummary", "cloudformation:CreateStackSet", "cloudformation:CreateStackInstances", "cloudformation:DescribeStackSetOperation", "cloudformation:ListStackSetOperationResults", "cloudformation:TagResource", "iam:PassRole" ],

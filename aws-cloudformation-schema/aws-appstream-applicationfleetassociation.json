@@ -16,6 +16,9 @@
     }
   },
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "FleetName", "ApplicationArn" ],
   "createOnlyProperties" : [ "/properties/FleetName", "/properties/ApplicationArn" ],
   "primaryIdentifier" : [ "/properties/FleetName", "/properties/ApplicationArn" ],

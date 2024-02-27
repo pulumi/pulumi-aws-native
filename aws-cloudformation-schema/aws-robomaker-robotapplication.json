@@ -104,16 +104,16 @@
   "createOnlyProperties" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "robomaker:CreateRobotApplication" ]
+      "permissions" : [ "robomaker:CreateRobotApplication", "robomaker:TagResource", "robomaker:UntagResource", "ecr:BatchGetImage", "ecr:GetAuthorizationToken", "ecr:BatchCheckLayerAvailability", "ecr-public:GetAuthorizationToken", "sts:GetServiceBearerToken" ]
     },
     "read" : {
       "permissions" : [ "robomaker:DescribeRobotApplication" ]
     },
     "update" : {
-      "permissions" : [ "robomaker:TagResource", "robomaker:UntagResource", "robomaker:UpdateRobotApplication" ]
+      "permissions" : [ "robomaker:TagResource", "robomaker:UntagResource", "robomaker:UpdateRobotApplication", "ecr:BatchGetImage", "ecr:GetAuthorizationToken", "ecr:BatchCheckLayerAvailability", "ecr-public:GetAuthorizationToken" ]
     },
     "delete" : {
-      "permissions" : [ "robomaker:DeleteRobotApplication" ]
+      "permissions" : [ "robomaker:DescribeRobotApplication", "robomaker:DeleteRobotApplication" ]
     },
     "list" : {
       "permissions" : [ "robomaker:ListRobotApplications" ]

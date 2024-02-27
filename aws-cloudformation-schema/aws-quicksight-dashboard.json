@@ -1,5 +1,4 @@
 {
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "typeName" : "AWS::QuickSight::Dashboard",
   "description" : "Definition of the AWS::QuickSight::Dashboard Resource Type.",
   "definitions" : {
@@ -6967,6 +6966,14 @@
         "TotalsVisibility" : {
           "$ref" : "#/definitions/Visibility"
         },
+        "TotalAggregationOptions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TotalAggregationOption"
+          },
+          "maxItems" : 200,
+          "minItems" : 0
+        },
         "Placement" : {
           "$ref" : "#/definitions/TableTotalsPlacement"
         },
@@ -6984,14 +6991,6 @@
         },
         "MetricHeaderCellStyle" : {
           "$ref" : "#/definitions/TableCellStyle"
-        },
-        "TotalAggregationOptions" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/TotalAggregationOption"
-          },
-          "maxItems" : 200,
-          "minItems" : 0
         }
       },
       "additionalProperties" : false
@@ -9107,6 +9106,9 @@
           "type" : "string",
           "format" : "date-time"
         },
+        "RollingDate" : {
+          "$ref" : "#/definitions/RollingDateConfiguration"
+        },
         "ParameterName" : {
           "type" : "string",
           "maxLength" : 2048,
@@ -9115,9 +9117,6 @@
         },
         "TimeGranularity" : {
           "$ref" : "#/definitions/TimeGranularity"
-        },
-        "RollingDate" : {
-          "$ref" : "#/definitions/RollingDateConfiguration"
         }
       },
       "required" : [ "Column", "FilterId" ],
@@ -9399,6 +9398,14 @@
         "TotalsVisibility" : {
           "$ref" : "#/definitions/Visibility"
         },
+        "TotalAggregationOptions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TotalAggregationOption"
+          },
+          "maxItems" : 200,
+          "minItems" : 0
+        },
         "Placement" : {
           "$ref" : "#/definitions/TableTotalsPlacement"
         },
@@ -9410,14 +9417,6 @@
         },
         "TotalCellStyle" : {
           "$ref" : "#/definitions/TableCellStyle"
-        },
-        "TotalAggregationOptions" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/TotalAggregationOption"
-          },
-          "maxItems" : 200,
-          "minItems" : 0
         }
       },
       "additionalProperties" : false
@@ -10185,6 +10184,17 @@
       "type" : "string",
       "format" : "date-time"
     },
+    "LinkEntities" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "maxLength" : 1024,
+        "minLength" : 1,
+        "pattern" : "^arn:aws[\\w\\-]*:quicksight:[\\w\\-]+:\\d+:analysis/[\\w\\-]{1,512}"
+      },
+      "maxItems" : 5,
+      "minItems" : 0
+    },
     "LinkSharingConfiguration" : {
       "$ref" : "#/definitions/LinkSharingConfiguration"
     },
@@ -10243,7 +10253,7 @@
       "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:UpdateDashboard", "quicksight:UpdateDashboardPermissions", "quicksight:UpdateDashboardPublishedVersion", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:UpdateDashboard", "quicksight:UpdateDashboardLinks", "quicksight:UpdateDashboardPermissions", "quicksight:UpdateDashboardPublishedVersion", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DeleteDashboard" ]
@@ -10260,5 +10270,6 @@
       }
     }
   },
-  "additionalProperties" : false
+  "additionalProperties" : false,
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight"
 }

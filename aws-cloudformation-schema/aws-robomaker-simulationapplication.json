@@ -150,16 +150,16 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "robomaker:CreateSimulationApplication" ]
+      "permissions" : [ "robomaker:CreateSimulationApplication", "robomaker:TagResource", "robomaker:UntagResource", "ecr:BatchGetImage", "ecr:GetAuthorizationToken", "ecr:BatchCheckLayerAvailability", "ecr-public:GetAuthorizationToken", "sts:GetServiceBearerToken" ]
     },
     "read" : {
       "permissions" : [ "robomaker:DescribeSimulationApplication" ]
     },
     "update" : {
-      "permissions" : [ "robomaker:TagResource", "robomaker:UntagResource", "robomaker:UpdateSimulationApplication" ]
+      "permissions" : [ "robomaker:TagResource", "robomaker:UntagResource", "robomaker:UpdateSimulationApplication", "ecr:BatchGetImage", "ecr:GetAuthorizationToken", "ecr:BatchCheckLayerAvailability", "ecr-public:GetAuthorizationToken" ]
     },
     "delete" : {
-      "permissions" : [ "robomaker:DeleteSimulationApplication" ]
+      "permissions" : [ "robomaker:DescribeSimulationApplication", "robomaker:DeleteSimulationApplication" ]
     },
     "list" : {
       "permissions" : [ "robomaker:ListSimulationApplications" ]

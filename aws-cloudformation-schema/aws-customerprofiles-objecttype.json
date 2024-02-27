@@ -190,7 +190,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "DomainName" ],
+  "required" : [ "DomainName", "ObjectTypeName", "Description" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
