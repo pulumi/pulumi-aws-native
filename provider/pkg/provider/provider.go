@@ -104,6 +104,7 @@ type cfnProvider struct {
 	roleArn             *string
 	allowedAccountIds   []string
 	forbiddenAccountIds []string
+	defaultTags         map[string]string
 
 	pulumiSchema []byte
 
@@ -197,9 +198,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 	var failures []*pulumirpc.CheckFailure
 	for k := range news {
 		switch k {
-		case "defaultTags":
-			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/107")})
 		case "ignoreTags":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/110")})
@@ -459,6 +457,17 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		}
 	}
 
+	if defaultTagsJson, ok := vars["aws-native:config:defaultTags"]; ok {
+		var defaultTags map[string]string
+		err := json.Unmarshal([]byte(defaultTagsJson), &defaultTags)
+		if err != nil {
+			return nil, fmt.Errorf("failed to unmarshal 'skipCredentialsValidation' config: %w", err)
+		}
+		p.defaultTags = defaultTags
+	} else {
+		p.defaultTags = nil
+	}
+
 	p.cfn = cloudformation.NewFromConfig(cfg)
 	p.cctl = cloudcontrol.NewFromConfig(cfg)
 	p.ec2 = ec2.NewFromConfig(cfg)
@@ -703,6 +712,17 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 		}
 		newInputs[resource.PropertyKey(autoNamingSpec.SdkName)] = val
 	}
+
+	// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
+	if len(p.defaultTags) > 0 && spec.TagsProperty != "" && spec.TagsStyle != schema.TagsStyleUnknown {
+		tagsKey := resource.PropertyKey(spec.TagsProperty)
+		val, err := mergeDefaultTags(newInputs[tagsKey], p.defaultTags, spec.TagsStyle)
+		if err != nil {
+			return nil, err
+		}
+		newInputs[tagsKey] = val
+	}
+
 	var checkFailures []*pulumirpc.CheckFailure
 	failures, err := schema.ValidateResource(&spec, p.resourceMap.Types, newInputs)
 	if err != nil {

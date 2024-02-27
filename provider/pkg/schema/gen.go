@@ -761,6 +761,7 @@ func (ctx *context) gatherInvoke() error {
 	writeOnlyProperties := readPropNames(ctx.resourceSpec, "writeOnlyProperties")
 	createOnlyProperties := readPropNames(ctx.resourceSpec, "createOnlyProperties")
 	nonOutputProperties := codegen.NewStringSet(append(writeOnlyProperties, createOnlyProperties...)...)
+	tagsProp, hasTags := GetTagsProperty(ctx.resourceSpec)
 
 	outputs := map[string]pschema.PropertySpec{}
 	for k, v := range ctx.resourceSpec.Properties {
@@ -772,6 +773,10 @@ func (ctx *context) gatherInvoke() error {
 		if err != nil {
 			return err
 		}
+		if hasTags && k == tagsProp {
+			ctx.ApplyTagsTransformation(k, p, v)
+		}
+		addUntypedPropDocs(p, ctx.cfTypeName)
 		outputs[sdkName] = *p
 	}
 
@@ -838,6 +843,8 @@ func (ctx *context) gatherResourceType() error {
 	writeOnlyProperties := readPropSdkNames(ctx.resourceSpec, "writeOnlyProperties")
 	createOnlyProperties := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
 	readOnlyProperties := codegen.NewStringSet(readPropNames(ctx.resourceSpec, "readOnlyProperties")...)
+	tagsProp, hasTags := GetTagsProperty(ctx.resourceSpec)
+	var tagsStyle TagsStyle
 
 	irreversibleNames := map[string]string{}
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
@@ -851,6 +858,10 @@ func (ctx *context) gatherResourceType() error {
 		if err != nil {
 			return err
 		}
+		if hasTags && prop == tagsProp {
+			tagsStyle = ctx.ApplyTagsTransformation(prop, propertySpec, spec)
+		}
+		addUntypedPropDocs(propertySpec, ctx.cfTypeName)
 		properties[sdkName] = *propertySpec
 		if createOnlyProperties.Has(sdkName) || !readOnlyProperties.Has(prop) {
 			inputProperties[sdkName] = *propertySpec
@@ -915,8 +926,19 @@ func (ctx *context) gatherResourceType() error {
 		AutoNamingSpec:    autoNamingSpec,
 		WriteOnly:         writeOnlyProperties.SortedValues(),
 		IrreversibleNames: irreversibleNames,
+		TagsProperty:      ToSdkName(tagsProp),
+		TagsStyle:         tagsStyle,
 	}
 	return nil
+}
+
+func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
+	if propertySpec.Ref == "pulumi.json#/Any" {
+		if propertySpec.Description != "" {
+			propertySpec.Description += "\n\n"
+		}
+		propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", cfTypeName)
+	}
 }
 
 func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resourceTypeName string, properties map[string]pschema.PropertySpec) *AutoNamingSpec {
@@ -978,37 +1000,6 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 			"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
 				Name: propName + "Value",
 			}),
-		}
-	}
-
-	if propertySpec.Ref == "pulumi.json#/Any" {
-		if propertySpec.Description != "" {
-			propertySpec.Description += "\n\n"
-		}
-		propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", ctx.cfTypeName)
-	}
-
-	if tagsProp, hasCustomTagsProp := GetTagsProperty(spec); propName == "Tags" || (hasCustomTagsProp && propName == tagsProp) {
-		switch ctx.GetTagsStyle(propName, typeSpec) {
-		case TagsStyleUntyped:
-		case TagsStyleStringMap:
-			// Nothing to do
-		case TagsStyleKeyValueArray:
-			// Swap referenced type to shared definition and remove custom type.
-			oldRef := propertySpec.TypeSpec.Items.Ref
-			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalTagToken
-			delete(ctx.pkg.Types, oldRef)
-		case TagsStyleKeyValueCreateOnlyArray:
-			// Swap referenced type to shared definition and remove custom type.
-			oldRef := propertySpec.TypeSpec.Items.Ref
-			propertySpec.TypeSpec.Items.Ref = "#/types/" + globalCreateOnlyTagToken
-			delete(ctx.pkg.Types, oldRef)
-		case TagsStyleKeyValueArrayWithExtraProperties:
-			// Keep custom type
-		case TagsStyleKeyValueArrayWithAlternateType:
-			// Keep custom type
-		default: // Unknown
-			ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 		}
 	}
 

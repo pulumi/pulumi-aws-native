@@ -9,6 +9,9 @@ import (
 // ToSdkName converts a Cloud Formation property or attribute name to the lowerCamelCase convention that
 // is used in Pulumi schema's properties.
 func ToSdkName(s string) string {
+	if s == "" {
+		return s
+	}
 	s = lowerAcronyms(s)
 	if r := rune(s[0]); r >= 'A' && r <= 'Z' {
 		s = strings.ToLower(string(r)) + s[1:]
@@ -81,12 +84,12 @@ func firstUppercaseAcronym(s string) (int, int) {
 
 func startsWithIsolatedLowercaseS(s string) bool {
 	switch len(s) {
-		case 0:
-			return false
-		case 1:
-			return rune(s[0]) == 's'
-		default:
-			return rune(s[0]) == 's' && isUpperAcronymChar(rune(s[1]))
+	case 0:
+		return false
+	case 1:
+		return rune(s[0]) == 's'
+	default:
+		return rune(s[0]) == 's' && isUpperAcronymChar(rune(s[1]))
 	}
 }
 
@@ -95,13 +98,13 @@ func findFirstRunOfUppercase(s string, minLength int) (int, int) {
 	startIndex := -1
 	for i, char := range s {
 		if startIndex == -1 { // looking for first uppercase char
-			if isUpperAcronymChar(char){
+			if isUpperAcronymChar(char) {
 				startIndex = i
 			}
 		} else { // in a run, looking for non-uppercase char
 			if !isUpperAcronymChar(char) {
 				// Note: we've defined uppercase to be ASCII [0-9A-Z] so index math is safe here
-				if i - startIndex >= minLength {
+				if i-startIndex >= minLength {
 					return startIndex, i
 				} else {
 					startIndex = -1
