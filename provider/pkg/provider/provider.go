@@ -316,13 +316,13 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 
 	var accessKey, secretKey, token string
 
-	if v, ok := varsOrEnv(vars, "aws-native:config:accessKey", "AWS_ACCESS_KEY_ID"); ok {
+	if v, ok := varsOrEnv(vars, "aws-native:config:accessKey"); ok {
 		accessKey = v
 	}
-	if v, ok := varsOrEnv(vars, "aws-native:config:secretKey", "AWS_SECRET_ACCESS_KEY"); ok {
+	if v, ok := varsOrEnv(vars, "aws-native:config:secretKey"); ok {
 		secretKey = v
 	}
-	if v, ok := varsOrEnv(vars, "aws-native:config:token", "AWS_SESSION_TOKEN"); ok {
+	if v, ok := varsOrEnv(vars, "aws-native:config:token"); ok {
 		token = v
 	}
 
