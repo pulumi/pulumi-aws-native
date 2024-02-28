@@ -67,7 +67,7 @@
   "createOnlyProperties" : [ "/properties/CertificateName", "/properties/DomainName", "/properties/SubjectAlternativeNames" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "lightsail:CreateCertificate", "lightsail:GetCertificates" ]
+      "permissions" : [ "lightsail:CreateCertificate", "lightsail:GetCertificates", "lightsail:TagResource", "lightsail:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "lightsail:GetCertificates" ]

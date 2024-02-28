@@ -46,6 +46,9 @@
     }
   },
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "Name", "StackName", "AppVisibility", "Attributes" ],
   "readOnlyProperties" : [ "/properties/CreatedTime", "/properties/LastModifiedTime" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/StackName" ],
