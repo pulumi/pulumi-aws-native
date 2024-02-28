@@ -55,6 +55,7 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
@@ -782,6 +783,8 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	resourceToken := string(urn.Type())
+	var spec schema.CloudAPIResource
+	var hasSpec bool
 	var cfType string
 	var payload map[string]interface{}
 	switch resourceToken {
@@ -799,8 +802,8 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 			return nil, errors.New("no 'properties' property in extension resource inputs")
 		}
 	default:
-		spec, ok := p.resourceMap.Resources[resourceToken]
-		if !ok {
+		spec, hasSpec = p.resourceMap.Resources[resourceToken]
+		if !hasSpec {
 			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
 		cfType = spec.CfType
@@ -847,6 +850,19 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 			readErr = fmt.Errorf("reading resource state: %w", err)
 		} else {
 			outputs = schema.CfnToSdk(resourceState)
+		}
+	}
+
+	// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
+	if hasSpec && len(spec.WriteOnly) > 0 {
+		inputsMap := inputs.Mappable()
+		for _, writeOnlyProp := range spec.WriteOnly {
+			if _, ok := outputs[writeOnlyProp]; !ok {
+				inputValue, ok := inputsMap[writeOnlyProp]
+				if ok {
+					outputs[writeOnlyProp] = inputValue
+				}
+			}
 		}
 	}
 
@@ -955,6 +971,9 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		if err != nil {
 			return nil, err
 		}
+		if len(spec.WriteOnly) > 0 {
+			p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't import write-only properties: %s", strings.Join(spec.WriteOnly, ", ")))
+		}
 	} else {
 		// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
 		// The current approach is complicated but it's aimed to minimize the noise while refreshing:
@@ -963,6 +982,21 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		oldInputProjection, err := schema.GetInputsFromState(&spec, oldState)
 		if err != nil {
 			return nil, err
+		}
+		oldStateMap := oldState.Mappable()
+		// Fill in the write-only properties from the old state as they won't included when reading.
+		if len(spec.WriteOnly) > 0 {
+			missingProps := make([]string, 0, len(spec.WriteOnly))
+			for _, writeOnlyProp := range spec.WriteOnly {
+				if _, ok := newState[writeOnlyProp]; !ok {
+					oldValue, ok := oldStateMap[writeOnlyProp]
+					missingProps = append(missingProps, writeOnlyProp)
+					if ok {
+						newState[writeOnlyProp] = oldValue
+					}
+				}
+			}
+			p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't refresh write-only properties: %s", strings.Join(missingProps, ", ")))
 		}
 		// 2. Project new outputs to their corresponding input shape (exclude attributes).
 		newStateProps := resource.NewPropertyMapFromMap(newState)
@@ -1013,7 +1047,8 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, errors.Errorf("Resource type %s not found", resourceToken)
 	}
 
-	diff, err := p.diffState(req.GetOlds(), req.GetNews(), label)
+	news := req.GetNews()
+	diff, err := p.diffState(req.GetOlds(), news, label)
 	if err != nil {
 		return nil, err
 	}
@@ -1027,6 +1062,17 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	if err != nil {
 		return nil, errors.Wrapf(err, "serializing patch as json")
 	}
+
+	inputs, err := plugin.UnmarshalProperties(news, plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.properties", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, errors.Wrapf(err, "failed to parse inputs for update")
+	}
+
 	docAsString := string(doc)
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %+v", label, spec.CfType, id, clientToken, ops)
@@ -1050,20 +1096,22 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	}
 	outputs := schema.CfnToSdk(resourceState)
 
-	// Read the inputs to persist them into state.
-	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.newInputs", label),
-		KeepUnknowns: true,
-		RejectAssets: true,
-		KeepSecrets:  true,
-	})
-	if err != nil {
-		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs")
+	// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
+	if len(spec.WriteOnly) > 0 {
+		inputsMap := inputs.Mappable()
+		for _, writeOnlyProp := range spec.WriteOnly {
+			if _, ok := outputs[writeOnlyProp]; !ok {
+				inputValue, ok := inputsMap[writeOnlyProp]
+				if ok {
+					outputs[writeOnlyProp] = inputValue
+				}
+			}
+		}
 	}
 
 	// Store both outputs and inputs into the state and return RPC checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
-		checkpointObject(newInputs, outputs),
+		checkpointObject(inputs, outputs),
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {

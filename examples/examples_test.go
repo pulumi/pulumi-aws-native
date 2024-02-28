@@ -40,9 +40,7 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 		Config: map[string]string{
 			"aws-native:region": envRegion,
 		},
-		ExpectRefreshChanges: true,
-		SkipRefresh:          true,
-		Quick:                true,
+		Quick: true,
 		LocalProviders: []integration.LocalDependency{
 			{
 				Package: "aws-native",

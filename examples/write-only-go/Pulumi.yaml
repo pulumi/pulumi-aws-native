@@ -1,0 +1,3 @@
+name: aws-simple-go
+runtime: go
+description: A Go Pulumi program with AWS Native provider
