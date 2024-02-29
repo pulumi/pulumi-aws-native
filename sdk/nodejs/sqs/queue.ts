@@ -91,16 +91,12 @@ export class Queue extends pulumi.CustomResource {
     public readonly receiveMessageWaitTimeSeconds!: pulumi.Output<number | undefined>;
     /**
      * The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
      */
-    public readonly redriveAllowPolicy!: pulumi.Output<any | undefined>;
+    public readonly redriveAllowPolicy!: pulumi.Output<any | string | undefined>;
     /**
      * A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
      */
-    public readonly redrivePolicy!: pulumi.Output<any | undefined>;
+    public readonly redrivePolicy!: pulumi.Output<any | string | undefined>;
     /**
      * Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
      */
@@ -220,16 +216,12 @@ export interface QueueArgs {
     receiveMessageWaitTimeSeconds?: pulumi.Input<number>;
     /**
      * The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
      */
-    redriveAllowPolicy?: any;
+    redriveAllowPolicy?: pulumi.Input<any | string>;
     /**
      * A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
      */
-    redrivePolicy?: any;
+    redrivePolicy?: pulumi.Input<any | string>;
     /**
      * Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
      */

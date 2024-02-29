@@ -18,15 +18,13 @@ class EventBusArgs:
     def __init__(__self__, *,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[Any] = None,
+                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
         :param pulumi.Input[str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
         :param pulumi.Input[str] name: The name of the event bus.
-        :param Any policy: A JSON string that describes the permission policy statement for the event bus.
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
+        :param pulumi.Input[Union[Any, str]] policy: A JSON string that describes the permission policy statement for the event bus.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the event bus.
         """
         if event_source_name is not None:
@@ -64,16 +62,14 @@ class EventBusArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[Any]:
+    def policy(self) -> Optional[pulumi.Input[Union[Any, str]]]:
         """
         A JSON string that describes the permission policy statement for the event bus.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[Any]):
+    def policy(self, value: Optional[pulumi.Input[Union[Any, str]]]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -96,7 +92,7 @@ class EventBus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[Any] = None,
+                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -106,9 +102,7 @@ class EventBus(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_source_name: If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
         :param pulumi.Input[str] name: The name of the event bus.
-        :param Any policy: A JSON string that describes the permission policy statement for the event bus.
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
+        :param pulumi.Input[Union[Any, str]] policy: A JSON string that describes the permission policy statement for the event bus.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags assigned to the event bus.
         """
         ...
@@ -137,7 +131,7 @@ class EventBus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_source_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[Any] = None,
+                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -213,8 +207,6 @@ class EventBus(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[Optional[Any]]:
         """
         A JSON string that describes the permission policy statement for the event bus.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

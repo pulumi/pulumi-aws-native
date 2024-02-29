@@ -13,28 +13,28 @@ namespace Pulumi.AwsNative.IoTFleetWise.Inputs
     public sealed class DecoderManifestCanSignalArgs : global::Pulumi.ResourceArgs
     {
         [Input("factor", required: true)]
-        public Input<double> Factor { get; set; } = null!;
+        public InputUnion<double, string> Factor { get; set; } = null!;
 
         [Input("isBigEndian", required: true)]
-        public Input<bool> IsBigEndian { get; set; } = null!;
+        public InputUnion<bool, string> IsBigEndian { get; set; } = null!;
 
         [Input("isSigned", required: true)]
-        public Input<bool> IsSigned { get; set; } = null!;
+        public InputUnion<bool, string> IsSigned { get; set; } = null!;
 
         [Input("length", required: true)]
-        public Input<int> Length { get; set; } = null!;
+        public InputUnion<int, string> Length { get; set; } = null!;
 
         [Input("messageId", required: true)]
-        public Input<int> MessageId { get; set; } = null!;
+        public InputUnion<int, string> MessageId { get; set; } = null!;
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("offset", required: true)]
-        public Input<double> Offset { get; set; } = null!;
+        public InputUnion<double, string> Offset { get; set; } = null!;
 
         [Input("startBit", required: true)]
-        public Input<int> StartBit { get; set; } = null!;
+        public InputUnion<int, string> StartBit { get; set; } = null!;
 
         public DecoderManifestCanSignalArgs()
         {

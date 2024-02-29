@@ -36,10 +36,7 @@ export class ChannelPolicy extends pulumi.CustomResource {
 
     public readonly channelGroupName!: pulumi.Output<string>;
     public readonly channelName!: pulumi.Output<string>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
-     */
-    public readonly policy!: pulumi.Output<any>;
+    public readonly policy!: pulumi.Output<any | string>;
 
     /**
      * Create a ChannelPolicy resource with the given unique name, arguments, and options.
@@ -82,8 +79,5 @@ export class ChannelPolicy extends pulumi.CustomResource {
 export interface ChannelPolicyArgs {
     channelGroupName: pulumi.Input<string>;
     channelName: pulumi.Input<string>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
-     */
-    policy: any;
+    policy: pulumi.Input<any | string>;
 }

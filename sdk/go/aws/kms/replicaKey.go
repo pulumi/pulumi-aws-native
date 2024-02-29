@@ -24,8 +24,6 @@ type ReplicaKey struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	KeyId   pulumi.StringOutput  `pulumi:"keyId"`
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
 	KeyPolicy pulumi.AnyOutput `pulumi:"keyPolicy"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
 	PendingWindowInDays pulumi.IntPtrOutput `pulumi:"pendingWindowInDays"`
@@ -90,8 +88,6 @@ type replicaKeyArgs struct {
 	// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
 	Enabled *bool `pulumi:"enabled"`
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
 	KeyPolicy interface{} `pulumi:"keyPolicy"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
 	PendingWindowInDays *int `pulumi:"pendingWindowInDays"`
@@ -108,8 +104,6 @@ type ReplicaKeyArgs struct {
 	// Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
 	Enabled pulumi.BoolPtrInput
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
 	KeyPolicy pulumi.Input
 	// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
 	PendingWindowInDays pulumi.IntPtrInput
@@ -175,8 +169,6 @@ func (o ReplicaKeyOutput) KeyId() pulumi.StringOutput {
 }
 
 // The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
 func (o ReplicaKeyOutput) KeyPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ReplicaKey) pulumi.AnyOutput { return v.KeyPolicy }).(pulumi.AnyOutput)
 }

@@ -23,10 +23,7 @@ export interface GetBackupVaultArgs {
 }
 
 export interface GetBackupVaultResult {
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
-     */
-    readonly accessPolicy?: any;
+    readonly accessPolicy?: any | string;
     readonly backupVaultArn?: string;
     readonly backupVaultTags?: {[key: string]: string};
     readonly lockConfiguration?: outputs.backup.BackupVaultLockConfigurationType;

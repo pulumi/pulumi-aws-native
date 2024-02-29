@@ -49,10 +49,8 @@ export class DeliveryDestination extends pulumi.CustomResource {
      * The policy must be in JSON string format.
      *
      * Length Constraints: Maximum length of 51200
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
      */
-    public readonly deliveryDestinationPolicy!: pulumi.Output<any | undefined>;
+    public readonly deliveryDestinationPolicy!: pulumi.Output<outputs.logs.DeliveryDestinationDestinationPolicy[] | undefined>;
     /**
      * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
      */
@@ -112,10 +110,8 @@ export interface DeliveryDestinationArgs {
      * The policy must be in JSON string format.
      *
      * Length Constraints: Maximum length of 51200
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
      */
-    deliveryDestinationPolicy?: any;
+    deliveryDestinationPolicy?: pulumi.Input<pulumi.Input<inputs.logs.DeliveryDestinationDestinationPolicyArgs>[]>;
     /**
      * The ARN of the AWS resource that will receive the logs.
      */

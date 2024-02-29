@@ -41,7 +41,7 @@ export interface GetRuleResult {
     /**
      * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
      */
-    readonly eventPattern?: string;
+    readonly eventPattern?: string | any;
     /**
      * The Amazon Resource Name (ARN) of the role that is used for target invocation.
      */

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -70,10 +73,8 @@ export class Route extends pulumi.CustomResource {
     public readonly requestModels!: pulumi.Output<any | undefined>;
     /**
      * The request parameters for the route. Supported only for WebSocket APIs.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
      */
-    public readonly requestParameters!: pulumi.Output<any | undefined>;
+    public readonly requestParameters!: pulumi.Output<outputs.apigatewayv2.RouteParameterConstraints[] | undefined>;
     public /*out*/ readonly routeId!: pulumi.Output<string>;
     /**
      * The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
@@ -180,10 +181,8 @@ export interface RouteArgs {
     requestModels?: any;
     /**
      * The request parameters for the route. Supported only for WebSocket APIs.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
      */
-    requestParameters?: any;
+    requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteParameterConstraintsArgs>[]>;
     /**
      * The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
      */

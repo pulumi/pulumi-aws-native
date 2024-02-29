@@ -30,8 +30,8 @@ class GetRuleResult:
         if event_bus_name and not isinstance(event_bus_name, str):
             raise TypeError("Expected argument 'event_bus_name' to be a str")
         pulumi.set(__self__, "event_bus_name", event_bus_name)
-        if event_pattern and not isinstance(event_pattern, str):
-            raise TypeError("Expected argument 'event_pattern' to be a str")
+        if event_pattern and not isinstance(event_pattern, dict):
+            raise TypeError("Expected argument 'event_pattern' to be a dict")
         pulumi.set(__self__, "event_pattern", event_pattern)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
@@ -72,7 +72,7 @@ class GetRuleResult:
 
     @property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[str]:
+    def event_pattern(self) -> Optional[Any]:
         """
         The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
         """

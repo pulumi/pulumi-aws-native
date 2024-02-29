@@ -76,10 +76,8 @@ namespace Pulumi.AwsNative.Sso
         public readonly string? Description;
         /// <summary>
         /// The inline policy to put in permission set.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
         /// </summary>
-        public readonly object? InlinePolicy;
+        public readonly Union<object, string>? InlinePolicy;
         public readonly ImmutableArray<string> ManagedPolicies;
         /// <summary>
         /// The permission set that the policy will be attached to
@@ -102,7 +100,7 @@ namespace Pulumi.AwsNative.Sso
 
             string? description,
 
-            object? inlinePolicy,
+            Union<object, string>? inlinePolicy,
 
             ImmutableArray<string> managedPolicies,
 

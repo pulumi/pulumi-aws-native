@@ -38,10 +38,10 @@ class GroupPolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 policy_document: str,
+                 policy_document: Any,
                  policy_name: str):
         """
-        :param str policy_document: The policy document.
+        :param Union[str, Any] policy_document: The policy document.
         :param str policy_name: The friendly name (not ARN) identifying the policy.
         """
         pulumi.set(__self__, "policy_document", policy_document)
@@ -49,7 +49,7 @@ class GroupPolicy(dict):
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> str:
+    def policy_document(self) -> Any:
         """
         The policy document.
         """
@@ -91,13 +91,13 @@ class RolePolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 policy_document: str,
+                 policy_document: Any,
                  policy_name: str):
         """
         Contains information about an attached policy.
          An attached policy is a managed policy that has been attached to a user, group, or role.
          For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
-        :param str policy_document: The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
+        :param Union[str, Any] policy_document: The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         :param str policy_name: The friendly name (not ARN) identifying the policy.
         """
         pulumi.set(__self__, "policy_document", policy_document)
@@ -105,7 +105,7 @@ class RolePolicy(dict):
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> str:
+    def policy_document(self) -> Any:
         """
         The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         """
@@ -204,7 +204,7 @@ class UserPolicy(dict):
         Contains information about an attached policy.
          An attached policy is a managed policy that has been attached to a user, group, or role.
          For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
-        :param Any policy_document: The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
+        :param Union[Any, str] policy_document: The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         :param str policy_name: The friendly name (not ARN) identifying the policy.
         """
         pulumi.set(__self__, "policy_document", policy_document)

@@ -46,7 +46,7 @@ export interface GetConfigRuleResult {
     /**
      * A string, in JSON format, that is passed to the CC rule Lambda function.
      */
-    readonly inputParameters?: string;
+    readonly inputParameters?: string | any;
     /**
      * The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
      *   +  You are using an AWS managed rule that is triggered at a periodic frequency.

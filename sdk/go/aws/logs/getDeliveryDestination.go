@@ -38,9 +38,7 @@ type LookupDeliveryDestinationResult struct {
 	// The policy must be in JSON string format.
 	//
 	// Length Constraints: Maximum length of 51200
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
-	DeliveryDestinationPolicy interface{} `pulumi:"deliveryDestinationPolicy"`
+	DeliveryDestinationPolicy []DeliveryDestinationDestinationPolicy `pulumi:"deliveryDestinationPolicy"`
 	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
 	// The tags that have been assigned to this delivery destination.
@@ -93,10 +91,10 @@ func (o LookupDeliveryDestinationResultOutput) Arn() pulumi.StringPtrOutput {
 // The policy must be in JSON string format.
 //
 // Length Constraints: Maximum length of 51200
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
-func (o LookupDeliveryDestinationResultOutput) DeliveryDestinationPolicy() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupDeliveryDestinationResult) interface{} { return v.DeliveryDestinationPolicy }).(pulumi.AnyOutput)
+func (o LookupDeliveryDestinationResultOutput) DeliveryDestinationPolicy() DeliveryDestinationDestinationPolicyArrayOutput {
+	return o.ApplyT(func(v LookupDeliveryDestinationResult) []DeliveryDestinationDestinationPolicy {
+		return v.DeliveryDestinationPolicy
+	}).(DeliveryDestinationDestinationPolicyArrayOutput)
 }
 
 // Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.

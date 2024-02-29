@@ -67,11 +67,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         /// <summary>
         /// The request parameters for the route. Supported only for WebSocket APIs.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         /// </summary>
         [Output("requestParameters")]
-        public Output<object?> RequestParameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RouteParameterConstraints>> RequestParameters { get; private set; } = null!;
 
         [Output("routeId")]
         public Output<string> RouteId { get; private set; } = null!;
@@ -199,13 +197,17 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("requestModels")]
         public Input<object>? RequestModels { get; set; }
 
+        [Input("requestParameters")]
+        private InputList<Inputs.RouteParameterConstraintsArgs>? _requestParameters;
+
         /// <summary>
         /// The request parameters for the route. Supported only for WebSocket APIs.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         /// </summary>
-        [Input("requestParameters")]
-        public Input<object>? RequestParameters { get; set; }
+        public InputList<Inputs.RouteParameterConstraintsArgs> RequestParameters
+        {
+            get => _requestParameters ?? (_requestParameters = new InputList<Inputs.RouteParameterConstraintsArgs>());
+            set => _requestParameters = value;
+        }
 
         /// <summary>
         /// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.

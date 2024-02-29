@@ -13,31 +13,31 @@ namespace Pulumi.AwsNative.IoTFleetWise.Inputs
     public sealed class DecoderManifestObdSignalArgs : global::Pulumi.ResourceArgs
     {
         [Input("bitMaskLength")]
-        public Input<int>? BitMaskLength { get; set; }
+        public InputUnion<int, string>? BitMaskLength { get; set; }
 
         [Input("bitRightShift")]
-        public Input<int>? BitRightShift { get; set; }
+        public InputUnion<int, string>? BitRightShift { get; set; }
 
         [Input("byteLength", required: true)]
-        public Input<int> ByteLength { get; set; } = null!;
+        public InputUnion<int, string> ByteLength { get; set; } = null!;
 
         [Input("offset", required: true)]
-        public Input<double> Offset { get; set; } = null!;
+        public InputUnion<double, string> Offset { get; set; } = null!;
 
         [Input("pid", required: true)]
-        public Input<int> Pid { get; set; } = null!;
+        public InputUnion<int, string> Pid { get; set; } = null!;
 
         [Input("pidResponseLength", required: true)]
-        public Input<int> PidResponseLength { get; set; } = null!;
+        public InputUnion<int, string> PidResponseLength { get; set; } = null!;
 
         [Input("scaling", required: true)]
-        public Input<double> Scaling { get; set; } = null!;
+        public InputUnion<double, string> Scaling { get; set; } = null!;
 
         [Input("serviceMode", required: true)]
-        public Input<int> ServiceMode { get; set; } = null!;
+        public InputUnion<int, string> ServiceMode { get; set; } = null!;
 
         [Input("startByte", required: true)]
-        public Input<int> StartByte { get; set; } = null!;
+        public InputUnion<int, string> StartByte { get; set; } = null!;
 
         public DecoderManifestObdSignalArgs()
         {

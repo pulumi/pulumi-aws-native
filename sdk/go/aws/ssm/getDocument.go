@@ -30,8 +30,6 @@ type LookupDocumentArgs struct {
 
 type LookupDocumentResult struct {
 	// The content for the Systems Manager document in JSON, YAML or String format.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
 	Content interface{} `pulumi:"content"`
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
 	DocumentFormat *DocumentFormat `pulumi:"documentFormat"`
@@ -82,8 +80,6 @@ func (o LookupDocumentResultOutput) ToLookupDocumentResultOutputWithContext(ctx 
 }
 
 // The content for the Systems Manager document in JSON, YAML or String format.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
 func (o LookupDocumentResultOutput) Content() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDocumentResult) interface{} { return v.Content }).(pulumi.AnyOutput)
 }

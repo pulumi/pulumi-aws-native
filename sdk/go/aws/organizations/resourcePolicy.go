@@ -20,8 +20,6 @@ type ResourcePolicy struct {
 	// The Amazon Resource Name (ARN) of the resource policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
 	Content pulumi.AnyOutput `pulumi:"content"`
 	// A list of tags that you want to attach to the resource policy
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -71,8 +69,6 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 
 type resourcePolicyArgs struct {
 	// The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
 	Content interface{} `pulumi:"content"`
 	// A list of tags that you want to attach to the resource policy
 	Tags []aws.Tag `pulumi:"tags"`
@@ -81,8 +77,6 @@ type resourcePolicyArgs struct {
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
 	// The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
 	Content pulumi.Input
 	// A list of tags that you want to attach to the resource policy
 	Tags aws.TagArrayInput
@@ -131,8 +125,6 @@ func (o ResourcePolicyOutput) Arn() pulumi.StringOutput {
 }
 
 // The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
 func (o ResourcePolicyOutput) Content() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.AnyOutput { return v.Content }).(pulumi.AnyOutput)
 }

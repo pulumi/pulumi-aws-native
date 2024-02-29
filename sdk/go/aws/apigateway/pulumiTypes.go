@@ -2375,7 +2375,7 @@ type MethodResponse struct {
 	// Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
 	ResponseModels map[string]string `pulumi:"responseModels"`
 	// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
-	ResponseParameters map[string]bool `pulumi:"responseParameters"`
+	ResponseParameters map[string]interface{} `pulumi:"responseParameters"`
 	// The method response's status code.
 	StatusCode string `pulumi:"statusCode"`
 }
@@ -2396,7 +2396,7 @@ type MethodResponseArgs struct {
 	// Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.
 	ResponseModels pulumi.StringMapInput `pulumi:"responseModels"`
 	// A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
-	ResponseParameters pulumi.BoolMapInput `pulumi:"responseParameters"`
+	ResponseParameters pulumi.MapInput `pulumi:"responseParameters"`
 	// The method response's status code.
 	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
@@ -2459,8 +2459,8 @@ func (o MethodResponseOutput) ResponseModels() pulumi.StringMapOutput {
 }
 
 // A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern “method.response.header.{name}“, where “name“ is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in “integration.response.header.{name}“, a static value enclosed within a pair of single quotes (e.g., “'application/json'“), or a JSON expression from the back-end response payload in the form of “integration.response.body.{JSON-expression}“, where “JSON-expression“ is a valid JSON expression without the “$“ prefix.)
-func (o MethodResponseOutput) ResponseParameters() pulumi.BoolMapOutput {
-	return o.ApplyT(func(v MethodResponse) map[string]bool { return v.ResponseParameters }).(pulumi.BoolMapOutput)
+func (o MethodResponseOutput) ResponseParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v MethodResponse) map[string]interface{} { return v.ResponseParameters }).(pulumi.MapOutput)
 }
 
 // The method response's status code.

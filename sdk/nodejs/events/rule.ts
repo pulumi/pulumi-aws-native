@@ -52,7 +52,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
      */
-    public readonly eventPattern!: pulumi.Output<string | undefined>;
+    public readonly eventPattern!: pulumi.Output<string | any | undefined>;
     /**
      * The name of the rule.
      */
@@ -128,7 +128,7 @@ export interface RuleArgs {
     /**
      * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
      */
-    eventPattern?: pulumi.Input<string>;
+    eventPattern?: pulumi.Input<string | any>;
     /**
      * The name of the rule.
      */

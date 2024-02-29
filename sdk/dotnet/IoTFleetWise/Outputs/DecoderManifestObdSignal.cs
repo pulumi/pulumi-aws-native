@@ -13,35 +13,35 @@ namespace Pulumi.AwsNative.IoTFleetWise.Outputs
     [OutputType]
     public sealed class DecoderManifestObdSignal
     {
-        public readonly int? BitMaskLength;
-        public readonly int? BitRightShift;
-        public readonly int ByteLength;
-        public readonly double Offset;
-        public readonly int Pid;
-        public readonly int PidResponseLength;
-        public readonly double Scaling;
-        public readonly int ServiceMode;
-        public readonly int StartByte;
+        public readonly Union<int, string>? BitMaskLength;
+        public readonly Union<int, string>? BitRightShift;
+        public readonly Union<int, string> ByteLength;
+        public readonly Union<double, string> Offset;
+        public readonly Union<int, string> Pid;
+        public readonly Union<int, string> PidResponseLength;
+        public readonly Union<double, string> Scaling;
+        public readonly Union<int, string> ServiceMode;
+        public readonly Union<int, string> StartByte;
 
         [OutputConstructor]
         private DecoderManifestObdSignal(
-            int? bitMaskLength,
+            Union<int, string>? bitMaskLength,
 
-            int? bitRightShift,
+            Union<int, string>? bitRightShift,
 
-            int byteLength,
+            Union<int, string> byteLength,
 
-            double offset,
+            Union<double, string> offset,
 
-            int pid,
+            Union<int, string> pid,
 
-            int pidResponseLength,
+            Union<int, string> pidResponseLength,
 
-            double scaling,
+            Union<double, string> scaling,
 
-            int serviceMode,
+            Union<int, string> serviceMode,
 
-            int startByte)
+            Union<int, string> startByte)
         {
             BitMaskLength = bitMaskLength;
             BitRightShift = bitRightShift;

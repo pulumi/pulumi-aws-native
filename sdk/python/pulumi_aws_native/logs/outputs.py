@@ -12,9 +12,58 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DeliveryDestinationDestinationPolicy',
     'MetricFilterDimension',
     'MetricFilterMetricTransformation',
 ]
+
+@pulumi.output_type
+class DeliveryDestinationDestinationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryDestinationName":
+            suggest = "delivery_destination_name"
+        elif key == "deliveryDestinationPolicy":
+            suggest = "delivery_destination_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryDestinationDestinationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryDestinationDestinationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryDestinationDestinationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_destination_name: str,
+                 delivery_destination_policy: str):
+        """
+        :param str delivery_destination_name: The name of the delivery destination to assign this policy to
+        :param str delivery_destination_policy: The contents of the policy attached to the delivery destination
+        """
+        pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
+        pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
+
+    @property
+    @pulumi.getter(name="deliveryDestinationName")
+    def delivery_destination_name(self) -> str:
+        """
+        The name of the delivery destination to assign this policy to
+        """
+        return pulumi.get(self, "delivery_destination_name")
+
+    @property
+    @pulumi.getter(name="deliveryDestinationPolicy")
+    def delivery_destination_policy(self) -> str:
+        """
+        The contents of the policy attached to the delivery destination
+        """
+        return pulumi.get(self, "delivery_destination_policy")
+
 
 @pulumi.output_type
 class MetricFilterDimension(dict):

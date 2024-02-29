@@ -21,8 +21,7 @@ type ModelPackageGroup struct {
 	ModelPackageGroupArn         pulumi.StringOutput    `pulumi:"modelPackageGroupArn"`
 	ModelPackageGroupDescription pulumi.StringPtrOutput `pulumi:"modelPackageGroupDescription"`
 	ModelPackageGroupName        pulumi.StringOutput    `pulumi:"modelPackageGroupName"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
-	ModelPackageGroupPolicy pulumi.AnyOutput `pulumi:"modelPackageGroupPolicy"`
+	ModelPackageGroupPolicy      pulumi.AnyOutput       `pulumi:"modelPackageGroupPolicy"`
 	// The status of a modelpackage group job.
 	ModelPackageGroupStatus ModelPackageGroupStatusOutput `pulumi:"modelPackageGroupStatus"`
 	// An array of key-value pairs to apply to this resource.
@@ -74,10 +73,9 @@ func (ModelPackageGroupState) ElementType() reflect.Type {
 }
 
 type modelPackageGroupArgs struct {
-	ModelPackageGroupDescription *string `pulumi:"modelPackageGroupDescription"`
-	ModelPackageGroupName        *string `pulumi:"modelPackageGroupName"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
-	ModelPackageGroupPolicy interface{} `pulumi:"modelPackageGroupPolicy"`
+	ModelPackageGroupDescription *string     `pulumi:"modelPackageGroupDescription"`
+	ModelPackageGroupName        *string     `pulumi:"modelPackageGroupName"`
+	ModelPackageGroupPolicy      interface{} `pulumi:"modelPackageGroupPolicy"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -86,8 +84,7 @@ type modelPackageGroupArgs struct {
 type ModelPackageGroupArgs struct {
 	ModelPackageGroupDescription pulumi.StringPtrInput
 	ModelPackageGroupName        pulumi.StringPtrInput
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
-	ModelPackageGroupPolicy pulumi.Input
+	ModelPackageGroupPolicy      pulumi.Input
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -146,7 +143,6 @@ func (o ModelPackageGroupOutput) ModelPackageGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.ModelPackageGroupName }).(pulumi.StringOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
 func (o ModelPackageGroupOutput) ModelPackageGroupPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.AnyOutput { return v.ModelPackageGroupPolicy }).(pulumi.AnyOutput)
 }

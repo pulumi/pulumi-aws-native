@@ -26,9 +26,6 @@ class GetChannelPolicyResult:
     @property
     @pulumi.getter
     def policy(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
-        """
         return pulumi.get(self, "policy")
 
 

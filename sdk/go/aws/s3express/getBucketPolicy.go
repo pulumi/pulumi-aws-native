@@ -29,8 +29,6 @@ type LookupBucketPolicyArgs struct {
 
 type LookupBucketPolicyResult struct {
 	// A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::BucketPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 }
 
@@ -71,8 +69,6 @@ func (o LookupBucketPolicyResultOutput) ToLookupBucketPolicyResultOutputWithCont
 }
 
 // A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::BucketPolicy` for more information about the expected schema for this property.
 func (o LookupBucketPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupBucketPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

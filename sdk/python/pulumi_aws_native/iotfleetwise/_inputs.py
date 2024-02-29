@@ -420,13 +420,13 @@ class DecoderManifestCanSignalDecoderArgs:
 @pulumi.input_type
 class DecoderManifestCanSignalArgs:
     def __init__(__self__, *,
-                 factor: pulumi.Input[float],
-                 is_big_endian: pulumi.Input[bool],
-                 is_signed: pulumi.Input[bool],
-                 length: pulumi.Input[int],
-                 message_id: pulumi.Input[int],
-                 offset: pulumi.Input[float],
-                 start_bit: pulumi.Input[int],
+                 factor: pulumi.Input[Union[float, str]],
+                 is_big_endian: pulumi.Input[Union[bool, str]],
+                 is_signed: pulumi.Input[Union[bool, str]],
+                 length: pulumi.Input[Union[int, str]],
+                 message_id: pulumi.Input[Union[int, str]],
+                 offset: pulumi.Input[Union[float, str]],
+                 start_bit: pulumi.Input[Union[int, str]],
                  name: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "factor", factor)
         pulumi.set(__self__, "is_big_endian", is_big_endian)
@@ -440,65 +440,65 @@ class DecoderManifestCanSignalArgs:
 
     @property
     @pulumi.getter
-    def factor(self) -> pulumi.Input[float]:
+    def factor(self) -> pulumi.Input[Union[float, str]]:
         return pulumi.get(self, "factor")
 
     @factor.setter
-    def factor(self, value: pulumi.Input[float]):
+    def factor(self, value: pulumi.Input[Union[float, str]]):
         pulumi.set(self, "factor", value)
 
     @property
     @pulumi.getter(name="isBigEndian")
-    def is_big_endian(self) -> pulumi.Input[bool]:
+    def is_big_endian(self) -> pulumi.Input[Union[bool, str]]:
         return pulumi.get(self, "is_big_endian")
 
     @is_big_endian.setter
-    def is_big_endian(self, value: pulumi.Input[bool]):
+    def is_big_endian(self, value: pulumi.Input[Union[bool, str]]):
         pulumi.set(self, "is_big_endian", value)
 
     @property
     @pulumi.getter(name="isSigned")
-    def is_signed(self) -> pulumi.Input[bool]:
+    def is_signed(self) -> pulumi.Input[Union[bool, str]]:
         return pulumi.get(self, "is_signed")
 
     @is_signed.setter
-    def is_signed(self, value: pulumi.Input[bool]):
+    def is_signed(self, value: pulumi.Input[Union[bool, str]]):
         pulumi.set(self, "is_signed", value)
 
     @property
     @pulumi.getter
-    def length(self) -> pulumi.Input[int]:
+    def length(self) -> pulumi.Input[Union[int, str]]:
         return pulumi.get(self, "length")
 
     @length.setter
-    def length(self, value: pulumi.Input[int]):
+    def length(self, value: pulumi.Input[Union[int, str]]):
         pulumi.set(self, "length", value)
 
     @property
     @pulumi.getter(name="messageId")
-    def message_id(self) -> pulumi.Input[int]:
+    def message_id(self) -> pulumi.Input[Union[int, str]]:
         return pulumi.get(self, "message_id")
 
     @message_id.setter
-    def message_id(self, value: pulumi.Input[int]):
+    def message_id(self, value: pulumi.Input[Union[int, str]]):
         pulumi.set(self, "message_id", value)
 
     @property
     @pulumi.getter
-    def offset(self) -> pulumi.Input[float]:
+    def offset(self) -> pulumi.Input[Union[float, str]]:
         return pulumi.get(self, "offset")
 
     @offset.setter
-    def offset(self, value: pulumi.Input[float]):
+    def offset(self, value: pulumi.Input[Union[float, str]]):
         pulumi.set(self, "offset", value)
 
     @property
     @pulumi.getter(name="startBit")
-    def start_bit(self) -> pulumi.Input[int]:
+    def start_bit(self) -> pulumi.Input[Union[int, str]]:
         return pulumi.get(self, "start_bit")
 
     @start_bit.setter
-    def start_bit(self, value: pulumi.Input[int]):
+    def start_bit(self, value: pulumi.Input[Union[int, str]]):
         pulumi.set(self, "start_bit", value)
 
     @property
@@ -515,12 +515,12 @@ class DecoderManifestCanSignalArgs:
 class DecoderManifestObdInterfaceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 request_message_id: pulumi.Input[int],
-                 dtc_request_interval_seconds: Optional[pulumi.Input[int]] = None,
-                 has_transmission_ecu: Optional[pulumi.Input[bool]] = None,
+                 request_message_id: pulumi.Input[Union[int, str]],
+                 dtc_request_interval_seconds: Optional[pulumi.Input[Union[int, str]]] = None,
+                 has_transmission_ecu: Optional[pulumi.Input[Union[bool, str]]] = None,
                  obd_standard: Optional[pulumi.Input[str]] = None,
-                 pid_request_interval_seconds: Optional[pulumi.Input[int]] = None,
-                 use_extended_ids: Optional[pulumi.Input[bool]] = None):
+                 pid_request_interval_seconds: Optional[pulumi.Input[Union[int, str]]] = None,
+                 use_extended_ids: Optional[pulumi.Input[Union[bool, str]]] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "request_message_id", request_message_id)
         if dtc_request_interval_seconds is not None:
@@ -545,29 +545,29 @@ class DecoderManifestObdInterfaceArgs:
 
     @property
     @pulumi.getter(name="requestMessageId")
-    def request_message_id(self) -> pulumi.Input[int]:
+    def request_message_id(self) -> pulumi.Input[Union[int, str]]:
         return pulumi.get(self, "request_message_id")
 
     @request_message_id.setter
-    def request_message_id(self, value: pulumi.Input[int]):
+    def request_message_id(self, value: pulumi.Input[Union[int, str]]):
         pulumi.set(self, "request_message_id", value)
 
     @property
     @pulumi.getter(name="dtcRequestIntervalSeconds")
-    def dtc_request_interval_seconds(self) -> Optional[pulumi.Input[int]]:
+    def dtc_request_interval_seconds(self) -> Optional[pulumi.Input[Union[int, str]]]:
         return pulumi.get(self, "dtc_request_interval_seconds")
 
     @dtc_request_interval_seconds.setter
-    def dtc_request_interval_seconds(self, value: Optional[pulumi.Input[int]]):
+    def dtc_request_interval_seconds(self, value: Optional[pulumi.Input[Union[int, str]]]):
         pulumi.set(self, "dtc_request_interval_seconds", value)
 
     @property
     @pulumi.getter(name="hasTransmissionEcu")
-    def has_transmission_ecu(self) -> Optional[pulumi.Input[bool]]:
+    def has_transmission_ecu(self) -> Optional[pulumi.Input[Union[bool, str]]]:
         return pulumi.get(self, "has_transmission_ecu")
 
     @has_transmission_ecu.setter
-    def has_transmission_ecu(self, value: Optional[pulumi.Input[bool]]):
+    def has_transmission_ecu(self, value: Optional[pulumi.Input[Union[bool, str]]]):
         pulumi.set(self, "has_transmission_ecu", value)
 
     @property
@@ -581,20 +581,20 @@ class DecoderManifestObdInterfaceArgs:
 
     @property
     @pulumi.getter(name="pidRequestIntervalSeconds")
-    def pid_request_interval_seconds(self) -> Optional[pulumi.Input[int]]:
+    def pid_request_interval_seconds(self) -> Optional[pulumi.Input[Union[int, str]]]:
         return pulumi.get(self, "pid_request_interval_seconds")
 
     @pid_request_interval_seconds.setter
-    def pid_request_interval_seconds(self, value: Optional[pulumi.Input[int]]):
+    def pid_request_interval_seconds(self, value: Optional[pulumi.Input[Union[int, str]]]):
         pulumi.set(self, "pid_request_interval_seconds", value)
 
     @property
     @pulumi.getter(name="useExtendedIds")
-    def use_extended_ids(self) -> Optional[pulumi.Input[bool]]:
+    def use_extended_ids(self) -> Optional[pulumi.Input[Union[bool, str]]]:
         return pulumi.get(self, "use_extended_ids")
 
     @use_extended_ids.setter
-    def use_extended_ids(self, value: Optional[pulumi.Input[bool]]):
+    def use_extended_ids(self, value: Optional[pulumi.Input[Union[bool, str]]]):
         pulumi.set(self, "use_extended_ids", value)
 
 
@@ -688,15 +688,15 @@ class DecoderManifestObdSignalDecoderArgs:
 @pulumi.input_type
 class DecoderManifestObdSignalArgs:
     def __init__(__self__, *,
-                 byte_length: pulumi.Input[int],
-                 offset: pulumi.Input[float],
-                 pid: pulumi.Input[int],
-                 pid_response_length: pulumi.Input[int],
-                 scaling: pulumi.Input[float],
-                 service_mode: pulumi.Input[int],
-                 start_byte: pulumi.Input[int],
-                 bit_mask_length: Optional[pulumi.Input[int]] = None,
-                 bit_right_shift: Optional[pulumi.Input[int]] = None):
+                 byte_length: pulumi.Input[Union[int, str]],
+                 offset: pulumi.Input[Union[float, str]],
+                 pid: pulumi.Input[Union[int, str]],
+                 pid_response_length: pulumi.Input[Union[int, str]],
+                 scaling: pulumi.Input[Union[float, str]],
+                 service_mode: pulumi.Input[Union[int, str]],
+                 start_byte: pulumi.Input[Union[int, str]],
+                 bit_mask_length: Optional[pulumi.Input[Union[int, str]]] = None,
+                 bit_right_shift: Optional[pulumi.Input[Union[int, str]]] = None):
         pulumi.set(__self__, "byte_length", byte_length)
         pulumi.set(__self__, "offset", offset)
         pulumi.set(__self__, "pid", pid)
@@ -711,83 +711,83 @@ class DecoderManifestObdSignalArgs:
 
     @property
     @pulumi.getter(name="byteLength")
-    def byte_length(self) -> pulumi.Input[int]:
+    def byte_length(self) -> pulumi.Input[Union[int, str]]:
         return pulumi.get(self, "byte_length")
 
     @byte_length.setter
-    def byte_length(self, value: pulumi.Input[int]):
+    def byte_length(self, value: pulumi.Input[Union[int, str]]):
         pulumi.set(self, "byte_length", value)
 
     @property
     @pulumi.getter
-    def offset(self) -> pulumi.Input[float]:
+    def offset(self) -> pulumi.Input[Union[float, str]]:
         return pulumi.get(self, "offset")
 
     @offset.setter
-    def offset(self, value: pulumi.Input[float]):
+    def offset(self, value: pulumi.Input[Union[float, str]]):
         pulumi.set(self, "offset", value)
 
     @property
     @pulumi.getter
-    def pid(self) -> pulumi.Input[int]:
+    def pid(self) -> pulumi.Input[Union[int, str]]:
         return pulumi.get(self, "pid")
 
     @pid.setter
-    def pid(self, value: pulumi.Input[int]):
+    def pid(self, value: pulumi.Input[Union[int, str]]):
         pulumi.set(self, "pid", value)
 
     @property
     @pulumi.getter(name="pidResponseLength")
-    def pid_response_length(self) -> pulumi.Input[int]:
+    def pid_response_length(self) -> pulumi.Input[Union[int, str]]:
         return pulumi.get(self, "pid_response_length")
 
     @pid_response_length.setter
-    def pid_response_length(self, value: pulumi.Input[int]):
+    def pid_response_length(self, value: pulumi.Input[Union[int, str]]):
         pulumi.set(self, "pid_response_length", value)
 
     @property
     @pulumi.getter
-    def scaling(self) -> pulumi.Input[float]:
+    def scaling(self) -> pulumi.Input[Union[float, str]]:
         return pulumi.get(self, "scaling")
 
     @scaling.setter
-    def scaling(self, value: pulumi.Input[float]):
+    def scaling(self, value: pulumi.Input[Union[float, str]]):
         pulumi.set(self, "scaling", value)
 
     @property
     @pulumi.getter(name="serviceMode")
-    def service_mode(self) -> pulumi.Input[int]:
+    def service_mode(self) -> pulumi.Input[Union[int, str]]:
         return pulumi.get(self, "service_mode")
 
     @service_mode.setter
-    def service_mode(self, value: pulumi.Input[int]):
+    def service_mode(self, value: pulumi.Input[Union[int, str]]):
         pulumi.set(self, "service_mode", value)
 
     @property
     @pulumi.getter(name="startByte")
-    def start_byte(self) -> pulumi.Input[int]:
+    def start_byte(self) -> pulumi.Input[Union[int, str]]:
         return pulumi.get(self, "start_byte")
 
     @start_byte.setter
-    def start_byte(self, value: pulumi.Input[int]):
+    def start_byte(self, value: pulumi.Input[Union[int, str]]):
         pulumi.set(self, "start_byte", value)
 
     @property
     @pulumi.getter(name="bitMaskLength")
-    def bit_mask_length(self) -> Optional[pulumi.Input[int]]:
+    def bit_mask_length(self) -> Optional[pulumi.Input[Union[int, str]]]:
         return pulumi.get(self, "bit_mask_length")
 
     @bit_mask_length.setter
-    def bit_mask_length(self, value: Optional[pulumi.Input[int]]):
+    def bit_mask_length(self, value: Optional[pulumi.Input[Union[int, str]]]):
         pulumi.set(self, "bit_mask_length", value)
 
     @property
     @pulumi.getter(name="bitRightShift")
-    def bit_right_shift(self) -> Optional[pulumi.Input[int]]:
+    def bit_right_shift(self) -> Optional[pulumi.Input[Union[int, str]]]:
         return pulumi.get(self, "bit_right_shift")
 
     @bit_right_shift.setter
-    def bit_right_shift(self, value: Optional[pulumi.Input[int]]):
+    def bit_right_shift(self, value: Optional[pulumi.Input[Union[int, str]]]):
         pulumi.set(self, "bit_right_shift", value)
 
 

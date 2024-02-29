@@ -35,10 +35,8 @@ export interface GetRepositoryResult {
     readonly lifecyclePolicy?: outputs.ecr.RepositoryLifecyclePolicy;
     /**
      * The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
      */
-    readonly repositoryPolicyText?: any;
+    readonly repositoryPolicyText?: any | string;
     readonly repositoryUri?: string;
     /**
      * An array of key-value pairs to apply to this resource.

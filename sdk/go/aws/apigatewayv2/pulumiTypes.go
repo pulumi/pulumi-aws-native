@@ -1951,6 +1951,100 @@ func (o IntegrationTlsConfigPtrOutput) ServerNameToVerify() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type RouteParameterConstraints struct {
+	Required bool `pulumi:"required"`
+}
+
+// RouteParameterConstraintsInput is an input type that accepts RouteParameterConstraintsArgs and RouteParameterConstraintsOutput values.
+// You can construct a concrete instance of `RouteParameterConstraintsInput` via:
+//
+//	RouteParameterConstraintsArgs{...}
+type RouteParameterConstraintsInput interface {
+	pulumi.Input
+
+	ToRouteParameterConstraintsOutput() RouteParameterConstraintsOutput
+	ToRouteParameterConstraintsOutputWithContext(context.Context) RouteParameterConstraintsOutput
+}
+
+type RouteParameterConstraintsArgs struct {
+	Required pulumi.BoolInput `pulumi:"required"`
+}
+
+func (RouteParameterConstraintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteParameterConstraints)(nil)).Elem()
+}
+
+func (i RouteParameterConstraintsArgs) ToRouteParameterConstraintsOutput() RouteParameterConstraintsOutput {
+	return i.ToRouteParameterConstraintsOutputWithContext(context.Background())
+}
+
+func (i RouteParameterConstraintsArgs) ToRouteParameterConstraintsOutputWithContext(ctx context.Context) RouteParameterConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteParameterConstraintsOutput)
+}
+
+// RouteParameterConstraintsArrayInput is an input type that accepts RouteParameterConstraintsArray and RouteParameterConstraintsArrayOutput values.
+// You can construct a concrete instance of `RouteParameterConstraintsArrayInput` via:
+//
+//	RouteParameterConstraintsArray{ RouteParameterConstraintsArgs{...} }
+type RouteParameterConstraintsArrayInput interface {
+	pulumi.Input
+
+	ToRouteParameterConstraintsArrayOutput() RouteParameterConstraintsArrayOutput
+	ToRouteParameterConstraintsArrayOutputWithContext(context.Context) RouteParameterConstraintsArrayOutput
+}
+
+type RouteParameterConstraintsArray []RouteParameterConstraintsInput
+
+func (RouteParameterConstraintsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteParameterConstraints)(nil)).Elem()
+}
+
+func (i RouteParameterConstraintsArray) ToRouteParameterConstraintsArrayOutput() RouteParameterConstraintsArrayOutput {
+	return i.ToRouteParameterConstraintsArrayOutputWithContext(context.Background())
+}
+
+func (i RouteParameterConstraintsArray) ToRouteParameterConstraintsArrayOutputWithContext(ctx context.Context) RouteParameterConstraintsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteParameterConstraintsArrayOutput)
+}
+
+type RouteParameterConstraintsOutput struct{ *pulumi.OutputState }
+
+func (RouteParameterConstraintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteParameterConstraints)(nil)).Elem()
+}
+
+func (o RouteParameterConstraintsOutput) ToRouteParameterConstraintsOutput() RouteParameterConstraintsOutput {
+	return o
+}
+
+func (o RouteParameterConstraintsOutput) ToRouteParameterConstraintsOutputWithContext(ctx context.Context) RouteParameterConstraintsOutput {
+	return o
+}
+
+func (o RouteParameterConstraintsOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v RouteParameterConstraints) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+type RouteParameterConstraintsArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteParameterConstraintsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteParameterConstraints)(nil)).Elem()
+}
+
+func (o RouteParameterConstraintsArrayOutput) ToRouteParameterConstraintsArrayOutput() RouteParameterConstraintsArrayOutput {
+	return o
+}
+
+func (o RouteParameterConstraintsArrayOutput) ToRouteParameterConstraintsArrayOutputWithContext(ctx context.Context) RouteParameterConstraintsArrayOutput {
+	return o
+}
+
+func (o RouteParameterConstraintsArrayOutput) Index(i pulumi.IntInput) RouteParameterConstraintsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteParameterConstraints {
+		return vs[0].([]RouteParameterConstraints)[vs[1].(int)]
+	}).(RouteParameterConstraintsOutput)
+}
+
 // Specifies whether the parameter is required.
 type RouteResponseParameterConstraints struct {
 	// Specifies whether the parameter is required.
@@ -2415,6 +2509,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationPtrInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigPtrInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteParameterConstraintsInput)(nil)).Elem(), RouteParameterConstraintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteParameterConstraintsArrayInput)(nil)).Elem(), RouteParameterConstraintsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseParameterConstraintsInput)(nil)).Elem(), RouteResponseParameterConstraintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseParameterConstraintsMapInput)(nil)).Elem(), RouteResponseParameterConstraintsMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
@@ -2443,6 +2539,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
+	pulumi.RegisterOutputType(RouteParameterConstraintsOutput{})
+	pulumi.RegisterOutputType(RouteParameterConstraintsArrayOutput{})
 	pulumi.RegisterOutputType(RouteResponseParameterConstraintsOutput{})
 	pulumi.RegisterOutputType(RouteResponseParameterConstraintsMapOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})

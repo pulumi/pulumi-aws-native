@@ -46,9 +46,6 @@ class GetPolicyResult:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
-        """
         return pulumi.get(self, "policy_document")
 
     @property

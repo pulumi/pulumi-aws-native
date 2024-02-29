@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Events
         /// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
         /// </summary>
         [Output("eventPattern")]
-        public Output<string?> EventPattern { get; private set; } = null!;
+        public Output<Union<string, object>?> EventPattern { get; private set; } = null!;
 
         /// <summary>
         /// The name of the rule.
@@ -135,7 +135,7 @@ namespace Pulumi.AwsNative.Events
         /// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
         /// </summary>
         [Input("eventPattern")]
-        public Input<string>? EventPattern { get; set; }
+        public InputUnion<string, object>? EventPattern { get; set; }
 
         /// <summary>
         /// The name of the rule.

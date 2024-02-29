@@ -685,14 +685,14 @@ func (o DecoderManifestCanNetworkInterfaceOutput) Type() DecoderManifestCanNetwo
 }
 
 type DecoderManifestCanSignal struct {
-	Factor      float64 `pulumi:"factor"`
-	IsBigEndian bool    `pulumi:"isBigEndian"`
-	IsSigned    bool    `pulumi:"isSigned"`
-	Length      int     `pulumi:"length"`
-	MessageId   int     `pulumi:"messageId"`
-	Name        *string `pulumi:"name"`
-	Offset      float64 `pulumi:"offset"`
-	StartBit    int     `pulumi:"startBit"`
+	Factor      interface{} `pulumi:"factor"`
+	IsBigEndian interface{} `pulumi:"isBigEndian"`
+	IsSigned    interface{} `pulumi:"isSigned"`
+	Length      interface{} `pulumi:"length"`
+	MessageId   interface{} `pulumi:"messageId"`
+	Name        *string     `pulumi:"name"`
+	Offset      interface{} `pulumi:"offset"`
+	StartBit    interface{} `pulumi:"startBit"`
 }
 
 // DecoderManifestCanSignalInput is an input type that accepts DecoderManifestCanSignalArgs and DecoderManifestCanSignalOutput values.
@@ -707,14 +707,14 @@ type DecoderManifestCanSignalInput interface {
 }
 
 type DecoderManifestCanSignalArgs struct {
-	Factor      pulumi.Float64Input   `pulumi:"factor"`
-	IsBigEndian pulumi.BoolInput      `pulumi:"isBigEndian"`
-	IsSigned    pulumi.BoolInput      `pulumi:"isSigned"`
-	Length      pulumi.IntInput       `pulumi:"length"`
-	MessageId   pulumi.IntInput       `pulumi:"messageId"`
+	Factor      pulumi.Input          `pulumi:"factor"`
+	IsBigEndian pulumi.Input          `pulumi:"isBigEndian"`
+	IsSigned    pulumi.Input          `pulumi:"isSigned"`
+	Length      pulumi.Input          `pulumi:"length"`
+	MessageId   pulumi.Input          `pulumi:"messageId"`
 	Name        pulumi.StringPtrInput `pulumi:"name"`
-	Offset      pulumi.Float64Input   `pulumi:"offset"`
-	StartBit    pulumi.IntInput       `pulumi:"startBit"`
+	Offset      pulumi.Input          `pulumi:"offset"`
+	StartBit    pulumi.Input          `pulumi:"startBit"`
 }
 
 func (DecoderManifestCanSignalArgs) ElementType() reflect.Type {
@@ -743,36 +743,36 @@ func (o DecoderManifestCanSignalOutput) ToDecoderManifestCanSignalOutputWithCont
 	return o
 }
 
-func (o DecoderManifestCanSignalOutput) Factor() pulumi.Float64Output {
-	return o.ApplyT(func(v DecoderManifestCanSignal) float64 { return v.Factor }).(pulumi.Float64Output)
+func (o DecoderManifestCanSignalOutput) Factor() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestCanSignal) interface{} { return v.Factor }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestCanSignalOutput) IsBigEndian() pulumi.BoolOutput {
-	return o.ApplyT(func(v DecoderManifestCanSignal) bool { return v.IsBigEndian }).(pulumi.BoolOutput)
+func (o DecoderManifestCanSignalOutput) IsBigEndian() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestCanSignal) interface{} { return v.IsBigEndian }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestCanSignalOutput) IsSigned() pulumi.BoolOutput {
-	return o.ApplyT(func(v DecoderManifestCanSignal) bool { return v.IsSigned }).(pulumi.BoolOutput)
+func (o DecoderManifestCanSignalOutput) IsSigned() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestCanSignal) interface{} { return v.IsSigned }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestCanSignalOutput) Length() pulumi.IntOutput {
-	return o.ApplyT(func(v DecoderManifestCanSignal) int { return v.Length }).(pulumi.IntOutput)
+func (o DecoderManifestCanSignalOutput) Length() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestCanSignal) interface{} { return v.Length }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestCanSignalOutput) MessageId() pulumi.IntOutput {
-	return o.ApplyT(func(v DecoderManifestCanSignal) int { return v.MessageId }).(pulumi.IntOutput)
+func (o DecoderManifestCanSignalOutput) MessageId() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestCanSignal) interface{} { return v.MessageId }).(pulumi.AnyOutput)
 }
 
 func (o DecoderManifestCanSignalOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DecoderManifestCanSignal) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o DecoderManifestCanSignalOutput) Offset() pulumi.Float64Output {
-	return o.ApplyT(func(v DecoderManifestCanSignal) float64 { return v.Offset }).(pulumi.Float64Output)
+func (o DecoderManifestCanSignalOutput) Offset() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestCanSignal) interface{} { return v.Offset }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestCanSignalOutput) StartBit() pulumi.IntOutput {
-	return o.ApplyT(func(v DecoderManifestCanSignal) int { return v.StartBit }).(pulumi.IntOutput)
+func (o DecoderManifestCanSignalOutput) StartBit() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestCanSignal) interface{} { return v.StartBit }).(pulumi.AnyOutput)
 }
 
 type DecoderManifestCanSignalDecoder struct {
@@ -843,13 +843,13 @@ func (o DecoderManifestCanSignalDecoderOutput) Type() DecoderManifestCanSignalDe
 }
 
 type DecoderManifestObdInterface struct {
-	DtcRequestIntervalSeconds *int    `pulumi:"dtcRequestIntervalSeconds"`
-	HasTransmissionEcu        *bool   `pulumi:"hasTransmissionEcu"`
-	Name                      string  `pulumi:"name"`
-	ObdStandard               *string `pulumi:"obdStandard"`
-	PidRequestIntervalSeconds *int    `pulumi:"pidRequestIntervalSeconds"`
-	RequestMessageId          int     `pulumi:"requestMessageId"`
-	UseExtendedIds            *bool   `pulumi:"useExtendedIds"`
+	DtcRequestIntervalSeconds interface{} `pulumi:"dtcRequestIntervalSeconds"`
+	HasTransmissionEcu        interface{} `pulumi:"hasTransmissionEcu"`
+	Name                      string      `pulumi:"name"`
+	ObdStandard               *string     `pulumi:"obdStandard"`
+	PidRequestIntervalSeconds interface{} `pulumi:"pidRequestIntervalSeconds"`
+	RequestMessageId          interface{} `pulumi:"requestMessageId"`
+	UseExtendedIds            interface{} `pulumi:"useExtendedIds"`
 }
 
 // DecoderManifestObdInterfaceInput is an input type that accepts DecoderManifestObdInterfaceArgs and DecoderManifestObdInterfaceOutput values.
@@ -864,13 +864,13 @@ type DecoderManifestObdInterfaceInput interface {
 }
 
 type DecoderManifestObdInterfaceArgs struct {
-	DtcRequestIntervalSeconds pulumi.IntPtrInput    `pulumi:"dtcRequestIntervalSeconds"`
-	HasTransmissionEcu        pulumi.BoolPtrInput   `pulumi:"hasTransmissionEcu"`
+	DtcRequestIntervalSeconds pulumi.Input          `pulumi:"dtcRequestIntervalSeconds"`
+	HasTransmissionEcu        pulumi.Input          `pulumi:"hasTransmissionEcu"`
 	Name                      pulumi.StringInput    `pulumi:"name"`
 	ObdStandard               pulumi.StringPtrInput `pulumi:"obdStandard"`
-	PidRequestIntervalSeconds pulumi.IntPtrInput    `pulumi:"pidRequestIntervalSeconds"`
-	RequestMessageId          pulumi.IntInput       `pulumi:"requestMessageId"`
-	UseExtendedIds            pulumi.BoolPtrInput   `pulumi:"useExtendedIds"`
+	PidRequestIntervalSeconds pulumi.Input          `pulumi:"pidRequestIntervalSeconds"`
+	RequestMessageId          pulumi.Input          `pulumi:"requestMessageId"`
+	UseExtendedIds            pulumi.Input          `pulumi:"useExtendedIds"`
 }
 
 func (DecoderManifestObdInterfaceArgs) ElementType() reflect.Type {
@@ -899,12 +899,12 @@ func (o DecoderManifestObdInterfaceOutput) ToDecoderManifestObdInterfaceOutputWi
 	return o
 }
 
-func (o DecoderManifestObdInterfaceOutput) DtcRequestIntervalSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DecoderManifestObdInterface) *int { return v.DtcRequestIntervalSeconds }).(pulumi.IntPtrOutput)
+func (o DecoderManifestObdInterfaceOutput) DtcRequestIntervalSeconds() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdInterface) interface{} { return v.DtcRequestIntervalSeconds }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdInterfaceOutput) HasTransmissionEcu() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DecoderManifestObdInterface) *bool { return v.HasTransmissionEcu }).(pulumi.BoolPtrOutput)
+func (o DecoderManifestObdInterfaceOutput) HasTransmissionEcu() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdInterface) interface{} { return v.HasTransmissionEcu }).(pulumi.AnyOutput)
 }
 
 func (o DecoderManifestObdInterfaceOutput) Name() pulumi.StringOutput {
@@ -915,16 +915,16 @@ func (o DecoderManifestObdInterfaceOutput) ObdStandard() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v DecoderManifestObdInterface) *string { return v.ObdStandard }).(pulumi.StringPtrOutput)
 }
 
-func (o DecoderManifestObdInterfaceOutput) PidRequestIntervalSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DecoderManifestObdInterface) *int { return v.PidRequestIntervalSeconds }).(pulumi.IntPtrOutput)
+func (o DecoderManifestObdInterfaceOutput) PidRequestIntervalSeconds() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdInterface) interface{} { return v.PidRequestIntervalSeconds }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdInterfaceOutput) RequestMessageId() pulumi.IntOutput {
-	return o.ApplyT(func(v DecoderManifestObdInterface) int { return v.RequestMessageId }).(pulumi.IntOutput)
+func (o DecoderManifestObdInterfaceOutput) RequestMessageId() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdInterface) interface{} { return v.RequestMessageId }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdInterfaceOutput) UseExtendedIds() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DecoderManifestObdInterface) *bool { return v.UseExtendedIds }).(pulumi.BoolPtrOutput)
+func (o DecoderManifestObdInterfaceOutput) UseExtendedIds() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdInterface) interface{} { return v.UseExtendedIds }).(pulumi.AnyOutput)
 }
 
 type DecoderManifestObdNetworkInterface struct {
@@ -989,15 +989,15 @@ func (o DecoderManifestObdNetworkInterfaceOutput) Type() DecoderManifestObdNetwo
 }
 
 type DecoderManifestObdSignal struct {
-	BitMaskLength     *int    `pulumi:"bitMaskLength"`
-	BitRightShift     *int    `pulumi:"bitRightShift"`
-	ByteLength        int     `pulumi:"byteLength"`
-	Offset            float64 `pulumi:"offset"`
-	Pid               int     `pulumi:"pid"`
-	PidResponseLength int     `pulumi:"pidResponseLength"`
-	Scaling           float64 `pulumi:"scaling"`
-	ServiceMode       int     `pulumi:"serviceMode"`
-	StartByte         int     `pulumi:"startByte"`
+	BitMaskLength     interface{} `pulumi:"bitMaskLength"`
+	BitRightShift     interface{} `pulumi:"bitRightShift"`
+	ByteLength        interface{} `pulumi:"byteLength"`
+	Offset            interface{} `pulumi:"offset"`
+	Pid               interface{} `pulumi:"pid"`
+	PidResponseLength interface{} `pulumi:"pidResponseLength"`
+	Scaling           interface{} `pulumi:"scaling"`
+	ServiceMode       interface{} `pulumi:"serviceMode"`
+	StartByte         interface{} `pulumi:"startByte"`
 }
 
 // DecoderManifestObdSignalInput is an input type that accepts DecoderManifestObdSignalArgs and DecoderManifestObdSignalOutput values.
@@ -1012,15 +1012,15 @@ type DecoderManifestObdSignalInput interface {
 }
 
 type DecoderManifestObdSignalArgs struct {
-	BitMaskLength     pulumi.IntPtrInput  `pulumi:"bitMaskLength"`
-	BitRightShift     pulumi.IntPtrInput  `pulumi:"bitRightShift"`
-	ByteLength        pulumi.IntInput     `pulumi:"byteLength"`
-	Offset            pulumi.Float64Input `pulumi:"offset"`
-	Pid               pulumi.IntInput     `pulumi:"pid"`
-	PidResponseLength pulumi.IntInput     `pulumi:"pidResponseLength"`
-	Scaling           pulumi.Float64Input `pulumi:"scaling"`
-	ServiceMode       pulumi.IntInput     `pulumi:"serviceMode"`
-	StartByte         pulumi.IntInput     `pulumi:"startByte"`
+	BitMaskLength     pulumi.Input `pulumi:"bitMaskLength"`
+	BitRightShift     pulumi.Input `pulumi:"bitRightShift"`
+	ByteLength        pulumi.Input `pulumi:"byteLength"`
+	Offset            pulumi.Input `pulumi:"offset"`
+	Pid               pulumi.Input `pulumi:"pid"`
+	PidResponseLength pulumi.Input `pulumi:"pidResponseLength"`
+	Scaling           pulumi.Input `pulumi:"scaling"`
+	ServiceMode       pulumi.Input `pulumi:"serviceMode"`
+	StartByte         pulumi.Input `pulumi:"startByte"`
 }
 
 func (DecoderManifestObdSignalArgs) ElementType() reflect.Type {
@@ -1049,40 +1049,40 @@ func (o DecoderManifestObdSignalOutput) ToDecoderManifestObdSignalOutputWithCont
 	return o
 }
 
-func (o DecoderManifestObdSignalOutput) BitMaskLength() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DecoderManifestObdSignal) *int { return v.BitMaskLength }).(pulumi.IntPtrOutput)
+func (o DecoderManifestObdSignalOutput) BitMaskLength() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdSignal) interface{} { return v.BitMaskLength }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdSignalOutput) BitRightShift() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DecoderManifestObdSignal) *int { return v.BitRightShift }).(pulumi.IntPtrOutput)
+func (o DecoderManifestObdSignalOutput) BitRightShift() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdSignal) interface{} { return v.BitRightShift }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdSignalOutput) ByteLength() pulumi.IntOutput {
-	return o.ApplyT(func(v DecoderManifestObdSignal) int { return v.ByteLength }).(pulumi.IntOutput)
+func (o DecoderManifestObdSignalOutput) ByteLength() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdSignal) interface{} { return v.ByteLength }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdSignalOutput) Offset() pulumi.Float64Output {
-	return o.ApplyT(func(v DecoderManifestObdSignal) float64 { return v.Offset }).(pulumi.Float64Output)
+func (o DecoderManifestObdSignalOutput) Offset() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdSignal) interface{} { return v.Offset }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdSignalOutput) Pid() pulumi.IntOutput {
-	return o.ApplyT(func(v DecoderManifestObdSignal) int { return v.Pid }).(pulumi.IntOutput)
+func (o DecoderManifestObdSignalOutput) Pid() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdSignal) interface{} { return v.Pid }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdSignalOutput) PidResponseLength() pulumi.IntOutput {
-	return o.ApplyT(func(v DecoderManifestObdSignal) int { return v.PidResponseLength }).(pulumi.IntOutput)
+func (o DecoderManifestObdSignalOutput) PidResponseLength() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdSignal) interface{} { return v.PidResponseLength }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdSignalOutput) Scaling() pulumi.Float64Output {
-	return o.ApplyT(func(v DecoderManifestObdSignal) float64 { return v.Scaling }).(pulumi.Float64Output)
+func (o DecoderManifestObdSignalOutput) Scaling() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdSignal) interface{} { return v.Scaling }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdSignalOutput) ServiceMode() pulumi.IntOutput {
-	return o.ApplyT(func(v DecoderManifestObdSignal) int { return v.ServiceMode }).(pulumi.IntOutput)
+func (o DecoderManifestObdSignalOutput) ServiceMode() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdSignal) interface{} { return v.ServiceMode }).(pulumi.AnyOutput)
 }
 
-func (o DecoderManifestObdSignalOutput) StartByte() pulumi.IntOutput {
-	return o.ApplyT(func(v DecoderManifestObdSignal) int { return v.StartByte }).(pulumi.IntOutput)
+func (o DecoderManifestObdSignalOutput) StartByte() pulumi.AnyOutput {
+	return o.ApplyT(func(v DecoderManifestObdSignal) interface{} { return v.StartByte }).(pulumi.AnyOutput)
 }
 
 type DecoderManifestObdSignalDecoder struct {

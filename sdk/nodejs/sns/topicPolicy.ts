@@ -36,10 +36,8 @@ export class TopicPolicy extends pulumi.CustomResource {
 
     /**
      * A policy document that contains permissions to add to the specified SNS topics.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any>;
+    public readonly policyDocument!: pulumi.Output<any | string>;
     /**
      * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
      */
@@ -79,10 +77,8 @@ export class TopicPolicy extends pulumi.CustomResource {
 export interface TopicPolicyArgs {
     /**
      * A policy document that contains permissions to add to the specified SNS topics.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
      */
-    policyDocument: any;
+    policyDocument: pulumi.Input<any | string>;
     /**
      * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
      */

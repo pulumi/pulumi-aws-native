@@ -23,11 +23,9 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// The content for the Systems Manager document in JSON, YAML or String format.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
         /// </summary>
         [Output("content")]
-        public Output<object> Content { get; private set; } = null!;
+        public Output<Union<object, string>> Content { get; private set; } = null!;
 
         /// <summary>
         /// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
@@ -141,11 +139,9 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// The content for the Systems Manager document in JSON, YAML or String format.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
         /// </summary>
         [Input("content", required: true)]
-        public Input<object> Content { get; set; } = null!;
+        public InputUnion<object, string> Content { get; set; } = null!;
 
         /// <summary>
         /// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.

@@ -17,8 +17,7 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
 	PolicyDocument pulumi.AnyOutput       `pulumi:"policyDocument"`
 	PolicyName     pulumi.StringPtrOutput `pulumi:"policyName"`
 	Tags           aws.TagArrayOutput     `pulumi:"tags"`
@@ -71,7 +70,6 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	PolicyName     *string     `pulumi:"policyName"`
 	Tags           []aws.Tag   `pulumi:"tags"`
@@ -79,7 +77,6 @@ type policyArgs struct {
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	PolicyName     pulumi.StringPtrInput
 	Tags           aws.TagArrayInput
@@ -126,7 +123,6 @@ func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 func (o PolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

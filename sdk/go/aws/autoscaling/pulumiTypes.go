@@ -2710,7 +2710,7 @@ func (o AutoScalingGroupNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntP
 
 type AutoScalingGroupNotificationConfiguration struct {
 	NotificationTypes []string `pulumi:"notificationTypes"`
-	TopicArn          string   `pulumi:"topicArn"`
+	TopicArn          []string `pulumi:"topicArn"`
 }
 
 // AutoScalingGroupNotificationConfigurationInput is an input type that accepts AutoScalingGroupNotificationConfigurationArgs and AutoScalingGroupNotificationConfigurationOutput values.
@@ -2726,7 +2726,7 @@ type AutoScalingGroupNotificationConfigurationInput interface {
 
 type AutoScalingGroupNotificationConfigurationArgs struct {
 	NotificationTypes pulumi.StringArrayInput `pulumi:"notificationTypes"`
-	TopicArn          pulumi.StringInput      `pulumi:"topicArn"`
+	TopicArn          pulumi.StringArrayInput `pulumi:"topicArn"`
 }
 
 func (AutoScalingGroupNotificationConfigurationArgs) ElementType() reflect.Type {
@@ -2835,8 +2835,8 @@ func (o AutoScalingGroupNotificationConfigurationOutput) NotificationTypes() pul
 	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) []string { return v.NotificationTypes }).(pulumi.StringArrayOutput)
 }
 
-func (o AutoScalingGroupNotificationConfigurationOutput) TopicArn() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
+func (o AutoScalingGroupNotificationConfigurationOutput) TopicArn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) []string { return v.TopicArn }).(pulumi.StringArrayOutput)
 }
 
 type AutoScalingGroupNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2872,13 +2872,13 @@ func (o AutoScalingGroupNotificationConfigurationPtrOutput) NotificationTypes() 
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o AutoScalingGroupNotificationConfigurationPtrOutput) TopicArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupNotificationConfiguration) *string {
+func (o AutoScalingGroupNotificationConfigurationPtrOutput) TopicArn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroupNotificationConfiguration) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.TopicArn
-	}).(pulumi.StringPtrOutput)
+		return v.TopicArn
+	}).(pulumi.StringArrayOutput)
 }
 
 type AutoScalingGroupNotificationConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -1326,7 +1326,7 @@ export namespace apigateway {
         /**
          * A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
          */
-        responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+        responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean | string>}>;
         /**
          * The method response's status code.
          */
@@ -1646,6 +1646,10 @@ export namespace apigatewayv2 {
 
     export interface IntegrationTlsConfigArgs {
         serverNameToVerify?: pulumi.Input<string>;
+    }
+
+    export interface RouteParameterConstraintsArgs {
+        required: pulumi.Input<boolean>;
     }
 
     /**
@@ -4997,7 +5001,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfigurationArgs {
         notificationTypes?: pulumi.Input<pulumi.Input<string>[]>;
-        topicArn: pulumi.Input<string>;
+        topicArn: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AutoScalingGroupTagPropertyArgs {
@@ -14475,7 +14479,7 @@ export namespace ecs {
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs {
         base?: pulumi.Input<number>;
-        capacityProvider: pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>;
+        capacityProvider: pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | pulumi.Input<string> | pulumi.Input<string>>;
         weight?: pulumi.Input<number>;
     }
 
@@ -20241,7 +20245,7 @@ export namespace iam {
         /**
          * The policy document.
          */
-        policyDocument: pulumi.Input<string>;
+        policyDocument: pulumi.Input<string | any>;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -20257,7 +20261,7 @@ export namespace iam {
         /**
          * The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
          */
-        policyDocument: pulumi.Input<string>;
+        policyDocument: pulumi.Input<string | any>;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -20287,7 +20291,7 @@ export namespace iam {
         /**
          * The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
          */
-        policyDocument: any;
+        policyDocument: pulumi.Input<any | string>;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -23009,14 +23013,14 @@ export namespace iotfleetwise {
     }
 
     export interface DecoderManifestCanSignalArgs {
-        factor: pulumi.Input<number>;
-        isBigEndian: pulumi.Input<boolean>;
-        isSigned: pulumi.Input<boolean>;
-        length: pulumi.Input<number>;
-        messageId: pulumi.Input<number>;
+        factor: pulumi.Input<number | string>;
+        isBigEndian: pulumi.Input<boolean | string>;
+        isSigned: pulumi.Input<boolean | string>;
+        length: pulumi.Input<number | string>;
+        messageId: pulumi.Input<number | string>;
         name?: pulumi.Input<string>;
-        offset: pulumi.Input<number>;
-        startBit: pulumi.Input<number>;
+        offset: pulumi.Input<number | string>;
+        startBit: pulumi.Input<number | string>;
     }
 
     export interface DecoderManifestCanSignalDecoderArgs {
@@ -23027,13 +23031,13 @@ export namespace iotfleetwise {
     }
 
     export interface DecoderManifestObdInterfaceArgs {
-        dtcRequestIntervalSeconds?: pulumi.Input<number>;
-        hasTransmissionEcu?: pulumi.Input<boolean>;
+        dtcRequestIntervalSeconds?: pulumi.Input<number | string>;
+        hasTransmissionEcu?: pulumi.Input<boolean | string>;
         name: pulumi.Input<string>;
         obdStandard?: pulumi.Input<string>;
-        pidRequestIntervalSeconds?: pulumi.Input<number>;
-        requestMessageId: pulumi.Input<number>;
-        useExtendedIds?: pulumi.Input<boolean>;
+        pidRequestIntervalSeconds?: pulumi.Input<number | string>;
+        requestMessageId: pulumi.Input<number | string>;
+        useExtendedIds?: pulumi.Input<boolean | string>;
     }
 
     export interface DecoderManifestObdNetworkInterfaceArgs {
@@ -23043,15 +23047,15 @@ export namespace iotfleetwise {
     }
 
     export interface DecoderManifestObdSignalArgs {
-        bitMaskLength?: pulumi.Input<number>;
-        bitRightShift?: pulumi.Input<number>;
-        byteLength: pulumi.Input<number>;
-        offset: pulumi.Input<number>;
-        pid: pulumi.Input<number>;
-        pidResponseLength: pulumi.Input<number>;
-        scaling: pulumi.Input<number>;
-        serviceMode: pulumi.Input<number>;
-        startByte: pulumi.Input<number>;
+        bitMaskLength?: pulumi.Input<number | string>;
+        bitRightShift?: pulumi.Input<number | string>;
+        byteLength: pulumi.Input<number | string>;
+        offset: pulumi.Input<number | string>;
+        pid: pulumi.Input<number | string>;
+        pidResponseLength: pulumi.Input<number | string>;
+        scaling: pulumi.Input<number | string>;
+        serviceMode: pulumi.Input<number | string>;
+        startByte: pulumi.Input<number | string>;
     }
 
     export interface DecoderManifestObdSignalDecoderArgs {
@@ -23847,7 +23851,7 @@ export namespace iottwinmaker {
     }
 
     export interface EntityStatusArgs {
-        error?: pulumi.Input<any | inputs.iottwinmaker.EntityStatusErrorPropertiesArgs>;
+        error?: pulumi.Input<any | any | inputs.iottwinmaker.EntityStatusErrorPropertiesArgs>;
         state?: pulumi.Input<enums.iottwinmaker.EntityStatusState>;
     }
 
@@ -28426,6 +28430,17 @@ export namespace location {
 }
 
 export namespace logs {
+    export interface DeliveryDestinationDestinationPolicyArgs {
+        /**
+         * The name of the delivery destination to assign this policy to
+         */
+        deliveryDestinationName: pulumi.Input<string>;
+        /**
+         * The contents of the policy attached to the delivery destination
+         */
+        deliveryDestinationPolicy: pulumi.Input<string>;
+    }
+
     /**
      * the key-value pairs that further define a metric.
      */

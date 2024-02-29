@@ -31,7 +31,7 @@ type ConfigRule struct {
 	// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
 	EvaluationModes ConfigRuleEvaluationModeConfigurationArrayOutput `pulumi:"evaluationModes"`
 	// A string, in JSON format, that is passed to the CC rule Lambda function.
-	InputParameters pulumi.StringPtrOutput `pulumi:"inputParameters"`
+	InputParameters pulumi.AnyOutput `pulumi:"inputParameters"`
 	// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
 	//   +  You are using an AWS managed rule that is triggered at a periodic frequency.
 	//   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
@@ -101,7 +101,7 @@ type configRuleArgs struct {
 	// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
 	EvaluationModes []ConfigRuleEvaluationModeConfiguration `pulumi:"evaluationModes"`
 	// A string, in JSON format, that is passed to the CC rule Lambda function.
-	InputParameters *string `pulumi:"inputParameters"`
+	InputParameters interface{} `pulumi:"inputParameters"`
 	// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
 	//   +  You are using an AWS managed rule that is triggered at a periodic frequency.
 	//   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
@@ -126,7 +126,7 @@ type ConfigRuleArgs struct {
 	// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
 	EvaluationModes ConfigRuleEvaluationModeConfigurationArrayInput
 	// A string, in JSON format, that is passed to the CC rule Lambda function.
-	InputParameters pulumi.StringPtrInput
+	InputParameters pulumi.Input
 	// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
 	//   +  You are using an AWS managed rule that is triggered at a periodic frequency.
 	//   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
@@ -206,8 +206,8 @@ func (o ConfigRuleOutput) EvaluationModes() ConfigRuleEvaluationModeConfiguratio
 }
 
 // A string, in JSON format, that is passed to the CC rule Lambda function.
-func (o ConfigRuleOutput) InputParameters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.InputParameters }).(pulumi.StringPtrOutput)
+func (o ConfigRuleOutput) InputParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConfigRule) pulumi.AnyOutput { return v.InputParameters }).(pulumi.AnyOutput)
 }
 
 // The maximum frequency with which CC runs evaluations for a rule. You can specify a value for “MaximumExecutionFrequency“ when:

@@ -15,7 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 type GroupPolicyType struct {
 	// The policy document.
-	PolicyDocument string `pulumi:"policyDocument"`
+	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName string `pulumi:"policyName"`
 }
@@ -33,7 +33,7 @@ type GroupPolicyTypeInput interface {
 
 type GroupPolicyTypeArgs struct {
 	// The policy document.
-	PolicyDocument pulumi.StringInput `pulumi:"policyDocument"`
+	PolicyDocument pulumi.Input `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName pulumi.StringInput `pulumi:"policyName"`
 }
@@ -90,8 +90,8 @@ func (o GroupPolicyTypeOutput) ToGroupPolicyTypeOutputWithContext(ctx context.Co
 }
 
 // The policy document.
-func (o GroupPolicyTypeOutput) PolicyDocument() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupPolicyType) string { return v.PolicyDocument }).(pulumi.StringOutput)
+func (o GroupPolicyTypeOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v GroupPolicyType) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
 // The friendly name (not ARN) identifying the policy.
@@ -133,7 +133,7 @@ type OidcProviderTag struct {
 //	For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
 type RolePolicyType struct {
 	// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
-	PolicyDocument string `pulumi:"policyDocument"`
+	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName string `pulumi:"policyName"`
 }
@@ -155,7 +155,7 @@ type RolePolicyTypeInput interface {
 //	For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
 type RolePolicyTypeArgs struct {
 	// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
-	PolicyDocument pulumi.StringInput `pulumi:"policyDocument"`
+	PolicyDocument pulumi.Input `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName pulumi.StringInput `pulumi:"policyName"`
 }
@@ -216,8 +216,8 @@ func (o RolePolicyTypeOutput) ToRolePolicyTypeOutputWithContext(ctx context.Cont
 }
 
 // The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
-func (o RolePolicyTypeOutput) PolicyDocument() pulumi.StringOutput {
-	return o.ApplyT(func(v RolePolicyType) string { return v.PolicyDocument }).(pulumi.StringOutput)
+func (o RolePolicyTypeOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v RolePolicyType) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
 // The friendly name (not ARN) identifying the policy.

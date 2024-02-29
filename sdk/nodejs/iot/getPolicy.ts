@@ -25,10 +25,7 @@ export interface GetPolicyArgs {
 export interface GetPolicyResult {
     readonly arn?: string;
     readonly id?: string;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
-     */
-    readonly policyDocument?: any;
+    readonly policyDocument?: any | string;
     readonly tags?: outputs.Tag[];
 }
 /**

@@ -20,15 +20,13 @@ class PublicRepositoryArgs:
     def __init__(__self__, *,
                  repository_catalog_data: Optional[pulumi.Input['RepositoryCatalogDataPropertiesArgs']] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 repository_policy_text: Optional[Any] = None,
+                 repository_policy_text: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PublicRepository resource.
         :param pulumi.Input['RepositoryCatalogDataPropertiesArgs'] repository_catalog_data: The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
         :param pulumi.Input[str] repository_name: The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-        :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
+        :param pulumi.Input[Union[Any, str]] repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if repository_catalog_data is not None:
@@ -66,16 +64,14 @@ class PublicRepositoryArgs:
 
     @property
     @pulumi.getter(name="repositoryPolicyText")
-    def repository_policy_text(self) -> Optional[Any]:
+    def repository_policy_text(self) -> Optional[pulumi.Input[Union[Any, str]]]:
         """
         The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "repository_policy_text")
 
     @repository_policy_text.setter
-    def repository_policy_text(self, value: Optional[Any]):
+    def repository_policy_text(self, value: Optional[pulumi.Input[Union[Any, str]]]):
         pulumi.set(self, "repository_policy_text", value)
 
     @property
@@ -103,7 +99,7 @@ class PublicRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataPropertiesArgs']]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 repository_policy_text: Optional[Any] = None,
+                 repository_policy_text: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -113,9 +109,7 @@ class PublicRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataPropertiesArgs']] repository_catalog_data: The CatalogData property type specifies Catalog data for ECR Public Repository. For information about Catalog Data, see <link>
         :param pulumi.Input[str] repository_name: The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-        :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
+        :param pulumi.Input[Union[Any, str]] repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -144,7 +138,7 @@ class PublicRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataPropertiesArgs']]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 repository_policy_text: Optional[Any] = None,
+                 repository_policy_text: Optional[pulumi.Input[Union[Any, str]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""PublicRepository is deprecated: PublicRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -218,8 +212,6 @@ class PublicRepository(pulumi.CustomResource):
     def repository_policy_text(self) -> pulumi.Output[Optional[Any]]:
         """
         The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "repository_policy_text")
 

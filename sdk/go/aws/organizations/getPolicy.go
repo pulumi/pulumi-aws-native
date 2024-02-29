@@ -34,8 +34,6 @@ type LookupPolicyResult struct {
 	// A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
 	AwsManaged *bool `pulumi:"awsManaged"`
 	// The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::Policy` for more information about the expected schema for this property.
 	Content interface{} `pulumi:"content"`
 	// Human readable description of the policy
 	Description *string `pulumi:"description"`
@@ -96,8 +94,6 @@ func (o LookupPolicyResultOutput) AwsManaged() pulumi.BoolPtrOutput {
 }
 
 // The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::Policy` for more information about the expected schema for this property.
 func (o LookupPolicyResultOutput) Content() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPolicyResult) interface{} { return v.Content }).(pulumi.AnyOutput)
 }

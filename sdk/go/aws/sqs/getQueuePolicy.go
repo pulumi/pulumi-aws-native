@@ -29,8 +29,6 @@ type LookupQueuePolicyArgs struct {
 type LookupQueuePolicyResult struct {
 	Id *string `pulumi:"id"`
 	// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueuePolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
 	Queues []string `pulumi:"queues"`
@@ -76,8 +74,6 @@ func (o LookupQueuePolicyResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueuePolicy` for more information about the expected schema for this property.
 func (o LookupQueuePolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupQueuePolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

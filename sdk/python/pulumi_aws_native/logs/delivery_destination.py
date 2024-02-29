@@ -8,27 +8,27 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['DeliveryDestinationArgs', 'DeliveryDestination']
 
 @pulumi.input_type
 class DeliveryDestinationArgs:
     def __init__(__self__, *,
-                 delivery_destination_policy: Optional[Any] = None,
+                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]]] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliveryDestination resource.
-        :param Any delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+        :param pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
                
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
         :param pulumi.Input[str] name: The name of this delivery destination.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that have been assigned to this delivery destination.
@@ -44,20 +44,18 @@ class DeliveryDestinationArgs:
 
     @property
     @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> Optional[Any]:
+    def delivery_destination_policy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]]]:
         """
         IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
 
         The policy must be in JSON string format.
 
         Length Constraints: Maximum length of 51200
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "delivery_destination_policy")
 
     @delivery_destination_policy.setter
-    def delivery_destination_policy(self, value: Optional[Any]):
+    def delivery_destination_policy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]]]):
         pulumi.set(self, "delivery_destination_policy", value)
 
     @property
@@ -102,7 +100,7 @@ class DeliveryDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_policy: Optional[Any] = None,
+                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationDestinationPolicyArgs']]]]] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -114,13 +112,11 @@ class DeliveryDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationDestinationPolicyArgs']]]] delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
                
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
         :param pulumi.Input[str] name: The name of this delivery destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags that have been assigned to this delivery destination.
@@ -151,7 +147,7 @@ class DeliveryDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_policy: Optional[Any] = None,
+                 delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationDestinationPolicyArgs']]]]] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -212,15 +208,13 @@ class DeliveryDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> pulumi.Output[Optional[Any]]:
+    def delivery_destination_policy(self) -> pulumi.Output[Optional[Sequence['outputs.DeliveryDestinationDestinationPolicy']]]:
         """
         IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
 
         The policy must be in JSON string format.
 
         Length Constraints: Maximum length of 51200
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "delivery_destination_policy")
 

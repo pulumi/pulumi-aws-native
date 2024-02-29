@@ -502,13 +502,13 @@ class DecoderManifestCanSignal(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 factor: float,
-                 is_big_endian: bool,
-                 is_signed: bool,
-                 length: int,
-                 message_id: int,
-                 offset: float,
-                 start_bit: int,
+                 factor: Any,
+                 is_big_endian: Any,
+                 is_signed: Any,
+                 length: Any,
+                 message_id: Any,
+                 offset: Any,
+                 start_bit: Any,
                  name: Optional[str] = None):
         pulumi.set(__self__, "factor", factor)
         pulumi.set(__self__, "is_big_endian", is_big_endian)
@@ -522,37 +522,37 @@ class DecoderManifestCanSignal(dict):
 
     @property
     @pulumi.getter
-    def factor(self) -> float:
+    def factor(self) -> Any:
         return pulumi.get(self, "factor")
 
     @property
     @pulumi.getter(name="isBigEndian")
-    def is_big_endian(self) -> bool:
+    def is_big_endian(self) -> Any:
         return pulumi.get(self, "is_big_endian")
 
     @property
     @pulumi.getter(name="isSigned")
-    def is_signed(self) -> bool:
+    def is_signed(self) -> Any:
         return pulumi.get(self, "is_signed")
 
     @property
     @pulumi.getter
-    def length(self) -> int:
+    def length(self) -> Any:
         return pulumi.get(self, "length")
 
     @property
     @pulumi.getter(name="messageId")
-    def message_id(self) -> int:
+    def message_id(self) -> Any:
         return pulumi.get(self, "message_id")
 
     @property
     @pulumi.getter
-    def offset(self) -> float:
+    def offset(self) -> Any:
         return pulumi.get(self, "offset")
 
     @property
     @pulumi.getter(name="startBit")
-    def start_bit(self) -> int:
+    def start_bit(self) -> Any:
         return pulumi.get(self, "start_bit")
 
     @property
@@ -646,12 +646,12 @@ class DecoderManifestObdInterface(dict):
 
     def __init__(__self__, *,
                  name: str,
-                 request_message_id: int,
-                 dtc_request_interval_seconds: Optional[int] = None,
-                 has_transmission_ecu: Optional[bool] = None,
+                 request_message_id: Any,
+                 dtc_request_interval_seconds: Optional[Any] = None,
+                 has_transmission_ecu: Optional[Any] = None,
                  obd_standard: Optional[str] = None,
-                 pid_request_interval_seconds: Optional[int] = None,
-                 use_extended_ids: Optional[bool] = None):
+                 pid_request_interval_seconds: Optional[Any] = None,
+                 use_extended_ids: Optional[Any] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "request_message_id", request_message_id)
         if dtc_request_interval_seconds is not None:
@@ -672,17 +672,17 @@ class DecoderManifestObdInterface(dict):
 
     @property
     @pulumi.getter(name="requestMessageId")
-    def request_message_id(self) -> int:
+    def request_message_id(self) -> Any:
         return pulumi.get(self, "request_message_id")
 
     @property
     @pulumi.getter(name="dtcRequestIntervalSeconds")
-    def dtc_request_interval_seconds(self) -> Optional[int]:
+    def dtc_request_interval_seconds(self) -> Optional[Any]:
         return pulumi.get(self, "dtc_request_interval_seconds")
 
     @property
     @pulumi.getter(name="hasTransmissionEcu")
-    def has_transmission_ecu(self) -> Optional[bool]:
+    def has_transmission_ecu(self) -> Optional[Any]:
         return pulumi.get(self, "has_transmission_ecu")
 
     @property
@@ -692,12 +692,12 @@ class DecoderManifestObdInterface(dict):
 
     @property
     @pulumi.getter(name="pidRequestIntervalSeconds")
-    def pid_request_interval_seconds(self) -> Optional[int]:
+    def pid_request_interval_seconds(self) -> Optional[Any]:
         return pulumi.get(self, "pid_request_interval_seconds")
 
     @property
     @pulumi.getter(name="useExtendedIds")
-    def use_extended_ids(self) -> Optional[bool]:
+    def use_extended_ids(self) -> Optional[Any]:
         return pulumi.get(self, "use_extended_ids")
 
 
@@ -776,15 +776,15 @@ class DecoderManifestObdSignal(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 byte_length: int,
-                 offset: float,
-                 pid: int,
-                 pid_response_length: int,
-                 scaling: float,
-                 service_mode: int,
-                 start_byte: int,
-                 bit_mask_length: Optional[int] = None,
-                 bit_right_shift: Optional[int] = None):
+                 byte_length: Any,
+                 offset: Any,
+                 pid: Any,
+                 pid_response_length: Any,
+                 scaling: Any,
+                 service_mode: Any,
+                 start_byte: Any,
+                 bit_mask_length: Optional[Any] = None,
+                 bit_right_shift: Optional[Any] = None):
         pulumi.set(__self__, "byte_length", byte_length)
         pulumi.set(__self__, "offset", offset)
         pulumi.set(__self__, "pid", pid)
@@ -799,47 +799,47 @@ class DecoderManifestObdSignal(dict):
 
     @property
     @pulumi.getter(name="byteLength")
-    def byte_length(self) -> int:
+    def byte_length(self) -> Any:
         return pulumi.get(self, "byte_length")
 
     @property
     @pulumi.getter
-    def offset(self) -> float:
+    def offset(self) -> Any:
         return pulumi.get(self, "offset")
 
     @property
     @pulumi.getter
-    def pid(self) -> int:
+    def pid(self) -> Any:
         return pulumi.get(self, "pid")
 
     @property
     @pulumi.getter(name="pidResponseLength")
-    def pid_response_length(self) -> int:
+    def pid_response_length(self) -> Any:
         return pulumi.get(self, "pid_response_length")
 
     @property
     @pulumi.getter
-    def scaling(self) -> float:
+    def scaling(self) -> Any:
         return pulumi.get(self, "scaling")
 
     @property
     @pulumi.getter(name="serviceMode")
-    def service_mode(self) -> int:
+    def service_mode(self) -> Any:
         return pulumi.get(self, "service_mode")
 
     @property
     @pulumi.getter(name="startByte")
-    def start_byte(self) -> int:
+    def start_byte(self) -> Any:
         return pulumi.get(self, "start_byte")
 
     @property
     @pulumi.getter(name="bitMaskLength")
-    def bit_mask_length(self) -> Optional[int]:
+    def bit_mask_length(self) -> Optional[Any]:
         return pulumi.get(self, "bit_mask_length")
 
     @property
     @pulumi.getter(name="bitRightShift")
-    def bit_right_shift(self) -> Optional[int]:
+    def bit_right_shift(self) -> Optional[Any]:
         return pulumi.get(self, "bit_right_shift")
 
 

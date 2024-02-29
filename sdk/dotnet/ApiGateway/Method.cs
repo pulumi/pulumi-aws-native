@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         /// </summary>
         [Output("requestParameters")]
-        public Output<ImmutableDictionary<string, bool>?> RequestParameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Union<bool, string>>?> RequestParameters { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of a RequestValidator for request validation.
@@ -219,14 +219,14 @@ namespace Pulumi.AwsNative.ApiGateway
         }
 
         [Input("requestParameters")]
-        private InputMap<bool>? _requestParameters;
+        private InputMap<Union<bool, string>>? _requestParameters;
 
         /// <summary>
         /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         /// </summary>
-        public InputMap<bool> RequestParameters
+        public InputMap<Union<bool, string>> RequestParameters
         {
-            get => _requestParameters ?? (_requestParameters = new InputMap<bool>());
+            get => _requestParameters ?? (_requestParameters = new InputMap<Union<bool, string>>());
             set => _requestParameters = value;
         }
 

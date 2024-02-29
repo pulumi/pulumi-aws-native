@@ -50,7 +50,7 @@ type LookupMethodResult struct {
 	// A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
 	RequestModels map[string]string `pulumi:"requestModels"`
 	// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
-	RequestParameters map[string]bool `pulumi:"requestParameters"`
+	RequestParameters map[string]interface{} `pulumi:"requestParameters"`
 	// The identifier of a RequestValidator for request validation.
 	RequestValidatorId *string `pulumi:"requestValidatorId"`
 }
@@ -138,8 +138,8 @@ func (o LookupMethodResultOutput) RequestModels() pulumi.StringMapOutput {
 }
 
 // A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of “method.request.{location}.{name}“, where “location“ is “querystring“, “path“, or “header“ and “name“ is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (“true“) or optional (“false“). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
-func (o LookupMethodResultOutput) RequestParameters() pulumi.BoolMapOutput {
-	return o.ApplyT(func(v LookupMethodResult) map[string]bool { return v.RequestParameters }).(pulumi.BoolMapOutput)
+func (o LookupMethodResultOutput) RequestParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupMethodResult) map[string]interface{} { return v.RequestParameters }).(pulumi.MapOutput)
 }
 
 // The identifier of a RequestValidator for request validation.

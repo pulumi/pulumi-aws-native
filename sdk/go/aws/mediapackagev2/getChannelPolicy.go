@@ -28,7 +28,6 @@ type LookupChannelPolicyArgs struct {
 }
 
 type LookupChannelPolicyResult struct {
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -68,7 +67,6 @@ func (o LookupChannelPolicyResultOutput) ToLookupChannelPolicyResultOutputWithCo
 	return o
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
 func (o LookupChannelPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupChannelPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

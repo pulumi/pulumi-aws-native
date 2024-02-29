@@ -19,8 +19,6 @@ type SecurityConfiguration struct {
 	// The name of the security configuration.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The security configuration details in JSON format.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
 	SecurityConfiguration pulumi.AnyOutput `pulumi:"securityConfiguration"`
 }
 
@@ -75,8 +73,6 @@ type securityConfigurationArgs struct {
 	// The name of the security configuration.
 	Name *string `pulumi:"name"`
 	// The security configuration details in JSON format.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
 	SecurityConfiguration interface{} `pulumi:"securityConfiguration"`
 }
 
@@ -85,8 +81,6 @@ type SecurityConfigurationArgs struct {
 	// The name of the security configuration.
 	Name pulumi.StringPtrInput
 	// The security configuration details in JSON format.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
 	SecurityConfiguration pulumi.Input
 }
 
@@ -133,8 +127,6 @@ func (o SecurityConfigurationOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The security configuration details in JSON format.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
 func (o SecurityConfigurationOutput) SecurityConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *SecurityConfiguration) pulumi.AnyOutput { return v.SecurityConfiguration }).(pulumi.AnyOutput)
 }

@@ -35,10 +35,8 @@ type Route struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
 	RequestModels pulumi.AnyOutput `pulumi:"requestModels"`
 	// The request parameters for the route. Supported only for WebSocket APIs.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
-	RequestParameters pulumi.AnyOutput    `pulumi:"requestParameters"`
-	RouteId           pulumi.StringOutput `pulumi:"routeId"`
+	RequestParameters RouteParameterConstraintsArrayOutput `pulumi:"requestParameters"`
+	RouteId           pulumi.StringOutput                  `pulumi:"routeId"`
 	// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
 	RouteKey pulumi.StringOutput `pulumi:"routeKey"`
 	// The route response selection expression for the route. Supported only for WebSocket APIs.
@@ -116,9 +114,7 @@ type routeArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
 	RequestModels interface{} `pulumi:"requestModels"`
 	// The request parameters for the route. Supported only for WebSocket APIs.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
-	RequestParameters interface{} `pulumi:"requestParameters"`
+	RequestParameters []RouteParameterConstraints `pulumi:"requestParameters"`
 	// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
 	RouteKey string `pulumi:"routeKey"`
 	// The route response selection expression for the route. Supported only for WebSocket APIs.
@@ -148,9 +144,7 @@ type RouteArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
 	RequestModels pulumi.Input
 	// The request parameters for the route. Supported only for WebSocket APIs.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
-	RequestParameters pulumi.Input
+	RequestParameters RouteParameterConstraintsArrayInput
 	// The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
 	RouteKey pulumi.StringInput
 	// The route response selection expression for the route. Supported only for WebSocket APIs.
@@ -239,10 +233,8 @@ func (o RouteOutput) RequestModels() pulumi.AnyOutput {
 }
 
 // The request parameters for the route. Supported only for WebSocket APIs.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
-func (o RouteOutput) RequestParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Route) pulumi.AnyOutput { return v.RequestParameters }).(pulumi.AnyOutput)
+func (o RouteOutput) RequestParameters() RouteParameterConstraintsArrayOutput {
+	return o.ApplyT(func(v *Route) RouteParameterConstraintsArrayOutput { return v.RequestParameters }).(RouteParameterConstraintsArrayOutput)
 }
 
 func (o RouteOutput) RouteId() pulumi.StringOutput {

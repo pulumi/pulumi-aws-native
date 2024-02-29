@@ -162,8 +162,6 @@ class GetQueueResult:
     def redrive_allow_policy(self) -> Optional[Any]:
         """
         The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "redrive_allow_policy")
 
@@ -172,8 +170,6 @@ class GetQueueResult:
     def redrive_policy(self) -> Optional[Any]:
         """
         A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "redrive_policy")
 

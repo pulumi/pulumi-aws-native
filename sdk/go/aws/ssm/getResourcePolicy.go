@@ -31,8 +31,6 @@ type LookupResourcePolicyArgs struct {
 
 type LookupResourcePolicyResult struct {
 	// Actual policy statement.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// A snapshot identifier for the policy over time.
 	PolicyHash *string `pulumi:"policyHash"`
@@ -79,8 +77,6 @@ func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutputWith
 }
 
 // Actual policy statement.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
 func (o LookupResourcePolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

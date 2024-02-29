@@ -203,7 +203,7 @@ class CapacityProviderManagedScalingArgs:
 @pulumi.input_type
 class ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs:
     def __init__(__self__, *,
-                 capacity_provider: pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]],
+                 capacity_provider: pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', pulumi.Input[str]]],
                  base: Optional[pulumi.Input[int]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "capacity_provider", capacity_provider)
@@ -214,11 +214,11 @@ class ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs:
 
     @property
     @pulumi.getter(name="capacityProvider")
-    def capacity_provider(self) -> pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]:
+    def capacity_provider(self) -> pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', pulumi.Input[str]]]:
         return pulumi.get(self, "capacity_provider")
 
     @capacity_provider.setter
-    def capacity_provider(self, value: pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]):
+    def capacity_provider(self, value: pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', pulumi.Input[str]]]):
         pulumi.set(self, "capacity_provider", value)
 
     @property

@@ -43,8 +43,6 @@ type LookupManagedPolicyResult struct {
 	// Amazon Resource Name (ARN) of the managed policy
 	PolicyArn *string `pulumi:"policyArn"`
 	// The JSON policy document that you want to use as the content for the new policy.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The stable and unique string identifying the policy.
 	PolicyId *string `pulumi:"policyId"`
@@ -128,8 +126,6 @@ func (o LookupManagedPolicyResultOutput) PolicyArn() pulumi.StringPtrOutput {
 }
 
 // The JSON policy document that you want to use as the content for the new policy.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
 func (o LookupManagedPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupManagedPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

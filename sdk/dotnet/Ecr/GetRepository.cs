@@ -66,10 +66,8 @@ namespace Pulumi.AwsNative.Ecr
         public readonly Outputs.RepositoryLifecyclePolicy? LifecyclePolicy;
         /// <summary>
         /// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
         /// </summary>
-        public readonly object? RepositoryPolicyText;
+        public readonly Union<object, string>? RepositoryPolicyText;
         public readonly string? RepositoryUri;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -86,7 +84,7 @@ namespace Pulumi.AwsNative.Ecr
 
             Outputs.RepositoryLifecyclePolicy? lifecyclePolicy,
 
-            object? repositoryPolicyText,
+            Union<object, string>? repositoryPolicyText,
 
             string? repositoryUri,
 

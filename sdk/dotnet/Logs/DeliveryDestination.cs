@@ -29,11 +29,9 @@ namespace Pulumi.AwsNative.Logs
         /// The policy must be in JSON string format.
         /// 
         /// Length Constraints: Maximum length of 51200
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         /// </summary>
         [Output("deliveryDestinationPolicy")]
-        public Output<object?> DeliveryDestinationPolicy { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeliveryDestinationDestinationPolicy>> DeliveryDestinationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
@@ -109,17 +107,21 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class DeliveryDestinationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("deliveryDestinationPolicy")]
+        private InputList<Inputs.DeliveryDestinationDestinationPolicyArgs>? _deliveryDestinationPolicy;
+
         /// <summary>
         /// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
         /// 
         /// The policy must be in JSON string format.
         /// 
         /// Length Constraints: Maximum length of 51200
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::DeliveryDestination` for more information about the expected schema for this property.
         /// </summary>
-        [Input("deliveryDestinationPolicy")]
-        public Input<object>? DeliveryDestinationPolicy { get; set; }
+        public InputList<Inputs.DeliveryDestinationDestinationPolicyArgs> DeliveryDestinationPolicy
+        {
+            get => _deliveryDestinationPolicy ?? (_deliveryDestinationPolicy = new InputList<Inputs.DeliveryDestinationDestinationPolicyArgs>());
+            set => _deliveryDestinationPolicy = value;
+        }
 
         /// <summary>
         /// The ARN of the AWS resource that will receive the logs.

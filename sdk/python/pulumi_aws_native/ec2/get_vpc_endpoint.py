@@ -31,8 +31,8 @@ class GetVpcEndpointResult:
         if network_interface_ids and not isinstance(network_interface_ids, list):
             raise TypeError("Expected argument 'network_interface_ids' to be a list")
         pulumi.set(__self__, "network_interface_ids", network_interface_ids)
-        if policy_document and not isinstance(policy_document, str):
-            raise TypeError("Expected argument 'policy_document' to be a str")
+        if policy_document and not isinstance(policy_document, dict):
+            raise TypeError("Expected argument 'policy_document' to be a dict")
         pulumi.set(__self__, "policy_document", policy_document)
         if private_dns_enabled and not isinstance(private_dns_enabled, bool):
             raise TypeError("Expected argument 'private_dns_enabled' to be a bool")
@@ -69,7 +69,7 @@ class GetVpcEndpointResult:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[str]:
+    def policy_document(self) -> Optional[Any]:
         """
         An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
          For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. CFNlong converts YAML policies to JSON format before calling the API to create or modify the VPC endpoint.

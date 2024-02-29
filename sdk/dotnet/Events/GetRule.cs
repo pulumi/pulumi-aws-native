@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
         /// </summary>
-        public readonly string? EventPattern;
+        public readonly Union<string, object>? EventPattern;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role that is used for target invocation.
         /// </summary>
@@ -99,7 +99,7 @@ namespace Pulumi.AwsNative.Events
 
             string? eventBusName,
 
-            string? eventPattern,
+            Union<string, object>? eventPattern,
 
             string? roleArn,
 

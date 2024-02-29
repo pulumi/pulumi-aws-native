@@ -21,8 +21,6 @@ type PermissionSet struct {
 	// The permission set description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The inline policy to put in permission set.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
 	InlinePolicy pulumi.AnyOutput `pulumi:"inlinePolicy"`
 	// The sso instance arn that the permission set is owned.
 	InstanceArn     pulumi.StringOutput      `pulumi:"instanceArn"`
@@ -91,8 +89,6 @@ type permissionSetArgs struct {
 	// The permission set description.
 	Description *string `pulumi:"description"`
 	// The inline policy to put in permission set.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
 	InlinePolicy interface{} `pulumi:"inlinePolicy"`
 	// The sso instance arn that the permission set is owned.
 	InstanceArn     string   `pulumi:"instanceArn"`
@@ -113,8 +109,6 @@ type PermissionSetArgs struct {
 	// The permission set description.
 	Description pulumi.StringPtrInput
 	// The inline policy to put in permission set.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
 	InlinePolicy pulumi.Input
 	// The sso instance arn that the permission set is owned.
 	InstanceArn     pulumi.StringInput
@@ -178,8 +172,6 @@ func (o PermissionSetOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The inline policy to put in permission set.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
 func (o PermissionSetOutput) InlinePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.AnyOutput { return v.InlinePolicy }).(pulumi.AnyOutput)
 }

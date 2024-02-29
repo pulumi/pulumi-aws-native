@@ -40,10 +40,8 @@ export class BucketPolicy extends pulumi.CustomResource {
     public readonly bucket!: pulumi.Output<string>;
     /**
      * A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::BucketPolicy` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any>;
+    public readonly policyDocument!: pulumi.Output<any | string>;
 
     /**
      * Create a BucketPolicy resource with the given unique name, arguments, and options.
@@ -85,8 +83,6 @@ export interface BucketPolicyArgs {
     bucket: pulumi.Input<string>;
     /**
      * A policy document containing permissions to add to the specified bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::BucketPolicy` for more information about the expected schema for this property.
      */
-    policyDocument: any;
+    policyDocument: pulumi.Input<any | string>;
 }

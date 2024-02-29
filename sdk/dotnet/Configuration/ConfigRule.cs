@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Configuration
         /// A string, in JSON format, that is passed to the CC rule Lambda function.
         /// </summary>
         [Output("inputParameters")]
-        public Output<string?> InputParameters { get; private set; } = null!;
+        public Output<Union<string, object>?> InputParameters { get; private set; } = null!;
 
         /// <summary>
         /// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
@@ -160,7 +160,7 @@ namespace Pulumi.AwsNative.Configuration
         /// A string, in JSON format, that is passed to the CC rule Lambda function.
         /// </summary>
         [Input("inputParameters")]
-        public Input<string>? InputParameters { get; set; }
+        public InputUnion<string, object>? InputParameters { get; set; }
 
         /// <summary>
         /// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:

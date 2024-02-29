@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['RouteArgs', 'Route']
 
@@ -23,7 +25,7 @@ class RouteArgs:
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[Any] = None,
-                 request_parameters: Optional[Any] = None,
+                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RouteParameterConstraintsArgs']]]] = None,
                  route_response_selection_expression: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None):
         """
@@ -39,9 +41,7 @@ class RouteArgs:
         :param Any request_models: The request models for the route. Supported only for WebSocket APIs.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
-        :param Any request_parameters: The request parameters for the route. Supported only for WebSocket APIs.
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteParameterConstraintsArgs']]] request_parameters: The request parameters for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] route_response_selection_expression: The route response selection expression for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] target: The target for the route.
         """
@@ -180,16 +180,14 @@ class RouteArgs:
 
     @property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[Any]:
+    def request_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteParameterConstraintsArgs']]]]:
         """
         The request parameters for the route. Supported only for WebSocket APIs.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
-    def request_parameters(self, value: Optional[Any]):
+    def request_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteParameterConstraintsArgs']]]]):
         pulumi.set(self, "request_parameters", value)
 
     @property
@@ -230,7 +228,7 @@ class Route(pulumi.CustomResource):
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[Any] = None,
-                 request_parameters: Optional[Any] = None,
+                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteParameterConstraintsArgs']]]]] = None,
                  route_key: Optional[pulumi.Input[str]] = None,
                  route_response_selection_expression: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
@@ -250,9 +248,7 @@ class Route(pulumi.CustomResource):
         :param Any request_models: The request models for the route. Supported only for WebSocket APIs.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
-        :param Any request_parameters: The request parameters for the route. Supported only for WebSocket APIs.
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteParameterConstraintsArgs']]]] request_parameters: The request parameters for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] route_key: The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
         :param pulumi.Input[str] route_response_selection_expression: The route response selection expression for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] target: The target for the route.
@@ -289,7 +285,7 @@ class Route(pulumi.CustomResource):
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[Any] = None,
-                 request_parameters: Optional[Any] = None,
+                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteParameterConstraintsArgs']]]]] = None,
                  route_key: Optional[pulumi.Input[str]] = None,
                  route_response_selection_expression: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
@@ -426,11 +422,9 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> pulumi.Output[Optional[Any]]:
+    def request_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.RouteParameterConstraints']]]:
         """
         The request parameters for the route. Supported only for WebSocket APIs.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "request_parameters")
 

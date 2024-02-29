@@ -37,10 +37,7 @@ export class BackupVault extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupVault.__pulumiType;
     }
 
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
-     */
-    public readonly accessPolicy!: pulumi.Output<any | undefined>;
+    public readonly accessPolicy!: pulumi.Output<any | string | undefined>;
     public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
     public readonly backupVaultName!: pulumi.Output<string>;
     public readonly backupVaultTags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -86,10 +83,7 @@ export class BackupVault extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupVault resource.
  */
 export interface BackupVaultArgs {
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
-     */
-    accessPolicy?: any;
+    accessPolicy?: pulumi.Input<any | string>;
     backupVaultName?: pulumi.Input<string>;
     backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     encryptionKeyArn?: pulumi.Input<string>;

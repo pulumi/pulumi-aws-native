@@ -27,7 +27,6 @@ type LookupBackupVaultArgs struct {
 }
 
 type LookupBackupVaultResult struct {
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
 	AccessPolicy      interface{}                        `pulumi:"accessPolicy"`
 	BackupVaultArn    *string                            `pulumi:"backupVaultArn"`
 	BackupVaultTags   map[string]string                  `pulumi:"backupVaultTags"`
@@ -70,7 +69,6 @@ func (o LookupBackupVaultResultOutput) ToLookupBackupVaultResultOutputWithContex
 	return o
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
 func (o LookupBackupVaultResultOutput) AccessPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupBackupVaultResult) interface{} { return v.AccessPolicy }).(pulumi.AnyOutput)
 }

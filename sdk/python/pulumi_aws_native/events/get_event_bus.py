@@ -43,8 +43,6 @@ class GetEventBusResult:
     def policy(self) -> Optional[Any]:
         """
         A JSON string that describes the permission policy statement for the event bus.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

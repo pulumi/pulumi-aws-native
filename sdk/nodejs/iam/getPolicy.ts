@@ -38,10 +38,8 @@ export interface GetPolicyResult {
      *   +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
      *   +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
      *   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
      */
-    readonly policyDocument?: any;
+    readonly policyDocument?: any | string;
     /**
      * The name of the policy document.
      *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-

@@ -35,8 +35,8 @@ class GetConfigRuleResult:
         if evaluation_modes and not isinstance(evaluation_modes, list):
             raise TypeError("Expected argument 'evaluation_modes' to be a list")
         pulumi.set(__self__, "evaluation_modes", evaluation_modes)
-        if input_parameters and not isinstance(input_parameters, str):
-            raise TypeError("Expected argument 'input_parameters' to be a str")
+        if input_parameters and not isinstance(input_parameters, dict):
+            raise TypeError("Expected argument 'input_parameters' to be a dict")
         pulumi.set(__self__, "input_parameters", input_parameters)
         if maximum_execution_frequency and not isinstance(maximum_execution_frequency, str):
             raise TypeError("Expected argument 'maximum_execution_frequency' to be a str")
@@ -84,7 +84,7 @@ class GetConfigRuleResult:
 
     @property
     @pulumi.getter(name="inputParameters")
-    def input_parameters(self) -> Optional[str]:
+    def input_parameters(self) -> Optional[Any]:
         """
         A string, in JSON format, that is passed to the CC rule Lambda function.
         """

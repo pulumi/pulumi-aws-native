@@ -29,7 +29,6 @@ type LookupOriginEndpointPolicyArgs struct {
 }
 
 type LookupOriginEndpointPolicyResult struct {
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
@@ -70,7 +69,6 @@ func (o LookupOriginEndpointPolicyResultOutput) ToLookupOriginEndpointPolicyResu
 	return o
 }
 
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
 func (o LookupOriginEndpointPolicyResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupOriginEndpointPolicyResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

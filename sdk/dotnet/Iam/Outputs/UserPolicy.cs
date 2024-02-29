@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Iam.Outputs
         /// <summary>
         /// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         /// </summary>
-        public readonly object PolicyDocument;
+        public readonly Union<object, string> PolicyDocument;
         /// <summary>
         /// The friendly name (not ARN) identifying the policy.
         /// </summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Iam.Outputs
 
         [OutputConstructor]
         private UserPolicy(
-            object policyDocument,
+            Union<object, string> policyDocument,
 
             string policyName)
         {

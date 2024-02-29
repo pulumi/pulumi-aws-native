@@ -17,11 +17,9 @@ namespace Pulumi.AwsNative.Ssm
     {
         /// <summary>
         /// Actual policy statement.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
-        public Output<object> Policy { get; private set; } = null!;
+        public Output<Union<object, string>> Policy { get; private set; } = null!;
 
         /// <summary>
         /// A snapshot identifier for the policy over time.
@@ -92,11 +90,9 @@ namespace Pulumi.AwsNative.Ssm
     {
         /// <summary>
         /// Actual policy statement.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy", required: true)]
-        public Input<object> Policy { get; set; } = null!;
+        public InputUnion<object, string> Policy { get; set; } = null!;
 
         /// <summary>
         /// Arn of OpsItemGroup etc.

@@ -18,11 +18,9 @@ namespace Pulumi.AwsNative.Sqs
     {
         /// <summary>
         /// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueuePolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policyDocument")]
-        public Output<object> PolicyDocument { get; private set; } = null!;
+        public Output<Union<object, string>> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
         /// The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
@@ -77,11 +75,9 @@ namespace Pulumi.AwsNative.Sqs
     {
         /// <summary>
         /// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueuePolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policyDocument", required: true)]
-        public Input<object> PolicyDocument { get; set; } = null!;
+        public InputUnion<object, string> PolicyDocument { get; set; } = null!;
 
         [Input("queues", required: true)]
         private InputList<string>? _queues;

@@ -61,7 +61,7 @@ export class ConfigRule extends pulumi.CustomResource {
     /**
      * A string, in JSON format, that is passed to the CC rule Lambda function.
      */
-    public readonly inputParameters!: pulumi.Output<string | undefined>;
+    public readonly inputParameters!: pulumi.Output<string | any | undefined>;
     /**
      * The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
      *   +  You are using an AWS managed rule that is triggered at a periodic frequency.
@@ -146,7 +146,7 @@ export interface ConfigRuleArgs {
     /**
      * A string, in JSON format, that is passed to the CC rule Lambda function.
      */
-    inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string | any>;
     /**
      * The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
      *   +  You are using an AWS managed rule that is triggered at a periodic frequency.

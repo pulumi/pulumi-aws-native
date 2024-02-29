@@ -47,10 +47,8 @@ export class Policy extends pulumi.CustomResource {
     public /*out*/ readonly awsManaged!: pulumi.Output<boolean>;
     /**
      * The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::Policy` for more information about the expected schema for this property.
      */
-    public readonly content!: pulumi.Output<any>;
+    public readonly content!: pulumi.Output<any | string>;
     /**
      * Human readable description of the policy
      */
@@ -120,10 +118,8 @@ export class Policy extends pulumi.CustomResource {
 export interface PolicyArgs {
     /**
      * The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::Policy` for more information about the expected schema for this property.
      */
-    content: any;
+    content: pulumi.Input<any | string>;
     /**
      * Human readable description of the policy
      */

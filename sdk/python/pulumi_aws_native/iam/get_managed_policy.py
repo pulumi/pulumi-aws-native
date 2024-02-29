@@ -117,8 +117,6 @@ class GetManagedPolicyResult:
     def policy_document(self) -> Optional[Any]:
         """
         The JSON policy document that you want to use as the content for the new policy.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

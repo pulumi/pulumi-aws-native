@@ -35,11 +35,9 @@ namespace Pulumi.AwsNative.Kms
 
         /// <summary>
         /// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
         /// </summary>
         [Output("keyPolicy")]
-        public Output<object> KeyPolicy { get; private set; } = null!;
+        public Output<Union<object, string>> KeyPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
@@ -122,11 +120,9 @@ namespace Pulumi.AwsNative.Kms
 
         /// <summary>
         /// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
         /// </summary>
         [Input("keyPolicy", required: true)]
-        public Input<object> KeyPolicy { get; set; } = null!;
+        public InputUnion<object, string> KeyPolicy { get; set; } = null!;
 
         /// <summary>
         /// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
