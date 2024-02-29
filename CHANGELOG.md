@@ -7,6 +7,7 @@
 - [Add types for 9 untyped properties](https://github.com/pulumi/pulumi-aws-native/pull/1365)
 - [Fix generating types for refs to map types](https://github.com/pulumi/pulumi-aws-native/pull/1363)
 - [Implement defaultTags configuration](https://github.com/pulumi/pulumi-aws-native/issues/1369)
+- [Fix precedence of credential sources](https://github.com/pulumi/pulumi-aws-native/pull/1378)
 - [Fix handling of write-only properties](https://github.com/pulumi/pulumi-aws-native/pull/1377)
 
 ## 0.97.0 (2024-02-21)
