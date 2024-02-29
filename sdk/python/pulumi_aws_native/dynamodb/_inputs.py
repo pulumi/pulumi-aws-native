@@ -42,7 +42,6 @@ __all__ = [
     'TablePointInTimeRecoverySpecificationArgs',
     'TableProjectionArgs',
     'TableProvisionedThroughputArgs',
-    'TableResourcePolicyArgs',
     'TableS3BucketSourceArgs',
     'TableSseSpecificationArgs',
     'TableStreamSpecificationArgs',
@@ -713,12 +712,23 @@ class TableAttributeDefinitionArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  attribute_type: pulumi.Input[str]):
+        """
+        Represents an attribute for describing the key schema for the table and indexes.
+        :param pulumi.Input[str] attribute_name: A name for the attribute.
+        :param pulumi.Input[str] attribute_type: The data type for the attribute, where:
+                 +   ``S`` - the attribute is of type String
+                 +   ``N`` - the attribute is of type Number
+                 +   ``B`` - the attribute is of type Binary
+        """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "attribute_type", attribute_type)
 
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[str]:
+        """
+        A name for the attribute.
+        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -728,6 +738,12 @@ class TableAttributeDefinitionArgs:
     @property
     @pulumi.getter(name="attributeType")
     def attribute_type(self) -> pulumi.Input[str]:
+        """
+        The data type for the attribute, where:
+          +   ``S`` - the attribute is of type String
+          +   ``N`` - the attribute is of type Number
+          +   ``B`` - the attribute is of type Binary
+        """
         return pulumi.get(self, "attribute_type")
 
     @attribute_type.setter
@@ -739,11 +755,18 @@ class TableAttributeDefinitionArgs:
 class TableContributorInsightsSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
+        """
+        The settings used to enable or disable CloudWatch Contributor Insights.
+        :param pulumi.Input[bool] enabled: Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -756,6 +779,11 @@ class TableCsvArgs:
     def __init__(__self__, *,
                  delimiter: Optional[pulumi.Input[str]] = None,
                  header_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The options for imported source files in CSV format. The values are Delimiter and HeaderList.
+        :param pulumi.Input[str] delimiter: The delimiter used for separating items in the CSV file being imported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] header_list: List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
+        """
         if delimiter is not None:
             pulumi.set(__self__, "delimiter", delimiter)
         if header_list is not None:
@@ -764,6 +792,9 @@ class TableCsvArgs:
     @property
     @pulumi.getter
     def delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The delimiter used for separating items in the CSV file being imported.
+        """
         return pulumi.get(self, "delimiter")
 
     @delimiter.setter
@@ -773,6 +804,9 @@ class TableCsvArgs:
     @property
     @pulumi.getter(name="headerList")
     def header_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
+        """
         return pulumi.get(self, "header_list")
 
     @header_list.setter
@@ -788,6 +822,20 @@ class TableGlobalSecondaryIndexArgs:
                  projection: pulumi.Input['TableProjectionArgs'],
                  contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None):
+        """
+        Represents the properties of a global secondary index.
+        :param pulumi.Input[str] index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]] key_schema: The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+                 +   ``HASH`` - partition key
+                 +   ``RANGE`` - sort key
+                 
+                 The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        :param pulumi.Input['TableProjectionArgs'] projection: Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        :param pulumi.Input['TableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+        :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Represents the provisioned throughput settings for the specified global secondary index.
+                For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
+        """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "projection", projection)
@@ -799,6 +847,9 @@ class TableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[str]:
+        """
+        The name of the global secondary index. The name must be unique among all other indexes on this table.
+        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -808,6 +859,14 @@ class TableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]:
+        """
+        The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+          +   ``HASH`` - partition key
+          +   ``RANGE`` - sort key
+          
+          The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+         The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -817,6 +876,9 @@ class TableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter
     def projection(self) -> pulumi.Input['TableProjectionArgs']:
+        """
+        Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        """
         return pulumi.get(self, "projection")
 
     @projection.setter
@@ -826,6 +888,9 @@ class TableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]:
+        """
+        The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+        """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
@@ -835,6 +900,10 @@ class TableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional[pulumi.Input['TableProvisionedThroughputArgs']]:
+        """
+        Represents the provisioned throughput settings for the specified global secondary index.
+         For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
+        """
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
@@ -849,6 +918,13 @@ class TableImportSourceSpecificationArgs:
                  s3_bucket_source: pulumi.Input['TableS3BucketSourceArgs'],
                  input_compression_type: Optional[pulumi.Input[str]] = None,
                  input_format_options: Optional[pulumi.Input['TableInputFormatOptionsArgs']] = None):
+        """
+        Specifies the properties of data being imported from the S3 bucket source to the table.
+        :param pulumi.Input[str] input_format: The format of the source data. Valid values for ``ImportFormat`` are ``CSV``, ``DYNAMODB_JSON`` or ``ION``.
+        :param pulumi.Input['TableS3BucketSourceArgs'] s3_bucket_source: The S3 bucket that provides the source for the import.
+        :param pulumi.Input[str] input_compression_type: Type of compression to be used on the input coming from the imported table.
+        :param pulumi.Input['TableInputFormatOptionsArgs'] input_format_options: Additional properties that specify how the input is formatted,
+        """
         pulumi.set(__self__, "input_format", input_format)
         pulumi.set(__self__, "s3_bucket_source", s3_bucket_source)
         if input_compression_type is not None:
@@ -859,6 +935,9 @@ class TableImportSourceSpecificationArgs:
     @property
     @pulumi.getter(name="inputFormat")
     def input_format(self) -> pulumi.Input[str]:
+        """
+        The format of the source data. Valid values for ``ImportFormat`` are ``CSV``, ``DYNAMODB_JSON`` or ``ION``.
+        """
         return pulumi.get(self, "input_format")
 
     @input_format.setter
@@ -868,6 +947,9 @@ class TableImportSourceSpecificationArgs:
     @property
     @pulumi.getter(name="s3BucketSource")
     def s3_bucket_source(self) -> pulumi.Input['TableS3BucketSourceArgs']:
+        """
+        The S3 bucket that provides the source for the import.
+        """
         return pulumi.get(self, "s3_bucket_source")
 
     @s3_bucket_source.setter
@@ -877,6 +959,9 @@ class TableImportSourceSpecificationArgs:
     @property
     @pulumi.getter(name="inputCompressionType")
     def input_compression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of compression to be used on the input coming from the imported table.
+        """
         return pulumi.get(self, "input_compression_type")
 
     @input_compression_type.setter
@@ -886,6 +971,9 @@ class TableImportSourceSpecificationArgs:
     @property
     @pulumi.getter(name="inputFormatOptions")
     def input_format_options(self) -> Optional[pulumi.Input['TableInputFormatOptionsArgs']]:
+        """
+        Additional properties that specify how the input is formatted,
+        """
         return pulumi.get(self, "input_format_options")
 
     @input_format_options.setter
@@ -897,12 +985,19 @@ class TableImportSourceSpecificationArgs:
 class TableInputFormatOptionsArgs:
     def __init__(__self__, *,
                  csv: Optional[pulumi.Input['TableCsvArgs']] = None):
+        """
+        The format options for the data that was imported into the target table. There is one value, CsvOption.
+        :param pulumi.Input['TableCsvArgs'] csv: The options for imported source files in CSV format. The values are Delimiter and HeaderList.
+        """
         if csv is not None:
             pulumi.set(__self__, "csv", csv)
 
     @property
     @pulumi.getter
     def csv(self) -> Optional[pulumi.Input['TableCsvArgs']]:
+        """
+        The options for imported source files in CSV format. The values are Delimiter and HeaderList.
+        """
         return pulumi.get(self, "csv")
 
     @csv.setter
@@ -915,12 +1010,27 @@ class TableKeySchemaArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  key_type: pulumi.Input[str]):
+        """
+        Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+         A ``KeySchemaElement`` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one ``KeySchemaElement`` (for the partition key). A composite primary key would require one ``KeySchemaElement`` for the partition key, and another ``KeySchemaElement`` for the sort key.
+         A ``KeySchemaElement`` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        :param pulumi.Input[str] attribute_name: The name of a key attribute.
+        :param pulumi.Input[str] key_type: The role that this key attribute will assume:
+                 +   ``HASH`` - partition key
+                 +   ``RANGE`` - sort key
+                 
+                 The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "key_type", key_type)
 
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[str]:
+        """
+        The name of a key attribute.
+        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -930,6 +1040,14 @@ class TableKeySchemaArgs:
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[str]:
+        """
+        The role that this key attribute will assume:
+          +   ``HASH`` - partition key
+          +   ``RANGE`` - sort key
+          
+          The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+         The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
@@ -942,6 +1060,12 @@ class TableKinesisStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str],
                  approximate_creation_date_time_precision: Optional[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']] = None):
+        """
+        The Kinesis Data Streams configuration for the specified table.
+        :param pulumi.Input[str] stream_arn: The ARN for a specific Kinesis data stream.
+                Length Constraints: Minimum length of 37. Maximum length of 1024.
+        :param pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision'] approximate_creation_date_time_precision: The precision for the time and date that the stream was created.
+        """
         pulumi.set(__self__, "stream_arn", stream_arn)
         if approximate_creation_date_time_precision is not None:
             pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
@@ -949,6 +1073,10 @@ class TableKinesisStreamSpecificationArgs:
     @property
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN for a specific Kinesis data stream.
+         Length Constraints: Minimum length of 37. Maximum length of 1024.
+        """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter
@@ -958,6 +1086,9 @@ class TableKinesisStreamSpecificationArgs:
     @property
     @pulumi.getter(name="approximateCreationDateTimePrecision")
     def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input['TableKinesisStreamSpecificationApproximateCreationDateTimePrecision']]:
+        """
+        The precision for the time and date that the stream was created.
+        """
         return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @approximate_creation_date_time_precision.setter
@@ -971,6 +1102,17 @@ class TableLocalSecondaryIndexArgs:
                  index_name: pulumi.Input[str],
                  key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
                  projection: pulumi.Input['TableProjectionArgs']):
+        """
+        Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+        :param pulumi.Input[str] index_name: The name of the local secondary index. The name must be unique among all other indexes on this table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]] key_schema: The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+                 +   ``HASH`` - partition key
+                 +   ``RANGE`` - sort key
+                 
+                 The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+                The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        :param pulumi.Input['TableProjectionArgs'] projection: Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "projection", projection)
@@ -978,6 +1120,9 @@ class TableLocalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[str]:
+        """
+        The name of the local secondary index. The name must be unique among all other indexes on this table.
+        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -987,6 +1132,14 @@ class TableLocalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]:
+        """
+        The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+          +   ``HASH`` - partition key
+          +   ``RANGE`` - sort key
+          
+          The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+         The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -996,6 +1149,9 @@ class TableLocalSecondaryIndexArgs:
     @property
     @pulumi.getter
     def projection(self) -> pulumi.Input['TableProjectionArgs']:
+        """
+        Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        """
         return pulumi.get(self, "projection")
 
     @projection.setter
@@ -1007,12 +1163,19 @@ class TableLocalSecondaryIndexArgs:
 class TablePointInTimeRecoverySpecificationArgs:
     def __init__(__self__, *,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The settings used to enable point in time recovery.
+        :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+        """
         if point_in_time_recovery_enabled is not None:
             pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
 
     @property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
     def point_in_time_recovery_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+        """
         return pulumi.get(self, "point_in_time_recovery_enabled")
 
     @point_in_time_recovery_enabled.setter
@@ -1025,6 +1188,15 @@ class TableProjectionArgs:
     def __init__(__self__, *,
                  non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  projection_type: Optional[pulumi.Input[str]] = None):
+        """
+        Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: Represents the non-key attribute names which will be projected into the index.
+                For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+        :param pulumi.Input[str] projection_type: The set of attributes that are projected into the index:
+                 +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+                 +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+                 +   ``ALL`` - All of the table attributes are projected into the index.
+        """
         if non_key_attributes is not None:
             pulumi.set(__self__, "non_key_attributes", non_key_attributes)
         if projection_type is not None:
@@ -1033,6 +1205,10 @@ class TableProjectionArgs:
     @property
     @pulumi.getter(name="nonKeyAttributes")
     def non_key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Represents the non-key attribute names which will be projected into the index.
+         For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+        """
         return pulumi.get(self, "non_key_attributes")
 
     @non_key_attributes.setter
@@ -1042,6 +1218,12 @@ class TableProjectionArgs:
     @property
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The set of attributes that are projected into the index:
+          +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+          +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+          +   ``ALL`` - All of the table attributes are projected into the index.
+        """
         return pulumi.get(self, "projection_type")
 
     @projection_type.setter
@@ -1054,12 +1236,23 @@ class TableProvisionedThroughputArgs:
     def __init__(__self__, *,
                  read_capacity_units: pulumi.Input[int],
                  write_capacity_units: pulumi.Input[int]):
+        """
+        Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
+        :param pulumi.Input[int] read_capacity_units: The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+                If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+        :param pulumi.Input[int] write_capacity_units: The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+                If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+        """
         pulumi.set(__self__, "read_capacity_units", read_capacity_units)
         pulumi.set(__self__, "write_capacity_units", write_capacity_units)
 
     @property
     @pulumi.getter(name="readCapacityUnits")
     def read_capacity_units(self) -> pulumi.Input[int]:
+        """
+        The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+         If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+        """
         return pulumi.get(self, "read_capacity_units")
 
     @read_capacity_units.setter
@@ -1069,6 +1262,10 @@ class TableProvisionedThroughputArgs:
     @property
     @pulumi.getter(name="writeCapacityUnits")
     def write_capacity_units(self) -> pulumi.Input[int]:
+        """
+        The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+         If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+        """
         return pulumi.get(self, "write_capacity_units")
 
     @write_capacity_units.setter
@@ -1077,27 +1274,17 @@ class TableProvisionedThroughputArgs:
 
 
 @pulumi.input_type
-class TableResourcePolicyArgs:
-    def __init__(__self__, *,
-                 policy_document: Any):
-        pulumi.set(__self__, "policy_document", policy_document)
-
-    @property
-    @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Any:
-        return pulumi.get(self, "policy_document")
-
-    @policy_document.setter
-    def policy_document(self, value: Any):
-        pulumi.set(self, "policy_document", value)
-
-
-@pulumi.input_type
 class TableS3BucketSourceArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[str],
                  s3_bucket_owner: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        The S3 bucket that is being imported from.
+        :param pulumi.Input[str] s3_bucket: The S3 bucket that is being imported from.
+        :param pulumi.Input[str] s3_bucket_owner: The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
+        :param pulumi.Input[str] s3_key_prefix: The key prefix shared by all S3 Objects that are being imported.
+        """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_bucket_owner is not None:
             pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
@@ -1107,6 +1294,9 @@ class TableS3BucketSourceArgs:
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Input[str]:
+        """
+        The S3 bucket that is being imported from.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -1116,6 +1306,9 @@ class TableS3BucketSourceArgs:
     @property
     @pulumi.getter(name="s3BucketOwner")
     def s3_bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
+        """
         return pulumi.get(self, "s3_bucket_owner")
 
     @s3_bucket_owner.setter
@@ -1125,6 +1318,9 @@ class TableS3BucketSourceArgs:
     @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key prefix shared by all S3 Objects that are being imported.
+        """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
@@ -1138,6 +1334,13 @@ class TableSseSpecificationArgs:
                  sse_enabled: pulumi.Input[bool],
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  sse_type: Optional[pulumi.Input[str]] = None):
+        """
+        Represents the settings used to enable server-side encryption.
+        :param pulumi.Input[bool] sse_enabled: Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
+        :param pulumi.Input[str] kms_master_key_id: The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
+        :param pulumi.Input[str] sse_type: Server-side encryption type. The only supported value is:
+                 +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+        """
         pulumi.set(__self__, "sse_enabled", sse_enabled)
         if kms_master_key_id is not None:
             pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
@@ -1147,6 +1350,9 @@ class TableSseSpecificationArgs:
     @property
     @pulumi.getter(name="sseEnabled")
     def sse_enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
+        """
         return pulumi.get(self, "sse_enabled")
 
     @sse_enabled.setter
@@ -1156,6 +1362,9 @@ class TableSseSpecificationArgs:
     @property
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
+        """
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
@@ -1165,6 +1374,10 @@ class TableSseSpecificationArgs:
     @property
     @pulumi.getter(name="sseType")
     def sse_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Server-side encryption type. The only supported value is:
+          +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+        """
         return pulumi.get(self, "sse_type")
 
     @sse_type.setter
@@ -1175,29 +1388,32 @@ class TableSseSpecificationArgs:
 @pulumi.input_type
 class TableStreamSpecificationArgs:
     def __init__(__self__, *,
-                 stream_view_type: pulumi.Input[str],
-                 resource_policy: Optional[pulumi.Input['TableResourcePolicyArgs']] = None):
+                 stream_view_type: pulumi.Input[str]):
+        """
+        Represents the DynamoDB Streams configuration for a table in DynamoDB.
+        :param pulumi.Input[str] stream_view_type: When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
+                 +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+                 +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+                 +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+                 +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+        """
         pulumi.set(__self__, "stream_view_type", stream_view_type)
-        if resource_policy is not None:
-            pulumi.set(__self__, "resource_policy", resource_policy)
 
     @property
     @pulumi.getter(name="streamViewType")
     def stream_view_type(self) -> pulumi.Input[str]:
+        """
+        When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
+          +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+          +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+          +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+          +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+        """
         return pulumi.get(self, "stream_view_type")
 
     @stream_view_type.setter
     def stream_view_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_view_type", value)
-
-    @property
-    @pulumi.getter(name="resourcePolicy")
-    def resource_policy(self) -> Optional[pulumi.Input['TableResourcePolicyArgs']]:
-        return pulumi.get(self, "resource_policy")
-
-    @resource_policy.setter
-    def resource_policy(self, value: Optional[pulumi.Input['TableResourcePolicyArgs']]):
-        pulumi.set(self, "resource_policy", value)
 
 
 @pulumi.input_type
@@ -1205,6 +1421,13 @@ class TableTimeToLiveSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  attribute_name: Optional[pulumi.Input[str]] = None):
+        """
+        Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
+        :param pulumi.Input[bool] enabled: Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+        :param pulumi.Input[str] attribute_name: The name of the TTL attribute used to store the expiration time for items in the table.
+                  + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+                 +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         if attribute_name is not None:
             pulumi.set(__self__, "attribute_name", attribute_name)
@@ -1212,6 +1435,9 @@ class TableTimeToLiveSpecificationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1221,6 +1447,11 @@ class TableTimeToLiveSpecificationArgs:
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the TTL attribute used to store the expiration time for items in the table.
+           + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+          +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
+        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter

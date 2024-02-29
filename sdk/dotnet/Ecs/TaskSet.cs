@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("serviceRegistries")]
         public Output<ImmutableArray<Outputs.TaskSetServiceRegistry>> ServiceRegistries { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
         /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
         /// </summary>
@@ -183,6 +186,14 @@ namespace Pulumi.AwsNative.Ecs
         {
             get => _serviceRegistries ?? (_serviceRegistries = new InputList<Inputs.TaskSetServiceRegistryArgs>());
             set => _serviceRegistries = value;
+        }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>

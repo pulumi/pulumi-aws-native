@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
+    /// </summary>
     public sealed class BucketReplicationTimeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the replication time is enabled.
+        /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketReplicationTimeStatus> Status { get; set; } = null!;
 
+        /// <summary>
+        /// A container specifying the time by which replication should be complete for all objects and operations on objects.
+        /// </summary>
         [Input("time", required: true)]
         public Input<Inputs.BucketReplicationTimeValueArgs> Time { get; set; } = null!;
 

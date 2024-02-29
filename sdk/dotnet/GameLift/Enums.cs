@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
-    /// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+    /// Determines whether to apply fleet or location capacities on fleet creation.
     /// </summary>
     [EnumType]
     public readonly struct FleetApplyCapacity : IEquatable<FleetApplyCapacity>

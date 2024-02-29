@@ -11,16 +11,25 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// You must specify at least one of "TransitionDate" and "TransitionInDays"
+    /// Specifies when an object transitions to a specified storage class. For more information about Amazon S3 lifecycle configuration rules, see [Transitioning Objects Using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html) in the *Amazon S3 User Guide*.
     /// </summary>
     public sealed class BucketTransitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The storage class to which you want the object to transition.
+        /// </summary>
         [Input("storageClass", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketTransitionStorageClass> StorageClass { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+        /// </summary>
         [Input("transitionDate")]
         public Input<string>? TransitionDate { get; set; }
 
+        /// <summary>
+        /// Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+        /// </summary>
         [Input("transitionInDays")]
         public Input<int>? TransitionInDays { get; set; }
 

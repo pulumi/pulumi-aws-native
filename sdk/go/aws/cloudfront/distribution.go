@@ -13,13 +13,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::Distribution
+// A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 type Distribution struct {
 	pulumi.CustomResourceState
 
+	// The distribution's configuration.
 	DistributionConfig DistributionConfigOutput `pulumi:"distributionConfig"`
 	DomainName         pulumi.StringOutput      `pulumi:"domainName"`
-	Tags               aws.TagArrayOutput       `pulumi:"tags"`
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDistribution registers a new resource with the given unique name, arguments, and options.
@@ -65,14 +67,18 @@ func (DistributionState) ElementType() reflect.Type {
 }
 
 type distributionArgs struct {
+	// The distribution's configuration.
 	DistributionConfig DistributionConfig `pulumi:"distributionConfig"`
-	Tags               []aws.Tag          `pulumi:"tags"`
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Distribution resource.
 type DistributionArgs struct {
+	// The distribution's configuration.
 	DistributionConfig DistributionConfigInput
-	Tags               aws.TagArrayInput
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags aws.TagArrayInput
 }
 
 func (DistributionArgs) ElementType() reflect.Type {
@@ -112,6 +118,7 @@ func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The distribution's configuration.
 func (o DistributionOutput) DistributionConfig() DistributionConfigOutput {
 	return o.ApplyT(func(v *Distribution) DistributionConfigOutput { return v.DistributionConfig }).(DistributionConfigOutput)
 }
@@ -120,6 +127,7 @@ func (o DistributionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// A complex type that contains zero or more “Tag“ elements.
 func (o DistributionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Distribution) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -53,7 +53,6 @@ namespace Pulumi.AwsNative.Ec2
     {
         public readonly Outputs.ClientVpnEndpointClientConnectOptions? ClientConnectOptions;
         public readonly Outputs.ClientVpnEndpointClientLoginBannerOptions? ClientLoginBannerOptions;
-        public readonly Outputs.ClientVpnEndpointClientRouteMonitoringOptions? ClientRouteMonitoringOptions;
         public readonly Outputs.ClientVpnEndpointConnectionLogOptions? ConnectionLogOptions;
         public readonly string? Description;
         public readonly ImmutableArray<string> DnsServers;
@@ -71,8 +70,6 @@ namespace Pulumi.AwsNative.Ec2
             Outputs.ClientVpnEndpointClientConnectOptions? clientConnectOptions,
 
             Outputs.ClientVpnEndpointClientLoginBannerOptions? clientLoginBannerOptions,
-
-            Outputs.ClientVpnEndpointClientRouteMonitoringOptions? clientRouteMonitoringOptions,
 
             Outputs.ClientVpnEndpointConnectionLogOptions? connectionLogOptions,
 
@@ -98,7 +95,6 @@ namespace Pulumi.AwsNative.Ec2
         {
             ClientConnectOptions = clientConnectOptions;
             ClientLoginBannerOptions = clientLoginBannerOptions;
-            ClientRouteMonitoringOptions = clientRouteMonitoringOptions;
             ConnectionLogOptions = connectionLogOptions;
             Description = description;
             DnsServers = dnsServers;

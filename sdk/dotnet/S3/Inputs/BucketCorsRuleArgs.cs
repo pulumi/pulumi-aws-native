@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+    /// Specifies a cross-origin access rule for an Amazon S3 bucket.
     /// </summary>
     public sealed class BucketCorsRuleArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         private InputList<string>? _allowedHeaders;
 
         /// <summary>
-        /// Headers that are specified in the Access-Control-Request-Headers header.
+        /// Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
         /// </summary>
         public InputList<string> AllowedHeaders
         {
@@ -31,7 +31,8 @@ namespace Pulumi.AwsNative.S3.Inputs
         private InputList<Pulumi.AwsNative.S3.BucketCorsRuleAllowedMethodsItem>? _allowedMethods;
 
         /// <summary>
-        /// An HTTP method that you allow the origin to execute.
+        /// An HTTP method that you allow the origin to run.
+        ///  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         /// </summary>
         public InputList<Pulumi.AwsNative.S3.BucketCorsRuleAllowedMethodsItem> AllowedMethods
         {
@@ -55,7 +56,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         private InputList<string>? _exposedHeaders;
 
         /// <summary>
-        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
+        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript ``XMLHttpRequest`` object).
         /// </summary>
         public InputList<string> ExposedHeaders
         {
@@ -64,7 +65,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         }
 
         /// <summary>
-        /// A unique identifier for this rule.
+        /// A unique identifier for this rule. The value must be no more than 255 characters.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

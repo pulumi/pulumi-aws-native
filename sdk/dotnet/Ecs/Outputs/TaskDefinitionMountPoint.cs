@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The details for a volume mount point that's used in a container definition.
+    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionMountPoint
     {
+        /// <summary>
+        /// The path on the container to mount the host volume at.
+        /// </summary>
         public readonly string? ContainerPath;
+        /// <summary>
+        /// If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
+        /// </summary>
         public readonly bool? ReadOnly;
+        /// <summary>
+        /// The name of the volume to mount. Must be a volume name referenced in the ``name`` parameter of task definition ``volume``.
+        /// </summary>
         public readonly string? SourceVolume;
 
         [OutputConstructor]

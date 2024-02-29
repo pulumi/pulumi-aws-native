@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
+ * <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
  */
 export function getOriginEndpointPolicy(args: GetOriginEndpointPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginEndpointPolicyResult> {
 
@@ -30,7 +30,7 @@ export interface GetOriginEndpointPolicyResult {
     readonly policy?: any;
 }
 /**
- * Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
+ * <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
  */
 export function getOriginEndpointPolicyOutput(args: GetOriginEndpointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginEndpointPolicyResult> {
     return pulumi.output(args).apply((a: any) => getOriginEndpointPolicy(a, opts))

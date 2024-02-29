@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::RouteTable
+ * Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+ *  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
 
@@ -19,16 +20,10 @@ export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetRouteTableArgs {
-    /**
-     * The route table ID.
-     */
     routeTableId: string;
 }
 
 export interface GetRouteTableResult {
-    /**
-     * The route table ID.
-     */
     readonly routeTableId?: string;
     /**
      * Any tags assigned to the route table.
@@ -36,15 +31,13 @@ export interface GetRouteTableResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::EC2::RouteTable
+ * Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+ *  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
  */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))
 }
 
 export interface GetRouteTableOutputArgs {
-    /**
-     * The route table ID.
-     */
     routeTableId: pulumi.Input<string>;
 }

@@ -11,7 +11,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
     /// <summary>
-    /// The health check command and associated configuration parameters for the container.
+    /// The ``HealthCheck`` property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/).
+    ///   The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+    ///   If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a servi
     /// </summary>
     public sealed class TaskDefinitionHealthCheckArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +21,12 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<string>? _command;
 
         /// <summary>
-        /// A string array representing the command that the container runs to determine if it is healthy.
+        /// A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. 
+        ///   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.
+        ///   ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
+        ///  You don't include the double quotes and brackets when you use the AWS Management Console.
+        ///   ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
+        ///  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/).
         /// </summary>
         public InputList<string> Command
         {
@@ -34,19 +41,20 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<int>? Interval { get; set; }
 
         /// <summary>
-        /// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.
+        /// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
         /// </summary>
         [Input("retries")]
         public Input<int>? Retries { get; set; }
 
         /// <summary>
-        /// The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.
+        /// The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off.
+        ///   If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
         /// </summary>
         [Input("startPeriod")]
         public Input<int>? StartPeriod { get; set; }
 
         /// <summary>
-        /// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.
+        /// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

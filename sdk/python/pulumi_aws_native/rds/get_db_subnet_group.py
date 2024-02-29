@@ -30,13 +30,16 @@ class GetDbSubnetGroupResult:
     @property
     @pulumi.getter(name="dbSubnetGroupDescription")
     def db_subnet_group_description(self) -> Optional[str]:
+        """
+        The description for the DB subnet group.
+        """
         return pulumi.get(self, "db_subnet_group_description")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        An array of key-value pairs to apply to this resource.
+        An optional array of key-value pairs to apply to this DB subnet group.
         """
         return pulumi.get(self, "tags")
 
@@ -54,7 +57,13 @@ class AwaitableGetDbSubnetGroupResult(GetDbSubnetGroupResult):
 def get_db_subnet_group(db_subnet_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbSubnetGroupResult:
     """
-    The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+    The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+     For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
+
+
+    :param str db_subnet_group_name: The name for the DB subnet group. This value is stored as a lowercase string.
+            Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+            Example: ``mysubnetgroup``
     """
     __args__ = dict()
     __args__['dbSubnetGroupName'] = db_subnet_group_name
@@ -70,6 +79,12 @@ def get_db_subnet_group(db_subnet_group_name: Optional[str] = None,
 def get_db_subnet_group_output(db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbSubnetGroupResult]:
     """
-    The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+    The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+     For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
+
+
+    :param str db_subnet_group_name: The name for the DB subnet group. This value is stored as a lowercase string.
+            Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+            Example: ``mysubnetgroup``
     """
     ...

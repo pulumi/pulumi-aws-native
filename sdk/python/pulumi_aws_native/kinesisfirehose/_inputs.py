@@ -992,10 +992,12 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
                  buffering_hints: Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']] = None,
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
                  compression_format: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat']] = None,
+                 custom_time_zone: Optional[pulumi.Input[str]] = None,
                  data_format_conversion_configuration: Optional[pulumi.Input['DeliveryStreamDataFormatConversionConfigurationArgs']] = None,
                  dynamic_partitioning_configuration: Optional[pulumi.Input['DeliveryStreamDynamicPartitioningConfigurationArgs']] = None,
                  encryption_configuration: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationArgs']] = None,
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
+                 file_extension: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
                  s3_backup_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
@@ -1008,6 +1010,8 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if compression_format is not None:
             pulumi.set(__self__, "compression_format", compression_format)
+        if custom_time_zone is not None:
+            pulumi.set(__self__, "custom_time_zone", custom_time_zone)
         if data_format_conversion_configuration is not None:
             pulumi.set(__self__, "data_format_conversion_configuration", data_format_conversion_configuration)
         if dynamic_partitioning_configuration is not None:
@@ -1016,6 +1020,8 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if error_output_prefix is not None:
             pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if processing_configuration is not None:
@@ -1071,6 +1077,15 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
         pulumi.set(self, "compression_format", value)
 
     @property
+    @pulumi.getter(name="customTimeZone")
+    def custom_time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_time_zone")
+
+    @custom_time_zone.setter
+    def custom_time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_time_zone", value)
+
+    @property
     @pulumi.getter(name="dataFormatConversionConfiguration")
     def data_format_conversion_configuration(self) -> Optional[pulumi.Input['DeliveryStreamDataFormatConversionConfigurationArgs']]:
         return pulumi.get(self, "data_format_conversion_configuration")
@@ -1105,6 +1120,15 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
     @error_output_prefix.setter
     def error_output_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "error_output_prefix", value)
+
+    @property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_extension")
+
+    @file_extension.setter
+    def file_extension(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_extension", value)
 
     @property
     @pulumi.getter

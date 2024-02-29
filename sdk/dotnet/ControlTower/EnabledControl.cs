@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.ControlTower
         public Output<ImmutableArray<Outputs.EnabledControlParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// A set of tags to assign to the enabled control.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// Arn for Organizational unit to which the control needs to be applied
         /// </summary>
         [Output("targetIdentifier")]
@@ -99,6 +105,18 @@ namespace Pulumi.AwsNative.ControlTower
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.EnabledControlParameterArgs>());
             set => _parameters = value;
+        }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A set of tags to assign to the enabled control.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         /// <summary>

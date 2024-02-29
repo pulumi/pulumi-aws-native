@@ -38,6 +38,7 @@ export interface GetFeatureGroupResult {
      * The status of the feature group.
      */
     readonly featureGroupStatus?: string;
+    readonly onlineStoreConfig?: outputs.sagemaker.OnlineStoreConfigProperties;
     readonly throughputConfig?: outputs.sagemaker.FeatureGroupThroughputConfig;
 }
 /**

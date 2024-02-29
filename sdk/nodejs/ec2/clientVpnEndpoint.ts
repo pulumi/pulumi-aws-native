@@ -44,7 +44,6 @@ export class ClientVpnEndpoint extends pulumi.CustomResource {
     public readonly clientCidrBlock!: pulumi.Output<string>;
     public readonly clientConnectOptions!: pulumi.Output<outputs.ec2.ClientVpnEndpointClientConnectOptions | undefined>;
     public readonly clientLoginBannerOptions!: pulumi.Output<outputs.ec2.ClientVpnEndpointClientLoginBannerOptions | undefined>;
-    public readonly clientRouteMonitoringOptions!: pulumi.Output<outputs.ec2.ClientVpnEndpointClientRouteMonitoringOptions | undefined>;
     public readonly connectionLogOptions!: pulumi.Output<outputs.ec2.ClientVpnEndpointConnectionLogOptions>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly dnsServers!: pulumi.Output<string[] | undefined>;
@@ -87,7 +86,6 @@ export class ClientVpnEndpoint extends pulumi.CustomResource {
             resourceInputs["clientCidrBlock"] = args ? args.clientCidrBlock : undefined;
             resourceInputs["clientConnectOptions"] = args ? args.clientConnectOptions : undefined;
             resourceInputs["clientLoginBannerOptions"] = args ? args.clientLoginBannerOptions : undefined;
-            resourceInputs["clientRouteMonitoringOptions"] = args ? args.clientRouteMonitoringOptions : undefined;
             resourceInputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
@@ -105,7 +103,6 @@ export class ClientVpnEndpoint extends pulumi.CustomResource {
             resourceInputs["clientCidrBlock"] = undefined /*out*/;
             resourceInputs["clientConnectOptions"] = undefined /*out*/;
             resourceInputs["clientLoginBannerOptions"] = undefined /*out*/;
-            resourceInputs["clientRouteMonitoringOptions"] = undefined /*out*/;
             resourceInputs["connectionLogOptions"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["dnsServers"] = undefined /*out*/;
@@ -134,7 +131,6 @@ export interface ClientVpnEndpointArgs {
     clientCidrBlock: pulumi.Input<string>;
     clientConnectOptions?: pulumi.Input<inputs.ec2.ClientVpnEndpointClientConnectOptionsArgs>;
     clientLoginBannerOptions?: pulumi.Input<inputs.ec2.ClientVpnEndpointClientLoginBannerOptionsArgs>;
-    clientRouteMonitoringOptions?: pulumi.Input<inputs.ec2.ClientVpnEndpointClientRouteMonitoringOptionsArgs>;
     connectionLogOptions: pulumi.Input<inputs.ec2.ClientVpnEndpointConnectionLogOptionsArgs>;
     description?: pulumi.Input<string>;
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;

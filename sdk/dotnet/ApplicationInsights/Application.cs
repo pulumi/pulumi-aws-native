@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApplicationInsights
         public Output<string> ApplicationArn { get; private set; } = null!;
 
         /// <summary>
+        /// If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+        /// </summary>
+        [Output("attachMissingPermission")]
+        public Output<bool?> AttachMissingPermission { get; private set; } = null!;
+
+        /// <summary>
         /// If set to true, application will be configured with recommended monitoring configuration.
         /// </summary>
         [Output("autoConfigurationEnabled")]
@@ -131,6 +137,12 @@ namespace Pulumi.AwsNative.ApplicationInsights
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+        /// </summary>
+        [Input("attachMissingPermission")]
+        public Input<bool>? AttachMissingPermission { get; set; }
+
         /// <summary>
         /// If set to true, application will be configured with recommended monitoring configuration.
         /// </summary>

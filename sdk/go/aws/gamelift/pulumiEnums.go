@@ -348,7 +348,7 @@ func (in *buildOperatingSystemPtr) ToBuildOperatingSystemPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(BuildOperatingSystemPtrOutput)
 }
 
-// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+// Determines whether to apply fleet or location capacities on fleet creation.
 type FleetApplyCapacity string
 
 const (

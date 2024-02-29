@@ -34,11 +34,11 @@ export interface GetPipelineResult {
     readonly ingestEndpointUrls?: string[];
     readonly logPublishingOptions?: outputs.osis.PipelineLogPublishingOptions;
     /**
-     * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+     * The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
      */
     readonly maxUnits?: number;
     /**
-     * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+     * The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
      */
     readonly minUnits?: number;
     /**

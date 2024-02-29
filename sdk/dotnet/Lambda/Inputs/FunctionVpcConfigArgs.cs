@@ -11,12 +11,14 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
+    /// The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+    ///   When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
+    ///  To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
     /// </summary>
     public sealed class FunctionVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+        /// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
         /// </summary>
         [Input("ipv6AllowedForDualStack")]
         public Input<bool>? Ipv6AllowedForDualStack { get; set; }
@@ -25,7 +27,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of VPC security groups IDs.
+        /// A list of VPC security group IDs.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {

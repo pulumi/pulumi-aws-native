@@ -5,7 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::IAM::InstanceProfile
+ * Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
+ *   For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
  */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
 
@@ -18,14 +19,12 @@ export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.I
 export interface GetInstanceProfileArgs {
     /**
      * The name of the instance profile to create.
+     *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
      */
     instanceProfileName: string;
 }
 
 export interface GetInstanceProfileResult {
-    /**
-     * The Amazon Resource Name (ARN) of the instance profile.
-     */
     readonly arn?: string;
     /**
      * The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
@@ -33,7 +32,8 @@ export interface GetInstanceProfileResult {
     readonly roles?: string[];
 }
 /**
- * Resource Type definition for AWS::IAM::InstanceProfile
+ * Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
+ *   For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
  */
 export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
     return pulumi.output(args).apply((a: any) => getInstanceProfile(a, opts))
@@ -42,6 +42,7 @@ export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opt
 export interface GetInstanceProfileOutputArgs {
     /**
      * The name of the instance profile to create.
+     *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
      */
     instanceProfileName: pulumi.Input<string>;
 }

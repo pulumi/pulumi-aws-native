@@ -13,8 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+// Contains X.509 certificate information to be placed in an issued certificate. An “APIPassthrough“ or “APICSRPassthrough“ template variant must be selected, or else this parameter is ignored.
+//
+//	If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
 type CertificateApiPassthrough struct {
+	// Specifies X.509 extension information for a certificate.
 	Extensions *CertificateExtensions `pulumi:"extensions"`
 	// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 	Subject *CertificateSubject `pulumi:"subject"`
@@ -31,8 +34,11 @@ type CertificateApiPassthroughInput interface {
 	ToCertificateApiPassthroughOutputWithContext(context.Context) CertificateApiPassthroughOutput
 }
 
-// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+// Contains X.509 certificate information to be placed in an issued certificate. An “APIPassthrough“ or “APICSRPassthrough“ template variant must be selected, or else this parameter is ignored.
+//
+//	If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
 type CertificateApiPassthroughArgs struct {
+	// Specifies X.509 extension information for a certificate.
 	Extensions CertificateExtensionsPtrInput `pulumi:"extensions"`
 	// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
 	Subject CertificateSubjectPtrInput `pulumi:"subject"`
@@ -91,7 +97,9 @@ func (i *certificateApiPassthroughPtrType) ToCertificateApiPassthroughPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateApiPassthroughPtrOutput)
 }
 
-// Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+// Contains X.509 certificate information to be placed in an issued certificate. An “APIPassthrough“ or “APICSRPassthrough“ template variant must be selected, or else this parameter is ignored.
+//
+//	If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
 type CertificateApiPassthroughOutput struct{ *pulumi.OutputState }
 
 func (CertificateApiPassthroughOutput) ElementType() reflect.Type {
@@ -116,6 +124,7 @@ func (o CertificateApiPassthroughOutput) ToCertificateApiPassthroughPtrOutputWit
 	}).(CertificateApiPassthroughPtrOutput)
 }
 
+// Specifies X.509 extension information for a certificate.
 func (o CertificateApiPassthroughOutput) Extensions() CertificateExtensionsPtrOutput {
 	return o.ApplyT(func(v CertificateApiPassthrough) *CertificateExtensions { return v.Extensions }).(CertificateExtensionsPtrOutput)
 }
@@ -149,6 +158,7 @@ func (o CertificateApiPassthroughPtrOutput) Elem() CertificateApiPassthroughOutp
 	}).(CertificateApiPassthroughOutput)
 }
 
+// Specifies X.509 extension information for a certificate.
 func (o CertificateApiPassthroughPtrOutput) Extensions() CertificateExtensionsPtrOutput {
 	return o.ApplyT(func(v *CertificateApiPassthrough) *CertificateExtensions {
 		if v == nil {
@@ -2243,9 +2253,12 @@ type CertificateAuthorityTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// Defines the X.500 relative distinguished name (RDN).
 type CertificateCustomAttribute struct {
+	// Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
 	ObjectIdentifier string `pulumi:"objectIdentifier"`
-	Value            string `pulumi:"value"`
+	// Specifies the attribute value of relative distinguished name (RDN).
+	Value string `pulumi:"value"`
 }
 
 // CertificateCustomAttributeInput is an input type that accepts CertificateCustomAttributeArgs and CertificateCustomAttributeOutput values.
@@ -2259,9 +2272,12 @@ type CertificateCustomAttributeInput interface {
 	ToCertificateCustomAttributeOutputWithContext(context.Context) CertificateCustomAttributeOutput
 }
 
+// Defines the X.500 relative distinguished name (RDN).
 type CertificateCustomAttributeArgs struct {
+	// Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
 	ObjectIdentifier pulumi.StringInput `pulumi:"objectIdentifier"`
-	Value            pulumi.StringInput `pulumi:"value"`
+	// Specifies the attribute value of relative distinguished name (RDN).
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (CertificateCustomAttributeArgs) ElementType() reflect.Type {
@@ -2301,6 +2317,7 @@ func (i CertificateCustomAttributeArray) ToCertificateCustomAttributeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomAttributeArrayOutput)
 }
 
+// Defines the X.500 relative distinguished name (RDN).
 type CertificateCustomAttributeOutput struct{ *pulumi.OutputState }
 
 func (CertificateCustomAttributeOutput) ElementType() reflect.Type {
@@ -2315,10 +2332,12 @@ func (o CertificateCustomAttributeOutput) ToCertificateCustomAttributeOutputWith
 	return o
 }
 
+// Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
 func (o CertificateCustomAttributeOutput) ObjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCustomAttribute) string { return v.ObjectIdentifier }).(pulumi.StringOutput)
 }
 
+// Specifies the attribute value of relative distinguished name (RDN).
 func (o CertificateCustomAttributeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCustomAttribute) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2343,10 +2362,16 @@ func (o CertificateCustomAttributeArrayOutput) Index(i pulumi.IntInput) Certific
 	}).(CertificateCustomAttributeOutput)
 }
 
+// Specifies the X.509 extension information for a certificate.
+//
+//	Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
 type CertificateCustomExtension struct {
-	Critical         *bool  `pulumi:"critical"`
+	// Specifies the critical flag of the X.509 extension.
+	Critical *bool `pulumi:"critical"`
+	// Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
 	ObjectIdentifier string `pulumi:"objectIdentifier"`
-	Value            string `pulumi:"value"`
+	// Specifies the base64-encoded value of the X.509 extension.
+	Value string `pulumi:"value"`
 }
 
 // CertificateCustomExtensionInput is an input type that accepts CertificateCustomExtensionArgs and CertificateCustomExtensionOutput values.
@@ -2360,10 +2385,16 @@ type CertificateCustomExtensionInput interface {
 	ToCertificateCustomExtensionOutputWithContext(context.Context) CertificateCustomExtensionOutput
 }
 
+// Specifies the X.509 extension information for a certificate.
+//
+//	Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
 type CertificateCustomExtensionArgs struct {
-	Critical         pulumi.BoolPtrInput `pulumi:"critical"`
-	ObjectIdentifier pulumi.StringInput  `pulumi:"objectIdentifier"`
-	Value            pulumi.StringInput  `pulumi:"value"`
+	// Specifies the critical flag of the X.509 extension.
+	Critical pulumi.BoolPtrInput `pulumi:"critical"`
+	// Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+	ObjectIdentifier pulumi.StringInput `pulumi:"objectIdentifier"`
+	// Specifies the base64-encoded value of the X.509 extension.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (CertificateCustomExtensionArgs) ElementType() reflect.Type {
@@ -2403,6 +2434,9 @@ func (i CertificateCustomExtensionArray) ToCertificateCustomExtensionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomExtensionArrayOutput)
 }
 
+// Specifies the X.509 extension information for a certificate.
+//
+//	Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
 type CertificateCustomExtensionOutput struct{ *pulumi.OutputState }
 
 func (CertificateCustomExtensionOutput) ElementType() reflect.Type {
@@ -2417,14 +2451,17 @@ func (o CertificateCustomExtensionOutput) ToCertificateCustomExtensionOutputWith
 	return o
 }
 
+// Specifies the critical flag of the X.509 extension.
 func (o CertificateCustomExtensionOutput) Critical() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateCustomExtension) *bool { return v.Critical }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
 func (o CertificateCustomExtensionOutput) ObjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCustomExtension) string { return v.ObjectIdentifier }).(pulumi.StringOutput)
 }
 
+// Specifies the base64-encoded value of the X.509 extension.
 func (o CertificateCustomExtensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCustomExtension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2449,9 +2486,12 @@ func (o CertificateCustomExtensionArrayOutput) Index(i pulumi.IntInput) Certific
 	}).(CertificateCustomExtensionOutput)
 }
 
+// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
 type CertificateEdiPartyName struct {
+	// Specifies the name assigner.
 	NameAssigner string `pulumi:"nameAssigner"`
-	PartyName    string `pulumi:"partyName"`
+	// Specifies the party name.
+	PartyName string `pulumi:"partyName"`
 }
 
 // CertificateEdiPartyNameInput is an input type that accepts CertificateEdiPartyNameArgs and CertificateEdiPartyNameOutput values.
@@ -2465,9 +2505,12 @@ type CertificateEdiPartyNameInput interface {
 	ToCertificateEdiPartyNameOutputWithContext(context.Context) CertificateEdiPartyNameOutput
 }
 
+// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
 type CertificateEdiPartyNameArgs struct {
+	// Specifies the name assigner.
 	NameAssigner pulumi.StringInput `pulumi:"nameAssigner"`
-	PartyName    pulumi.StringInput `pulumi:"partyName"`
+	// Specifies the party name.
+	PartyName pulumi.StringInput `pulumi:"partyName"`
 }
 
 func (CertificateEdiPartyNameArgs) ElementType() reflect.Type {
@@ -2523,6 +2566,7 @@ func (i *certificateEdiPartyNamePtrType) ToCertificateEdiPartyNamePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateEdiPartyNamePtrOutput)
 }
 
+// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
 type CertificateEdiPartyNameOutput struct{ *pulumi.OutputState }
 
 func (CertificateEdiPartyNameOutput) ElementType() reflect.Type {
@@ -2547,10 +2591,12 @@ func (o CertificateEdiPartyNameOutput) ToCertificateEdiPartyNamePtrOutputWithCon
 	}).(CertificateEdiPartyNamePtrOutput)
 }
 
+// Specifies the name assigner.
 func (o CertificateEdiPartyNameOutput) NameAssigner() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateEdiPartyName) string { return v.NameAssigner }).(pulumi.StringOutput)
 }
 
+// Specifies the party name.
 func (o CertificateEdiPartyNameOutput) PartyName() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateEdiPartyName) string { return v.PartyName }).(pulumi.StringOutput)
 }
@@ -2579,6 +2625,7 @@ func (o CertificateEdiPartyNamePtrOutput) Elem() CertificateEdiPartyNameOutput {
 	}).(CertificateEdiPartyNameOutput)
 }
 
+// Specifies the name assigner.
 func (o CertificateEdiPartyNamePtrOutput) NameAssigner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateEdiPartyName) *string {
 		if v == nil {
@@ -2588,6 +2635,7 @@ func (o CertificateEdiPartyNamePtrOutput) NameAssigner() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the party name.
 func (o CertificateEdiPartyNamePtrOutput) PartyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateEdiPartyName) *string {
 		if v == nil {
@@ -2597,9 +2645,12 @@ func (o CertificateEdiPartyNamePtrOutput) PartyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the “KeyUsage“ extension.
 type CertificateExtendedKeyUsage struct {
+	// Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
 	ExtendedKeyUsageObjectIdentifier *string `pulumi:"extendedKeyUsageObjectIdentifier"`
-	ExtendedKeyUsageType             *string `pulumi:"extendedKeyUsageType"`
+	// Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
+	ExtendedKeyUsageType *string `pulumi:"extendedKeyUsageType"`
 }
 
 // CertificateExtendedKeyUsageInput is an input type that accepts CertificateExtendedKeyUsageArgs and CertificateExtendedKeyUsageOutput values.
@@ -2613,9 +2664,12 @@ type CertificateExtendedKeyUsageInput interface {
 	ToCertificateExtendedKeyUsageOutputWithContext(context.Context) CertificateExtendedKeyUsageOutput
 }
 
+// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the “KeyUsage“ extension.
 type CertificateExtendedKeyUsageArgs struct {
+	// Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
 	ExtendedKeyUsageObjectIdentifier pulumi.StringPtrInput `pulumi:"extendedKeyUsageObjectIdentifier"`
-	ExtendedKeyUsageType             pulumi.StringPtrInput `pulumi:"extendedKeyUsageType"`
+	// Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
+	ExtendedKeyUsageType pulumi.StringPtrInput `pulumi:"extendedKeyUsageType"`
 }
 
 func (CertificateExtendedKeyUsageArgs) ElementType() reflect.Type {
@@ -2655,6 +2709,7 @@ func (i CertificateExtendedKeyUsageArray) ToCertificateExtendedKeyUsageArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtendedKeyUsageArrayOutput)
 }
 
+// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the “KeyUsage“ extension.
 type CertificateExtendedKeyUsageOutput struct{ *pulumi.OutputState }
 
 func (CertificateExtendedKeyUsageOutput) ElementType() reflect.Type {
@@ -2669,10 +2724,12 @@ func (o CertificateExtendedKeyUsageOutput) ToCertificateExtendedKeyUsageOutputWi
 	return o
 }
 
+// Specifies a custom “ExtendedKeyUsage“ with an object identifier (OID).
 func (o CertificateExtendedKeyUsageOutput) ExtendedKeyUsageObjectIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateExtendedKeyUsage) *string { return v.ExtendedKeyUsageObjectIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a standard “ExtendedKeyUsage“ as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
 func (o CertificateExtendedKeyUsageOutput) ExtendedKeyUsageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateExtendedKeyUsage) *string { return v.ExtendedKeyUsageType }).(pulumi.StringPtrOutput)
 }
@@ -2697,13 +2754,18 @@ func (o CertificateExtendedKeyUsageArrayOutput) Index(i pulumi.IntInput) Certifi
 	}).(CertificateExtendedKeyUsageOutput)
 }
 
-// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+// Contains X.509 extension information for a certificate.
 type CertificateExtensions struct {
+	// Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+	//  In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
 	CertificatePolicies []CertificatePolicyInformation `pulumi:"certificatePolicies"`
-	CustomExtensions    []CertificateCustomExtension   `pulumi:"customExtensions"`
-	ExtendedKeyUsage    []CertificateExtendedKeyUsage  `pulumi:"extendedKeyUsage"`
+	// Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+	CustomExtensions []CertificateCustomExtension `pulumi:"customExtensions"`
+	// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+	ExtendedKeyUsage []CertificateExtendedKeyUsage `pulumi:"extendedKeyUsage"`
 	// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
-	KeyUsage                *CertificateKeyUsage     `pulumi:"keyUsage"`
+	KeyUsage *CertificateKeyUsage `pulumi:"keyUsage"`
+	// The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
 	SubjectAlternativeNames []CertificateGeneralName `pulumi:"subjectAlternativeNames"`
 }
 
@@ -2718,13 +2780,18 @@ type CertificateExtensionsInput interface {
 	ToCertificateExtensionsOutputWithContext(context.Context) CertificateExtensionsOutput
 }
 
-// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+// Contains X.509 extension information for a certificate.
 type CertificateExtensionsArgs struct {
+	// Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+	//  In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
 	CertificatePolicies CertificatePolicyInformationArrayInput `pulumi:"certificatePolicies"`
-	CustomExtensions    CertificateCustomExtensionArrayInput   `pulumi:"customExtensions"`
-	ExtendedKeyUsage    CertificateExtendedKeyUsageArrayInput  `pulumi:"extendedKeyUsage"`
+	// Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+	CustomExtensions CertificateCustomExtensionArrayInput `pulumi:"customExtensions"`
+	// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+	ExtendedKeyUsage CertificateExtendedKeyUsageArrayInput `pulumi:"extendedKeyUsage"`
 	// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
-	KeyUsage                CertificateKeyUsagePtrInput      `pulumi:"keyUsage"`
+	KeyUsage CertificateKeyUsagePtrInput `pulumi:"keyUsage"`
+	// The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
 	SubjectAlternativeNames CertificateGeneralNameArrayInput `pulumi:"subjectAlternativeNames"`
 }
 
@@ -2781,7 +2848,7 @@ func (i *certificateExtensionsPtrType) ToCertificateExtensionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtensionsPtrOutput)
 }
 
-// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+// Contains X.509 extension information for a certificate.
 type CertificateExtensionsOutput struct{ *pulumi.OutputState }
 
 func (CertificateExtensionsOutput) ElementType() reflect.Type {
@@ -2806,14 +2873,19 @@ func (o CertificateExtensionsOutput) ToCertificateExtensionsPtrOutputWithContext
 	}).(CertificateExtensionsPtrOutput)
 }
 
+// Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+//
+//	In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
 func (o CertificateExtensionsOutput) CertificatePolicies() CertificatePolicyInformationArrayOutput {
 	return o.ApplyT(func(v CertificateExtensions) []CertificatePolicyInformation { return v.CertificatePolicies }).(CertificatePolicyInformationArrayOutput)
 }
 
+// Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
 func (o CertificateExtensionsOutput) CustomExtensions() CertificateCustomExtensionArrayOutput {
 	return o.ApplyT(func(v CertificateExtensions) []CertificateCustomExtension { return v.CustomExtensions }).(CertificateCustomExtensionArrayOutput)
 }
 
+// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the “KeyUsage“ extension.
 func (o CertificateExtensionsOutput) ExtendedKeyUsage() CertificateExtendedKeyUsageArrayOutput {
 	return o.ApplyT(func(v CertificateExtensions) []CertificateExtendedKeyUsage { return v.ExtendedKeyUsage }).(CertificateExtendedKeyUsageArrayOutput)
 }
@@ -2823,6 +2895,7 @@ func (o CertificateExtensionsOutput) KeyUsage() CertificateKeyUsagePtrOutput {
 	return o.ApplyT(func(v CertificateExtensions) *CertificateKeyUsage { return v.KeyUsage }).(CertificateKeyUsagePtrOutput)
 }
 
+// The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
 func (o CertificateExtensionsOutput) SubjectAlternativeNames() CertificateGeneralNameArrayOutput {
 	return o.ApplyT(func(v CertificateExtensions) []CertificateGeneralName { return v.SubjectAlternativeNames }).(CertificateGeneralNameArrayOutput)
 }
@@ -2851,6 +2924,9 @@ func (o CertificateExtensionsPtrOutput) Elem() CertificateExtensionsOutput {
 	}).(CertificateExtensionsOutput)
 }
 
+// Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+//
+//	In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
 func (o CertificateExtensionsPtrOutput) CertificatePolicies() CertificatePolicyInformationArrayOutput {
 	return o.ApplyT(func(v *CertificateExtensions) []CertificatePolicyInformation {
 		if v == nil {
@@ -2860,6 +2936,7 @@ func (o CertificateExtensionsPtrOutput) CertificatePolicies() CertificatePolicyI
 	}).(CertificatePolicyInformationArrayOutput)
 }
 
+// Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
 func (o CertificateExtensionsPtrOutput) CustomExtensions() CertificateCustomExtensionArrayOutput {
 	return o.ApplyT(func(v *CertificateExtensions) []CertificateCustomExtension {
 		if v == nil {
@@ -2869,6 +2946,7 @@ func (o CertificateExtensionsPtrOutput) CustomExtensions() CertificateCustomExte
 	}).(CertificateCustomExtensionArrayOutput)
 }
 
+// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the “KeyUsage“ extension.
 func (o CertificateExtensionsPtrOutput) ExtendedKeyUsage() CertificateExtendedKeyUsageArrayOutput {
 	return o.ApplyT(func(v *CertificateExtensions) []CertificateExtendedKeyUsage {
 		if v == nil {
@@ -2888,6 +2966,7 @@ func (o CertificateExtensionsPtrOutput) KeyUsage() CertificateKeyUsagePtrOutput 
 	}).(CertificateKeyUsagePtrOutput)
 }
 
+// The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
 func (o CertificateExtensionsPtrOutput) SubjectAlternativeNames() CertificateGeneralNameArrayOutput {
 	return o.ApplyT(func(v *CertificateExtensions) []CertificateGeneralName {
 		if v == nil {
@@ -2897,17 +2976,24 @@ func (o CertificateExtensionsPtrOutput) SubjectAlternativeNames() CertificateGen
 	}).(CertificateGeneralNameArrayOutput)
 }
 
-// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+// Describes an ASN.1 X.400 “GeneralName“ as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an “InvalidArgsException“ error.
 type CertificateGeneralName struct {
 	// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
-	DirectoryName             *CertificateSubject      `pulumi:"directoryName"`
-	DnsName                   *string                  `pulumi:"dnsName"`
-	EdiPartyName              *CertificateEdiPartyName `pulumi:"ediPartyName"`
-	IpAddress                 *string                  `pulumi:"ipAddress"`
-	OtherName                 *CertificateOtherName    `pulumi:"otherName"`
-	RegisteredId              *string                  `pulumi:"registeredId"`
-	Rfc822Name                *string                  `pulumi:"rfc822Name"`
-	UniformResourceIdentifier *string                  `pulumi:"uniformResourceIdentifier"`
+	DirectoryName *CertificateSubject `pulumi:"directoryName"`
+	// Represents ``GeneralName`` as a DNS name.
+	DnsName *string `pulumi:"dnsName"`
+	// Represents ``GeneralName`` as an ``EdiPartyName`` object.
+	EdiPartyName *CertificateEdiPartyName `pulumi:"ediPartyName"`
+	// Represents ``GeneralName`` as an IPv4 or IPv6 address.
+	IpAddress *string `pulumi:"ipAddress"`
+	// Represents ``GeneralName`` using an ``OtherName`` object.
+	OtherName *CertificateOtherName `pulumi:"otherName"`
+	// Represents ``GeneralName`` as an object identifier (OID).
+	RegisteredId *string `pulumi:"registeredId"`
+	// Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
+	Rfc822Name *string `pulumi:"rfc822Name"`
+	// Represents ``GeneralName`` as a URI.
+	UniformResourceIdentifier *string `pulumi:"uniformResourceIdentifier"`
 }
 
 // CertificateGeneralNameInput is an input type that accepts CertificateGeneralNameArgs and CertificateGeneralNameOutput values.
@@ -2921,17 +3007,24 @@ type CertificateGeneralNameInput interface {
 	ToCertificateGeneralNameOutputWithContext(context.Context) CertificateGeneralNameOutput
 }
 
-// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+// Describes an ASN.1 X.400 “GeneralName“ as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an “InvalidArgsException“ error.
 type CertificateGeneralNameArgs struct {
 	// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
-	DirectoryName             CertificateSubjectPtrInput      `pulumi:"directoryName"`
-	DnsName                   pulumi.StringPtrInput           `pulumi:"dnsName"`
-	EdiPartyName              CertificateEdiPartyNamePtrInput `pulumi:"ediPartyName"`
-	IpAddress                 pulumi.StringPtrInput           `pulumi:"ipAddress"`
-	OtherName                 CertificateOtherNamePtrInput    `pulumi:"otherName"`
-	RegisteredId              pulumi.StringPtrInput           `pulumi:"registeredId"`
-	Rfc822Name                pulumi.StringPtrInput           `pulumi:"rfc822Name"`
-	UniformResourceIdentifier pulumi.StringPtrInput           `pulumi:"uniformResourceIdentifier"`
+	DirectoryName CertificateSubjectPtrInput `pulumi:"directoryName"`
+	// Represents ``GeneralName`` as a DNS name.
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	// Represents ``GeneralName`` as an ``EdiPartyName`` object.
+	EdiPartyName CertificateEdiPartyNamePtrInput `pulumi:"ediPartyName"`
+	// Represents ``GeneralName`` as an IPv4 or IPv6 address.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// Represents ``GeneralName`` using an ``OtherName`` object.
+	OtherName CertificateOtherNamePtrInput `pulumi:"otherName"`
+	// Represents ``GeneralName`` as an object identifier (OID).
+	RegisteredId pulumi.StringPtrInput `pulumi:"registeredId"`
+	// Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
+	Rfc822Name pulumi.StringPtrInput `pulumi:"rfc822Name"`
+	// Represents ``GeneralName`` as a URI.
+	UniformResourceIdentifier pulumi.StringPtrInput `pulumi:"uniformResourceIdentifier"`
 }
 
 func (CertificateGeneralNameArgs) ElementType() reflect.Type {
@@ -2971,7 +3064,7 @@ func (i CertificateGeneralNameArray) ToCertificateGeneralNameArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateGeneralNameArrayOutput)
 }
 
-// Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+// Describes an ASN.1 X.400 “GeneralName“ as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an “InvalidArgsException“ error.
 type CertificateGeneralNameOutput struct{ *pulumi.OutputState }
 
 func (CertificateGeneralNameOutput) ElementType() reflect.Type {
@@ -2991,30 +3084,37 @@ func (o CertificateGeneralNameOutput) DirectoryName() CertificateSubjectPtrOutpu
 	return o.ApplyT(func(v CertificateGeneralName) *CertificateSubject { return v.DirectoryName }).(CertificateSubjectPtrOutput)
 }
 
+// Represents “GeneralName“ as a DNS name.
 func (o CertificateGeneralNameOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateGeneralName) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
+// Represents “GeneralName“ as an “EdiPartyName“ object.
 func (o CertificateGeneralNameOutput) EdiPartyName() CertificateEdiPartyNamePtrOutput {
 	return o.ApplyT(func(v CertificateGeneralName) *CertificateEdiPartyName { return v.EdiPartyName }).(CertificateEdiPartyNamePtrOutput)
 }
 
+// Represents “GeneralName“ as an IPv4 or IPv6 address.
 func (o CertificateGeneralNameOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateGeneralName) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
+// Represents “GeneralName“ using an “OtherName“ object.
 func (o CertificateGeneralNameOutput) OtherName() CertificateOtherNamePtrOutput {
 	return o.ApplyT(func(v CertificateGeneralName) *CertificateOtherName { return v.OtherName }).(CertificateOtherNamePtrOutput)
 }
 
+// Represents “GeneralName“ as an object identifier (OID).
 func (o CertificateGeneralNameOutput) RegisteredId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateGeneralName) *string { return v.RegisteredId }).(pulumi.StringPtrOutput)
 }
 
+// Represents “GeneralName“ as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
 func (o CertificateGeneralNameOutput) Rfc822Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateGeneralName) *string { return v.Rfc822Name }).(pulumi.StringPtrOutput)
 }
 
+// Represents “GeneralName“ as a URI.
 func (o CertificateGeneralNameOutput) UniformResourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateGeneralName) *string { return v.UniformResourceIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -3039,16 +3139,26 @@ func (o CertificateGeneralNameArrayOutput) Index(i pulumi.IntInput) CertificateG
 	}).(CertificateGeneralNameOutput)
 }
 
+// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
 type CertificateKeyUsage struct {
-	CrlSign          *bool `pulumi:"crlSign"`
+	// Key can be used to sign CRLs.
+	CrlSign *bool `pulumi:"crlSign"`
+	// Key can be used to decipher data.
 	DataEncipherment *bool `pulumi:"dataEncipherment"`
-	DecipherOnly     *bool `pulumi:"decipherOnly"`
+	// Key can be used only to decipher data.
+	DecipherOnly *bool `pulumi:"decipherOnly"`
+	// Key can be used for digital signing.
 	DigitalSignature *bool `pulumi:"digitalSignature"`
-	EncipherOnly     *bool `pulumi:"encipherOnly"`
-	KeyAgreement     *bool `pulumi:"keyAgreement"`
-	KeyCertSign      *bool `pulumi:"keyCertSign"`
-	KeyEncipherment  *bool `pulumi:"keyEncipherment"`
-	NonRepudiation   *bool `pulumi:"nonRepudiation"`
+	// Key can be used only to encipher data.
+	EncipherOnly *bool `pulumi:"encipherOnly"`
+	// Key can be used in a key-agreement protocol.
+	KeyAgreement *bool `pulumi:"keyAgreement"`
+	// Key can be used to sign certificates.
+	KeyCertSign *bool `pulumi:"keyCertSign"`
+	// Key can be used to encipher data.
+	KeyEncipherment *bool `pulumi:"keyEncipherment"`
+	// Key can be used for non-repudiation.
+	NonRepudiation *bool `pulumi:"nonRepudiation"`
 }
 
 // CertificateKeyUsageInput is an input type that accepts CertificateKeyUsageArgs and CertificateKeyUsageOutput values.
@@ -3062,16 +3172,26 @@ type CertificateKeyUsageInput interface {
 	ToCertificateKeyUsageOutputWithContext(context.Context) CertificateKeyUsageOutput
 }
 
+// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
 type CertificateKeyUsageArgs struct {
-	CrlSign          pulumi.BoolPtrInput `pulumi:"crlSign"`
+	// Key can be used to sign CRLs.
+	CrlSign pulumi.BoolPtrInput `pulumi:"crlSign"`
+	// Key can be used to decipher data.
 	DataEncipherment pulumi.BoolPtrInput `pulumi:"dataEncipherment"`
-	DecipherOnly     pulumi.BoolPtrInput `pulumi:"decipherOnly"`
+	// Key can be used only to decipher data.
+	DecipherOnly pulumi.BoolPtrInput `pulumi:"decipherOnly"`
+	// Key can be used for digital signing.
 	DigitalSignature pulumi.BoolPtrInput `pulumi:"digitalSignature"`
-	EncipherOnly     pulumi.BoolPtrInput `pulumi:"encipherOnly"`
-	KeyAgreement     pulumi.BoolPtrInput `pulumi:"keyAgreement"`
-	KeyCertSign      pulumi.BoolPtrInput `pulumi:"keyCertSign"`
-	KeyEncipherment  pulumi.BoolPtrInput `pulumi:"keyEncipherment"`
-	NonRepudiation   pulumi.BoolPtrInput `pulumi:"nonRepudiation"`
+	// Key can be used only to encipher data.
+	EncipherOnly pulumi.BoolPtrInput `pulumi:"encipherOnly"`
+	// Key can be used in a key-agreement protocol.
+	KeyAgreement pulumi.BoolPtrInput `pulumi:"keyAgreement"`
+	// Key can be used to sign certificates.
+	KeyCertSign pulumi.BoolPtrInput `pulumi:"keyCertSign"`
+	// Key can be used to encipher data.
+	KeyEncipherment pulumi.BoolPtrInput `pulumi:"keyEncipherment"`
+	// Key can be used for non-repudiation.
+	NonRepudiation pulumi.BoolPtrInput `pulumi:"nonRepudiation"`
 }
 
 func (CertificateKeyUsageArgs) ElementType() reflect.Type {
@@ -3127,6 +3247,7 @@ func (i *certificateKeyUsagePtrType) ToCertificateKeyUsagePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateKeyUsagePtrOutput)
 }
 
+// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
 type CertificateKeyUsageOutput struct{ *pulumi.OutputState }
 
 func (CertificateKeyUsageOutput) ElementType() reflect.Type {
@@ -3151,38 +3272,47 @@ func (o CertificateKeyUsageOutput) ToCertificateKeyUsagePtrOutputWithContext(ctx
 	}).(CertificateKeyUsagePtrOutput)
 }
 
+// Key can be used to sign CRLs.
 func (o CertificateKeyUsageOutput) CrlSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.CrlSign }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to decipher data.
 func (o CertificateKeyUsageOutput) DataEncipherment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.DataEncipherment }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used only to decipher data.
 func (o CertificateKeyUsageOutput) DecipherOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.DecipherOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used for digital signing.
 func (o CertificateKeyUsageOutput) DigitalSignature() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.DigitalSignature }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used only to encipher data.
 func (o CertificateKeyUsageOutput) EncipherOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.EncipherOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used in a key-agreement protocol.
 func (o CertificateKeyUsageOutput) KeyAgreement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.KeyAgreement }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to sign certificates.
 func (o CertificateKeyUsageOutput) KeyCertSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.KeyCertSign }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to encipher data.
 func (o CertificateKeyUsageOutput) KeyEncipherment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.KeyEncipherment }).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used for non-repudiation.
 func (o CertificateKeyUsageOutput) NonRepudiation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.NonRepudiation }).(pulumi.BoolPtrOutput)
 }
@@ -3211,6 +3341,7 @@ func (o CertificateKeyUsagePtrOutput) Elem() CertificateKeyUsageOutput {
 	}).(CertificateKeyUsageOutput)
 }
 
+// Key can be used to sign CRLs.
 func (o CertificateKeyUsagePtrOutput) CrlSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
@@ -3220,6 +3351,7 @@ func (o CertificateKeyUsagePtrOutput) CrlSign() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to decipher data.
 func (o CertificateKeyUsagePtrOutput) DataEncipherment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
@@ -3229,6 +3361,7 @@ func (o CertificateKeyUsagePtrOutput) DataEncipherment() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used only to decipher data.
 func (o CertificateKeyUsagePtrOutput) DecipherOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
@@ -3238,6 +3371,7 @@ func (o CertificateKeyUsagePtrOutput) DecipherOnly() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used for digital signing.
 func (o CertificateKeyUsagePtrOutput) DigitalSignature() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
@@ -3247,6 +3381,7 @@ func (o CertificateKeyUsagePtrOutput) DigitalSignature() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used only to encipher data.
 func (o CertificateKeyUsagePtrOutput) EncipherOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
@@ -3256,6 +3391,7 @@ func (o CertificateKeyUsagePtrOutput) EncipherOnly() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used in a key-agreement protocol.
 func (o CertificateKeyUsagePtrOutput) KeyAgreement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
@@ -3265,6 +3401,7 @@ func (o CertificateKeyUsagePtrOutput) KeyAgreement() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to sign certificates.
 func (o CertificateKeyUsagePtrOutput) KeyCertSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
@@ -3274,6 +3411,7 @@ func (o CertificateKeyUsagePtrOutput) KeyCertSign() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used to encipher data.
 func (o CertificateKeyUsagePtrOutput) KeyEncipherment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
@@ -3283,6 +3421,7 @@ func (o CertificateKeyUsagePtrOutput) KeyEncipherment() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Key can be used for non-repudiation.
 func (o CertificateKeyUsagePtrOutput) NonRepudiation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
@@ -3292,9 +3431,12 @@ func (o CertificateKeyUsagePtrOutput) NonRepudiation() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Defines a custom ASN.1 X.400 “GeneralName“ using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
 type CertificateOtherName struct {
+	// Specifies an OID.
 	TypeId string `pulumi:"typeId"`
-	Value  string `pulumi:"value"`
+	// Specifies an OID value.
+	Value string `pulumi:"value"`
 }
 
 // CertificateOtherNameInput is an input type that accepts CertificateOtherNameArgs and CertificateOtherNameOutput values.
@@ -3308,9 +3450,12 @@ type CertificateOtherNameInput interface {
 	ToCertificateOtherNameOutputWithContext(context.Context) CertificateOtherNameOutput
 }
 
+// Defines a custom ASN.1 X.400 “GeneralName“ using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
 type CertificateOtherNameArgs struct {
+	// Specifies an OID.
 	TypeId pulumi.StringInput `pulumi:"typeId"`
-	Value  pulumi.StringInput `pulumi:"value"`
+	// Specifies an OID value.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (CertificateOtherNameArgs) ElementType() reflect.Type {
@@ -3366,6 +3511,7 @@ func (i *certificateOtherNamePtrType) ToCertificateOtherNamePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOtherNamePtrOutput)
 }
 
+// Defines a custom ASN.1 X.400 “GeneralName“ using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
 type CertificateOtherNameOutput struct{ *pulumi.OutputState }
 
 func (CertificateOtherNameOutput) ElementType() reflect.Type {
@@ -3390,10 +3536,12 @@ func (o CertificateOtherNameOutput) ToCertificateOtherNamePtrOutputWithContext(c
 	}).(CertificateOtherNamePtrOutput)
 }
 
+// Specifies an OID.
 func (o CertificateOtherNameOutput) TypeId() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateOtherName) string { return v.TypeId }).(pulumi.StringOutput)
 }
 
+// Specifies an OID value.
 func (o CertificateOtherNameOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateOtherName) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3422,6 +3570,7 @@ func (o CertificateOtherNamePtrOutput) Elem() CertificateOtherNameOutput {
 	}).(CertificateOtherNameOutput)
 }
 
+// Specifies an OID.
 func (o CertificateOtherNamePtrOutput) TypeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateOtherName) *string {
 		if v == nil {
@@ -3431,6 +3580,7 @@ func (o CertificateOtherNamePtrOutput) TypeId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies an OID value.
 func (o CertificateOtherNamePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateOtherName) *string {
 		if v == nil {
@@ -3440,8 +3590,11 @@ func (o CertificateOtherNamePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the X.509 “CertificatePolicies“ extension.
 type CertificatePolicyInformation struct {
-	CertPolicyId     string                           `pulumi:"certPolicyId"`
+	// Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+	CertPolicyId string `pulumi:"certPolicyId"`
+	// Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
 	PolicyQualifiers []CertificatePolicyQualifierInfo `pulumi:"policyQualifiers"`
 }
 
@@ -3456,8 +3609,11 @@ type CertificatePolicyInformationInput interface {
 	ToCertificatePolicyInformationOutputWithContext(context.Context) CertificatePolicyInformationOutput
 }
 
+// Defines the X.509 “CertificatePolicies“ extension.
 type CertificatePolicyInformationArgs struct {
-	CertPolicyId     pulumi.StringInput                       `pulumi:"certPolicyId"`
+	// Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+	CertPolicyId pulumi.StringInput `pulumi:"certPolicyId"`
+	// Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
 	PolicyQualifiers CertificatePolicyQualifierInfoArrayInput `pulumi:"policyQualifiers"`
 }
 
@@ -3498,6 +3654,7 @@ func (i CertificatePolicyInformationArray) ToCertificatePolicyInformationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyInformationArrayOutput)
 }
 
+// Defines the X.509 “CertificatePolicies“ extension.
 type CertificatePolicyInformationOutput struct{ *pulumi.OutputState }
 
 func (CertificatePolicyInformationOutput) ElementType() reflect.Type {
@@ -3512,10 +3669,12 @@ func (o CertificatePolicyInformationOutput) ToCertificatePolicyInformationOutput
 	return o
 }
 
+// Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
 func (o CertificatePolicyInformationOutput) CertPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePolicyInformation) string { return v.CertPolicyId }).(pulumi.StringOutput)
 }
 
+// Modifies the given “CertPolicyId“ with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
 func (o CertificatePolicyInformationOutput) PolicyQualifiers() CertificatePolicyQualifierInfoArrayOutput {
 	return o.ApplyT(func(v CertificatePolicyInformation) []CertificatePolicyQualifierInfo { return v.PolicyQualifiers }).(CertificatePolicyQualifierInfoArrayOutput)
 }
@@ -3540,9 +3699,12 @@ func (o CertificatePolicyInformationArrayOutput) Index(i pulumi.IntInput) Certif
 	}).(CertificatePolicyInformationOutput)
 }
 
+// Modifies the “CertPolicyId“ of a “PolicyInformation“ object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
 type CertificatePolicyQualifierInfo struct {
-	PolicyQualifierId string               `pulumi:"policyQualifierId"`
-	Qualifier         CertificateQualifier `pulumi:"qualifier"`
+	// Identifies the qualifier modifying a ``CertPolicyId``.
+	PolicyQualifierId string `pulumi:"policyQualifierId"`
+	// Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
+	Qualifier CertificateQualifier `pulumi:"qualifier"`
 }
 
 // CertificatePolicyQualifierInfoInput is an input type that accepts CertificatePolicyQualifierInfoArgs and CertificatePolicyQualifierInfoOutput values.
@@ -3556,9 +3718,12 @@ type CertificatePolicyQualifierInfoInput interface {
 	ToCertificatePolicyQualifierInfoOutputWithContext(context.Context) CertificatePolicyQualifierInfoOutput
 }
 
+// Modifies the “CertPolicyId“ of a “PolicyInformation“ object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
 type CertificatePolicyQualifierInfoArgs struct {
-	PolicyQualifierId pulumi.StringInput        `pulumi:"policyQualifierId"`
-	Qualifier         CertificateQualifierInput `pulumi:"qualifier"`
+	// Identifies the qualifier modifying a ``CertPolicyId``.
+	PolicyQualifierId pulumi.StringInput `pulumi:"policyQualifierId"`
+	// Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
+	Qualifier CertificateQualifierInput `pulumi:"qualifier"`
 }
 
 func (CertificatePolicyQualifierInfoArgs) ElementType() reflect.Type {
@@ -3598,6 +3763,7 @@ func (i CertificatePolicyQualifierInfoArray) ToCertificatePolicyQualifierInfoArr
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyQualifierInfoArrayOutput)
 }
 
+// Modifies the “CertPolicyId“ of a “PolicyInformation“ object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
 type CertificatePolicyQualifierInfoOutput struct{ *pulumi.OutputState }
 
 func (CertificatePolicyQualifierInfoOutput) ElementType() reflect.Type {
@@ -3612,10 +3778,12 @@ func (o CertificatePolicyQualifierInfoOutput) ToCertificatePolicyQualifierInfoOu
 	return o
 }
 
+// Identifies the qualifier modifying a “CertPolicyId“.
 func (o CertificatePolicyQualifierInfoOutput) PolicyQualifierId() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePolicyQualifierInfo) string { return v.PolicyQualifierId }).(pulumi.StringOutput)
 }
 
+// Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
 func (o CertificatePolicyQualifierInfoOutput) Qualifier() CertificateQualifierOutput {
 	return o.ApplyT(func(v CertificatePolicyQualifierInfo) CertificateQualifier { return v.Qualifier }).(CertificateQualifierOutput)
 }
@@ -3640,7 +3808,9 @@ func (o CertificatePolicyQualifierInfoArrayOutput) Index(i pulumi.IntInput) Cert
 	}).(CertificatePolicyQualifierInfoOutput)
 }
 
+// Defines a “PolicyInformation“ qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
 type CertificateQualifier struct {
+	// Contains a pointer to a certification practice statement (CPS) published by the CA.
 	CpsUri string `pulumi:"cpsUri"`
 }
 
@@ -3655,7 +3825,9 @@ type CertificateQualifierInput interface {
 	ToCertificateQualifierOutputWithContext(context.Context) CertificateQualifierOutput
 }
 
+// Defines a “PolicyInformation“ qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
 type CertificateQualifierArgs struct {
+	// Contains a pointer to a certification practice statement (CPS) published by the CA.
 	CpsUri pulumi.StringInput `pulumi:"cpsUri"`
 }
 
@@ -3671,6 +3843,7 @@ func (i CertificateQualifierArgs) ToCertificateQualifierOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateQualifierOutput)
 }
 
+// Defines a “PolicyInformation“ qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
 type CertificateQualifierOutput struct{ *pulumi.OutputState }
 
 func (CertificateQualifierOutput) ElementType() reflect.Type {
@@ -3685,6 +3858,7 @@ func (o CertificateQualifierOutput) ToCertificateQualifierOutputWithContext(ctx 
 	return o
 }
 
+// Contains a pointer to a certification practice statement (CPS) published by the CA.
 func (o CertificateQualifierOutput) CpsUri() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateQualifier) string { return v.CpsUri }).(pulumi.StringOutput)
 }
@@ -3695,7 +3869,9 @@ type CertificateSubject struct {
 	//  Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
 	CommonName *string `pulumi:"commonName"`
 	// Two-digit code that specifies the country in which the certificate subject located.
-	Country          *string                      `pulumi:"country"`
+	Country *string `pulumi:"country"`
+	// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+	//   Custom attributes cannot be used in combination with standard attributes.
 	CustomAttributes []CertificateCustomAttribute `pulumi:"customAttributes"`
 	// Disambiguating information for the certificate subject.
 	DistinguishedNameQualifier *string `pulumi:"distinguishedNameQualifier"`
@@ -3740,7 +3916,9 @@ type CertificateSubjectArgs struct {
 	//  Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
 	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
 	// Two-digit code that specifies the country in which the certificate subject located.
-	Country          pulumi.StringPtrInput                `pulumi:"country"`
+	Country pulumi.StringPtrInput `pulumi:"country"`
+	// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+	//   Custom attributes cannot be used in combination with standard attributes.
 	CustomAttributes CertificateCustomAttributeArrayInput `pulumi:"customAttributes"`
 	// Disambiguating information for the certificate subject.
 	DistinguishedNameQualifier pulumi.StringPtrInput `pulumi:"distinguishedNameQualifier"`
@@ -3858,6 +4036,9 @@ func (o CertificateSubjectOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateSubject) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
+// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+//
+//	Custom attributes cannot be used in combination with standard attributes.
 func (o CertificateSubjectOutput) CustomAttributes() CertificateCustomAttributeArrayOutput {
 	return o.ApplyT(func(v CertificateSubject) []CertificateCustomAttribute { return v.CustomAttributes }).(CertificateCustomAttributeArrayOutput)
 }
@@ -3968,6 +4149,9 @@ func (o CertificateSubjectPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+//
+//	Custom attributes cannot be used in combination with standard attributes.
 func (o CertificateSubjectPtrOutput) CustomAttributes() CertificateCustomAttributeArrayOutput {
 	return o.ApplyT(func(v *CertificateSubject) []CertificateCustomAttribute {
 		if v == nil {
@@ -4101,7 +4285,7 @@ func (o CertificateSubjectPtrOutput) Title() pulumi.StringPtrOutput {
 type CertificateValidity struct {
 	// Specifies whether the ``Value`` parameter represents days, months, or years.
 	Type string `pulumi:"type"`
-	// Time period.
+	// A long integer interpreted according to the value of ``Type``, below.
 	Value float64 `pulumi:"value"`
 }
 
@@ -4120,7 +4304,7 @@ type CertificateValidityInput interface {
 type CertificateValidityArgs struct {
 	// Specifies whether the ``Value`` parameter represents days, months, or years.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Time period.
+	// A long integer interpreted according to the value of ``Type``, below.
 	Value pulumi.Float64Input `pulumi:"value"`
 }
 
@@ -4207,7 +4391,7 @@ func (o CertificateValidityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateValidity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Time period.
+// A long integer interpreted according to the value of “Type“, below.
 func (o CertificateValidityOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v CertificateValidity) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -4246,7 +4430,7 @@ func (o CertificateValidityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time period.
+// A long integer interpreted according to the value of “Type“, below.
 func (o CertificateValidityPtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CertificateValidity) *float64 {
 		if v == nil {

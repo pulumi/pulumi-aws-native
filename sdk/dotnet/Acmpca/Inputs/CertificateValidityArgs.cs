@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Time period.
+        /// A long integer interpreted according to the value of ``Type``, below.
         /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;

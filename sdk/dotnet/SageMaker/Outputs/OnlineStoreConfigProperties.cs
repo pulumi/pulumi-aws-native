@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly bool? EnableOnlineStore;
         public readonly Outputs.FeatureGroupOnlineStoreSecurityConfig? SecurityConfig;
         public readonly Pulumi.AwsNative.SageMaker.FeatureGroupStorageType? StorageType;
+        public readonly Outputs.FeatureGroupTtlDuration? TtlDuration;
 
         [OutputConstructor]
         private OnlineStoreConfigProperties(
@@ -23,11 +24,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.FeatureGroupOnlineStoreSecurityConfig? securityConfig,
 
-            Pulumi.AwsNative.SageMaker.FeatureGroupStorageType? storageType)
+            Pulumi.AwsNative.SageMaker.FeatureGroupStorageType? storageType,
+
+            Outputs.FeatureGroupTtlDuration? ttlDuration)
         {
             EnableOnlineStore = enableOnlineStore;
             SecurityConfig = securityConfig;
             StorageType = storageType;
+            TtlDuration = ttlDuration;
         }
     }
 }

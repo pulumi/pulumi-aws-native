@@ -2005,6 +2005,7 @@ func (in *serviceSchedulingStrategyPtr) ToServiceSchedulingStrategyPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceSchedulingStrategyPtrOutput)
 }
 
+// Determines whether to use the Amazon ECS task role defined in a task definition when mounting the Amazon EFS file system. If it is turned on, transit encryption must be turned on in the “EFSVolumeConfiguration“. If this parameter is omitted, the default value of “DISABLED“ is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionAuthorizationConfigIam string
 
 const (
@@ -2170,6 +2171,7 @@ func (in *taskDefinitionAuthorizationConfigIamPtr) ToTaskDefinitionAuthorization
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
+// Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be turned on if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of “DISABLED“ is used. For more information, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide*.
 type TaskDefinitionEfsVolumeConfigurationTransitEncryption string
 
 const (
@@ -2335,6 +2337,11 @@ func (in *taskDefinitionEfsVolumeConfigurationTransitEncryptionPtr) ToTaskDefini
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
+// The application protocol that's used for the port mapping. This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.
+//
+//	If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.
+//	 ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS se
 type TaskDefinitionPortMappingAppProtocol string
 
 const (

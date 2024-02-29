@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+    ///  For information about the S3 Intelligent-Tiering storage class, see [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
+    /// </summary>
     [OutputType]
     public sealed class BucketIntelligentTieringConfiguration
     {
@@ -30,7 +34,8 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketTagFilter> TagFilters;
         /// <summary>
-        /// Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ARCHIVE_ACCESS and DEEP_ARCHIVE_ACCESS.
+        /// Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ``ARCHIVE_ACCESS`` and ``DEEP_ARCHIVE_ACCESS``.
+        ///   You only need Intelligent Tiering Configuration enabled on a bucket if you want to automatically move objects stored in the Intelligent-Tiering storage class to Archive Access or Deep Archive Access tiers.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketTiering> Tierings;
 

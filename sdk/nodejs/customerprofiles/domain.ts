@@ -52,7 +52,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The default number of days until the data within the domain expires.
      */
-    public readonly defaultExpirationDays!: pulumi.Output<number | undefined>;
+    public readonly defaultExpirationDays!: pulumi.Output<number>;
     /**
      * The unique name of the domain.
      */
@@ -76,10 +76,13 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.defaultExpirationDays === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'defaultExpirationDays'");
+            }
             resourceInputs["deadLetterQueueUrl"] = args ? args.deadLetterQueueUrl : undefined;
             resourceInputs["defaultEncryptionKey"] = args ? args.defaultEncryptionKey : undefined;
             resourceInputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
@@ -124,7 +127,7 @@ export interface DomainArgs {
     /**
      * The default number of days until the data within the domain expires.
      */
-    defaultExpirationDays?: pulumi.Input<number>;
+    defaultExpirationDays: pulumi.Input<number>;
     /**
      * The unique name of the domain.
      */

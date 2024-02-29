@@ -27,11 +27,19 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("indexDocument")]
         public Input<string>? IndexDocument { get; set; }
 
+        /// <summary>
+        /// The redirect behavior for every request to this bucket's website endpoint.
+        ///   If you specify this property, you can't specify any other property.
+        /// </summary>
         [Input("redirectAllRequestsTo")]
         public Input<Inputs.BucketRedirectAllRequestsToArgs>? RedirectAllRequestsTo { get; set; }
 
         [Input("routingRules")]
         private InputList<Inputs.BucketRoutingRuleArgs>? _routingRules;
+
+        /// <summary>
+        /// Rules that define when a redirect is applied and the redirect behavior.
+        /// </summary>
         public InputList<Inputs.BucketRoutingRuleArgs> RoutingRules
         {
             get => _routingRules ?? (_routingRules = new InputList<Inputs.BucketRoutingRuleArgs>());

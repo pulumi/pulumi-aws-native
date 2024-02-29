@@ -46,6 +46,7 @@
     "IpAddresses" : {
       "description" : "The IP addresses from BYOIP Prefix pool.",
       "default" : null,
+      "insertionOrder" : true,
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/IpAddress"
@@ -62,6 +63,7 @@
     },
     "Ipv4Addresses" : {
       "description" : "The IPv4 addresses assigned to the accelerator.",
+      "insertionOrder" : true,
       "type" : "array",
       "items" : {
         "type" : "string"
@@ -70,6 +72,7 @@
     "Ipv6Addresses" : {
       "description" : "The IPv6 addresses assigned if the accelerator is dualstack",
       "default" : null,
+      "insertionOrder" : true,
       "type" : "array",
       "items" : {
         "type" : "string"
@@ -84,6 +87,7 @@
       "type" : "string"
     },
     "Tags" : {
+      "insertionOrder" : true,
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/Tag"

@@ -14,18 +14,34 @@ __all__ = ['ChannelPolicyArgs', 'ChannelPolicy']
 @pulumi.input_type
 class ChannelPolicyArgs:
     def __init__(__self__, *,
-                 policy: Any,
-                 channel_group_name: Optional[pulumi.Input[str]] = None,
-                 channel_name: Optional[pulumi.Input[str]] = None):
+                 channel_group_name: pulumi.Input[str],
+                 channel_name: pulumi.Input[str],
+                 policy: Any):
         """
         The set of arguments for constructing a ChannelPolicy resource.
         :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
         """
+        pulumi.set(__self__, "channel_group_name", channel_group_name)
+        pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "policy", policy)
-        if channel_group_name is not None:
-            pulumi.set(__self__, "channel_group_name", channel_group_name)
-        if channel_name is not None:
-            pulumi.set(__self__, "channel_name", channel_name)
+
+    @property
+    @pulumi.getter(name="channelGroupName")
+    def channel_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "channel_group_name")
+
+    @channel_group_name.setter
+    def channel_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel_group_name", value)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel_name", value)
 
     @property
     @pulumi.getter
@@ -39,24 +55,6 @@ class ChannelPolicyArgs:
     def policy(self, value: Any):
         pulumi.set(self, "policy", value)
 
-    @property
-    @pulumi.getter(name="channelGroupName")
-    def channel_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "channel_group_name")
-
-    @channel_group_name.setter
-    def channel_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "channel_group_name", value)
-
-    @property
-    @pulumi.getter(name="channelName")
-    def channel_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "channel_name")
-
-    @channel_name.setter
-    def channel_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "channel_name", value)
-
 
 class ChannelPolicy(pulumi.CustomResource):
     @overload
@@ -68,7 +66,7 @@ class ChannelPolicy(pulumi.CustomResource):
                  policy: Optional[Any] = None,
                  __props__=None):
         """
-        Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
+        <p>Represents a resource-based policy that allows or denies access to a channel.</p>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +79,7 @@ class ChannelPolicy(pulumi.CustomResource):
                  args: ChannelPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
+        <p>Represents a resource-based policy that allows or denies access to a channel.</p>
 
         :param str resource_name: The name of the resource.
         :param ChannelPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -110,7 +108,11 @@ class ChannelPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChannelPolicyArgs.__new__(ChannelPolicyArgs)
 
+            if channel_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'channel_group_name'")
             __props__.__dict__["channel_group_name"] = channel_group_name
+            if channel_name is None and not opts.urn:
+                raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
@@ -146,12 +148,12 @@ class ChannelPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelGroupName")
-    def channel_group_name(self) -> pulumi.Output[Optional[str]]:
+    def channel_group_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "channel_group_name")
 
     @property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Output[Optional[str]]:
+    def channel_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "channel_name")
 
     @property

@@ -11,12 +11,18 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// Tags to use to identify a subset of objects for an Amazon S3 bucket.
+    /// Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
     /// </summary>
     [OutputType]
     public sealed class BucketTagFilter
     {
+        /// <summary>
+        /// The tag key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The tag value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

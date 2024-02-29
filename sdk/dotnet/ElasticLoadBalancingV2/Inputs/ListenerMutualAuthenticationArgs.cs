@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
+    /// <summary>
+    /// Specifies the configuration information for mutual authentication.
+    /// </summary>
     public sealed class ListenerMutualAuthenticationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether expired client certificates are ignored.
+        /// </summary>
         [Input("ignoreClientCertificateExpiry")]
         public Input<bool>? IgnoreClientCertificateExpiry { get; set; }
 
+        /// <summary>
+        /// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the trust store.
+        /// </summary>
         [Input("trustStoreArn")]
         public Input<string>? TrustStoreArn { get; set; }
 

@@ -5,9 +5,15 @@
 from enum import Enum
 
 __all__ = [
+    'ResolverMetricsConfig',
     'SourceApiAssociationConfigMergeType',
     'SourceApiAssociationStatus',
 ]
+
+
+class ResolverMetricsConfig(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class SourceApiAssociationConfigMergeType(str, Enum):

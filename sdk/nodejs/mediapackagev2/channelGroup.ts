@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+ * <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
  */
 export class ChannelGroup extends pulumi.CustomResource {
     /**
@@ -37,11 +37,26 @@ export class ChannelGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ChannelGroup.__pulumiType;
     }
 
+    /**
+     * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly channelGroupName!: pulumi.Output<string | undefined>;
+    public readonly channelGroupName!: pulumi.Output<string>;
+    /**
+     * <p>The date and time the channel group was created.</p>
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * <p>Enter any descriptive text that helps you to identify the channel group.</p>
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
+     */
     public /*out*/ readonly egressDomain!: pulumi.Output<string>;
+    /**
+     * <p>The date and time the channel group was modified.</p>
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -84,6 +99,9 @@ export class ChannelGroup extends pulumi.CustomResource {
  */
 export interface ChannelGroupArgs {
     channelGroupName?: pulumi.Input<string>;
+    /**
+     * <p>Enter any descriptive text that helps you to identify the channel group.</p>
+     */
     description?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

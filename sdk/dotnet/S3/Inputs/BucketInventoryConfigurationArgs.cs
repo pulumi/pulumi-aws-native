@@ -10,13 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+    /// </summary>
     public sealed class BucketInventoryConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains information about where to publish the inventory results.
+        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.BucketDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the inventory is enabled or disabled.
+        /// Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -28,7 +34,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// Object versions to include in the inventory list.
+        /// Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
         /// </summary>
         [Input("includedObjectVersions", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketInventoryConfigurationIncludedObjectVersions> IncludedObjectVersions { get; set; } = null!;
@@ -46,7 +52,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         }
 
         /// <summary>
-        /// The prefix that is prepended to all inventory results.
+        /// Specifies the inventory filter prefix.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

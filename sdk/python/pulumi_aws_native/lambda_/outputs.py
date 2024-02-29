@@ -710,6 +710,10 @@ class EventSourceMappingSourceAccessConfiguration(dict):
 
 @pulumi.output_type
 class FunctionCode(dict):
+    """
+    The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
+     Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -742,11 +746,15 @@ class FunctionCode(dict):
                  s3_object_version: Optional[str] = None,
                  zip_file: Optional[str] = None):
         """
-        :param str image_uri: ImageUri.
-        :param str s3_bucket: An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+        The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
+         Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
+        :param str image_uri: URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
+        :param str s3_bucket: An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
         :param str s3_key: The Amazon S3 key of the deployment package.
         :param str s3_object_version: For versioned objects, the version of the deployment package object to use.
-        :param str zip_file: The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
+        :param str zip_file: (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
+                 For JSON, you must escape quotes and special characters such as newline (``\\n``) with a backslash.
+                If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs
         """
         if image_uri is not None:
             pulumi.set(__self__, "image_uri", image_uri)
@@ -763,7 +771,7 @@ class FunctionCode(dict):
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> Optional[str]:
         """
-        ImageUri.
+        URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
         """
         return pulumi.get(self, "image_uri")
 
@@ -771,7 +779,7 @@ class FunctionCode(dict):
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[str]:
         """
-        An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+        An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -795,7 +803,9 @@ class FunctionCode(dict):
     @pulumi.getter(name="zipFile")
     def zip_file(self) -> Optional[str]:
         """
-        The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
+        (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
+          For JSON, you must escape quotes and special characters such as newline (``\\n``) with a backslash.
+         If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs
         """
         return pulumi.get(self, "zip_file")
 
@@ -803,7 +813,7 @@ class FunctionCode(dict):
 @pulumi.output_type
 class FunctionDeadLetterConfig(dict):
     """
-    The dead-letter queue for failed asynchronous invocations.
+    The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -825,7 +835,7 @@ class FunctionDeadLetterConfig(dict):
     def __init__(__self__, *,
                  target_arn: Optional[str] = None):
         """
-        The dead-letter queue for failed asynchronous invocations.
+        The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
         :param str target_arn: The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
         """
         if target_arn is not None:
@@ -843,13 +853,13 @@ class FunctionDeadLetterConfig(dict):
 @pulumi.output_type
 class FunctionEnvironment(dict):
     """
-    A function's environment variable settings.
+    A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
     """
     def __init__(__self__, *,
                  variables: Optional[Mapping[str, str]] = None):
         """
-        A function's environment variable settings.
-        :param Mapping[str, str] variables: Environment variable key-value pairs.
+        A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
+        :param Mapping[str, str] variables: Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
@@ -858,7 +868,7 @@ class FunctionEnvironment(dict):
     @pulumi.getter
     def variables(self) -> Optional[Mapping[str, str]]:
         """
-        Environment variable key-value pairs.
+        Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
         """
         return pulumi.get(self, "variables")
 
@@ -866,13 +876,13 @@ class FunctionEnvironment(dict):
 @pulumi.output_type
 class FunctionEphemeralStorage(dict):
     """
-    A function's ephemeral storage settings.
+    The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
     """
     def __init__(__self__, *,
                  size: int):
         """
-        A function's ephemeral storage settings.
-        :param int size: The amount of ephemeral storage that your function has access to.
+        The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
+        :param int size: The size of the function's ``/tmp`` directory.
         """
         pulumi.set(__self__, "size", size)
 
@@ -880,13 +890,16 @@ class FunctionEphemeralStorage(dict):
     @pulumi.getter
     def size(self) -> int:
         """
-        The amount of ephemeral storage that your function has access to.
+        The size of the function's ``/tmp`` directory.
         """
         return pulumi.get(self, "size")
 
 
 @pulumi.output_type
 class FunctionFileSystemConfig(dict):
+    """
+    Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -908,8 +921,9 @@ class FunctionFileSystemConfig(dict):
                  arn: str,
                  local_mount_path: str):
         """
+        Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
         :param str arn: The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
-        :param str local_mount_path: The path where the function can access the file system, starting with /mnt/.
+        :param str local_mount_path: The path where the function can access the file system, starting with ``/mnt/``.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
@@ -926,13 +940,16 @@ class FunctionFileSystemConfig(dict):
     @pulumi.getter(name="localMountPath")
     def local_mount_path(self) -> str:
         """
-        The path where the function can access the file system, starting with /mnt/.
+        The path where the function can access the file system, starting with ``/mnt/``.
         """
         return pulumi.get(self, "local_mount_path")
 
 
 @pulumi.output_type
 class FunctionImageConfig(dict):
+    """
+    Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -957,9 +974,10 @@ class FunctionImageConfig(dict):
                  entry_point: Optional[Sequence[str]] = None,
                  working_directory: Optional[str] = None):
         """
-        :param Sequence[str] command: Command.
-        :param Sequence[str] entry_point: EntryPoint.
-        :param str working_directory: WorkingDirectory.
+        Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+        :param Sequence[str] command: Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
+        :param Sequence[str] entry_point: Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
+        :param str working_directory: Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
         """
         if command is not None:
             pulumi.set(__self__, "command", command)
@@ -972,7 +990,7 @@ class FunctionImageConfig(dict):
     @pulumi.getter
     def command(self) -> Optional[Sequence[str]]:
         """
-        Command.
+        Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
         """
         return pulumi.get(self, "command")
 
@@ -980,7 +998,7 @@ class FunctionImageConfig(dict):
     @pulumi.getter(name="entryPoint")
     def entry_point(self) -> Optional[Sequence[str]]:
         """
-        EntryPoint.
+        Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
         """
         return pulumi.get(self, "entry_point")
 
@@ -988,7 +1006,7 @@ class FunctionImageConfig(dict):
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[str]:
         """
-        WorkingDirectory.
+        Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
         """
         return pulumi.get(self, "working_directory")
 
@@ -996,7 +1014,7 @@ class FunctionImageConfig(dict):
 @pulumi.output_type
 class FunctionLoggingConfig(dict):
     """
-    The function's logging configuration.
+    The function's Amazon CloudWatch Logs configuration settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1027,11 +1045,11 @@ class FunctionLoggingConfig(dict):
                  log_group: Optional[str] = None,
                  system_log_level: Optional['FunctionLoggingConfigSystemLogLevel'] = None):
         """
-        The function's logging configuration.
-        :param 'FunctionLoggingConfigApplicationLogLevel' application_log_level: Application log granularity level, can only be used when LogFormat is set to JSON
-        :param 'FunctionLoggingConfigLogFormat' log_format: Log delivery format for the lambda function
-        :param str log_group: The log group name.
-        :param 'FunctionLoggingConfigSystemLogLevel' system_log_level: System log granularity level, can only be used when LogFormat is set to JSON
+        The function's Amazon CloudWatch Logs configuration settings.
+        :param 'FunctionLoggingConfigApplicationLogLevel' application_log_level: Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
+        :param 'FunctionLoggingConfigLogFormat' log_format: The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
+        :param str log_group: The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
+        :param 'FunctionLoggingConfigSystemLogLevel' system_log_level: Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
         """
         if application_log_level is not None:
             pulumi.set(__self__, "application_log_level", application_log_level)
@@ -1046,7 +1064,7 @@ class FunctionLoggingConfig(dict):
     @pulumi.getter(name="applicationLogLevel")
     def application_log_level(self) -> Optional['FunctionLoggingConfigApplicationLogLevel']:
         """
-        Application log granularity level, can only be used when LogFormat is set to JSON
+        Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
         """
         return pulumi.get(self, "application_log_level")
 
@@ -1054,7 +1072,7 @@ class FunctionLoggingConfig(dict):
     @pulumi.getter(name="logFormat")
     def log_format(self) -> Optional['FunctionLoggingConfigLogFormat']:
         """
-        Log delivery format for the lambda function
+        The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
         """
         return pulumi.get(self, "log_format")
 
@@ -1062,7 +1080,7 @@ class FunctionLoggingConfig(dict):
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[str]:
         """
-        The log group name.
+        The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
         """
         return pulumi.get(self, "log_group")
 
@@ -1070,13 +1088,16 @@ class FunctionLoggingConfig(dict):
     @pulumi.getter(name="systemLogLevel")
     def system_log_level(self) -> Optional['FunctionLoggingConfigSystemLogLevel']:
         """
-        System log granularity level, can only be used when LogFormat is set to JSON
+        Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
         """
         return pulumi.get(self, "system_log_level")
 
 
 @pulumi.output_type
 class FunctionRuntimeManagementConfig(dict):
+    """
+    Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1100,8 +1121,13 @@ class FunctionRuntimeManagementConfig(dict):
                  update_runtime_on: 'FunctionRuntimeManagementConfigUpdateRuntimeOn',
                  runtime_version_arn: Optional[str] = None):
         """
-        :param 'FunctionRuntimeManagementConfigUpdateRuntimeOn' update_runtime_on: Trigger for runtime update
-        :param str runtime_version_arn: Unique identifier for a runtime version arn
+        Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+        :param 'FunctionRuntimeManagementConfigUpdateRuntimeOn' update_runtime_on: Specify the runtime update mode.
+                 + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+                + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+                + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
+        :param str runtime_version_arn: The ARN of the runtime version you want the function to use.
+                 This is only required if you're using the *Manual* runtime update mode.
         """
         pulumi.set(__self__, "update_runtime_on", update_runtime_on)
         if runtime_version_arn is not None:
@@ -1111,7 +1137,10 @@ class FunctionRuntimeManagementConfig(dict):
     @pulumi.getter(name="updateRuntimeOn")
     def update_runtime_on(self) -> 'FunctionRuntimeManagementConfigUpdateRuntimeOn':
         """
-        Trigger for runtime update
+        Specify the runtime update mode.
+          + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+         + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+         + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
         """
         return pulumi.get(self, "update_runtime_on")
 
@@ -1119,7 +1148,8 @@ class FunctionRuntimeManagementConfig(dict):
     @pulumi.getter(name="runtimeVersionArn")
     def runtime_version_arn(self) -> Optional[str]:
         """
-        Unique identifier for a runtime version arn
+        The ARN of the runtime version you want the function to use.
+          This is only required if you're using the *Manual* runtime update mode.
         """
         return pulumi.get(self, "runtime_version_arn")
 
@@ -1127,7 +1157,7 @@ class FunctionRuntimeManagementConfig(dict):
 @pulumi.output_type
 class FunctionSnapStart(dict):
     """
-    The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+    The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1149,8 +1179,8 @@ class FunctionSnapStart(dict):
     def __init__(__self__, *,
                  apply_on: 'FunctionSnapStartApplyOn'):
         """
-        The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
-        :param 'FunctionSnapStartApplyOn' apply_on: Applying SnapStart setting on function resource type.
+        The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+        :param 'FunctionSnapStartApplyOn' apply_on: Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
         """
         pulumi.set(__self__, "apply_on", apply_on)
 
@@ -1158,7 +1188,7 @@ class FunctionSnapStart(dict):
     @pulumi.getter(name="applyOn")
     def apply_on(self) -> 'FunctionSnapStartApplyOn':
         """
-        Applying SnapStart setting on function resource type.
+        Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
         """
         return pulumi.get(self, "apply_on")
 
@@ -1166,7 +1196,7 @@ class FunctionSnapStart(dict):
 @pulumi.output_type
 class FunctionSnapStartResponse(dict):
     """
-    The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+    The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1191,9 +1221,9 @@ class FunctionSnapStartResponse(dict):
                  apply_on: Optional['FunctionSnapStartResponseApplyOn'] = None,
                  optimization_status: Optional['FunctionSnapStartResponseOptimizationStatus'] = None):
         """
-        The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
-        :param 'FunctionSnapStartResponseApplyOn' apply_on: Applying SnapStart setting on function resource type.
-        :param 'FunctionSnapStartResponseOptimizationStatus' optimization_status: Indicates whether SnapStart is activated for the specified function version.
+        The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+        :param 'FunctionSnapStartResponseApplyOn' apply_on: When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
+        :param 'FunctionSnapStartResponseOptimizationStatus' optimization_status: When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
         """
         if apply_on is not None:
             pulumi.set(__self__, "apply_on", apply_on)
@@ -1204,7 +1234,7 @@ class FunctionSnapStartResponse(dict):
     @pulumi.getter(name="applyOn")
     def apply_on(self) -> Optional['FunctionSnapStartResponseApplyOn']:
         """
-        Applying SnapStart setting on function resource type.
+        When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
         """
         return pulumi.get(self, "apply_on")
 
@@ -1212,7 +1242,7 @@ class FunctionSnapStartResponse(dict):
     @pulumi.getter(name="optimizationStatus")
     def optimization_status(self) -> Optional['FunctionSnapStartResponseOptimizationStatus']:
         """
-        Indicates whether SnapStart is activated for the specified function version.
+        When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
         """
         return pulumi.get(self, "optimization_status")
 
@@ -1220,12 +1250,12 @@ class FunctionSnapStartResponse(dict):
 @pulumi.output_type
 class FunctionTracingConfig(dict):
     """
-    The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
+    The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set ``Mode`` to ``Active``.
     """
     def __init__(__self__, *,
                  mode: Optional['FunctionTracingConfigMode'] = None):
         """
-        The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
+        The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set ``Mode`` to ``Active``.
         :param 'FunctionTracingConfigMode' mode: The tracing mode.
         """
         if mode is not None:
@@ -1243,7 +1273,9 @@ class FunctionTracingConfig(dict):
 @pulumi.output_type
 class FunctionVpcConfig(dict):
     """
-    The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
+    The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+      When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
+     To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1271,9 +1303,11 @@ class FunctionVpcConfig(dict):
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
         """
-        The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
-        :param bool ipv6_allowed_for_dual_stack: A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
-        :param Sequence[str] security_group_ids: A list of VPC security groups IDs.
+        The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+          When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
+         To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
+        :param bool ipv6_allowed_for_dual_stack: Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
+        :param Sequence[str] security_group_ids: A list of VPC security group IDs.
         :param Sequence[str] subnet_ids: A list of VPC subnet IDs.
         """
         if ipv6_allowed_for_dual_stack is not None:
@@ -1287,7 +1321,7 @@ class FunctionVpcConfig(dict):
     @pulumi.getter(name="ipv6AllowedForDualStack")
     def ipv6_allowed_for_dual_stack(self) -> Optional[bool]:
         """
-        A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+        Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
         """
         return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
@@ -1295,7 +1329,7 @@ class FunctionVpcConfig(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
         """
-        A list of VPC security groups IDs.
+        A list of VPC security group IDs.
         """
         return pulumi.get(self, "security_group_ids")
 

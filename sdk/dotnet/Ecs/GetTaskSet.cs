@@ -89,15 +89,19 @@ namespace Pulumi.AwsNative.Ecs
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         /// </summary>
         public readonly Outputs.TaskSetScale? Scale;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetTaskSetResult(
             string? id,
 
-            Outputs.TaskSetScale? scale)
+            Outputs.TaskSetScale? scale,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             Scale = scale;
+            Tags = tags;
         }
     }
 }

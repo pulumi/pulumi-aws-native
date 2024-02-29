@@ -1097,139 +1097,6 @@ func (o ClientVpnEndpointClientLoginBannerOptionsPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-type ClientVpnEndpointClientRouteMonitoringOptions struct {
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// ClientVpnEndpointClientRouteMonitoringOptionsInput is an input type that accepts ClientVpnEndpointClientRouteMonitoringOptionsArgs and ClientVpnEndpointClientRouteMonitoringOptionsOutput values.
-// You can construct a concrete instance of `ClientVpnEndpointClientRouteMonitoringOptionsInput` via:
-//
-//	ClientVpnEndpointClientRouteMonitoringOptionsArgs{...}
-type ClientVpnEndpointClientRouteMonitoringOptionsInput interface {
-	pulumi.Input
-
-	ToClientVpnEndpointClientRouteMonitoringOptionsOutput() ClientVpnEndpointClientRouteMonitoringOptionsOutput
-	ToClientVpnEndpointClientRouteMonitoringOptionsOutputWithContext(context.Context) ClientVpnEndpointClientRouteMonitoringOptionsOutput
-}
-
-type ClientVpnEndpointClientRouteMonitoringOptionsArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (ClientVpnEndpointClientRouteMonitoringOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnEndpointClientRouteMonitoringOptions)(nil)).Elem()
-}
-
-func (i ClientVpnEndpointClientRouteMonitoringOptionsArgs) ToClientVpnEndpointClientRouteMonitoringOptionsOutput() ClientVpnEndpointClientRouteMonitoringOptionsOutput {
-	return i.ToClientVpnEndpointClientRouteMonitoringOptionsOutputWithContext(context.Background())
-}
-
-func (i ClientVpnEndpointClientRouteMonitoringOptionsArgs) ToClientVpnEndpointClientRouteMonitoringOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientRouteMonitoringOptionsOutput)
-}
-
-func (i ClientVpnEndpointClientRouteMonitoringOptionsArgs) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return i.ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i ClientVpnEndpointClientRouteMonitoringOptionsArgs) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientRouteMonitoringOptionsOutput).ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx)
-}
-
-// ClientVpnEndpointClientRouteMonitoringOptionsPtrInput is an input type that accepts ClientVpnEndpointClientRouteMonitoringOptionsArgs, ClientVpnEndpointClientRouteMonitoringOptionsPtr and ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput values.
-// You can construct a concrete instance of `ClientVpnEndpointClientRouteMonitoringOptionsPtrInput` via:
-//
-//	        ClientVpnEndpointClientRouteMonitoringOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ClientVpnEndpointClientRouteMonitoringOptionsPtrInput interface {
-	pulumi.Input
-
-	ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput
-	ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput
-}
-
-type clientVpnEndpointClientRouteMonitoringOptionsPtrType ClientVpnEndpointClientRouteMonitoringOptionsArgs
-
-func ClientVpnEndpointClientRouteMonitoringOptionsPtr(v *ClientVpnEndpointClientRouteMonitoringOptionsArgs) ClientVpnEndpointClientRouteMonitoringOptionsPtrInput {
-	return (*clientVpnEndpointClientRouteMonitoringOptionsPtrType)(v)
-}
-
-func (*clientVpnEndpointClientRouteMonitoringOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClientVpnEndpointClientRouteMonitoringOptions)(nil)).Elem()
-}
-
-func (i *clientVpnEndpointClientRouteMonitoringOptionsPtrType) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return i.ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *clientVpnEndpointClientRouteMonitoringOptionsPtrType) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput)
-}
-
-type ClientVpnEndpointClientRouteMonitoringOptionsOutput struct{ *pulumi.OutputState }
-
-func (ClientVpnEndpointClientRouteMonitoringOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientVpnEndpointClientRouteMonitoringOptions)(nil)).Elem()
-}
-
-func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) ToClientVpnEndpointClientRouteMonitoringOptionsOutput() ClientVpnEndpointClientRouteMonitoringOptionsOutput {
-	return o
-}
-
-func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) ToClientVpnEndpointClientRouteMonitoringOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsOutput {
-	return o
-}
-
-func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return o.ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointClientRouteMonitoringOptions) *ClientVpnEndpointClientRouteMonitoringOptions {
-		return &v
-	}).(ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput)
-}
-
-func (o ClientVpnEndpointClientRouteMonitoringOptionsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClientVpnEndpointClientRouteMonitoringOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClientVpnEndpointClientRouteMonitoringOptions)(nil)).Elem()
-}
-
-func (o ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutput() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return o
-}
-
-func (o ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) ToClientVpnEndpointClientRouteMonitoringOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return o
-}
-
-func (o ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) Elem() ClientVpnEndpointClientRouteMonitoringOptionsOutput {
-	return o.ApplyT(func(v *ClientVpnEndpointClientRouteMonitoringOptions) ClientVpnEndpointClientRouteMonitoringOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ClientVpnEndpointClientRouteMonitoringOptions
-		return ret
-	}).(ClientVpnEndpointClientRouteMonitoringOptionsOutput)
-}
-
-func (o ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClientVpnEndpointClientRouteMonitoringOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
 type ClientVpnEndpointConnectionLogOptions struct {
 	CloudwatchLogGroup  *string `pulumi:"cloudwatchLogGroup"`
 	CloudwatchLogStream *string `pulumi:"cloudwatchLogStream"`
@@ -3133,29 +3000,30 @@ func (o Ec2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Version() pulu
 }
 
 type Ec2FleetInstanceRequirementsRequest struct {
-	AcceleratorCount                          *Ec2FleetAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  []Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          []Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 *Ec2FleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      []string                                                          `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 *Ec2FleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  *Ec2FleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      *Ec2FleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
-	CpuManufacturers                          []Ec2FleetInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     []string                                                          `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       []Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
-	LocalStorage                              *Ec2FleetInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
-	LocalStorageTypes                         []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          *Ec2FleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 *Ec2FleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      *Ec2FleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     *Ec2FleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice *int                                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   *bool                                                             `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     *int                                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       *Ec2FleetTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 *Ec2FleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
+	AcceleratorCount                               *Ec2FleetAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       []Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               []Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                      *Ec2FleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                               []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           []string                                                          `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      *Ec2FleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       *Ec2FleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           *Ec2FleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
+	CpuManufacturers                               []Ec2FleetInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          []string                                                          `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            []Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
+	LocalStorage                                   *Ec2FleetInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
+	LocalStorageTypes                              []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                                              `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               *Ec2FleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      *Ec2FleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           *Ec2FleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          *Ec2FleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      *int                                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        *bool                                                             `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          *int                                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            *Ec2FleetTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                      *Ec2FleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
 }
 
 // Ec2FleetInstanceRequirementsRequestInput is an input type that accepts Ec2FleetInstanceRequirementsRequestArgs and Ec2FleetInstanceRequirementsRequestOutput values.
@@ -3170,29 +3038,30 @@ type Ec2FleetInstanceRequirementsRequestInput interface {
 }
 
 type Ec2FleetInstanceRequirementsRequestArgs struct {
-	AcceleratorCount                          Ec2FleetAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      pulumi.StringArrayInput                                                   `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 Ec2FleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
-	CpuManufacturers                          Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     pulumi.StringArrayInput                                                   `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
-	LocalStorage                              Ec2FleetInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
-	LocalStorageTypes                         Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          Ec2FleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 Ec2FleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      Ec2FleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     Ec2FleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                                        `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   pulumi.BoolPtrInput                                                       `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                                        `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       Ec2FleetTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 Ec2FleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
+	AcceleratorCount                               Ec2FleetAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                      Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                               Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           pulumi.StringArrayInput                                                   `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      Ec2FleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           Ec2FleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
+	CpuManufacturers                               Ec2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                   `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            Ec2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
+	LocalStorage                                   Ec2FleetInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
+	LocalStorageTypes                              Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                                                        `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               Ec2FleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      Ec2FleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           Ec2FleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          Ec2FleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntPtrInput                                                        `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        pulumi.BoolPtrInput                                                       `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          pulumi.IntPtrInput                                                        `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            Ec2FleetTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                      Ec2FleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
 }
 
 func (Ec2FleetInstanceRequirementsRequestArgs) ElementType() reflect.Type {
@@ -3350,6 +3219,12 @@ func (o Ec2FleetInstanceRequirementsRequestOutput) LocalStorageTypes() Ec2FleetI
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) []Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem {
 		return v.LocalStorageTypes
 	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+}
+
+func (o Ec2FleetInstanceRequirementsRequestOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o Ec2FleetInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
@@ -3544,6 +3419,15 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) LocalStorageTypes() Ec2Fle
 		}
 		return v.LocalStorageTypes
 	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+}
+
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() Ec2FleetMemoryGiBPerVCpuRequestPtrOutput {
@@ -5684,8 +5568,11 @@ func (o Ec2FleetVCpuCountRangeRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type EipTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -8611,11 +8498,11 @@ type KeyPairTag struct {
 	Value string `pulumi:"value"`
 }
 
-// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 type LaunchTemplateAcceleratorCount struct {
-	// The maximum number of accelerators.
+	// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
 	Max *int `pulumi:"max"`
-	// The minimum number of accelerators.
+	// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -8630,11 +8517,11 @@ type LaunchTemplateAcceleratorCountInput interface {
 	ToLaunchTemplateAcceleratorCountOutputWithContext(context.Context) LaunchTemplateAcceleratorCountOutput
 }
 
-// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 type LaunchTemplateAcceleratorCountArgs struct {
-	// The maximum number of accelerators.
+	// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum number of accelerators.
+	// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -8691,7 +8578,7 @@ func (i *launchTemplateAcceleratorCountPtrType) ToLaunchTemplateAcceleratorCount
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateAcceleratorCountPtrOutput)
 }
 
-// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 type LaunchTemplateAcceleratorCountOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateAcceleratorCountOutput) ElementType() reflect.Type {
@@ -8716,12 +8603,12 @@ func (o LaunchTemplateAcceleratorCountOutput) ToLaunchTemplateAcceleratorCountPt
 	}).(LaunchTemplateAcceleratorCountPtrOutput)
 }
 
-// The maximum number of accelerators.
+// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set “Max“ to “0“.
 func (o LaunchTemplateAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateAcceleratorCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of accelerators.
+// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateAcceleratorCount) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -8750,7 +8637,7 @@ func (o LaunchTemplateAcceleratorCountPtrOutput) Elem() LaunchTemplateAccelerato
 	}).(LaunchTemplateAcceleratorCountOutput)
 }
 
-// The maximum number of accelerators.
+// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set “Max“ to “0“.
 func (o LaunchTemplateAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateAcceleratorCount) *int {
 		if v == nil {
@@ -8760,7 +8647,7 @@ func (o LaunchTemplateAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of accelerators.
+// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateAcceleratorCount) *int {
 		if v == nil {
@@ -8772,9 +8659,9 @@ func (o LaunchTemplateAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
 
 // The minimum and maximum amount of total accelerator memory, in MiB.
 type LaunchTemplateAcceleratorTotalMemoryMiB struct {
-	// The maximum amount of accelerator memory, in MiB.
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// The minimum amount of accelerator memory, in MiB.
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -8791,9 +8678,9 @@ type LaunchTemplateAcceleratorTotalMemoryMiBInput interface {
 
 // The minimum and maximum amount of total accelerator memory, in MiB.
 type LaunchTemplateAcceleratorTotalMemoryMiBArgs struct {
-	// The maximum amount of accelerator memory, in MiB.
+	// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum amount of accelerator memory, in MiB.
+	// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -8875,12 +8762,12 @@ func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) ToLaunchTemplateAccelerat
 	}).(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput)
 }
 
-// The maximum amount of accelerator memory, in MiB.
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateAcceleratorTotalMemoryMiB) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum amount of accelerator memory, in MiB.
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateAcceleratorTotalMemoryMiBOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateAcceleratorTotalMemoryMiB) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -8909,7 +8796,7 @@ func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Elem() LaunchTemplateA
 	}).(LaunchTemplateAcceleratorTotalMemoryMiBOutput)
 }
 
-// The maximum amount of accelerator memory, in MiB.
+// The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateAcceleratorTotalMemoryMiB) *int {
 		if v == nil {
@@ -8919,7 +8806,7 @@ func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Max() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum amount of accelerator memory, in MiB.
+// The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateAcceleratorTotalMemoryMiB) *int {
 		if v == nil {
@@ -8929,11 +8816,11 @@ func (o LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput) Min() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
 type LaunchTemplateBaselineEbsBandwidthMbps struct {
-	// The maximum baseline bandwidth, in Mbps.
+	// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// The minimum baseline bandwidth, in Mbps.
+	// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -8948,11 +8835,11 @@ type LaunchTemplateBaselineEbsBandwidthMbpsInput interface {
 	ToLaunchTemplateBaselineEbsBandwidthMbpsOutputWithContext(context.Context) LaunchTemplateBaselineEbsBandwidthMbpsOutput
 }
 
-// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
 type LaunchTemplateBaselineEbsBandwidthMbpsArgs struct {
-	// The maximum baseline bandwidth, in Mbps.
+	// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum baseline bandwidth, in Mbps.
+	// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -9009,7 +8896,7 @@ func (i *launchTemplateBaselineEbsBandwidthMbpsPtrType) ToLaunchTemplateBaseline
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
 type LaunchTemplateBaselineEbsBandwidthMbpsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateBaselineEbsBandwidthMbpsOutput) ElementType() reflect.Type {
@@ -9034,12 +8921,12 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateBaselineEb
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// The maximum baseline bandwidth, in Mbps.
+// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBaselineEbsBandwidthMbps) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum baseline bandwidth, in Mbps.
+// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBaselineEbsBandwidthMbps) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -9068,7 +8955,7 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Elem() LaunchTemplateBa
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsOutput)
 }
 
-// The maximum baseline bandwidth, in Mbps.
+// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -9078,7 +8965,7 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum baseline bandwidth, in Mbps.
+// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -9088,14 +8975,17 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Information about a block device mapping for an Amazon EC2 launch template.
+// Specifies a block device mapping for a launch template. You must specify “DeviceName“ plus exactly one of the following properties: “Ebs“, “NoDevice“, or “VirtualName“.
+//
+//	``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateBlockDeviceMapping struct {
-	// The user data to make available to the instance.
-	DeviceName *string            `pulumi:"deviceName"`
-	Ebs        *LaunchTemplateEbs `pulumi:"ebs"`
+	// The device name (for example, /dev/sdh or xvdh).
+	DeviceName *string `pulumi:"deviceName"`
+	// Parameters used to automatically set up EBS volumes when the instance is launched.
+	Ebs *LaunchTemplateEbs `pulumi:"ebs"`
 	// To omit the device from the block device mapping, specify an empty string.
 	NoDevice *string `pulumi:"noDevice"`
-	// The virtual device name (ephemeralN).
+	// The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -9110,14 +9000,17 @@ type LaunchTemplateBlockDeviceMappingInput interface {
 	ToLaunchTemplateBlockDeviceMappingOutputWithContext(context.Context) LaunchTemplateBlockDeviceMappingOutput
 }
 
-// Information about a block device mapping for an Amazon EC2 launch template.
+// Specifies a block device mapping for a launch template. You must specify “DeviceName“ plus exactly one of the following properties: “Ebs“, “NoDevice“, or “VirtualName“.
+//
+//	``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateBlockDeviceMappingArgs struct {
-	// The user data to make available to the instance.
-	DeviceName pulumi.StringPtrInput     `pulumi:"deviceName"`
-	Ebs        LaunchTemplateEbsPtrInput `pulumi:"ebs"`
+	// The device name (for example, /dev/sdh or xvdh).
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// Parameters used to automatically set up EBS volumes when the instance is launched.
+	Ebs LaunchTemplateEbsPtrInput `pulumi:"ebs"`
 	// To omit the device from the block device mapping, specify an empty string.
 	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
-	// The virtual device name (ephemeralN).
+	// The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -9158,7 +9051,9 @@ func (i LaunchTemplateBlockDeviceMappingArray) ToLaunchTemplateBlockDeviceMappin
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBlockDeviceMappingArrayOutput)
 }
 
-// Information about a block device mapping for an Amazon EC2 launch template.
+// Specifies a block device mapping for a launch template. You must specify “DeviceName“ plus exactly one of the following properties: “Ebs“, “NoDevice“, or “VirtualName“.
+//
+//	``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -9173,11 +9068,12 @@ func (o LaunchTemplateBlockDeviceMappingOutput) ToLaunchTemplateBlockDeviceMappi
 	return o
 }
 
-// The user data to make available to the instance.
+// The device name (for example, /dev/sdh or xvdh).
 func (o LaunchTemplateBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
+// Parameters used to automatically set up EBS volumes when the instance is launched.
 func (o LaunchTemplateBlockDeviceMappingOutput) Ebs() LaunchTemplateEbsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *LaunchTemplateEbs { return v.Ebs }).(LaunchTemplateEbsPtrOutput)
 }
@@ -9187,7 +9083,7 @@ func (o LaunchTemplateBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
 }
 
-// The virtual device name (ephemeralN).
+// The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
 func (o LaunchTemplateBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -9212,11 +9108,16 @@ func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) La
 	}).(LaunchTemplateBlockDeviceMappingOutput)
 }
 
-// Specifies an instance's Capacity Reservation targeting option.
+// Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
+//
+//	``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCapacityReservationSpecification struct {
-	// Indicates the instance's Capacity Reservation preferences.
-	CapacityReservationPreference *string                                  `pulumi:"capacityReservationPreference"`
-	CapacityReservationTarget     *LaunchTemplateCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+	// Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+	//   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+	//   +   ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	// Information about the target Capacity Reservation or Capacity Reservation group.
+	CapacityReservationTarget *LaunchTemplateCapacityReservationTarget `pulumi:"capacityReservationTarget"`
 }
 
 // LaunchTemplateCapacityReservationSpecificationInput is an input type that accepts LaunchTemplateCapacityReservationSpecificationArgs and LaunchTemplateCapacityReservationSpecificationOutput values.
@@ -9230,11 +9131,16 @@ type LaunchTemplateCapacityReservationSpecificationInput interface {
 	ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(context.Context) LaunchTemplateCapacityReservationSpecificationOutput
 }
 
-// Specifies an instance's Capacity Reservation targeting option.
+// Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
+//
+//	``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCapacityReservationSpecificationArgs struct {
-	// Indicates the instance's Capacity Reservation preferences.
-	CapacityReservationPreference pulumi.StringPtrInput                           `pulumi:"capacityReservationPreference"`
-	CapacityReservationTarget     LaunchTemplateCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+	// Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+	//   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+	//   +   ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
+	// Information about the target Capacity Reservation or Capacity Reservation group.
+	CapacityReservationTarget LaunchTemplateCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
 }
 
 func (LaunchTemplateCapacityReservationSpecificationArgs) ElementType() reflect.Type {
@@ -9290,7 +9196,9 @@ func (i *launchTemplateCapacityReservationSpecificationPtrType) ToLaunchTemplate
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
 
-// Specifies an instance's Capacity Reservation targeting option.
+// Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
+//
+//	``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateCapacityReservationSpecificationOutput) ElementType() reflect.Type {
@@ -9315,11 +9223,14 @@ func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCa
 	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
 
-// Indicates the instance's Capacity Reservation preferences.
+// Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+//   - “open“ - The instance can run in any “open“ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+//   - “none“ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
 func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
 }
 
+// Information about the target Capacity Reservation or Capacity Reservation group.
 func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationTargetPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationTarget {
 		return v.CapacityReservationTarget
@@ -9350,7 +9261,9 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) Elem() LaunchTe
 	}).(LaunchTemplateCapacityReservationSpecificationOutput)
 }
 
-// Indicates the instance's Capacity Reservation preferences.
+// Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+//   - “open“ - The instance can run in any “open“ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+//   - “none“ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
 func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *string {
 		if v == nil {
@@ -9360,6 +9273,7 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReserva
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information about the target Capacity Reservation or Capacity Reservation group.
 func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationTargetPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationTarget {
 		if v == nil {
@@ -9370,6 +9284,8 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReserva
 }
 
 // Specifies a target Capacity Reservation.
+//
+//	``CapacityReservationTarget`` is a property of the [Amazon EC2 LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) property type.
 type LaunchTemplateCapacityReservationTarget struct {
 	// The ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId *string `pulumi:"capacityReservationId"`
@@ -9389,6 +9305,8 @@ type LaunchTemplateCapacityReservationTargetInput interface {
 }
 
 // Specifies a target Capacity Reservation.
+//
+//	``CapacityReservationTarget`` is a property of the [Amazon EC2 LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) property type.
 type LaunchTemplateCapacityReservationTargetArgs struct {
 	// The ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
@@ -9450,6 +9368,8 @@ func (i *launchTemplateCapacityReservationTargetPtrType) ToLaunchTemplateCapacit
 }
 
 // Specifies a target Capacity Reservation.
+//
+//	``CapacityReservationTarget`` is a property of the [Amazon EC2 LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) property type.
 type LaunchTemplateCapacityReservationTargetOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateCapacityReservationTargetOutput) ElementType() reflect.Type {
@@ -9528,13 +9448,13 @@ func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationRes
 	}).(pulumi.StringPtrOutput)
 }
 
-// Allows customer to specify Connection Tracking options
+// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide*.
 type LaunchTemplateConnectionTrackingSpecification struct {
-	// Integer value for TCP Established Timeout
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
-	// Integer value for UDP Stream Timeout
+	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 	UdpStreamTimeout *int `pulumi:"udpStreamTimeout"`
-	// Integer value for UDP Timeout
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 	UdpTimeout *int `pulumi:"udpTimeout"`
 }
 
@@ -9549,13 +9469,13 @@ type LaunchTemplateConnectionTrackingSpecificationInput interface {
 	ToLaunchTemplateConnectionTrackingSpecificationOutputWithContext(context.Context) LaunchTemplateConnectionTrackingSpecificationOutput
 }
 
-// Allows customer to specify Connection Tracking options
+// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide*.
 type LaunchTemplateConnectionTrackingSpecificationArgs struct {
-	// Integer value for TCP Established Timeout
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout pulumi.IntPtrInput `pulumi:"tcpEstablishedTimeout"`
-	// Integer value for UDP Stream Timeout
+	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 	UdpStreamTimeout pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
-	// Integer value for UDP Timeout
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 	UdpTimeout pulumi.IntPtrInput `pulumi:"udpTimeout"`
 }
 
@@ -9612,7 +9532,7 @@ func (i *launchTemplateConnectionTrackingSpecificationPtrType) ToLaunchTemplateC
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateConnectionTrackingSpecificationPtrOutput)
 }
 
-// Allows customer to specify Connection Tracking options
+// A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide*.
 type LaunchTemplateConnectionTrackingSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateConnectionTrackingSpecificationOutput) ElementType() reflect.Type {
@@ -9637,17 +9557,17 @@ func (o LaunchTemplateConnectionTrackingSpecificationOutput) ToLaunchTemplateCon
 	}).(LaunchTemplateConnectionTrackingSpecificationPtrOutput)
 }
 
-// Integer value for TCP Established Timeout
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 func (o LaunchTemplateConnectionTrackingSpecificationOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateConnectionTrackingSpecification) *int { return v.TcpEstablishedTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Integer value for UDP Stream Timeout
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 func (o LaunchTemplateConnectionTrackingSpecificationOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateConnectionTrackingSpecification) *int { return v.UdpStreamTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Integer value for UDP Timeout
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 func (o LaunchTemplateConnectionTrackingSpecificationOutput) UdpTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateConnectionTrackingSpecification) *int { return v.UdpTimeout }).(pulumi.IntPtrOutput)
 }
@@ -9676,7 +9596,7 @@ func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) Elem() LaunchTem
 	}).(LaunchTemplateConnectionTrackingSpecificationOutput)
 }
 
-// Integer value for TCP Established Timeout
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateConnectionTrackingSpecification) *int {
 		if v == nil {
@@ -9686,7 +9606,7 @@ func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) TcpEstablishedTi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Integer value for UDP Stream Timeout
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateConnectionTrackingSpecification) *int {
 		if v == nil {
@@ -9696,7 +9616,7 @@ func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) UdpStreamTimeout
 	}).(pulumi.IntPtrOutput)
 }
 
-// Integer value for UDP Timeout
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) UdpTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateConnectionTrackingSpecification) *int {
 		if v == nil {
@@ -9706,13 +9626,15 @@ func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) UdpTimeout() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// specifies the CPU options for an instance.
+// Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
+//
+//	``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCpuOptions struct {
-	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
 	AmdSevSnp *LaunchTemplateCpuOptionsAmdSevSnp `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount *int `pulumi:"coreCount"`
-	// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+	// The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 }
 
@@ -9727,13 +9649,15 @@ type LaunchTemplateCpuOptionsInput interface {
 	ToLaunchTemplateCpuOptionsOutputWithContext(context.Context) LaunchTemplateCpuOptionsOutput
 }
 
-// specifies the CPU options for an instance.
+// Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
+//
+//	``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCpuOptionsArgs struct {
-	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
 	AmdSevSnp LaunchTemplateCpuOptionsAmdSevSnpPtrInput `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
-	// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+	// The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 }
 
@@ -9790,7 +9714,9 @@ func (i *launchTemplateCpuOptionsPtrType) ToLaunchTemplateCpuOptionsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsPtrOutput)
 }
 
-// specifies the CPU options for an instance.
+// Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
+//
+//	``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCpuOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateCpuOptionsOutput) ElementType() reflect.Type {
@@ -9815,7 +9741,7 @@ func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithC
 	}).(LaunchTemplateCpuOptionsPtrOutput)
 }
 
-// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
 func (o LaunchTemplateCpuOptionsOutput) AmdSevSnp() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *LaunchTemplateCpuOptionsAmdSevSnp { return v.AmdSevSnp }).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
 }
@@ -9825,7 +9751,7 @@ func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
-// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+// The number of threads per CPU core. To disable multithreading for the instance, specify a value of “1“. Otherwise, specify the default value of “2“.
 func (o LaunchTemplateCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
 }
@@ -9854,7 +9780,7 @@ func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput
 	}).(LaunchTemplateCpuOptionsOutput)
 }
 
-// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
 func (o LaunchTemplateCpuOptionsPtrOutput) AmdSevSnp() LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *LaunchTemplateCpuOptionsAmdSevSnp {
 		if v == nil {
@@ -9874,7 +9800,7 @@ func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+// The number of threads per CPU core. To disable multithreading for the instance, specify a value of “1“. Otherwise, specify the default value of “2“.
 func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
 		if v == nil {
@@ -9884,9 +9810,12 @@ func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The user data to make available to the instance.
+// Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
+//
+//	``CreditSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCreditSpecification struct {
-	// The user data to make available to the instance.
+	// The credit option for CPU usage of a T instance.
+	//  Valid values: ``standard`` | ``unlimited``
 	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
@@ -9901,9 +9830,12 @@ type LaunchTemplateCreditSpecificationInput interface {
 	ToLaunchTemplateCreditSpecificationOutputWithContext(context.Context) LaunchTemplateCreditSpecificationOutput
 }
 
-// The user data to make available to the instance.
+// Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
+//
+//	``CreditSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCreditSpecificationArgs struct {
-	// The user data to make available to the instance.
+	// The credit option for CPU usage of a T instance.
+	//  Valid values: ``standard`` | ``unlimited``
 	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
@@ -9960,7 +9892,9 @@ func (i *launchTemplateCreditSpecificationPtrType) ToLaunchTemplateCreditSpecifi
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
-// The user data to make available to the instance.
+// Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
+//
+//	``CreditSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCreditSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateCreditSpecificationOutput) ElementType() reflect.Type {
@@ -9985,7 +9919,9 @@ func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecifica
 	}).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
-// The user data to make available to the instance.
+// The credit option for CPU usage of a T instance.
+//
+//	Valid values: ``standard`` | ``unlimited``
 func (o LaunchTemplateCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
@@ -10014,7 +9950,9 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) Elem() LaunchTemplateCreditS
 	}).(LaunchTemplateCreditSpecificationOutput)
 }
 
-// The user data to make available to the instance.
+// The credit option for CPU usage of a T instance.
+//
+//	Valid values: ``standard`` | ``unlimited``
 func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) *string {
 		if v == nil {
@@ -10024,54 +9962,97 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The information for the launch template.
+// The information to include in the launch template.
+//
+//	You must specify at least one parameter for the launch template data.
 type LaunchTemplateData struct {
 	// The block device mapping.
-	BlockDeviceMappings              []LaunchTemplateBlockDeviceMapping              `pulumi:"blockDeviceMappings"`
+	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	// The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
-	CpuOptions                       *LaunchTemplateCpuOptions                       `pulumi:"cpuOptions"`
-	CreditSpecification              *LaunchTemplateCreditSpecification              `pulumi:"creditSpecification"`
-	// Indicates whether to enable the instance for stop protection.
+	// The CPU options for the instance. For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	CpuOptions *LaunchTemplateCpuOptions `pulumi:"cpuOptions"`
+	// The credit option for CPU usage of the instance. Valid only for T instances.
+	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
+	// Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.
 	DisableApiStop *bool `pulumi:"disableApiStop"`
-	// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
+	// If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
-	// Indicates whether the instance is optimized for Amazon EBS I/O.
+	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
-	// An elastic GPU to associate with the instance.
+	// Deprecated.
+	//   Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
 	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// The elastic inference accelerator for the instance.
+	// An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
+	//  You cannot specify accelerators from different generations in the same request.
+	//   Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 	ElasticInferenceAccelerators []LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
-	EnclaveOptions               *LaunchTemplateEnclaveOptions               `pulumi:"enclaveOptions"`
-	HibernationOptions           *LaunchTemplateHibernationOptions           `pulumi:"hibernationOptions"`
-	IamInstanceProfile           *LaunchTemplateIamInstanceProfile           `pulumi:"iamInstanceProfile"`
+	// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
+	//  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
+	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
+	// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	HibernationOptions *LaunchTemplateHibernationOptions `pulumi:"hibernationOptions"`
+	// The name or Amazon Resource Name (ARN) of an IAM instance profile.
+	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
 	// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+	//  Valid formats:
+	//   +   ``ami-17characters00000``
+	//   +   ``resolve:ssm:parameter-name``
+	//   +   ``resolve:ssm:parameter-name:version-number``
+	//   +   ``resolve:ssm:parameter-name:label``
+	//
+	//  For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.
 	ImageId *string `pulumi:"imageId"`
 	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
-	InstanceInitiatedShutdownBehavior *string                              `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceMarketOptions             *LaunchTemplateInstanceMarketOptions `pulumi:"instanceMarketOptions"`
-	InstanceRequirements              *LaunchTemplateInstanceRequirements  `pulumi:"instanceRequirements"`
-	InstanceType                      *string                              `pulumi:"instanceType"`
+	//  Default: ``stop``
+	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
+	// The market (purchasing) option for the instances.
+	InstanceMarketOptions *LaunchTemplateInstanceMarketOptions `pulumi:"instanceMarketOptions"`
+	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+	//  You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+	//  When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+	//  To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+	//   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+	//   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+	//
+	//   If you specify ``InstanceReq
+	InstanceRequirements *LaunchTemplateInstanceRequirements `pulumi:"instanceRequirements"`
+	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	//  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
+	InstanceType *string `pulumi:"instanceType"`
 	// The ID of the kernel.
+	//  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
 	KernelId *string `pulumi:"kernelId"`
-	// The name of the EC2 key pair
+	// The name of the key pair. You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html).
+	//   If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
 	KeyName *string `pulumi:"keyName"`
 	// The license configurations.
 	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
-	MaintenanceOptions    *LaunchTemplateMaintenanceOptions    `pulumi:"maintenanceOptions"`
-	MetadataOptions       *LaunchTemplateMetadataOptions       `pulumi:"metadataOptions"`
-	Monitoring            *LaunchTemplateMonitoring            `pulumi:"monitoring"`
-	// If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
-	NetworkInterfaces     []LaunchTemplateNetworkInterface     `pulumi:"networkInterfaces"`
-	Placement             *LaunchTemplatePlacement             `pulumi:"placement"`
+	// The maintenance options of your instance.
+	MaintenanceOptions *LaunchTemplateMaintenanceOptions `pulumi:"maintenanceOptions"`
+	// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
+	// The monitoring for the instance.
+	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
+	// One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
+	// The placement for the instance.
+	Placement *LaunchTemplatePlacement `pulumi:"placement"`
+	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
-	RamDiskId             *string                              `pulumi:"ramDiskId"`
-	// One or more security group IDs.
+	// The ID of the RAM disk.
+	//   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	RamDiskId *string `pulumi:"ramDiskId"`
+	// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// One or more security group names.
+	// One or more security group names. For a nondefault VPC, you must use security group IDs instead.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The tags to apply to the resources that are created during instance launch.
+	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
+	//  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 	TagSpecifications []TagSpecification `pulumi:"tagSpecifications"`
-	// The user data to make available to the instance.
+	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.
+	//  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
 	UserData *string `pulumi:"userData"`
 }
 
@@ -10086,54 +10067,97 @@ type LaunchTemplateDataInput interface {
 	ToLaunchTemplateDataOutputWithContext(context.Context) LaunchTemplateDataOutput
 }
 
-// The information for the launch template.
+// The information to include in the launch template.
+//
+//	You must specify at least one parameter for the launch template data.
 type LaunchTemplateDataArgs struct {
 	// The block device mapping.
-	BlockDeviceMappings              LaunchTemplateBlockDeviceMappingArrayInput             `pulumi:"blockDeviceMappings"`
+	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
+	// The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrInput `pulumi:"capacityReservationSpecification"`
-	CpuOptions                       LaunchTemplateCpuOptionsPtrInput                       `pulumi:"cpuOptions"`
-	CreditSpecification              LaunchTemplateCreditSpecificationPtrInput              `pulumi:"creditSpecification"`
-	// Indicates whether to enable the instance for stop protection.
+	// The CPU options for the instance. For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	CpuOptions LaunchTemplateCpuOptionsPtrInput `pulumi:"cpuOptions"`
+	// The credit option for CPU usage of the instance. Valid only for T instances.
+	CreditSpecification LaunchTemplateCreditSpecificationPtrInput `pulumi:"creditSpecification"`
+	// Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.
 	DisableApiStop pulumi.BoolPtrInput `pulumi:"disableApiStop"`
-	// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
+	// If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
 	DisableApiTermination pulumi.BoolPtrInput `pulumi:"disableApiTermination"`
-	// Indicates whether the instance is optimized for Amazon EBS I/O.
+	// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
-	// An elastic GPU to associate with the instance.
+	// Deprecated.
+	//   Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
 	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput `pulumi:"elasticGpuSpecifications"`
-	// The elastic inference accelerator for the instance.
+	// An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
+	//  You cannot specify accelerators from different generations in the same request.
+	//   Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 	ElasticInferenceAccelerators LaunchTemplateElasticInferenceAcceleratorArrayInput `pulumi:"elasticInferenceAccelerators"`
-	EnclaveOptions               LaunchTemplateEnclaveOptionsPtrInput                `pulumi:"enclaveOptions"`
-	HibernationOptions           LaunchTemplateHibernationOptionsPtrInput            `pulumi:"hibernationOptions"`
-	IamInstanceProfile           LaunchTemplateIamInstanceProfilePtrInput            `pulumi:"iamInstanceProfile"`
+	// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
+	//  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
+	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput `pulumi:"enclaveOptions"`
+	// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	HibernationOptions LaunchTemplateHibernationOptionsPtrInput `pulumi:"hibernationOptions"`
+	// The name or Amazon Resource Name (ARN) of an IAM instance profile.
+	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput `pulumi:"iamInstanceProfile"`
 	// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+	//  Valid formats:
+	//   +   ``ami-17characters00000``
+	//   +   ``resolve:ssm:parameter-name``
+	//   +   ``resolve:ssm:parameter-name:version-number``
+	//   +   ``resolve:ssm:parameter-name:label``
+	//
+	//  For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.
 	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
 	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
-	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput                       `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrInput `pulumi:"instanceMarketOptions"`
-	InstanceRequirements              LaunchTemplateInstanceRequirementsPtrInput  `pulumi:"instanceRequirements"`
-	InstanceType                      pulumi.StringPtrInput                       `pulumi:"instanceType"`
+	//  Default: ``stop``
+	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput `pulumi:"instanceInitiatedShutdownBehavior"`
+	// The market (purchasing) option for the instances.
+	InstanceMarketOptions LaunchTemplateInstanceMarketOptionsPtrInput `pulumi:"instanceMarketOptions"`
+	// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+	//  You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+	//  When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+	//  To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+	//   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+	//   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+	//
+	//   If you specify ``InstanceReq
+	InstanceRequirements LaunchTemplateInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
+	// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	//  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The ID of the kernel.
+	//  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
 	KernelId pulumi.StringPtrInput `pulumi:"kernelId"`
-	// The name of the EC2 key pair
+	// The name of the key pair. You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html).
+	//   If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// The license configurations.
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput `pulumi:"licenseSpecifications"`
-	MaintenanceOptions    LaunchTemplateMaintenanceOptionsPtrInput     `pulumi:"maintenanceOptions"`
-	MetadataOptions       LaunchTemplateMetadataOptionsPtrInput        `pulumi:"metadataOptions"`
-	Monitoring            LaunchTemplateMonitoringPtrInput             `pulumi:"monitoring"`
-	// If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
-	NetworkInterfaces     LaunchTemplateNetworkInterfaceArrayInput    `pulumi:"networkInterfaces"`
-	Placement             LaunchTemplatePlacementPtrInput             `pulumi:"placement"`
+	// The maintenance options of your instance.
+	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrInput `pulumi:"maintenanceOptions"`
+	// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	MetadataOptions LaunchTemplateMetadataOptionsPtrInput `pulumi:"metadataOptions"`
+	// The monitoring for the instance.
+	Monitoring LaunchTemplateMonitoringPtrInput `pulumi:"monitoring"`
+	// One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	// The placement for the instance.
+	Placement LaunchTemplatePlacementPtrInput `pulumi:"placement"`
+	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput `pulumi:"privateDnsNameOptions"`
-	RamDiskId             pulumi.StringPtrInput                       `pulumi:"ramDiskId"`
-	// One or more security group IDs.
+	// The ID of the RAM disk.
+	//   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	RamDiskId pulumi.StringPtrInput `pulumi:"ramDiskId"`
+	// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// One or more security group names.
+	// One or more security group names. For a nondefault VPC, you must use security group IDs instead.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The tags to apply to the resources that are created during instance launch.
+	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
+	//  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 	TagSpecifications TagSpecificationArrayInput `pulumi:"tagSpecifications"`
-	// The user data to make available to the instance.
+	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.
+	//  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
 	UserData pulumi.StringPtrInput `pulumi:"userData"`
 }
 
@@ -10149,7 +10173,9 @@ func (i LaunchTemplateDataArgs) ToLaunchTemplateDataOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateDataOutput)
 }
 
-// The information for the launch template.
+// The information to include in the launch template.
+//
+//	You must specify at least one parameter for the launch template data.
 type LaunchTemplateDataOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateDataOutput) ElementType() reflect.Type {
@@ -10169,87 +10195,127 @@ func (o LaunchTemplateDataOutput) BlockDeviceMappings() LaunchTemplateBlockDevic
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateBlockDeviceMapping { return v.BlockDeviceMappings }).(LaunchTemplateBlockDeviceMappingArrayOutput)
 }
 
+// The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to “open“, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 func (o LaunchTemplateDataOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
 		return v.CapacityReservationSpecification
 	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
 
+// The CPU options for the instance. For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
 func (o LaunchTemplateDataOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCpuOptions { return v.CpuOptions }).(LaunchTemplateCpuOptionsPtrOutput)
 }
 
+// The credit option for CPU usage of the instance. Valid only for T instances.
 func (o LaunchTemplateDataOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCreditSpecification { return v.CreditSpecification }).(LaunchTemplateCreditSpecificationPtrOutput)
 }
 
-// Indicates whether to enable the instance for stop protection.
+// Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.
 func (o LaunchTemplateDataOutput) DisableApiStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
-// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
+// If you set this parameter to “true“, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set “InstanceInitiatedShutdownBehavior“ to “terminate“, you can terminate the instance by running the shutdown command from the instance.
 func (o LaunchTemplateDataOutput) DisableApiTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether the instance is optimized for Amazon EBS I/O.
+// Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 func (o LaunchTemplateDataOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
-// An elastic GPU to associate with the instance.
+// Deprecated.
+//
+//	Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
 func (o LaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticGpuSpecification { return v.ElasticGpuSpecifications }).(LaunchTemplateElasticGpuSpecificationArrayOutput)
 }
 
-// The elastic inference accelerator for the instance.
+// An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
+//
+//	You cannot specify accelerators from different generations in the same request.
+//	 Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 func (o LaunchTemplateDataOutput) ElasticInferenceAccelerators() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticInferenceAccelerator {
 		return v.ElasticInferenceAccelerators
 	}).(LaunchTemplateElasticInferenceAcceleratorArrayOutput)
 }
 
+// Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
+//
+//	You can't enable AWS Nitro Enclaves and hibernation on the same instance.
 func (o LaunchTemplateDataOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateEnclaveOptions { return v.EnclaveOptions }).(LaunchTemplateEnclaveOptionsPtrOutput)
 }
 
+// Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.
 func (o LaunchTemplateDataOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateHibernationOptions { return v.HibernationOptions }).(LaunchTemplateHibernationOptionsPtrOutput)
 }
 
+// The name or Amazon Resource Name (ARN) of an IAM instance profile.
 func (o LaunchTemplateDataOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateIamInstanceProfile { return v.IamInstanceProfile }).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
 
 // The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+//
+//	Valid formats:
+//	 +   ``ami-17characters00000``
+//	 +   ``resolve:ssm:parameter-name``
+//	 +   ``resolve:ssm:parameter-name:version-number``
+//	 +   ``resolve:ssm:parameter-name:label``
+//
+//	For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.
 func (o LaunchTemplateDataOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+//
+//	Default: ``stop``
 func (o LaunchTemplateDataOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
 }
 
+// The market (purchasing) option for the instances.
 func (o LaunchTemplateDataOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateInstanceMarketOptions { return v.InstanceMarketOptions }).(LaunchTemplateInstanceMarketOptionsPtrOutput)
 }
 
+// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+//
+//	You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+//	When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+//	To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+//	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+//	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+//
+//	 If you specify ``InstanceReq
 func (o LaunchTemplateDataOutput) InstanceRequirements() LaunchTemplateInstanceRequirementsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateInstanceRequirements { return v.InstanceRequirements }).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
 
+// The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+//
+//	If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
 func (o LaunchTemplateDataOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the kernel.
+//
+//	We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) KernelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.KernelId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the EC2 key pair
+// The name of the key pair. You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html).
+//
+//	If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
 func (o LaunchTemplateDataOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
@@ -10259,72 +10325,100 @@ func (o LaunchTemplateDataOutput) LicenseSpecifications() LaunchTemplateLicenseS
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateLicenseSpecification { return v.LicenseSpecifications }).(LaunchTemplateLicenseSpecificationArrayOutput)
 }
 
+// The maintenance options of your instance.
 func (o LaunchTemplateDataOutput) MaintenanceOptions() LaunchTemplateMaintenanceOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMaintenanceOptions { return v.MaintenanceOptions }).(LaunchTemplateMaintenanceOptionsPtrOutput)
 }
 
+// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
 func (o LaunchTemplateDataOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMetadataOptions { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsPtrOutput)
 }
 
+// The monitoring for the instance.
 func (o LaunchTemplateDataOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMonitoring { return v.Monitoring }).(LaunchTemplateMonitoringPtrOutput)
 }
 
-// If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+// One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
 func (o LaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
 }
 
+// The placement for the instance.
 func (o LaunchTemplateDataOutput) Placement() LaunchTemplatePlacementPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplatePlacement { return v.Placement }).(LaunchTemplatePlacementPtrOutput)
 }
 
+// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 func (o LaunchTemplateDataOutput) PrivateDnsNameOptions() LaunchTemplatePrivateDnsNameOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplatePrivateDnsNameOptions { return v.PrivateDnsNameOptions }).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
 }
 
+// The ID of the RAM disk.
+//
+//	We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
 func (o LaunchTemplateDataOutput) RamDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.RamDiskId }).(pulumi.StringPtrOutput)
 }
 
-// One or more security group IDs.
+// The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
 func (o LaunchTemplateDataOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// One or more security group names.
+// One or more security group names. For a nondefault VPC, you must use security group IDs instead.
 func (o LaunchTemplateDataOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 // The tags to apply to the resources that are created during instance launch.
+//
+//	To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
+//	To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 func (o LaunchTemplateDataOutput) TagSpecifications() TagSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []TagSpecification { return v.TagSpecifications }).(TagSpecificationArrayOutput)
 }
 
-// The user data to make available to the instance.
+// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.
+//
+//	If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
 func (o LaunchTemplateDataOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
 // Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
+//
+//	``Ebs`` is a property of [AWS::EC2::LaunchTemplate BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html).
 type LaunchTemplateEbs struct {
 	// Indicates whether the EBS volume is deleted on instance termination.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The number of I/O operations per second (IOPS).
+	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	//  The following are the supported values for each volume type:
+	//   +   ``gp3``: 3,000 - 16,000 IOPS
+	//   +   ``io1``: 100 - 64,000 IOPS
+	//   +   ``io2``: 100 - 256,000 IOPS
+	//
+	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+	//  This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 	Iops *int `pulumi:"iops"`
-	// The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+	// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+	// The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.
+	//  Valid Range: Minimum value of 125. Maximum value of 1000.
 	Throughput *int `pulumi:"throughput"`
-	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
+	//   +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
+	//   +   ``io1``: 4 - 16,384 GiB
+	//   +   ``io2``: 4 - 65,536 GiB
+	//   +   ``st1`` and ``sc1``: 125 - 16,384 GiB
+	//   +   ``standard``: 1 - 1024 GiB
 	VolumeSize *int `pulumi:"volumeSize"`
-	// The volume type.
+	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -10340,22 +10434,37 @@ type LaunchTemplateEbsInput interface {
 }
 
 // Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
+//
+//	``Ebs`` is a property of [AWS::EC2::LaunchTemplate BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html).
 type LaunchTemplateEbsArgs struct {
 	// Indicates whether the EBS volume is deleted on instance termination.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// The number of I/O operations per second (IOPS).
+	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	//  The following are the supported values for each volume type:
+	//   +   ``gp3``: 3,000 - 16,000 IOPS
+	//   +   ``io1``: 100 - 64,000 IOPS
+	//   +   ``io2``: 100 - 256,000 IOPS
+	//
+	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+	//  This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+	// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+	// The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.
+	//  Valid Range: Minimum value of 125. Maximum value of 1000.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
-	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
+	//   +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
+	//   +   ``io1``: 4 - 16,384 GiB
+	//   +   ``io2``: 4 - 65,536 GiB
+	//   +   ``st1`` and ``sc1``: 125 - 16,384 GiB
+	//   +   ``standard``: 1 - 1024 GiB
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// The volume type.
+	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -10413,6 +10522,8 @@ func (i *launchTemplateEbsPtrType) ToLaunchTemplateEbsPtrOutputWithContext(ctx c
 }
 
 // Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
+//
+//	``Ebs`` is a property of [AWS::EC2::LaunchTemplate BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html).
 type LaunchTemplateEbsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateEbsOutput) ElementType() reflect.Type {
@@ -10447,12 +10558,20 @@ func (o LaunchTemplateEbsOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The number of I/O operations per second (IOPS).
+// The number of I/O operations per second (IOPS). For “gp3“, “io1“, and “io2“ volumes, this represents the number of IOPS that are provisioned for the volume. For “gp2“ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+//
+//	The following are the supported values for each volume type:
+//	 +   ``gp3``: 3,000 - 16,000 IOPS
+//	 +   ``io1``: 100 - 64,000 IOPS
+//	 +   ``io2``: 100 - 256,000 IOPS
+//
+//	For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+//	This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 func (o LaunchTemplateEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
 func (o LaunchTemplateEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -10462,17 +10581,24 @@ func (o LaunchTemplateEbsOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+// The throughput to provision for a “gp3“ volume, with a maximum of 1,000 MiB/s.
+//
+//	Valid Range: Minimum value of 125. Maximum value of 1000.
 func (o LaunchTemplateEbsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
-// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
+//   - “gp2“ and “gp3“: 1 - 16,384 GiB
+//   - “io1“: 4 - 16,384 GiB
+//   - “io2“: 4 - 65,536 GiB
+//   - “st1“ and “sc1“: 125 - 16,384 GiB
+//   - “standard“: 1 - 1024 GiB
 func (o LaunchTemplateEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// The volume type.
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
 func (o LaunchTemplateEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -10521,7 +10647,15 @@ func (o LaunchTemplateEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The number of I/O operations per second (IOPS).
+// The number of I/O operations per second (IOPS). For “gp3“, “io1“, and “io2“ volumes, this represents the number of IOPS that are provisioned for the volume. For “gp2“ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+//
+//	The following are the supported values for each volume type:
+//	 +   ``gp3``: 3,000 - 16,000 IOPS
+//	 +   ``io1``: 100 - 64,000 IOPS
+//	 +   ``io2``: 100 - 256,000 IOPS
+//
+//	For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+//	This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 func (o LaunchTemplateEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
 		if v == nil {
@@ -10531,7 +10665,7 @@ func (o LaunchTemplateEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
 func (o LaunchTemplateEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
 		if v == nil {
@@ -10551,7 +10685,9 @@ func (o LaunchTemplateEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+// The throughput to provision for a “gp3“ volume, with a maximum of 1,000 MiB/s.
+//
+//	Valid Range: Minimum value of 125. Maximum value of 1000.
 func (o LaunchTemplateEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
 		if v == nil {
@@ -10561,7 +10697,12 @@ func (o LaunchTemplateEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
+//   - “gp2“ and “gp3“: 1 - 16,384 GiB
+//   - “io1“: 4 - 16,384 GiB
+//   - “io2“: 4 - 65,536 GiB
+//   - “st1“ and “sc1“: 125 - 16,384 GiB
+//   - “standard“: 1 - 1024 GiB
 func (o LaunchTemplateEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
 		if v == nil {
@@ -10571,7 +10712,7 @@ func (o LaunchTemplateEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The volume type.
+// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
 func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
 		if v == nil {
@@ -10581,9 +10722,11 @@ func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a specification for an Elastic GPU for launch template.
+// Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+//
+//	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticGpuSpecification struct {
-	// The type of Elastic Graphics accelerator.
+	// The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
 	Type *string `pulumi:"type"`
 }
 
@@ -10598,9 +10741,11 @@ type LaunchTemplateElasticGpuSpecificationInput interface {
 	ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationOutput
 }
 
-// Specifies a specification for an Elastic GPU for launch template.
+// Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+//
+//	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticGpuSpecificationArgs struct {
-	// The type of Elastic Graphics accelerator.
+	// The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -10641,7 +10786,9 @@ func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSp
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationArrayOutput)
 }
 
-// Specifies a specification for an Elastic GPU for launch template.
+// Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+//
+//	``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateElasticGpuSpecificationOutput) ElementType() reflect.Type {
@@ -10656,7 +10803,7 @@ func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuS
 	return o
 }
 
-// The type of Elastic Graphics accelerator.
+// The type of Elastic Graphics accelerator. For more information about the values to specify for “Type“, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
 func (o LaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateElasticGpuSpecification) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -10682,10 +10829,13 @@ func (o LaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInpu
 }
 
 // Specifies an elastic inference accelerator.
+//
+//	``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticInferenceAccelerator struct {
 	// The number of elastic inference accelerators to attach to the instance.
+	//  Default: 1
 	Count *int `pulumi:"count"`
-	// The type of elastic inference accelerator.
+	// The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
 	Type *string `pulumi:"type"`
 }
 
@@ -10701,10 +10851,13 @@ type LaunchTemplateElasticInferenceAcceleratorInput interface {
 }
 
 // Specifies an elastic inference accelerator.
+//
+//	``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticInferenceAcceleratorArgs struct {
 	// The number of elastic inference accelerators to attach to the instance.
+	//  Default: 1
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The type of elastic inference accelerator.
+	// The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -10746,6 +10899,8 @@ func (i LaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateElasticI
 }
 
 // Specifies an elastic inference accelerator.
+//
+//	``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
@@ -10761,11 +10916,13 @@ func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElastic
 }
 
 // The number of elastic inference accelerators to attach to the instance.
+//
+//	Default: 1
 func (o LaunchTemplateElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The type of elastic inference accelerator.
+// The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
 func (o LaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -10790,10 +10947,13 @@ func (o LaunchTemplateElasticInferenceAcceleratorArrayOutput) Index(i pulumi.Int
 	}).(LaunchTemplateElasticInferenceAcceleratorOutput)
 }
 
-// Allows customer to specify ENA-SRD options
+// ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+//
+//	To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
 type LaunchTemplateEnaSrdSpecification struct {
-	// Enables TCP ENA-SRD
-	EnaSrdEnabled          *bool                                 `pulumi:"enaSrdEnabled"`
+	// Indicates whether ENA Express is enabled for the network interface.
+	EnaSrdEnabled *bool `pulumi:"enaSrdEnabled"`
+	// Configures ENA Express for UDP network traffic.
 	EnaSrdUdpSpecification *LaunchTemplateEnaSrdUdpSpecification `pulumi:"enaSrdUdpSpecification"`
 }
 
@@ -10808,10 +10968,13 @@ type LaunchTemplateEnaSrdSpecificationInput interface {
 	ToLaunchTemplateEnaSrdSpecificationOutputWithContext(context.Context) LaunchTemplateEnaSrdSpecificationOutput
 }
 
-// Allows customer to specify ENA-SRD options
+// ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+//
+//	To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
 type LaunchTemplateEnaSrdSpecificationArgs struct {
-	// Enables TCP ENA-SRD
-	EnaSrdEnabled          pulumi.BoolPtrInput                          `pulumi:"enaSrdEnabled"`
+	// Indicates whether ENA Express is enabled for the network interface.
+	EnaSrdEnabled pulumi.BoolPtrInput `pulumi:"enaSrdEnabled"`
+	// Configures ENA Express for UDP network traffic.
 	EnaSrdUdpSpecification LaunchTemplateEnaSrdUdpSpecificationPtrInput `pulumi:"enaSrdUdpSpecification"`
 }
 
@@ -10868,7 +11031,9 @@ func (i *launchTemplateEnaSrdSpecificationPtrType) ToLaunchTemplateEnaSrdSpecifi
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnaSrdSpecificationPtrOutput)
 }
 
-// Allows customer to specify ENA-SRD options
+// ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+//
+//	To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
 type LaunchTemplateEnaSrdSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateEnaSrdSpecificationOutput) ElementType() reflect.Type {
@@ -10893,11 +11058,12 @@ func (o LaunchTemplateEnaSrdSpecificationOutput) ToLaunchTemplateEnaSrdSpecifica
 	}).(LaunchTemplateEnaSrdSpecificationPtrOutput)
 }
 
-// Enables TCP ENA-SRD
+// Indicates whether ENA Express is enabled for the network interface.
 func (o LaunchTemplateEnaSrdSpecificationOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEnaSrdSpecification) *bool { return v.EnaSrdEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Configures ENA Express for UDP network traffic.
 func (o LaunchTemplateEnaSrdSpecificationOutput) EnaSrdUdpSpecification() LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEnaSrdSpecification) *LaunchTemplateEnaSrdUdpSpecification {
 		return v.EnaSrdUdpSpecification
@@ -10928,7 +11094,7 @@ func (o LaunchTemplateEnaSrdSpecificationPtrOutput) Elem() LaunchTemplateEnaSrdS
 	}).(LaunchTemplateEnaSrdSpecificationOutput)
 }
 
-// Enables TCP ENA-SRD
+// Indicates whether ENA Express is enabled for the network interface.
 func (o LaunchTemplateEnaSrdSpecificationPtrOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEnaSrdSpecification) *bool {
 		if v == nil {
@@ -10938,6 +11104,7 @@ func (o LaunchTemplateEnaSrdSpecificationPtrOutput) EnaSrdEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Configures ENA Express for UDP network traffic.
 func (o LaunchTemplateEnaSrdSpecificationPtrOutput) EnaSrdUdpSpecification() LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEnaSrdSpecification) *LaunchTemplateEnaSrdUdpSpecification {
 		if v == nil {
@@ -10947,9 +11114,9 @@ func (o LaunchTemplateEnaSrdSpecificationPtrOutput) EnaSrdUdpSpecification() Lau
 	}).(LaunchTemplateEnaSrdUdpSpecificationPtrOutput)
 }
 
-// Allows customer to specify ENA-SRD (UDP) options
+// ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.
 type LaunchTemplateEnaSrdUdpSpecification struct {
-	// Enables UDP ENA-SRD
+	// Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.
 	EnaSrdUdpEnabled *bool `pulumi:"enaSrdUdpEnabled"`
 }
 
@@ -10964,9 +11131,9 @@ type LaunchTemplateEnaSrdUdpSpecificationInput interface {
 	ToLaunchTemplateEnaSrdUdpSpecificationOutputWithContext(context.Context) LaunchTemplateEnaSrdUdpSpecificationOutput
 }
 
-// Allows customer to specify ENA-SRD (UDP) options
+// ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.
 type LaunchTemplateEnaSrdUdpSpecificationArgs struct {
-	// Enables UDP ENA-SRD
+	// Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.
 	EnaSrdUdpEnabled pulumi.BoolPtrInput `pulumi:"enaSrdUdpEnabled"`
 }
 
@@ -11023,7 +11190,7 @@ func (i *launchTemplateEnaSrdUdpSpecificationPtrType) ToLaunchTemplateEnaSrdUdpS
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnaSrdUdpSpecificationPtrOutput)
 }
 
-// Allows customer to specify ENA-SRD (UDP) options
+// ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.
 type LaunchTemplateEnaSrdUdpSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateEnaSrdUdpSpecificationOutput) ElementType() reflect.Type {
@@ -11048,7 +11215,7 @@ func (o LaunchTemplateEnaSrdUdpSpecificationOutput) ToLaunchTemplateEnaSrdUdpSpe
 	}).(LaunchTemplateEnaSrdUdpSpecificationPtrOutput)
 }
 
-// Enables UDP ENA-SRD
+// Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.
 func (o LaunchTemplateEnaSrdUdpSpecificationOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEnaSrdUdpSpecification) *bool { return v.EnaSrdUdpEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11077,7 +11244,7 @@ func (o LaunchTemplateEnaSrdUdpSpecificationPtrOutput) Elem() LaunchTemplateEnaS
 	}).(LaunchTemplateEnaSrdUdpSpecificationOutput)
 }
 
-// Enables UDP ENA-SRD
+// Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.
 func (o LaunchTemplateEnaSrdUdpSpecificationPtrOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEnaSrdUdpSpecification) *bool {
 		if v == nil {
@@ -11089,7 +11256,7 @@ func (o LaunchTemplateEnaSrdUdpSpecificationPtrOutput) EnaSrdUdpEnabled() pulumi
 
 // Indicates whether the instance is enabled for AWS Nitro Enclaves.
 type LaunchTemplateEnclaveOptions struct {
-	// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+	// If this parameter is set to ``true``, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -11106,7 +11273,7 @@ type LaunchTemplateEnclaveOptionsInput interface {
 
 // Indicates whether the instance is enabled for AWS Nitro Enclaves.
 type LaunchTemplateEnclaveOptionsArgs struct {
-	// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+	// If this parameter is set to ``true``, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -11188,7 +11355,7 @@ func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOut
 	}).(LaunchTemplateEnclaveOptionsPtrOutput)
 }
 
-// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+// If this parameter is set to “true“, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 func (o LaunchTemplateEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -11217,7 +11384,7 @@ func (o LaunchTemplateEnclaveOptionsPtrOutput) Elem() LaunchTemplateEnclaveOptio
 	}).(LaunchTemplateEnclaveOptionsOutput)
 }
 
-// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+// If this parameter is set to “true“, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
 func (o LaunchTemplateEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) *bool {
 		if v == nil {
@@ -11227,9 +11394,12 @@ func (o LaunchTemplateEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether your instance is configured for hibernation.
+// Specifies whether your instance is configured for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites). For more information, see [Hibernate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
+//
+//	``HibernationOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateHibernationOptions struct {
-	// TIf you set this parameter to true, the instance is enabled for hibernation.
+	// If you set this parameter to ``true``, the instance is enabled for hibernation.
+	//  Default: ``false``
 	Configured *bool `pulumi:"configured"`
 }
 
@@ -11244,9 +11414,12 @@ type LaunchTemplateHibernationOptionsInput interface {
 	ToLaunchTemplateHibernationOptionsOutputWithContext(context.Context) LaunchTemplateHibernationOptionsOutput
 }
 
-// Specifies whether your instance is configured for hibernation.
+// Specifies whether your instance is configured for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites). For more information, see [Hibernate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
+//
+//	``HibernationOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateHibernationOptionsArgs struct {
-	// TIf you set this parameter to true, the instance is enabled for hibernation.
+	// If you set this parameter to ``true``, the instance is enabled for hibernation.
+	//  Default: ``false``
 	Configured pulumi.BoolPtrInput `pulumi:"configured"`
 }
 
@@ -11303,7 +11476,9 @@ func (i *launchTemplateHibernationOptionsPtrType) ToLaunchTemplateHibernationOpt
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsPtrOutput)
 }
 
-// Specifies whether your instance is configured for hibernation.
+// Specifies whether your instance is configured for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites). For more information, see [Hibernate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
+//
+//	``HibernationOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateHibernationOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateHibernationOptionsOutput) ElementType() reflect.Type {
@@ -11328,7 +11503,9 @@ func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptio
 	}).(LaunchTemplateHibernationOptionsPtrOutput)
 }
 
-// TIf you set this parameter to true, the instance is enabled for hibernation.
+// If you set this parameter to “true“, the instance is enabled for hibernation.
+//
+//	Default: ``false``
 func (o LaunchTemplateHibernationOptionsOutput) Configured() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateHibernationOptions) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
 }
@@ -11357,7 +11534,9 @@ func (o LaunchTemplateHibernationOptionsPtrOutput) Elem() LaunchTemplateHibernat
 	}).(LaunchTemplateHibernationOptionsOutput)
 }
 
-// TIf you set this parameter to true, the instance is enabled for hibernation.
+// If you set this parameter to “true“, the instance is enabled for hibernation.
+//
+//	Default: ``false``
 func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) *bool {
 		if v == nil {
@@ -11367,7 +11546,10 @@ func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an IAM instance profile, which is a container for an IAM role for your instance.
+// Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
+//
+//	If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+//	 ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateIamInstanceProfile struct {
 	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn *string `pulumi:"arn"`
@@ -11386,7 +11568,10 @@ type LaunchTemplateIamInstanceProfileInput interface {
 	ToLaunchTemplateIamInstanceProfileOutputWithContext(context.Context) LaunchTemplateIamInstanceProfileOutput
 }
 
-// Specifies an IAM instance profile, which is a container for an IAM role for your instance.
+// Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
+//
+//	If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+//	 ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateIamInstanceProfileArgs struct {
 	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
@@ -11447,7 +11632,10 @@ func (i *launchTemplateIamInstanceProfilePtrType) ToLaunchTemplateIamInstancePro
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
 
-// Specifies an IAM instance profile, which is a container for an IAM role for your instance.
+// Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
+//
+//	If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+//	 ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateIamInstanceProfileOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateIamInstanceProfileOutput) ElementType() reflect.Type {
@@ -11526,10 +11714,13 @@ func (o LaunchTemplateIamInstanceProfilePtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The market (purchasing) option for the instances.
+// Specifies the market (purchasing) option for an instance.
+//
+//	``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateInstanceMarketOptions struct {
 	// The market type.
-	MarketType  *string                    `pulumi:"marketType"`
+	MarketType *string `pulumi:"marketType"`
+	// The options for Spot Instances.
 	SpotOptions *LaunchTemplateSpotOptions `pulumi:"spotOptions"`
 }
 
@@ -11544,10 +11735,13 @@ type LaunchTemplateInstanceMarketOptionsInput interface {
 	ToLaunchTemplateInstanceMarketOptionsOutputWithContext(context.Context) LaunchTemplateInstanceMarketOptionsOutput
 }
 
-// The market (purchasing) option for the instances.
+// Specifies the market (purchasing) option for an instance.
+//
+//	``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateInstanceMarketOptionsArgs struct {
 	// The market type.
-	MarketType  pulumi.StringPtrInput             `pulumi:"marketType"`
+	MarketType pulumi.StringPtrInput `pulumi:"marketType"`
+	// The options for Spot Instances.
 	SpotOptions LaunchTemplateSpotOptionsPtrInput `pulumi:"spotOptions"`
 }
 
@@ -11604,7 +11798,9 @@ func (i *launchTemplateInstanceMarketOptionsPtrType) ToLaunchTemplateInstanceMar
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsPtrOutput)
 }
 
-// The market (purchasing) option for the instances.
+// Specifies the market (purchasing) option for an instance.
+//
+//	``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateInstanceMarketOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateInstanceMarketOptionsOutput) ElementType() reflect.Type {
@@ -11634,6 +11830,7 @@ func (o LaunchTemplateInstanceMarketOptionsOutput) MarketType() pulumi.StringPtr
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
 }
 
+// The options for Spot Instances.
 func (o LaunchTemplateInstanceMarketOptionsOutput) SpotOptions() LaunchTemplateSpotOptionsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *LaunchTemplateSpotOptions { return v.SpotOptions }).(LaunchTemplateSpotOptionsPtrOutput)
 }
@@ -11672,6 +11869,7 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) MarketType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The options for Spot Instances.
 func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTemplateSpotOptionsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) *LaunchTemplateSpotOptions {
 		if v == nil {
@@ -11681,46 +11879,146 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTempla
 	}).(LaunchTemplateSpotOptionsPtrOutput)
 }
 
-// The attributes for the instance types.
+// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+//
+//	You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+//	When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+//	To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+//	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+//	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+//
+//	 If you specify ``InstanceReq
 type LaunchTemplateInstanceRequirements struct {
+	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+	//  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+	//  Default: No minimum or maximum limits
 	AcceleratorCount *LaunchTemplateAcceleratorCount `pulumi:"acceleratorCount"`
 	// Indicates whether instance types must have accelerators by specific manufacturers.
+	//   +  For instance types with AWS devices, specify ``amazon-web-services``.
+	//   +  For instance types with AMD devices, specify ``amd``.
+	//   +  For instance types with Habana devices, specify ``habana``.
+	//   +  For instance types with NVIDIA devices, specify ``nvidia``.
+	//   +  For instance types with Xilinx devices, specify ``xilinx``.
+	//
+	//  Default: Any manufacturer
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
 	// The accelerators that must be on the instance type.
-	AcceleratorNames          []string                                 `pulumi:"acceleratorNames"`
+	//   +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.
+	//   +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
+	//   +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
+	//   +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+	//   +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
+	//   +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+	//   +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
+	//   +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+	//   +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
+	//   +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+	//   +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
+	//   +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
+	//
+	//  Default: Any accelerator
+	AcceleratorNames []string `pulumi:"acceleratorNames"`
+	// The minimum and maximum amount of total accelerator memory, in MiB.
+	//  Default: No minimum or maximum limits
 	AcceleratorTotalMemoryMiB *LaunchTemplateAcceleratorTotalMemoryMiB `pulumi:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
+	//   +  For instance types with GPU accelerators, specify ``gpu``.
+	//   +  For instance types with FPGA accelerators, specify ``fpga``.
+	//   +  For instance types with inference accelerators, specify ``inference``.
+	//
+	//  Default: Any accelerator type
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
-	// The instance types to apply your specified attributes against.
+	// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+	//  You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+	//  For example, if you specify ``c5*``,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+	//   If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+	//   Default: All instance types
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
 	// Indicates whether bare metal instance types must be included, excluded, or required.
-	BareMetal                *string                                 `pulumi:"bareMetal"`
+	//   +  To include bare metal instance types, specify ``included``.
+	//   +  To require only bare metal instance types, specify ``required``.
+	//   +  To exclude bare metal instance types, specify ``excluded``.
+	//
+	//  Default: ``excluded``
+	BareMetal *string `pulumi:"bareMetal"`
+	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+	//  Default: No minimum or maximum limits
 	BaselineEbsBandwidthMbps *LaunchTemplateBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance     *string                                 `pulumi:"burstablePerformance"`
+	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
+	//   +  To include burstable performance instance types, specify ``included``.
+	//   +  To require only burstable performance instance types, specify ``required``.
+	//   +  To exclude burstable performance instance types, specify ``excluded``.
+	//
+	//  Default: ``excluded``
+	BurstablePerformance *string `pulumi:"burstablePerformance"`
 	// The CPU manufacturers to include.
+	//   +  For instance types with Intel CPUs, specify ``intel``.
+	//   +  For instance types with AMD CPUs, specify ``amd``.
+	//   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+	//
+	//   Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//   Default: Any manufacturer
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// The instance types to exclude.
+	//  You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+	//  For example, if you specify ``c5*``,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+	//   If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+	//   Default: No excluded instance types
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
-	// Indicates whether current or previous generation instance types are included.
+	// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
+	//  For current generation instance types, specify ``current``.
+	//  For previous generation instance types, specify ``previous``.
+	//  Default: Current and previous generation instance types
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
-	// The user data to make available to the instance.
+	// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
+	//   +  To include instance types with instance store volumes, specify ``included``.
+	//   +  To require only instance types with instance store volumes, specify ``required``.
+	//   +  To exclude instance types with instance store volumes, specify ``excluded``.
+	//
+	//  Default: ``included``
 	LocalStorage *string `pulumi:"localStorage"`
 	// The type of local storage that is required.
+	//   +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
+	//   +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
+	//
+	//  Default: ``hdd`` and ``ssd``
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
-	// The price protection threshold for Spot Instances.
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                 `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	MemoryGiBPerVCpu                               *LaunchTemplateMemoryGiBPerVCpu      `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                      *LaunchTemplateMemoryMiB             `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                           *LaunchTemplateNetworkBandwidthGbps  `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                          *LaunchTemplateNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
-	// The price protection threshold for On-Demand Instances.
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
+	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU, in GiB.
+	//  Default: No minimum or maximum limits
+	MemoryGiBPerVCpu *LaunchTemplateMemoryGiBPerVCpu `pulumi:"memoryGiBPerVCpu"`
+	// The minimum and maximum amount of memory, in MiB.
+	MemoryMiB *LaunchTemplateMemoryMiB `pulumi:"memoryMiB"`
+	// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+	//  Default: No minimum or maximum limits
+	NetworkBandwidthGbps *LaunchTemplateNetworkBandwidthGbps `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces.
+	//  Default: No minimum or maximum limits
+	NetworkInterfaceCount *LaunchTemplateNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
+	// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//  To turn off price protection, specify a high value, such as ``999999``.
+	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+	//   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
 	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
+	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
+	//  Default: ``false``
 	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
-	// The price protection threshold for Spot Instances.
-	SpotMaxPricePercentageOverLowestPrice *int                               `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                   *LaunchTemplateTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
-	VCpuCount                             *LaunchTemplateVCpuCount           `pulumi:"vCpuCount"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
+	//  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum amount of total local storage, in GB.
+	//  Default: No minimum or maximum limits
+	TotalLocalStorageGb *LaunchTemplateTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs.
+	VCpuCount *LaunchTemplateVCpuCount `pulumi:"vCpuCount"`
 }
 
 // LaunchTemplateInstanceRequirementsInput is an input type that accepts LaunchTemplateInstanceRequirementsArgs and LaunchTemplateInstanceRequirementsOutput values.
@@ -11734,46 +12032,146 @@ type LaunchTemplateInstanceRequirementsInput interface {
 	ToLaunchTemplateInstanceRequirementsOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsOutput
 }
 
-// The attributes for the instance types.
+// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+//
+//	You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+//	When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+//	To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+//	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+//	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+//
+//	 If you specify ``InstanceReq
 type LaunchTemplateInstanceRequirementsArgs struct {
+	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+	//  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+	//  Default: No minimum or maximum limits
 	AcceleratorCount LaunchTemplateAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// Indicates whether instance types must have accelerators by specific manufacturers.
+	//   +  For instance types with AWS devices, specify ``amazon-web-services``.
+	//   +  For instance types with AMD devices, specify ``amd``.
+	//   +  For instance types with Habana devices, specify ``habana``.
+	//   +  For instance types with NVIDIA devices, specify ``nvidia``.
+	//   +  For instance types with Xilinx devices, specify ``xilinx``.
+	//
+	//  Default: Any manufacturer
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
 	// The accelerators that must be on the instance type.
-	AcceleratorNames          pulumi.StringArrayInput                         `pulumi:"acceleratorNames"`
+	//   +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.
+	//   +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
+	//   +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
+	//   +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+	//   +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
+	//   +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+	//   +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
+	//   +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+	//   +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
+	//   +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+	//   +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
+	//   +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
+	//
+	//  Default: Any accelerator
+	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
+	// The minimum and maximum amount of total accelerator memory, in MiB.
+	//  Default: No minimum or maximum limits
 	AcceleratorTotalMemoryMiB LaunchTemplateAcceleratorTotalMemoryMiBPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
+	//   +  For instance types with GPU accelerators, specify ``gpu``.
+	//   +  For instance types with FPGA accelerators, specify ``fpga``.
+	//   +  For instance types with inference accelerators, specify ``inference``.
+	//
+	//  Default: Any accelerator type
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
-	// The instance types to apply your specified attributes against.
+	// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+	//  You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+	//  For example, if you specify ``c5*``,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+	//   If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+	//   Default: All instance types
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
 	// Indicates whether bare metal instance types must be included, excluded, or required.
-	BareMetal                pulumi.StringPtrInput                          `pulumi:"bareMetal"`
+	//   +  To include bare metal instance types, specify ``included``.
+	//   +  To require only bare metal instance types, specify ``required``.
+	//   +  To exclude bare metal instance types, specify ``excluded``.
+	//
+	//  Default: ``excluded``
+	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
+	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+	//  Default: No minimum or maximum limits
 	BaselineEbsBandwidthMbps LaunchTemplateBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance     pulumi.StringPtrInput                          `pulumi:"burstablePerformance"`
+	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
+	//   +  To include burstable performance instance types, specify ``included``.
+	//   +  To require only burstable performance instance types, specify ``required``.
+	//   +  To exclude burstable performance instance types, specify ``excluded``.
+	//
+	//  Default: ``excluded``
+	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
 	// The CPU manufacturers to include.
+	//   +  For instance types with Intel CPUs, specify ``intel``.
+	//   +  For instance types with AMD CPUs, specify ``amd``.
+	//   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+	//
+	//   Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//   Default: Any manufacturer
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// The instance types to exclude.
+	//  You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+	//  For example, if you specify ``c5*``,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+	//   If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+	//   Default: No excluded instance types
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
-	// Indicates whether current or previous generation instance types are included.
+	// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
+	//  For current generation instance types, specify ``current``.
+	//  For previous generation instance types, specify ``previous``.
+	//  Default: Current and previous generation instance types
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
-	// The user data to make available to the instance.
+	// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
+	//   +  To include instance types with instance store volumes, specify ``included``.
+	//   +  To require only instance types with instance store volumes, specify ``required``.
+	//   +  To exclude instance types with instance store volumes, specify ``excluded``.
+	//
+	//  Default: ``included``
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// The type of local storage that is required.
+	//   +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
+	//   +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
+	//
+	//  Default: ``hdd`` and ``ssd``
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
-	// The price protection threshold for Spot Instances.
-	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                          `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	MemoryGiBPerVCpu                               LaunchTemplateMemoryGiBPerVCpuPtrInput      `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                      LaunchTemplateMemoryMiBPtrInput             `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                           LaunchTemplateNetworkBandwidthGbpsPtrInput  `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                          LaunchTemplateNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
-	// The price protection threshold for On-Demand Instances.
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
+	//  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	// The minimum and maximum amount of memory per vCPU, in GiB.
+	//  Default: No minimum or maximum limits
+	MemoryGiBPerVCpu LaunchTemplateMemoryGiBPerVCpuPtrInput `pulumi:"memoryGiBPerVCpu"`
+	// The minimum and maximum amount of memory, in MiB.
+	MemoryMiB LaunchTemplateMemoryMiBPtrInput `pulumi:"memoryMiB"`
+	// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+	//  Default: No minimum or maximum limits
+	NetworkBandwidthGbps LaunchTemplateNetworkBandwidthGbpsPtrInput `pulumi:"networkBandwidthGbps"`
+	// The minimum and maximum number of network interfaces.
+	//  Default: No minimum or maximum limits
+	NetworkInterfaceCount LaunchTemplateNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
+	// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//  To turn off price protection, specify a high value, such as ``999999``.
+	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+	//   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
+	//  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
+	//  Default: ``false``
 	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
-	// The price protection threshold for Spot Instances.
-	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                        `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                   LaunchTemplateTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
-	VCpuCount                             LaunchTemplateVCpuCountPtrInput           `pulumi:"vCpuCount"`
+	// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+	//  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+	//  To indicate no price protection threshold, specify a high value, such as ``999999``.
+	//  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// The minimum and maximum amount of total local storage, in GB.
+	//  Default: No minimum or maximum limits
+	TotalLocalStorageGb LaunchTemplateTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
+	// The minimum and maximum number of vCPUs.
+	VCpuCount LaunchTemplateVCpuCountPtrInput `pulumi:"vCpuCount"`
 }
 
 func (LaunchTemplateInstanceRequirementsArgs) ElementType() reflect.Type {
@@ -11829,7 +12227,15 @@ func (i *launchTemplateInstanceRequirementsPtrType) ToLaunchTemplateInstanceRequ
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
 
-// The attributes for the instance types.
+// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+//
+//	You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+//	When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+//	To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+//	 +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+//	 +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+//
+//	 If you specify ``InstanceReq
 type LaunchTemplateInstanceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateInstanceRequirementsOutput) ElementType() reflect.Type {
@@ -11854,20 +12260,65 @@ func (o LaunchTemplateInstanceRequirementsOutput) ToLaunchTemplateInstanceRequir
 	}).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
 
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+//
+//	To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorCount() LaunchTemplateAcceleratorCountPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateAcceleratorCount { return v.AcceleratorCount }).(LaunchTemplateAcceleratorCountPtrOutput)
 }
 
 // Indicates whether instance types must have accelerators by specific manufacturers.
+//
+//   - For instance types with AWS devices, specify “amazon-web-services“.
+//
+//   - For instance types with AMD devices, specify “amd“.
+//
+//   - For instance types with Habana devices, specify “habana“.
+//
+//   - For instance types with NVIDIA devices, specify “nvidia“.
+//
+//   - For instance types with Xilinx devices, specify “xilinx“.
+//
+//     Default: Any manufacturer
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorManufacturers }).(pulumi.StringArrayOutput)
 }
 
 // The accelerators that must be on the instance type.
+//
+//   - For instance types with NVIDIA A10G GPUs, specify “a10g“.
+//
+//   - For instance types with NVIDIA A100 GPUs, specify “a100“.
+//
+//   - For instance types with NVIDIA H100 GPUs, specify “h100“.
+//
+//   - For instance types with AWS Inferentia chips, specify “inferentia“.
+//
+//   - For instance types with NVIDIA GRID K520 GPUs, specify “k520“.
+//
+//   - For instance types with NVIDIA K80 GPUs, specify “k80“.
+//
+//   - For instance types with NVIDIA M60 GPUs, specify “m60“.
+//
+//   - For instance types with AMD Radeon Pro V520 GPUs, specify “radeon-pro-v520“.
+//
+//   - For instance types with NVIDIA T4 GPUs, specify “t4“.
+//
+//   - For instance types with NVIDIA T4G GPUs, specify “t4g“.
+//
+//   - For instance types with Xilinx VU9P FPGAs, specify “vu9p“.
+//
+//   - For instance types with NVIDIA V100 GPUs, specify “v100“.
+//
+//     Default: Any accelerator
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
 }
 
+// The minimum and maximum amount of total accelerator memory, in MiB.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMiB() LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateAcceleratorTotalMemoryMiB {
 		return v.AcceleratorTotalMemoryMiB
@@ -11875,103 +12326,198 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMiB() La
 }
 
 // The accelerator types that must be on the instance type.
+//
+//   - For instance types with GPU accelerators, specify “gpu“.
+//
+//   - For instance types with FPGA accelerators, specify “fpga“.
+//
+//   - For instance types with inference accelerators, specify “inference“.
+//
+//     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
 }
 
-// The instance types to apply your specified attributes against.
+// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+//
+//	You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+//	For example, if you specify ``c5*``,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+//	 If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+//	 Default: All instance types
 func (o LaunchTemplateInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
 // Indicates whether bare metal instance types must be included, excluded, or required.
+//
+//   - To include bare metal instance types, specify “included“.
+//
+//   - To require only bare metal instance types, specify “required“.
+//
+//   - To exclude bare metal instance types, specify “excluded“.
+//
+//     Default: “excluded“
 func (o LaunchTemplateInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
 }
 
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsOutput) BaselineEbsBandwidthMbps() LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateBaselineEbsBandwidthMbps {
 		return v.BaselineEbsBandwidthMbps
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
 }
 
+// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
+//
+//   - To include burstable performance instance types, specify “included“.
+//
+//   - To require only burstable performance instance types, specify “required“.
+//
+//   - To exclude burstable performance instance types, specify “excluded“.
+//
+//     Default: “excluded“
 func (o LaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BurstablePerformance }).(pulumi.StringPtrOutput)
 }
 
 // The CPU manufacturers to include.
+//
+//   - For instance types with Intel CPUs, specify “intel“.
+//
+//   - For instance types with AMD CPUs, specify “amd“.
+//
+//   - For instance types with AWS CPUs, specify “amazon-web-services“.
+//
+//     Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//     Default: Any manufacturer
 func (o LaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
 }
 
 // The instance types to exclude.
+//
+//	You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+//	For example, if you specify ``c5*``,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+//	 If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+//	 Default: No excluded instance types
 func (o LaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether current or previous generation instance types are included.
+// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
+//
+//	For current generation instance types, specify ``current``.
+//	For previous generation instance types, specify ``previous``.
+//	Default: Current and previous generation instance types
 func (o LaunchTemplateInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.InstanceGenerations }).(pulumi.StringArrayOutput)
 }
 
-// The user data to make available to the instance.
+// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
+//
+//   - To include instance types with instance store volumes, specify “included“.
+//
+//   - To require only instance types with instance store volumes, specify “required“.
+//
+//   - To exclude instance types with instance store volumes, specify “excluded“.
+//
+//     Default: “included“
 func (o LaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.LocalStorage }).(pulumi.StringPtrOutput)
 }
 
 // The type of local storage that is required.
+//
+//   - For instance types with hard disk drive (HDD) storage, specify “hdd“.
+//
+//   - For instance types with solid state drive (SSD) storage, specify “ssd“.
+//
+//     Default: “hdd“ and “ssd“
 func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
 }
 
-// The price protection threshold for Spot Instances.
+// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+//	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//	To indicate no price protection threshold, specify a high value, such as ``999999``.
+//	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
 func (o LaunchTemplateInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int {
 		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU, in GiB.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsOutput) MemoryGiBPerVCpu() LaunchTemplateMemoryGiBPerVCpuPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateMemoryGiBPerVCpu { return v.MemoryGiBPerVCpu }).(LaunchTemplateMemoryGiBPerVCpuPtrOutput)
 }
 
+// The minimum and maximum amount of memory, in MiB.
 func (o LaunchTemplateInstanceRequirementsOutput) MemoryMiB() LaunchTemplateMemoryMiBPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateMemoryMiB { return v.MemoryMiB }).(LaunchTemplateMemoryMiBPtrOutput)
 }
 
+// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsOutput) NetworkBandwidthGbps() LaunchTemplateNetworkBandwidthGbpsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateNetworkBandwidthGbps {
 		return v.NetworkBandwidthGbps
 	}).(LaunchTemplateNetworkBandwidthGbpsPtrOutput)
 }
 
+// The minimum and maximum number of network interfaces.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsOutput) NetworkInterfaceCount() LaunchTemplateNetworkInterfaceCountPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateNetworkInterfaceCount {
 		return v.NetworkInterfaceCount
 	}).(LaunchTemplateNetworkInterfaceCountPtrOutput)
 }
 
-// The price protection threshold for On-Demand Instances.
+// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+//	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//	To turn off price protection, specify a high value, such as ``999999``.
+//	This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+//	 If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
 func (o LaunchTemplateInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
 // Indicates whether instance types must support hibernation for On-Demand Instances.
+//
+//	This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
+//	Default: ``false``
 func (o LaunchTemplateInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
 }
 
-// The price protection threshold for Spot Instances.
+// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+//
+//	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//	To indicate no price protection threshold, specify a high value, such as ``999999``.
+//	If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
 func (o LaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of total local storage, in GB.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsOutput) TotalLocalStorageGb() LaunchTemplateTotalLocalStorageGbPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGb {
 		return v.TotalLocalStorageGb
 	}).(LaunchTemplateTotalLocalStorageGbPtrOutput)
 }
 
+// The minimum and maximum number of vCPUs.
 func (o LaunchTemplateInstanceRequirementsOutput) VCpuCount() LaunchTemplateVCpuCountPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateVCpuCount { return v.VCpuCount }).(LaunchTemplateVCpuCountPtrOutput)
 }
@@ -12000,6 +12546,10 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) Elem() LaunchTemplateInstan
 	}).(LaunchTemplateInstanceRequirementsOutput)
 }
 
+// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+//
+//	To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() LaunchTemplateAcceleratorCountPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateAcceleratorCount {
 		if v == nil {
@@ -12010,6 +12560,18 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() LaunchTe
 }
 
 // Indicates whether instance types must have accelerators by specific manufacturers.
+//
+//   - For instance types with AWS devices, specify “amazon-web-services“.
+//
+//   - For instance types with AMD devices, specify “amd“.
+//
+//   - For instance types with Habana devices, specify “habana“.
+//
+//   - For instance types with NVIDIA devices, specify “nvidia“.
+//
+//   - For instance types with Xilinx devices, specify “xilinx“.
+//
+//     Default: Any manufacturer
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12020,6 +12582,32 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() 
 }
 
 // The accelerators that must be on the instance type.
+//
+//   - For instance types with NVIDIA A10G GPUs, specify “a10g“.
+//
+//   - For instance types with NVIDIA A100 GPUs, specify “a100“.
+//
+//   - For instance types with NVIDIA H100 GPUs, specify “h100“.
+//
+//   - For instance types with AWS Inferentia chips, specify “inferentia“.
+//
+//   - For instance types with NVIDIA GRID K520 GPUs, specify “k520“.
+//
+//   - For instance types with NVIDIA K80 GPUs, specify “k80“.
+//
+//   - For instance types with NVIDIA M60 GPUs, specify “m60“.
+//
+//   - For instance types with AMD Radeon Pro V520 GPUs, specify “radeon-pro-v520“.
+//
+//   - For instance types with NVIDIA T4 GPUs, specify “t4“.
+//
+//   - For instance types with NVIDIA T4G GPUs, specify “t4g“.
+//
+//   - For instance types with Xilinx VU9P FPGAs, specify “vu9p“.
+//
+//   - For instance types with NVIDIA V100 GPUs, specify “v100“.
+//
+//     Default: Any accelerator
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12029,6 +12617,9 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// The minimum and maximum amount of total accelerator memory, in MiB.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMiB() LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateAcceleratorTotalMemoryMiB {
 		if v == nil {
@@ -12039,6 +12630,14 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMiB()
 }
 
 // The accelerator types that must be on the instance type.
+//
+//   - For instance types with GPU accelerators, specify “gpu“.
+//
+//   - For instance types with FPGA accelerators, specify “fpga“.
+//
+//   - For instance types with inference accelerators, specify “inference“.
+//
+//     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12048,7 +12647,12 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// The instance types to apply your specified attributes against.
+// The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+//
+//	You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+//	For example, if you specify ``c5*``,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+//	 If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+//	 Default: All instance types
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12059,6 +12663,14 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulu
 }
 
 // Indicates whether bare metal instance types must be included, excluded, or required.
+//
+//   - To include bare metal instance types, specify “included“.
+//
+//   - To require only bare metal instance types, specify “required“.
+//
+//   - To exclude bare metal instance types, specify “excluded“.
+//
+//     Default: “excluded“
 func (o LaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -12068,6 +12680,9 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateBaselineEbsBandwidthMbps {
 		if v == nil {
@@ -12077,6 +12692,15 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() 
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
 }
 
+// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
+//
+//   - To include burstable performance instance types, specify “included“.
+//
+//   - To require only burstable performance instance types, specify “required“.
+//
+//   - To exclude burstable performance instance types, specify “excluded“.
+//
+//     Default: “excluded“
 func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -12087,6 +12711,15 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulu
 }
 
 // The CPU manufacturers to include.
+//
+//   - For instance types with Intel CPUs, specify “intel“.
+//
+//   - For instance types with AMD CPUs, specify “amd“.
+//
+//   - For instance types with AWS CPUs, specify “amazon-web-services“.
+//
+//     Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//     Default: Any manufacturer
 func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12097,6 +12730,11 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.S
 }
 
 // The instance types to exclude.
+//
+//	You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+//	For example, if you specify ``c5*``,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+//	 If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+//	 Default: No excluded instance types
 func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12106,7 +12744,11 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pul
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether current or previous generation instance types are included.
+// Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
+//
+//	For current generation instance types, specify ``current``.
+//	For previous generation instance types, specify ``previous``.
+//	Default: Current and previous generation instance types
 func (o LaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12116,7 +12758,15 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// The user data to make available to the instance.
+// Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
+//
+//   - To include instance types with instance store volumes, specify “included“.
+//
+//   - To require only instance types with instance store volumes, specify “required“.
+//
+//   - To exclude instance types with instance store volumes, specify “excluded“.
+//
+//     Default: “included“
 func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -12127,6 +12777,12 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.Strin
 }
 
 // The type of local storage that is required.
+//
+//   - For instance types with hard disk drive (HDD) storage, specify “hdd“.
+//
+//   - For instance types with solid state drive (SSD) storage, specify “ssd“.
+//
+//     Default: “hdd“ and “ssd“
 func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -12136,7 +12792,11 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// The price protection threshold for Spot Instances.
+// [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+//	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//	To indicate no price protection threshold, specify a high value, such as ``999999``.
+//	If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
 func (o LaunchTemplateInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -12146,6 +12806,9 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of memory per vCPU, in GiB.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryGiBPerVCpu() LaunchTemplateMemoryGiBPerVCpuPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateMemoryGiBPerVCpu {
 		if v == nil {
@@ -12155,6 +12818,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryGiBPerVCpu() LaunchTe
 	}).(LaunchTemplateMemoryGiBPerVCpuPtrOutput)
 }
 
+// The minimum and maximum amount of memory, in MiB.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryMiB() LaunchTemplateMemoryMiBPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateMemoryMiB {
 		if v == nil {
@@ -12164,6 +12828,9 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryMiB() LaunchTemplateM
 	}).(LaunchTemplateMemoryMiBPtrOutput)
 }
 
+// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkBandwidthGbps() LaunchTemplateNetworkBandwidthGbpsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateNetworkBandwidthGbps {
 		if v == nil {
@@ -12173,6 +12840,9 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkBandwidthGbps() Laun
 	}).(LaunchTemplateNetworkBandwidthGbpsPtrOutput)
 }
 
+// The minimum and maximum number of network interfaces.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkInterfaceCount() LaunchTemplateNetworkInterfaceCountPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateNetworkInterfaceCount {
 		if v == nil {
@@ -12182,7 +12852,12 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkInterfaceCount() Lau
 	}).(LaunchTemplateNetworkInterfaceCountPtrOutput)
 }
 
-// The price protection threshold for On-Demand Instances.
+// [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+//
+//	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//	To turn off price protection, specify a high value, such as ``999999``.
+//	This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+//	 If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
 func (o LaunchTemplateInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -12193,6 +12868,9 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageO
 }
 
 // Indicates whether instance types must support hibernation for On-Demand Instances.
+//
+//	This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
+//	Default: ``false``
 func (o LaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *bool {
 		if v == nil {
@@ -12202,7 +12880,11 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The price protection threshold for Spot Instances.
+// [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+//
+//	The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+//	To indicate no price protection threshold, specify a high value, such as ``999999``.
+//	If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
 func (o LaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -12212,6 +12894,9 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverL
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum and maximum amount of total local storage, in GB.
+//
+//	Default: No minimum or maximum limits
 func (o LaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGb() LaunchTemplateTotalLocalStorageGbPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGb {
 		if v == nil {
@@ -12221,6 +12906,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGb() Launc
 	}).(LaunchTemplateTotalLocalStorageGbPtrOutput)
 }
 
+// The minimum and maximum number of vCPUs.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) VCpuCount() LaunchTemplateVCpuCountPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateVCpuCount {
 		if v == nil {
@@ -12231,8 +12917,10 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) VCpuCount() LaunchTemplateV
 }
 
 // Specifies an IPv4 prefix for a network interface.
+//
+//	``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv4PrefixSpecification struct {
-	// The IPv4 prefix.
+	// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
 	Ipv4Prefix *string `pulumi:"ipv4Prefix"`
 }
 
@@ -12248,8 +12936,10 @@ type LaunchTemplateIpv4PrefixSpecificationInput interface {
 }
 
 // Specifies an IPv4 prefix for a network interface.
+//
+//	``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv4PrefixSpecificationArgs struct {
-	// The IPv4 prefix.
+	// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
 	Ipv4Prefix pulumi.StringPtrInput `pulumi:"ipv4Prefix"`
 }
 
@@ -12291,6 +12981,8 @@ func (i LaunchTemplateIpv4PrefixSpecificationArray) ToLaunchTemplateIpv4PrefixSp
 }
 
 // Specifies an IPv4 prefix for a network interface.
+//
+//	``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv4PrefixSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateIpv4PrefixSpecificationOutput) ElementType() reflect.Type {
@@ -12305,7 +12997,7 @@ func (o LaunchTemplateIpv4PrefixSpecificationOutput) ToLaunchTemplateIpv4PrefixS
 	return o
 }
 
-// The IPv4 prefix.
+// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
 func (o LaunchTemplateIpv4PrefixSpecificationOutput) Ipv4Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIpv4PrefixSpecification) *string { return v.Ipv4Prefix }).(pulumi.StringPtrOutput)
 }
@@ -12330,8 +13022,11 @@ func (o LaunchTemplateIpv4PrefixSpecificationArrayOutput) Index(i pulumi.IntInpu
 	}).(LaunchTemplateIpv4PrefixSpecificationOutput)
 }
 
-// Specifies an IPv6 address.
+// Specifies an IPv6 address in an Amazon EC2 launch template.
+//
+//	``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv6Add struct {
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
 	Ipv6Address *string `pulumi:"ipv6Address"`
 }
 
@@ -12346,8 +13041,11 @@ type LaunchTemplateIpv6AddInput interface {
 	ToLaunchTemplateIpv6AddOutputWithContext(context.Context) LaunchTemplateIpv6AddOutput
 }
 
-// Specifies an IPv6 address.
+// Specifies an IPv6 address in an Amazon EC2 launch template.
+//
+//	``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv6AddArgs struct {
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
 	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
 }
 
@@ -12388,7 +13086,9 @@ func (i LaunchTemplateIpv6AddArray) ToLaunchTemplateIpv6AddArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv6AddArrayOutput)
 }
 
-// Specifies an IPv6 address.
+// Specifies an IPv6 address in an Amazon EC2 launch template.
+//
+//	``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv6AddOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateIpv6AddOutput) ElementType() reflect.Type {
@@ -12403,6 +13103,7 @@ func (o LaunchTemplateIpv6AddOutput) ToLaunchTemplateIpv6AddOutputWithContext(ct
 	return o
 }
 
+// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
 func (o LaunchTemplateIpv6AddOutput) Ipv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIpv6Add) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
@@ -12428,7 +13129,10 @@ func (o LaunchTemplateIpv6AddArrayOutput) Index(i pulumi.IntInput) LaunchTemplat
 }
 
 // Specifies an IPv6 prefix for a network interface.
+//
+//	``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv6PrefixSpecification struct {
+	// The IPv6 prefix.
 	Ipv6Prefix *string `pulumi:"ipv6Prefix"`
 }
 
@@ -12444,7 +13148,10 @@ type LaunchTemplateIpv6PrefixSpecificationInput interface {
 }
 
 // Specifies an IPv6 prefix for a network interface.
+//
+//	``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv6PrefixSpecificationArgs struct {
+	// The IPv6 prefix.
 	Ipv6Prefix pulumi.StringPtrInput `pulumi:"ipv6Prefix"`
 }
 
@@ -12486,6 +13193,8 @@ func (i LaunchTemplateIpv6PrefixSpecificationArray) ToLaunchTemplateIpv6PrefixSp
 }
 
 // Specifies an IPv6 prefix for a network interface.
+//
+//	``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplateIpv6PrefixSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateIpv6PrefixSpecificationOutput) ElementType() reflect.Type {
@@ -12500,6 +13209,7 @@ func (o LaunchTemplateIpv6PrefixSpecificationOutput) ToLaunchTemplateIpv6PrefixS
 	return o
 }
 
+// The IPv6 prefix.
 func (o LaunchTemplateIpv6PrefixSpecificationOutput) Ipv6Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIpv6PrefixSpecification) *string { return v.Ipv6Prefix }).(pulumi.StringPtrOutput)
 }
@@ -12525,6 +13235,8 @@ func (o LaunchTemplateIpv6PrefixSpecificationArrayOutput) Index(i pulumi.IntInpu
 }
 
 // Specifies a license configuration for an instance.
+//
+//	``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateLicenseSpecification struct {
 	// The Amazon Resource Name (ARN) of the license configuration.
 	LicenseConfigurationArn *string `pulumi:"licenseConfigurationArn"`
@@ -12542,6 +13254,8 @@ type LaunchTemplateLicenseSpecificationInput interface {
 }
 
 // Specifies a license configuration for an instance.
+//
+//	``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateLicenseSpecificationArgs struct {
 	// The Amazon Resource Name (ARN) of the license configuration.
 	LicenseConfigurationArn pulumi.StringPtrInput `pulumi:"licenseConfigurationArn"`
@@ -12585,6 +13299,8 @@ func (i LaunchTemplateLicenseSpecificationArray) ToLaunchTemplateLicenseSpecific
 }
 
 // Specifies a license configuration for an instance.
+//
+//	``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateLicenseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateLicenseSpecificationOutput) ElementType() reflect.Type {
@@ -12627,8 +13343,7 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 // The maintenance options of your instance.
 type LaunchTemplateMaintenanceOptions struct {
 	// Disables the automatic recovery behavior of your instance or sets it to default.
-	AutoRecovery *string `pulumi:"autoRecovery"`
-	// Disables the automatic reboot-migration behavior of your instance or sets it to default.
+	AutoRecovery    *string `pulumi:"autoRecovery"`
 	RebootMigration *string `pulumi:"rebootMigration"`
 }
 
@@ -12646,8 +13361,7 @@ type LaunchTemplateMaintenanceOptionsInput interface {
 // The maintenance options of your instance.
 type LaunchTemplateMaintenanceOptionsArgs struct {
 	// Disables the automatic recovery behavior of your instance or sets it to default.
-	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
-	// Disables the automatic reboot-migration behavior of your instance or sets it to default.
+	AutoRecovery    pulumi.StringPtrInput `pulumi:"autoRecovery"`
 	RebootMigration pulumi.StringPtrInput `pulumi:"rebootMigration"`
 }
 
@@ -12734,7 +13448,6 @@ func (o LaunchTemplateMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrO
 	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
 }
 
-// Disables the automatic reboot-migration behavior of your instance or sets it to default.
 func (o LaunchTemplateMaintenanceOptionsOutput) RebootMigration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.RebootMigration }).(pulumi.StringPtrOutput)
 }
@@ -12773,7 +13486,6 @@ func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Disables the automatic reboot-migration behavior of your instance or sets it to default.
 func (o LaunchTemplateMaintenanceOptionsPtrOutput) RebootMigration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) *string {
 		if v == nil {
@@ -12785,9 +13497,9 @@ func (o LaunchTemplateMaintenanceOptionsPtrOutput) RebootMigration() pulumi.Stri
 
 // The minimum and maximum amount of memory per vCPU, in GiB.
 type LaunchTemplateMemoryGiBPerVCpu struct {
-	// The maximum amount of memory per vCPU, in GiB.
+	// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
-	// TThe minimum amount of memory per vCPU, in GiB.
+	// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -12804,9 +13516,9 @@ type LaunchTemplateMemoryGiBPerVCpuInput interface {
 
 // The minimum and maximum amount of memory per vCPU, in GiB.
 type LaunchTemplateMemoryGiBPerVCpuArgs struct {
-	// The maximum amount of memory per vCPU, in GiB.
+	// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// TThe minimum amount of memory per vCPU, in GiB.
+	// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -12888,12 +13600,12 @@ func (o LaunchTemplateMemoryGiBPerVCpuOutput) ToLaunchTemplateMemoryGiBPerVCpuPt
 	}).(LaunchTemplateMemoryGiBPerVCpuPtrOutput)
 }
 
-// The maximum amount of memory per vCPU, in GiB.
+// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateMemoryGiBPerVCpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMemoryGiBPerVCpu) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-// TThe minimum amount of memory per vCPU, in GiB.
+// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateMemoryGiBPerVCpuOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMemoryGiBPerVCpu) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -12922,7 +13634,7 @@ func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Elem() LaunchTemplateMemoryGiBP
 	}).(LaunchTemplateMemoryGiBPerVCpuOutput)
 }
 
-// The maximum amount of memory per vCPU, in GiB.
+// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMemoryGiBPerVCpu) *float64 {
 		if v == nil {
@@ -12932,7 +13644,7 @@ func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// TThe minimum amount of memory per vCPU, in GiB.
+// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMemoryGiBPerVCpu) *float64 {
 		if v == nil {
@@ -12944,9 +13656,9 @@ func (o LaunchTemplateMemoryGiBPerVCpuPtrOutput) Min() pulumi.Float64PtrOutput {
 
 // The minimum and maximum amount of memory, in MiB.
 type LaunchTemplateMemoryMiB struct {
-	// The maximum amount of memory, in MiB.
+	// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// The minimum amount of memory, in MiB.
+	// The minimum amount of memory, in MiB. To specify no minimum limit, specify ``0``.
 	Min *int `pulumi:"min"`
 }
 
@@ -12963,9 +13675,9 @@ type LaunchTemplateMemoryMiBInput interface {
 
 // The minimum and maximum amount of memory, in MiB.
 type LaunchTemplateMemoryMiBArgs struct {
-	// The maximum amount of memory, in MiB.
+	// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum amount of memory, in MiB.
+	// The minimum amount of memory, in MiB. To specify no minimum limit, specify ``0``.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -13047,12 +13759,12 @@ func (o LaunchTemplateMemoryMiBOutput) ToLaunchTemplateMemoryMiBPtrOutputWithCon
 	}).(LaunchTemplateMemoryMiBPtrOutput)
 }
 
-// The maximum amount of memory, in MiB.
+// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateMemoryMiBOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMemoryMiB) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum amount of memory, in MiB.
+// The minimum amount of memory, in MiB. To specify no minimum limit, specify “0“.
 func (o LaunchTemplateMemoryMiBOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMemoryMiB) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -13081,7 +13793,7 @@ func (o LaunchTemplateMemoryMiBPtrOutput) Elem() LaunchTemplateMemoryMiBOutput {
 	}).(LaunchTemplateMemoryMiBOutput)
 }
 
-// The maximum amount of memory, in MiB.
+// The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateMemoryMiBPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMemoryMiB) *int {
 		if v == nil {
@@ -13091,7 +13803,7 @@ func (o LaunchTemplateMemoryMiBPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum amount of memory, in MiB.
+// The minimum amount of memory, in MiB. To specify no minimum limit, specify “0“.
 func (o LaunchTemplateMemoryMiBPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMemoryMiB) *int {
 		if v == nil {
@@ -13101,17 +13813,28 @@ func (o LaunchTemplateMemoryMiBPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The metadata options for the instance.
+// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+//
+//	``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateMetadataOptions struct {
-	// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+	// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.
+	//   If you specify a value of ``disabled``, you will not be able to access your instance metadata.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
 	// Enables or disables the IPv6 endpoint for the instance metadata service.
+	//  Default: ``disabled``
 	HttpProtocolIpv6 *string `pulumi:"httpProtocolIpv6"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+	//  Default: ``1``
+	//  Possible values: Integers from 1 to 64
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// IMDSv2 uses token-backed sessions.
+	// Indicates whether IMDSv2 is required.
+	//   +   ``optional`` - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.
+	//   +   ``required`` - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
+	//
+	//  Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
 	HttpTokens *string `pulumi:"httpTokens"`
-	// Set to enabled to allow access to instance tags from the instance metadata.
+	// Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+	//  Default: ``disabled``
 	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
 }
 
@@ -13126,17 +13849,28 @@ type LaunchTemplateMetadataOptionsInput interface {
 	ToLaunchTemplateMetadataOptionsOutputWithContext(context.Context) LaunchTemplateMetadataOptionsOutput
 }
 
-// The metadata options for the instance.
+// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+//
+//	``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateMetadataOptionsArgs struct {
-	// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+	// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.
+	//   If you specify a value of ``disabled``, you will not be able to access your instance metadata.
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
 	// Enables or disables the IPv6 endpoint for the instance metadata service.
+	//  Default: ``disabled``
 	HttpProtocolIpv6 pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+	//  Default: ``1``
+	//  Possible values: Integers from 1 to 64
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
-	// IMDSv2 uses token-backed sessions.
+	// Indicates whether IMDSv2 is required.
+	//   +   ``optional`` - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.
+	//   +   ``required`` - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
+	//
+	//  Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
-	// Set to enabled to allow access to instance tags from the instance metadata.
+	// Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+	//  Default: ``disabled``
 	InstanceMetadataTags pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
 }
 
@@ -13193,7 +13927,9 @@ func (i *launchTemplateMetadataOptionsPtrType) ToLaunchTemplateMetadataOptionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsPtrOutput)
 }
 
-// The metadata options for the instance.
+// The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+//
+//	``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateMetadataOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMetadataOptionsOutput) ElementType() reflect.Type {
@@ -13218,27 +13954,42 @@ func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrO
 	}).(LaunchTemplateMetadataOptionsPtrOutput)
 }
 
-// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is “enabled“.
+//
+//	If you specify a value of ``disabled``, you will not be able to access your instance metadata.
 func (o LaunchTemplateMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Enables or disables the IPv6 endpoint for the instance metadata service.
+//
+//	Default: ``disabled``
 func (o LaunchTemplateMetadataOptionsOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpProtocolIpv6 }).(pulumi.StringPtrOutput)
 }
 
 // The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+//
+//	Default: ``1``
+//	Possible values: Integers from 1 to 64
 func (o LaunchTemplateMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
-// IMDSv2 uses token-backed sessions.
+// Indicates whether IMDSv2 is required.
+//
+//   - “optional“ - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.
+//
+//   - “required“ - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
+//
+//     Default: If the value of “ImdsSupport“ for the Amazon Machine Image (AMI) for your instance is “v2.0“, the default is “required“.
 func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
 
-// Set to enabled to allow access to instance tags from the instance metadata.
+// Set to “enabled“ to allow access to instance tags from the instance metadata. Set to “disabled“ to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+//
+//	Default: ``disabled``
 func (o LaunchTemplateMetadataOptionsOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.InstanceMetadataTags }).(pulumi.StringPtrOutput)
 }
@@ -13267,7 +14018,9 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) Elem() LaunchTemplateMetadataOpt
 	}).(LaunchTemplateMetadataOptionsOutput)
 }
 
-// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+// Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is “enabled“.
+//
+//	If you specify a value of ``disabled``, you will not be able to access your instance metadata.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13278,6 +14031,8 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrO
 }
 
 // Enables or disables the IPv6 endpoint for the instance metadata service.
+//
+//	Default: ``disabled``
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13288,6 +14043,9 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.String
 }
 
 // The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+//
+//	Default: ``1``
+//	Possible values: Integers from 1 to 64
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *int {
 		if v == nil {
@@ -13297,7 +14055,13 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// IMDSv2 uses token-backed sessions.
+// Indicates whether IMDSv2 is required.
+//
+//   - “optional“ - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.
+//
+//   - “required“ - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
+//
+//     Default: If the value of “ImdsSupport“ for the Amazon Machine Image (AMI) for your instance is “v2.0“, the default is “required“.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13307,7 +14071,9 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set to enabled to allow access to instance tags from the instance metadata.
+// Set to “enabled“ to allow access to instance tags from the instance metadata. Set to “disabled“ to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+//
+//	Default: ``disabled``
 func (o LaunchTemplateMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13317,9 +14083,11 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether detailed monitoring is enabled for an instance.
+// Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
+//
+//	``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateMonitoring struct {
-	// Specify true to enable detailed monitoring.
+	// Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -13334,9 +14102,11 @@ type LaunchTemplateMonitoringInput interface {
 	ToLaunchTemplateMonitoringOutputWithContext(context.Context) LaunchTemplateMonitoringOutput
 }
 
-// Specifies whether detailed monitoring is enabled for an instance.
+// Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
+//
+//	``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateMonitoringArgs struct {
-	// Specify true to enable detailed monitoring.
+	// Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -13393,7 +14163,9 @@ func (i *launchTemplateMonitoringPtrType) ToLaunchTemplateMonitoringPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMonitoringPtrOutput)
 }
 
-// Specifies whether detailed monitoring is enabled for an instance.
+// Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
+//
+//	``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateMonitoringOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateMonitoringOutput) ElementType() reflect.Type {
@@ -13418,7 +14190,7 @@ func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringPtrOutputWithC
 	}).(LaunchTemplateMonitoringPtrOutput)
 }
 
-// Specify true to enable detailed monitoring.
+// Specify “true“ to enable detailed monitoring. Otherwise, basic monitoring is enabled.
 func (o LaunchTemplateMonitoringOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -13447,7 +14219,7 @@ func (o LaunchTemplateMonitoringPtrOutput) Elem() LaunchTemplateMonitoringOutput
 	}).(LaunchTemplateMonitoringOutput)
 }
 
-// Specify true to enable detailed monitoring.
+// Specify “true“ to enable detailed monitoring. Otherwise, basic monitoring is enabled.
 func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMonitoring) *bool {
 		if v == nil {
@@ -13458,10 +14230,12 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+//
+//	Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide*.
 type LaunchTemplateNetworkBandwidthGbps struct {
-	// The maximum amount of network bandwidth, in Gbps.
+	// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
-	// The minimum amount of network bandwidth, in Gbps.
+	// The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum limit.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -13477,10 +14251,12 @@ type LaunchTemplateNetworkBandwidthGbpsInput interface {
 }
 
 // The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+//
+//	Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide*.
 type LaunchTemplateNetworkBandwidthGbpsArgs struct {
-	// The maximum amount of network bandwidth, in Gbps.
+	// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// The minimum amount of network bandwidth, in Gbps.
+	// The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum limit.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -13538,6 +14314,8 @@ func (i *launchTemplateNetworkBandwidthGbpsPtrType) ToLaunchTemplateNetworkBandw
 }
 
 // The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+//
+//	Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide*.
 type LaunchTemplateNetworkBandwidthGbpsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateNetworkBandwidthGbpsOutput) ElementType() reflect.Type {
@@ -13562,12 +14340,12 @@ func (o LaunchTemplateNetworkBandwidthGbpsOutput) ToLaunchTemplateNetworkBandwid
 	}).(LaunchTemplateNetworkBandwidthGbpsPtrOutput)
 }
 
-// The maximum amount of network bandwidth, in Gbps.
+// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkBandwidthGbps) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-// The minimum amount of network bandwidth, in Gbps.
+// The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum limit.
 func (o LaunchTemplateNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkBandwidthGbps) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -13596,7 +14374,7 @@ func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Elem() LaunchTemplateNetwor
 	}).(LaunchTemplateNetworkBandwidthGbpsOutput)
 }
 
-// The maximum amount of network bandwidth, in Gbps.
+// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -13606,7 +14384,7 @@ func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum amount of network bandwidth, in Gbps.
+// The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum limit.
 func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -13617,40 +14395,48 @@ func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutp
 }
 
 // Specifies the parameters for a network interface.
+//
+//	``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateNetworkInterface struct {
-	// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+	// Associates a Carrier IP address with eth0 for a new network interface.
+	//  Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
 	AssociateCarrierIpAddress *bool `pulumi:"associateCarrierIpAddress"`
 	// Associates a public IPv4 address with eth0 for a new network interface.
-	AssociatePublicIpAddress        *bool                                          `pulumi:"associatePublicIpAddress"`
+	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	// A connection tracking specification for the network interface.
 	ConnectionTrackingSpecification *LaunchTemplateConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
 	// Indicates whether the network interface is deleted when the instance is terminated.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
 	// The device index for the network interface attachment.
-	DeviceIndex         *int                               `pulumi:"deviceIndex"`
+	DeviceIndex *int `pulumi:"deviceIndex"`
+	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification *LaunchTemplateEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups []string `pulumi:"groups"`
-	// The type of network interface.
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	//  If you are not creating an EFA, specify ``interface`` or omit this parameter.
+	//  Valid values: ``interface`` | ``efa``
 	InterfaceType *string `pulumi:"interfaceType"`
-	// The number of IPv4 prefixes to be automatically assigned to the network interface.
+	// The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv4Prefix`` option.
 	Ipv4PrefixCount *int `pulumi:"ipv4PrefixCount"`
-	// One or more IPv4 prefixes to be assigned to the network interface.
+	// One or more IPv4 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv4PrefixCount`` option.
 	Ipv4Prefixes []LaunchTemplateIpv4PrefixSpecification `pulumi:"ipv4Prefixes"`
-	// The number of IPv6 addresses to assign to a network interface.
+	// The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
-	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
 	Ipv6Addresses []LaunchTemplateIpv6Add `pulumi:"ipv6Addresses"`
-	// The number of IPv6 prefixes to be automatically assigned to the network interface.
+	// The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv6Prefix`` option.
 	Ipv6PrefixCount *int `pulumi:"ipv6PrefixCount"`
-	// One or more IPv6 prefixes to be assigned to the network interface.
+	// One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv6PrefixCount`` option.
 	Ipv6Prefixes []LaunchTemplateIpv6PrefixSpecification `pulumi:"ipv6Prefixes"`
-	// The index of the network card.
+	// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
 	NetworkCardIndex *int `pulumi:"networkCardIndex"`
 	// The ID of the network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+	// The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html).
 	PrimaryIpv6 *bool `pulumi:"primaryIpv6"`
 	// The primary private IPv4 address of the network interface.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
@@ -13674,40 +14460,48 @@ type LaunchTemplateNetworkInterfaceInput interface {
 }
 
 // Specifies the parameters for a network interface.
+//
+//	``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateNetworkInterfaceArgs struct {
-	// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+	// Associates a Carrier IP address with eth0 for a new network interface.
+	//  Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
 	AssociateCarrierIpAddress pulumi.BoolPtrInput `pulumi:"associateCarrierIpAddress"`
 	// Associates a public IPv4 address with eth0 for a new network interface.
-	AssociatePublicIpAddress        pulumi.BoolPtrInput                                   `pulumi:"associatePublicIpAddress"`
+	//   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	// A connection tracking specification for the network interface.
 	ConnectionTrackingSpecification LaunchTemplateConnectionTrackingSpecificationPtrInput `pulumi:"connectionTrackingSpecification"`
 	// Indicates whether the network interface is deleted when the instance is terminated.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The device index for the network interface attachment.
-	DeviceIndex         pulumi.IntPtrInput                        `pulumi:"deviceIndex"`
+	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification LaunchTemplateEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// The type of network interface.
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
+	//  If you are not creating an EFA, specify ``interface`` or omit this parameter.
+	//  Valid values: ``interface`` | ``efa``
 	InterfaceType pulumi.StringPtrInput `pulumi:"interfaceType"`
-	// The number of IPv4 prefixes to be automatically assigned to the network interface.
+	// The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv4Prefix`` option.
 	Ipv4PrefixCount pulumi.IntPtrInput `pulumi:"ipv4PrefixCount"`
-	// One or more IPv4 prefixes to be assigned to the network interface.
+	// One or more IPv4 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv4PrefixCount`` option.
 	Ipv4Prefixes LaunchTemplateIpv4PrefixSpecificationArrayInput `pulumi:"ipv4Prefixes"`
-	// The number of IPv6 addresses to assign to a network interface.
+	// The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
 	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
-	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
 	Ipv6Addresses LaunchTemplateIpv6AddArrayInput `pulumi:"ipv6Addresses"`
-	// The number of IPv6 prefixes to be automatically assigned to the network interface.
+	// The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv6Prefix`` option.
 	Ipv6PrefixCount pulumi.IntPtrInput `pulumi:"ipv6PrefixCount"`
-	// One or more IPv6 prefixes to be assigned to the network interface.
+	// One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv6PrefixCount`` option.
 	Ipv6Prefixes LaunchTemplateIpv6PrefixSpecificationArrayInput `pulumi:"ipv6Prefixes"`
-	// The index of the network card.
+	// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
 	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
 	// The ID of the network interface.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	// Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+	// The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html).
 	PrimaryIpv6 pulumi.BoolPtrInput `pulumi:"primaryIpv6"`
 	// The primary private IPv4 address of the network interface.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
@@ -13757,6 +14551,8 @@ func (i LaunchTemplateNetworkInterfaceArray) ToLaunchTemplateNetworkInterfaceArr
 }
 
 // Specifies the parameters for a network interface.
+//
+//	``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -13771,16 +14567,21 @@ func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOu
 	return o
 }
 
-// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+// Associates a Carrier IP address with eth0 for a new network interface.
+//
+//	Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociateCarrierIpAddress }).(pulumi.BoolPtrOutput)
 }
 
 // Associates a public IPv4 address with eth0 for a new network interface.
+//
+//	AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
 func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
+// A connection tracking specification for the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) ConnectionTrackingSpecification() LaunchTemplateConnectionTrackingSpecificationPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *LaunchTemplateConnectionTrackingSpecification {
 		return v.ConnectionTrackingSpecification
@@ -13802,6 +14603,7 @@ func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
 }
 
+// The ENA Express configuration for the network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) EnaSrdSpecification() LaunchTemplateEnaSrdSpecificationPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *LaunchTemplateEnaSrdSpecification {
 		return v.EnaSrdSpecification
@@ -13813,42 +14615,45 @@ func (o LaunchTemplateNetworkInterfaceOutput) Groups() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// The type of network interface.
+// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify “efa“. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
+//
+//	If you are not creating an EFA, specify ``interface`` or omit this parameter.
+//	Valid values: ``interface`` | ``efa``
 func (o LaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
 }
 
-// The number of IPv4 prefixes to be automatically assigned to the network interface.
+// The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the “Ipv4Prefix“ option.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv4PrefixCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv4PrefixCount }).(pulumi.IntPtrOutput)
 }
 
-// One or more IPv4 prefixes to be assigned to the network interface.
+// One or more IPv4 prefixes to be assigned to the network interface. You cannot use this option if you use the “Ipv4PrefixCount“ option.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv4Prefixes() LaunchTemplateIpv4PrefixSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv4PrefixSpecification { return v.Ipv4Prefixes }).(LaunchTemplateIpv4PrefixSpecificationArrayOutput)
 }
 
-// The number of IPv6 addresses to assign to a network interface.
+// The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
-// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Addresses() LaunchTemplateIpv6AddArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv6Add { return v.Ipv6Addresses }).(LaunchTemplateIpv6AddArrayOutput)
 }
 
-// The number of IPv6 prefixes to be automatically assigned to the network interface.
+// The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the “Ipv6Prefix“ option.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6PrefixCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv6PrefixCount }).(pulumi.IntPtrOutput)
 }
 
-// One or more IPv6 prefixes to be assigned to the network interface.
+// One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the “Ipv6PrefixCount“ option.
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Prefixes() LaunchTemplateIpv6PrefixSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv6PrefixSpecification { return v.Ipv6Prefixes }).(LaunchTemplateIpv6PrefixSpecificationArrayOutput)
 }
 
-// The index of the network card.
+// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
 func (o LaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
 }
@@ -13858,7 +14663,7 @@ func (o LaunchTemplateNetworkInterfaceOutput) NetworkInterfaceId() pulumi.String
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
-// Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+// The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html).
 func (o LaunchTemplateNetworkInterfaceOutput) PrimaryIpv6() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.PrimaryIpv6 }).(pulumi.BoolPtrOutput)
 }
@@ -13903,9 +14708,11 @@ func (o LaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Laun
 	}).(LaunchTemplateNetworkInterfaceOutput)
 }
 
-// TThe minimum and maximum number of network interfaces.
+// The minimum and maximum number of network interfaces.
 type LaunchTemplateNetworkInterfaceCount struct {
+	// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
+	// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 	Min *int `pulumi:"min"`
 }
 
@@ -13920,9 +14727,11 @@ type LaunchTemplateNetworkInterfaceCountInput interface {
 	ToLaunchTemplateNetworkInterfaceCountOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceCountOutput
 }
 
-// TThe minimum and maximum number of network interfaces.
+// The minimum and maximum number of network interfaces.
 type LaunchTemplateNetworkInterfaceCountArgs struct {
+	// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -13979,7 +14788,7 @@ func (i *launchTemplateNetworkInterfaceCountPtrType) ToLaunchTemplateNetworkInte
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceCountPtrOutput)
 }
 
-// TThe minimum and maximum number of network interfaces.
+// The minimum and maximum number of network interfaces.
 type LaunchTemplateNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateNetworkInterfaceCountOutput) ElementType() reflect.Type {
@@ -14004,10 +14813,12 @@ func (o LaunchTemplateNetworkInterfaceCountOutput) ToLaunchTemplateNetworkInterf
 	}).(LaunchTemplateNetworkInterfaceCountPtrOutput)
 }
 
+// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceCount) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -14036,6 +14847,7 @@ func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Elem() LaunchTemplateNetwo
 	}).(LaunchTemplateNetworkInterfaceCountOutput)
 }
 
+// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceCount) *int {
 		if v == nil {
@@ -14045,6 +14857,7 @@ func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceCount) *int {
 		if v == nil {
@@ -14055,24 +14868,26 @@ func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput 
 }
 
 // Specifies the placement of an instance.
+//
+//	``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplatePlacement struct {
 	// The affinity setting for an instance on a Dedicated Host.
 	Affinity *string `pulumi:"affinity"`
 	// The Availability Zone for the instance.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+	// The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
 	GroupId *string `pulumi:"groupId"`
 	// The name of the placement group for the instance.
 	GroupName *string `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId *string `pulumi:"hostId"`
-	// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+	// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to ``host``.
 	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
-	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to ``partition``.
 	PartitionNumber *int `pulumi:"partitionNumber"`
 	// Reserved for future use.
 	SpreadDomain *string `pulumi:"spreadDomain"`
-	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+	// The tenancy of the instance. An instance with a tenancy of dedicated runs on single-tenant hardware.
 	Tenancy *string `pulumi:"tenancy"`
 }
 
@@ -14088,24 +14903,26 @@ type LaunchTemplatePlacementInput interface {
 }
 
 // Specifies the placement of an instance.
+//
+//	``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplatePlacementArgs struct {
 	// The affinity setting for an instance on a Dedicated Host.
 	Affinity pulumi.StringPtrInput `pulumi:"affinity"`
 	// The Availability Zone for the instance.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+	// The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
 	// The name of the placement group for the instance.
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// The ID of the Dedicated Host for the instance.
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
-	// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+	// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to ``host``.
 	HostResourceGroupArn pulumi.StringPtrInput `pulumi:"hostResourceGroupArn"`
-	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+	// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to ``partition``.
 	PartitionNumber pulumi.IntPtrInput `pulumi:"partitionNumber"`
 	// Reserved for future use.
 	SpreadDomain pulumi.StringPtrInput `pulumi:"spreadDomain"`
-	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+	// The tenancy of the instance. An instance with a tenancy of dedicated runs on single-tenant hardware.
 	Tenancy pulumi.StringPtrInput `pulumi:"tenancy"`
 }
 
@@ -14163,6 +14980,8 @@ func (i *launchTemplatePlacementPtrType) ToLaunchTemplatePlacementPtrOutputWithC
 }
 
 // Specifies the placement of an instance.
+//
+//	``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplatePlacementOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplatePlacementOutput) ElementType() reflect.Type {
@@ -14197,7 +15016,7 @@ func (o LaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+// The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
 func (o LaunchTemplatePlacementOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
@@ -14212,12 +15031,12 @@ func (o LaunchTemplatePlacementOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to “host“.
 func (o LaunchTemplatePlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to “partition“.
 func (o LaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
 }
@@ -14227,7 +15046,7 @@ func (o LaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
 }
 
-// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+// The tenancy of the instance. An instance with a tenancy of dedicated runs on single-tenant hardware.
 func (o LaunchTemplatePlacementOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
@@ -14276,7 +15095,7 @@ func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+// The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
 func (o LaunchTemplatePlacementPtrOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14306,7 +15125,7 @@ func (o LaunchTemplatePlacementPtrOutput) HostId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to “host“.
 func (o LaunchTemplatePlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14316,7 +15135,7 @@ func (o LaunchTemplatePlacementPtrOutput) HostResourceGroupArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to “partition“.
 func (o LaunchTemplatePlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *int {
 		if v == nil {
@@ -14336,7 +15155,7 @@ func (o LaunchTemplatePlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+// The tenancy of the instance. An instance with a tenancy of dedicated runs on single-tenant hardware.
 func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
 		if v == nil {
@@ -14346,13 +15165,13 @@ func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the options for instance hostnames.
+// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 type LaunchTemplatePrivateDnsNameOptions struct {
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	EnableResourceNameDnsARecord *bool `pulumi:"enableResourceNameDnsARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord *bool `pulumi:"enableResourceNameDnsAaaaRecord"`
-	// The type of hostname for EC2 instances.
+	// The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	HostnameType *string `pulumi:"hostnameType"`
 }
 
@@ -14367,13 +15186,13 @@ type LaunchTemplatePrivateDnsNameOptionsInput interface {
 	ToLaunchTemplatePrivateDnsNameOptionsOutputWithContext(context.Context) LaunchTemplatePrivateDnsNameOptionsOutput
 }
 
-// Describes the options for instance hostnames.
+// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 type LaunchTemplatePrivateDnsNameOptionsArgs struct {
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	EnableResourceNameDnsARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
 	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAaaaRecord"`
-	// The type of hostname for EC2 instances.
+	// The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 	HostnameType pulumi.StringPtrInput `pulumi:"hostnameType"`
 }
 
@@ -14430,7 +15249,7 @@ func (i *launchTemplatePrivateDnsNameOptionsPtrType) ToLaunchTemplatePrivateDnsN
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
 }
 
-// Describes the options for instance hostnames.
+// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 type LaunchTemplatePrivateDnsNameOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplatePrivateDnsNameOptionsOutput) ElementType() reflect.Type {
@@ -14465,7 +15284,7 @@ func (o LaunchTemplatePrivateDnsNameOptionsOutput) EnableResourceNameDnsAaaaReco
 	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
 }
 
-// The type of hostname for EC2 instances.
+// The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 func (o LaunchTemplatePrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
 }
@@ -14514,7 +15333,7 @@ func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAaaaR
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of hostname for EC2 instances.
+// The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
 func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *string {
 		if v == nil {
@@ -14525,6 +15344,8 @@ func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.Stri
 }
 
 // Specifies a secondary private IPv4 address for a network interface.
+//
+//	``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplatePrivateIpAdd struct {
 	// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
 	Primary *bool `pulumi:"primary"`
@@ -14544,6 +15365,8 @@ type LaunchTemplatePrivateIpAddInput interface {
 }
 
 // Specifies a secondary private IPv4 address for a network interface.
+//
+//	``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplatePrivateIpAddArgs struct {
 	// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
@@ -14589,6 +15412,8 @@ func (i LaunchTemplatePrivateIpAddArray) ToLaunchTemplatePrivateIpAddArrayOutput
 }
 
 // Specifies a secondary private IPv4 address for a network interface.
+//
+//	``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
 type LaunchTemplatePrivateIpAddOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplatePrivateIpAddOutput) ElementType() reflect.Type {
@@ -14634,16 +15459,24 @@ func (o LaunchTemplatePrivateIpAddArrayOutput) Index(i pulumi.IntInput) LaunchTe
 }
 
 // Specifies options for Spot Instances.
+//
+//	``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
 type LaunchTemplateSpotOptions struct {
-	// Deprecated
+	// Deprecated.
 	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
-	// The behavior when a Spot Instance is interrupted. The default is terminate.
+	// The behavior when a Spot Instance is interrupted. The default is ``terminate``.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
-	// The maximum hourly price you're willing to pay for the Spot Instances.
+	// The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//   If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 	MaxPrice *string `pulumi:"maxPrice"`
 	// The Spot Instance request type.
+	//  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
 	SpotInstanceType *string `pulumi:"spotInstanceType"`
-	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+	// The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
+	//   +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
+	//   +  For a one-time request, ``ValidUntil`` is not supported. The request remains active until all instances launch or you cancel the request.
+	//
+	//  Default: 7 days from the current date
 	ValidUntil *string `pulumi:"validUntil"`
 }
 
@@ -14659,16 +15492,24 @@ type LaunchTemplateSpotOptionsInput interface {
 }
 
 // Specifies options for Spot Instances.
+//
+//	``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
 type LaunchTemplateSpotOptionsArgs struct {
-	// Deprecated
+	// Deprecated.
 	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
-	// The behavior when a Spot Instance is interrupted. The default is terminate.
+	// The behavior when a Spot Instance is interrupted. The default is ``terminate``.
 	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
-	// The maximum hourly price you're willing to pay for the Spot Instances.
+	// The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+	//   If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
 	// The Spot Instance request type.
+	//  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
 	SpotInstanceType pulumi.StringPtrInput `pulumi:"spotInstanceType"`
-	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+	// The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
+	//   +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
+	//   +  For a one-time request, ``ValidUntil`` is not supported. The request remains active until all instances launch or you cancel the request.
+	//
+	//  Default: 7 days from the current date
 	ValidUntil pulumi.StringPtrInput `pulumi:"validUntil"`
 }
 
@@ -14726,6 +15567,8 @@ func (i *launchTemplateSpotOptionsPtrType) ToLaunchTemplateSpotOptionsPtrOutputW
 }
 
 // Specifies options for Spot Instances.
+//
+//	``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
 type LaunchTemplateSpotOptionsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateSpotOptionsOutput) ElementType() reflect.Type {
@@ -14750,27 +15593,37 @@ func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsPtrOutputWit
 	}).(LaunchTemplateSpotOptionsPtrOutput)
 }
 
-// Deprecated
+// Deprecated.
 func (o LaunchTemplateSpotOptionsOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The behavior when a Spot Instance is interrupted. The default is terminate.
+// The behavior when a Spot Instance is interrupted. The default is “terminate“.
 func (o LaunchTemplateSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The maximum hourly price you're willing to pay for the Spot Instances.
+// The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+//
+//	If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 func (o LaunchTemplateSpotOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
 }
 
 // The Spot Instance request type.
+//
+//	If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
 func (o LaunchTemplateSpotOptionsOutput) SpotInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+// The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
+//
+//   - For a persistent request, the request remains active until the “ValidUntil“ date and time is reached. Otherwise, the request remains active until you cancel it.
+//
+//   - For a one-time request, “ValidUntil“ is not supported. The request remains active until all instances launch or you cancel the request.
+//
+//     Default: 7 days from the current date
 func (o LaunchTemplateSpotOptionsOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
 }
@@ -14799,7 +15652,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) Elem() LaunchTemplateSpotOptionsOutp
 	}).(LaunchTemplateSpotOptionsOutput)
 }
 
-// Deprecated
+// Deprecated.
 func (o LaunchTemplateSpotOptionsPtrOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *int {
 		if v == nil {
@@ -14809,7 +15662,7 @@ func (o LaunchTemplateSpotOptionsPtrOutput) BlockDurationMinutes() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The behavior when a Spot Instance is interrupted. The default is terminate.
+// The behavior when a Spot Instance is interrupted. The default is “terminate“.
 func (o LaunchTemplateSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
 		if v == nil {
@@ -14819,7 +15672,9 @@ func (o LaunchTemplateSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The maximum hourly price you're willing to pay for the Spot Instances.
+// The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+//
+//	If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
 func (o LaunchTemplateSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
 		if v == nil {
@@ -14830,6 +15685,8 @@ func (o LaunchTemplateSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
 }
 
 // The Spot Instance request type.
+//
+//	If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
 func (o LaunchTemplateSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
 		if v == nil {
@@ -14839,7 +15696,13 @@ func (o LaunchTemplateSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+// The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
+//
+//   - For a persistent request, the request remains active until the “ValidUntil“ date and time is reached. Otherwise, the request remains active until you cancel it.
+//
+//   - For a one-time request, “ValidUntil“ is not supported. The request remains active until all instances launch or you cancel the request.
+//
+//     Default: 7 days from the current date
 func (o LaunchTemplateSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
 		if v == nil {
@@ -14849,9 +15712,11 @@ func (o LaunchTemplateSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user data to make available to the instance.
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type LaunchTemplateTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -14866,9 +15731,11 @@ type LaunchTemplateTagInput interface {
 	ToLaunchTemplateTagOutputWithContext(context.Context) LaunchTemplateTagOutput
 }
 
-// The user data to make available to the instance.
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type LaunchTemplateTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -14909,7 +15776,7 @@ func (i LaunchTemplateTagArray) ToLaunchTemplateTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagArrayOutput)
 }
 
-// The user data to make available to the instance.
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type LaunchTemplateTagOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateTagOutput) ElementType() reflect.Type {
@@ -14924,10 +15791,12 @@ func (o LaunchTemplateTagOutput) ToLaunchTemplateTagOutputWithContext(ctx contex
 	return o
 }
 
+// The tag key.
 func (o LaunchTemplateTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchTemplateTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The tag value.
 func (o LaunchTemplateTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchTemplateTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -14953,8 +15822,10 @@ func (o LaunchTemplateTagArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTag
 }
 
 // Specifies the tags to apply to the launch template during creation.
+//
+//	``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
 type LaunchTemplateTagSpecification struct {
-	// The type of resource to tag.
+	// The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
 	ResourceType *string `pulumi:"resourceType"`
 	// The tags for the resource.
 	Tags []LaunchTemplateTag `pulumi:"tags"`
@@ -14972,8 +15843,10 @@ type LaunchTemplateTagSpecificationInput interface {
 }
 
 // Specifies the tags to apply to the launch template during creation.
+//
+//	``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
 type LaunchTemplateTagSpecificationArgs struct {
-	// The type of resource to tag.
+	// The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 	// The tags for the resource.
 	Tags LaunchTemplateTagArrayInput `pulumi:"tags"`
@@ -15017,6 +15890,8 @@ func (i LaunchTemplateTagSpecificationArray) ToLaunchTemplateTagSpecificationArr
 }
 
 // Specifies the tags to apply to the launch template during creation.
+//
+//	``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
 type LaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
@@ -15031,7 +15906,7 @@ func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOu
 	return o
 }
 
-// The type of resource to tag.
+// The type of resource. To tag the launch template, “ResourceType“ must be “launch-template“.
 func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
@@ -15063,7 +15938,9 @@ func (o LaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) Laun
 
 // The minimum and maximum amount of total local storage, in GB.
 type LaunchTemplateTotalLocalStorageGb struct {
+	// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
+	// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -15080,7 +15957,9 @@ type LaunchTemplateTotalLocalStorageGbInput interface {
 
 // The minimum and maximum amount of total local storage, in GB.
 type LaunchTemplateTotalLocalStorageGbArgs struct {
+	// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -15162,10 +16041,12 @@ func (o LaunchTemplateTotalLocalStorageGbOutput) ToLaunchTemplateTotalLocalStora
 	}).(LaunchTemplateTotalLocalStorageGbPtrOutput)
 }
 
+// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateTotalLocalStorageGb) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateTotalLocalStorageGb) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -15194,6 +16075,7 @@ func (o LaunchTemplateTotalLocalStorageGbPtrOutput) Elem() LaunchTemplateTotalLo
 	}).(LaunchTemplateTotalLocalStorageGbOutput)
 }
 
+// The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -15203,6 +16085,7 @@ func (o LaunchTemplateTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
 func (o LaunchTemplateTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -15214,9 +16097,9 @@ func (o LaunchTemplateTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutpu
 
 // The minimum and maximum number of vCPUs.
 type LaunchTemplateVCpuCount struct {
-	// The maximum number of vCPUs.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// The minimum number of vCPUs.
+	// The minimum number of vCPUs. To specify no minimum limit, specify ``0``.
 	Min *int `pulumi:"min"`
 }
 
@@ -15233,9 +16116,9 @@ type LaunchTemplateVCpuCountInput interface {
 
 // The minimum and maximum number of vCPUs.
 type LaunchTemplateVCpuCountArgs struct {
-	// The maximum number of vCPUs.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum number of vCPUs.
+	// The minimum number of vCPUs. To specify no minimum limit, specify ``0``.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -15317,12 +16200,12 @@ func (o LaunchTemplateVCpuCountOutput) ToLaunchTemplateVCpuCountPtrOutputWithCon
 	}).(LaunchTemplateVCpuCountPtrOutput)
 }
 
-// The maximum number of vCPUs.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateVCpuCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateVCpuCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs.
+// The minimum number of vCPUs. To specify no minimum limit, specify “0“.
 func (o LaunchTemplateVCpuCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateVCpuCount) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -15351,7 +16234,7 @@ func (o LaunchTemplateVCpuCountPtrOutput) Elem() LaunchTemplateVCpuCountOutput {
 	}).(LaunchTemplateVCpuCountOutput)
 }
 
-// The maximum number of vCPUs.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o LaunchTemplateVCpuCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateVCpuCount) *int {
 		if v == nil {
@@ -15361,7 +16244,7 @@ func (o LaunchTemplateVCpuCountPtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of vCPUs.
+// The minimum number of vCPUs. To specify no minimum limit, specify “0“.
 func (o LaunchTemplateVCpuCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateVCpuCount) *int {
 		if v == nil {
@@ -18433,6 +19316,291 @@ type NetworkInsightsPathTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type NetworkInterfaceAttachmentEnaSrdSpecification struct {
+	EnaSrdEnabled          *bool                                                                          `pulumi:"enaSrdEnabled"`
+	EnaSrdUdpSpecification *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties `pulumi:"enaSrdUdpSpecification"`
+}
+
+// NetworkInterfaceAttachmentEnaSrdSpecificationInput is an input type that accepts NetworkInterfaceAttachmentEnaSrdSpecificationArgs and NetworkInterfaceAttachmentEnaSrdSpecificationOutput values.
+// You can construct a concrete instance of `NetworkInterfaceAttachmentEnaSrdSpecificationInput` via:
+//
+//	NetworkInterfaceAttachmentEnaSrdSpecificationArgs{...}
+type NetworkInterfaceAttachmentEnaSrdSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceAttachmentEnaSrdSpecificationOutput() NetworkInterfaceAttachmentEnaSrdSpecificationOutput
+	ToNetworkInterfaceAttachmentEnaSrdSpecificationOutputWithContext(context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationOutput
+}
+
+type NetworkInterfaceAttachmentEnaSrdSpecificationArgs struct {
+	EnaSrdEnabled          pulumi.BoolPtrInput                                                                   `pulumi:"enaSrdEnabled"`
+	EnaSrdUdpSpecification NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrInput `pulumi:"enaSrdUdpSpecification"`
+}
+
+func (NetworkInterfaceAttachmentEnaSrdSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachmentEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfaceAttachmentEnaSrdSpecificationArgs) ToNetworkInterfaceAttachmentEnaSrdSpecificationOutput() NetworkInterfaceAttachmentEnaSrdSpecificationOutput {
+	return i.ToNetworkInterfaceAttachmentEnaSrdSpecificationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceAttachmentEnaSrdSpecificationArgs) ToNetworkInterfaceAttachmentEnaSrdSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentEnaSrdSpecificationOutput)
+}
+
+func (i NetworkInterfaceAttachmentEnaSrdSpecificationArgs) ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return i.ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceAttachmentEnaSrdSpecificationArgs) ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentEnaSrdSpecificationOutput).ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutputWithContext(ctx)
+}
+
+// NetworkInterfaceAttachmentEnaSrdSpecificationPtrInput is an input type that accepts NetworkInterfaceAttachmentEnaSrdSpecificationArgs, NetworkInterfaceAttachmentEnaSrdSpecificationPtr and NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput values.
+// You can construct a concrete instance of `NetworkInterfaceAttachmentEnaSrdSpecificationPtrInput` via:
+//
+//	        NetworkInterfaceAttachmentEnaSrdSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInterfaceAttachmentEnaSrdSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput
+	ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutputWithContext(context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput
+}
+
+type networkInterfaceAttachmentEnaSrdSpecificationPtrType NetworkInterfaceAttachmentEnaSrdSpecificationArgs
+
+func NetworkInterfaceAttachmentEnaSrdSpecificationPtr(v *NetworkInterfaceAttachmentEnaSrdSpecificationArgs) NetworkInterfaceAttachmentEnaSrdSpecificationPtrInput {
+	return (*networkInterfaceAttachmentEnaSrdSpecificationPtrType)(v)
+}
+
+func (*networkInterfaceAttachmentEnaSrdSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceAttachmentEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i *networkInterfaceAttachmentEnaSrdSpecificationPtrType) ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return i.ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInterfaceAttachmentEnaSrdSpecificationPtrType) ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput)
+}
+
+type NetworkInterfaceAttachmentEnaSrdSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceAttachmentEnaSrdSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachmentEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationOutput() NetworkInterfaceAttachmentEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return o.ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceAttachmentEnaSrdSpecification) *NetworkInterfaceAttachmentEnaSrdSpecification {
+		return &v
+	}).(NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput)
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceAttachmentEnaSrdSpecification) *bool { return v.EnaSrdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationOutput) EnaSrdUdpSpecification() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceAttachmentEnaSrdSpecification) *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties {
+		return v.EnaSrdUdpSpecification
+	}).(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput)
+}
+
+type NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceAttachmentEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) Elem() NetworkInterfaceAttachmentEnaSrdSpecificationOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachmentEnaSrdSpecification) NetworkInterfaceAttachmentEnaSrdSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceAttachmentEnaSrdSpecification
+		return ret
+	}).(NetworkInterfaceAttachmentEnaSrdSpecificationOutput)
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachmentEnaSrdSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput) EnaSrdUdpSpecification() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachmentEnaSrdSpecification) *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpSpecification
+	}).(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput)
+}
+
+type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties struct {
+	EnaSrdUdpEnabled *bool `pulumi:"enaSrdUdpEnabled"`
+}
+
+// NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesInput is an input type that accepts NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs and NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput values.
+// You can construct a concrete instance of `NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesInput` via:
+//
+//	NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs{...}
+type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput
+	ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutputWithContext(context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput
+}
+
+type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs struct {
+	EnaSrdUdpEnabled pulumi.BoolPtrInput `pulumi:"enaSrdUdpEnabled"`
+}
+
+func (NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties)(nil)).Elem()
+}
+
+func (i NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput {
+	return i.ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput)
+}
+
+func (i NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return i.ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput).ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutputWithContext(ctx)
+}
+
+// NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrInput is an input type that accepts NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs, NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtr and NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput values.
+// You can construct a concrete instance of `NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrInput` via:
+//
+//	        NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput
+	ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutputWithContext(context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput
+}
+
+type networkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrType NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs
+
+func NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtr(v *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrInput {
+	return (*networkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrType)(v)
+}
+
+func (*networkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties)(nil)).Elem()
+}
+
+func (i *networkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrType) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return i.ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrType) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput)
+}
+
+type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties)(nil)).Elem()
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return o.ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties) *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties {
+		return &v
+	}).(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput)
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties) *bool {
+		return v.EnaSrdUdpEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties)(nil)).Elem()
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput) ToNetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput) Elem() NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties) NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties
+		return ret
+	}).(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput)
+}
+
+func (o NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type NetworkInterfaceConnectionTrackingSpecification struct {
 	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
 	UdpStreamTimeout      *int `pulumi:"udpStreamTimeout"`
@@ -19274,6 +20442,12 @@ type PrefixListTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+//
+//	Available options:
+//	 + EnableResourceNameDnsAAAARecord (true | false)
+//	+ EnableResourceNameDnsARecord (true | false)
+//	+ HostnameType (ip-name | resource-name)
 type PrivateDnsNameOptionsOnLaunchProperties struct {
 	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
 	EnableResourceNameDnsAaaaRecord *bool   `pulumi:"enableResourceNameDnsAaaaRecord"`
@@ -19291,6 +20465,12 @@ type PrivateDnsNameOptionsOnLaunchPropertiesInput interface {
 	ToPrivateDnsNameOptionsOnLaunchPropertiesOutputWithContext(context.Context) PrivateDnsNameOptionsOnLaunchPropertiesOutput
 }
 
+// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+//
+//	Available options:
+//	 + EnableResourceNameDnsAAAARecord (true | false)
+//	+ EnableResourceNameDnsARecord (true | false)
+//	+ HostnameType (ip-name | resource-name)
 type PrivateDnsNameOptionsOnLaunchPropertiesArgs struct {
 	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
 	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAaaaRecord"`
@@ -19350,6 +20530,12 @@ func (i *privateDnsNameOptionsOnLaunchPropertiesPtrType) ToPrivateDnsNameOptions
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
 }
 
+// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+//
+//	Available options:
+//	 + EnableResourceNameDnsAAAARecord (true | false)
+//	+ EnableResourceNameDnsARecord (true | false)
+//	+ HostnameType (ip-name | resource-name)
 type PrivateDnsNameOptionsOnLaunchPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsNameOptionsOnLaunchPropertiesOutput) ElementType() reflect.Type {
@@ -19437,8 +20623,11 @@ func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) HostnameType() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type RouteTableTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -21367,29 +22556,30 @@ func (o SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput) Index(i pulum
 }
 
 type SpotFleetInstanceRequirementsRequest struct {
-	AcceleratorCount                          *SpotFleetAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  []SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          []SpotFleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 *SpotFleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      []string                                                           `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 *SpotFleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  *SpotFleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      *SpotFleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
-	CpuManufacturers                          []SpotFleetInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     []string                                                           `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       []SpotFleetInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
-	LocalStorage                              *SpotFleetInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
-	LocalStorageTypes                         []SpotFleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          *SpotFleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 *SpotFleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      *SpotFleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     *SpotFleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice *int                                                               `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   *bool                                                              `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     *int                                                               `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       *SpotFleetTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 *SpotFleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
+	AcceleratorCount                               *SpotFleetAcceleratorCountRequest                                  `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       []SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               []SpotFleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                      *SpotFleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                               []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           []string                                                           `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      *SpotFleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       *SpotFleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           *SpotFleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
+	CpuManufacturers                               []SpotFleetInstanceRequirementsRequestCpuManufacturersItem         `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          []string                                                           `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            []SpotFleetInstanceRequirementsRequestInstanceGenerationsItem      `pulumi:"instanceGenerations"`
+	LocalStorage                                   *SpotFleetInstanceRequirementsRequestLocalStorage                  `pulumi:"localStorage"`
+	LocalStorageTypes                              []SpotFleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                                               `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               *SpotFleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      *SpotFleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           *SpotFleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          *SpotFleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      *int                                                               `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        *bool                                                              `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          *int                                                               `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            *SpotFleetTotalLocalStorageGbRequest                               `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                      *SpotFleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
 }
 
 // SpotFleetInstanceRequirementsRequestInput is an input type that accepts SpotFleetInstanceRequirementsRequestArgs and SpotFleetInstanceRequirementsRequestOutput values.
@@ -21404,29 +22594,30 @@ type SpotFleetInstanceRequirementsRequestInput interface {
 }
 
 type SpotFleetInstanceRequirementsRequestArgs struct {
-	AcceleratorCount                          SpotFleetAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMiB                 SpotFleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
-	AcceleratorTypes                          SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      pulumi.StringArrayInput                                                    `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 SpotFleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  SpotFleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      SpotFleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
-	CpuManufacturers                          SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     pulumi.StringArrayInput                                                    `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
-	LocalStorage                              SpotFleetInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
-	LocalStorageTypes                         SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
-	MemoryGiBPerVCpu                          SpotFleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 SpotFleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
-	NetworkBandwidthGbps                      SpotFleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     SpotFleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   pulumi.BoolPtrInput                                                        `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                                         `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       SpotFleetTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 SpotFleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
+	AcceleratorCount                               SpotFleetAcceleratorCountRequestPtrInput                                   `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMiB                      SpotFleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
+	AcceleratorTypes                               SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           pulumi.StringArrayInput                                                    `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      SpotFleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       SpotFleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           SpotFleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
+	CpuManufacturers                               SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput         `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                    `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput      `pulumi:"instanceGenerations"`
+	LocalStorage                                   SpotFleetInstanceRequirementsRequestLocalStoragePtrInput                   `pulumi:"localStorage"`
+	LocalStorageTypes                              SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                                                         `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGiBPerVCpu                               SpotFleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
+	MemoryMiB                                      SpotFleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                           SpotFleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          SpotFleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntPtrInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        pulumi.BoolPtrInput                                                        `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          pulumi.IntPtrInput                                                         `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            SpotFleetTotalLocalStorageGbRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
+	VCpuCount                                      SpotFleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
 }
 
 func (SpotFleetInstanceRequirementsRequestArgs) ElementType() reflect.Type {
@@ -21584,6 +22775,12 @@ func (o SpotFleetInstanceRequirementsRequestOutput) LocalStorageTypes() SpotFlee
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []SpotFleetInstanceRequirementsRequestLocalStorageTypesItem {
 		return v.LocalStorageTypes
 	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o SpotFleetInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() SpotFleetMemoryGiBPerVCpuRequestPtrOutput {
@@ -21778,6 +22975,15 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) LocalStorageTypes() SpotF
 		}
 		return v.LocalStorageTypes
 	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) MemoryGiBPerVCpu() SpotFleetMemoryGiBPerVCpuRequestPtrOutput {
@@ -25022,16 +26228,23 @@ func (o SseSpecificationPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type SubnetTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 // Specifies the tags to apply to a resource when the resource is created for the launch template.
+//
+//	``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type TagSpecification struct {
 	// The type of resource to tag.
+	//  Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
+	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 	ResourceType *string `pulumi:"resourceType"`
-	// The tags for the resource.
+	// The tags to apply to the resource.
 	Tags []LaunchTemplateTag `pulumi:"tags"`
 }
 
@@ -25047,10 +26260,14 @@ type TagSpecificationInput interface {
 }
 
 // Specifies the tags to apply to a resource when the resource is created for the launch template.
+//
+//	``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type TagSpecificationArgs struct {
 	// The type of resource to tag.
+	//  Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
+	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// The tags for the resource.
+	// The tags to apply to the resource.
 	Tags LaunchTemplateTagArrayInput `pulumi:"tags"`
 }
 
@@ -25092,6 +26309,8 @@ func (i TagSpecificationArray) ToTagSpecificationArrayOutputWithContext(ctx cont
 }
 
 // Specifies the tags to apply to a resource when the resource is created for the launch template.
+//
+//	``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type TagSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TagSpecificationOutput) ElementType() reflect.Type {
@@ -25107,11 +26326,14 @@ func (o TagSpecificationOutput) ToTagSpecificationOutputWithContext(ctx context.
 }
 
 // The type of resource to tag.
+//
+//	Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
+//	To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 func (o TagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// The tags for the resource.
+// The tags to apply to the resource.
 func (o TagSpecificationOutput) Tags() LaunchTemplateTagArrayOutput {
 	return o.ApplyT(func(v TagSpecification) []LaunchTemplateTag { return v.Tags }).(LaunchTemplateTagArrayOutput)
 }
@@ -27484,10 +28706,11 @@ type VerifiedAccessTrustProviderTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type VolumeTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The tag key.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -27636,8 +28859,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientConnectOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientConnectOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientLoginBannerOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientLoginBannerOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientRouteMonitoringOptionsInput)(nil)).Elem(), ClientVpnEndpointClientRouteMonitoringOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointClientRouteMonitoringOptionsPtrInput)(nil)).Elem(), ClientVpnEndpointClientRouteMonitoringOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointConnectionLogOptionsInput)(nil)).Elem(), ClientVpnEndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequestInput)(nil)).Elem(), ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput)(nil)).Elem(), ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{})
@@ -27835,6 +29056,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterPortRangePtrInput)(nil)).Elem(), NetworkInsightsPathFilterPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathPathFilterInput)(nil)).Elem(), NetworkInsightsPathPathFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathPathFilterPtrInput)(nil)).Elem(), NetworkInsightsPathPathFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentEnaSrdSpecificationInput)(nil)).Elem(), NetworkInterfaceAttachmentEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentEnaSrdSpecificationPtrInput)(nil)).Elem(), NetworkInterfaceAttachmentEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesInput)(nil)).Elem(), NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrInput)(nil)).Elem(), NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecificationInput)(nil)).Elem(), NetworkInterfaceConnectionTrackingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecificationPtrInput)(nil)).Elem(), NetworkInterfaceConnectionTrackingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceInstanceIpv6AddressInput)(nil)).Elem(), NetworkInterfaceInstanceIpv6AddressArgs{})
@@ -27969,8 +29194,6 @@ func init() {
 	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointClientLoginBannerOptionsPtrOutput{})
-	pulumi.RegisterOutputType(ClientVpnEndpointClientRouteMonitoringOptionsOutput{})
-	pulumi.RegisterOutputType(ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput{})
@@ -28198,6 +29421,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsPathFilterPortRangePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathPathFilterOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathPathFilterPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentEnaSrdSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceConnectionTrackingSpecificationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceConnectionTrackingSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressOutput{})

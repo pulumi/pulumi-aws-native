@@ -12,12 +12,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
     /// <summary>
     /// Specifies an IPv4 prefix for a network interface.
+    ///  ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateIpv4PrefixSpecification
     {
         /// <summary>
-        /// The IPv4 prefix.
+        /// The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
         /// </summary>
         public readonly string? Ipv4Prefix;
 

@@ -33,6 +33,7 @@ type LookupDashboardResult struct {
 	CreatedTime       *string                       `pulumi:"createdTime"`
 	LastPublishedTime *string                       `pulumi:"lastPublishedTime"`
 	LastUpdatedTime   *string                       `pulumi:"lastUpdatedTime"`
+	LinkEntities      []string                      `pulumi:"linkEntities"`
 	Name              *string                       `pulumi:"name"`
 	Permissions       []DashboardResourcePermission `pulumi:"permissions"`
 	Tags              []aws.Tag                     `pulumi:"tags"`
@@ -89,6 +90,10 @@ func (o LookupDashboardResultOutput) LastPublishedTime() pulumi.StringPtrOutput 
 
 func (o LookupDashboardResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDashboardResultOutput) LinkEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDashboardResult) []string { return v.LinkEntities }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupDashboardResultOutput) Name() pulumi.StringPtrOutput {

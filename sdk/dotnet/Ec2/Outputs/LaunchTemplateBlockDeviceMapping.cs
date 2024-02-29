@@ -11,22 +11,26 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
     /// <summary>
-    /// Information about a block device mapping for an Amazon EC2 launch template.
+    /// Specifies a block device mapping for a launch template. You must specify ``DeviceName`` plus exactly one of the following properties: ``Ebs``, ``NoDevice``, or ``VirtualName``.
+    ///   ``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateBlockDeviceMapping
     {
         /// <summary>
-        /// The user data to make available to the instance.
+        /// The device name (for example, /dev/sdh or xvdh).
         /// </summary>
         public readonly string? DeviceName;
+        /// <summary>
+        /// Parameters used to automatically set up EBS volumes when the instance is launched.
+        /// </summary>
         public readonly Outputs.LaunchTemplateEbs? Ebs;
         /// <summary>
         /// To omit the device from the block device mapping, specify an empty string.
         /// </summary>
         public readonly string? NoDevice;
         /// <summary>
-        /// The virtual device name (ephemeralN).
+        /// The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
         /// </summary>
         public readonly string? VirtualName;
 

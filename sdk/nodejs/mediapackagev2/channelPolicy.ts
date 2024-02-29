@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
+ * <p>Represents a resource-based policy that allows or denies access to a channel.</p>
  */
 export class ChannelPolicy extends pulumi.CustomResource {
     /**
@@ -34,8 +34,8 @@ export class ChannelPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ChannelPolicy.__pulumiType;
     }
 
-    public readonly channelGroupName!: pulumi.Output<string | undefined>;
-    public readonly channelName!: pulumi.Output<string | undefined>;
+    public readonly channelGroupName!: pulumi.Output<string>;
+    public readonly channelName!: pulumi.Output<string>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
      */
@@ -52,6 +52,12 @@ export class ChannelPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'channelGroupName'");
+            }
+            if ((!args || args.channelName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'channelName'");
+            }
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
@@ -74,8 +80,8 @@ export class ChannelPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a ChannelPolicy resource.
  */
 export interface ChannelPolicyArgs {
-    channelGroupName?: pulumi.Input<string>;
-    channelName?: pulumi.Input<string>;
+    channelGroupName: pulumi.Input<string>;
+    channelName: pulumi.Input<string>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
      */

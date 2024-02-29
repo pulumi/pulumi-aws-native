@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("compressionFormat")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat>? CompressionFormat { get; set; }
 
+        [Input("customTimeZone")]
+        public Input<string>? CustomTimeZone { get; set; }
+
         [Input("dataFormatConversionConfiguration")]
         public Input<Inputs.DeliveryStreamDataFormatConversionConfigurationArgs>? DataFormatConversionConfiguration { get; set; }
 
@@ -35,6 +38,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
         [Input("errorOutputPrefix")]
         public Input<string>? ErrorOutputPrefix { get; set; }
+
+        [Input("fileExtension")]
+        public Input<string>? FileExtension { get; set; }
 
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

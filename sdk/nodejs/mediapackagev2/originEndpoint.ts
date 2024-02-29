@@ -41,9 +41,9 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly channelGroupName!: pulumi.Output<string | undefined>;
-    public readonly channelName!: pulumi.Output<string | undefined>;
-    public readonly containerType!: pulumi.Output<enums.mediapackagev2.OriginEndpointContainerType>;
+    public readonly channelGroupName!: pulumi.Output<string>;
+    public readonly channelName!: pulumi.Output<string>;
+    public readonly containerType!: pulumi.Output<enums.mediapackagev2.OriginEndpointContainerType | undefined>;
     /**
      * <p>The date and time the origin endpoint was created.</p>
      */
@@ -64,7 +64,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>The date and time the origin endpoint was modified.</p>
      */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
-    public readonly originEndpointName!: pulumi.Output<string | undefined>;
+    public readonly originEndpointName!: pulumi.Output<string>;
     public readonly segment!: pulumi.Output<outputs.mediapackagev2.OriginEndpointSegment | undefined>;
     /**
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
@@ -83,8 +83,11 @@ export class OriginEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containerType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'containerType'");
+            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'channelGroupName'");
+            }
+            if ((!args || args.channelName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'channelName'");
             }
             resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
             resourceInputs["channelName"] = args ? args.channelName : undefined;
@@ -125,9 +128,9 @@ export class OriginEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginEndpoint resource.
  */
 export interface OriginEndpointArgs {
-    channelGroupName?: pulumi.Input<string>;
-    channelName?: pulumi.Input<string>;
-    containerType: pulumi.Input<enums.mediapackagev2.OriginEndpointContainerType>;
+    channelGroupName: pulumi.Input<string>;
+    channelName: pulumi.Input<string>;
+    containerType?: pulumi.Input<enums.mediapackagev2.OriginEndpointContainerType>;
     /**
      * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
      */

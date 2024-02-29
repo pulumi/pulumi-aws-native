@@ -67,6 +67,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("maxBatchSize")]
         public Output<int?> MaxBatchSize { get; private set; } = null!;
 
+        [Output("metricsConfig")]
+        public Output<Pulumi.AwsNative.AppSync.ResolverMetricsConfig?> MetricsConfig { get; private set; } = null!;
+
         /// <summary>
         /// Functions linked with the pipeline resolver.
         /// </summary>
@@ -219,6 +222,9 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         [Input("maxBatchSize")]
         public Input<int>? MaxBatchSize { get; set; }
+
+        [Input("metricsConfig")]
+        public Input<Pulumi.AwsNative.AppSync.ResolverMetricsConfig>? MetricsConfig { get; set; }
 
         /// <summary>
         /// Functions linked with the pipeline resolver.

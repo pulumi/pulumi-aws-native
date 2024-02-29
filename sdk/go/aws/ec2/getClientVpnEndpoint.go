@@ -27,20 +27,19 @@ type LookupClientVpnEndpointArgs struct {
 }
 
 type LookupClientVpnEndpointResult struct {
-	ClientConnectOptions         *ClientVpnEndpointClientConnectOptions         `pulumi:"clientConnectOptions"`
-	ClientLoginBannerOptions     *ClientVpnEndpointClientLoginBannerOptions     `pulumi:"clientLoginBannerOptions"`
-	ClientRouteMonitoringOptions *ClientVpnEndpointClientRouteMonitoringOptions `pulumi:"clientRouteMonitoringOptions"`
-	ConnectionLogOptions         *ClientVpnEndpointConnectionLogOptions         `pulumi:"connectionLogOptions"`
-	Description                  *string                                        `pulumi:"description"`
-	DnsServers                   []string                                       `pulumi:"dnsServers"`
-	Id                           *string                                        `pulumi:"id"`
-	SecurityGroupIds             []string                                       `pulumi:"securityGroupIds"`
-	SelfServicePortal            *string                                        `pulumi:"selfServicePortal"`
-	ServerCertificateArn         *string                                        `pulumi:"serverCertificateArn"`
-	SessionTimeoutHours          *int                                           `pulumi:"sessionTimeoutHours"`
-	SplitTunnel                  *bool                                          `pulumi:"splitTunnel"`
-	VpcId                        *string                                        `pulumi:"vpcId"`
-	VpnPort                      *int                                           `pulumi:"vpnPort"`
+	ClientConnectOptions     *ClientVpnEndpointClientConnectOptions     `pulumi:"clientConnectOptions"`
+	ClientLoginBannerOptions *ClientVpnEndpointClientLoginBannerOptions `pulumi:"clientLoginBannerOptions"`
+	ConnectionLogOptions     *ClientVpnEndpointConnectionLogOptions     `pulumi:"connectionLogOptions"`
+	Description              *string                                    `pulumi:"description"`
+	DnsServers               []string                                   `pulumi:"dnsServers"`
+	Id                       *string                                    `pulumi:"id"`
+	SecurityGroupIds         []string                                   `pulumi:"securityGroupIds"`
+	SelfServicePortal        *string                                    `pulumi:"selfServicePortal"`
+	ServerCertificateArn     *string                                    `pulumi:"serverCertificateArn"`
+	SessionTimeoutHours      *int                                       `pulumi:"sessionTimeoutHours"`
+	SplitTunnel              *bool                                      `pulumi:"splitTunnel"`
+	VpcId                    *string                                    `pulumi:"vpcId"`
+	VpnPort                  *int                                       `pulumi:"vpnPort"`
 }
 
 func LookupClientVpnEndpointOutput(ctx *pulumi.Context, args LookupClientVpnEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupClientVpnEndpointResultOutput {
@@ -88,12 +87,6 @@ func (o LookupClientVpnEndpointResultOutput) ClientLoginBannerOptions() ClientVp
 	return o.ApplyT(func(v LookupClientVpnEndpointResult) *ClientVpnEndpointClientLoginBannerOptions {
 		return v.ClientLoginBannerOptions
 	}).(ClientVpnEndpointClientLoginBannerOptionsPtrOutput)
-}
-
-func (o LookupClientVpnEndpointResultOutput) ClientRouteMonitoringOptions() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return o.ApplyT(func(v LookupClientVpnEndpointResult) *ClientVpnEndpointClientRouteMonitoringOptions {
-		return v.ClientRouteMonitoringOptions
-	}).(ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput)
 }
 
 func (o LookupClientVpnEndpointResultOutput) ConnectionLogOptions() ClientVpnEndpointConnectionLogOptionsPtrOutput {

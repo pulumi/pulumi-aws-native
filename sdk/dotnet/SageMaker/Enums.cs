@@ -748,6 +748,40 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// Unit of ttl configuration
+    /// </summary>
+    [EnumType]
+    public readonly struct FeatureGroupUnit : IEquatable<FeatureGroupUnit>
+    {
+        private readonly string _value;
+
+        private FeatureGroupUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FeatureGroupUnit Seconds { get; } = new FeatureGroupUnit("Seconds");
+        public static FeatureGroupUnit Minutes { get; } = new FeatureGroupUnit("Minutes");
+        public static FeatureGroupUnit Hours { get; } = new FeatureGroupUnit("Hours");
+        public static FeatureGroupUnit Days { get; } = new FeatureGroupUnit("Days");
+        public static FeatureGroupUnit Weeks { get; } = new FeatureGroupUnit("Weeks");
+
+        public static bool operator ==(FeatureGroupUnit left, FeatureGroupUnit right) => left.Equals(right);
+        public static bool operator !=(FeatureGroupUnit left, FeatureGroupUnit right) => !left.Equals(right);
+
+        public static explicit operator string(FeatureGroupUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeatureGroupUnit other && Equals(other);
+        public bool Equals(FeatureGroupUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates SageMaker job type compatibility.
     /// </summary>
     [EnumType]

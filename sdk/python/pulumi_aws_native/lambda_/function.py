@@ -48,28 +48,32 @@ class FunctionArgs:
         The set of arguments for constructing a Function resource.
         :param pulumi.Input['FunctionCodeArgs'] code: The code for the function.
         :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of the function's execution role.
-        :param pulumi.Input[str] code_signing_config_arn: A unique Arn for CodeSigningConfig resource
-        :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]] architectures: The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
+        :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+        :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         :param pulumi.Input[str] description: A description of the function.
         :param pulumi.Input['FunctionEnvironmentArgs'] environment: Environment variables that are accessible from function code during execution.
-        :param pulumi.Input['FunctionEphemeralStorageArgs'] ephemeral_storage: A function's ephemeral storage settings.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
-        :param pulumi.Input[str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
-        :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
-        :param pulumi.Input['FunctionImageConfigArgs'] image_config: ImageConfig
-        :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
-        :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: The logging configuration of your function
-        :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
-        :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
+        :param pulumi.Input['FunctionEphemeralStorageArgs'] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
+                For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
+        :param pulumi.Input[str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
+                If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
+        :param pulumi.Input['FunctionImageConfigArgs'] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
+        :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: The function's Amazon CloudWatch Logs configuration settings.
+        :param pulumi.Input[int] memory_size: The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
+        :param pulumi.Input['FunctionPackageType'] package_type: The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
-        :param pulumi.Input[str] runtime: The identifier of the function's runtime.
-        :param pulumi.Input['FunctionRuntimeManagementConfigArgs'] runtime_management_config: RuntimeManagementConfig
-        :param pulumi.Input['FunctionSnapStartArgs'] snap_start: The SnapStart setting of your function
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to apply to the function.
-        :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
-        :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
-        :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+        :param pulumi.Input[str] runtime: The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive.
+                The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy).
+        :param pulumi.Input['FunctionRuntimeManagementConfigArgs'] runtime_management_config: Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+        :param pulumi.Input['FunctionSnapStartArgs'] snap_start: The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
+        :param pulumi.Input[int] timeout: The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
+        :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
+        :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "role", role)
@@ -147,6 +151,9 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]]:
+        """
+        The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
+        """
         return pulumi.get(self, "architectures")
 
     @architectures.setter
@@ -157,7 +164,7 @@ class FunctionArgs:
     @pulumi.getter(name="codeSigningConfigArn")
     def code_signing_config_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A unique Arn for CodeSigningConfig resource
+        To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         """
         return pulumi.get(self, "code_signing_config_arn")
 
@@ -169,7 +176,7 @@ class FunctionArgs:
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> Optional[pulumi.Input['FunctionDeadLetterConfigArgs']]:
         """
-        A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+        A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -205,7 +212,7 @@ class FunctionArgs:
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> Optional[pulumi.Input['FunctionEphemeralStorageArgs']]:
         """
-        A function's ephemeral storage settings.
+        The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
         """
         return pulumi.get(self, "ephemeral_storage")
 
@@ -217,7 +224,8 @@ class FunctionArgs:
     @pulumi.getter(name="fileSystemConfigs")
     def file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]]]:
         """
-        Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
+        Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
+         For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         """
         return pulumi.get(self, "file_system_configs")
 
@@ -229,7 +237,8 @@ class FunctionArgs:
     @pulumi.getter(name="functionName")
     def function_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
+        The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
+         If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "function_name")
 
@@ -241,7 +250,7 @@ class FunctionArgs:
     @pulumi.getter
     def handler(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
+        The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
         """
         return pulumi.get(self, "handler")
 
@@ -253,7 +262,7 @@ class FunctionArgs:
     @pulumi.getter(name="imageConfig")
     def image_config(self) -> Optional[pulumi.Input['FunctionImageConfigArgs']]:
         """
-        ImageConfig
+        Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
         """
         return pulumi.get(self, "image_config")
 
@@ -265,7 +274,7 @@ class FunctionArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -277,7 +286,7 @@ class FunctionArgs:
     @pulumi.getter
     def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
+        A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
         """
         return pulumi.get(self, "layers")
 
@@ -289,7 +298,7 @@ class FunctionArgs:
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['FunctionLoggingConfigArgs']]:
         """
-        The logging configuration of your function
+        The function's Amazon CloudWatch Logs configuration settings.
         """
         return pulumi.get(self, "logging_config")
 
@@ -301,7 +310,7 @@ class FunctionArgs:
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+        The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
         """
         return pulumi.get(self, "memory_size")
 
@@ -313,7 +322,7 @@ class FunctionArgs:
     @pulumi.getter(name="packageType")
     def package_type(self) -> Optional[pulumi.Input['FunctionPackageType']]:
         """
-        PackageType.
+        The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         """
         return pulumi.get(self, "package_type")
 
@@ -337,7 +346,8 @@ class FunctionArgs:
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier of the function's runtime.
+        The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive.
+         The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy).
         """
         return pulumi.get(self, "runtime")
 
@@ -349,7 +359,7 @@ class FunctionArgs:
     @pulumi.getter(name="runtimeManagementConfig")
     def runtime_management_config(self) -> Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']]:
         """
-        RuntimeManagementConfig
+        Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
         """
         return pulumi.get(self, "runtime_management_config")
 
@@ -361,7 +371,7 @@ class FunctionArgs:
     @pulumi.getter(name="snapStart")
     def snap_start(self) -> Optional[pulumi.Input['FunctionSnapStartArgs']]:
         """
-        The SnapStart setting of your function
+        The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
         """
         return pulumi.get(self, "snap_start")
 
@@ -373,7 +383,7 @@ class FunctionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A list of tags to apply to the function.
+        A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
         """
         return pulumi.get(self, "tags")
 
@@ -385,7 +395,7 @@ class FunctionArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+        The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
         """
         return pulumi.get(self, "timeout")
 
@@ -397,7 +407,7 @@ class FunctionArgs:
     @pulumi.getter(name="tracingConfig")
     def tracing_config(self) -> Optional[pulumi.Input['FunctionTracingConfigArgs']]:
         """
-        Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
+        Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
         """
         return pulumi.get(self, "tracing_config")
 
@@ -409,7 +419,7 @@ class FunctionArgs:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['FunctionVpcConfigArgs']]:
         """
-        For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+        For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
         """
         return pulumi.get(self, "vpc_config")
 
@@ -450,34 +460,40 @@ class Function(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Lambda::Function in region
+        The ``AWS::Lambda::Function`` resource creates a Lambda function. To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html). The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
+         You set the package type to ``Image`` if the deployment package is a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html). For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties.
+         You set the package type to ``Zip`` if the deployment package is a [.zip file archive](https://docs.aws.amazon.com/lam
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]] architectures: The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
         :param pulumi.Input[pulumi.InputType['FunctionCodeArgs']] code: The code for the function.
-        :param pulumi.Input[str] code_signing_config_arn: A unique Arn for CodeSigningConfig resource
-        :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+        :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+        :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         :param pulumi.Input[str] description: A description of the function.
         :param pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']] environment: Environment variables that are accessible from function code during execution.
-        :param pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']] ephemeral_storage: A function's ephemeral storage settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
-        :param pulumi.Input[str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
-        :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
-        :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: ImageConfig
-        :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
-        :param pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']] logging_config: The logging configuration of your function
-        :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
-        :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
+        :param pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
+                For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
+        :param pulumi.Input[str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
+                If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
+        :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
+        :param pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']] logging_config: The function's Amazon CloudWatch Logs configuration settings.
+        :param pulumi.Input[int] memory_size: The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
+        :param pulumi.Input['FunctionPackageType'] package_type: The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of the function's execution role.
-        :param pulumi.Input[str] runtime: The identifier of the function's runtime.
-        :param pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']] runtime_management_config: RuntimeManagementConfig
-        :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: The SnapStart setting of your function
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags to apply to the function.
-        :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
-        :param pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']] tracing_config: Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
-        :param pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+        :param pulumi.Input[str] runtime: The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive.
+                The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy).
+        :param pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']] runtime_management_config: Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+        :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
+        :param pulumi.Input[int] timeout: The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
+        :param pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']] tracing_config: Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
+        :param pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
         """
         ...
     @overload
@@ -486,7 +502,9 @@ class Function(pulumi.CustomResource):
                  args: FunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Lambda::Function in region
+        The ``AWS::Lambda::Function`` resource creates a Lambda function. To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html). The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
+         You set the package type to ``Image`` if the deployment package is a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html). For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties.
+         You set the package type to ``Zip`` if the deployment package is a [.zip file archive](https://docs.aws.amazon.com/lam
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.
@@ -624,14 +642,14 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter
     def architectures(self) -> pulumi.Output[Optional[Sequence['FunctionArchitecturesItem']]]:
+        """
+        The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
+        """
         return pulumi.get(self, "architectures")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Unique identifier for function resources
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -646,7 +664,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="codeSigningConfigArn")
     def code_signing_config_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        A unique Arn for CodeSigningConfig resource
+        To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         """
         return pulumi.get(self, "code_signing_config_arn")
 
@@ -654,7 +672,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> pulumi.Output[Optional['outputs.FunctionDeadLetterConfig']]:
         """
-        A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+        A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -678,7 +696,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> pulumi.Output[Optional['outputs.FunctionEphemeralStorage']]:
         """
-        A function's ephemeral storage settings.
+        The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
         """
         return pulumi.get(self, "ephemeral_storage")
 
@@ -686,7 +704,8 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="fileSystemConfigs")
     def file_system_configs(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionFileSystemConfig']]]:
         """
-        Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
+        Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
+         For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         """
         return pulumi.get(self, "file_system_configs")
 
@@ -694,7 +713,8 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
+        The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
+         If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "function_name")
 
@@ -702,7 +722,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def handler(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
+        The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
         """
         return pulumi.get(self, "handler")
 
@@ -710,7 +730,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="imageConfig")
     def image_config(self) -> pulumi.Output[Optional['outputs.FunctionImageConfig']]:
         """
-        ImageConfig
+        Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
         """
         return pulumi.get(self, "image_config")
 
@@ -718,7 +738,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -726,7 +746,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def layers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
+        A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
         """
         return pulumi.get(self, "layers")
 
@@ -734,7 +754,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> pulumi.Output[Optional['outputs.FunctionLoggingConfig']]:
         """
-        The logging configuration of your function
+        The function's Amazon CloudWatch Logs configuration settings.
         """
         return pulumi.get(self, "logging_config")
 
@@ -742,7 +762,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> pulumi.Output[Optional[int]]:
         """
-        The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+        The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
         """
         return pulumi.get(self, "memory_size")
 
@@ -750,7 +770,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[Optional['FunctionPackageType']]:
         """
-        PackageType.
+        The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         """
         return pulumi.get(self, "package_type")
 
@@ -774,7 +794,8 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def runtime(self) -> pulumi.Output[Optional[str]]:
         """
-        The identifier of the function's runtime.
+        The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive.
+         The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy).
         """
         return pulumi.get(self, "runtime")
 
@@ -782,7 +803,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="runtimeManagementConfig")
     def runtime_management_config(self) -> pulumi.Output[Optional['outputs.FunctionRuntimeManagementConfig']]:
         """
-        RuntimeManagementConfig
+        Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
         """
         return pulumi.get(self, "runtime_management_config")
 
@@ -790,23 +811,20 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="snapStart")
     def snap_start(self) -> pulumi.Output[Optional['outputs.FunctionSnapStart']]:
         """
-        The SnapStart setting of your function
+        The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
         """
         return pulumi.get(self, "snap_start")
 
     @property
     @pulumi.getter(name="snapStartResponse")
     def snap_start_response(self) -> pulumi.Output['outputs.FunctionSnapStartResponse']:
-        """
-        The SnapStart response of your function
-        """
         return pulumi.get(self, "snap_start_response")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A list of tags to apply to the function.
+        A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
         """
         return pulumi.get(self, "tags")
 
@@ -814,7 +832,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def timeout(self) -> pulumi.Output[Optional[int]]:
         """
-        The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+        The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
         """
         return pulumi.get(self, "timeout")
 
@@ -822,7 +840,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="tracingConfig")
     def tracing_config(self) -> pulumi.Output[Optional['outputs.FunctionTracingConfig']]:
         """
-        Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
+        Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
         """
         return pulumi.get(self, "tracing_config")
 
@@ -830,7 +848,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.FunctionVpcConfig']]:
         """
-        For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+        For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
         """
         return pulumi.get(self, "vpc_config")
 

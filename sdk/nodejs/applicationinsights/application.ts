@@ -42,6 +42,10 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
     /**
+     * If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+     */
+    public readonly attachMissingPermission!: pulumi.Output<boolean | undefined>;
+    /**
      * If set to true, application will be configured with recommended monitoring configuration.
      */
     public readonly autoConfigurationEnabled!: pulumi.Output<boolean | undefined>;
@@ -96,6 +100,7 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["attachMissingPermission"] = args ? args.attachMissingPermission : undefined;
             resourceInputs["autoConfigurationEnabled"] = args ? args.autoConfigurationEnabled : undefined;
             resourceInputs["componentMonitoringSettings"] = args ? args.componentMonitoringSettings : undefined;
             resourceInputs["customComponents"] = args ? args.customComponents : undefined;
@@ -109,6 +114,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationArn"] = undefined /*out*/;
         } else {
             resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["attachMissingPermission"] = undefined /*out*/;
             resourceInputs["autoConfigurationEnabled"] = undefined /*out*/;
             resourceInputs["componentMonitoringSettings"] = undefined /*out*/;
             resourceInputs["customComponents"] = undefined /*out*/;
@@ -131,6 +137,10 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+     */
+    attachMissingPermission?: pulumi.Input<boolean>;
     /**
      * If set to true, application will be configured with recommended monitoring configuration.
      */

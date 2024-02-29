@@ -2011,6 +2011,7 @@ type DeliveryStreamProcessorType string
 const (
 	DeliveryStreamProcessorTypeRecordDeAggregation     = DeliveryStreamProcessorType("RecordDeAggregation")
 	DeliveryStreamProcessorTypeDecompression           = DeliveryStreamProcessorType("Decompression")
+	DeliveryStreamProcessorTypeCloudWatchLogProcessing = DeliveryStreamProcessorType("CloudWatchLogProcessing")
 	DeliveryStreamProcessorTypeLambda                  = DeliveryStreamProcessorType("Lambda")
 	DeliveryStreamProcessorTypeMetadataExtraction      = DeliveryStreamProcessorType("MetadataExtraction")
 	DeliveryStreamProcessorTypeAppendDelimiterToRecord = DeliveryStreamProcessorType("AppendDelimiterToRecord")
@@ -2140,6 +2141,7 @@ func (o DeliveryStreamProcessorTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 //
 //	DeliveryStreamProcessorTypeRecordDeAggregation
 //	DeliveryStreamProcessorTypeDecompression
+//	DeliveryStreamProcessorTypeCloudWatchLogProcessing
 //	DeliveryStreamProcessorTypeLambda
 //	DeliveryStreamProcessorTypeMetadataExtraction
 //	DeliveryStreamProcessorTypeAppendDelimiterToRecord

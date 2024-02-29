@@ -21,7 +21,8 @@ type NetworkInterfaceAttachment struct {
 	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 	DeleteOnTermination pulumi.BoolPtrOutput `pulumi:"deleteOnTermination"`
 	// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
-	DeviceIndex pulumi.StringOutput `pulumi:"deviceIndex"`
+	DeviceIndex         pulumi.StringOutput                                    `pulumi:"deviceIndex"`
+	EnaSrdSpecification NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput `pulumi:"enaSrdSpecification"`
 	// The ID of the instance to which you will attach the ENI.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// The ID of the ENI that you want to attach.
@@ -86,7 +87,8 @@ type networkInterfaceAttachmentArgs struct {
 	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
-	DeviceIndex string `pulumi:"deviceIndex"`
+	DeviceIndex         string                                         `pulumi:"deviceIndex"`
+	EnaSrdSpecification *NetworkInterfaceAttachmentEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The ID of the instance to which you will attach the ENI.
 	InstanceId string `pulumi:"instanceId"`
 	// The ID of the ENI that you want to attach.
@@ -98,7 +100,8 @@ type NetworkInterfaceAttachmentArgs struct {
 	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 	DeleteOnTermination pulumi.BoolPtrInput
 	// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
-	DeviceIndex pulumi.StringInput
+	DeviceIndex         pulumi.StringInput
+	EnaSrdSpecification NetworkInterfaceAttachmentEnaSrdSpecificationPtrInput
 	// The ID of the instance to which you will attach the ENI.
 	InstanceId pulumi.StringInput
 	// The ID of the ENI that you want to attach.
@@ -155,6 +158,12 @@ func (o NetworkInterfaceAttachmentOutput) DeleteOnTermination() pulumi.BoolPtrOu
 // The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
 func (o NetworkInterfaceAttachmentOutput) DeviceIndex() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.DeviceIndex }).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfaceAttachmentOutput) EnaSrdSpecification() NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+		return v.EnaSrdSpecification
+	}).(NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput)
 }
 
 // The ID of the instance to which you will attach the ENI.

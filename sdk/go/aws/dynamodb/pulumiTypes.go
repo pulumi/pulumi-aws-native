@@ -2477,8 +2477,14 @@ func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) WriteCapacityAut
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
+// Represents an attribute for describing the key schema for the table and indexes.
 type TableAttributeDefinition struct {
+	// A name for the attribute.
 	AttributeName string `pulumi:"attributeName"`
+	// The data type for the attribute, where:
+	//   +   ``S`` - the attribute is of type String
+	//   +   ``N`` - the attribute is of type Number
+	//   +   ``B`` - the attribute is of type Binary
 	AttributeType string `pulumi:"attributeType"`
 }
 
@@ -2493,8 +2499,14 @@ type TableAttributeDefinitionInput interface {
 	ToTableAttributeDefinitionOutputWithContext(context.Context) TableAttributeDefinitionOutput
 }
 
+// Represents an attribute for describing the key schema for the table and indexes.
 type TableAttributeDefinitionArgs struct {
+	// A name for the attribute.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// The data type for the attribute, where:
+	//   +   ``S`` - the attribute is of type String
+	//   +   ``N`` - the attribute is of type Number
+	//   +   ``B`` - the attribute is of type Binary
 	AttributeType pulumi.StringInput `pulumi:"attributeType"`
 }
 
@@ -2535,6 +2547,7 @@ func (i TableAttributeDefinitionArray) ToTableAttributeDefinitionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeDefinitionArrayOutput)
 }
 
+// Represents an attribute for describing the key schema for the table and indexes.
 type TableAttributeDefinitionOutput struct{ *pulumi.OutputState }
 
 func (TableAttributeDefinitionOutput) ElementType() reflect.Type {
@@ -2549,10 +2562,15 @@ func (o TableAttributeDefinitionOutput) ToTableAttributeDefinitionOutputWithCont
 	return o
 }
 
+// A name for the attribute.
 func (o TableAttributeDefinitionOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableAttributeDefinition) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
+// The data type for the attribute, where:
+//   - “S“ - the attribute is of type String
+//   - “N“ - the attribute is of type Number
+//   - “B“ - the attribute is of type Binary
 func (o TableAttributeDefinitionOutput) AttributeType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableAttributeDefinition) string { return v.AttributeType }).(pulumi.StringOutput)
 }
@@ -2577,7 +2595,9 @@ func (o TableAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) TableAttri
 	}).(TableAttributeDefinitionOutput)
 }
 
+// The settings used to enable or disable CloudWatch Contributor Insights.
 type TableContributorInsightsSpecification struct {
+	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2592,7 +2612,9 @@ type TableContributorInsightsSpecificationInput interface {
 	ToTableContributorInsightsSpecificationOutputWithContext(context.Context) TableContributorInsightsSpecificationOutput
 }
 
+// The settings used to enable or disable CloudWatch Contributor Insights.
 type TableContributorInsightsSpecificationArgs struct {
+	// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -2649,6 +2671,7 @@ func (i *tableContributorInsightsSpecificationPtrType) ToTableContributorInsight
 	return pulumi.ToOutputWithContext(ctx, i).(TableContributorInsightsSpecificationPtrOutput)
 }
 
+// The settings used to enable or disable CloudWatch Contributor Insights.
 type TableContributorInsightsSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableContributorInsightsSpecificationOutput) ElementType() reflect.Type {
@@ -2673,6 +2696,7 @@ func (o TableContributorInsightsSpecificationOutput) ToTableContributorInsightsS
 	}).(TableContributorInsightsSpecificationPtrOutput)
 }
 
+// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 func (o TableContributorInsightsSpecificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TableContributorInsightsSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2701,6 +2725,7 @@ func (o TableContributorInsightsSpecificationPtrOutput) Elem() TableContributorI
 	}).(TableContributorInsightsSpecificationOutput)
 }
 
+// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
 func (o TableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableContributorInsightsSpecification) *bool {
 		if v == nil {
@@ -2710,8 +2735,11 @@ func (o TableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The options for imported source files in CSV format. The values are Delimiter and HeaderList.
 type TableCsv struct {
-	Delimiter  *string  `pulumi:"delimiter"`
+	// The delimiter used for separating items in the CSV file being imported.
+	Delimiter *string `pulumi:"delimiter"`
+	// List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
 	HeaderList []string `pulumi:"headerList"`
 }
 
@@ -2726,8 +2754,11 @@ type TableCsvInput interface {
 	ToTableCsvOutputWithContext(context.Context) TableCsvOutput
 }
 
+// The options for imported source files in CSV format. The values are Delimiter and HeaderList.
 type TableCsvArgs struct {
-	Delimiter  pulumi.StringPtrInput   `pulumi:"delimiter"`
+	// The delimiter used for separating items in the CSV file being imported.
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
 	HeaderList pulumi.StringArrayInput `pulumi:"headerList"`
 }
 
@@ -2784,6 +2815,7 @@ func (i *tableCsvPtrType) ToTableCsvPtrOutputWithContext(ctx context.Context) Ta
 	return pulumi.ToOutputWithContext(ctx, i).(TableCsvPtrOutput)
 }
 
+// The options for imported source files in CSV format. The values are Delimiter and HeaderList.
 type TableCsvOutput struct{ *pulumi.OutputState }
 
 func (TableCsvOutput) ElementType() reflect.Type {
@@ -2808,10 +2840,12 @@ func (o TableCsvOutput) ToTableCsvPtrOutputWithContext(ctx context.Context) Tabl
 	}).(TableCsvPtrOutput)
 }
 
+// The delimiter used for separating items in the CSV file being imported.
 func (o TableCsvOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableCsv) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
+// List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
 func (o TableCsvOutput) HeaderList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableCsv) []string { return v.HeaderList }).(pulumi.StringArrayOutput)
 }
@@ -2840,6 +2874,7 @@ func (o TableCsvPtrOutput) Elem() TableCsvOutput {
 	}).(TableCsvOutput)
 }
 
+// The delimiter used for separating items in the CSV file being imported.
 func (o TableCsvPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableCsv) *string {
 		if v == nil {
@@ -2849,6 +2884,7 @@ func (o TableCsvPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
 func (o TableCsvPtrOutput) HeaderList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TableCsv) []string {
 		if v == nil {
@@ -2858,12 +2894,24 @@ func (o TableCsvPtrOutput) HeaderList() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Represents the properties of a global secondary index.
 type TableGlobalSecondaryIndex struct {
+	// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
 	ContributorInsightsSpecification *TableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
-	IndexName                        string                                 `pulumi:"indexName"`
-	KeySchema                        []TableKeySchema                       `pulumi:"keySchema"`
-	Projection                       TableProjection                        `pulumi:"projection"`
-	ProvisionedThroughput            *TableProvisionedThroughput            `pulumi:"provisionedThroughput"`
+	// The name of the global secondary index. The name must be unique among all other indexes on this table.
+	IndexName string `pulumi:"indexName"`
+	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+	//   +   ``HASH`` - partition key
+	//   +   ``RANGE`` - sort key
+	//
+	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+	KeySchema []TableKeySchema `pulumi:"keySchema"`
+	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	Projection TableProjection `pulumi:"projection"`
+	// Represents the provisioned throughput settings for the specified global secondary index.
+	//  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
+	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
 }
 
 // TableGlobalSecondaryIndexInput is an input type that accepts TableGlobalSecondaryIndexArgs and TableGlobalSecondaryIndexOutput values.
@@ -2877,12 +2925,24 @@ type TableGlobalSecondaryIndexInput interface {
 	ToTableGlobalSecondaryIndexOutputWithContext(context.Context) TableGlobalSecondaryIndexOutput
 }
 
+// Represents the properties of a global secondary index.
 type TableGlobalSecondaryIndexArgs struct {
+	// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
 	ContributorInsightsSpecification TableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
-	IndexName                        pulumi.StringInput                            `pulumi:"indexName"`
-	KeySchema                        TableKeySchemaArrayInput                      `pulumi:"keySchema"`
-	Projection                       TableProjectionInput                          `pulumi:"projection"`
-	ProvisionedThroughput            TableProvisionedThroughputPtrInput            `pulumi:"provisionedThroughput"`
+	// The name of the global secondary index. The name must be unique among all other indexes on this table.
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+	//   +   ``HASH`` - partition key
+	//   +   ``RANGE`` - sort key
+	//
+	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+	KeySchema TableKeySchemaArrayInput `pulumi:"keySchema"`
+	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	Projection TableProjectionInput `pulumi:"projection"`
+	// Represents the provisioned throughput settings for the specified global secondary index.
+	//  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
+	ProvisionedThroughput TableProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
 }
 
 func (TableGlobalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -2922,6 +2982,7 @@ func (i TableGlobalSecondaryIndexArray) ToTableGlobalSecondaryIndexArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexArrayOutput)
 }
 
+// Represents the properties of a global secondary index.
 type TableGlobalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (TableGlobalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -2936,24 +2997,38 @@ func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutputWithCo
 	return o
 }
 
+// The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
 func (o TableGlobalSecondaryIndexOutput) ContributorInsightsSpecification() TableContributorInsightsSpecificationPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
 	}).(TableContributorInsightsSpecificationPtrOutput)
 }
 
+// The name of the global secondary index. The name must be unique among all other indexes on this table.
 func (o TableGlobalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+//
+//   - “HASH“ - partition key
+//
+//   - “RANGE“ - sort key
+//
+//     The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+//     The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 func (o TableGlobalSecondaryIndexOutput) KeySchema() TableKeySchemaArrayOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) []TableKeySchema { return v.KeySchema }).(TableKeySchemaArrayOutput)
 }
 
+// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 func (o TableGlobalSecondaryIndexOutput) Projection() TableProjectionOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) TableProjection { return v.Projection }).(TableProjectionOutput)
 }
 
+// Represents the provisioned throughput settings for the specified global secondary index.
+//
+//	For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
 func (o TableGlobalSecondaryIndexOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableProvisionedThroughput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
 }
@@ -2978,11 +3053,16 @@ func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlob
 	}).(TableGlobalSecondaryIndexOutput)
 }
 
+// Specifies the properties of data being imported from the S3 bucket source to the table.
 type TableImportSourceSpecification struct {
-	InputCompressionType *string                  `pulumi:"inputCompressionType"`
-	InputFormat          string                   `pulumi:"inputFormat"`
-	InputFormatOptions   *TableInputFormatOptions `pulumi:"inputFormatOptions"`
-	S3BucketSource       TableS3BucketSource      `pulumi:"s3BucketSource"`
+	// Type of compression to be used on the input coming from the imported table.
+	InputCompressionType *string `pulumi:"inputCompressionType"`
+	// The format of the source data. Valid values for ``ImportFormat`` are ``CSV``, ``DYNAMODB_JSON`` or ``ION``.
+	InputFormat string `pulumi:"inputFormat"`
+	// Additional properties that specify how the input is formatted,
+	InputFormatOptions *TableInputFormatOptions `pulumi:"inputFormatOptions"`
+	// The S3 bucket that provides the source for the import.
+	S3BucketSource TableS3BucketSource `pulumi:"s3BucketSource"`
 }
 
 // TableImportSourceSpecificationInput is an input type that accepts TableImportSourceSpecificationArgs and TableImportSourceSpecificationOutput values.
@@ -2996,11 +3076,16 @@ type TableImportSourceSpecificationInput interface {
 	ToTableImportSourceSpecificationOutputWithContext(context.Context) TableImportSourceSpecificationOutput
 }
 
+// Specifies the properties of data being imported from the S3 bucket source to the table.
 type TableImportSourceSpecificationArgs struct {
-	InputCompressionType pulumi.StringPtrInput           `pulumi:"inputCompressionType"`
-	InputFormat          pulumi.StringInput              `pulumi:"inputFormat"`
-	InputFormatOptions   TableInputFormatOptionsPtrInput `pulumi:"inputFormatOptions"`
-	S3BucketSource       TableS3BucketSourceInput        `pulumi:"s3BucketSource"`
+	// Type of compression to be used on the input coming from the imported table.
+	InputCompressionType pulumi.StringPtrInput `pulumi:"inputCompressionType"`
+	// The format of the source data. Valid values for ``ImportFormat`` are ``CSV``, ``DYNAMODB_JSON`` or ``ION``.
+	InputFormat pulumi.StringInput `pulumi:"inputFormat"`
+	// Additional properties that specify how the input is formatted,
+	InputFormatOptions TableInputFormatOptionsPtrInput `pulumi:"inputFormatOptions"`
+	// The S3 bucket that provides the source for the import.
+	S3BucketSource TableS3BucketSourceInput `pulumi:"s3BucketSource"`
 }
 
 func (TableImportSourceSpecificationArgs) ElementType() reflect.Type {
@@ -3056,6 +3141,7 @@ func (i *tableImportSourceSpecificationPtrType) ToTableImportSourceSpecification
 	return pulumi.ToOutputWithContext(ctx, i).(TableImportSourceSpecificationPtrOutput)
 }
 
+// Specifies the properties of data being imported from the S3 bucket source to the table.
 type TableImportSourceSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableImportSourceSpecificationOutput) ElementType() reflect.Type {
@@ -3080,18 +3166,22 @@ func (o TableImportSourceSpecificationOutput) ToTableImportSourceSpecificationPt
 	}).(TableImportSourceSpecificationPtrOutput)
 }
 
+// Type of compression to be used on the input coming from the imported table.
 func (o TableImportSourceSpecificationOutput) InputCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableImportSourceSpecification) *string { return v.InputCompressionType }).(pulumi.StringPtrOutput)
 }
 
+// The format of the source data. Valid values for “ImportFormat“ are “CSV“, “DYNAMODB_JSON“ or “ION“.
 func (o TableImportSourceSpecificationOutput) InputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v TableImportSourceSpecification) string { return v.InputFormat }).(pulumi.StringOutput)
 }
 
+// Additional properties that specify how the input is formatted,
 func (o TableImportSourceSpecificationOutput) InputFormatOptions() TableInputFormatOptionsPtrOutput {
 	return o.ApplyT(func(v TableImportSourceSpecification) *TableInputFormatOptions { return v.InputFormatOptions }).(TableInputFormatOptionsPtrOutput)
 }
 
+// The S3 bucket that provides the source for the import.
 func (o TableImportSourceSpecificationOutput) S3BucketSource() TableS3BucketSourceOutput {
 	return o.ApplyT(func(v TableImportSourceSpecification) TableS3BucketSource { return v.S3BucketSource }).(TableS3BucketSourceOutput)
 }
@@ -3120,6 +3210,7 @@ func (o TableImportSourceSpecificationPtrOutput) Elem() TableImportSourceSpecifi
 	}).(TableImportSourceSpecificationOutput)
 }
 
+// Type of compression to be used on the input coming from the imported table.
 func (o TableImportSourceSpecificationPtrOutput) InputCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportSourceSpecification) *string {
 		if v == nil {
@@ -3129,6 +3220,7 @@ func (o TableImportSourceSpecificationPtrOutput) InputCompressionType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The format of the source data. Valid values for “ImportFormat“ are “CSV“, “DYNAMODB_JSON“ or “ION“.
 func (o TableImportSourceSpecificationPtrOutput) InputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableImportSourceSpecification) *string {
 		if v == nil {
@@ -3138,6 +3230,7 @@ func (o TableImportSourceSpecificationPtrOutput) InputFormat() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Additional properties that specify how the input is formatted,
 func (o TableImportSourceSpecificationPtrOutput) InputFormatOptions() TableInputFormatOptionsPtrOutput {
 	return o.ApplyT(func(v *TableImportSourceSpecification) *TableInputFormatOptions {
 		if v == nil {
@@ -3147,6 +3240,7 @@ func (o TableImportSourceSpecificationPtrOutput) InputFormatOptions() TableInput
 	}).(TableInputFormatOptionsPtrOutput)
 }
 
+// The S3 bucket that provides the source for the import.
 func (o TableImportSourceSpecificationPtrOutput) S3BucketSource() TableS3BucketSourcePtrOutput {
 	return o.ApplyT(func(v *TableImportSourceSpecification) *TableS3BucketSource {
 		if v == nil {
@@ -3156,7 +3250,9 @@ func (o TableImportSourceSpecificationPtrOutput) S3BucketSource() TableS3BucketS
 	}).(TableS3BucketSourcePtrOutput)
 }
 
+// The format options for the data that was imported into the target table. There is one value, CsvOption.
 type TableInputFormatOptions struct {
+	// The options for imported source files in CSV format. The values are Delimiter and HeaderList.
 	Csv *TableCsv `pulumi:"csv"`
 }
 
@@ -3171,7 +3267,9 @@ type TableInputFormatOptionsInput interface {
 	ToTableInputFormatOptionsOutputWithContext(context.Context) TableInputFormatOptionsOutput
 }
 
+// The format options for the data that was imported into the target table. There is one value, CsvOption.
 type TableInputFormatOptionsArgs struct {
+	// The options for imported source files in CSV format. The values are Delimiter and HeaderList.
 	Csv TableCsvPtrInput `pulumi:"csv"`
 }
 
@@ -3228,6 +3326,7 @@ func (i *tableInputFormatOptionsPtrType) ToTableInputFormatOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TableInputFormatOptionsPtrOutput)
 }
 
+// The format options for the data that was imported into the target table. There is one value, CsvOption.
 type TableInputFormatOptionsOutput struct{ *pulumi.OutputState }
 
 func (TableInputFormatOptionsOutput) ElementType() reflect.Type {
@@ -3252,6 +3351,7 @@ func (o TableInputFormatOptionsOutput) ToTableInputFormatOptionsPtrOutputWithCon
 	}).(TableInputFormatOptionsPtrOutput)
 }
 
+// The options for imported source files in CSV format. The values are Delimiter and HeaderList.
 func (o TableInputFormatOptionsOutput) Csv() TableCsvPtrOutput {
 	return o.ApplyT(func(v TableInputFormatOptions) *TableCsv { return v.Csv }).(TableCsvPtrOutput)
 }
@@ -3280,6 +3380,7 @@ func (o TableInputFormatOptionsPtrOutput) Elem() TableInputFormatOptionsOutput {
 	}).(TableInputFormatOptionsOutput)
 }
 
+// The options for imported source files in CSV format. The values are Delimiter and HeaderList.
 func (o TableInputFormatOptionsPtrOutput) Csv() TableCsvPtrOutput {
 	return o.ApplyT(func(v *TableInputFormatOptions) *TableCsv {
 		if v == nil {
@@ -3289,9 +3390,20 @@ func (o TableInputFormatOptionsPtrOutput) Csv() TableCsvPtrOutput {
 	}).(TableCsvPtrOutput)
 }
 
+// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+//
+//	A ``KeySchemaElement`` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one ``KeySchemaElement`` (for the partition key). A composite primary key would require one ``KeySchemaElement`` for the partition key, and another ``KeySchemaElement`` for the sort key.
+//	A ``KeySchemaElement`` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
 type TableKeySchema struct {
+	// The name of a key attribute.
 	AttributeName string `pulumi:"attributeName"`
-	KeyType       string `pulumi:"keyType"`
+	// The role that this key attribute will assume:
+	//   +   ``HASH`` - partition key
+	//   +   ``RANGE`` - sort key
+	//
+	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+	KeyType string `pulumi:"keyType"`
 }
 
 // TableKeySchemaInput is an input type that accepts TableKeySchemaArgs and TableKeySchemaOutput values.
@@ -3305,9 +3417,20 @@ type TableKeySchemaInput interface {
 	ToTableKeySchemaOutputWithContext(context.Context) TableKeySchemaOutput
 }
 
+// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+//
+//	A ``KeySchemaElement`` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one ``KeySchemaElement`` (for the partition key). A composite primary key would require one ``KeySchemaElement`` for the partition key, and another ``KeySchemaElement`` for the sort key.
+//	A ``KeySchemaElement`` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
 type TableKeySchemaArgs struct {
+	// The name of a key attribute.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
-	KeyType       pulumi.StringInput `pulumi:"keyType"`
+	// The role that this key attribute will assume:
+	//   +   ``HASH`` - partition key
+	//   +   ``RANGE`` - sort key
+	//
+	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+	KeyType pulumi.StringInput `pulumi:"keyType"`
 }
 
 func (TableKeySchemaArgs) ElementType() reflect.Type {
@@ -3347,6 +3470,10 @@ func (i TableKeySchemaArray) ToTableKeySchemaArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TableKeySchemaArrayOutput)
 }
 
+// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+//
+//	A ``KeySchemaElement`` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one ``KeySchemaElement`` (for the partition key). A composite primary key would require one ``KeySchemaElement`` for the partition key, and another ``KeySchemaElement`` for the sort key.
+//	A ``KeySchemaElement`` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
 type TableKeySchemaOutput struct{ *pulumi.OutputState }
 
 func (TableKeySchemaOutput) ElementType() reflect.Type {
@@ -3361,10 +3488,19 @@ func (o TableKeySchemaOutput) ToTableKeySchemaOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The name of a key attribute.
 func (o TableKeySchemaOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableKeySchema) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
+// The role that this key attribute will assume:
+//
+//   - “HASH“ - partition key
+//
+//   - “RANGE“ - sort key
+//
+//     The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+//     The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 func (o TableKeySchemaOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableKeySchema) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -3389,9 +3525,13 @@ func (o TableKeySchemaArrayOutput) Index(i pulumi.IntInput) TableKeySchemaOutput
 	}).(TableKeySchemaOutput)
 }
 
+// The Kinesis Data Streams configuration for the specified table.
 type TableKinesisStreamSpecification struct {
+	// The precision for the time and date that the stream was created.
 	ApproximateCreationDateTimePrecision *TableKinesisStreamSpecificationApproximateCreationDateTimePrecision `pulumi:"approximateCreationDateTimePrecision"`
-	StreamArn                            string                                                               `pulumi:"streamArn"`
+	// The ARN for a specific Kinesis data stream.
+	//  Length Constraints: Minimum length of 37. Maximum length of 1024.
+	StreamArn string `pulumi:"streamArn"`
 }
 
 // TableKinesisStreamSpecificationInput is an input type that accepts TableKinesisStreamSpecificationArgs and TableKinesisStreamSpecificationOutput values.
@@ -3405,9 +3545,13 @@ type TableKinesisStreamSpecificationInput interface {
 	ToTableKinesisStreamSpecificationOutputWithContext(context.Context) TableKinesisStreamSpecificationOutput
 }
 
+// The Kinesis Data Streams configuration for the specified table.
 type TableKinesisStreamSpecificationArgs struct {
+	// The precision for the time and date that the stream was created.
 	ApproximateCreationDateTimePrecision TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput `pulumi:"approximateCreationDateTimePrecision"`
-	StreamArn                            pulumi.StringInput                                                          `pulumi:"streamArn"`
+	// The ARN for a specific Kinesis data stream.
+	//  Length Constraints: Minimum length of 37. Maximum length of 1024.
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
 func (TableKinesisStreamSpecificationArgs) ElementType() reflect.Type {
@@ -3463,6 +3607,7 @@ func (i *tableKinesisStreamSpecificationPtrType) ToTableKinesisStreamSpecificati
 	return pulumi.ToOutputWithContext(ctx, i).(TableKinesisStreamSpecificationPtrOutput)
 }
 
+// The Kinesis Data Streams configuration for the specified table.
 type TableKinesisStreamSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableKinesisStreamSpecificationOutput) ElementType() reflect.Type {
@@ -3487,12 +3632,16 @@ func (o TableKinesisStreamSpecificationOutput) ToTableKinesisStreamSpecification
 	}).(TableKinesisStreamSpecificationPtrOutput)
 }
 
+// The precision for the time and date that the stream was created.
 func (o TableKinesisStreamSpecificationOutput) ApproximateCreationDateTimePrecision() TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
 	return o.ApplyT(func(v TableKinesisStreamSpecification) *TableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
 		return v.ApproximateCreationDateTimePrecision
 	}).(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
+// The ARN for a specific Kinesis data stream.
+//
+//	Length Constraints: Minimum length of 37. Maximum length of 1024.
 func (o TableKinesisStreamSpecificationOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TableKinesisStreamSpecification) string { return v.StreamArn }).(pulumi.StringOutput)
 }
@@ -3521,6 +3670,7 @@ func (o TableKinesisStreamSpecificationPtrOutput) Elem() TableKinesisStreamSpeci
 	}).(TableKinesisStreamSpecificationOutput)
 }
 
+// The precision for the time and date that the stream was created.
 func (o TableKinesisStreamSpecificationPtrOutput) ApproximateCreationDateTimePrecision() TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput {
 	return o.ApplyT(func(v *TableKinesisStreamSpecification) *TableKinesisStreamSpecificationApproximateCreationDateTimePrecision {
 		if v == nil {
@@ -3530,6 +3680,9 @@ func (o TableKinesisStreamSpecificationPtrOutput) ApproximateCreationDateTimePre
 	}).(TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
+// The ARN for a specific Kinesis data stream.
+//
+//	Length Constraints: Minimum length of 37. Maximum length of 1024.
 func (o TableKinesisStreamSpecificationPtrOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableKinesisStreamSpecification) *string {
 		if v == nil {
@@ -3539,10 +3692,19 @@ func (o TableKinesisStreamSpecificationPtrOutput) StreamArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
 type TableLocalSecondaryIndex struct {
-	IndexName  string           `pulumi:"indexName"`
-	KeySchema  []TableKeySchema `pulumi:"keySchema"`
-	Projection TableProjection  `pulumi:"projection"`
+	// The name of the local secondary index. The name must be unique among all other indexes on this table.
+	IndexName string `pulumi:"indexName"`
+	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+	//   +   ``HASH`` - partition key
+	//   +   ``RANGE`` - sort key
+	//
+	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+	KeySchema []TableKeySchema `pulumi:"keySchema"`
+	// Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	Projection TableProjection `pulumi:"projection"`
 }
 
 // TableLocalSecondaryIndexInput is an input type that accepts TableLocalSecondaryIndexArgs and TableLocalSecondaryIndexOutput values.
@@ -3556,10 +3718,19 @@ type TableLocalSecondaryIndexInput interface {
 	ToTableLocalSecondaryIndexOutputWithContext(context.Context) TableLocalSecondaryIndexOutput
 }
 
+// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
 type TableLocalSecondaryIndexArgs struct {
-	IndexName  pulumi.StringInput       `pulumi:"indexName"`
-	KeySchema  TableKeySchemaArrayInput `pulumi:"keySchema"`
-	Projection TableProjectionInput     `pulumi:"projection"`
+	// The name of the local secondary index. The name must be unique among all other indexes on this table.
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+	//   +   ``HASH`` - partition key
+	//   +   ``RANGE`` - sort key
+	//
+	//   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	//  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+	KeySchema TableKeySchemaArrayInput `pulumi:"keySchema"`
+	// Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	Projection TableProjectionInput `pulumi:"projection"`
 }
 
 func (TableLocalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -3599,6 +3770,7 @@ func (i TableLocalSecondaryIndexArray) ToTableLocalSecondaryIndexArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TableLocalSecondaryIndexArrayOutput)
 }
 
+// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
 type TableLocalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (TableLocalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -3613,14 +3785,24 @@ func (o TableLocalSecondaryIndexOutput) ToTableLocalSecondaryIndexOutputWithCont
 	return o
 }
 
+// The name of the local secondary index. The name must be unique among all other indexes on this table.
 func (o TableLocalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableLocalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+//
+//   - “HASH“ - partition key
+//
+//   - “RANGE“ - sort key
+//
+//     The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+//     The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 func (o TableLocalSecondaryIndexOutput) KeySchema() TableKeySchemaArrayOutput {
 	return o.ApplyT(func(v TableLocalSecondaryIndex) []TableKeySchema { return v.KeySchema }).(TableKeySchemaArrayOutput)
 }
 
+// Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 func (o TableLocalSecondaryIndexOutput) Projection() TableProjectionOutput {
 	return o.ApplyT(func(v TableLocalSecondaryIndex) TableProjection { return v.Projection }).(TableProjectionOutput)
 }
@@ -3645,7 +3827,9 @@ func (o TableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableLocal
 	}).(TableLocalSecondaryIndexOutput)
 }
 
+// The settings used to enable point in time recovery.
 type TablePointInTimeRecoverySpecification struct {
+	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
 }
 
@@ -3660,7 +3844,9 @@ type TablePointInTimeRecoverySpecificationInput interface {
 	ToTablePointInTimeRecoverySpecificationOutputWithContext(context.Context) TablePointInTimeRecoverySpecificationOutput
 }
 
+// The settings used to enable point in time recovery.
 type TablePointInTimeRecoverySpecificationArgs struct {
+	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled pulumi.BoolPtrInput `pulumi:"pointInTimeRecoveryEnabled"`
 }
 
@@ -3717,6 +3903,7 @@ func (i *tablePointInTimeRecoverySpecificationPtrType) ToTablePointInTimeRecover
 	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoverySpecificationPtrOutput)
 }
 
+// The settings used to enable point in time recovery.
 type TablePointInTimeRecoverySpecificationOutput struct{ *pulumi.OutputState }
 
 func (TablePointInTimeRecoverySpecificationOutput) ElementType() reflect.Type {
@@ -3741,6 +3928,7 @@ func (o TablePointInTimeRecoverySpecificationOutput) ToTablePointInTimeRecoveryS
 	}).(TablePointInTimeRecoverySpecificationPtrOutput)
 }
 
+// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 func (o TablePointInTimeRecoverySpecificationOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TablePointInTimeRecoverySpecification) *bool { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3769,6 +3957,7 @@ func (o TablePointInTimeRecoverySpecificationPtrOutput) Elem() TablePointInTimeR
 	}).(TablePointInTimeRecoverySpecificationOutput)
 }
 
+// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 func (o TablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TablePointInTimeRecoverySpecification) *bool {
 		if v == nil {
@@ -3778,9 +3967,16 @@ func (o TablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecoveryEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 type TableProjection struct {
+	// Represents the non-key attribute names which will be projected into the index.
+	//  For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	ProjectionType   *string  `pulumi:"projectionType"`
+	// The set of attributes that are projected into the index:
+	//   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+	//   +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+	//   +   ``ALL`` - All of the table attributes are projected into the index.
+	ProjectionType *string `pulumi:"projectionType"`
 }
 
 // TableProjectionInput is an input type that accepts TableProjectionArgs and TableProjectionOutput values.
@@ -3794,9 +3990,16 @@ type TableProjectionInput interface {
 	ToTableProjectionOutputWithContext(context.Context) TableProjectionOutput
 }
 
+// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 type TableProjectionArgs struct {
+	// Represents the non-key attribute names which will be projected into the index.
+	//  For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	ProjectionType   pulumi.StringPtrInput   `pulumi:"projectionType"`
+	// The set of attributes that are projected into the index:
+	//   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+	//   +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+	//   +   ``ALL`` - All of the table attributes are projected into the index.
+	ProjectionType pulumi.StringPtrInput `pulumi:"projectionType"`
 }
 
 func (TableProjectionArgs) ElementType() reflect.Type {
@@ -3811,6 +4014,7 @@ func (i TableProjectionArgs) ToTableProjectionOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TableProjectionOutput)
 }
 
+// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 type TableProjectionOutput struct{ *pulumi.OutputState }
 
 func (TableProjectionOutput) ElementType() reflect.Type {
@@ -3825,16 +4029,28 @@ func (o TableProjectionOutput) ToTableProjectionOutputWithContext(ctx context.Co
 	return o
 }
 
+// Represents the non-key attribute names which will be projected into the index.
+//
+//	For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 func (o TableProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TableProjection) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
+// The set of attributes that are projected into the index:
+//   - “KEYS_ONLY“ - Only the index and primary keys are projected into the index.
+//   - “INCLUDE“ - In addition to the attributes described in “KEYS_ONLY“, the secondary index will include other non-key attributes that you specify.
+//   - “ALL“ - All of the table attributes are projected into the index.
 func (o TableProjectionOutput) ProjectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableProjection) *string { return v.ProjectionType }).(pulumi.StringPtrOutput)
 }
 
+// Throughput for the specified table, which consists of values for “ReadCapacityUnits“ and “WriteCapacityUnits“. For more information about the contents of a provisioned throughput structure, see [Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
 type TableProvisionedThroughput struct {
-	ReadCapacityUnits  int `pulumi:"readCapacityUnits"`
+	// The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+	//  If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+	ReadCapacityUnits int `pulumi:"readCapacityUnits"`
+	// The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+	//  If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
 	WriteCapacityUnits int `pulumi:"writeCapacityUnits"`
 }
 
@@ -3849,8 +4065,13 @@ type TableProvisionedThroughputInput interface {
 	ToTableProvisionedThroughputOutputWithContext(context.Context) TableProvisionedThroughputOutput
 }
 
+// Throughput for the specified table, which consists of values for “ReadCapacityUnits“ and “WriteCapacityUnits“. For more information about the contents of a provisioned throughput structure, see [Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
 type TableProvisionedThroughputArgs struct {
-	ReadCapacityUnits  pulumi.IntInput `pulumi:"readCapacityUnits"`
+	// The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+	//  If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+	ReadCapacityUnits pulumi.IntInput `pulumi:"readCapacityUnits"`
+	// The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+	//  If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
 	WriteCapacityUnits pulumi.IntInput `pulumi:"writeCapacityUnits"`
 }
 
@@ -3907,6 +4128,7 @@ func (i *tableProvisionedThroughputPtrType) ToTableProvisionedThroughputPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TableProvisionedThroughputPtrOutput)
 }
 
+// Throughput for the specified table, which consists of values for “ReadCapacityUnits“ and “WriteCapacityUnits“. For more information about the contents of a provisioned throughput structure, see [Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
 type TableProvisionedThroughputOutput struct{ *pulumi.OutputState }
 
 func (TableProvisionedThroughputOutput) ElementType() reflect.Type {
@@ -3931,10 +4153,16 @@ func (o TableProvisionedThroughputOutput) ToTableProvisionedThroughputPtrOutputW
 	}).(TableProvisionedThroughputPtrOutput)
 }
 
+// The maximum number of strongly consistent reads consumed per second before DynamoDB returns a “ThrottlingException“. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+//
+//	If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
 func (o TableProvisionedThroughputOutput) ReadCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v TableProvisionedThroughput) int { return v.ReadCapacityUnits }).(pulumi.IntOutput)
 }
 
+// The maximum number of writes consumed per second before DynamoDB returns a “ThrottlingException“. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+//
+//	If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
 func (o TableProvisionedThroughputOutput) WriteCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v TableProvisionedThroughput) int { return v.WriteCapacityUnits }).(pulumi.IntOutput)
 }
@@ -3963,6 +4191,9 @@ func (o TableProvisionedThroughputPtrOutput) Elem() TableProvisionedThroughputOu
 	}).(TableProvisionedThroughputOutput)
 }
 
+// The maximum number of strongly consistent reads consumed per second before DynamoDB returns a “ThrottlingException“. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+//
+//	If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
 func (o TableProvisionedThroughputPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableProvisionedThroughput) *int {
 		if v == nil {
@@ -3972,6 +4203,9 @@ func (o TableProvisionedThroughputPtrOutput) ReadCapacityUnits() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of writes consumed per second before DynamoDB returns a “ThrottlingException“. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+//
+//	If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
 func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableProvisionedThroughput) *int {
 		if v == nil {
@@ -3981,143 +4215,14 @@ func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-type TableResourcePolicy struct {
-	PolicyDocument interface{} `pulumi:"policyDocument"`
-}
-
-// TableResourcePolicyInput is an input type that accepts TableResourcePolicyArgs and TableResourcePolicyOutput values.
-// You can construct a concrete instance of `TableResourcePolicyInput` via:
-//
-//	TableResourcePolicyArgs{...}
-type TableResourcePolicyInput interface {
-	pulumi.Input
-
-	ToTableResourcePolicyOutput() TableResourcePolicyOutput
-	ToTableResourcePolicyOutputWithContext(context.Context) TableResourcePolicyOutput
-}
-
-type TableResourcePolicyArgs struct {
-	PolicyDocument pulumi.Input `pulumi:"policyDocument"`
-}
-
-func (TableResourcePolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableResourcePolicy)(nil)).Elem()
-}
-
-func (i TableResourcePolicyArgs) ToTableResourcePolicyOutput() TableResourcePolicyOutput {
-	return i.ToTableResourcePolicyOutputWithContext(context.Background())
-}
-
-func (i TableResourcePolicyArgs) ToTableResourcePolicyOutputWithContext(ctx context.Context) TableResourcePolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableResourcePolicyOutput)
-}
-
-func (i TableResourcePolicyArgs) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
-	return i.ToTableResourcePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i TableResourcePolicyArgs) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableResourcePolicyOutput).ToTableResourcePolicyPtrOutputWithContext(ctx)
-}
-
-// TableResourcePolicyPtrInput is an input type that accepts TableResourcePolicyArgs, TableResourcePolicyPtr and TableResourcePolicyPtrOutput values.
-// You can construct a concrete instance of `TableResourcePolicyPtrInput` via:
-//
-//	        TableResourcePolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type TableResourcePolicyPtrInput interface {
-	pulumi.Input
-
-	ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput
-	ToTableResourcePolicyPtrOutputWithContext(context.Context) TableResourcePolicyPtrOutput
-}
-
-type tableResourcePolicyPtrType TableResourcePolicyArgs
-
-func TableResourcePolicyPtr(v *TableResourcePolicyArgs) TableResourcePolicyPtrInput {
-	return (*tableResourcePolicyPtrType)(v)
-}
-
-func (*tableResourcePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableResourcePolicy)(nil)).Elem()
-}
-
-func (i *tableResourcePolicyPtrType) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
-	return i.ToTableResourcePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *tableResourcePolicyPtrType) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableResourcePolicyPtrOutput)
-}
-
-type TableResourcePolicyOutput struct{ *pulumi.OutputState }
-
-func (TableResourcePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableResourcePolicy)(nil)).Elem()
-}
-
-func (o TableResourcePolicyOutput) ToTableResourcePolicyOutput() TableResourcePolicyOutput {
-	return o
-}
-
-func (o TableResourcePolicyOutput) ToTableResourcePolicyOutputWithContext(ctx context.Context) TableResourcePolicyOutput {
-	return o
-}
-
-func (o TableResourcePolicyOutput) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
-	return o.ToTableResourcePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o TableResourcePolicyOutput) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableResourcePolicy) *TableResourcePolicy {
-		return &v
-	}).(TableResourcePolicyPtrOutput)
-}
-
-func (o TableResourcePolicyOutput) PolicyDocument() pulumi.AnyOutput {
-	return o.ApplyT(func(v TableResourcePolicy) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
-}
-
-type TableResourcePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (TableResourcePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TableResourcePolicy)(nil)).Elem()
-}
-
-func (o TableResourcePolicyPtrOutput) ToTableResourcePolicyPtrOutput() TableResourcePolicyPtrOutput {
-	return o
-}
-
-func (o TableResourcePolicyPtrOutput) ToTableResourcePolicyPtrOutputWithContext(ctx context.Context) TableResourcePolicyPtrOutput {
-	return o
-}
-
-func (o TableResourcePolicyPtrOutput) Elem() TableResourcePolicyOutput {
-	return o.ApplyT(func(v *TableResourcePolicy) TableResourcePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret TableResourcePolicy
-		return ret
-	}).(TableResourcePolicyOutput)
-}
-
-func (o TableResourcePolicyPtrOutput) PolicyDocument() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TableResourcePolicy) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.PolicyDocument
-	}).(pulumi.AnyOutput)
-}
-
+// The S3 bucket that is being imported from.
 type TableS3BucketSource struct {
-	S3Bucket      string  `pulumi:"s3Bucket"`
+	// The S3 bucket that is being imported from.
+	S3Bucket string `pulumi:"s3Bucket"`
+	// The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
 	S3BucketOwner *string `pulumi:"s3BucketOwner"`
-	S3KeyPrefix   *string `pulumi:"s3KeyPrefix"`
+	// The key prefix shared by all S3 Objects that are being imported.
+	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
 // TableS3BucketSourceInput is an input type that accepts TableS3BucketSourceArgs and TableS3BucketSourceOutput values.
@@ -4131,10 +4236,14 @@ type TableS3BucketSourceInput interface {
 	ToTableS3BucketSourceOutputWithContext(context.Context) TableS3BucketSourceOutput
 }
 
+// The S3 bucket that is being imported from.
 type TableS3BucketSourceArgs struct {
-	S3Bucket      pulumi.StringInput    `pulumi:"s3Bucket"`
+	// The S3 bucket that is being imported from.
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
 	S3BucketOwner pulumi.StringPtrInput `pulumi:"s3BucketOwner"`
-	S3KeyPrefix   pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
+	// The key prefix shared by all S3 Objects that are being imported.
+	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
 func (TableS3BucketSourceArgs) ElementType() reflect.Type {
@@ -4190,6 +4299,7 @@ func (i *tableS3BucketSourcePtrType) ToTableS3BucketSourcePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TableS3BucketSourcePtrOutput)
 }
 
+// The S3 bucket that is being imported from.
 type TableS3BucketSourceOutput struct{ *pulumi.OutputState }
 
 func (TableS3BucketSourceOutput) ElementType() reflect.Type {
@@ -4214,14 +4324,17 @@ func (o TableS3BucketSourceOutput) ToTableS3BucketSourcePtrOutputWithContext(ctx
 	}).(TableS3BucketSourcePtrOutput)
 }
 
+// The S3 bucket that is being imported from.
 func (o TableS3BucketSourceOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v TableS3BucketSource) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
+// The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
 func (o TableS3BucketSourceOutput) S3BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableS3BucketSource) *string { return v.S3BucketOwner }).(pulumi.StringPtrOutput)
 }
 
+// The key prefix shared by all S3 Objects that are being imported.
 func (o TableS3BucketSourceOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableS3BucketSource) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -4250,6 +4363,7 @@ func (o TableS3BucketSourcePtrOutput) Elem() TableS3BucketSourceOutput {
 	}).(TableS3BucketSourceOutput)
 }
 
+// The S3 bucket that is being imported from.
 func (o TableS3BucketSourcePtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableS3BucketSource) *string {
 		if v == nil {
@@ -4259,6 +4373,7 @@ func (o TableS3BucketSourcePtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
 func (o TableS3BucketSourcePtrOutput) S3BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableS3BucketSource) *string {
 		if v == nil {
@@ -4268,6 +4383,7 @@ func (o TableS3BucketSourcePtrOutput) S3BucketOwner() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The key prefix shared by all S3 Objects that are being imported.
 func (o TableS3BucketSourcePtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableS3BucketSource) *string {
 		if v == nil {
@@ -4277,10 +4393,15 @@ func (o TableS3BucketSourcePtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the settings used to enable server-side encryption.
 type TableSseSpecification struct {
+	// The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
 	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
-	SseEnabled     bool    `pulumi:"sseEnabled"`
-	SseType        *string `pulumi:"sseType"`
+	// Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
+	SseEnabled bool `pulumi:"sseEnabled"`
+	// Server-side encryption type. The only supported value is:
+	//   +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+	SseType *string `pulumi:"sseType"`
 }
 
 // TableSseSpecificationInput is an input type that accepts TableSseSpecificationArgs and TableSseSpecificationOutput values.
@@ -4294,10 +4415,15 @@ type TableSseSpecificationInput interface {
 	ToTableSseSpecificationOutputWithContext(context.Context) TableSseSpecificationOutput
 }
 
+// Represents the settings used to enable server-side encryption.
 type TableSseSpecificationArgs struct {
+	// The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
 	KmsMasterKeyId pulumi.StringPtrInput `pulumi:"kmsMasterKeyId"`
-	SseEnabled     pulumi.BoolInput      `pulumi:"sseEnabled"`
-	SseType        pulumi.StringPtrInput `pulumi:"sseType"`
+	// Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
+	SseEnabled pulumi.BoolInput `pulumi:"sseEnabled"`
+	// Server-side encryption type. The only supported value is:
+	//   +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+	SseType pulumi.StringPtrInput `pulumi:"sseType"`
 }
 
 func (TableSseSpecificationArgs) ElementType() reflect.Type {
@@ -4353,6 +4479,7 @@ func (i *tableSseSpecificationPtrType) ToTableSseSpecificationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TableSseSpecificationPtrOutput)
 }
 
+// Represents the settings used to enable server-side encryption.
 type TableSseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableSseSpecificationOutput) ElementType() reflect.Type {
@@ -4377,14 +4504,18 @@ func (o TableSseSpecificationOutput) ToTableSseSpecificationPtrOutputWithContext
 	}).(TableSseSpecificationPtrOutput)
 }
 
+// The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key “alias/aws/dynamodb“.
 func (o TableSseSpecificationOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSseSpecification) *string { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to “KMS“ and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
 func (o TableSseSpecificationOutput) SseEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TableSseSpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
 }
 
+// Server-side encryption type. The only supported value is:
+//   - “KMS“ - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
 func (o TableSseSpecificationOutput) SseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSseSpecification) *string { return v.SseType }).(pulumi.StringPtrOutput)
 }
@@ -4413,6 +4544,7 @@ func (o TableSseSpecificationPtrOutput) Elem() TableSseSpecificationOutput {
 	}).(TableSseSpecificationOutput)
 }
 
+// The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key “alias/aws/dynamodb“.
 func (o TableSseSpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableSseSpecification) *string {
 		if v == nil {
@@ -4422,6 +4554,7 @@ func (o TableSseSpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to “KMS“ and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
 func (o TableSseSpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableSseSpecification) *bool {
 		if v == nil {
@@ -4431,6 +4564,8 @@ func (o TableSseSpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Server-side encryption type. The only supported value is:
+//   - “KMS“ - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
 func (o TableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableSseSpecification) *string {
 		if v == nil {
@@ -4440,9 +4575,14 @@ func (o TableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the DynamoDB Streams configuration for a table in DynamoDB.
 type TableStreamSpecification struct {
-	ResourcePolicy *TableResourcePolicy `pulumi:"resourcePolicy"`
-	StreamViewType string               `pulumi:"streamViewType"`
+	// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
+	//   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+	//   +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+	//   +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+	//   +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+	StreamViewType string `pulumi:"streamViewType"`
 }
 
 // TableStreamSpecificationInput is an input type that accepts TableStreamSpecificationArgs and TableStreamSpecificationOutput values.
@@ -4456,9 +4596,14 @@ type TableStreamSpecificationInput interface {
 	ToTableStreamSpecificationOutputWithContext(context.Context) TableStreamSpecificationOutput
 }
 
+// Represents the DynamoDB Streams configuration for a table in DynamoDB.
 type TableStreamSpecificationArgs struct {
-	ResourcePolicy TableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
-	StreamViewType pulumi.StringInput          `pulumi:"streamViewType"`
+	// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
+	//   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+	//   +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+	//   +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+	//   +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+	StreamViewType pulumi.StringInput `pulumi:"streamViewType"`
 }
 
 func (TableStreamSpecificationArgs) ElementType() reflect.Type {
@@ -4514,6 +4659,7 @@ func (i *tableStreamSpecificationPtrType) ToTableStreamSpecificationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TableStreamSpecificationPtrOutput)
 }
 
+// Represents the DynamoDB Streams configuration for a table in DynamoDB.
 type TableStreamSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableStreamSpecificationOutput) ElementType() reflect.Type {
@@ -4538,10 +4684,11 @@ func (o TableStreamSpecificationOutput) ToTableStreamSpecificationPtrOutputWithC
 	}).(TableStreamSpecificationPtrOutput)
 }
 
-func (o TableStreamSpecificationOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
-	return o.ApplyT(func(v TableStreamSpecification) *TableResourcePolicy { return v.ResourcePolicy }).(TableResourcePolicyPtrOutput)
-}
-
+// When an item in the table is modified, “StreamViewType“ determines what information is written to the stream for this table. Valid values for “StreamViewType“ are:
+//   - “KEYS_ONLY“ - Only the key attributes of the modified item are written to the stream.
+//   - “NEW_IMAGE“ - The entire item, as it appears after it was modified, is written to the stream.
+//   - “OLD_IMAGE“ - The entire item, as it appeared before it was modified, is written to the stream.
+//   - “NEW_AND_OLD_IMAGES“ - Both the new and the old item images of the item are written to the stream.
 func (o TableStreamSpecificationOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableStreamSpecification) string { return v.StreamViewType }).(pulumi.StringOutput)
 }
@@ -4570,15 +4717,11 @@ func (o TableStreamSpecificationPtrOutput) Elem() TableStreamSpecificationOutput
 	}).(TableStreamSpecificationOutput)
 }
 
-func (o TableStreamSpecificationPtrOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
-	return o.ApplyT(func(v *TableStreamSpecification) *TableResourcePolicy {
-		if v == nil {
-			return nil
-		}
-		return v.ResourcePolicy
-	}).(TableResourcePolicyPtrOutput)
-}
-
+// When an item in the table is modified, “StreamViewType“ determines what information is written to the stream for this table. Valid values for “StreamViewType“ are:
+//   - “KEYS_ONLY“ - Only the key attributes of the modified item are written to the stream.
+//   - “NEW_IMAGE“ - The entire item, as it appears after it was modified, is written to the stream.
+//   - “OLD_IMAGE“ - The entire item, as it appeared before it was modified, is written to the stream.
+//   - “NEW_AND_OLD_IMAGES“ - Both the new and the old item images of the item are written to the stream.
 func (o TableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableStreamSpecification) *string {
 		if v == nil {
@@ -4588,14 +4731,25 @@ func (o TableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+//
+//	 AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
+//	For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
 type TableTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+	Key string `pulumi:"key"`
+	// The value of the tag. Tag values are case-sensitive and can be null.
 	Value string `pulumi:"value"`
 }
 
+// Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
 type TableTimeToLiveSpecification struct {
+	// The name of the TTL attribute used to store the expiration time for items in the table.
+	//    + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+	//   +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
 	AttributeName *string `pulumi:"attributeName"`
-	Enabled       bool    `pulumi:"enabled"`
+	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+	Enabled bool `pulumi:"enabled"`
 }
 
 // TableTimeToLiveSpecificationInput is an input type that accepts TableTimeToLiveSpecificationArgs and TableTimeToLiveSpecificationOutput values.
@@ -4609,9 +4763,14 @@ type TableTimeToLiveSpecificationInput interface {
 	ToTableTimeToLiveSpecificationOutputWithContext(context.Context) TableTimeToLiveSpecificationOutput
 }
 
+// Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
 type TableTimeToLiveSpecificationArgs struct {
+	// The name of the TTL attribute used to store the expiration time for items in the table.
+	//    + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+	//   +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
 	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
-	Enabled       pulumi.BoolInput      `pulumi:"enabled"`
+	// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
 func (TableTimeToLiveSpecificationArgs) ElementType() reflect.Type {
@@ -4667,6 +4826,7 @@ func (i *tableTimeToLiveSpecificationPtrType) ToTableTimeToLiveSpecificationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TableTimeToLiveSpecificationPtrOutput)
 }
 
+// Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
 type TableTimeToLiveSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableTimeToLiveSpecificationOutput) ElementType() reflect.Type {
@@ -4691,10 +4851,14 @@ func (o TableTimeToLiveSpecificationOutput) ToTableTimeToLiveSpecificationPtrOut
 	}).(TableTimeToLiveSpecificationPtrOutput)
 }
 
+// The name of the TTL attribute used to store the expiration time for items in the table.
+//   - The “AttributeName“ property is required when enabling the TTL, or when TTL is already enabled.
+//   - To update this property, you must first disable TTL and then enable TTL with the new attribute name.
 func (o TableTimeToLiveSpecificationOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableTimeToLiveSpecification) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
 func (o TableTimeToLiveSpecificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TableTimeToLiveSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4723,6 +4887,9 @@ func (o TableTimeToLiveSpecificationPtrOutput) Elem() TableTimeToLiveSpecificati
 	}).(TableTimeToLiveSpecificationOutput)
 }
 
+// The name of the TTL attribute used to store the expiration time for items in the table.
+//   - The “AttributeName“ property is required when enabling the TTL, or when TTL is already enabled.
+//   - To update this property, you must first disable TTL and then enable TTL with the new attribute name.
 func (o TableTimeToLiveSpecificationPtrOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableTimeToLiveSpecification) *string {
 		if v == nil {
@@ -4732,6 +4899,7 @@ func (o TableTimeToLiveSpecificationPtrOutput) AttributeName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
 func (o TableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableTimeToLiveSpecification) *bool {
 		if v == nil {
@@ -4802,8 +4970,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProjectionInput)(nil)).Elem(), TableProjectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableProvisionedThroughputPtrInput)(nil)).Elem(), TableProvisionedThroughputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableResourcePolicyInput)(nil)).Elem(), TableResourcePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TableResourcePolicyPtrInput)(nil)).Elem(), TableResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourceInput)(nil)).Elem(), TableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableS3BucketSourcePtrInput)(nil)).Elem(), TableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSseSpecificationInput)(nil)).Elem(), TableSseSpecificationArgs{})
@@ -4872,8 +5038,6 @@ func init() {
 	pulumi.RegisterOutputType(TableProjectionOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputPtrOutput{})
-	pulumi.RegisterOutputType(TableResourcePolicyOutput{})
-	pulumi.RegisterOutputType(TableResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourceOutput{})
 	pulumi.RegisterOutputType(TableS3BucketSourcePtrOutput{})
 	pulumi.RegisterOutputType(TableSseSpecificationOutput{})

@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Outputs
 {
 
+    /// <summary>
+    /// Defines the X.500 relative distinguished name (RDN).
+    /// </summary>
     [OutputType]
     public sealed class CertificateCustomAttribute
     {
+        /// <summary>
+        /// Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
+        /// </summary>
         public readonly string ObjectIdentifier;
+        /// <summary>
+        /// Specifies the attribute value of relative distinguished name (RDN).
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

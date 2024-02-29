@@ -61,6 +61,9 @@ class GetFileSystemResult:
     @property
     @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> Optional['outputs.FileSystemBackupPolicy']:
+        """
+        Use the ``BackupPolicy`` to turn automatic backups on or off for the file system.
+        """
         return pulumi.get(self, "backup_policy")
 
     @property
@@ -72,6 +75,8 @@ class GetFileSystemResult:
     @pulumi.getter(name="fileSystemPolicy")
     def file_system_policy(self) -> Optional[Any]:
         """
+        The ``FileSystemPolicy`` for the EFS file system. A file system policy is an IAM resource policy used to control NFS access to an EFS file system. For more information, see [Using to control NFS access to Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html) in the *Amazon EFS User Guide*.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "file_system_policy")
@@ -79,31 +84,55 @@ class GetFileSystemResult:
     @property
     @pulumi.getter(name="fileSystemProtection")
     def file_system_protection(self) -> Optional['outputs.FileSystemProtection']:
+        """
+        Describes the protection on the file system.
+        """
         return pulumi.get(self, "file_system_protection")
 
     @property
     @pulumi.getter(name="fileSystemTags")
     def file_system_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Use to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a ``"Key":"Name","Value":"{value}"`` key-value pair. Each key must be unique. For more information, see [Tagging resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *General Reference Guide*.
+        """
         return pulumi.get(self, "file_system_tags")
 
     @property
     @pulumi.getter(name="lifecyclePolicies")
     def lifecycle_policies(self) -> Optional[Sequence['outputs.FileSystemLifecyclePolicy']]:
+        """
+        An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
+          +  When to move files in the file system from primary storage to IA storage.
+          + When to move files in the file system from primary storage or IA storage to Archive storage.
+         +  When to move files that are in IA or Archive storage to primary storage.
+          
+          EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+        """
         return pulumi.get(self, "lifecycle_policies")
 
     @property
     @pulumi.getter(name="provisionedThroughputInMibps")
     def provisioned_throughput_in_mibps(self) -> Optional[float]:
+        """
+        The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating. Required if ``ThroughputMode`` is set to ``provisioned``. Valid values are 1-3414 MiBps, with the upper limit depending on Region. To increase this limit, contact SUP. For more information, see [Amazon EFS quotas that you can increase](https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits) in the *Amazon EFS User Guide*.
+        """
         return pulumi.get(self, "provisioned_throughput_in_mibps")
 
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> Optional['outputs.FileSystemReplicationConfiguration']:
+        """
+        Describes the replication configuration for a specific file system.
+        """
         return pulumi.get(self, "replication_configuration")
 
     @property
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> Optional[str]:
+        """
+        Specifies the throughput mode for the file system. The mode can be ``bursting``, ``provisioned``, or ``elastic``. If you set ``ThroughputMode`` to ``provisioned``, you must also set a value for ``ProvisionedThroughputInMibps``. After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide*. 
+         Default is ``bursting``.
+        """
         return pulumi.get(self, "throughput_mode")
 
 
@@ -128,7 +157,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
 def get_file_system(file_system_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileSystemResult:
     """
-    Resource Type definition for AWS::EFS::FileSystem
+    The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
     """
     __args__ = dict()
     __args__['fileSystemId'] = file_system_id
@@ -152,6 +181,6 @@ def get_file_system(file_system_id: Optional[str] = None,
 def get_file_system_output(file_system_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileSystemResult]:
     """
-    Resource Type definition for AWS::EFS::FileSystem
+    The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
     """
     ...

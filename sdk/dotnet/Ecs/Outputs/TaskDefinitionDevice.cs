@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The ``Device`` property specifies an object representing a container instance host device.
+    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionDevice
     {
+        /// <summary>
+        /// The path inside the container at which to expose the host device.
+        /// </summary>
         public readonly string? ContainerPath;
+        /// <summary>
+        /// The path for the device on the host container instance.
+        /// </summary>
         public readonly string? HostPath;
+        /// <summary>
+        /// The explicit permissions to provide to the container for the device. By default, the container has permissions for ``read``, ``write``, and ``mknod`` for the device.
+        /// </summary>
         public readonly ImmutableArray<string> Permissions;
 
         [OutputConstructor]

@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Outputs
 {
 
+    /// <summary>
+    /// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
+    /// </summary>
     [OutputType]
     public sealed class CertificateEdiPartyName
     {
+        /// <summary>
+        /// Specifies the name assigner.
+        /// </summary>
         public readonly string NameAssigner;
+        /// <summary>
+        /// Specifies the party name.
+        /// </summary>
         public readonly string PartyName;
 
         [OutputConstructor]

@@ -20,6 +20,7 @@ __all__ = ['ApplicationArgs', 'Application']
 class ApplicationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 attach_missing_permission: Optional[pulumi.Input[bool]] = None,
                  auto_configuration_enabled: Optional[pulumi.Input[bool]] = None,
                  component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]] = None,
                  custom_components: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]] = None,
@@ -32,6 +33,7 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] attach_missing_permission: If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
         :param pulumi.Input[bool] auto_configuration_enabled: If set to true, application will be configured with recommended monitoring configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]] component_monitoring_settings: The monitoring settings of the components.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]] custom_components: The custom grouped components.
@@ -43,6 +45,8 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags of Application Insights application.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if attach_missing_permission is not None:
+            pulumi.set(__self__, "attach_missing_permission", attach_missing_permission)
         if auto_configuration_enabled is not None:
             pulumi.set(__self__, "auto_configuration_enabled", auto_configuration_enabled)
         if component_monitoring_settings is not None:
@@ -73,6 +77,18 @@ class ApplicationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="attachMissingPermission")
+    def attach_missing_permission(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+        """
+        return pulumi.get(self, "attach_missing_permission")
+
+    @attach_missing_permission.setter
+    def attach_missing_permission(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "attach_missing_permission", value)
 
     @property
     @pulumi.getter(name="autoConfigurationEnabled")
@@ -188,6 +204,7 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 attach_missing_permission: Optional[pulumi.Input[bool]] = None,
                  auto_configuration_enabled: Optional[pulumi.Input[bool]] = None,
                  component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationComponentMonitoringSettingArgs']]]]] = None,
                  custom_components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomComponentArgs']]]]] = None,
@@ -204,6 +221,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] attach_missing_permission: If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
         :param pulumi.Input[bool] auto_configuration_enabled: If set to true, application will be configured with recommended monitoring configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationComponentMonitoringSettingArgs']]]] component_monitoring_settings: The monitoring settings of the components.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomComponentArgs']]]] custom_components: The custom grouped components.
@@ -239,6 +257,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 attach_missing_permission: Optional[pulumi.Input[bool]] = None,
                  auto_configuration_enabled: Optional[pulumi.Input[bool]] = None,
                  component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationComponentMonitoringSettingArgs']]]]] = None,
                  custom_components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomComponentArgs']]]]] = None,
@@ -258,6 +277,7 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+            __props__.__dict__["attach_missing_permission"] = attach_missing_permission
             __props__.__dict__["auto_configuration_enabled"] = auto_configuration_enabled
             __props__.__dict__["component_monitoring_settings"] = component_monitoring_settings
             __props__.__dict__["custom_components"] = custom_components
@@ -296,6 +316,7 @@ class Application(pulumi.CustomResource):
         __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
         __props__.__dict__["application_arn"] = None
+        __props__.__dict__["attach_missing_permission"] = None
         __props__.__dict__["auto_configuration_enabled"] = None
         __props__.__dict__["component_monitoring_settings"] = None
         __props__.__dict__["custom_components"] = None
@@ -315,6 +336,14 @@ class Application(pulumi.CustomResource):
         The ARN of the ApplicationInsights application.
         """
         return pulumi.get(self, "application_arn")
+
+    @property
+    @pulumi.getter(name="attachMissingPermission")
+    def attach_missing_permission(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+        """
+        return pulumi.get(self, "attach_missing_permission")
 
     @property
     @pulumi.getter(name="autoConfigurationEnabled")

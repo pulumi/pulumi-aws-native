@@ -12,13 +12,21 @@ namespace Pulumi.AwsNative.SecretsManager
     public static class GetSecret
     {
         /// <summary>
-        /// Resource Type definition for AWS::SecretsManager::Secret
+        /// Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.
+        ///  For RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html).
+        ///  To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see [Retrieve a secret in an resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html).
+        ///  A common scenario is to first create a secret with ``GenerateSecretString``, which generates a password, and then use a dynamic reference to retrieve the username and password from the secret to use as credentials for a new database. See the example *Creating a Redshift cluster and a secret for the admin credentials*.
+        ///  For information about creating a secret in the c
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws-native:secretsmanager:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::SecretsManager::Secret
+        /// Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.
+        ///  For RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html).
+        ///  To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see [Retrieve a secret in an resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html).
+        ///  A common scenario is to first create a secret with ``GenerateSecretString``, which generates a password, and then use a dynamic reference to retrieve the username and password from the secret to use as credentials for a new database. See the example *Creating a Redshift cluster and a secret for the admin credentials*.
+        ///  For information about creating a secret in the c
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws-native:secretsmanager:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
@@ -27,9 +35,6 @@ namespace Pulumi.AwsNative.SecretsManager
 
     public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// secret Id, the Arn of the resource.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -41,9 +46,6 @@ namespace Pulumi.AwsNative.SecretsManager
 
     public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// secret Id, the Arn of the resource.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -58,23 +60,27 @@ namespace Pulumi.AwsNative.SecretsManager
     public sealed class GetSecretResult
     {
         /// <summary>
-        /// (Optional) Specifies a user-provided description of the secret.
+        /// The description of the secret.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// secret Id, the Arn of the resource.
-        /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
+        /// The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt the secret value in the secret. An alias is always prefixed by ``alias/``, for example ``alias/aws/secretsmanager``. For more information, see [About aliases](https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html).
+        ///  To use a KMS key in a different account, use the key ARN or the alias ARN.
+        ///  If you don't specify this value, then Secrets Manager uses the key ``aws/secretsmanager``. If that key doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+        ///  If the secret is in a different AWS account from the credentials calling the API, then you can't use ``aws/secretsmanager`` to encrypt the secret, and you must create and use a customer managed KMS key.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
+        /// A custom type that specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
         /// </summary>
         public readonly ImmutableArray<Outputs.SecretReplicaRegion> ReplicaRegions;
         /// <summary>
-        /// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
+        /// A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
+        ///   ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]`` 
+        ///  Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
+        ///  Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret. 
+        ///  If you check tags in permissions policies as part of your security strategy, then adding or removing a tag can change permissions. If the completion of this operation would result in you losing your permissions for this secret, then Secrets Manager blocks the operation and returns an ``Access Denied`` error. For more information, see [Control access to secrets using tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#tag-secrets-abac) and [Limit access to identities with tags that match secrets' tags](https://docs.aws.amazo
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

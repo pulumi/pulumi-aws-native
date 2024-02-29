@@ -12,15 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+// In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
 type ResolverRuleAssociation struct {
 	pulumi.CustomResourceState
 
 	// The name of an association between a Resolver rule and a VPC.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Primary Identifier for Resolver Rule Association
-	ResolverRuleAssociationId pulumi.StringOutput `pulumi:"resolverRuleAssociationId"`
-	// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+	Name                      pulumi.StringPtrOutput `pulumi:"name"`
+	ResolverRuleAssociationId pulumi.StringOutput    `pulumi:"resolverRuleAssociationId"`
+	// The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
 	ResolverRuleId pulumi.StringOutput `pulumi:"resolverRuleId"`
 	// The ID of the VPC that you associated the Resolver rule with.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -80,7 +79,7 @@ func (ResolverRuleAssociationState) ElementType() reflect.Type {
 type resolverRuleAssociationArgs struct {
 	// The name of an association between a Resolver rule and a VPC.
 	Name *string `pulumi:"name"`
-	// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+	// The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
 	ResolverRuleId string `pulumi:"resolverRuleId"`
 	// The ID of the VPC that you associated the Resolver rule with.
 	VpcId string `pulumi:"vpcId"`
@@ -90,7 +89,7 @@ type resolverRuleAssociationArgs struct {
 type ResolverRuleAssociationArgs struct {
 	// The name of an association between a Resolver rule and a VPC.
 	Name pulumi.StringPtrInput
-	// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+	// The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
 	ResolverRuleId pulumi.StringInput
 	// The ID of the VPC that you associated the Resolver rule with.
 	VpcId pulumi.StringInput
@@ -138,12 +137,11 @@ func (o ResolverRuleAssociationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Primary Identifier for Resolver Rule Association
 func (o ResolverRuleAssociationOutput) ResolverRuleAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.ResolverRuleAssociationId }).(pulumi.StringOutput)
 }
 
-// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+// The ID of the Resolver rule that you associated with the VPC that is specified by “VPCId“.
 func (o ResolverRuleAssociationOutput) ResolverRuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.ResolverRuleId }).(pulumi.StringOutput)
 }

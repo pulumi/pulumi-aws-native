@@ -25,6 +25,16 @@
       },
       "minItems" : 1,
       "insertionOrder" : false
+    },
+    "Tags" : {
+      "description" : "A set of tags to assign to the enabled control.",
+      "type" : "array",
+      "maxItems" : 50,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      },
+      "minItems" : 1,
+      "insertionOrder" : false
     }
   },
   "definitions" : {
@@ -63,21 +73,41 @@
       },
       "required" : [ "Value", "Key" ],
       "additionalProperties" : false
+    },
+    "Tag" : {
+      "description" : "A key-value pair to associate with a resource.",
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "description" : "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
     }
   },
   "required" : [ "TargetIdentifier", "ControlIdentifier" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl", "controltower:GetControlOperation", "controltower:EnableControl", "organizations:UpdatePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
+      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl", "controltower:GetControlOperation", "controltower:EnableControl", "controltower:TagResource", "organizations:UpdatePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
     },
     "update" : {
-      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl", "controltower:GetControlOperation", "controltower:UpdateEnabledControl", "organizations:UpdatePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
+      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl", "controltower:GetControlOperation", "controltower:UpdateEnabledControl", "controltower:UntagResource", "controltower:TagResource", "organizations:UpdatePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
     },
     "delete" : {
       "permissions" : [ "controltower:GetControlOperation", "controltower:DisableControl", "organizations:UpdatePolicy", "organizations:DeletePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
     },
     "read" : {
-      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl" ]
+      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl", "controltower:ListTagsForResource" ]
     },
     "list" : {
       "handlerSchema" : {
@@ -95,9 +125,10 @@
   "primaryIdentifier" : [ "/properties/TargetIdentifier", "/properties/ControlIdentifier" ],
   "createOnlyProperties" : [ "/properties/TargetIdentifier", "/properties/ControlIdentifier" ],
   "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
   }
 }

@@ -11,10 +11,13 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// Specifies object key name filtering rules.
+    /// Specifies object key name filtering rules. For information about key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
     /// </summary>
     public sealed class BucketNotificationFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A container for object key name prefix and suffix filtering rules.
+        /// </summary>
         [Input("s3Key", required: true)]
         public Input<Inputs.BucketS3KeyFilterArgs> S3Key { get; set; } = null!;
 

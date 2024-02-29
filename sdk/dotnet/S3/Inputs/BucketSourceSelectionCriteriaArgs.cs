@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// A container that describes additional filters for identifying the source objects that you want to replicate.
+    /// A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
     /// </summary>
     public sealed class BucketSourceSelectionCriteriaArgs : global::Pulumi.ResourceArgs
     {

@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ResolverMetricsConfig string
+
+const (
+	ResolverMetricsConfigEnabled  = ResolverMetricsConfig("ENABLED")
+	ResolverMetricsConfigDisabled = ResolverMetricsConfig("DISABLED")
+)
+
+func (ResolverMetricsConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverMetricsConfig)(nil)).Elem()
+}
+
+func (e ResolverMetricsConfig) ToResolverMetricsConfigOutput() ResolverMetricsConfigOutput {
+	return pulumi.ToOutput(e).(ResolverMetricsConfigOutput)
+}
+
+func (e ResolverMetricsConfig) ToResolverMetricsConfigOutputWithContext(ctx context.Context) ResolverMetricsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResolverMetricsConfigOutput)
+}
+
+func (e ResolverMetricsConfig) ToResolverMetricsConfigPtrOutput() ResolverMetricsConfigPtrOutput {
+	return e.ToResolverMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverMetricsConfig) ToResolverMetricsConfigPtrOutputWithContext(ctx context.Context) ResolverMetricsConfigPtrOutput {
+	return ResolverMetricsConfig(e).ToResolverMetricsConfigOutputWithContext(ctx).ToResolverMetricsConfigPtrOutputWithContext(ctx)
+}
+
+func (e ResolverMetricsConfig) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverMetricsConfig) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverMetricsConfig) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverMetricsConfig) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResolverMetricsConfigOutput struct{ *pulumi.OutputState }
+
+func (ResolverMetricsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverMetricsConfig)(nil)).Elem()
+}
+
+func (o ResolverMetricsConfigOutput) ToResolverMetricsConfigOutput() ResolverMetricsConfigOutput {
+	return o
+}
+
+func (o ResolverMetricsConfigOutput) ToResolverMetricsConfigOutputWithContext(ctx context.Context) ResolverMetricsConfigOutput {
+	return o
+}
+
+func (o ResolverMetricsConfigOutput) ToResolverMetricsConfigPtrOutput() ResolverMetricsConfigPtrOutput {
+	return o.ToResolverMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverMetricsConfigOutput) ToResolverMetricsConfigPtrOutputWithContext(ctx context.Context) ResolverMetricsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverMetricsConfig) *ResolverMetricsConfig {
+		return &v
+	}).(ResolverMetricsConfigPtrOutput)
+}
+
+func (o ResolverMetricsConfigOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResolverMetricsConfigOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverMetricsConfig) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResolverMetricsConfigOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverMetricsConfigOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverMetricsConfig) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResolverMetricsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverMetricsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverMetricsConfig)(nil)).Elem()
+}
+
+func (o ResolverMetricsConfigPtrOutput) ToResolverMetricsConfigPtrOutput() ResolverMetricsConfigPtrOutput {
+	return o
+}
+
+func (o ResolverMetricsConfigPtrOutput) ToResolverMetricsConfigPtrOutputWithContext(ctx context.Context) ResolverMetricsConfigPtrOutput {
+	return o
+}
+
+func (o ResolverMetricsConfigPtrOutput) Elem() ResolverMetricsConfigOutput {
+	return o.ApplyT(func(v *ResolverMetricsConfig) ResolverMetricsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverMetricsConfig
+		return ret
+	}).(ResolverMetricsConfigOutput)
+}
+
+func (o ResolverMetricsConfigPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverMetricsConfigPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResolverMetricsConfig) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResolverMetricsConfigInput is an input type that accepts values of the ResolverMetricsConfig enum
+// A concrete instance of `ResolverMetricsConfigInput` can be one of the following:
+//
+//	ResolverMetricsConfigEnabled
+//	ResolverMetricsConfigDisabled
+type ResolverMetricsConfigInput interface {
+	pulumi.Input
+
+	ToResolverMetricsConfigOutput() ResolverMetricsConfigOutput
+	ToResolverMetricsConfigOutputWithContext(context.Context) ResolverMetricsConfigOutput
+}
+
+var resolverMetricsConfigPtrType = reflect.TypeOf((**ResolverMetricsConfig)(nil)).Elem()
+
+type ResolverMetricsConfigPtrInput interface {
+	pulumi.Input
+
+	ToResolverMetricsConfigPtrOutput() ResolverMetricsConfigPtrOutput
+	ToResolverMetricsConfigPtrOutputWithContext(context.Context) ResolverMetricsConfigPtrOutput
+}
+
+type resolverMetricsConfigPtr string
+
+func ResolverMetricsConfigPtr(v string) ResolverMetricsConfigPtrInput {
+	return (*resolverMetricsConfigPtr)(&v)
+}
+
+func (*resolverMetricsConfigPtr) ElementType() reflect.Type {
+	return resolverMetricsConfigPtrType
+}
+
+func (in *resolverMetricsConfigPtr) ToResolverMetricsConfigPtrOutput() ResolverMetricsConfigPtrOutput {
+	return pulumi.ToOutput(in).(ResolverMetricsConfigPtrOutput)
+}
+
+func (in *resolverMetricsConfigPtr) ToResolverMetricsConfigPtrOutputWithContext(ctx context.Context) ResolverMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResolverMetricsConfigPtrOutput)
+}
+
 // Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
 type SourceApiAssociationConfigMergeType string
 
@@ -274,8 +439,12 @@ func (o SourceApiAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMetricsConfigInput)(nil)).Elem(), ResolverMetricsConfig("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMetricsConfigPtrInput)(nil)).Elem(), ResolverMetricsConfig("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigMergeTypeInput)(nil)).Elem(), SourceApiAssociationConfigMergeType("AUTO_MERGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigMergeTypePtrInput)(nil)).Elem(), SourceApiAssociationConfigMergeType("AUTO_MERGE"))
+	pulumi.RegisterOutputType(ResolverMetricsConfigOutput{})
+	pulumi.RegisterOutputType(ResolverMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(SourceApiAssociationConfigMergeTypeOutput{})
 	pulumi.RegisterOutputType(SourceApiAssociationConfigMergeTypePtrOutput{})
 	pulumi.RegisterOutputType(SourceApiAssociationStatusOutput{})

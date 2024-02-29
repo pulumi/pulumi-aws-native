@@ -3382,10 +3382,12 @@ type DeliveryStreamExtendedS3DestinationConfiguration struct {
 	BufferingHints                    *DeliveryStreamBufferingHints                                      `pulumi:"bufferingHints"`
 	CloudWatchLoggingOptions          *DeliveryStreamCloudWatchLoggingOptions                            `pulumi:"cloudWatchLoggingOptions"`
 	CompressionFormat                 *DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat `pulumi:"compressionFormat"`
+	CustomTimeZone                    *string                                                            `pulumi:"customTimeZone"`
 	DataFormatConversionConfiguration *DeliveryStreamDataFormatConversionConfiguration                   `pulumi:"dataFormatConversionConfiguration"`
 	DynamicPartitioningConfiguration  *DeliveryStreamDynamicPartitioningConfiguration                    `pulumi:"dynamicPartitioningConfiguration"`
 	EncryptionConfiguration           *DeliveryStreamEncryptionConfiguration                             `pulumi:"encryptionConfiguration"`
 	ErrorOutputPrefix                 *string                                                            `pulumi:"errorOutputPrefix"`
+	FileExtension                     *string                                                            `pulumi:"fileExtension"`
 	Prefix                            *string                                                            `pulumi:"prefix"`
 	ProcessingConfiguration           *DeliveryStreamProcessingConfiguration                             `pulumi:"processingConfiguration"`
 	RoleArn                           string                                                             `pulumi:"roleArn"`
@@ -3409,10 +3411,12 @@ type DeliveryStreamExtendedS3DestinationConfigurationArgs struct {
 	BufferingHints                    DeliveryStreamBufferingHintsPtrInput                                      `pulumi:"bufferingHints"`
 	CloudWatchLoggingOptions          DeliveryStreamCloudWatchLoggingOptionsPtrInput                            `pulumi:"cloudWatchLoggingOptions"`
 	CompressionFormat                 DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrInput `pulumi:"compressionFormat"`
+	CustomTimeZone                    pulumi.StringPtrInput                                                     `pulumi:"customTimeZone"`
 	DataFormatConversionConfiguration DeliveryStreamDataFormatConversionConfigurationPtrInput                   `pulumi:"dataFormatConversionConfiguration"`
 	DynamicPartitioningConfiguration  DeliveryStreamDynamicPartitioningConfigurationPtrInput                    `pulumi:"dynamicPartitioningConfiguration"`
 	EncryptionConfiguration           DeliveryStreamEncryptionConfigurationPtrInput                             `pulumi:"encryptionConfiguration"`
 	ErrorOutputPrefix                 pulumi.StringPtrInput                                                     `pulumi:"errorOutputPrefix"`
+	FileExtension                     pulumi.StringPtrInput                                                     `pulumi:"fileExtension"`
 	Prefix                            pulumi.StringPtrInput                                                     `pulumi:"prefix"`
 	ProcessingConfiguration           DeliveryStreamProcessingConfigurationPtrInput                             `pulumi:"processingConfiguration"`
 	RoleArn                           pulumi.StringInput                                                        `pulumi:"roleArn"`
@@ -3519,6 +3523,10 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) CompressionForma
 	}).(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
+func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) CustomTimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *string { return v.CustomTimeZone }).(pulumi.StringPtrOutput)
+}
+
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) DataFormatConversionConfiguration() DeliveryStreamDataFormatConversionConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamDataFormatConversionConfiguration {
 		return v.DataFormatConversionConfiguration
@@ -3539,6 +3547,10 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) EncryptionConfig
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) FileExtension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *string { return v.FileExtension }).(pulumi.StringPtrOutput)
 }
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) Prefix() pulumi.StringPtrOutput {
@@ -3627,6 +3639,15 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) CompressionFo
 	}).(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
+func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) CustomTimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomTimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) DataFormatConversionConfiguration() DeliveryStreamDataFormatConversionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamDataFormatConversionConfiguration {
 		if v == nil {
@@ -3660,6 +3681,15 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) ErrorOutputPr
 			return nil
 		}
 		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) FileExtension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileExtension
 	}).(pulumi.StringPtrOutput)
 }
 

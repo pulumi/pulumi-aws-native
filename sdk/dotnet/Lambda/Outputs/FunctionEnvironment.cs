@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// A function's environment variable settings.
+    /// A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
     /// </summary>
     [OutputType]
     public sealed class FunctionEnvironment
     {
         /// <summary>
-        /// Environment variable key-value pairs.
+        /// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Variables;
 

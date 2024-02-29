@@ -136,6 +136,7 @@ class PatchBaselineOperatingSystem(str, Enum):
     MACOS = "MACOS"
     RASPBIAN = "RASPBIAN"
     ROCKY_LINUX = "ROCKY_LINUX"
+    ALMA_LINUX = "ALMA_LINUX"
 
 
 class PatchBaselinePatchFilterKey(str, Enum):

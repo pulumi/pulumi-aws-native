@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 {
 
+    /// <summary>
+    /// Specifies the configuration information for mutual authentication.
+    /// </summary>
     [OutputType]
     public sealed class ListenerMutualAuthentication
     {
+        /// <summary>
+        /// Indicates whether expired client certificates are ignored.
+        /// </summary>
         public readonly bool? IgnoreClientCertificateExpiry;
+        /// <summary>
+        /// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+        /// </summary>
         public readonly string? Mode;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the trust store.
+        /// </summary>
         public readonly string? TrustStoreArn;
 
         [OutputConstructor]

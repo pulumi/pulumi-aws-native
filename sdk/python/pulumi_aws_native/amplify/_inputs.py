@@ -18,6 +18,8 @@ __all__ = [
     'BranchBackendArgs',
     'BranchBasicAuthConfigArgs',
     'BranchEnvironmentVariableArgs',
+    'DomainCertificateSettingsArgs',
+    'DomainCertificateArgs',
     'DomainSubDomainSettingArgs',
 ]
 
@@ -358,6 +360,76 @@ class BranchEnvironmentVariableArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DomainCertificateSettingsArgs:
+    def __init__(__self__, *,
+                 certificate_type: Optional[pulumi.Input['DomainCertificateSettingsCertificateType']] = None,
+                 custom_certificate_arn: Optional[pulumi.Input[str]] = None):
+        if certificate_type is not None:
+            pulumi.set(__self__, "certificate_type", certificate_type)
+        if custom_certificate_arn is not None:
+            pulumi.set(__self__, "custom_certificate_arn", custom_certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> Optional[pulumi.Input['DomainCertificateSettingsCertificateType']]:
+        return pulumi.get(self, "certificate_type")
+
+    @certificate_type.setter
+    def certificate_type(self, value: Optional[pulumi.Input['DomainCertificateSettingsCertificateType']]):
+        pulumi.set(self, "certificate_type", value)
+
+    @property
+    @pulumi.getter(name="customCertificateArn")
+    def custom_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_certificate_arn")
+
+    @custom_certificate_arn.setter
+    def custom_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_certificate_arn", value)
+
+
+@pulumi.input_type
+class DomainCertificateArgs:
+    def __init__(__self__, *,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 certificate_type: Optional[pulumi.Input['DomainCertificateCertificateType']] = None,
+                 certificate_verification_dns_record: Optional[pulumi.Input[str]] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if certificate_type is not None:
+            pulumi.set(__self__, "certificate_type", certificate_type)
+        if certificate_verification_dns_record is not None:
+            pulumi.set(__self__, "certificate_verification_dns_record", certificate_verification_dns_record)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> Optional[pulumi.Input['DomainCertificateCertificateType']]:
+        return pulumi.get(self, "certificate_type")
+
+    @certificate_type.setter
+    def certificate_type(self, value: Optional[pulumi.Input['DomainCertificateCertificateType']]):
+        pulumi.set(self, "certificate_type", value)
+
+    @property
+    @pulumi.getter(name="certificateVerificationDnsRecord")
+    def certificate_verification_dns_record(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_verification_dns_record")
+
+    @certificate_verification_dns_record.setter
+    def certificate_verification_dns_record(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_verification_dns_record", value)
 
 
 @pulumi.input_type

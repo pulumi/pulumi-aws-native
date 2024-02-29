@@ -46,7 +46,7 @@ def get_origin_endpoint_policy(channel_group_name: Optional[str] = None,
                                origin_endpoint_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginEndpointPolicyResult:
     """
-    Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
+    <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
     """
     __args__ = dict()
     __args__['channelGroupName'] = channel_group_name
@@ -65,6 +65,6 @@ def get_origin_endpoint_policy_output(channel_group_name: Optional[pulumi.Input[
                                       origin_endpoint_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginEndpointPolicyResult]:
     """
-    Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
+    <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
     """
     ...

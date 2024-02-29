@@ -5,7 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::SecurityGroupEgress
+ * Adds the specified outbound (egress) rule to a security group.
+ *  An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
+ *  You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+ *  You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
+ *  Rule changes are propagated to instances associated with the security group as quickly as possible
  */
 export function getSecurityGroupEgress(args: GetSecurityGroupEgressArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupEgressResult> {
 
@@ -16,32 +20,28 @@ export function getSecurityGroupEgress(args: GetSecurityGroupEgressArgs, opts?: 
 }
 
 export interface GetSecurityGroupEgressArgs {
-    /**
-     * The Security Group Rule Id
-     */
     id: string;
 }
 
 export interface GetSecurityGroupEgressResult {
     /**
-     * Resource Type definition for an egress (outbound) security group rule.
+     * The description of an egress (outbound) security group rule.
+     *  Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
      */
     readonly description?: string;
-    /**
-     * The Security Group Rule Id
-     */
     readonly id?: string;
 }
 /**
- * Resource Type definition for AWS::EC2::SecurityGroupEgress
+ * Adds the specified outbound (egress) rule to a security group.
+ *  An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
+ *  You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+ *  You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
+ *  Rule changes are propagated to instances associated with the security group as quickly as possible
  */
 export function getSecurityGroupEgressOutput(args: GetSecurityGroupEgressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupEgressResult> {
     return pulumi.output(args).apply((a: any) => getSecurityGroupEgress(a, opts))
 }
 
 export interface GetSecurityGroupEgressOutputArgs {
-    /**
-     * The Security Group Rule Id
-     */
     id: pulumi.Input<string>;
 }

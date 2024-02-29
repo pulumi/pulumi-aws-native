@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+    /// Specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.
     /// </summary>
     [OutputType]
     public sealed class BucketQueueConfiguration
     {
         /// <summary>
-        /// The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
+        /// The Amazon S3 bucket event about which you want to publish messages to Amazon SQS. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         /// </summary>
         public readonly string Event;
         /// <summary>
-        /// The filtering rules that determine which objects trigger notifications.
+        /// The filtering rules that determine which objects trigger notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket. For more information, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
         /// </summary>
         public readonly Outputs.BucketNotificationFilter? Filter;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
+        /// The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type. FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
         /// </summary>
         public readonly string Queue;
 

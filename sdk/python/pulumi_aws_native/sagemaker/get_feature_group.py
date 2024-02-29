@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFeatureGroupResult:
-    def __init__(__self__, creation_time=None, feature_definitions=None, feature_group_status=None, throughput_config=None):
+    def __init__(__self__, creation_time=None, feature_definitions=None, feature_group_status=None, online_store_config=None, throughput_config=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -30,6 +30,9 @@ class GetFeatureGroupResult:
         if feature_group_status and not isinstance(feature_group_status, str):
             raise TypeError("Expected argument 'feature_group_status' to be a str")
         pulumi.set(__self__, "feature_group_status", feature_group_status)
+        if online_store_config and not isinstance(online_store_config, dict):
+            raise TypeError("Expected argument 'online_store_config' to be a dict")
+        pulumi.set(__self__, "online_store_config", online_store_config)
         if throughput_config and not isinstance(throughput_config, dict):
             raise TypeError("Expected argument 'throughput_config' to be a dict")
         pulumi.set(__self__, "throughput_config", throughput_config)
@@ -59,6 +62,11 @@ class GetFeatureGroupResult:
         return pulumi.get(self, "feature_group_status")
 
     @property
+    @pulumi.getter(name="onlineStoreConfig")
+    def online_store_config(self) -> Optional['outputs.OnlineStoreConfigProperties']:
+        return pulumi.get(self, "online_store_config")
+
+    @property
     @pulumi.getter(name="throughputConfig")
     def throughput_config(self) -> Optional['outputs.FeatureGroupThroughputConfig']:
         return pulumi.get(self, "throughput_config")
@@ -73,6 +81,7 @@ class AwaitableGetFeatureGroupResult(GetFeatureGroupResult):
             creation_time=self.creation_time,
             feature_definitions=self.feature_definitions,
             feature_group_status=self.feature_group_status,
+            online_store_config=self.online_store_config,
             throughput_config=self.throughput_config)
 
 
@@ -93,6 +102,7 @@ def get_feature_group(feature_group_name: Optional[str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         feature_definitions=pulumi.get(__ret__, 'feature_definitions'),
         feature_group_status=pulumi.get(__ret__, 'feature_group_status'),
+        online_store_config=pulumi.get(__ret__, 'online_store_config'),
         throughput_config=pulumi.get(__ret__, 'throughput_config'))
 
 

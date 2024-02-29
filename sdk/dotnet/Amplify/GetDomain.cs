@@ -54,11 +54,14 @@ namespace Pulumi.AwsNative.Amplify
         public readonly string? Arn;
         public readonly ImmutableArray<string> AutoSubDomainCreationPatterns;
         public readonly string? AutoSubDomainIamRole;
+        public readonly Outputs.DomainCertificate? Certificate;
         public readonly string? CertificateRecord;
+        public readonly Outputs.DomainCertificateSettings? CertificateSettings;
         public readonly string? DomainStatus;
         public readonly bool? EnableAutoSubDomain;
         public readonly string? StatusReason;
         public readonly ImmutableArray<Outputs.DomainSubDomainSetting> SubDomainSettings;
+        public readonly string? UpdateStatus;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -68,7 +71,11 @@ namespace Pulumi.AwsNative.Amplify
 
             string? autoSubDomainIamRole,
 
+            Outputs.DomainCertificate? certificate,
+
             string? certificateRecord,
+
+            Outputs.DomainCertificateSettings? certificateSettings,
 
             string? domainStatus,
 
@@ -76,16 +83,21 @@ namespace Pulumi.AwsNative.Amplify
 
             string? statusReason,
 
-            ImmutableArray<Outputs.DomainSubDomainSetting> subDomainSettings)
+            ImmutableArray<Outputs.DomainSubDomainSetting> subDomainSettings,
+
+            string? updateStatus)
         {
             Arn = arn;
             AutoSubDomainCreationPatterns = autoSubDomainCreationPatterns;
             AutoSubDomainIamRole = autoSubDomainIamRole;
+            Certificate = certificate;
             CertificateRecord = certificateRecord;
+            CertificateSettings = certificateSettings;
             DomainStatus = domainStatus;
             EnableAutoSubDomain = enableAutoSubDomain;
             StatusReason = statusReason;
             SubDomainSettings = subDomainSettings;
+            UpdateStatus = updateStatus;
         }
     }
 }

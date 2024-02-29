@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
+    /// <summary>
+    /// Defines the X.500 relative distinguished name (RDN).
+    /// </summary>
     public sealed class CertificateCustomAttributeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
+        /// </summary>
         [Input("objectIdentifier", required: true)]
         public Input<string> ObjectIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the attribute value of relative distinguished name (RDN).
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

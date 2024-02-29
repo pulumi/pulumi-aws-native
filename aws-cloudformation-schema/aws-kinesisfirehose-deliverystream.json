@@ -284,6 +284,11 @@
           "type" : "string",
           "enum" : [ "UNCOMPRESSED", "GZIP", "ZIP", "Snappy", "HADOOP_SNAPPY" ]
         },
+        "CustomTimeZone" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 50
+        },
         "DataFormatConversionConfiguration" : {
           "$ref" : "#/definitions/DataFormatConversionConfiguration"
         },
@@ -297,6 +302,12 @@
           "type" : "string",
           "minLength" : 0,
           "maxLength" : 1024
+        },
+        "FileExtension" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 128,
+          "pattern" : "^$|\\.[0-9a-z!\\-_.*'()]+"
         },
         "Prefix" : {
           "type" : "string",
@@ -915,7 +926,7 @@
         },
         "Type" : {
           "type" : "string",
-          "enum" : [ "RecordDeAggregation", "Decompression", "Lambda", "MetadataExtraction", "AppendDelimiterToRecord" ]
+          "enum" : [ "RecordDeAggregation", "Decompression", "CloudWatchLogProcessing", "Lambda", "MetadataExtraction", "AppendDelimiterToRecord" ]
         }
       },
       "required" : [ "Type" ]
@@ -1089,6 +1100,7 @@
         },
         "ColumnToJsonKeyMappings" : {
           "type" : "object",
+          "additionalProperties" : false,
           "patternProperties" : {
             "[a-zA-Z0-9]+" : {
               "type" : "string"
@@ -1187,6 +1199,7 @@
     },
     "Tag" : {
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "Key" : {
           "type" : "string",

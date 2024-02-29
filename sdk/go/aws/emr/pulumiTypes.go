@@ -2058,6 +2058,7 @@ type ClusterJobFlowInstancesConfig struct {
 	TaskInstanceFleets             []ClusterInstanceFleetConfig `pulumi:"taskInstanceFleets"`
 	TaskInstanceGroups             []ClusterInstanceGroupConfig `pulumi:"taskInstanceGroups"`
 	TerminationProtected           *bool                        `pulumi:"terminationProtected"`
+	UnhealthyNodeReplacement       *bool                        `pulumi:"unhealthyNodeReplacement"`
 }
 
 // ClusterJobFlowInstancesConfigInput is an input type that accepts ClusterJobFlowInstancesConfigArgs and ClusterJobFlowInstancesConfigOutput values.
@@ -2090,6 +2091,7 @@ type ClusterJobFlowInstancesConfigArgs struct {
 	TaskInstanceFleets             ClusterInstanceFleetConfigArrayInput `pulumi:"taskInstanceFleets"`
 	TaskInstanceGroups             ClusterInstanceGroupConfigArrayInput `pulumi:"taskInstanceGroups"`
 	TerminationProtected           pulumi.BoolPtrInput                  `pulumi:"terminationProtected"`
+	UnhealthyNodeReplacement       pulumi.BoolPtrInput                  `pulumi:"unhealthyNodeReplacement"`
 }
 
 func (ClusterJobFlowInstancesConfigArgs) ElementType() reflect.Type {
@@ -2188,6 +2190,10 @@ func (o ClusterJobFlowInstancesConfigOutput) TaskInstanceGroups() ClusterInstanc
 
 func (o ClusterJobFlowInstancesConfigOutput) TerminationProtected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *bool { return v.TerminationProtected }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigOutput) UnhealthyNodeReplacement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterJobFlowInstancesConfig) *bool { return v.UnhealthyNodeReplacement }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterJobFlowInstancesConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2373,6 +2379,15 @@ func (o ClusterJobFlowInstancesConfigPtrOutput) TerminationProtected() pulumi.Bo
 			return nil
 		}
 		return v.TerminationProtected
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterJobFlowInstancesConfigPtrOutput) UnhealthyNodeReplacement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterJobFlowInstancesConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyNodeReplacement
 	}).(pulumi.BoolPtrOutput)
 }
 

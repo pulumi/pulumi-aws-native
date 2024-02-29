@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
+    /// <summary>
+    /// Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
+    /// </summary>
     public sealed class CertificateEdiPartyNameArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name assigner.
+        /// </summary>
         [Input("nameAssigner", required: true)]
         public Input<string> NameAssigner { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the party name.
+        /// </summary>
         [Input("partyName", required: true)]
         public Input<string> PartyName { get; set; } = null!;
 

@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("channelGroupName")]
-        public Output<string?> ChannelGroupName { get; private set; } = null!;
+        public Output<string> ChannelGroupName { get; private set; } = null!;
 
         [Output("channelName")]
-        public Output<string?> ChannelName { get; private set; } = null!;
+        public Output<string> ChannelName { get; private set; } = null!;
 
         [Output("containerType")]
-        public Output<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType> ContainerType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType?> ContainerType { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The date and time the origin endpoint was created.&lt;/p&gt;
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Output<string> ModifiedAt { get; private set; } = null!;
 
         [Output("originEndpointName")]
-        public Output<string?> OriginEndpointName { get; private set; } = null!;
+        public Output<string> OriginEndpointName { get; private set; } = null!;
 
         [Output("segment")]
         public Output<Outputs.OriginEndpointSegment?> Segment { get; private set; } = null!;
@@ -126,14 +126,14 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class OriginEndpointArgs : global::Pulumi.ResourceArgs
     {
-        [Input("channelGroupName")]
-        public Input<string>? ChannelGroupName { get; set; }
+        [Input("channelGroupName", required: true)]
+        public Input<string> ChannelGroupName { get; set; } = null!;
 
-        [Input("channelName")]
-        public Input<string>? ChannelName { get; set; }
+        [Input("channelName", required: true)]
+        public Input<string> ChannelName { get; set; } = null!;
 
-        [Input("containerType", required: true)]
-        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType> ContainerType { get; set; } = null!;
+        [Input("containerType")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointContainerType>? ContainerType { get; set; }
 
         /// <summary>
         /// &lt;p&gt;Enter any descriptive text that helps you to identify the origin endpoint.&lt;/p&gt;

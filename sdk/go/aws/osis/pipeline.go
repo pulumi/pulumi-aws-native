@@ -22,9 +22,9 @@ type Pipeline struct {
 	// A list of endpoints that can be used for ingesting data into a pipeline
 	IngestEndpointUrls   pulumi.StringArrayOutput              `pulumi:"ingestEndpointUrls"`
 	LogPublishingOptions PipelineLogPublishingOptionsPtrOutput `pulumi:"logPublishingOptions"`
-	// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits pulumi.IntOutput `pulumi:"maxUnits"`
-	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MinUnits pulumi.IntOutput `pulumi:"minUnits"`
 	// The Amazon Resource Name (ARN) of the pipeline.
 	PipelineArn pulumi.StringOutput `pulumi:"pipelineArn"`
@@ -95,9 +95,9 @@ type pipelineArgs struct {
 	BufferOptions           *PipelineBufferOptions           `pulumi:"bufferOptions"`
 	EncryptionAtRestOptions *PipelineEncryptionAtRestOptions `pulumi:"encryptionAtRestOptions"`
 	LogPublishingOptions    *PipelineLogPublishingOptions    `pulumi:"logPublishingOptions"`
-	// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits int `pulumi:"maxUnits"`
-	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MinUnits int `pulumi:"minUnits"`
 	// The Data Prepper pipeline configuration in YAML format.
 	PipelineConfigurationBody string `pulumi:"pipelineConfigurationBody"`
@@ -113,9 +113,9 @@ type PipelineArgs struct {
 	BufferOptions           PipelineBufferOptionsPtrInput
 	EncryptionAtRestOptions PipelineEncryptionAtRestOptionsPtrInput
 	LogPublishingOptions    PipelineLogPublishingOptionsPtrInput
-	// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits pulumi.IntInput
-	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MinUnits pulumi.IntInput
 	// The Data Prepper pipeline configuration in YAML format.
 	PipelineConfigurationBody pulumi.StringInput
@@ -180,12 +180,12 @@ func (o PipelineOutput) LogPublishingOptions() PipelineLogPublishingOptionsPtrOu
 	return o.ApplyT(func(v *Pipeline) PipelineLogPublishingOptionsPtrOutput { return v.LogPublishingOptions }).(PipelineLogPublishingOptionsPtrOutput)
 }
 
-// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 func (o PipelineOutput) MaxUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.IntOutput { return v.MaxUnits }).(pulumi.IntOutput)
 }
 
-// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 func (o PipelineOutput) MinUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.IntOutput { return v.MinUnits }).(pulumi.IntOutput)
 }

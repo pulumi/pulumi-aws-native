@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketStorageClassAnalysis
     {
+        /// <summary>
+        /// Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+        /// </summary>
         public readonly Outputs.BucketDataExport? DataExport;
 
         [OutputConstructor]

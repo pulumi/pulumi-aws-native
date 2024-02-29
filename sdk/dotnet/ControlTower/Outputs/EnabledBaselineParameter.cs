@@ -7,18 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ec2.Outputs
+namespace Pulumi.AwsNative.ControlTower.Outputs
 {
 
     [OutputType]
-    public sealed class ClientVpnEndpointClientRouteMonitoringOptions
+    public sealed class EnabledBaselineParameter
     {
-        public readonly bool? Enabled;
+        public readonly string? Key;
+        public readonly object? Value;
 
         [OutputConstructor]
-        private ClientVpnEndpointClientRouteMonitoringOptions(bool? enabled)
+        private EnabledBaselineParameter(
+            string? key,
+
+            object? value)
         {
-            Enabled = enabled;
+            Key = key;
+            Value = value;
         }
     }
 }

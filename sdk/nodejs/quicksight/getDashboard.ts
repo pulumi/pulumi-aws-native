@@ -29,6 +29,7 @@ export interface GetDashboardResult {
     readonly createdTime?: string;
     readonly lastPublishedTime?: string;
     readonly lastUpdatedTime?: string;
+    readonly linkEntities?: string[];
     readonly name?: string;
     readonly permissions?: outputs.quicksight.DashboardResourcePermission[];
     readonly tags?: outputs.Tag[];

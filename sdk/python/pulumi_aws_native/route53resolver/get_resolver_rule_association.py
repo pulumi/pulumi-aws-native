@@ -26,9 +26,6 @@ class GetResolverRuleAssociationResult:
     @property
     @pulumi.getter(name="resolverRuleAssociationId")
     def resolver_rule_association_id(self) -> Optional[str]:
-        """
-        Primary Identifier for Resolver Rule Association
-        """
         return pulumi.get(self, "resolver_rule_association_id")
 
 
@@ -44,10 +41,7 @@ class AwaitableGetResolverRuleAssociationResult(GetResolverRuleAssociationResult
 def get_resolver_rule_association(resolver_rule_association_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverRuleAssociationResult:
     """
-    Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
-
-
-    :param str resolver_rule_association_id: Primary Identifier for Resolver Rule Association
+    In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
     """
     __args__ = dict()
     __args__['resolverRuleAssociationId'] = resolver_rule_association_id
@@ -62,9 +56,6 @@ def get_resolver_rule_association(resolver_rule_association_id: Optional[str] = 
 def get_resolver_rule_association_output(resolver_rule_association_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRuleAssociationResult]:
     """
-    Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
-
-
-    :param str resolver_rule_association_id: Primary Identifier for Resolver Rule Association
+    In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
     """
     ...

@@ -10,11 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Inputs
 {
 
+    /// <summary>
+    /// Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
+    /// </summary>
     public sealed class TableProvisionedThroughputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+        ///  If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+        /// </summary>
         [Input("readCapacityUnits", required: true)]
         public Input<int> ReadCapacityUnits { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+        ///  If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+        /// </summary>
         [Input("writeCapacityUnits", required: true)]
         public Input<int> WriteCapacityUnits { get; set; } = null!;
 

@@ -29,8 +29,8 @@ __all__ = [
     'EntityDataType',
     'EntityDataValue',
     'EntityDataValueRelationshipValueProperties',
+    'EntityDefinition',
     'EntityProperty',
-    'EntityPropertyDefinitionProperties',
     'EntityPropertyGroup',
     'EntityRelationship',
     'EntityStatus',
@@ -1291,40 +1291,9 @@ class EntityDataValueRelationshipValueProperties(dict):
 
 
 @pulumi.output_type
-class EntityProperty(dict):
-    def __init__(__self__, *,
-                 definition: Optional['outputs.EntityPropertyDefinitionProperties'] = None,
-                 value: Optional['outputs.EntityDataValue'] = None):
-        """
-        :param 'EntityPropertyDefinitionProperties' definition: An object that specifies information about a property.
-        :param 'EntityDataValue' value: The value of the property.
-        """
-        if definition is not None:
-            pulumi.set(__self__, "definition", definition)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def definition(self) -> Optional['outputs.EntityPropertyDefinitionProperties']:
-        """
-        An object that specifies information about a property.
-        """
-        return pulumi.get(self, "definition")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional['outputs.EntityDataValue']:
-        """
-        The value of the property.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class EntityPropertyDefinitionProperties(dict):
+class EntityDefinition(dict):
     """
-    An object that specifies information about a property.
+    An object that specifies information about a property definition.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1349,14 +1318,14 @@ class EntityPropertyDefinitionProperties(dict):
             suggest = "is_time_series"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EntityPropertyDefinitionProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EntityDefinition. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EntityPropertyDefinitionProperties.__key_warning(key)
+        EntityDefinition.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EntityPropertyDefinitionProperties.__key_warning(key)
+        EntityDefinition.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1371,8 +1340,8 @@ class EntityPropertyDefinitionProperties(dict):
                  is_stored_externally: Optional[bool] = None,
                  is_time_series: Optional[bool] = None):
         """
-        An object that specifies information about a property.
-        :param Mapping[str, str] configuration: An object that specifies information about a property.
+        An object that specifies information about a property definition.
+        :param Mapping[str, str] configuration: An object that specifies information about a property configuration.
         :param 'EntityDataType' data_type: An object that contains information about the data type.
         :param 'EntityDataValue' default_value: An object that contains the default value.
         :param bool is_external_id: A Boolean value that specifies whether the property ID comes from an external data store.
@@ -1408,7 +1377,7 @@ class EntityPropertyDefinitionProperties(dict):
     @pulumi.getter
     def configuration(self) -> Optional[Mapping[str, str]]:
         """
-        An object that specifies information about a property.
+        An object that specifies information about a property configuration.
         """
         return pulumi.get(self, "configuration")
 
@@ -1483,6 +1452,41 @@ class EntityPropertyDefinitionProperties(dict):
         A Boolean value that specifies whether the property consists of time series data.
         """
         return pulumi.get(self, "is_time_series")
+
+
+@pulumi.output_type
+class EntityProperty(dict):
+    """
+    An object that specifies information about a property.
+    """
+    def __init__(__self__, *,
+                 definition: Optional['outputs.EntityDefinition'] = None,
+                 value: Optional['outputs.EntityDataValue'] = None):
+        """
+        An object that specifies information about a property.
+        :param 'EntityDefinition' definition: The definition of the property.
+        :param 'EntityDataValue' value: The value of the property.
+        """
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional['outputs.EntityDefinition']:
+        """
+        The definition of the property.
+        """
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.EntityDataValue']:
+        """
+        The value of the property.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

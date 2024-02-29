@@ -13,15 +13,13 @@ import (
 )
 
 // Resource Type definition for AWS::GuardDuty::Member
-//
-// Deprecated: Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Member struct {
 	pulumi.CustomResourceState
 
-	DetectorId               pulumi.StringOutput    `pulumi:"detectorId"`
+	DetectorId               pulumi.StringPtrOutput `pulumi:"detectorId"`
 	DisableEmailNotification pulumi.BoolPtrOutput   `pulumi:"disableEmailNotification"`
 	Email                    pulumi.StringOutput    `pulumi:"email"`
-	MemberId                 pulumi.StringOutput    `pulumi:"memberId"`
+	MemberId                 pulumi.StringPtrOutput `pulumi:"memberId"`
 	Message                  pulumi.StringPtrOutput `pulumi:"message"`
 	Status                   pulumi.StringPtrOutput `pulumi:"status"`
 }
@@ -33,18 +31,11 @@ func NewMember(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DetectorId == nil {
-		return nil, errors.New("invalid value for required argument 'DetectorId'")
-	}
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
-	if args.MemberId == nil {
-		return nil, errors.New("invalid value for required argument 'MemberId'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"detectorId",
-		"email",
 		"memberId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -81,20 +72,20 @@ func (MemberState) ElementType() reflect.Type {
 }
 
 type memberArgs struct {
-	DetectorId               string  `pulumi:"detectorId"`
+	DetectorId               *string `pulumi:"detectorId"`
 	DisableEmailNotification *bool   `pulumi:"disableEmailNotification"`
 	Email                    string  `pulumi:"email"`
-	MemberId                 string  `pulumi:"memberId"`
+	MemberId                 *string `pulumi:"memberId"`
 	Message                  *string `pulumi:"message"`
 	Status                   *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Member resource.
 type MemberArgs struct {
-	DetectorId               pulumi.StringInput
+	DetectorId               pulumi.StringPtrInput
 	DisableEmailNotification pulumi.BoolPtrInput
 	Email                    pulumi.StringInput
-	MemberId                 pulumi.StringInput
+	MemberId                 pulumi.StringPtrInput
 	Message                  pulumi.StringPtrInput
 	Status                   pulumi.StringPtrInput
 }
@@ -136,8 +127,8 @@ func (o MemberOutput) ToMemberOutputWithContext(ctx context.Context) MemberOutpu
 	return o
 }
 
-func (o MemberOutput) DetectorId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+func (o MemberOutput) DetectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
 }
 
 func (o MemberOutput) DisableEmailNotification() pulumi.BoolPtrOutput {
@@ -148,8 +139,8 @@ func (o MemberOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-func (o MemberOutput) MemberId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MemberId }).(pulumi.StringOutput)
+func (o MemberOutput) MemberId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.MemberId }).(pulumi.StringPtrOutput)
 }
 
 func (o MemberOutput) Message() pulumi.StringPtrOutput {

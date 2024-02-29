@@ -43,26 +43,41 @@ class GetChannelResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        <p>The date and time the channel was created.</p>
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        <p>Enter any descriptive text that helps you to identify the channel.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ingestEndpoints")
     def ingest_endpoints(self) -> Optional[Sequence['outputs.ChannelIngestEndpoint']]:
+        """
+        <p>The list of ingest endpoints.</p>
+        """
         return pulumi.get(self, "ingest_endpoints")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        <p>The date and time the channel was modified.</p>
+        """
         return pulumi.get(self, "modified_at")
 
     @property
@@ -88,7 +103,10 @@ class AwaitableGetChannelResult(GetChannelResult):
 def get_channel(arn: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
-    Definition of AWS::MediaPackageV2::Channel Resource Type
+    <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
+
+
+    :param str arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -108,6 +126,9 @@ def get_channel(arn: Optional[str] = None,
 def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
-    Definition of AWS::MediaPackageV2::Channel Resource Type
+    <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
+
+
+    :param str arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>
     """
     ...

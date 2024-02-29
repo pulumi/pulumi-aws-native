@@ -22,7 +22,12 @@ class DbSubnetGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbSubnetGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] db_subnet_group_description: The description for the DB subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The EC2 Subnet IDs for the DB subnet group.
+        :param pulumi.Input[str] db_subnet_group_name: The name for the DB subnet group. This value is stored as a lowercase string.
+                Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+                Example: ``mysubnetgroup``
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An optional array of key-value pairs to apply to this DB subnet group.
         """
         pulumi.set(__self__, "db_subnet_group_description", db_subnet_group_description)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -34,6 +39,9 @@ class DbSubnetGroupArgs:
     @property
     @pulumi.getter(name="dbSubnetGroupDescription")
     def db_subnet_group_description(self) -> pulumi.Input[str]:
+        """
+        The description for the DB subnet group.
+        """
         return pulumi.get(self, "db_subnet_group_description")
 
     @db_subnet_group_description.setter
@@ -43,6 +51,9 @@ class DbSubnetGroupArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The EC2 Subnet IDs for the DB subnet group.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -52,6 +63,11 @@ class DbSubnetGroupArgs:
     @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the DB subnet group. This value is stored as a lowercase string.
+         Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+         Example: ``mysubnetgroup``
+        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @db_subnet_group_name.setter
@@ -62,7 +78,7 @@ class DbSubnetGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        An array of key-value pairs to apply to this resource.
+        An optional array of key-value pairs to apply to this DB subnet group.
         """
         return pulumi.get(self, "tags")
 
@@ -82,11 +98,17 @@ class DbSubnetGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+        The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+         For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] db_subnet_group_description: The description for the DB subnet group.
+        :param pulumi.Input[str] db_subnet_group_name: The name for the DB subnet group. This value is stored as a lowercase string.
+                Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+                Example: ``mysubnetgroup``
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The EC2 Subnet IDs for the DB subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An optional array of key-value pairs to apply to this DB subnet group.
         """
         ...
     @overload
@@ -95,7 +117,8 @@ class DbSubnetGroup(pulumi.CustomResource):
                  args: DbSubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+        The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+         For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
 
         :param str resource_name: The name of the resource.
         :param DbSubnetGroupArgs args: The arguments to use to populate this resource's properties.
@@ -166,23 +189,34 @@ class DbSubnetGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dbSubnetGroupDescription")
     def db_subnet_group_description(self) -> pulumi.Output[str]:
+        """
+        The description for the DB subnet group.
+        """
         return pulumi.get(self, "db_subnet_group_description")
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name for the DB subnet group. This value is stored as a lowercase string.
+         Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+         Example: ``mysubnetgroup``
+        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The EC2 Subnet IDs for the DB subnet group.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        An array of key-value pairs to apply to this resource.
+        An optional array of key-value pairs to apply to this DB subnet group.
         """
         return pulumi.get(self, "tags")
 

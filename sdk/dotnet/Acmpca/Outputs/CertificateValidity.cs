@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Time period.
+        /// A long integer interpreted according to the value of ``Type``, below.
         /// </summary>
         public readonly double Value;
 

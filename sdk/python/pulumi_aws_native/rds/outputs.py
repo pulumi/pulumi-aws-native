@@ -371,6 +371,10 @@ class DbClusterServerlessV2ScalingConfiguration(dict):
 
 @pulumi.output_type
 class DbInstanceCertificateDetails(dict):
+    """
+    Returns the details of the DB instance’s server certificate.
+     For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -394,6 +398,8 @@ class DbInstanceCertificateDetails(dict):
                  ca_identifier: Optional[str] = None,
                  valid_till: Optional[str] = None):
         """
+        Returns the details of the DB instance’s server certificate.
+         For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
         :param str ca_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
         :param str valid_till: The expiration date of the DB instance’s server certificate.
         """
@@ -421,6 +427,9 @@ class DbInstanceCertificateDetails(dict):
 
 @pulumi.output_type
 class DbInstanceDbInstanceRole(dict):
+    """
+    Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -444,7 +453,8 @@ class DbInstanceDbInstanceRole(dict):
                  feature_name: str,
                  role_arn: str):
         """
-        :param str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
+        :param str feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
         """
         pulumi.set(__self__, "feature_name", feature_name)
@@ -454,7 +464,7 @@ class DbInstanceDbInstanceRole(dict):
     @pulumi.getter(name="featureName")
     def feature_name(self) -> str:
         """
-        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         """
         return pulumi.get(self, "feature_name")
 
@@ -469,6 +479,14 @@ class DbInstanceDbInstanceRole(dict):
 
 @pulumi.output_type
 class DbInstanceEndpoint(dict):
+    """
+    This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+      +   ``CreateDBInstance`` 
+      +   ``DescribeDBInstances`` 
+      +   ``DeleteDBInstance`` 
+      
+     For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -491,6 +509,12 @@ class DbInstanceEndpoint(dict):
                  hosted_zone_id: Optional[str] = None,
                  port: Optional[str] = None):
         """
+        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+          +   ``CreateDBInstance`` 
+          +   ``DescribeDBInstances`` 
+          +   ``DeleteDBInstance`` 
+          
+         For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
         :param str address: Specifies the DNS address of the DB instance.
         :param str hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param str port: Specifies the port that the database engine is listening on.
@@ -529,6 +553,10 @@ class DbInstanceEndpoint(dict):
 
 @pulumi.output_type
 class DbInstanceMasterUserSecret(dict):
+    """
+    The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+     For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -552,6 +580,8 @@ class DbInstanceMasterUserSecret(dict):
                  kms_key_id: Optional[str] = None,
                  secret_arn: Optional[str] = None):
         """
+        The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+         For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         :param str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
         """
@@ -579,11 +609,15 @@ class DbInstanceMasterUserSecret(dict):
 
 @pulumi.output_type
 class DbInstanceProcessorFeature(dict):
+    """
+    The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+    """
     def __init__(__self__, *,
                  name: Optional['DbInstanceProcessorFeatureName'] = None,
                  value: Optional[str] = None):
         """
-        :param 'DbInstanceProcessorFeatureName' name: The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+        :param 'DbInstanceProcessorFeatureName' name: The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         :param str value: The value of a processor feature name.
         """
         if name is not None:
@@ -595,7 +629,7 @@ class DbInstanceProcessorFeature(dict):
     @pulumi.getter
     def name(self) -> Optional['DbInstanceProcessorFeatureName']:
         """
-        The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         """
         return pulumi.get(self, "name")
 

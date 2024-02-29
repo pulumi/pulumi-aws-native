@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// Describes the versioning state of an Amazon S3 bucket.
+    /// Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
     /// </summary>
     [OutputType]
     public sealed class BucketVersioningConfiguration

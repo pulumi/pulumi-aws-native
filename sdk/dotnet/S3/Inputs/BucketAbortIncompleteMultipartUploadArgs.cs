@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+    /// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see [Stopping Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) in the *Amazon S3 User Guide*.
     /// </summary>
     public sealed class BucketAbortIncompleteMultipartUploadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+        /// Specifies the number of days after which Amazon S3 stops an incomplete multipart upload.
         /// </summary>
         [Input("daysAfterInitiation", required: true)]
         public Input<int> DaysAfterInitiation { get; set; } = null!;

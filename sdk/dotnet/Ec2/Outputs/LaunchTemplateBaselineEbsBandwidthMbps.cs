@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
     /// <summary>
-    /// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
+    /// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateBaselineEbsBandwidthMbps
     {
         /// <summary>
-        /// The maximum baseline bandwidth, in Mbps.
+        /// The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
         /// </summary>
         public readonly int? Max;
         /// <summary>
-        /// The minimum baseline bandwidth, in Mbps.
+        /// The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
         /// </summary>
         public readonly int? Min;
 

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The default number of days until the data within the domain expires.
         /// </summary>
         [Output("defaultExpirationDays")]
-        public Output<int?> DefaultExpirationDays { get; private set; } = null!;
+        public Output<int> DefaultExpirationDays { get; private set; } = null!;
 
         /// <summary>
         /// The unique name of the domain.
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Domain(string name, DomainArgs? args = null, CustomResourceOptions? options = null)
+        public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
             : base("aws-native:customerprofiles:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -130,8 +130,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// The default number of days until the data within the domain expires.
         /// </summary>
-        [Input("defaultExpirationDays")]
-        public Input<int>? DefaultExpirationDays { get; set; }
+        [Input("defaultExpirationDays", required: true)]
+        public Input<int> DefaultExpirationDays { get; set; } = null!;
 
         /// <summary>
         /// The unique name of the domain.

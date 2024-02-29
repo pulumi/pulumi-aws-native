@@ -10,12 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+    /// </summary>
     [OutputType]
     public sealed class BucketInventoryConfiguration
     {
+        /// <summary>
+        /// Contains information about where to publish the inventory results.
+        /// </summary>
         public readonly Outputs.BucketDestination Destination;
         /// <summary>
-        /// Specifies whether the inventory is enabled or disabled.
+        /// Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
@@ -23,7 +29,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Object versions to include in the inventory list.
+        /// Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketInventoryConfigurationIncludedObjectVersions IncludedObjectVersions;
         /// <summary>
@@ -31,7 +37,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.S3.BucketInventoryConfigurationOptionalFieldsItem> OptionalFields;
         /// <summary>
-        /// The prefix that is prepended to all inventory results.
+        /// Specifies the inventory filter prefix.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>

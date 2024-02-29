@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
     /// <summary>
-    /// Compliance details of the Config rule
+    /// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
     /// </summary>
     public sealed class CompliancePropertiesArgs : global::Pulumi.ResourceArgs
     {

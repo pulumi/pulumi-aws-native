@@ -10,83 +10,128 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::Subnet
+    /// Specifies a subnet for the specified VPC.
+    ///  For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
+    ///  For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:Subnet")]
     public partial class Subnet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
+        ///  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+        /// </summary>
         [Output("assignIpv6AddressOnCreation")]
         public Output<bool?> AssignIpv6AddressOnCreation { get; private set; } = null!;
 
+        /// <summary>
+        /// The Availability Zone of the subnet.
+        ///  If you update this property, you must also update the ``CidrBlock`` property.
+        /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// The AZ ID of the subnet.
+        /// </summary>
         [Output("availabilityZoneId")]
         public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPv4 CIDR block assigned to the subnet.
+        ///  If you update this property, we create a new subnet, and then delete the existing one.
+        /// </summary>
         [Output("cidrBlock")]
         public Output<string?> CidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+        /// </summary>
         [Output("enableDns64")]
         public Output<bool?> EnableDns64 { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+        /// An IPv4 IPAM pool ID for the subnet.
         /// </summary>
         [Output("ipv4IpamPoolId")]
         public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// An IPv4 netmask length for the subnet.
         /// </summary>
         [Output("ipv4NetmaskLength")]
         public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPv6 CIDR block.
+        ///  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+        /// </summary>
         [Output("ipv6CidrBlock")]
         public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// The IPv6 network ranges for the subnet, in CIDR notation.
+        /// </summary>
         [Output("ipv6CidrBlocks")]
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+        /// An IPv6 IPAM pool ID for the subnet.
         /// </summary>
         [Output("ipv6IpamPoolId")]
         public Output<string?> Ipv6IpamPoolId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
+        /// </summary>
         [Output("ipv6Native")]
         public Output<bool?> Ipv6Native { get; private set; } = null!;
 
         /// <summary>
-        /// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// An IPv6 netmask length for the subnet.
         /// </summary>
         [Output("ipv6NetmaskLength")]
         public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
+        ///  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        /// </summary>
         [Output("mapPublicIpOnLaunch")]
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the network ACL that is associated with the subnet's VPC
-        /// </summary>
         [Output("networkAclAssociationId")]
         public Output<string> NetworkAclAssociationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+        ///  Available options:
+        ///   + EnableResourceNameDnsAAAARecord (true | false)
+        ///  + EnableResourceNameDnsARecord (true | false)
+        ///  + HostnameType (ip-name | resource-name)
+        /// </summary>
         [Output("privateDnsNameOptionsOnLaunch")]
         public Output<Outputs.PrivateDnsNameOptionsOnLaunchProperties?> PrivateDnsNameOptionsOnLaunch { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the subnet
-        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// Any tags assigned to the subnet.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC the subnet is in.
+        ///  If you update this property, you must also update the ``CidrBlock`` property.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -148,38 +193,64 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
+        ///  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+        /// </summary>
         [Input("assignIpv6AddressOnCreation")]
         public Input<bool>? AssignIpv6AddressOnCreation { get; set; }
 
+        /// <summary>
+        /// The Availability Zone of the subnet.
+        ///  If you update this property, you must also update the ``CidrBlock`` property.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The AZ ID of the subnet.
+        /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
+        /// <summary>
+        /// The IPv4 CIDR block assigned to the subnet.
+        ///  If you update this property, we create a new subnet, and then delete the existing one.
+        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
+        /// <summary>
+        /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+        /// </summary>
         [Input("enableDns64")]
         public Input<bool>? EnableDns64 { get; set; }
 
         /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+        /// An IPv4 IPAM pool ID for the subnet.
         /// </summary>
         [Input("ipv4IpamPoolId")]
         public Input<string>? Ipv4IpamPoolId { get; set; }
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// An IPv4 netmask length for the subnet.
         /// </summary>
         [Input("ipv4NetmaskLength")]
         public Input<int>? Ipv4NetmaskLength { get; set; }
 
+        /// <summary>
+        /// The IPv6 CIDR block.
+        ///  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+        /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
         [Input("ipv6CidrBlocks")]
         private InputList<string>? _ipv6CidrBlocks;
+
+        /// <summary>
+        /// The IPv6 network ranges for the subnet, in CIDR notation.
+        /// </summary>
         public InputList<string> Ipv6CidrBlocks
         {
             get => _ipv6CidrBlocks ?? (_ipv6CidrBlocks = new InputList<string>());
@@ -187,37 +258,62 @@ namespace Pulumi.AwsNative.Ec2
         }
 
         /// <summary>
-        /// The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+        /// An IPv6 IPAM pool ID for the subnet.
         /// </summary>
         [Input("ipv6IpamPoolId")]
         public Input<string>? Ipv6IpamPoolId { get; set; }
 
+        /// <summary>
+        /// Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
+        /// </summary>
         [Input("ipv6Native")]
         public Input<bool>? Ipv6Native { get; set; }
 
         /// <summary>
-        /// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// An IPv6 netmask length for the subnet.
         /// </summary>
         [Input("ipv6NetmaskLength")]
         public Input<int>? Ipv6NetmaskLength { get; set; }
 
+        /// <summary>
+        /// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
+        ///  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        /// </summary>
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
+        /// <summary>
+        /// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+        ///  Available options:
+        ///   + EnableResourceNameDnsAAAARecord (true | false)
+        ///  + EnableResourceNameDnsARecord (true | false)
+        ///  + HostnameType (ip-name | resource-name)
+        /// </summary>
         [Input("privateDnsNameOptionsOnLaunch")]
         public Input<Inputs.PrivateDnsNameOptionsOnLaunchPropertiesArgs>? PrivateDnsNameOptionsOnLaunch { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the subnet.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC the subnet is in.
+        ///  If you update this property, you must also update the ``CidrBlock`` property.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

@@ -10,19 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+    /// </summary>
     [OutputType]
     public sealed class FunctionImageConfig
     {
         /// <summary>
-        /// Command.
+        /// Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
         /// </summary>
         public readonly ImmutableArray<string> Command;
         /// <summary>
-        /// EntryPoint.
+        /// Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
         /// </summary>
         public readonly ImmutableArray<string> EntryPoint;
         /// <summary>
-        /// WorkingDirectory.
+        /// Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
         /// </summary>
         public readonly string? WorkingDirectory;
 

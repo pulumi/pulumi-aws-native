@@ -11,24 +11,32 @@ namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
     /// <summary>
-    /// Source and message type that can trigger the rule
+    /// Provides the source and the message types that trigger CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for ``SourceDetail`` only for custom rules.
     /// </summary>
     public sealed class ConfigRuleSourceDetailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Source of event that can trigger the rule
+        /// The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
         /// </summary>
         [Input("eventSource", required: true)]
         public Input<string> EventSource { get; set; } = null!;
 
         /// <summary>
-        /// Frequency at which the rule has to be evaluated
+        /// The frequency at which you want CC to run evaluations for a custom rule with a periodic trigger. If you specify a value for ``MaximumExecutionFrequency``, then ``MessageType`` must use the ``ScheduledNotification`` value.
+        ///   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
+        ///  Based on the valid value you choose, CC runs evaluations once for each valid value. For example, if you choose ``Three_Hours``, CC runs evaluations once every three hours. In this case, ``Three_Hours`` is the frequency of this rule.
         /// </summary>
         [Input("maximumExecutionFrequency")]
         public Input<string>? MaximumExecutionFrequency { get; set; }
 
         /// <summary>
-        /// Notification type that can trigger the rule
+        /// The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
+        ///   +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+        ///   +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+        ///   +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
+        ///   +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+        ///   
+        ///  If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
         /// </summary>
         [Input("messageType", required: true)]
         public Input<string> MessageType { get; set; } = null!;

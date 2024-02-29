@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
+// <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
 func LookupOriginEndpointPolicy(ctx *pulumi.Context, args *LookupOriginEndpointPolicyArgs, opts ...pulumi.InvokeOption) (*LookupOriginEndpointPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOriginEndpointPolicyResult

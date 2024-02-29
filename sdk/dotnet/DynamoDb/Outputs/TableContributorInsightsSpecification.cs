@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Outputs
 {
 
+    /// <summary>
+    /// The settings used to enable or disable CloudWatch Contributor Insights.
+    /// </summary>
     [OutputType]
     public sealed class TableContributorInsightsSpecification
     {
+        /// <summary>
+        /// Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

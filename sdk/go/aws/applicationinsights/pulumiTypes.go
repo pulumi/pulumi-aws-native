@@ -550,6 +550,12 @@ type ApplicationConfigurationDetails struct {
 	JmxPrometheusExporter *ApplicationJmxPrometheusExporter `pulumi:"jmxPrometheusExporter"`
 	// A list of logs to monitor for the component.
 	Logs []ApplicationLog `pulumi:"logs"`
+	// The NetWeaver Prometheus Exporter settings.
+	NetWeaverPrometheusExporter *ApplicationNetWeaverPrometheusExporter `pulumi:"netWeaverPrometheusExporter"`
+	// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+	Processes []ApplicationProcess `pulumi:"processes"`
+	// The SQL Prometheus Exporter settings.
+	SqlServerPrometheusExporter *ApplicationSqlServerPrometheusExporter `pulumi:"sqlServerPrometheusExporter"`
 	// A list of Windows Events to log.
 	WindowsEvents []ApplicationWindowsEvent `pulumi:"windowsEvents"`
 }
@@ -579,6 +585,12 @@ type ApplicationConfigurationDetailsArgs struct {
 	JmxPrometheusExporter ApplicationJmxPrometheusExporterPtrInput `pulumi:"jmxPrometheusExporter"`
 	// A list of logs to monitor for the component.
 	Logs ApplicationLogArrayInput `pulumi:"logs"`
+	// The NetWeaver Prometheus Exporter settings.
+	NetWeaverPrometheusExporter ApplicationNetWeaverPrometheusExporterPtrInput `pulumi:"netWeaverPrometheusExporter"`
+	// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+	Processes ApplicationProcessArrayInput `pulumi:"processes"`
+	// The SQL Prometheus Exporter settings.
+	SqlServerPrometheusExporter ApplicationSqlServerPrometheusExporterPtrInput `pulumi:"sqlServerPrometheusExporter"`
 	// A list of Windows Events to log.
 	WindowsEvents ApplicationWindowsEventArrayInput `pulumi:"windowsEvents"`
 }
@@ -697,6 +709,25 @@ func (o ApplicationConfigurationDetailsOutput) Logs() ApplicationLogArrayOutput 
 	return o.ApplyT(func(v ApplicationConfigurationDetails) []ApplicationLog { return v.Logs }).(ApplicationLogArrayOutput)
 }
 
+// The NetWeaver Prometheus Exporter settings.
+func (o ApplicationConfigurationDetailsOutput) NetWeaverPrometheusExporter() ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationNetWeaverPrometheusExporter {
+		return v.NetWeaverPrometheusExporter
+	}).(ApplicationNetWeaverPrometheusExporterPtrOutput)
+}
+
+// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+func (o ApplicationConfigurationDetailsOutput) Processes() ApplicationProcessArrayOutput {
+	return o.ApplyT(func(v ApplicationConfigurationDetails) []ApplicationProcess { return v.Processes }).(ApplicationProcessArrayOutput)
+}
+
+// The SQL Prometheus Exporter settings.
+func (o ApplicationConfigurationDetailsOutput) SqlServerPrometheusExporter() ApplicationSqlServerPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationSqlServerPrometheusExporter {
+		return v.SqlServerPrometheusExporter
+	}).(ApplicationSqlServerPrometheusExporterPtrOutput)
+}
+
 // A list of Windows Events to log.
 func (o ApplicationConfigurationDetailsOutput) WindowsEvents() ApplicationWindowsEventArrayOutput {
 	return o.ApplyT(func(v ApplicationConfigurationDetails) []ApplicationWindowsEvent { return v.WindowsEvents }).(ApplicationWindowsEventArrayOutput)
@@ -784,6 +815,36 @@ func (o ApplicationConfigurationDetailsPtrOutput) Logs() ApplicationLogArrayOutp
 		}
 		return v.Logs
 	}).(ApplicationLogArrayOutput)
+}
+
+// The NetWeaver Prometheus Exporter settings.
+func (o ApplicationConfigurationDetailsPtrOutput) NetWeaverPrometheusExporter() ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationNetWeaverPrometheusExporter {
+		if v == nil {
+			return nil
+		}
+		return v.NetWeaverPrometheusExporter
+	}).(ApplicationNetWeaverPrometheusExporterPtrOutput)
+}
+
+// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+func (o ApplicationConfigurationDetailsPtrOutput) Processes() ApplicationProcessArrayOutput {
+	return o.ApplyT(func(v *ApplicationConfigurationDetails) []ApplicationProcess {
+		if v == nil {
+			return nil
+		}
+		return v.Processes
+	}).(ApplicationProcessArrayOutput)
+}
+
+// The SQL Prometheus Exporter settings.
+func (o ApplicationConfigurationDetailsPtrOutput) SqlServerPrometheusExporter() ApplicationSqlServerPrometheusExporterPtrOutput {
+	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationSqlServerPrometheusExporter {
+		if v == nil {
+			return nil
+		}
+		return v.SqlServerPrometheusExporter
+	}).(ApplicationSqlServerPrometheusExporterPtrOutput)
 }
 
 // A list of Windows Events to log.
@@ -1814,12 +1875,460 @@ func (o ApplicationLogPatternSetArrayOutput) Index(i pulumi.IntInput) Applicatio
 	}).(ApplicationLogPatternSetOutput)
 }
 
+// The NetWeaver Prometheus Exporter Settings.
+type ApplicationNetWeaverPrometheusExporter struct {
+	// SAP instance numbers for ASCS, ERS, and App Servers.
+	InstanceNumbers []string `pulumi:"instanceNumbers"`
+	// Prometheus exporter port.
+	PrometheusPort *string `pulumi:"prometheusPort"`
+	// SAP NetWeaver SID.
+	Sapsid string `pulumi:"sapsid"`
+}
+
+// ApplicationNetWeaverPrometheusExporterInput is an input type that accepts ApplicationNetWeaverPrometheusExporterArgs and ApplicationNetWeaverPrometheusExporterOutput values.
+// You can construct a concrete instance of `ApplicationNetWeaverPrometheusExporterInput` via:
+//
+//	ApplicationNetWeaverPrometheusExporterArgs{...}
+type ApplicationNetWeaverPrometheusExporterInput interface {
+	pulumi.Input
+
+	ToApplicationNetWeaverPrometheusExporterOutput() ApplicationNetWeaverPrometheusExporterOutput
+	ToApplicationNetWeaverPrometheusExporterOutputWithContext(context.Context) ApplicationNetWeaverPrometheusExporterOutput
+}
+
+// The NetWeaver Prometheus Exporter Settings.
+type ApplicationNetWeaverPrometheusExporterArgs struct {
+	// SAP instance numbers for ASCS, ERS, and App Servers.
+	InstanceNumbers pulumi.StringArrayInput `pulumi:"instanceNumbers"`
+	// Prometheus exporter port.
+	PrometheusPort pulumi.StringPtrInput `pulumi:"prometheusPort"`
+	// SAP NetWeaver SID.
+	Sapsid pulumi.StringInput `pulumi:"sapsid"`
+}
+
+func (ApplicationNetWeaverPrometheusExporterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationNetWeaverPrometheusExporter)(nil)).Elem()
+}
+
+func (i ApplicationNetWeaverPrometheusExporterArgs) ToApplicationNetWeaverPrometheusExporterOutput() ApplicationNetWeaverPrometheusExporterOutput {
+	return i.ToApplicationNetWeaverPrometheusExporterOutputWithContext(context.Background())
+}
+
+func (i ApplicationNetWeaverPrometheusExporterArgs) ToApplicationNetWeaverPrometheusExporterOutputWithContext(ctx context.Context) ApplicationNetWeaverPrometheusExporterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetWeaverPrometheusExporterOutput)
+}
+
+func (i ApplicationNetWeaverPrometheusExporterArgs) ToApplicationNetWeaverPrometheusExporterPtrOutput() ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return i.ToApplicationNetWeaverPrometheusExporterPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationNetWeaverPrometheusExporterArgs) ToApplicationNetWeaverPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetWeaverPrometheusExporterOutput).ToApplicationNetWeaverPrometheusExporterPtrOutputWithContext(ctx)
+}
+
+// ApplicationNetWeaverPrometheusExporterPtrInput is an input type that accepts ApplicationNetWeaverPrometheusExporterArgs, ApplicationNetWeaverPrometheusExporterPtr and ApplicationNetWeaverPrometheusExporterPtrOutput values.
+// You can construct a concrete instance of `ApplicationNetWeaverPrometheusExporterPtrInput` via:
+//
+//	        ApplicationNetWeaverPrometheusExporterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationNetWeaverPrometheusExporterPtrInput interface {
+	pulumi.Input
+
+	ToApplicationNetWeaverPrometheusExporterPtrOutput() ApplicationNetWeaverPrometheusExporterPtrOutput
+	ToApplicationNetWeaverPrometheusExporterPtrOutputWithContext(context.Context) ApplicationNetWeaverPrometheusExporterPtrOutput
+}
+
+type applicationNetWeaverPrometheusExporterPtrType ApplicationNetWeaverPrometheusExporterArgs
+
+func ApplicationNetWeaverPrometheusExporterPtr(v *ApplicationNetWeaverPrometheusExporterArgs) ApplicationNetWeaverPrometheusExporterPtrInput {
+	return (*applicationNetWeaverPrometheusExporterPtrType)(v)
+}
+
+func (*applicationNetWeaverPrometheusExporterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationNetWeaverPrometheusExporter)(nil)).Elem()
+}
+
+func (i *applicationNetWeaverPrometheusExporterPtrType) ToApplicationNetWeaverPrometheusExporterPtrOutput() ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return i.ToApplicationNetWeaverPrometheusExporterPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationNetWeaverPrometheusExporterPtrType) ToApplicationNetWeaverPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetWeaverPrometheusExporterPtrOutput)
+}
+
+// The NetWeaver Prometheus Exporter Settings.
+type ApplicationNetWeaverPrometheusExporterOutput struct{ *pulumi.OutputState }
+
+func (ApplicationNetWeaverPrometheusExporterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationNetWeaverPrometheusExporter)(nil)).Elem()
+}
+
+func (o ApplicationNetWeaverPrometheusExporterOutput) ToApplicationNetWeaverPrometheusExporterOutput() ApplicationNetWeaverPrometheusExporterOutput {
+	return o
+}
+
+func (o ApplicationNetWeaverPrometheusExporterOutput) ToApplicationNetWeaverPrometheusExporterOutputWithContext(ctx context.Context) ApplicationNetWeaverPrometheusExporterOutput {
+	return o
+}
+
+func (o ApplicationNetWeaverPrometheusExporterOutput) ToApplicationNetWeaverPrometheusExporterPtrOutput() ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return o.ToApplicationNetWeaverPrometheusExporterPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationNetWeaverPrometheusExporterOutput) ToApplicationNetWeaverPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationNetWeaverPrometheusExporter) *ApplicationNetWeaverPrometheusExporter {
+		return &v
+	}).(ApplicationNetWeaverPrometheusExporterPtrOutput)
+}
+
+// SAP instance numbers for ASCS, ERS, and App Servers.
+func (o ApplicationNetWeaverPrometheusExporterOutput) InstanceNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationNetWeaverPrometheusExporter) []string { return v.InstanceNumbers }).(pulumi.StringArrayOutput)
+}
+
+// Prometheus exporter port.
+func (o ApplicationNetWeaverPrometheusExporterOutput) PrometheusPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationNetWeaverPrometheusExporter) *string { return v.PrometheusPort }).(pulumi.StringPtrOutput)
+}
+
+// SAP NetWeaver SID.
+func (o ApplicationNetWeaverPrometheusExporterOutput) Sapsid() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationNetWeaverPrometheusExporter) string { return v.Sapsid }).(pulumi.StringOutput)
+}
+
+type ApplicationNetWeaverPrometheusExporterPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationNetWeaverPrometheusExporterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationNetWeaverPrometheusExporter)(nil)).Elem()
+}
+
+func (o ApplicationNetWeaverPrometheusExporterPtrOutput) ToApplicationNetWeaverPrometheusExporterPtrOutput() ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return o
+}
+
+func (o ApplicationNetWeaverPrometheusExporterPtrOutput) ToApplicationNetWeaverPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationNetWeaverPrometheusExporterPtrOutput {
+	return o
+}
+
+func (o ApplicationNetWeaverPrometheusExporterPtrOutput) Elem() ApplicationNetWeaverPrometheusExporterOutput {
+	return o.ApplyT(func(v *ApplicationNetWeaverPrometheusExporter) ApplicationNetWeaverPrometheusExporter {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationNetWeaverPrometheusExporter
+		return ret
+	}).(ApplicationNetWeaverPrometheusExporterOutput)
+}
+
+// SAP instance numbers for ASCS, ERS, and App Servers.
+func (o ApplicationNetWeaverPrometheusExporterPtrOutput) InstanceNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationNetWeaverPrometheusExporter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Prometheus exporter port.
+func (o ApplicationNetWeaverPrometheusExporterPtrOutput) PrometheusPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationNetWeaverPrometheusExporter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrometheusPort
+	}).(pulumi.StringPtrOutput)
+}
+
+// SAP NetWeaver SID.
+func (o ApplicationNetWeaverPrometheusExporterPtrOutput) Sapsid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationNetWeaverPrometheusExporter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sapsid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A process to be monitored for the component.
+type ApplicationProcess struct {
+	// A list of metrics to monitor for the component.
+	AlarmMetrics []ApplicationAlarmMetric `pulumi:"alarmMetrics"`
+	// The name of the process to be monitored for the component.
+	ProcessName string `pulumi:"processName"`
+}
+
+// ApplicationProcessInput is an input type that accepts ApplicationProcessArgs and ApplicationProcessOutput values.
+// You can construct a concrete instance of `ApplicationProcessInput` via:
+//
+//	ApplicationProcessArgs{...}
+type ApplicationProcessInput interface {
+	pulumi.Input
+
+	ToApplicationProcessOutput() ApplicationProcessOutput
+	ToApplicationProcessOutputWithContext(context.Context) ApplicationProcessOutput
+}
+
+// A process to be monitored for the component.
+type ApplicationProcessArgs struct {
+	// A list of metrics to monitor for the component.
+	AlarmMetrics ApplicationAlarmMetricArrayInput `pulumi:"alarmMetrics"`
+	// The name of the process to be monitored for the component.
+	ProcessName pulumi.StringInput `pulumi:"processName"`
+}
+
+func (ApplicationProcessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationProcess)(nil)).Elem()
+}
+
+func (i ApplicationProcessArgs) ToApplicationProcessOutput() ApplicationProcessOutput {
+	return i.ToApplicationProcessOutputWithContext(context.Background())
+}
+
+func (i ApplicationProcessArgs) ToApplicationProcessOutputWithContext(ctx context.Context) ApplicationProcessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationProcessOutput)
+}
+
+// ApplicationProcessArrayInput is an input type that accepts ApplicationProcessArray and ApplicationProcessArrayOutput values.
+// You can construct a concrete instance of `ApplicationProcessArrayInput` via:
+//
+//	ApplicationProcessArray{ ApplicationProcessArgs{...} }
+type ApplicationProcessArrayInput interface {
+	pulumi.Input
+
+	ToApplicationProcessArrayOutput() ApplicationProcessArrayOutput
+	ToApplicationProcessArrayOutputWithContext(context.Context) ApplicationProcessArrayOutput
+}
+
+type ApplicationProcessArray []ApplicationProcessInput
+
+func (ApplicationProcessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationProcess)(nil)).Elem()
+}
+
+func (i ApplicationProcessArray) ToApplicationProcessArrayOutput() ApplicationProcessArrayOutput {
+	return i.ToApplicationProcessArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationProcessArray) ToApplicationProcessArrayOutputWithContext(ctx context.Context) ApplicationProcessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationProcessArrayOutput)
+}
+
+// A process to be monitored for the component.
+type ApplicationProcessOutput struct{ *pulumi.OutputState }
+
+func (ApplicationProcessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationProcess)(nil)).Elem()
+}
+
+func (o ApplicationProcessOutput) ToApplicationProcessOutput() ApplicationProcessOutput {
+	return o
+}
+
+func (o ApplicationProcessOutput) ToApplicationProcessOutputWithContext(ctx context.Context) ApplicationProcessOutput {
+	return o
+}
+
+// A list of metrics to monitor for the component.
+func (o ApplicationProcessOutput) AlarmMetrics() ApplicationAlarmMetricArrayOutput {
+	return o.ApplyT(func(v ApplicationProcess) []ApplicationAlarmMetric { return v.AlarmMetrics }).(ApplicationAlarmMetricArrayOutput)
+}
+
+// The name of the process to be monitored for the component.
+func (o ApplicationProcessOutput) ProcessName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationProcess) string { return v.ProcessName }).(pulumi.StringOutput)
+}
+
+type ApplicationProcessArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationProcessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationProcess)(nil)).Elem()
+}
+
+func (o ApplicationProcessArrayOutput) ToApplicationProcessArrayOutput() ApplicationProcessArrayOutput {
+	return o
+}
+
+func (o ApplicationProcessArrayOutput) ToApplicationProcessArrayOutputWithContext(ctx context.Context) ApplicationProcessArrayOutput {
+	return o
+}
+
+func (o ApplicationProcessArrayOutput) Index(i pulumi.IntInput) ApplicationProcessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationProcess {
+		return vs[0].([]ApplicationProcess)[vs[1].(int)]
+	}).(ApplicationProcessOutput)
+}
+
+// The SQL prometheus exporter settings.
+type ApplicationSqlServerPrometheusExporter struct {
+	// Prometheus exporter port.
+	PrometheusPort string `pulumi:"prometheusPort"`
+	// Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
+	SqlSecretName string `pulumi:"sqlSecretName"`
+}
+
+// ApplicationSqlServerPrometheusExporterInput is an input type that accepts ApplicationSqlServerPrometheusExporterArgs and ApplicationSqlServerPrometheusExporterOutput values.
+// You can construct a concrete instance of `ApplicationSqlServerPrometheusExporterInput` via:
+//
+//	ApplicationSqlServerPrometheusExporterArgs{...}
+type ApplicationSqlServerPrometheusExporterInput interface {
+	pulumi.Input
+
+	ToApplicationSqlServerPrometheusExporterOutput() ApplicationSqlServerPrometheusExporterOutput
+	ToApplicationSqlServerPrometheusExporterOutputWithContext(context.Context) ApplicationSqlServerPrometheusExporterOutput
+}
+
+// The SQL prometheus exporter settings.
+type ApplicationSqlServerPrometheusExporterArgs struct {
+	// Prometheus exporter port.
+	PrometheusPort pulumi.StringInput `pulumi:"prometheusPort"`
+	// Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
+	SqlSecretName pulumi.StringInput `pulumi:"sqlSecretName"`
+}
+
+func (ApplicationSqlServerPrometheusExporterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSqlServerPrometheusExporter)(nil)).Elem()
+}
+
+func (i ApplicationSqlServerPrometheusExporterArgs) ToApplicationSqlServerPrometheusExporterOutput() ApplicationSqlServerPrometheusExporterOutput {
+	return i.ToApplicationSqlServerPrometheusExporterOutputWithContext(context.Background())
+}
+
+func (i ApplicationSqlServerPrometheusExporterArgs) ToApplicationSqlServerPrometheusExporterOutputWithContext(ctx context.Context) ApplicationSqlServerPrometheusExporterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSqlServerPrometheusExporterOutput)
+}
+
+func (i ApplicationSqlServerPrometheusExporterArgs) ToApplicationSqlServerPrometheusExporterPtrOutput() ApplicationSqlServerPrometheusExporterPtrOutput {
+	return i.ToApplicationSqlServerPrometheusExporterPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationSqlServerPrometheusExporterArgs) ToApplicationSqlServerPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationSqlServerPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSqlServerPrometheusExporterOutput).ToApplicationSqlServerPrometheusExporterPtrOutputWithContext(ctx)
+}
+
+// ApplicationSqlServerPrometheusExporterPtrInput is an input type that accepts ApplicationSqlServerPrometheusExporterArgs, ApplicationSqlServerPrometheusExporterPtr and ApplicationSqlServerPrometheusExporterPtrOutput values.
+// You can construct a concrete instance of `ApplicationSqlServerPrometheusExporterPtrInput` via:
+//
+//	        ApplicationSqlServerPrometheusExporterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationSqlServerPrometheusExporterPtrInput interface {
+	pulumi.Input
+
+	ToApplicationSqlServerPrometheusExporterPtrOutput() ApplicationSqlServerPrometheusExporterPtrOutput
+	ToApplicationSqlServerPrometheusExporterPtrOutputWithContext(context.Context) ApplicationSqlServerPrometheusExporterPtrOutput
+}
+
+type applicationSqlServerPrometheusExporterPtrType ApplicationSqlServerPrometheusExporterArgs
+
+func ApplicationSqlServerPrometheusExporterPtr(v *ApplicationSqlServerPrometheusExporterArgs) ApplicationSqlServerPrometheusExporterPtrInput {
+	return (*applicationSqlServerPrometheusExporterPtrType)(v)
+}
+
+func (*applicationSqlServerPrometheusExporterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSqlServerPrometheusExporter)(nil)).Elem()
+}
+
+func (i *applicationSqlServerPrometheusExporterPtrType) ToApplicationSqlServerPrometheusExporterPtrOutput() ApplicationSqlServerPrometheusExporterPtrOutput {
+	return i.ToApplicationSqlServerPrometheusExporterPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationSqlServerPrometheusExporterPtrType) ToApplicationSqlServerPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationSqlServerPrometheusExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSqlServerPrometheusExporterPtrOutput)
+}
+
+// The SQL prometheus exporter settings.
+type ApplicationSqlServerPrometheusExporterOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSqlServerPrometheusExporterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSqlServerPrometheusExporter)(nil)).Elem()
+}
+
+func (o ApplicationSqlServerPrometheusExporterOutput) ToApplicationSqlServerPrometheusExporterOutput() ApplicationSqlServerPrometheusExporterOutput {
+	return o
+}
+
+func (o ApplicationSqlServerPrometheusExporterOutput) ToApplicationSqlServerPrometheusExporterOutputWithContext(ctx context.Context) ApplicationSqlServerPrometheusExporterOutput {
+	return o
+}
+
+func (o ApplicationSqlServerPrometheusExporterOutput) ToApplicationSqlServerPrometheusExporterPtrOutput() ApplicationSqlServerPrometheusExporterPtrOutput {
+	return o.ToApplicationSqlServerPrometheusExporterPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationSqlServerPrometheusExporterOutput) ToApplicationSqlServerPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationSqlServerPrometheusExporterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSqlServerPrometheusExporter) *ApplicationSqlServerPrometheusExporter {
+		return &v
+	}).(ApplicationSqlServerPrometheusExporterPtrOutput)
+}
+
+// Prometheus exporter port.
+func (o ApplicationSqlServerPrometheusExporterOutput) PrometheusPort() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationSqlServerPrometheusExporter) string { return v.PrometheusPort }).(pulumi.StringOutput)
+}
+
+// Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
+func (o ApplicationSqlServerPrometheusExporterOutput) SqlSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationSqlServerPrometheusExporter) string { return v.SqlSecretName }).(pulumi.StringOutput)
+}
+
+type ApplicationSqlServerPrometheusExporterPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSqlServerPrometheusExporterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSqlServerPrometheusExporter)(nil)).Elem()
+}
+
+func (o ApplicationSqlServerPrometheusExporterPtrOutput) ToApplicationSqlServerPrometheusExporterPtrOutput() ApplicationSqlServerPrometheusExporterPtrOutput {
+	return o
+}
+
+func (o ApplicationSqlServerPrometheusExporterPtrOutput) ToApplicationSqlServerPrometheusExporterPtrOutputWithContext(ctx context.Context) ApplicationSqlServerPrometheusExporterPtrOutput {
+	return o
+}
+
+func (o ApplicationSqlServerPrometheusExporterPtrOutput) Elem() ApplicationSqlServerPrometheusExporterOutput {
+	return o.ApplyT(func(v *ApplicationSqlServerPrometheusExporter) ApplicationSqlServerPrometheusExporter {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSqlServerPrometheusExporter
+		return ret
+	}).(ApplicationSqlServerPrometheusExporterOutput)
+}
+
+// Prometheus exporter port.
+func (o ApplicationSqlServerPrometheusExporterPtrOutput) PrometheusPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSqlServerPrometheusExporter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrometheusPort
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
+func (o ApplicationSqlServerPrometheusExporterPtrOutput) SqlSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSqlServerPrometheusExporter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SqlSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The configuration settings of sub components.
 type ApplicationSubComponentConfigurationDetails struct {
 	// A list of metrics to monitor for the component.
 	AlarmMetrics []ApplicationAlarmMetric `pulumi:"alarmMetrics"`
 	// A list of logs to monitor for the component.
 	Logs []ApplicationLog `pulumi:"logs"`
+	// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+	Processes []ApplicationProcess `pulumi:"processes"`
 	// A list of Windows Events to log.
 	WindowsEvents []ApplicationWindowsEvent `pulumi:"windowsEvents"`
 }
@@ -1841,6 +2350,8 @@ type ApplicationSubComponentConfigurationDetailsArgs struct {
 	AlarmMetrics ApplicationAlarmMetricArrayInput `pulumi:"alarmMetrics"`
 	// A list of logs to monitor for the component.
 	Logs ApplicationLogArrayInput `pulumi:"logs"`
+	// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+	Processes ApplicationProcessArrayInput `pulumi:"processes"`
 	// A list of Windows Events to log.
 	WindowsEvents ApplicationWindowsEventArrayInput `pulumi:"windowsEvents"`
 }
@@ -1880,6 +2391,11 @@ func (o ApplicationSubComponentConfigurationDetailsOutput) AlarmMetrics() Applic
 // A list of logs to monitor for the component.
 func (o ApplicationSubComponentConfigurationDetailsOutput) Logs() ApplicationLogArrayOutput {
 	return o.ApplyT(func(v ApplicationSubComponentConfigurationDetails) []ApplicationLog { return v.Logs }).(ApplicationLogArrayOutput)
+}
+
+// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+func (o ApplicationSubComponentConfigurationDetailsOutput) Processes() ApplicationProcessArrayOutput {
+	return o.ApplyT(func(v ApplicationSubComponentConfigurationDetails) []ApplicationProcess { return v.Processes }).(ApplicationProcessArrayOutput)
 }
 
 // A list of Windows Events to log.
@@ -2160,6 +2676,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogPatternArrayInput)(nil)).Elem(), ApplicationLogPatternArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogPatternSetInput)(nil)).Elem(), ApplicationLogPatternSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogPatternSetArrayInput)(nil)).Elem(), ApplicationLogPatternSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetWeaverPrometheusExporterInput)(nil)).Elem(), ApplicationNetWeaverPrometheusExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetWeaverPrometheusExporterPtrInput)(nil)).Elem(), ApplicationNetWeaverPrometheusExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationProcessInput)(nil)).Elem(), ApplicationProcessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationProcessArrayInput)(nil)).Elem(), ApplicationProcessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSqlServerPrometheusExporterInput)(nil)).Elem(), ApplicationSqlServerPrometheusExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSqlServerPrometheusExporterPtrInput)(nil)).Elem(), ApplicationSqlServerPrometheusExporterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubComponentConfigurationDetailsInput)(nil)).Elem(), ApplicationSubComponentConfigurationDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubComponentTypeConfigurationInput)(nil)).Elem(), ApplicationSubComponentTypeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSubComponentTypeConfigurationArrayInput)(nil)).Elem(), ApplicationSubComponentTypeConfigurationArray{})
@@ -2189,6 +2711,12 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationLogPatternArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationLogPatternSetOutput{})
 	pulumi.RegisterOutputType(ApplicationLogPatternSetArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationNetWeaverPrometheusExporterOutput{})
+	pulumi.RegisterOutputType(ApplicationNetWeaverPrometheusExporterPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationProcessOutput{})
+	pulumi.RegisterOutputType(ApplicationProcessArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationSqlServerPrometheusExporterOutput{})
+	pulumi.RegisterOutputType(ApplicationSqlServerPrometheusExporterPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSubComponentConfigurationDetailsOutput{})
 	pulumi.RegisterOutputType(ApplicationSubComponentTypeConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationSubComponentTypeConfigurationArrayOutput{})

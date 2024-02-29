@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 {
 
+    /// <summary>
+    /// Information about how traffic will be distributed between multiple target groups in a forward rule.
+    /// </summary>
     [OutputType]
     public sealed class ListenerTargetGroupTuple
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the target group.
+        /// </summary>
         public readonly string? TargetGroupArn;
+        /// <summary>
+        /// The weight. The range is 0 to 999.
+        /// </summary>
         public readonly int? Weight;
 
         [OutputConstructor]

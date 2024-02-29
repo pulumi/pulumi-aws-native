@@ -2893,9 +2893,321 @@ func (o EntityDataValueRelationshipValuePropertiesPtrOutput) TargetEntityId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object that specifies information about a property definition.
+type EntityDefinition struct {
+	// An object that specifies information about a property configuration.
+	Configuration map[string]string `pulumi:"configuration"`
+	// An object that contains information about the data type.
+	DataType *EntityDataType `pulumi:"dataType"`
+	// An object that contains the default value.
+	DefaultValue *EntityDataValue `pulumi:"defaultValue"`
+	// A Boolean value that specifies whether the property ID comes from an external data store.
+	IsExternalId *bool `pulumi:"isExternalId"`
+	// A Boolean value that specifies whether the property definition can be updated.
+	IsFinal *bool `pulumi:"isFinal"`
+	// A Boolean value that specifies whether the property definition is imported from an external data store.
+	IsImported *bool `pulumi:"isImported"`
+	// A Boolean value that specifies whether the property definition is inherited from a parent entity.
+	IsInherited *bool `pulumi:"isInherited"`
+	// A Boolean value that specifies whether the property is required.
+	IsRequiredInEntity *bool `pulumi:"isRequiredInEntity"`
+	// A Boolean value that specifies whether the property is stored externally.
+	IsStoredExternally *bool `pulumi:"isStoredExternally"`
+	// A Boolean value that specifies whether the property consists of time series data.
+	IsTimeSeries *bool `pulumi:"isTimeSeries"`
+}
+
+// EntityDefinitionInput is an input type that accepts EntityDefinitionArgs and EntityDefinitionOutput values.
+// You can construct a concrete instance of `EntityDefinitionInput` via:
+//
+//	EntityDefinitionArgs{...}
+type EntityDefinitionInput interface {
+	pulumi.Input
+
+	ToEntityDefinitionOutput() EntityDefinitionOutput
+	ToEntityDefinitionOutputWithContext(context.Context) EntityDefinitionOutput
+}
+
+// An object that specifies information about a property definition.
+type EntityDefinitionArgs struct {
+	// An object that specifies information about a property configuration.
+	Configuration pulumi.StringMapInput `pulumi:"configuration"`
+	// An object that contains information about the data type.
+	DataType EntityDataTypePtrInput `pulumi:"dataType"`
+	// An object that contains the default value.
+	DefaultValue EntityDataValuePtrInput `pulumi:"defaultValue"`
+	// A Boolean value that specifies whether the property ID comes from an external data store.
+	IsExternalId pulumi.BoolPtrInput `pulumi:"isExternalId"`
+	// A Boolean value that specifies whether the property definition can be updated.
+	IsFinal pulumi.BoolPtrInput `pulumi:"isFinal"`
+	// A Boolean value that specifies whether the property definition is imported from an external data store.
+	IsImported pulumi.BoolPtrInput `pulumi:"isImported"`
+	// A Boolean value that specifies whether the property definition is inherited from a parent entity.
+	IsInherited pulumi.BoolPtrInput `pulumi:"isInherited"`
+	// A Boolean value that specifies whether the property is required.
+	IsRequiredInEntity pulumi.BoolPtrInput `pulumi:"isRequiredInEntity"`
+	// A Boolean value that specifies whether the property is stored externally.
+	IsStoredExternally pulumi.BoolPtrInput `pulumi:"isStoredExternally"`
+	// A Boolean value that specifies whether the property consists of time series data.
+	IsTimeSeries pulumi.BoolPtrInput `pulumi:"isTimeSeries"`
+}
+
+func (EntityDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityDefinition)(nil)).Elem()
+}
+
+func (i EntityDefinitionArgs) ToEntityDefinitionOutput() EntityDefinitionOutput {
+	return i.ToEntityDefinitionOutputWithContext(context.Background())
+}
+
+func (i EntityDefinitionArgs) ToEntityDefinitionOutputWithContext(ctx context.Context) EntityDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityDefinitionOutput)
+}
+
+func (i EntityDefinitionArgs) ToEntityDefinitionPtrOutput() EntityDefinitionPtrOutput {
+	return i.ToEntityDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i EntityDefinitionArgs) ToEntityDefinitionPtrOutputWithContext(ctx context.Context) EntityDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityDefinitionOutput).ToEntityDefinitionPtrOutputWithContext(ctx)
+}
+
+// EntityDefinitionPtrInput is an input type that accepts EntityDefinitionArgs, EntityDefinitionPtr and EntityDefinitionPtrOutput values.
+// You can construct a concrete instance of `EntityDefinitionPtrInput` via:
+//
+//	        EntityDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntityDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToEntityDefinitionPtrOutput() EntityDefinitionPtrOutput
+	ToEntityDefinitionPtrOutputWithContext(context.Context) EntityDefinitionPtrOutput
+}
+
+type entityDefinitionPtrType EntityDefinitionArgs
+
+func EntityDefinitionPtr(v *EntityDefinitionArgs) EntityDefinitionPtrInput {
+	return (*entityDefinitionPtrType)(v)
+}
+
+func (*entityDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityDefinition)(nil)).Elem()
+}
+
+func (i *entityDefinitionPtrType) ToEntityDefinitionPtrOutput() EntityDefinitionPtrOutput {
+	return i.ToEntityDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *entityDefinitionPtrType) ToEntityDefinitionPtrOutputWithContext(ctx context.Context) EntityDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityDefinitionPtrOutput)
+}
+
+// An object that specifies information about a property definition.
+type EntityDefinitionOutput struct{ *pulumi.OutputState }
+
+func (EntityDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityDefinition)(nil)).Elem()
+}
+
+func (o EntityDefinitionOutput) ToEntityDefinitionOutput() EntityDefinitionOutput {
+	return o
+}
+
+func (o EntityDefinitionOutput) ToEntityDefinitionOutputWithContext(ctx context.Context) EntityDefinitionOutput {
+	return o
+}
+
+func (o EntityDefinitionOutput) ToEntityDefinitionPtrOutput() EntityDefinitionPtrOutput {
+	return o.ToEntityDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o EntityDefinitionOutput) ToEntityDefinitionPtrOutputWithContext(ctx context.Context) EntityDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityDefinition) *EntityDefinition {
+		return &v
+	}).(EntityDefinitionPtrOutput)
+}
+
+// An object that specifies information about a property configuration.
+func (o EntityDefinitionOutput) Configuration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EntityDefinition) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
+}
+
+// An object that contains information about the data type.
+func (o EntityDefinitionOutput) DataType() EntityDataTypePtrOutput {
+	return o.ApplyT(func(v EntityDefinition) *EntityDataType { return v.DataType }).(EntityDataTypePtrOutput)
+}
+
+// An object that contains the default value.
+func (o EntityDefinitionOutput) DefaultValue() EntityDataValuePtrOutput {
+	return o.ApplyT(func(v EntityDefinition) *EntityDataValue { return v.DefaultValue }).(EntityDataValuePtrOutput)
+}
+
+// A Boolean value that specifies whether the property ID comes from an external data store.
+func (o EntityDefinitionOutput) IsExternalId() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EntityDefinition) *bool { return v.IsExternalId }).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property definition can be updated.
+func (o EntityDefinitionOutput) IsFinal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EntityDefinition) *bool { return v.IsFinal }).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property definition is imported from an external data store.
+func (o EntityDefinitionOutput) IsImported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EntityDefinition) *bool { return v.IsImported }).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property definition is inherited from a parent entity.
+func (o EntityDefinitionOutput) IsInherited() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EntityDefinition) *bool { return v.IsInherited }).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property is required.
+func (o EntityDefinitionOutput) IsRequiredInEntity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EntityDefinition) *bool { return v.IsRequiredInEntity }).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property is stored externally.
+func (o EntityDefinitionOutput) IsStoredExternally() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EntityDefinition) *bool { return v.IsStoredExternally }).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property consists of time series data.
+func (o EntityDefinitionOutput) IsTimeSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EntityDefinition) *bool { return v.IsTimeSeries }).(pulumi.BoolPtrOutput)
+}
+
+type EntityDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityDefinition)(nil)).Elem()
+}
+
+func (o EntityDefinitionPtrOutput) ToEntityDefinitionPtrOutput() EntityDefinitionPtrOutput {
+	return o
+}
+
+func (o EntityDefinitionPtrOutput) ToEntityDefinitionPtrOutputWithContext(ctx context.Context) EntityDefinitionPtrOutput {
+	return o
+}
+
+func (o EntityDefinitionPtrOutput) Elem() EntityDefinitionOutput {
+	return o.ApplyT(func(v *EntityDefinition) EntityDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret EntityDefinition
+		return ret
+	}).(EntityDefinitionOutput)
+}
+
+// An object that specifies information about a property configuration.
+func (o EntityDefinitionPtrOutput) Configuration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EntityDefinition) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(pulumi.StringMapOutput)
+}
+
+// An object that contains information about the data type.
+func (o EntityDefinitionPtrOutput) DataType() EntityDataTypePtrOutput {
+	return o.ApplyT(func(v *EntityDefinition) *EntityDataType {
+		if v == nil {
+			return nil
+		}
+		return v.DataType
+	}).(EntityDataTypePtrOutput)
+}
+
+// An object that contains the default value.
+func (o EntityDefinitionPtrOutput) DefaultValue() EntityDataValuePtrOutput {
+	return o.ApplyT(func(v *EntityDefinition) *EntityDataValue {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultValue
+	}).(EntityDataValuePtrOutput)
+}
+
+// A Boolean value that specifies whether the property ID comes from an external data store.
+func (o EntityDefinitionPtrOutput) IsExternalId() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EntityDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsExternalId
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property definition can be updated.
+func (o EntityDefinitionPtrOutput) IsFinal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EntityDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsFinal
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property definition is imported from an external data store.
+func (o EntityDefinitionPtrOutput) IsImported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EntityDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsImported
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property definition is inherited from a parent entity.
+func (o EntityDefinitionPtrOutput) IsInherited() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EntityDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsInherited
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property is required.
+func (o EntityDefinitionPtrOutput) IsRequiredInEntity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EntityDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsRequiredInEntity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property is stored externally.
+func (o EntityDefinitionPtrOutput) IsStoredExternally() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EntityDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsStoredExternally
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean value that specifies whether the property consists of time series data.
+func (o EntityDefinitionPtrOutput) IsTimeSeries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EntityDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsTimeSeries
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An object that specifies information about a property.
 type EntityProperty struct {
-	// An object that specifies information about a property.
-	Definition *EntityPropertyDefinitionProperties `pulumi:"definition"`
+	// The definition of the property.
+	Definition *EntityDefinition `pulumi:"definition"`
 	// The value of the property.
 	Value *EntityDataValue `pulumi:"value"`
 }
@@ -2911,9 +3223,10 @@ type EntityPropertyInput interface {
 	ToEntityPropertyOutputWithContext(context.Context) EntityPropertyOutput
 }
 
+// An object that specifies information about a property.
 type EntityPropertyArgs struct {
-	// An object that specifies information about a property.
-	Definition EntityPropertyDefinitionPropertiesPtrInput `pulumi:"definition"`
+	// The definition of the property.
+	Definition EntityDefinitionPtrInput `pulumi:"definition"`
 	// The value of the property.
 	Value EntityDataValuePtrInput `pulumi:"value"`
 }
@@ -2955,6 +3268,7 @@ func (i EntityPropertyMap) ToEntityPropertyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EntityPropertyMapOutput)
 }
 
+// An object that specifies information about a property.
 type EntityPropertyOutput struct{ *pulumi.OutputState }
 
 func (EntityPropertyOutput) ElementType() reflect.Type {
@@ -2969,9 +3283,9 @@ func (o EntityPropertyOutput) ToEntityPropertyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// An object that specifies information about a property.
-func (o EntityPropertyOutput) Definition() EntityPropertyDefinitionPropertiesPtrOutput {
-	return o.ApplyT(func(v EntityProperty) *EntityPropertyDefinitionProperties { return v.Definition }).(EntityPropertyDefinitionPropertiesPtrOutput)
+// The definition of the property.
+func (o EntityPropertyOutput) Definition() EntityDefinitionPtrOutput {
+	return o.ApplyT(func(v EntityProperty) *EntityDefinition { return v.Definition }).(EntityDefinitionPtrOutput)
 }
 
 // The value of the property.
@@ -2997,317 +3311,6 @@ func (o EntityPropertyMapOutput) MapIndex(k pulumi.StringInput) EntityPropertyOu
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EntityProperty {
 		return vs[0].(map[string]EntityProperty)[vs[1].(string)]
 	}).(EntityPropertyOutput)
-}
-
-// An object that specifies information about a property.
-type EntityPropertyDefinitionProperties struct {
-	// An object that specifies information about a property.
-	Configuration map[string]string `pulumi:"configuration"`
-	// An object that contains information about the data type.
-	DataType *EntityDataType `pulumi:"dataType"`
-	// An object that contains the default value.
-	DefaultValue *EntityDataValue `pulumi:"defaultValue"`
-	// A Boolean value that specifies whether the property ID comes from an external data store.
-	IsExternalId *bool `pulumi:"isExternalId"`
-	// A Boolean value that specifies whether the property definition can be updated.
-	IsFinal *bool `pulumi:"isFinal"`
-	// A Boolean value that specifies whether the property definition is imported from an external data store.
-	IsImported *bool `pulumi:"isImported"`
-	// A Boolean value that specifies whether the property definition is inherited from a parent entity.
-	IsInherited *bool `pulumi:"isInherited"`
-	// A Boolean value that specifies whether the property is required.
-	IsRequiredInEntity *bool `pulumi:"isRequiredInEntity"`
-	// A Boolean value that specifies whether the property is stored externally.
-	IsStoredExternally *bool `pulumi:"isStoredExternally"`
-	// A Boolean value that specifies whether the property consists of time series data.
-	IsTimeSeries *bool `pulumi:"isTimeSeries"`
-}
-
-// EntityPropertyDefinitionPropertiesInput is an input type that accepts EntityPropertyDefinitionPropertiesArgs and EntityPropertyDefinitionPropertiesOutput values.
-// You can construct a concrete instance of `EntityPropertyDefinitionPropertiesInput` via:
-//
-//	EntityPropertyDefinitionPropertiesArgs{...}
-type EntityPropertyDefinitionPropertiesInput interface {
-	pulumi.Input
-
-	ToEntityPropertyDefinitionPropertiesOutput() EntityPropertyDefinitionPropertiesOutput
-	ToEntityPropertyDefinitionPropertiesOutputWithContext(context.Context) EntityPropertyDefinitionPropertiesOutput
-}
-
-// An object that specifies information about a property.
-type EntityPropertyDefinitionPropertiesArgs struct {
-	// An object that specifies information about a property.
-	Configuration pulumi.StringMapInput `pulumi:"configuration"`
-	// An object that contains information about the data type.
-	DataType EntityDataTypePtrInput `pulumi:"dataType"`
-	// An object that contains the default value.
-	DefaultValue EntityDataValuePtrInput `pulumi:"defaultValue"`
-	// A Boolean value that specifies whether the property ID comes from an external data store.
-	IsExternalId pulumi.BoolPtrInput `pulumi:"isExternalId"`
-	// A Boolean value that specifies whether the property definition can be updated.
-	IsFinal pulumi.BoolPtrInput `pulumi:"isFinal"`
-	// A Boolean value that specifies whether the property definition is imported from an external data store.
-	IsImported pulumi.BoolPtrInput `pulumi:"isImported"`
-	// A Boolean value that specifies whether the property definition is inherited from a parent entity.
-	IsInherited pulumi.BoolPtrInput `pulumi:"isInherited"`
-	// A Boolean value that specifies whether the property is required.
-	IsRequiredInEntity pulumi.BoolPtrInput `pulumi:"isRequiredInEntity"`
-	// A Boolean value that specifies whether the property is stored externally.
-	IsStoredExternally pulumi.BoolPtrInput `pulumi:"isStoredExternally"`
-	// A Boolean value that specifies whether the property consists of time series data.
-	IsTimeSeries pulumi.BoolPtrInput `pulumi:"isTimeSeries"`
-}
-
-func (EntityPropertyDefinitionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityPropertyDefinitionProperties)(nil)).Elem()
-}
-
-func (i EntityPropertyDefinitionPropertiesArgs) ToEntityPropertyDefinitionPropertiesOutput() EntityPropertyDefinitionPropertiesOutput {
-	return i.ToEntityPropertyDefinitionPropertiesOutputWithContext(context.Background())
-}
-
-func (i EntityPropertyDefinitionPropertiesArgs) ToEntityPropertyDefinitionPropertiesOutputWithContext(ctx context.Context) EntityPropertyDefinitionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityPropertyDefinitionPropertiesOutput)
-}
-
-func (i EntityPropertyDefinitionPropertiesArgs) ToEntityPropertyDefinitionPropertiesPtrOutput() EntityPropertyDefinitionPropertiesPtrOutput {
-	return i.ToEntityPropertyDefinitionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i EntityPropertyDefinitionPropertiesArgs) ToEntityPropertyDefinitionPropertiesPtrOutputWithContext(ctx context.Context) EntityPropertyDefinitionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityPropertyDefinitionPropertiesOutput).ToEntityPropertyDefinitionPropertiesPtrOutputWithContext(ctx)
-}
-
-// EntityPropertyDefinitionPropertiesPtrInput is an input type that accepts EntityPropertyDefinitionPropertiesArgs, EntityPropertyDefinitionPropertiesPtr and EntityPropertyDefinitionPropertiesPtrOutput values.
-// You can construct a concrete instance of `EntityPropertyDefinitionPropertiesPtrInput` via:
-//
-//	        EntityPropertyDefinitionPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type EntityPropertyDefinitionPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToEntityPropertyDefinitionPropertiesPtrOutput() EntityPropertyDefinitionPropertiesPtrOutput
-	ToEntityPropertyDefinitionPropertiesPtrOutputWithContext(context.Context) EntityPropertyDefinitionPropertiesPtrOutput
-}
-
-type entityPropertyDefinitionPropertiesPtrType EntityPropertyDefinitionPropertiesArgs
-
-func EntityPropertyDefinitionPropertiesPtr(v *EntityPropertyDefinitionPropertiesArgs) EntityPropertyDefinitionPropertiesPtrInput {
-	return (*entityPropertyDefinitionPropertiesPtrType)(v)
-}
-
-func (*entityPropertyDefinitionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityPropertyDefinitionProperties)(nil)).Elem()
-}
-
-func (i *entityPropertyDefinitionPropertiesPtrType) ToEntityPropertyDefinitionPropertiesPtrOutput() EntityPropertyDefinitionPropertiesPtrOutput {
-	return i.ToEntityPropertyDefinitionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *entityPropertyDefinitionPropertiesPtrType) ToEntityPropertyDefinitionPropertiesPtrOutputWithContext(ctx context.Context) EntityPropertyDefinitionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityPropertyDefinitionPropertiesPtrOutput)
-}
-
-// An object that specifies information about a property.
-type EntityPropertyDefinitionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (EntityPropertyDefinitionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityPropertyDefinitionProperties)(nil)).Elem()
-}
-
-func (o EntityPropertyDefinitionPropertiesOutput) ToEntityPropertyDefinitionPropertiesOutput() EntityPropertyDefinitionPropertiesOutput {
-	return o
-}
-
-func (o EntityPropertyDefinitionPropertiesOutput) ToEntityPropertyDefinitionPropertiesOutputWithContext(ctx context.Context) EntityPropertyDefinitionPropertiesOutput {
-	return o
-}
-
-func (o EntityPropertyDefinitionPropertiesOutput) ToEntityPropertyDefinitionPropertiesPtrOutput() EntityPropertyDefinitionPropertiesPtrOutput {
-	return o.ToEntityPropertyDefinitionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o EntityPropertyDefinitionPropertiesOutput) ToEntityPropertyDefinitionPropertiesPtrOutputWithContext(ctx context.Context) EntityPropertyDefinitionPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityPropertyDefinitionProperties) *EntityPropertyDefinitionProperties {
-		return &v
-	}).(EntityPropertyDefinitionPropertiesPtrOutput)
-}
-
-// An object that specifies information about a property.
-func (o EntityPropertyDefinitionPropertiesOutput) Configuration() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) map[string]string { return v.Configuration }).(pulumi.StringMapOutput)
-}
-
-// An object that contains information about the data type.
-func (o EntityPropertyDefinitionPropertiesOutput) DataType() EntityDataTypePtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *EntityDataType { return v.DataType }).(EntityDataTypePtrOutput)
-}
-
-// An object that contains the default value.
-func (o EntityPropertyDefinitionPropertiesOutput) DefaultValue() EntityDataValuePtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *EntityDataValue { return v.DefaultValue }).(EntityDataValuePtrOutput)
-}
-
-// A Boolean value that specifies whether the property ID comes from an external data store.
-func (o EntityPropertyDefinitionPropertiesOutput) IsExternalId() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *bool { return v.IsExternalId }).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property definition can be updated.
-func (o EntityPropertyDefinitionPropertiesOutput) IsFinal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *bool { return v.IsFinal }).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property definition is imported from an external data store.
-func (o EntityPropertyDefinitionPropertiesOutput) IsImported() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *bool { return v.IsImported }).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property definition is inherited from a parent entity.
-func (o EntityPropertyDefinitionPropertiesOutput) IsInherited() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *bool { return v.IsInherited }).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property is required.
-func (o EntityPropertyDefinitionPropertiesOutput) IsRequiredInEntity() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *bool { return v.IsRequiredInEntity }).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property is stored externally.
-func (o EntityPropertyDefinitionPropertiesOutput) IsStoredExternally() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *bool { return v.IsStoredExternally }).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property consists of time series data.
-func (o EntityPropertyDefinitionPropertiesOutput) IsTimeSeries() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EntityPropertyDefinitionProperties) *bool { return v.IsTimeSeries }).(pulumi.BoolPtrOutput)
-}
-
-type EntityPropertyDefinitionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (EntityPropertyDefinitionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityPropertyDefinitionProperties)(nil)).Elem()
-}
-
-func (o EntityPropertyDefinitionPropertiesPtrOutput) ToEntityPropertyDefinitionPropertiesPtrOutput() EntityPropertyDefinitionPropertiesPtrOutput {
-	return o
-}
-
-func (o EntityPropertyDefinitionPropertiesPtrOutput) ToEntityPropertyDefinitionPropertiesPtrOutputWithContext(ctx context.Context) EntityPropertyDefinitionPropertiesPtrOutput {
-	return o
-}
-
-func (o EntityPropertyDefinitionPropertiesPtrOutput) Elem() EntityPropertyDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) EntityPropertyDefinitionProperties {
-		if v != nil {
-			return *v
-		}
-		var ret EntityPropertyDefinitionProperties
-		return ret
-	}).(EntityPropertyDefinitionPropertiesOutput)
-}
-
-// An object that specifies information about a property.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) Configuration() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Configuration
-	}).(pulumi.StringMapOutput)
-}
-
-// An object that contains information about the data type.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) DataType() EntityDataTypePtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *EntityDataType {
-		if v == nil {
-			return nil
-		}
-		return v.DataType
-	}).(EntityDataTypePtrOutput)
-}
-
-// An object that contains the default value.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) DefaultValue() EntityDataValuePtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *EntityDataValue {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultValue
-	}).(EntityDataValuePtrOutput)
-}
-
-// A Boolean value that specifies whether the property ID comes from an external data store.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) IsExternalId() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsExternalId
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property definition can be updated.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) IsFinal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsFinal
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property definition is imported from an external data store.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) IsImported() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsImported
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property definition is inherited from a parent entity.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) IsInherited() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsInherited
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property is required.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) IsRequiredInEntity() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsRequiredInEntity
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property is stored externally.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) IsStoredExternally() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsStoredExternally
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean value that specifies whether the property consists of time series data.
-func (o EntityPropertyDefinitionPropertiesPtrOutput) IsTimeSeries() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EntityPropertyDefinitionProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsTimeSeries
-	}).(pulumi.BoolPtrOutput)
 }
 
 // An object that specifies information about a property group.
@@ -3918,10 +3921,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityDataValueMapInput)(nil)).Elem(), EntityDataValueMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityDataValueRelationshipValuePropertiesInput)(nil)).Elem(), EntityDataValueRelationshipValuePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityDataValueRelationshipValuePropertiesPtrInput)(nil)).Elem(), EntityDataValueRelationshipValuePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityDefinitionInput)(nil)).Elem(), EntityDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityDefinitionPtrInput)(nil)).Elem(), EntityDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyInput)(nil)).Elem(), EntityPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyMapInput)(nil)).Elem(), EntityPropertyMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyDefinitionPropertiesInput)(nil)).Elem(), EntityPropertyDefinitionPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyDefinitionPropertiesPtrInput)(nil)).Elem(), EntityPropertyDefinitionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyGroupInput)(nil)).Elem(), EntityPropertyGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityPropertyGroupMapInput)(nil)).Elem(), EntityPropertyGroupMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityRelationshipInput)(nil)).Elem(), EntityRelationshipArgs{})
@@ -3968,10 +3971,10 @@ func init() {
 	pulumi.RegisterOutputType(EntityDataValueMapOutput{})
 	pulumi.RegisterOutputType(EntityDataValueRelationshipValuePropertiesOutput{})
 	pulumi.RegisterOutputType(EntityDataValueRelationshipValuePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EntityDefinitionOutput{})
+	pulumi.RegisterOutputType(EntityDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(EntityPropertyOutput{})
 	pulumi.RegisterOutputType(EntityPropertyMapOutput{})
-	pulumi.RegisterOutputType(EntityPropertyDefinitionPropertiesOutput{})
-	pulumi.RegisterOutputType(EntityPropertyDefinitionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EntityPropertyGroupOutput{})
 	pulumi.RegisterOutputType(EntityPropertyGroupMapOutput{})
 	pulumi.RegisterOutputType(EntityRelationshipOutput{})

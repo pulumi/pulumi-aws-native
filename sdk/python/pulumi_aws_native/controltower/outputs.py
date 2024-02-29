@@ -11,8 +11,30 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'EnabledBaselineParameter',
     'EnabledControlParameter',
 ]
+
+@pulumi.output_type
+class EnabledBaselineParameter(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[Any] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class EnabledControlParameter(dict):

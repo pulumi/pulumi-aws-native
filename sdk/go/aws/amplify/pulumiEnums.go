@@ -519,6 +519,336 @@ func (in *branchStagePtr) ToBranchStagePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(BranchStagePtrOutput)
 }
 
+type DomainCertificateCertificateType string
+
+const (
+	DomainCertificateCertificateTypeAmplifyManaged = DomainCertificateCertificateType("AMPLIFY_MANAGED")
+	DomainCertificateCertificateTypeCustom         = DomainCertificateCertificateType("CUSTOM")
+)
+
+func (DomainCertificateCertificateType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainCertificateCertificateType)(nil)).Elem()
+}
+
+func (e DomainCertificateCertificateType) ToDomainCertificateCertificateTypeOutput() DomainCertificateCertificateTypeOutput {
+	return pulumi.ToOutput(e).(DomainCertificateCertificateTypeOutput)
+}
+
+func (e DomainCertificateCertificateType) ToDomainCertificateCertificateTypeOutputWithContext(ctx context.Context) DomainCertificateCertificateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainCertificateCertificateTypeOutput)
+}
+
+func (e DomainCertificateCertificateType) ToDomainCertificateCertificateTypePtrOutput() DomainCertificateCertificateTypePtrOutput {
+	return e.ToDomainCertificateCertificateTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainCertificateCertificateType) ToDomainCertificateCertificateTypePtrOutputWithContext(ctx context.Context) DomainCertificateCertificateTypePtrOutput {
+	return DomainCertificateCertificateType(e).ToDomainCertificateCertificateTypeOutputWithContext(ctx).ToDomainCertificateCertificateTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainCertificateCertificateType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainCertificateCertificateType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainCertificateCertificateType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainCertificateCertificateType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainCertificateCertificateTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainCertificateCertificateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainCertificateCertificateType)(nil)).Elem()
+}
+
+func (o DomainCertificateCertificateTypeOutput) ToDomainCertificateCertificateTypeOutput() DomainCertificateCertificateTypeOutput {
+	return o
+}
+
+func (o DomainCertificateCertificateTypeOutput) ToDomainCertificateCertificateTypeOutputWithContext(ctx context.Context) DomainCertificateCertificateTypeOutput {
+	return o
+}
+
+func (o DomainCertificateCertificateTypeOutput) ToDomainCertificateCertificateTypePtrOutput() DomainCertificateCertificateTypePtrOutput {
+	return o.ToDomainCertificateCertificateTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainCertificateCertificateTypeOutput) ToDomainCertificateCertificateTypePtrOutputWithContext(ctx context.Context) DomainCertificateCertificateTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainCertificateCertificateType) *DomainCertificateCertificateType {
+		return &v
+	}).(DomainCertificateCertificateTypePtrOutput)
+}
+
+func (o DomainCertificateCertificateTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainCertificateCertificateTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainCertificateCertificateType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainCertificateCertificateTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainCertificateCertificateTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainCertificateCertificateType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainCertificateCertificateTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainCertificateCertificateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainCertificateCertificateType)(nil)).Elem()
+}
+
+func (o DomainCertificateCertificateTypePtrOutput) ToDomainCertificateCertificateTypePtrOutput() DomainCertificateCertificateTypePtrOutput {
+	return o
+}
+
+func (o DomainCertificateCertificateTypePtrOutput) ToDomainCertificateCertificateTypePtrOutputWithContext(ctx context.Context) DomainCertificateCertificateTypePtrOutput {
+	return o
+}
+
+func (o DomainCertificateCertificateTypePtrOutput) Elem() DomainCertificateCertificateTypeOutput {
+	return o.ApplyT(func(v *DomainCertificateCertificateType) DomainCertificateCertificateType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainCertificateCertificateType
+		return ret
+	}).(DomainCertificateCertificateTypeOutput)
+}
+
+func (o DomainCertificateCertificateTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainCertificateCertificateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainCertificateCertificateType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainCertificateCertificateTypeInput is an input type that accepts values of the DomainCertificateCertificateType enum
+// A concrete instance of `DomainCertificateCertificateTypeInput` can be one of the following:
+//
+//	DomainCertificateCertificateTypeAmplifyManaged
+//	DomainCertificateCertificateTypeCustom
+type DomainCertificateCertificateTypeInput interface {
+	pulumi.Input
+
+	ToDomainCertificateCertificateTypeOutput() DomainCertificateCertificateTypeOutput
+	ToDomainCertificateCertificateTypeOutputWithContext(context.Context) DomainCertificateCertificateTypeOutput
+}
+
+var domainCertificateCertificateTypePtrType = reflect.TypeOf((**DomainCertificateCertificateType)(nil)).Elem()
+
+type DomainCertificateCertificateTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainCertificateCertificateTypePtrOutput() DomainCertificateCertificateTypePtrOutput
+	ToDomainCertificateCertificateTypePtrOutputWithContext(context.Context) DomainCertificateCertificateTypePtrOutput
+}
+
+type domainCertificateCertificateTypePtr string
+
+func DomainCertificateCertificateTypePtr(v string) DomainCertificateCertificateTypePtrInput {
+	return (*domainCertificateCertificateTypePtr)(&v)
+}
+
+func (*domainCertificateCertificateTypePtr) ElementType() reflect.Type {
+	return domainCertificateCertificateTypePtrType
+}
+
+func (in *domainCertificateCertificateTypePtr) ToDomainCertificateCertificateTypePtrOutput() DomainCertificateCertificateTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainCertificateCertificateTypePtrOutput)
+}
+
+func (in *domainCertificateCertificateTypePtr) ToDomainCertificateCertificateTypePtrOutputWithContext(ctx context.Context) DomainCertificateCertificateTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainCertificateCertificateTypePtrOutput)
+}
+
+type DomainCertificateSettingsCertificateType string
+
+const (
+	DomainCertificateSettingsCertificateTypeAmplifyManaged = DomainCertificateSettingsCertificateType("AMPLIFY_MANAGED")
+	DomainCertificateSettingsCertificateTypeCustom         = DomainCertificateSettingsCertificateType("CUSTOM")
+)
+
+func (DomainCertificateSettingsCertificateType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainCertificateSettingsCertificateType)(nil)).Elem()
+}
+
+func (e DomainCertificateSettingsCertificateType) ToDomainCertificateSettingsCertificateTypeOutput() DomainCertificateSettingsCertificateTypeOutput {
+	return pulumi.ToOutput(e).(DomainCertificateSettingsCertificateTypeOutput)
+}
+
+func (e DomainCertificateSettingsCertificateType) ToDomainCertificateSettingsCertificateTypeOutputWithContext(ctx context.Context) DomainCertificateSettingsCertificateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainCertificateSettingsCertificateTypeOutput)
+}
+
+func (e DomainCertificateSettingsCertificateType) ToDomainCertificateSettingsCertificateTypePtrOutput() DomainCertificateSettingsCertificateTypePtrOutput {
+	return e.ToDomainCertificateSettingsCertificateTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainCertificateSettingsCertificateType) ToDomainCertificateSettingsCertificateTypePtrOutputWithContext(ctx context.Context) DomainCertificateSettingsCertificateTypePtrOutput {
+	return DomainCertificateSettingsCertificateType(e).ToDomainCertificateSettingsCertificateTypeOutputWithContext(ctx).ToDomainCertificateSettingsCertificateTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainCertificateSettingsCertificateType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainCertificateSettingsCertificateType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainCertificateSettingsCertificateType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainCertificateSettingsCertificateType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainCertificateSettingsCertificateTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainCertificateSettingsCertificateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainCertificateSettingsCertificateType)(nil)).Elem()
+}
+
+func (o DomainCertificateSettingsCertificateTypeOutput) ToDomainCertificateSettingsCertificateTypeOutput() DomainCertificateSettingsCertificateTypeOutput {
+	return o
+}
+
+func (o DomainCertificateSettingsCertificateTypeOutput) ToDomainCertificateSettingsCertificateTypeOutputWithContext(ctx context.Context) DomainCertificateSettingsCertificateTypeOutput {
+	return o
+}
+
+func (o DomainCertificateSettingsCertificateTypeOutput) ToDomainCertificateSettingsCertificateTypePtrOutput() DomainCertificateSettingsCertificateTypePtrOutput {
+	return o.ToDomainCertificateSettingsCertificateTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainCertificateSettingsCertificateTypeOutput) ToDomainCertificateSettingsCertificateTypePtrOutputWithContext(ctx context.Context) DomainCertificateSettingsCertificateTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainCertificateSettingsCertificateType) *DomainCertificateSettingsCertificateType {
+		return &v
+	}).(DomainCertificateSettingsCertificateTypePtrOutput)
+}
+
+func (o DomainCertificateSettingsCertificateTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainCertificateSettingsCertificateTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainCertificateSettingsCertificateType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainCertificateSettingsCertificateTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainCertificateSettingsCertificateTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainCertificateSettingsCertificateType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainCertificateSettingsCertificateTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainCertificateSettingsCertificateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainCertificateSettingsCertificateType)(nil)).Elem()
+}
+
+func (o DomainCertificateSettingsCertificateTypePtrOutput) ToDomainCertificateSettingsCertificateTypePtrOutput() DomainCertificateSettingsCertificateTypePtrOutput {
+	return o
+}
+
+func (o DomainCertificateSettingsCertificateTypePtrOutput) ToDomainCertificateSettingsCertificateTypePtrOutputWithContext(ctx context.Context) DomainCertificateSettingsCertificateTypePtrOutput {
+	return o
+}
+
+func (o DomainCertificateSettingsCertificateTypePtrOutput) Elem() DomainCertificateSettingsCertificateTypeOutput {
+	return o.ApplyT(func(v *DomainCertificateSettingsCertificateType) DomainCertificateSettingsCertificateType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainCertificateSettingsCertificateType
+		return ret
+	}).(DomainCertificateSettingsCertificateTypeOutput)
+}
+
+func (o DomainCertificateSettingsCertificateTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainCertificateSettingsCertificateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainCertificateSettingsCertificateType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainCertificateSettingsCertificateTypeInput is an input type that accepts values of the DomainCertificateSettingsCertificateType enum
+// A concrete instance of `DomainCertificateSettingsCertificateTypeInput` can be one of the following:
+//
+//	DomainCertificateSettingsCertificateTypeAmplifyManaged
+//	DomainCertificateSettingsCertificateTypeCustom
+type DomainCertificateSettingsCertificateTypeInput interface {
+	pulumi.Input
+
+	ToDomainCertificateSettingsCertificateTypeOutput() DomainCertificateSettingsCertificateTypeOutput
+	ToDomainCertificateSettingsCertificateTypeOutputWithContext(context.Context) DomainCertificateSettingsCertificateTypeOutput
+}
+
+var domainCertificateSettingsCertificateTypePtrType = reflect.TypeOf((**DomainCertificateSettingsCertificateType)(nil)).Elem()
+
+type DomainCertificateSettingsCertificateTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainCertificateSettingsCertificateTypePtrOutput() DomainCertificateSettingsCertificateTypePtrOutput
+	ToDomainCertificateSettingsCertificateTypePtrOutputWithContext(context.Context) DomainCertificateSettingsCertificateTypePtrOutput
+}
+
+type domainCertificateSettingsCertificateTypePtr string
+
+func DomainCertificateSettingsCertificateTypePtr(v string) DomainCertificateSettingsCertificateTypePtrInput {
+	return (*domainCertificateSettingsCertificateTypePtr)(&v)
+}
+
+func (*domainCertificateSettingsCertificateTypePtr) ElementType() reflect.Type {
+	return domainCertificateSettingsCertificateTypePtrType
+}
+
+func (in *domainCertificateSettingsCertificateTypePtr) ToDomainCertificateSettingsCertificateTypePtrOutput() DomainCertificateSettingsCertificateTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainCertificateSettingsCertificateTypePtrOutput)
+}
+
+func (in *domainCertificateSettingsCertificateTypePtr) ToDomainCertificateSettingsCertificateTypePtrOutputWithContext(ctx context.Context) DomainCertificateSettingsCertificateTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainCertificateSettingsCertificateTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigStageInput)(nil)).Elem(), AppAutoBranchCreationConfigStage("EXPERIMENTAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigStagePtrInput)(nil)).Elem(), AppAutoBranchCreationConfigStage("EXPERIMENTAL"))
@@ -526,10 +856,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppPlatformPtrInput)(nil)).Elem(), AppPlatform("WEB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchStageInput)(nil)).Elem(), BranchStage("EXPERIMENTAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchStagePtrInput)(nil)).Elem(), BranchStage("EXPERIMENTAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateCertificateTypeInput)(nil)).Elem(), DomainCertificateCertificateType("AMPLIFY_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateCertificateTypePtrInput)(nil)).Elem(), DomainCertificateCertificateType("AMPLIFY_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateSettingsCertificateTypeInput)(nil)).Elem(), DomainCertificateSettingsCertificateType("AMPLIFY_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainCertificateSettingsCertificateTypePtrInput)(nil)).Elem(), DomainCertificateSettingsCertificateType("AMPLIFY_MANAGED"))
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigStageOutput{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigStagePtrOutput{})
 	pulumi.RegisterOutputType(AppPlatformOutput{})
 	pulumi.RegisterOutputType(AppPlatformPtrOutput{})
 	pulumi.RegisterOutputType(BranchStageOutput{})
 	pulumi.RegisterOutputType(BranchStagePtrOutput{})
+	pulumi.RegisterOutputType(DomainCertificateCertificateTypeOutput{})
+	pulumi.RegisterOutputType(DomainCertificateCertificateTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainCertificateSettingsCertificateTypeOutput{})
+	pulumi.RegisterOutputType(DomainCertificateSettingsCertificateTypePtrOutput{})
 }

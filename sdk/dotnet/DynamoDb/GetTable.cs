@@ -12,13 +12,21 @@ namespace Pulumi.AwsNative.DynamoDb
     public static class GetTable
     {
         /// <summary>
-        /// Version: None. Resource Type definition for AWS::DynamoDB::Table
+        /// The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
+        ///  You should be aware of the following behaviors when working with DDB tables:
+        ///   +  CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
+        ///   
+        ///    Our guidance is to use the latest schema documented here for y
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:dynamodb:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Version: None. Resource Type definition for AWS::DynamoDB::Table
+        /// The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
+        ///  You should be aware of the following behaviors when working with DDB tables:
+        ///   +  CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
+        ///   
+        ///    Our guidance is to use the latest schema documented here for y
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:dynamodb:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -27,6 +35,10 @@ namespace Pulumi.AwsNative.DynamoDb
 
     public sealed class GetTableArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+        ///   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        /// </summary>
         [Input("tableName", required: true)]
         public string TableName { get; set; } = null!;
 
@@ -38,6 +50,10 @@ namespace Pulumi.AwsNative.DynamoDb
 
     public sealed class GetTableInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+        ///   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -52,22 +68,80 @@ namespace Pulumi.AwsNative.DynamoDb
     public sealed class GetTableResult
     {
         public readonly string? Arn;
+        /// <summary>
+        /// A list of attributes that describe the key schema for the table and indexes.
+        ///  This property is required to create a DDB table.
+        ///  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TableAttributeDefinition> AttributeDefinitions;
+        /// <summary>
+        /// Specify how you are charged for read and write throughput and how you manage capacity.
+        ///  Valid values include:
+        ///   +   ``PROVISIONED`` - We recommend using ``PROVISIONED`` for predictable workloads. ``PROVISIONED`` sets the billing mode to [Provisioned Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual).
+        ///   +   ``PAY_PER_REQUEST`` - We recommend using ``PAY_PER_REQUEST`` for unpredictable workloads. ``PAY_PER_REQUEST`` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand).
+        ///   
+        ///  If not specified, the default is ``PROVISIONED``.
+        /// </summary>
         public readonly string? BillingMode;
+        /// <summary>
+        /// The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        /// </summary>
         public readonly Outputs.TableContributorInsightsSpecification? ContributorInsightsSpecification;
+        /// <summary>
+        /// Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
+        /// </summary>
         public readonly bool? DeletionProtectionEnabled;
+        /// <summary>
+        /// Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
+        ///   If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
+        ///  If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index. 
+        ///  Updates are not supported. The following are exceptions:
+        ///   +  If you update either the contributor insights specification or the provisioned throughput value
+        /// </summary>
         public readonly ImmutableArray<Outputs.TableGlobalSecondaryIndex> GlobalSecondaryIndexes;
+        /// <summary>
+        /// Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
+        /// </summary>
         public readonly Union<ImmutableArray<Outputs.TableKeySchema>, object>? KeySchema;
+        /// <summary>
+        /// The Kinesis Data Streams configuration for the specified table.
+        /// </summary>
         public readonly Outputs.TableKinesisStreamSpecification? KinesisStreamSpecification;
+        /// <summary>
+        /// Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TableLocalSecondaryIndex> LocalSecondaryIndexes;
+        /// <summary>
+        /// The settings used to enable point in time recovery.
+        /// </summary>
         public readonly Outputs.TablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
+        /// <summary>
+        /// Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
+        ///  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
+        /// </summary>
         public readonly Outputs.TableProvisionedThroughput? ProvisionedThroughput;
-        public readonly Outputs.TableResourcePolicy? ResourcePolicy;
+        /// <summary>
+        /// Specifies the settings to enable server-side encryption.
+        /// </summary>
         public readonly Outputs.TableSseSpecification? SseSpecification;
         public readonly string? StreamArn;
+        /// <summary>
+        /// The settings for the DDB table stream, which capture changes to items stored in the table.
+        /// </summary>
         public readonly Outputs.TableStreamSpecification? StreamSpecification;
+        /// <summary>
+        /// The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
+        /// </summary>
         public readonly string? TableClass;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        ///  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Specifies the Time to Live (TTL) settings for the table.
+        ///   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
+        /// </summary>
         public readonly Outputs.TableTimeToLiveSpecification? TimeToLiveSpecification;
 
         [OutputConstructor]
@@ -94,8 +168,6 @@ namespace Pulumi.AwsNative.DynamoDb
 
             Outputs.TableProvisionedThroughput? provisionedThroughput,
 
-            Outputs.TableResourcePolicy? resourcePolicy,
-
             Outputs.TableSseSpecification? sseSpecification,
 
             string? streamArn,
@@ -119,7 +191,6 @@ namespace Pulumi.AwsNative.DynamoDb
             LocalSecondaryIndexes = localSecondaryIndexes;
             PointInTimeRecoverySpecification = pointInTimeRecoverySpecification;
             ProvisionedThroughput = provisionedThroughput;
-            ResourcePolicy = resourcePolicy;
             SseSpecification = sseSpecification;
             StreamArn = streamArn;
             StreamSpecification = streamSpecification;

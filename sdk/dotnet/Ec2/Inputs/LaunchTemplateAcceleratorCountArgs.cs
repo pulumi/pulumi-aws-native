@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
     /// <summary>
-    /// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
+    /// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
     /// </summary>
     public sealed class LaunchTemplateAcceleratorCountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of accelerators.
+        /// The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
         /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
         /// <summary>
-        /// The minimum number of accelerators.
+        /// The minimum number of accelerators. To specify no minimum limit, omit this parameter.
         /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }

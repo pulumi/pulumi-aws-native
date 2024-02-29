@@ -12,12 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
+// <p>Represents a resource-based policy that allows or denies access to a channel.</p>
 type ChannelPolicy struct {
 	pulumi.CustomResourceState
 
-	ChannelGroupName pulumi.StringPtrOutput `pulumi:"channelGroupName"`
-	ChannelName      pulumi.StringPtrOutput `pulumi:"channelName"`
+	ChannelGroupName pulumi.StringOutput `pulumi:"channelGroupName"`
+	ChannelName      pulumi.StringOutput `pulumi:"channelName"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 }
@@ -29,6 +29,12 @@ func NewChannelPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ChannelGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelGroupName'")
+	}
+	if args.ChannelName == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelName'")
+	}
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
@@ -70,16 +76,16 @@ func (ChannelPolicyState) ElementType() reflect.Type {
 }
 
 type channelPolicyArgs struct {
-	ChannelGroupName *string `pulumi:"channelGroupName"`
-	ChannelName      *string `pulumi:"channelName"`
+	ChannelGroupName string `pulumi:"channelGroupName"`
+	ChannelName      string `pulumi:"channelName"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a ChannelPolicy resource.
 type ChannelPolicyArgs struct {
-	ChannelGroupName pulumi.StringPtrInput
-	ChannelName      pulumi.StringPtrInput
+	ChannelGroupName pulumi.StringInput
+	ChannelName      pulumi.StringInput
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
 	Policy pulumi.Input
 }
@@ -121,12 +127,12 @@ func (o ChannelPolicyOutput) ToChannelPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o ChannelPolicyOutput) ChannelGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ChannelPolicy) pulumi.StringPtrOutput { return v.ChannelGroupName }).(pulumi.StringPtrOutput)
+func (o ChannelPolicyOutput) ChannelGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChannelPolicy) pulumi.StringOutput { return v.ChannelGroupName }).(pulumi.StringOutput)
 }
 
-func (o ChannelPolicyOutput) ChannelName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ChannelPolicy) pulumi.StringPtrOutput { return v.ChannelName }).(pulumi.StringPtrOutput)
+func (o ChannelPolicyOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChannelPolicy) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
 
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.

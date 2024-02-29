@@ -30,16 +30,14 @@ class GetSecurityGroupEgressResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Resource Type definition for an egress (outbound) security group rule.
+        The description of an egress (outbound) security group rule.
+         Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        The Security Group Rule Id
-        """
         return pulumi.get(self, "id")
 
 
@@ -56,10 +54,11 @@ class AwaitableGetSecurityGroupEgressResult(GetSecurityGroupEgressResult):
 def get_security_group_egress(id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupEgressResult:
     """
-    Resource Type definition for AWS::EC2::SecurityGroupEgress
-
-
-    :param str id: The Security Group Rule Id
+    Adds the specified outbound (egress) rule to a security group.
+     An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
+     You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+     You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
+     Rule changes are propagated to instances associated with the security group as quickly as possible
     """
     __args__ = dict()
     __args__['id'] = id
@@ -75,9 +74,10 @@ def get_security_group_egress(id: Optional[str] = None,
 def get_security_group_egress_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupEgressResult]:
     """
-    Resource Type definition for AWS::EC2::SecurityGroupEgress
-
-
-    :param str id: The Security Group Rule Id
+    Adds the specified outbound (egress) rule to a security group.
+     An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
+     You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+     You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
+     Rule changes are propagated to instances associated with the security group as quickly as possible
     """
     ...

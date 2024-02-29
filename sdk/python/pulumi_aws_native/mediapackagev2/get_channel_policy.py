@@ -45,7 +45,7 @@ def get_channel_policy(channel_group_name: Optional[str] = None,
                        channel_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelPolicyResult:
     """
-    Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
+    <p>Represents a resource-based policy that allows or denies access to a channel.</p>
     """
     __args__ = dict()
     __args__['channelGroupName'] = channel_group_name
@@ -62,6 +62,6 @@ def get_channel_policy_output(channel_group_name: Optional[pulumi.Input[str]] = 
                               channel_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelPolicyResult]:
     """
-    Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
+    <p>Represents a resource-based policy that allows or denies access to a channel.</p>
     """
     ...

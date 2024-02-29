@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachment']
 
@@ -17,7 +19,8 @@ class NetworkInterfaceAttachmentArgs:
                  device_index: pulumi.Input[str],
                  instance_id: pulumi.Input[str],
                  network_interface_id: pulumi.Input[str],
-                 delete_on_termination: Optional[pulumi.Input[bool]] = None):
+                 delete_on_termination: Optional[pulumi.Input[bool]] = None,
+                 ena_srd_specification: Optional[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']] = None):
         """
         The set of arguments for constructing a NetworkInterfaceAttachment resource.
         :param pulumi.Input[str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
@@ -30,6 +33,8 @@ class NetworkInterfaceAttachmentArgs:
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if ena_srd_specification is not None:
+            pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
 
     @property
     @pulumi.getter(name="deviceIndex")
@@ -79,6 +84,15 @@ class NetworkInterfaceAttachmentArgs:
     def delete_on_termination(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "delete_on_termination", value)
 
+    @property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]:
+        return pulumi.get(self, "ena_srd_specification")
+
+    @ena_srd_specification.setter
+    def ena_srd_specification(self, value: Optional[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]):
+        pulumi.set(self, "ena_srd_specification", value)
+
 
 class NetworkInterfaceAttachment(pulumi.CustomResource):
     @overload
@@ -87,6 +101,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  device_index: Optional[pulumi.Input[str]] = None,
+                 ena_srd_specification: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -126,6 +141,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  device_index: Optional[pulumi.Input[str]] = None,
+                 ena_srd_specification: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -141,6 +157,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             if device_index is None and not opts.urn:
                 raise TypeError("Missing required property 'device_index'")
             __props__.__dict__["device_index"] = device_index
+            __props__.__dict__["ena_srd_specification"] = ena_srd_specification
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
@@ -175,6 +192,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         __props__.__dict__["attachment_id"] = None
         __props__.__dict__["delete_on_termination"] = None
         __props__.__dict__["device_index"] = None
+        __props__.__dict__["ena_srd_specification"] = None
         __props__.__dict__["instance_id"] = None
         __props__.__dict__["network_interface_id"] = None
         return NetworkInterfaceAttachment(resource_name, opts=opts, __props__=__props__)
@@ -202,6 +220,11 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
         """
         return pulumi.get(self, "device_index")
+
+    @property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> pulumi.Output[Optional['outputs.NetworkInterfaceAttachmentEnaSrdSpecification']]:
+        return pulumi.get(self, "ena_srd_specification")
 
     @property
     @pulumi.getter(name="instanceId")

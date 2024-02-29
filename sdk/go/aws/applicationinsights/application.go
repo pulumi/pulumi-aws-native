@@ -19,6 +19,8 @@ type Application struct {
 
 	// The ARN of the ApplicationInsights application.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
+	// If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+	AttachMissingPermission pulumi.BoolPtrOutput `pulumi:"attachMissingPermission"`
 	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled pulumi.BoolPtrOutput `pulumi:"autoConfigurationEnabled"`
 	// The monitoring settings of the components.
@@ -89,6 +91,8 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
+	// If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+	AttachMissingPermission *bool `pulumi:"attachMissingPermission"`
 	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled *bool `pulumi:"autoConfigurationEnabled"`
 	// The monitoring settings of the components.
@@ -113,6 +117,8 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	// If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+	AttachMissingPermission pulumi.BoolPtrInput
 	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled pulumi.BoolPtrInput
 	// The monitoring settings of the components.
@@ -175,6 +181,11 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 // The ARN of the ApplicationInsights application.
 func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
+}
+
+// If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+func (o ApplicationOutput) AttachMissingPermission() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.AttachMissingPermission }).(pulumi.BoolPtrOutput)
 }
 
 // If set to true, application will be configured with recommended monitoring configuration.

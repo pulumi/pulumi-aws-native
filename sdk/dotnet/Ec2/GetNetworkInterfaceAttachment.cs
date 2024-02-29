@@ -65,15 +65,19 @@ namespace Pulumi.AwsNative.Ec2
         /// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
         /// </summary>
         public readonly bool? DeleteOnTermination;
+        public readonly Outputs.NetworkInterfaceAttachmentEnaSrdSpecification? EnaSrdSpecification;
 
         [OutputConstructor]
         private GetNetworkInterfaceAttachmentResult(
             string? attachmentId,
 
-            bool? deleteOnTermination)
+            bool? deleteOnTermination,
+
+            Outputs.NetworkInterfaceAttachmentEnaSrdSpecification? enaSrdSpecification)
         {
             AttachmentId = attachmentId;
             DeleteOnTermination = deleteOnTermination;
+            EnaSrdSpecification = enaSrdSpecification;
         }
     }
 }

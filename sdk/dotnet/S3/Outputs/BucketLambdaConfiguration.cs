@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+    /// Describes the LAMlong functions to invoke and the events for which to invoke them.
     /// </summary>
     [OutputType]
     public sealed class BucketLambdaConfiguration
     {
         /// <summary>
-        /// The Amazon S3 bucket event for which to invoke the AWS Lambda function.
+        /// The Amazon S3 bucket event for which to invoke the LAMlong function. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         /// </summary>
         public readonly string Event;
         /// <summary>
-        /// The filtering rules that determine which objects invoke the AWS Lambda function.
+        /// The filtering rules that determine which objects invoke the AWS Lambda function. For example, you can create a filter so that only image files with a ``.jpg`` extension invoke the function when they are added to the Amazon S3 bucket.
         /// </summary>
         public readonly Outputs.BucketNotificationFilter? Filter;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
+        /// The Amazon Resource Name (ARN) of the LAMlong function that Amazon S3 invokes when the specified event type occurs.
         /// </summary>
         public readonly string Function;
 

@@ -10,11 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 {
 
+    /// <summary>
+    /// Specifies information required when returning a custom HTTP response.
+    /// </summary>
     [OutputType]
     public sealed class ListenerFixedResponseConfig
     {
+        /// <summary>
+        /// The content type.
+        ///  Valid Values: text/plain | text/css | text/html | application/javascript | application/json
+        /// </summary>
         public readonly string? ContentType;
+        /// <summary>
+        /// The message.
+        /// </summary>
         public readonly string? MessageBody;
+        /// <summary>
+        /// The HTTP response code (2XX, 4XX, or 5XX).
+        /// </summary>
         public readonly string StatusCode;
 
         [OutputConstructor]

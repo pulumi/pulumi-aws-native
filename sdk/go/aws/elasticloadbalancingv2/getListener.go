@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
+// Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupListenerResult
@@ -27,14 +27,24 @@ type LookupListenerArgs struct {
 }
 
 type LookupListenerResult struct {
-	AlpnPolicy           []string                      `pulumi:"alpnPolicy"`
-	Certificates         []ListenerCertificateType     `pulumi:"certificates"`
-	DefaultActions       []ListenerAction              `pulumi:"defaultActions"`
-	ListenerArn          *string                       `pulumi:"listenerArn"`
+	// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+	AlpnPolicy []string `pulumi:"alpnPolicy"`
+	// The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+	//  To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
+	Certificates []ListenerCertificateType `pulumi:"certificates"`
+	// The actions for the default rule. You cannot define a condition for a default rule.
+	//  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
+	DefaultActions []ListenerAction `pulumi:"defaultActions"`
+	ListenerArn    *string          `pulumi:"listenerArn"`
+	// The mutual authentication configuration information.
 	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
-	Port                 *int                          `pulumi:"port"`
-	Protocol             *string                       `pulumi:"protocol"`
-	SslPolicy            *string                       `pulumi:"sslPolicy"`
+	// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+	Port *int `pulumi:"port"`
+	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+	Protocol *string `pulumi:"protocol"`
+	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+	//  For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
+	SslPolicy *string `pulumi:"sslPolicy"`
 }
 
 func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, opts ...pulumi.InvokeOption) LookupListenerResultOutput {
@@ -72,14 +82,21 @@ func (o LookupListenerResultOutput) ToLookupListenerResultOutputWithContext(ctx 
 	return o
 }
 
+// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
 func (o LookupListenerResultOutput) AlpnPolicy() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []string { return v.AlpnPolicy }).(pulumi.StringArrayOutput)
 }
 
+// The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+//
+//	To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
 func (o LookupListenerResultOutput) Certificates() ListenerCertificateTypeArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []ListenerCertificateType { return v.Certificates }).(ListenerCertificateTypeArrayOutput)
 }
 
+// The actions for the default rule. You cannot define a condition for a default rule.
+//
+//	To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
 func (o LookupListenerResultOutput) DefaultActions() ListenerActionArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []ListenerAction { return v.DefaultActions }).(ListenerActionArrayOutput)
 }
@@ -88,18 +105,24 @@ func (o LookupListenerResultOutput) ListenerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ListenerArn }).(pulumi.StringPtrOutput)
 }
 
+// The mutual authentication configuration information.
 func (o LookupListenerResultOutput) MutualAuthentication() ListenerMutualAuthenticationPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *ListenerMutualAuthentication { return v.MutualAuthentication }).(ListenerMutualAuthenticationPtrOutput)
 }
 
+// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
 func (o LookupListenerResultOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
 func (o LookupListenerResultOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+//
+//	For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
 func (o LookupListenerResultOutput) SslPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.SslPolicy }).(pulumi.StringPtrOutput)
 }

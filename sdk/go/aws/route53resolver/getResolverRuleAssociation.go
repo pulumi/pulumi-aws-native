@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+// In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
 func LookupResolverRuleAssociation(ctx *pulumi.Context, args *LookupResolverRuleAssociationArgs, opts ...pulumi.InvokeOption) (*LookupResolverRuleAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverRuleAssociationResult
@@ -23,12 +23,10 @@ func LookupResolverRuleAssociation(ctx *pulumi.Context, args *LookupResolverRule
 }
 
 type LookupResolverRuleAssociationArgs struct {
-	// Primary Identifier for Resolver Rule Association
 	ResolverRuleAssociationId string `pulumi:"resolverRuleAssociationId"`
 }
 
 type LookupResolverRuleAssociationResult struct {
-	// Primary Identifier for Resolver Rule Association
 	ResolverRuleAssociationId *string `pulumi:"resolverRuleAssociationId"`
 }
 
@@ -46,7 +44,6 @@ func LookupResolverRuleAssociationOutput(ctx *pulumi.Context, args LookupResolve
 }
 
 type LookupResolverRuleAssociationOutputArgs struct {
-	// Primary Identifier for Resolver Rule Association
 	ResolverRuleAssociationId pulumi.StringInput `pulumi:"resolverRuleAssociationId"`
 }
 
@@ -68,7 +65,6 @@ func (o LookupResolverRuleAssociationResultOutput) ToLookupResolverRuleAssociati
 	return o
 }
 
-// Primary Identifier for Resolver Rule Association
 func (o LookupResolverRuleAssociationResultOutput) ResolverRuleAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverRuleAssociationResult) *string { return v.ResolverRuleAssociationId }).(pulumi.StringPtrOutput)
 }

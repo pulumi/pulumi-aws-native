@@ -12,12 +12,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
     /// <summary>
     /// Specifies the tags to apply to the launch template during creation.
+    ///  ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateTagSpecification
     {
         /// <summary>
-        /// The type of resource to tag.
+        /// The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
         /// </summary>
         public readonly string? ResourceType;
         /// <summary>

@@ -10,35 +10,62 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 {
     /// <summary>
-    /// Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
+    /// Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:Listener")]
     public partial class Listener : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+        /// </summary>
         [Output("alpnPolicy")]
         public Output<ImmutableArray<string>> AlpnPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+        ///  To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
+        /// </summary>
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.ListenerCertificate>> Certificates { get; private set; } = null!;
 
+        /// <summary>
+        /// The actions for the default rule. You cannot define a condition for a default rule.
+        ///  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
+        /// </summary>
         [Output("defaultActions")]
         public Output<ImmutableArray<Outputs.ListenerAction>> DefaultActions { get; private set; } = null!;
 
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The mutual authentication configuration information.
+        /// </summary>
         [Output("mutualAuthentication")]
         public Output<Outputs.ListenerMutualAuthentication?> MutualAuthentication { get; private set; } = null!;
 
+        /// <summary>
+        /// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+        /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
+        /// <summary>
+        /// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
 
+        /// <summary>
+        /// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+        ///  For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
+        /// </summary>
         [Output("sslPolicy")]
         public Output<string?> SslPolicy { get; private set; } = null!;
 
@@ -93,6 +120,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     {
         [Input("alpnPolicy")]
         private InputList<string>? _alpnPolicy;
+
+        /// <summary>
+        /// [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+        /// </summary>
         public InputList<string> AlpnPolicy
         {
             get => _alpnPolicy ?? (_alpnPolicy = new InputList<string>());
@@ -101,6 +132,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         [Input("certificates")]
         private InputList<Inputs.ListenerCertificateArgs>? _certificates;
+
+        /// <summary>
+        /// The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+        ///  To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
+        /// </summary>
         public InputList<Inputs.ListenerCertificateArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<Inputs.ListenerCertificateArgs>());
@@ -109,24 +145,45 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         [Input("defaultActions", required: true)]
         private InputList<Inputs.ListenerActionArgs>? _defaultActions;
+
+        /// <summary>
+        /// The actions for the default rule. You cannot define a condition for a default rule.
+        ///  To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
+        /// </summary>
         public InputList<Inputs.ListenerActionArgs> DefaultActions
         {
             get => _defaultActions ?? (_defaultActions = new InputList<Inputs.ListenerActionArgs>());
             set => _defaultActions = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the load balancer.
+        /// </summary>
         [Input("loadBalancerArn", required: true)]
         public Input<string> LoadBalancerArn { get; set; } = null!;
 
+        /// <summary>
+        /// The mutual authentication configuration information.
+        /// </summary>
         [Input("mutualAuthentication")]
         public Input<Inputs.ListenerMutualAuthenticationArgs>? MutualAuthentication { get; set; }
 
+        /// <summary>
+        /// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
+        /// <summary>
+        /// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+        ///  For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
+        /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }
 

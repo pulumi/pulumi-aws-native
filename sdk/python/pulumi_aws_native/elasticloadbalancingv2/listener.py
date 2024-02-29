@@ -26,6 +26,17 @@ class ListenerArgs:
                  ssl_policy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Listener resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerActionArgs']]] default_actions: The actions for the default rule. You cannot define a condition for a default rule.
+                To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
+        :param pulumi.Input[str] load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alpn_policy: [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerCertificateArgs']]] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+                To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
+        :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information.
+        :param pulumi.Input[int] port: The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+        :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        :param pulumi.Input[str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+                For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
         """
         pulumi.set(__self__, "default_actions", default_actions)
         pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
@@ -45,6 +56,10 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerActionArgs']]]:
+        """
+        The actions for the default rule. You cannot define a condition for a default rule.
+         To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
+        """
         return pulumi.get(self, "default_actions")
 
     @default_actions.setter
@@ -54,6 +69,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @load_balancer_arn.setter
@@ -63,6 +81,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="alpnPolicy")
     def alpn_policy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+        """
         return pulumi.get(self, "alpn_policy")
 
     @alpn_policy.setter
@@ -72,6 +93,10 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerCertificateArgs']]]]:
+        """
+        The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+         To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
+        """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
@@ -81,6 +106,9 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="mutualAuthentication")
     def mutual_authentication(self) -> Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]:
+        """
+        The mutual authentication configuration information.
+        """
         return pulumi.get(self, "mutual_authentication")
 
     @mutual_authentication.setter
@@ -90,6 +118,9 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -99,6 +130,9 @@ class ListenerArgs:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -108,6 +142,10 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+         For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
+        """
         return pulumi.get(self, "ssl_policy")
 
     @ssl_policy.setter
@@ -130,10 +168,21 @@ class Listener(pulumi.CustomResource):
                  ssl_policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
+        Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alpn_policy: [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerCertificateArgs']]]] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+                To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerActionArgs']]]] default_actions: The actions for the default rule. You cannot define a condition for a default rule.
+                To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
+        :param pulumi.Input[str] load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
+        :param pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']] mutual_authentication: The mutual authentication configuration information.
+        :param pulumi.Input[int] port: The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+        :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        :param pulumi.Input[str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+                For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
         """
         ...
     @overload
@@ -142,7 +191,7 @@ class Listener(pulumi.CustomResource):
                  args: ListenerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
+        Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 
         :param str resource_name: The name of the resource.
         :param ListenerArgs args: The arguments to use to populate this resource's properties.
@@ -227,16 +276,27 @@ class Listener(pulumi.CustomResource):
     @property
     @pulumi.getter(name="alpnPolicy")
     def alpn_policy(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+        """
         return pulumi.get(self, "alpn_policy")
 
     @property
     @pulumi.getter
     def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.ListenerCertificate']]]:
+        """
+        The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+         To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
+        """
         return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> pulumi.Output[Sequence['outputs.ListenerAction']]:
+        """
+        The actions for the default rule. You cannot define a condition for a default rule.
+         To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
+        """
         return pulumi.get(self, "default_actions")
 
     @property
@@ -247,25 +307,41 @@ class Listener(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @property
     @pulumi.getter(name="mutualAuthentication")
     def mutual_authentication(self) -> pulumi.Output[Optional['outputs.ListenerMutualAuthentication']]:
+        """
+        The mutual authentication configuration information.
+        """
         return pulumi.get(self, "mutual_authentication")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional[str]]:
+        """
+        The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+         For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
+        """
         return pulumi.get(self, "ssl_policy")
 

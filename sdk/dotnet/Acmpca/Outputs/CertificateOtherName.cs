@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Outputs
 {
 
+    /// <summary>
+    /// Defines a custom ASN.1 X.400 ``GeneralName`` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+    /// </summary>
     [OutputType]
     public sealed class CertificateOtherName
     {
+        /// <summary>
+        /// Specifies an OID.
+        /// </summary>
         public readonly string TypeId;
+        /// <summary>
+        /// Specifies an OID value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

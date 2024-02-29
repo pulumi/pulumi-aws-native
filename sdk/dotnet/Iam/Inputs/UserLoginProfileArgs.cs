@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Iam.Inputs
 {
 
     /// <summary>
-    /// Contains the user name and password create date for a user.
+    /// Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
     /// </summary>
     public sealed class UserLoginProfileArgs : global::Pulumi.ResourceArgs
     {

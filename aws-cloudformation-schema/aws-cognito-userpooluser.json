@@ -70,7 +70,7 @@
   "writeOnlyProperties" : [ "/properties/DesiredDeliveryMediums", "/properties/ForceAliasCreation", "/properties/ValidationData", "/properties/ClientMetadata", "/properties/MessageAction" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cognito-idp:AdminCreateUser", "iam:PassRole" ],
+      "permissions" : [ "cognito-idp:AdminCreateUser", "cognito-idp:AdminGetUser", "iam:PassRole" ],
       "timeoutInMinutes" : 2
     },
     "read" : {

@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+    /// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
     /// </summary>
     [OutputType]
     public sealed class FunctionSnapStart
     {
         /// <summary>
-        /// Applying SnapStart setting on function resource type.
+        /// Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
         /// </summary>
         public readonly Pulumi.AwsNative.Lambda.FunctionSnapStartApplyOn ApplyOn;
 

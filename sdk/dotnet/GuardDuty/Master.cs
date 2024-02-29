@@ -10,18 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GuardDuty
 {
     /// <summary>
-    /// Resource Type definition for AWS::GuardDuty::Master
+    /// GuardDuty Master resource schema
     /// </summary>
-    [Obsolete(@"Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:Master")]
     public partial class Master : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Unique ID of the detector of the GuardDuty member account.
+        /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
+        /// <summary>
+        /// Value used to validate the master account to the member account.
+        /// </summary>
         [Output("invitationId")]
         public Output<string?> InvitationId { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the account used as the master account.
+        /// </summary>
         [Output("masterId")]
         public Output<string> MasterId { get; private set; } = null!;
 
@@ -76,12 +84,21 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class MasterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Unique ID of the detector of the GuardDuty member account.
+        /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// Value used to validate the master account to the member account.
+        /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 
+        /// <summary>
+        /// ID of the account used as the master account.
+        /// </summary>
         [Input("masterId", required: true)]
         public Input<string> MasterId { get; set; } = null!;
 

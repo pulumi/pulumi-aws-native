@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+    /// The configuration for the kernels in a SageMaker image running as a JupyterLab app.
     /// </summary>
     [OutputType]
     public sealed class AppImageConfigJupyterLabAppImageConfig

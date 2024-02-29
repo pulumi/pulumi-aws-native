@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
     /// <summary>
-    /// Custom policy details when rule is custom owned
+    /// Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
     /// </summary>
     [OutputType]
     public sealed class ConfigRuleCustomPolicyDetails
     {
         /// <summary>
-        /// Logging toggle for custom policy rule
+        /// The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is ``false``.
         /// </summary>
         public readonly bool? EnableDebugLogDelivery;
         /// <summary>
-        /// Runtime system for custom policy rule
+        /// The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
         /// </summary>
         public readonly string? PolicyRuntime;
         /// <summary>
-        /// Policy definition containing logic for custom policy rule
+        /// The policy definition containing the logic for your CC Custom Policy rule.
         /// </summary>
         public readonly string? PolicyText;
 

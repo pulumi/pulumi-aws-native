@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// Specifies the redirect behavior and when a redirect is applied.
+    /// Specifies the redirect behavior and when a redirect is applied. For more information about routing rules, see [Configuring advanced conditional redirects](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects) in the *Amazon S3 User Guide*.
     /// </summary>
     public sealed class BucketRoutingRuleArgs : global::Pulumi.ResourceArgs
     {
@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("redirectRule", required: true)]
         public Input<Inputs.BucketRedirectRuleArgs> RedirectRule { get; set; } = null!;
 
+        /// <summary>
+        /// A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+        /// </summary>
         [Input("routingRuleCondition")]
         public Input<Inputs.BucketRoutingRuleConditionArgs>? RoutingRuleCondition { get; set; }
 

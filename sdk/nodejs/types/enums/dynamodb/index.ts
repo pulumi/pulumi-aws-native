@@ -14,4 +14,7 @@ export const TableKinesisStreamSpecificationApproximateCreationDateTimePrecision
     Millisecond: "MILLISECOND",
 } as const;
 
+/**
+ * The precision for the time and date that the stream was created.
+ */
 export type TableKinesisStreamSpecificationApproximateCreationDateTimePrecision = (typeof TableKinesisStreamSpecificationApproximateCreationDateTimePrecision)[keyof typeof TableKinesisStreamSpecificationApproximateCreationDateTimePrecision];

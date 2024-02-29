@@ -316,7 +316,7 @@ class AccessPointVpcConfiguration(dict):
 @pulumi.output_type
 class BucketAbortIncompleteMultipartUpload(dict):
     """
-    Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+    Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see [Stopping Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) in the *Amazon S3 User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -338,8 +338,8 @@ class BucketAbortIncompleteMultipartUpload(dict):
     def __init__(__self__, *,
                  days_after_initiation: int):
         """
-        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
-        :param int days_after_initiation: Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see [Stopping Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) in the *Amazon S3 User Guide*.
+        :param int days_after_initiation: Specifies the number of days after which Amazon S3 stops an incomplete multipart upload.
         """
         pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
@@ -347,13 +347,16 @@ class BucketAbortIncompleteMultipartUpload(dict):
     @pulumi.getter(name="daysAfterInitiation")
     def days_after_initiation(self) -> int:
         """
-        Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+        Specifies the number of days after which Amazon S3 stops an incomplete multipart upload.
         """
         return pulumi.get(self, "days_after_initiation")
 
 
 @pulumi.output_type
 class BucketAccelerateConfiguration(dict):
+    """
+    Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -374,7 +377,8 @@ class BucketAccelerateConfiguration(dict):
     def __init__(__self__, *,
                  acceleration_status: 'BucketAccelerateConfigurationAccelerationStatus'):
         """
-        :param 'BucketAccelerateConfigurationAccelerationStatus' acceleration_status: Configures the transfer acceleration state for an Amazon S3 bucket.
+        Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
+        :param 'BucketAccelerateConfigurationAccelerationStatus' acceleration_status: Specifies the transfer acceleration status of the bucket.
         """
         pulumi.set(__self__, "acceleration_status", acceleration_status)
 
@@ -382,7 +386,7 @@ class BucketAccelerateConfiguration(dict):
     @pulumi.getter(name="accelerationStatus")
     def acceleration_status(self) -> 'BucketAccelerateConfigurationAccelerationStatus':
         """
-        Configures the transfer acceleration state for an Amazon S3 bucket.
+        Specifies the transfer acceleration status of the bucket.
         """
         return pulumi.get(self, "acceleration_status")
 
@@ -390,18 +394,22 @@ class BucketAccelerateConfiguration(dict):
 @pulumi.output_type
 class BucketAccessControlTranslation(dict):
     """
-    Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
+    Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
     """
     def __init__(__self__, *,
                  owner: str):
         """
-        Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
+        Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
+        :param str owner: Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the *Amazon S3 API Reference*.
         """
         pulumi.set(__self__, "owner", owner)
 
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the *Amazon S3 API Reference*.
+        """
         return pulumi.get(self, "owner")
 
 
@@ -437,7 +445,10 @@ class BucketAnalyticsConfiguration(dict):
         """
         Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
         :param str id: The ID that identifies the analytics configuration.
+        :param 'BucketStorageClassAnalysis' storage_class_analysis: Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
         :param str prefix: The prefix that an object must have to be included in the analytics results.
+        :param Sequence['BucketTagFilter'] tag_filters: The tags to use when evaluating an analytics filter.
+                The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "storage_class_analysis", storage_class_analysis)
@@ -457,6 +468,9 @@ class BucketAnalyticsConfiguration(dict):
     @property
     @pulumi.getter(name="storageClassAnalysis")
     def storage_class_analysis(self) -> 'outputs.BucketStorageClassAnalysis':
+        """
+        Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
+        """
         return pulumi.get(self, "storage_class_analysis")
 
     @property
@@ -470,11 +484,18 @@ class BucketAnalyticsConfiguration(dict):
     @property
     @pulumi.getter(name="tagFilters")
     def tag_filters(self) -> Optional[Sequence['outputs.BucketTagFilter']]:
+        """
+        The tags to use when evaluating an analytics filter.
+         The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
+        """
         return pulumi.get(self, "tag_filters")
 
 
 @pulumi.output_type
 class BucketCorsConfiguration(dict):
+    """
+    Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -494,18 +515,25 @@ class BucketCorsConfiguration(dict):
 
     def __init__(__self__, *,
                  cors_rules: Sequence['outputs.BucketCorsRule']):
+        """
+        Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
+        :param Sequence['BucketCorsRule'] cors_rules: A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+        """
         pulumi.set(__self__, "cors_rules", cors_rules)
 
     @property
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> Sequence['outputs.BucketCorsRule']:
+        """
+        A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+        """
         return pulumi.get(self, "cors_rules")
 
 
 @pulumi.output_type
 class BucketCorsRule(dict):
     """
-    A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+    Specifies a cross-origin access rule for an Amazon S3 bucket.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -540,12 +568,13 @@ class BucketCorsRule(dict):
                  id: Optional[str] = None,
                  max_age: Optional[int] = None):
         """
-        A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
-        :param Sequence['BucketCorsRuleAllowedMethodsItem'] allowed_methods: An HTTP method that you allow the origin to execute.
+        Specifies a cross-origin access rule for an Amazon S3 bucket.
+        :param Sequence['BucketCorsRuleAllowedMethodsItem'] allowed_methods: An HTTP method that you allow the origin to run.
+                *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         :param Sequence[str] allowed_origins: One or more origins you want customers to be able to access the bucket from.
-        :param Sequence[str] allowed_headers: Headers that are specified in the Access-Control-Request-Headers header.
-        :param Sequence[str] exposed_headers: One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
-        :param str id: A unique identifier for this rule.
+        :param Sequence[str] allowed_headers: Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
+        :param Sequence[str] exposed_headers: One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript ``XMLHttpRequest`` object).
+        :param str id: A unique identifier for this rule. The value must be no more than 255 characters.
         :param int max_age: The time in seconds that your browser is to cache the preflight response for the specified resource.
         """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
@@ -563,7 +592,8 @@ class BucketCorsRule(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence['BucketCorsRuleAllowedMethodsItem']:
         """
-        An HTTP method that you allow the origin to execute.
+        An HTTP method that you allow the origin to run.
+         *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         """
         return pulumi.get(self, "allowed_methods")
 
@@ -579,7 +609,7 @@ class BucketCorsRule(dict):
     @pulumi.getter(name="allowedHeaders")
     def allowed_headers(self) -> Optional[Sequence[str]]:
         """
-        Headers that are specified in the Access-Control-Request-Headers header.
+        Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
         """
         return pulumi.get(self, "allowed_headers")
 
@@ -587,7 +617,7 @@ class BucketCorsRule(dict):
     @pulumi.getter(name="exposedHeaders")
     def exposed_headers(self) -> Optional[Sequence[str]]:
         """
-        One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
+        One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript ``XMLHttpRequest`` object).
         """
         return pulumi.get(self, "exposed_headers")
 
@@ -595,7 +625,7 @@ class BucketCorsRule(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        A unique identifier for this rule.
+        A unique identifier for this rule. The value must be no more than 255 characters.
         """
         return pulumi.get(self, "id")
 
@@ -635,7 +665,8 @@ class BucketDataExport(dict):
                  output_schema_version: str):
         """
         Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
-        :param str output_schema_version: The version of the output schema to use when exporting data.
+        :param 'BucketDestination' destination: The place to store the data for an analysis.
+        :param str output_schema_version: The version of the output schema to use when exporting data. Must be ``V_1``.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "output_schema_version", output_schema_version)
@@ -643,13 +674,16 @@ class BucketDataExport(dict):
     @property
     @pulumi.getter
     def destination(self) -> 'outputs.BucketDestination':
+        """
+        The place to store the data for an analysis.
+        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="outputSchemaVersion")
     def output_schema_version(self) -> str:
         """
-        The version of the output schema to use when exporting data.
+        The version of the output schema to use when exporting data. Must be ``V_1``.
         """
         return pulumi.get(self, "output_schema_version")
 
@@ -657,14 +691,21 @@ class BucketDataExport(dict):
 @pulumi.output_type
 class BucketDefaultRetention(dict):
     """
-    The default retention period that you want to apply to new objects placed in the specified bucket.
+    The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+       +  The ``DefaultRetention`` settings require both a mode and a period.
+      +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
     """
     def __init__(__self__, *,
                  days: Optional[int] = None,
                  mode: Optional['BucketDefaultRetentionMode'] = None,
                  years: Optional[int] = None):
         """
-        The default retention period that you want to apply to new objects placed in the specified bucket.
+        The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+           +  The ``DefaultRetention`` settings require both a mode and a period.
+          +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
+        :param int days: The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+        :param 'BucketDefaultRetentionMode' mode: The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+        :param int years: The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -676,36 +717,59 @@ class BucketDefaultRetention(dict):
     @property
     @pulumi.getter
     def days(self) -> Optional[int]:
+        """
+        The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+        """
         return pulumi.get(self, "days")
 
     @property
     @pulumi.getter
     def mode(self) -> Optional['BucketDefaultRetentionMode']:
+        """
+        The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+        """
         return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter
     def years(self) -> Optional[int]:
+        """
+        The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+        """
         return pulumi.get(self, "years")
 
 
 @pulumi.output_type
 class BucketDeleteMarkerReplication(dict):
+    """
+    Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+     For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+      If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
+    """
     def __init__(__self__, *,
                  status: Optional['BucketDeleteMarkerReplicationStatus'] = None):
+        """
+        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+         For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+          If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
+        :param 'BucketDeleteMarkerReplicationStatus' status: Indicates whether to replicate delete markers. Disabled by default.
+        """
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
     def status(self) -> Optional['BucketDeleteMarkerReplicationStatus']:
+        """
+        Indicates whether to replicate delete markers. Disabled by default.
+        """
         return pulumi.get(self, "status")
 
 
 @pulumi.output_type
 class BucketDestination(dict):
     """
-    Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
+    Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -732,10 +796,12 @@ class BucketDestination(dict):
                  bucket_account_id: Optional[str] = None,
                  prefix: Optional[str] = None):
         """
-        Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
+        Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
         :param str bucket_arn: The Amazon Resource Name (ARN) of the bucket to which data is exported.
         :param 'BucketDestinationFormat' format: Specifies the file format used when exporting data to Amazon S3.
-        :param str bucket_account_id: The account ID that owns the destination S3 bucket. 
+                *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
+        :param str bucket_account_id: The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+                  Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
         :param str prefix: The prefix to use when exporting data. The prefix is prepended to all results.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
@@ -758,6 +824,7 @@ class BucketDestination(dict):
     def format(self) -> 'BucketDestinationFormat':
         """
         Specifies the file format used when exporting data to Amazon S3.
+         *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
         """
         return pulumi.get(self, "format")
 
@@ -765,7 +832,8 @@ class BucketDestination(dict):
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> Optional[str]:
         """
-        The account ID that owns the destination S3 bucket. 
+        The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+           Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
         """
         return pulumi.get(self, "bucket_account_id")
 
@@ -781,7 +849,7 @@ class BucketDestination(dict):
 @pulumi.output_type
 class BucketEncryption(dict):
     """
-    Specifies default encryption for a bucket using server-side encryption with either Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS).
+    Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -803,7 +871,7 @@ class BucketEncryption(dict):
     def __init__(__self__, *,
                  server_side_encryption_configuration: Sequence['outputs.BucketServerSideEncryptionRule']):
         """
-        Specifies default encryption for a bucket using server-side encryption with either Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS).
+        Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
         :param Sequence['BucketServerSideEncryptionRule'] server_side_encryption_configuration: Specifies the default server-side-encryption configuration.
         """
         pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
@@ -843,7 +911,7 @@ class BucketEncryptionConfiguration(dict):
                  replica_kms_key_id: str):
         """
         Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
-        :param str replica_kms_key_id: Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
+        :param str replica_kms_key_id: Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
         pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
 
@@ -851,7 +919,7 @@ class BucketEncryptionConfiguration(dict):
     @pulumi.getter(name="replicaKmsKeyId")
     def replica_kms_key_id(self) -> str:
         """
-        Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
+        Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
         return pulumi.get(self, "replica_kms_key_id")
 
@@ -859,7 +927,8 @@ class BucketEncryptionConfiguration(dict):
 @pulumi.output_type
 class BucketEventBridgeConfiguration(dict):
     """
-    Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+    Amazon S3 can send events to Amazon EventBridge whenever certain events happen in your bucket, see [Using EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html) in the *Amazon S3 User Guide*.
+     Unlike other destinations, delivery of events to EventBridge can be either enabled or disabled for a bucket. If enabled, all events will be sent to EventBridge and you can use EventBridge rules to route events to additional targets. For more information, see [What Is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*
     """
     @staticmethod
     def __key_warning(key: str):
@@ -881,8 +950,9 @@ class BucketEventBridgeConfiguration(dict):
     def __init__(__self__, *,
                  event_bridge_enabled: bool):
         """
-        Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
-        :param bool event_bridge_enabled: Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+        Amazon S3 can send events to Amazon EventBridge whenever certain events happen in your bucket, see [Using EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html) in the *Amazon S3 User Guide*.
+         Unlike other destinations, delivery of events to EventBridge can be either enabled or disabled for a bucket. If enabled, all events will be sent to EventBridge and you can use EventBridge rules to route events to additional targets. For more information, see [What Is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*
+        :param bool event_bridge_enabled: Enables delivery of events to Amazon EventBridge.
         """
         pulumi.set(__self__, "event_bridge_enabled", event_bridge_enabled)
 
@@ -890,7 +960,7 @@ class BucketEventBridgeConfiguration(dict):
     @pulumi.getter(name="eventBridgeEnabled")
     def event_bridge_enabled(self) -> bool:
         """
-        Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+        Enables delivery of events to Amazon EventBridge.
         """
         return pulumi.get(self, "event_bridge_enabled")
 
@@ -898,13 +968,15 @@ class BucketEventBridgeConfiguration(dict):
 @pulumi.output_type
 class BucketFilterRule(dict):
     """
-    Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
+    Specifies the Amazon S3 object key name to filter on. An object key name is the name assigned to an object in your Amazon S3 bucket. You specify whether to filter on the suffix or prefix of the object key name. A prefix is a specific string of characters at the beginning of an object key name, which you can use to organize objects. For example, you can start the key names of related objects with a prefix, such as ``2023-`` or ``engineering/``. Then, you can use ``FilterRule`` to find objects in a bucket with key names that have the same prefix. A suffix is similar to a prefix, but it is at the end of the object key name instead of at the beginning.
     """
     def __init__(__self__, *,
                  name: str,
                  value: str):
         """
-        Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
+        Specifies the Amazon S3 object key name to filter on. An object key name is the name assigned to an object in your Amazon S3 bucket. You specify whether to filter on the suffix or prefix of the object key name. A prefix is a specific string of characters at the beginning of an object key name, which you can use to organize objects. For example, you can start the key names of related objects with a prefix, such as ``2023-`` or ``engineering/``. Then, you can use ``FilterRule`` to find objects in a bucket with key names that have the same prefix. A suffix is similar to a prefix, but it is at the end of the object key name instead of at the beginning.
+        :param str name: The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+        :param str value: The value that the filter searches for in object key names.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -912,16 +984,26 @@ class BucketFilterRule(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value that the filter searches for in object key names.
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class BucketIntelligentTieringConfiguration(dict):
+    """
+    Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+     For information about the S3 Intelligent-Tiering storage class, see [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -946,9 +1028,12 @@ class BucketIntelligentTieringConfiguration(dict):
                  prefix: Optional[str] = None,
                  tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None):
         """
+        Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+         For information about the S3 Intelligent-Tiering storage class, see [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
         :param str id: The ID used to identify the S3 Intelligent-Tiering configuration.
         :param 'BucketIntelligentTieringConfigurationStatus' status: Specifies the status of the configuration.
-        :param Sequence['BucketTiering'] tierings: Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ARCHIVE_ACCESS and DEEP_ARCHIVE_ACCESS.
+        :param Sequence['BucketTiering'] tierings: Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ``ARCHIVE_ACCESS`` and ``DEEP_ARCHIVE_ACCESS``.
+                 You only need Intelligent Tiering Configuration enabled on a bucket if you want to automatically move objects stored in the Intelligent-Tiering storage class to Archive Access or Deep Archive Access tiers.
         :param str prefix: An object key name prefix that identifies the subset of objects to which the rule applies.
         :param Sequence['BucketTagFilter'] tag_filters: A container for a key-value pair.
         """
@@ -980,7 +1065,8 @@ class BucketIntelligentTieringConfiguration(dict):
     @pulumi.getter
     def tierings(self) -> Sequence['outputs.BucketTiering']:
         """
-        Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ARCHIVE_ACCESS and DEEP_ARCHIVE_ACCESS.
+        Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ``ARCHIVE_ACCESS`` and ``DEEP_ARCHIVE_ACCESS``.
+          You only need Intelligent Tiering Configuration enabled on a bucket if you want to automatically move objects stored in the Intelligent-Tiering storage class to Archive Access or Deep Archive Access tiers.
         """
         return pulumi.get(self, "tierings")
 
@@ -1003,6 +1089,9 @@ class BucketIntelligentTieringConfiguration(dict):
 
 @pulumi.output_type
 class BucketInventoryConfiguration(dict):
+    """
+    Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1033,12 +1122,14 @@ class BucketInventoryConfiguration(dict):
                  optional_fields: Optional[Sequence['BucketInventoryConfigurationOptionalFieldsItem']] = None,
                  prefix: Optional[str] = None):
         """
-        :param bool enabled: Specifies whether the inventory is enabled or disabled.
+        Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        :param 'BucketDestination' destination: Contains information about where to publish the inventory results.
+        :param bool enabled: Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
         :param str id: The ID used to identify the inventory configuration.
-        :param 'BucketInventoryConfigurationIncludedObjectVersions' included_object_versions: Object versions to include in the inventory list.
+        :param 'BucketInventoryConfigurationIncludedObjectVersions' included_object_versions: Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
         :param 'BucketInventoryConfigurationScheduleFrequency' schedule_frequency: Specifies the schedule for generating inventory results.
         :param Sequence['BucketInventoryConfigurationOptionalFieldsItem'] optional_fields: Contains the optional fields that are included in the inventory results.
-        :param str prefix: The prefix that is prepended to all inventory results.
+        :param str prefix: Specifies the inventory filter prefix.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "enabled", enabled)
@@ -1053,13 +1144,16 @@ class BucketInventoryConfiguration(dict):
     @property
     @pulumi.getter
     def destination(self) -> 'outputs.BucketDestination':
+        """
+        Contains information about where to publish the inventory results.
+        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Specifies whether the inventory is enabled or disabled.
+        Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
         """
         return pulumi.get(self, "enabled")
 
@@ -1075,7 +1169,7 @@ class BucketInventoryConfiguration(dict):
     @pulumi.getter(name="includedObjectVersions")
     def included_object_versions(self) -> 'BucketInventoryConfigurationIncludedObjectVersions':
         """
-        Object versions to include in the inventory list.
+        Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
         """
         return pulumi.get(self, "included_object_versions")
 
@@ -1099,7 +1193,7 @@ class BucketInventoryConfiguration(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        The prefix that is prepended to all inventory results.
+        Specifies the inventory filter prefix.
         """
         return pulumi.get(self, "prefix")
 
@@ -1107,17 +1201,17 @@ class BucketInventoryConfiguration(dict):
 @pulumi.output_type
 class BucketLambdaConfiguration(dict):
     """
-    Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+    Describes the LAMlong functions to invoke and the events for which to invoke them.
     """
     def __init__(__self__, *,
                  event: str,
                  function: str,
                  filter: Optional['outputs.BucketNotificationFilter'] = None):
         """
-        Describes the AWS Lambda functions to invoke and the events for which to invoke them.
-        :param str event: The Amazon S3 bucket event for which to invoke the AWS Lambda function.
-        :param str function: The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
-        :param 'BucketNotificationFilter' filter: The filtering rules that determine which objects invoke the AWS Lambda function.
+        Describes the LAMlong functions to invoke and the events for which to invoke them.
+        :param str event: The Amazon S3 bucket event for which to invoke the LAMlong function. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+        :param str function: The Amazon Resource Name (ARN) of the LAMlong function that Amazon S3 invokes when the specified event type occurs.
+        :param 'BucketNotificationFilter' filter: The filtering rules that determine which objects invoke the AWS Lambda function. For example, you can create a filter so that only image files with a ``.jpg`` extension invoke the function when they are added to the Amazon S3 bucket.
         """
         pulumi.set(__self__, "event", event)
         pulumi.set(__self__, "function", function)
@@ -1128,7 +1222,7 @@ class BucketLambdaConfiguration(dict):
     @pulumi.getter
     def event(self) -> str:
         """
-        The Amazon S3 bucket event for which to invoke the AWS Lambda function.
+        The Amazon S3 bucket event for which to invoke the LAMlong function. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "event")
 
@@ -1136,7 +1230,7 @@ class BucketLambdaConfiguration(dict):
     @pulumi.getter
     def function(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
+        The Amazon Resource Name (ARN) of the LAMlong function that Amazon S3 invokes when the specified event type occurs.
         """
         return pulumi.get(self, "function")
 
@@ -1144,16 +1238,20 @@ class BucketLambdaConfiguration(dict):
     @pulumi.getter
     def filter(self) -> Optional['outputs.BucketNotificationFilter']:
         """
-        The filtering rules that determine which objects invoke the AWS Lambda function.
+        The filtering rules that determine which objects invoke the AWS Lambda function. For example, you can create a filter so that only image files with a ``.jpg`` extension invoke the function when they are added to the Amazon S3 bucket.
         """
         return pulumi.get(self, "filter")
 
 
 @pulumi.output_type
 class BucketLifecycleConfiguration(dict):
+    """
+    Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
+    """
     def __init__(__self__, *,
                  rules: Sequence['outputs.BucketRule']):
         """
+        Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         :param Sequence['BucketRule'] rules: A lifecycle rule for individual objects in an Amazon S3 bucket.
         """
         pulumi.set(__self__, "rules", rules)
@@ -1169,6 +1267,10 @@ class BucketLifecycleConfiguration(dict):
 
 @pulumi.output_type
 class BucketLoggingConfiguration(dict):
+    """
+    Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket. For examples and more information, see [PUT Bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html) in the *Amazon S3 API Reference*.
+      To successfully complete the ``AWS::S3::Bucket LoggingConfiguration`` request, you must have ``s3:PutObject`` and ``s3:PutObjectAcl`` in your IAM permissions.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1195,7 +1297,11 @@ class BucketLoggingConfiguration(dict):
                  log_file_prefix: Optional[str] = None,
                  target_object_key_format: Optional['outputs.BucketTargetObjectKeyFormat'] = None):
         """
-        :param str destination_bucket_name: The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
+        Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket. For examples and more information, see [PUT Bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html) in the *Amazon S3 API Reference*.
+          To successfully complete the ``AWS::S3::Bucket LoggingConfiguration`` request, you must have ``s3:PutObject`` and ``s3:PutObjectAcl`` in your IAM permissions.
+        :param str destination_bucket_name: The name of the bucket where Amazon S3 should store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the ``LoggingConfiguration`` property is defined.
+        :param str log_file_prefix: A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
+        :param 'BucketTargetObjectKeyFormat' target_object_key_format: Amazon S3 key format for log objects. Only one format, either PartitionedPrefix or SimplePrefix, is allowed.
         """
         if destination_bucket_name is not None:
             pulumi.set(__self__, "destination_bucket_name", destination_bucket_name)
@@ -1208,23 +1314,32 @@ class BucketLoggingConfiguration(dict):
     @pulumi.getter(name="destinationBucketName")
     def destination_bucket_name(self) -> Optional[str]:
         """
-        The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
+        The name of the bucket where Amazon S3 should store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the ``LoggingConfiguration`` property is defined.
         """
         return pulumi.get(self, "destination_bucket_name")
 
     @property
     @pulumi.getter(name="logFilePrefix")
     def log_file_prefix(self) -> Optional[str]:
+        """
+        A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
+        """
         return pulumi.get(self, "log_file_prefix")
 
     @property
     @pulumi.getter(name="targetObjectKeyFormat")
     def target_object_key_format(self) -> Optional['outputs.BucketTargetObjectKeyFormat']:
+        """
+        Amazon S3 key format for log objects. Only one format, either PartitionedPrefix or SimplePrefix, is allowed.
+        """
         return pulumi.get(self, "target_object_key_format")
 
 
 @pulumi.output_type
 class BucketMetrics(dict):
+    """
+    A container specifying replication metrics-related settings enabling replication metrics and events.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1245,6 +1360,11 @@ class BucketMetrics(dict):
     def __init__(__self__, *,
                  status: 'BucketMetricsStatus',
                  event_threshold: Optional['outputs.BucketReplicationTimeValue'] = None):
+        """
+        A container specifying replication metrics-related settings enabling replication metrics and events.
+        :param 'BucketMetricsStatus' status: Specifies whether the replication metrics are enabled.
+        :param 'BucketReplicationTimeValue' event_threshold: A container specifying the time threshold for emitting the ``s3:Replication:OperationMissedThreshold`` event.
+        """
         pulumi.set(__self__, "status", status)
         if event_threshold is not None:
             pulumi.set(__self__, "event_threshold", event_threshold)
@@ -1252,16 +1372,25 @@ class BucketMetrics(dict):
     @property
     @pulumi.getter
     def status(self) -> 'BucketMetricsStatus':
+        """
+        Specifies whether the replication metrics are enabled.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="eventThreshold")
     def event_threshold(self) -> Optional['outputs.BucketReplicationTimeValue']:
+        """
+        A container specifying the time threshold for emitting the ``s3:Replication:OperationMissedThreshold`` event.
+        """
         return pulumi.get(self, "event_threshold")
 
 
 @pulumi.output_type
 class BucketMetricsConfiguration(dict):
+    """
+    Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For examples, see [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#aws-properties-s3-bucket--examples). For more information, see [PUT Bucket metrics](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html) in the *Amazon S3 API Reference*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1286,6 +1415,13 @@ class BucketMetricsConfiguration(dict):
                  access_point_arn: Optional[str] = None,
                  prefix: Optional[str] = None,
                  tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None):
+        """
+        Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For examples, see [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#aws-properties-s3-bucket--examples). For more information, see [PUT Bucket metrics](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html) in the *Amazon S3 API Reference*.
+        :param str id: The ID used to identify the metrics configuration. This can be any value you choose that helps you identify your metrics configuration.
+        :param str access_point_arn: The access point that was used while performing operations on the object. The metrics configuration only includes objects that meet the filter's criteria.
+        :param str prefix: The prefix that an object must have to be included in the metrics results.
+        :param Sequence['BucketTagFilter'] tag_filters: Specifies a list of tag filters to use as a metrics configuration filter. The metrics configuration includes only objects that meet the filter's criteria.
+        """
         pulumi.set(__self__, "id", id)
         if access_point_arn is not None:
             pulumi.set(__self__, "access_point_arn", access_point_arn)
@@ -1297,28 +1433,40 @@ class BucketMetricsConfiguration(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID used to identify the metrics configuration. This can be any value you choose that helps you identify your metrics configuration.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> Optional[str]:
+        """
+        The access point that was used while performing operations on the object. The metrics configuration only includes objects that meet the filter's criteria.
+        """
         return pulumi.get(self, "access_point_arn")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        The prefix that an object must have to be included in the metrics results.
+        """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="tagFilters")
     def tag_filters(self) -> Optional[Sequence['outputs.BucketTagFilter']]:
+        """
+        Specifies a list of tag filters to use as a metrics configuration filter. The metrics configuration includes only objects that meet the filter's criteria.
+        """
         return pulumi.get(self, "tag_filters")
 
 
 @pulumi.output_type
 class BucketNoncurrentVersionExpiration(dict):
     """
-    Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+    Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime. For more information about setting a lifecycle rule configuration, see [AWS::S3::Bucket Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1343,9 +1491,9 @@ class BucketNoncurrentVersionExpiration(dict):
                  noncurrent_days: int,
                  newer_noncurrent_versions: Optional[int] = None):
         """
-        Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
-        :param int noncurrent_days: Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
-        :param int newer_noncurrent_versions: Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+        Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime. For more information about setting a lifecycle rule configuration, see [AWS::S3::Bucket Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html).
+        :param int noncurrent_days: Specifies the number of days an object is noncurrent before S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates When an Object Became Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
+        :param int newer_noncurrent_versions: Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
         """
         pulumi.set(__self__, "noncurrent_days", noncurrent_days)
         if newer_noncurrent_versions is not None:
@@ -1355,7 +1503,7 @@ class BucketNoncurrentVersionExpiration(dict):
     @pulumi.getter(name="noncurrentDays")
     def noncurrent_days(self) -> int:
         """
-        Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+        Specifies the number of days an object is noncurrent before S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates When an Object Became Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "noncurrent_days")
 
@@ -1363,7 +1511,7 @@ class BucketNoncurrentVersionExpiration(dict):
     @pulumi.getter(name="newerNoncurrentVersions")
     def newer_noncurrent_versions(self) -> Optional[int]:
         """
-        Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+        Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "newer_noncurrent_versions")
 
@@ -1371,7 +1519,7 @@ class BucketNoncurrentVersionExpiration(dict):
 @pulumi.output_type
 class BucketNoncurrentVersionTransition(dict):
     """
-    Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+    Container for the transition rule that describes when noncurrent objects transition to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class at a specific period in the object's lifetime. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1399,10 +1547,10 @@ class BucketNoncurrentVersionTransition(dict):
                  transition_in_days: int,
                  newer_noncurrent_versions: Optional[int] = None):
         """
-        Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+        Container for the transition rule that describes when noncurrent objects transition to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class at a specific period in the object's lifetime. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
         :param 'BucketNoncurrentVersionTransitionStorageClass' storage_class: The class of storage used to store the object.
-        :param int transition_in_days: Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
-        :param int newer_noncurrent_versions: Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+        :param int transition_in_days: Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates How Long an Object Has Been Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
+        :param int newer_noncurrent_versions: Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         pulumi.set(__self__, "transition_in_days", transition_in_days)
@@ -1421,7 +1569,7 @@ class BucketNoncurrentVersionTransition(dict):
     @pulumi.getter(name="transitionInDays")
     def transition_in_days(self) -> int:
         """
-        Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
+        Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates How Long an Object Has Been Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "transition_in_days")
 
@@ -1429,7 +1577,7 @@ class BucketNoncurrentVersionTransition(dict):
     @pulumi.getter(name="newerNoncurrentVersions")
     def newer_noncurrent_versions(self) -> Optional[int]:
         """
-        Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+        Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "newer_noncurrent_versions")
 
@@ -1438,6 +1586,10 @@ class BucketNoncurrentVersionTransition(dict):
 class BucketNotificationConfiguration(dict):
     """
     Describes the notification configuration for an Amazon S3 bucket.
+      If you create the target resource and related permissions in the same template, you might have a circular dependency.
+     For example, you might use the ``AWS::Lambda::Permission`` resource to grant the bucket permission to invoke an AWS Lambda function. However, AWS CloudFormation can't create the bucket until the bucket has permission to invoke the function (AWS CloudFormation checks whether the bucket can invoke the function). If you're using Refs to pass the bucket name, this leads to a circular dependency.
+     To avoid this dependency, you can create all resources without specifying the notification configuration. Then, update the stack with a notification configuration.
+     For more information on permissions, see [AWS::Lambda::Permission](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html) and [Granting Permissions to Publish Event Notification Messages to a Destination](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#grant-destinations-permissions-to-s3).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1469,6 +1621,14 @@ class BucketNotificationConfiguration(dict):
                  topic_configurations: Optional[Sequence['outputs.BucketTopicConfiguration']] = None):
         """
         Describes the notification configuration for an Amazon S3 bucket.
+          If you create the target resource and related permissions in the same template, you might have a circular dependency.
+         For example, you might use the ``AWS::Lambda::Permission`` resource to grant the bucket permission to invoke an AWS Lambda function. However, AWS CloudFormation can't create the bucket until the bucket has permission to invoke the function (AWS CloudFormation checks whether the bucket can invoke the function). If you're using Refs to pass the bucket name, this leads to a circular dependency.
+         To avoid this dependency, you can create all resources without specifying the notification configuration. Then, update the stack with a notification configuration.
+         For more information on permissions, see [AWS::Lambda::Permission](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html) and [Granting Permissions to Publish Event Notification Messages to a Destination](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#grant-destinations-permissions-to-s3).
+        :param 'BucketEventBridgeConfiguration' event_bridge_configuration: Enables delivery of events to Amazon EventBridge.
+        :param Sequence['BucketLambdaConfiguration'] lambda_configurations: Describes the LAMlong functions to invoke and the events for which to invoke them.
+        :param Sequence['BucketQueueConfiguration'] queue_configurations: The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+        :param Sequence['BucketTopicConfiguration'] topic_configurations: The topic to which notifications are sent and the events for which notifications are generated.
         """
         if event_bridge_configuration is not None:
             pulumi.set(__self__, "event_bridge_configuration", event_bridge_configuration)
@@ -1482,28 +1642,40 @@ class BucketNotificationConfiguration(dict):
     @property
     @pulumi.getter(name="eventBridgeConfiguration")
     def event_bridge_configuration(self) -> Optional['outputs.BucketEventBridgeConfiguration']:
+        """
+        Enables delivery of events to Amazon EventBridge.
+        """
         return pulumi.get(self, "event_bridge_configuration")
 
     @property
     @pulumi.getter(name="lambdaConfigurations")
     def lambda_configurations(self) -> Optional[Sequence['outputs.BucketLambdaConfiguration']]:
+        """
+        Describes the LAMlong functions to invoke and the events for which to invoke them.
+        """
         return pulumi.get(self, "lambda_configurations")
 
     @property
     @pulumi.getter(name="queueConfigurations")
     def queue_configurations(self) -> Optional[Sequence['outputs.BucketQueueConfiguration']]:
+        """
+        The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+        """
         return pulumi.get(self, "queue_configurations")
 
     @property
     @pulumi.getter(name="topicConfigurations")
     def topic_configurations(self) -> Optional[Sequence['outputs.BucketTopicConfiguration']]:
+        """
+        The topic to which notifications are sent and the events for which notifications are generated.
+        """
         return pulumi.get(self, "topic_configurations")
 
 
 @pulumi.output_type
 class BucketNotificationFilter(dict):
     """
-    Specifies object key name filtering rules.
+    Specifies object key name filtering rules. For information about key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1525,18 +1697,25 @@ class BucketNotificationFilter(dict):
     def __init__(__self__, *,
                  s3_key: 'outputs.BucketS3KeyFilter'):
         """
-        Specifies object key name filtering rules.
+        Specifies object key name filtering rules. For information about key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
+        :param 'BucketS3KeyFilter' s3_key: A container for object key name prefix and suffix filtering rules.
         """
         pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> 'outputs.BucketS3KeyFilter':
+        """
+        A container for object key name prefix and suffix filtering rules.
+        """
         return pulumi.get(self, "s3_key")
 
 
 @pulumi.output_type
 class BucketObjectLockConfiguration(dict):
+    """
+    Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1557,6 +1736,11 @@ class BucketObjectLockConfiguration(dict):
     def __init__(__self__, *,
                  object_lock_enabled: Optional[str] = None,
                  rule: Optional['outputs.BucketObjectLockRule'] = None):
+        """
+        Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+        :param str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+        :param 'BucketObjectLockRule' rule: Specifies the Object Lock rule for the specified object. Enable this rule when you apply ``ObjectLockConfiguration`` to a bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information, see [ObjectLockRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html) and [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
+        """
         if object_lock_enabled is not None:
             pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if rule is not None:
@@ -1565,18 +1749,24 @@ class BucketObjectLockConfiguration(dict):
     @property
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> Optional[str]:
+        """
+        Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+        """
         return pulumi.get(self, "object_lock_enabled")
 
     @property
     @pulumi.getter
     def rule(self) -> Optional['outputs.BucketObjectLockRule']:
+        """
+        Specifies the Object Lock rule for the specified object. Enable this rule when you apply ``ObjectLockConfiguration`` to a bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information, see [ObjectLockRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html) and [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
+        """
         return pulumi.get(self, "rule")
 
 
 @pulumi.output_type
 class BucketObjectLockRule(dict):
     """
-    The Object Lock rule in place for the specified object.
+    Specifies the Object Lock rule for the specified object. Enable the this rule when you apply ``ObjectLockConfiguration`` to a bucket.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1598,7 +1788,8 @@ class BucketObjectLockRule(dict):
     def __init__(__self__, *,
                  default_retention: Optional['outputs.BucketDefaultRetention'] = None):
         """
-        The Object Lock rule in place for the specified object.
+        Specifies the Object Lock rule for the specified object. Enable the this rule when you apply ``ObjectLockConfiguration`` to a bucket.
+        :param 'BucketDefaultRetention' default_retention: The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information about allowable values for mode and period, see [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
         """
         if default_retention is not None:
             pulumi.set(__self__, "default_retention", default_retention)
@@ -1606,23 +1797,42 @@ class BucketObjectLockRule(dict):
     @property
     @pulumi.getter(name="defaultRetention")
     def default_retention(self) -> Optional['outputs.BucketDefaultRetention']:
+        """
+        The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information about allowable values for mode and period, see [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
+        """
         return pulumi.get(self, "default_retention")
 
 
 @pulumi.output_type
 class BucketOwnershipControls(dict):
+    """
+    Specifies the container element for Object Ownership rules.
+     S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+    """
     def __init__(__self__, *,
                  rules: Sequence['outputs.BucketOwnershipControlsRule']):
+        """
+        Specifies the container element for Object Ownership rules.
+         S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+        :param Sequence['BucketOwnershipControlsRule'] rules: Specifies the container element for Object Ownership rules.
+        """
         pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
     def rules(self) -> Sequence['outputs.BucketOwnershipControlsRule']:
+        """
+        Specifies the container element for Object Ownership rules.
+        """
         return pulumi.get(self, "rules")
 
 
 @pulumi.output_type
 class BucketOwnershipControlsRule(dict):
+    """
+    Specifies an Object Ownership rule.
+     S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1643,6 +1853,8 @@ class BucketOwnershipControlsRule(dict):
     def __init__(__self__, *,
                  object_ownership: Optional['BucketOwnershipControlsRuleObjectOwnership'] = None):
         """
+        Specifies an Object Ownership rule.
+         S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
         :param 'BucketOwnershipControlsRuleObjectOwnership' object_ownership: Specifies an object ownership rule.
         """
         if object_ownership is not None:
@@ -1660,7 +1872,7 @@ class BucketOwnershipControlsRule(dict):
 @pulumi.output_type
 class BucketPublicAccessBlockConfiguration(dict):
     """
-    Configuration that defines how Amazon S3 handles public access.
+    The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1691,17 +1903,19 @@ class BucketPublicAccessBlockConfiguration(dict):
                  ignore_public_acls: Optional[bool] = None,
                  restrict_public_buckets: Optional[bool] = None):
         """
-        Configuration that defines how Amazon S3 handles public access.
-        :param bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:
-               - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-                - PUT Object calls fail if the request includes a public ACL.
-               Enabling this setting doesn't affect existing policies or ACLs.
-        :param bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-               Enabling this setting doesn't affect existing bucket policies.
-        :param bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
-               Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
-        :param bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
-               Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+        The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
+        :param bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
+                 +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
+                 +  PUT Object calls fail if the request includes a public ACL.
+                 +  PUT Bucket calls fail if the request includes a public ACL.
+                 
+                Enabling this setting doesn't affect existing policies or ACLs.
+        :param bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. 
+                Enabling this setting doesn't affect existing bucket policies.
+        :param bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
+                Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+        :param bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to ``TRUE`` restricts access to this bucket to only AWS-service principals and authorized users within this account if the bucket has a public policy.
+                Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
         """
         if block_public_acls is not None:
             pulumi.set(__self__, "block_public_acls", block_public_acls)
@@ -1716,10 +1930,12 @@ class BucketPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> Optional[bool]:
         """
-        Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:
-        - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         - PUT Object calls fail if the request includes a public ACL.
-        Enabling this setting doesn't affect existing policies or ACLs.
+        Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
+          +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
+          +  PUT Object calls fail if the request includes a public ACL.
+          +  PUT Bucket calls fail if the request includes a public ACL.
+          
+         Enabling this setting doesn't affect existing policies or ACLs.
         """
         return pulumi.get(self, "block_public_acls")
 
@@ -1727,8 +1943,8 @@ class BucketPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> Optional[bool]:
         """
-        Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        Enabling this setting doesn't affect existing bucket policies.
+        Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. 
+         Enabling this setting doesn't affect existing bucket policies.
         """
         return pulumi.get(self, "block_public_policy")
 
@@ -1736,8 +1952,8 @@ class BucketPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> Optional[bool]:
         """
-        Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
-        Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+        Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
+         Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
         """
         return pulumi.get(self, "ignore_public_acls")
 
@@ -1745,8 +1961,8 @@ class BucketPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> Optional[bool]:
         """
-        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
-        Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to ``TRUE`` restricts access to this bucket to only AWS-service principals and authorized users within this account if the bucket has a public policy.
+         Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
         """
         return pulumi.get(self, "restrict_public_buckets")
 
@@ -1754,17 +1970,17 @@ class BucketPublicAccessBlockConfiguration(dict):
 @pulumi.output_type
 class BucketQueueConfiguration(dict):
     """
-    The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+    Specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.
     """
     def __init__(__self__, *,
                  event: str,
                  queue: str,
                  filter: Optional['outputs.BucketNotificationFilter'] = None):
         """
-        The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
-        :param str event: The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
-        :param str queue: The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
-        :param 'BucketNotificationFilter' filter: The filtering rules that determine which objects trigger notifications.
+        Specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.
+        :param str event: The Amazon S3 bucket event about which you want to publish messages to Amazon SQS. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+        :param str queue: The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type. FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
+        :param 'BucketNotificationFilter' filter: The filtering rules that determine which objects trigger notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket. For more information, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
         """
         pulumi.set(__self__, "event", event)
         pulumi.set(__self__, "queue", queue)
@@ -1775,7 +1991,7 @@ class BucketQueueConfiguration(dict):
     @pulumi.getter
     def event(self) -> str:
         """
-        The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
+        The Amazon S3 bucket event about which you want to publish messages to Amazon SQS. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "event")
 
@@ -1783,7 +1999,7 @@ class BucketQueueConfiguration(dict):
     @pulumi.getter
     def queue(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
+        The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type. FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
         """
         return pulumi.get(self, "queue")
 
@@ -1791,7 +2007,7 @@ class BucketQueueConfiguration(dict):
     @pulumi.getter
     def filter(self) -> Optional['outputs.BucketNotificationFilter']:
         """
-        The filtering rules that determine which objects trigger notifications.
+        The filtering rules that determine which objects trigger notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket. For more information, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "filter")
 
@@ -1886,8 +2102,10 @@ class BucketRedirectRule(dict):
         :param str host_name: The host name to use in the redirect request.
         :param str http_redirect_code: The HTTP redirect code to use on the response. Not required if one of the siblings is present.
         :param 'BucketRedirectRuleProtocol' protocol: Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
-        :param str replace_key_prefix_with: The object key prefix to use in the redirect request.
-        :param str replace_key_with: The specific object key to use in the redirect request.d
+        :param str replace_key_prefix_with: The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/``, you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
+                 Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+        :param str replace_key_with: The specific object key to use in the redirect request. For example, redirect request to ``error.html``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
+                 Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
         """
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
@@ -1928,7 +2146,8 @@ class BucketRedirectRule(dict):
     @pulumi.getter(name="replaceKeyPrefixWith")
     def replace_key_prefix_with(self) -> Optional[str]:
         """
-        The object key prefix to use in the redirect request.
+        The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/``, you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
+          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
         """
         return pulumi.get(self, "replace_key_prefix_with")
 
@@ -1936,17 +2155,23 @@ class BucketRedirectRule(dict):
     @pulumi.getter(name="replaceKeyWith")
     def replace_key_with(self) -> Optional[str]:
         """
-        The specific object key to use in the redirect request.d
+        The specific object key to use in the redirect request. For example, redirect request to ``error.html``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
+          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
         """
         return pulumi.get(self, "replace_key_with")
 
 
 @pulumi.output_type
 class BucketReplicaModifications(dict):
+    """
+    A filter that you can specify for selection for modifications on replicas.
+    """
     def __init__(__self__, *,
                  status: 'BucketReplicaModificationsStatus'):
         """
+        A filter that you can specify for selection for modifications on replicas.
         :param 'BucketReplicaModificationsStatus' status: Specifies whether Amazon S3 replicates modifications on replicas.
+                *Allowed values*: ``Enabled`` | ``Disabled``
         """
         pulumi.set(__self__, "status", status)
 
@@ -1955,6 +2180,7 @@ class BucketReplicaModifications(dict):
     def status(self) -> 'BucketReplicaModificationsStatus':
         """
         Specifies whether Amazon S3 replicates modifications on replicas.
+         *Allowed values*: ``Enabled`` | ``Disabled``
         """
         return pulumi.get(self, "status")
 
@@ -1962,15 +2188,15 @@ class BucketReplicaModifications(dict):
 @pulumi.output_type
 class BucketReplicationConfiguration(dict):
     """
-    A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
+    A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
     """
     def __init__(__self__, *,
                  role: str,
                  rules: Sequence['outputs.BucketReplicationRule']):
         """
-        A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
-        :param str role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects.
-        :param Sequence['BucketReplicationRule'] rules: A container for one or more replication rules.
+        A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
+        :param str role: The Amazon Resource Name (ARN) of the IAMlong (IAM) role that Amazon S3 assumes when replicating objects. For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide*.
+        :param Sequence['BucketReplicationRule'] rules: A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
         """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "rules", rules)
@@ -1979,7 +2205,7 @@ class BucketReplicationConfiguration(dict):
     @pulumi.getter
     def role(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects.
+        The Amazon Resource Name (ARN) of the IAMlong (IAM) role that Amazon S3 assumes when replicating objects. For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "role")
 
@@ -1987,7 +2213,7 @@ class BucketReplicationConfiguration(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.BucketReplicationRule']:
         """
-        A container for one or more replication rules.
+        A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
         """
         return pulumi.get(self, "rules")
 
@@ -1995,7 +2221,7 @@ class BucketReplicationConfiguration(dict):
 @pulumi.output_type
 class BucketReplicationDestination(dict):
     """
-    Specifies which Amazon S3 bucket to store replicated objects in and their storage class.
+    A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2029,8 +2255,16 @@ class BucketReplicationDestination(dict):
                  replication_time: Optional['outputs.BucketReplicationTime'] = None,
                  storage_class: Optional['BucketReplicationDestinationStorageClass'] = None):
         """
-        Specifies which Amazon S3 bucket to store replicated objects in and their storage class.
-        :param 'BucketReplicationDestinationStorageClass' storage_class: The storage class to use when replicating objects, such as S3 Standard or reduced redundancy.
+        A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
+        :param str bucket: The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+        :param 'BucketAccessControlTranslation' access_control_translation: Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
+        :param str account: Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS-account that owns the destination bucket by specifying the ``AccessControlTranslation`` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*.
+                If you specify the ``AccessControlTranslation`` property, the ``Account`` property is required.
+        :param 'BucketEncryptionConfiguration' encryption_configuration: Specifies encryption-related information.
+        :param 'BucketMetrics' metrics: A container specifying replication metrics-related settings enabling replication metrics and events.
+        :param 'BucketReplicationTime' replication_time: A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
+        :param 'BucketReplicationDestinationStorageClass' storage_class: The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
+                For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
         """
         pulumi.set(__self__, "bucket", bucket)
         if access_control_translation is not None:
@@ -2049,38 +2283,58 @@ class BucketReplicationDestination(dict):
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="accessControlTranslation")
     def access_control_translation(self) -> Optional['outputs.BucketAccessControlTranslation']:
+        """
+        Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
+        """
         return pulumi.get(self, "access_control_translation")
 
     @property
     @pulumi.getter
     def account(self) -> Optional[str]:
+        """
+        Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS-account that owns the destination bucket by specifying the ``AccessControlTranslation`` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*.
+         If you specify the ``AccessControlTranslation`` property, the ``Account`` property is required.
+        """
         return pulumi.get(self, "account")
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional['outputs.BucketEncryptionConfiguration']:
+        """
+        Specifies encryption-related information.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter
     def metrics(self) -> Optional['outputs.BucketMetrics']:
+        """
+        A container specifying replication metrics-related settings enabling replication metrics and events.
+        """
         return pulumi.get(self, "metrics")
 
     @property
     @pulumi.getter(name="replicationTime")
     def replication_time(self) -> Optional['outputs.BucketReplicationTime']:
+        """
+        A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
+        """
         return pulumi.get(self, "replication_time")
 
     @property
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional['BucketReplicationDestinationStorageClass']:
         """
-        The storage class to use when replicating objects, such as S3 Standard or reduced redundancy.
+        The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
+         For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
         """
         return pulumi.get(self, "storage_class")
 
@@ -2120,9 +2374,19 @@ class BucketReplicationRule(dict):
                  source_selection_criteria: Optional['outputs.BucketSourceSelectionCriteria'] = None):
         """
         Specifies which Amazon S3 objects to replicate and where to store the replicas.
+        :param 'BucketReplicationDestination' destination: A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
         :param 'BucketReplicationRuleStatus' status: Specifies whether the rule is enabled.
-        :param str id: A unique identifier for the rule.
-        :param str prefix: An object key name prefix that identifies the object or objects to which the rule applies.
+        :param 'BucketDeleteMarkerReplication' delete_marker_replication: Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+                For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+                 If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
+        :param 'BucketReplicationRuleFilter' filter: A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.
+                 V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
+        :param str id: A unique identifier for the rule. The maximum value is 255 characters. If you don't specify a value, AWS CloudFormation generates a random ID. When using a V2 replication configuration this property is capitalized as "ID".
+        :param str prefix: An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
+                 Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+        :param int priority: The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority. 
+                For more information, see [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
+        :param 'BucketSourceSelectionCriteria' source_selection_criteria: A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "status", status)
@@ -2142,6 +2406,9 @@ class BucketReplicationRule(dict):
     @property
     @pulumi.getter
     def destination(self) -> 'outputs.BucketReplicationDestination':
+        """
+        A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
+        """
         return pulumi.get(self, "destination")
 
     @property
@@ -2155,18 +2422,27 @@ class BucketReplicationRule(dict):
     @property
     @pulumi.getter(name="deleteMarkerReplication")
     def delete_marker_replication(self) -> Optional['outputs.BucketDeleteMarkerReplication']:
+        """
+        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+         For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+          If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
+        """
         return pulumi.get(self, "delete_marker_replication")
 
     @property
     @pulumi.getter
     def filter(self) -> Optional['outputs.BucketReplicationRuleFilter']:
+        """
+        A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.
+          V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
+        """
         return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        A unique identifier for the rule.
+        A unique identifier for the rule. The maximum value is 255 characters. If you don't specify a value, AWS CloudFormation generates a random ID. When using a V2 replication configuration this property is capitalized as "ID".
         """
         return pulumi.get(self, "id")
 
@@ -2174,23 +2450,37 @@ class BucketReplicationRule(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        An object key name prefix that identifies the object or objects to which the rule applies.
+        An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
+          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
         """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
     def priority(self) -> Optional[int]:
+        """
+        The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority. 
+         For more information, see [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="sourceSelectionCriteria")
     def source_selection_criteria(self) -> Optional['outputs.BucketSourceSelectionCriteria']:
+        """
+        A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
+        """
         return pulumi.get(self, "source_selection_criteria")
 
 
 @pulumi.output_type
 class BucketReplicationRuleAndOperator(dict):
+    """
+    A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. 
+     For example:
+      +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag. 
+      +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2211,6 +2501,14 @@ class BucketReplicationRuleAndOperator(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None):
+        """
+        A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. 
+         For example:
+          +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag. 
+          +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag
+        :param str prefix: An object key name prefix that identifies the subset of objects to which the rule applies.
+        :param Sequence['BucketTagFilter'] tag_filters: An array of tags containing key and value pairs.
+        """
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tag_filters is not None:
@@ -2219,16 +2517,25 @@ class BucketReplicationRuleAndOperator(dict):
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        An object key name prefix that identifies the subset of objects to which the rule applies.
+        """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="tagFilters")
     def tag_filters(self) -> Optional[Sequence['outputs.BucketTagFilter']]:
+        """
+        An array of tags containing key and value pairs.
+        """
         return pulumi.get(self, "tag_filters")
 
 
 @pulumi.output_type
 class BucketReplicationRuleFilter(dict):
+    """
+    A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2252,6 +2559,16 @@ class BucketReplicationRuleFilter(dict):
                  and_: Optional['outputs.BucketReplicationRuleAndOperator'] = None,
                  prefix: Optional[str] = None,
                  tag_filter: Optional['outputs.BucketTagFilter'] = None):
+        """
+        A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
+        :param 'BucketReplicationRuleAndOperator' and_: A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example: 
+                 +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
+                 +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag.
+        :param str prefix: An object key name prefix that identifies the subset of objects to which the rule applies.
+                 Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+        :param 'BucketTagFilter' tag_filter: A container for specifying a tag key and value. 
+                The rule applies only to objects that have the tag in their tag set.
+        """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
         if prefix is not None:
@@ -2262,54 +2579,93 @@ class BucketReplicationRuleFilter(dict):
     @property
     @pulumi.getter(name="and")
     def and_(self) -> Optional['outputs.BucketReplicationRuleAndOperator']:
+        """
+        A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example: 
+          +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
+          +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag.
+        """
         return pulumi.get(self, "and_")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        An object key name prefix that identifies the subset of objects to which the rule applies.
+          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+        """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="tagFilter")
     def tag_filter(self) -> Optional['outputs.BucketTagFilter']:
+        """
+        A container for specifying a tag key and value. 
+         The rule applies only to objects that have the tag in their tag set.
+        """
         return pulumi.get(self, "tag_filter")
 
 
 @pulumi.output_type
 class BucketReplicationTime(dict):
+    """
+    A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
+    """
     def __init__(__self__, *,
                  status: 'BucketReplicationTimeStatus',
                  time: 'outputs.BucketReplicationTimeValue'):
+        """
+        A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
+        :param 'BucketReplicationTimeStatus' status: Specifies whether the replication time is enabled.
+        :param 'BucketReplicationTimeValue' time: A container specifying the time by which replication should be complete for all objects and operations on objects.
+        """
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter
     def status(self) -> 'BucketReplicationTimeStatus':
+        """
+        Specifies whether the replication time is enabled.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def time(self) -> 'outputs.BucketReplicationTimeValue':
+        """
+        A container specifying the time by which replication should be complete for all objects and operations on objects.
+        """
         return pulumi.get(self, "time")
 
 
 @pulumi.output_type
 class BucketReplicationTimeValue(dict):
+    """
+    A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics ``EventThreshold``.
+    """
     def __init__(__self__, *,
                  minutes: int):
+        """
+        A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics ``EventThreshold``.
+        :param int minutes: Contains an integer specifying time in minutes. 
+                 Valid value: 15
+        """
         pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
     def minutes(self) -> int:
+        """
+        Contains an integer specifying time in minutes. 
+          Valid value: 15
+        """
         return pulumi.get(self, "minutes")
 
 
 @pulumi.output_type
 class BucketRoutingRule(dict):
     """
-    Specifies the redirect behavior and when a redirect is applied.
+    Specifies the redirect behavior and when a redirect is applied. For more information about routing rules, see [Configuring advanced conditional redirects](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects) in the *Amazon S3 User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2334,8 +2690,9 @@ class BucketRoutingRule(dict):
                  redirect_rule: 'outputs.BucketRedirectRule',
                  routing_rule_condition: Optional['outputs.BucketRoutingRuleCondition'] = None):
         """
-        Specifies the redirect behavior and when a redirect is applied.
+        Specifies the redirect behavior and when a redirect is applied. For more information about routing rules, see [Configuring advanced conditional redirects](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects) in the *Amazon S3 User Guide*.
         :param 'BucketRedirectRule' redirect_rule: Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+        :param 'BucketRoutingRuleCondition' routing_rule_condition: A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
         """
         pulumi.set(__self__, "redirect_rule", redirect_rule)
         if routing_rule_condition is not None:
@@ -2352,13 +2709,16 @@ class BucketRoutingRule(dict):
     @property
     @pulumi.getter(name="routingRuleCondition")
     def routing_rule_condition(self) -> Optional['outputs.BucketRoutingRuleCondition']:
+        """
+        A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+        """
         return pulumi.get(self, "routing_rule_condition")
 
 
 @pulumi.output_type
 class BucketRoutingRuleCondition(dict):
     """
-    A container for describing a condition that must be met for the specified redirect to apply.You must specify at least one of HttpErrorCodeReturnedEquals and KeyPrefixEquals
+    A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2383,9 +2743,11 @@ class BucketRoutingRuleCondition(dict):
                  http_error_code_returned_equals: Optional[str] = None,
                  key_prefix_equals: Optional[str] = None):
         """
-        A container for describing a condition that must be met for the specified redirect to apply.You must specify at least one of HttpErrorCodeReturnedEquals and KeyPrefixEquals
-        :param str http_error_code_returned_equals: The HTTP error code when the redirect is applied. 
-        :param str key_prefix_equals: The object key name prefix when the redirect is applied.
+        A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+        :param str http_error_code_returned_equals: The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied.
+                Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
+        :param str key_prefix_equals: The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html``, the key prefix will be ``ExamplePage.html``. To redirect request for all pages with the prefix ``docs/``, the key prefix will be ``/docs``, which identifies all objects in the docs/ folder.
+                Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
         """
         if http_error_code_returned_equals is not None:
             pulumi.set(__self__, "http_error_code_returned_equals", http_error_code_returned_equals)
@@ -2396,7 +2758,8 @@ class BucketRoutingRuleCondition(dict):
     @pulumi.getter(name="httpErrorCodeReturnedEquals")
     def http_error_code_returned_equals(self) -> Optional[str]:
         """
-        The HTTP error code when the redirect is applied. 
+        The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied.
+         Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
         """
         return pulumi.get(self, "http_error_code_returned_equals")
 
@@ -2404,7 +2767,8 @@ class BucketRoutingRuleCondition(dict):
     @pulumi.getter(name="keyPrefixEquals")
     def key_prefix_equals(self) -> Optional[str]:
         """
-        The object key name prefix when the redirect is applied.
+        The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html``, the key prefix will be ``ExamplePage.html``. To redirect request for all pages with the prefix ``docs/``, the key prefix will be ``/docs``, which identifies all objects in the docs/ folder.
+         Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
         """
         return pulumi.get(self, "key_prefix_equals")
 
@@ -2412,7 +2776,8 @@ class BucketRoutingRuleCondition(dict):
 @pulumi.output_type
 class BucketRule(dict):
     """
-    You must specify at least one of the following properties: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays, NoncurrentVersionExpirationInDays, NoncurrentVersionTransition, NoncurrentVersionTransitions, Transition, or Transitions.
+    Specifies lifecycle rules for an Amazon S3 bucket. For more information, see [Put Bucket Lifecycle Configuration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlifecycle.html) in the *Amazon S3 API Reference*.
+     You must specify at least one of the following properties: ``AbortIncompleteMultipartUpload``, ``ExpirationDate``, ``ExpirationInDays``, ``NoncurrentVersionExpirationInDays``, ``NoncurrentVersionTransition``, ``NoncurrentVersionTransitions``, ``Transition``, or ``Transitions``.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2469,7 +2834,25 @@ class BucketRule(dict):
                  transition: Optional['outputs.BucketTransition'] = None,
                  transitions: Optional[Sequence['outputs.BucketTransition']] = None):
         """
-        You must specify at least one of the following properties: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays, NoncurrentVersionExpirationInDays, NoncurrentVersionTransition, NoncurrentVersionTransitions, Transition, or Transitions.
+        Specifies lifecycle rules for an Amazon S3 bucket. For more information, see [Put Bucket Lifecycle Configuration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlifecycle.html) in the *Amazon S3 API Reference*.
+         You must specify at least one of the following properties: ``AbortIncompleteMultipartUpload``, ``ExpirationDate``, ``ExpirationInDays``, ``NoncurrentVersionExpirationInDays``, ``NoncurrentVersionTransition``, ``NoncurrentVersionTransitions``, ``Transition``, or ``Transitions``.
+        :param 'BucketRuleStatus' status: If ``Enabled``, the rule is currently being applied. If ``Disabled``, the rule is not currently being applied.
+        :param 'BucketAbortIncompleteMultipartUpload' abort_incomplete_multipart_upload: Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3 bucket.
+        :param str expiration_date: Indicates when objects are deleted from Amazon S3 and Amazon S3 Glacier. The date value must be in ISO 8601 format. The time is always midnight UTC. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+        :param int expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+        :param bool expired_object_delete_marker: Indicates whether Amazon S3 will remove a delete marker without any noncurrent versions. If set to true, the delete marker will be removed if there are no noncurrent versions. This cannot be specified with ``ExpirationInDays``, ``ExpirationDate``, or ``TagFilters``.
+        :param str id: Unique identifier for the rule. The value can't be longer than 255 characters.
+        :param 'BucketNoncurrentVersionExpiration' noncurrent_version_expiration: Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime.
+        :param int noncurrent_version_expiration_in_days: (Deprecated.) For buckets with versioning enabled (or suspended), specifies the time, in days, between when a new version of the object is uploaded to the bucket and when old versions of the object expire. When object versions expire, Amazon S3 permanently deletes them. If you specify a transition and expiration time, the expiration time must be later than the transition time.
+        :param 'BucketNoncurrentVersionTransition' noncurrent_version_transition: (Deprecated.) For buckets with versioning enabled (or suspended), specifies when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
+        :param Sequence['BucketNoncurrentVersionTransition'] noncurrent_version_transitions: For buckets with versioning enabled (or suspended), one or more transition rules that specify when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransition`` property.
+        :param str object_size_greater_than: Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
+        :param str object_size_less_than: Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
+        :param str prefix: Object key prefix that identifies one or more objects to which this rule applies.
+                 Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+        :param Sequence['BucketTagFilter'] tag_filters: Tags to use to identify a subset of objects to which the lifecycle rule applies.
+        :param 'BucketTransition' transition: (Deprecated.) Specifies when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transitions`` property.
+        :param Sequence['BucketTransition'] transitions: One or more transition rules that specify when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transition`` property.
         """
         pulumi.set(__self__, "status", status)
         if abort_incomplete_multipart_upload is not None:
@@ -2506,106 +2889,161 @@ class BucketRule(dict):
     @property
     @pulumi.getter
     def status(self) -> 'BucketRuleStatus':
+        """
+        If ``Enabled``, the rule is currently being applied. If ``Disabled``, the rule is not currently being applied.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="abortIncompleteMultipartUpload")
     def abort_incomplete_multipart_upload(self) -> Optional['outputs.BucketAbortIncompleteMultipartUpload']:
+        """
+        Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3 bucket.
+        """
         return pulumi.get(self, "abort_incomplete_multipart_upload")
 
     @property
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> Optional[str]:
+        """
+        Indicates when objects are deleted from Amazon S3 and Amazon S3 Glacier. The date value must be in ISO 8601 format. The time is always midnight UTC. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+        """
         return pulumi.get(self, "expiration_date")
 
     @property
     @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> Optional[int]:
+        """
+        Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+        """
         return pulumi.get(self, "expiration_in_days")
 
     @property
     @pulumi.getter(name="expiredObjectDeleteMarker")
     def expired_object_delete_marker(self) -> Optional[bool]:
+        """
+        Indicates whether Amazon S3 will remove a delete marker without any noncurrent versions. If set to true, the delete marker will be removed if there are no noncurrent versions. This cannot be specified with ``ExpirationInDays``, ``ExpirationDate``, or ``TagFilters``.
+        """
         return pulumi.get(self, "expired_object_delete_marker")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        Unique identifier for the rule. The value can't be longer than 255 characters.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="noncurrentVersionExpiration")
     def noncurrent_version_expiration(self) -> Optional['outputs.BucketNoncurrentVersionExpiration']:
+        """
+        Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime.
+        """
         return pulumi.get(self, "noncurrent_version_expiration")
 
     @property
     @pulumi.getter(name="noncurrentVersionExpirationInDays")
     def noncurrent_version_expiration_in_days(self) -> Optional[int]:
+        """
+        (Deprecated.) For buckets with versioning enabled (or suspended), specifies the time, in days, between when a new version of the object is uploaded to the bucket and when old versions of the object expire. When object versions expire, Amazon S3 permanently deletes them. If you specify a transition and expiration time, the expiration time must be later than the transition time.
+        """
         return pulumi.get(self, "noncurrent_version_expiration_in_days")
 
     @property
     @pulumi.getter(name="noncurrentVersionTransition")
     def noncurrent_version_transition(self) -> Optional['outputs.BucketNoncurrentVersionTransition']:
+        """
+        (Deprecated.) For buckets with versioning enabled (or suspended), specifies when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
+        """
         return pulumi.get(self, "noncurrent_version_transition")
 
     @property
     @pulumi.getter(name="noncurrentVersionTransitions")
     def noncurrent_version_transitions(self) -> Optional[Sequence['outputs.BucketNoncurrentVersionTransition']]:
+        """
+        For buckets with versioning enabled (or suspended), one or more transition rules that specify when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransition`` property.
+        """
         return pulumi.get(self, "noncurrent_version_transitions")
 
     @property
     @pulumi.getter(name="objectSizeGreaterThan")
     def object_size_greater_than(self) -> Optional[str]:
+        """
+        Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
+        """
         return pulumi.get(self, "object_size_greater_than")
 
     @property
     @pulumi.getter(name="objectSizeLessThan")
     def object_size_less_than(self) -> Optional[str]:
+        """
+        Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
+        """
         return pulumi.get(self, "object_size_less_than")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        Object key prefix that identifies one or more objects to which this rule applies.
+          Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+        """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter(name="tagFilters")
     def tag_filters(self) -> Optional[Sequence['outputs.BucketTagFilter']]:
+        """
+        Tags to use to identify a subset of objects to which the lifecycle rule applies.
+        """
         return pulumi.get(self, "tag_filters")
 
     @property
     @pulumi.getter
     def transition(self) -> Optional['outputs.BucketTransition']:
+        """
+        (Deprecated.) Specifies when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transitions`` property.
+        """
         return pulumi.get(self, "transition")
 
     @property
     @pulumi.getter
     def transitions(self) -> Optional[Sequence['outputs.BucketTransition']]:
+        """
+        One or more transition rules that specify when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transition`` property.
+        """
         return pulumi.get(self, "transitions")
 
 
 @pulumi.output_type
 class BucketS3KeyFilter(dict):
     """
-    A container for object key name prefix and suffix filtering rules.
+    A container for object key name prefix and suffix filtering rules. For more information about object key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
+      The same type of filter rule cannot be used more than once. For example, you cannot specify two prefix rules.
     """
     def __init__(__self__, *,
                  rules: Sequence['outputs.BucketFilterRule']):
         """
-        A container for object key name prefix and suffix filtering rules.
+        A container for object key name prefix and suffix filtering rules. For more information about object key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
+          The same type of filter rule cannot be used more than once. For example, you cannot specify two prefix rules.
+        :param Sequence['BucketFilterRule'] rules: A list of containers for the key-value pair that defines the criteria for the filter rule.
         """
         pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
     def rules(self) -> Sequence['outputs.BucketFilterRule']:
+        """
+        A list of containers for the key-value pair that defines the criteria for the filter rule.
+        """
         return pulumi.get(self, "rules")
 
 
 @pulumi.output_type
 class BucketServerSideEncryptionByDefault(dict):
     """
-    Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+    Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more information, see [PUT Bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html) in the *Amazon S3 API Reference*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2630,8 +3068,17 @@ class BucketServerSideEncryptionByDefault(dict):
                  sse_algorithm: 'BucketServerSideEncryptionByDefaultSseAlgorithm',
                  kms_master_key_id: Optional[str] = None):
         """
-        Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
-        :param str kms_master_key_id: "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
+        Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more information, see [PUT Bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html) in the *Amazon S3 API Reference*.
+        :param 'BucketServerSideEncryptionByDefaultSseAlgorithm' sse_algorithm: Server-side encryption algorithm to use for the default encryption.
+        :param str kms_master_key_id: AWS Key Management Service (KMS) customer AWS KMS key ID to use for the default encryption. This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
+                You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
+                 +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
+                 +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
+                 +  Key Alias: ``alias/alias-name`` 
+                 
+                If you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
+                If you are using encryption with cross-account or AWS service operations you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
+                 Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
         pulumi.set(__self__, "sse_algorithm", sse_algorithm)
         if kms_master_key_id is not None:
@@ -2640,13 +3087,24 @@ class BucketServerSideEncryptionByDefault(dict):
     @property
     @pulumi.getter(name="sseAlgorithm")
     def sse_algorithm(self) -> 'BucketServerSideEncryptionByDefaultSseAlgorithm':
+        """
+        Server-side encryption algorithm to use for the default encryption.
+        """
         return pulumi.get(self, "sse_algorithm")
 
     @property
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> Optional[str]:
         """
-        "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
+        AWS Key Management Service (KMS) customer AWS KMS key ID to use for the default encryption. This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
+         You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
+          +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
+          +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
+          +  Key Alias: ``alias/alias-name`` 
+          
+         If you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
+         If you are using encryption with cross-account or AWS service operations you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
+          Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
         return pulumi.get(self, "kms_master_key_id")
 
@@ -2680,7 +3138,9 @@ class BucketServerSideEncryptionRule(dict):
                  server_side_encryption_by_default: Optional['outputs.BucketServerSideEncryptionByDefault'] = None):
         """
         Specifies the default server-side encryption configuration.
-        :param bool bucket_key_enabled: Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the BucketKeyEnabled element to true causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+        :param bool bucket_key_enabled: Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+                For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
+        :param 'BucketServerSideEncryptionByDefault' server_side_encryption_by_default: Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
         """
         if bucket_key_enabled is not None:
             pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
@@ -2691,20 +3151,24 @@ class BucketServerSideEncryptionRule(dict):
     @pulumi.getter(name="bucketKeyEnabled")
     def bucket_key_enabled(self) -> Optional[bool]:
         """
-        Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the BucketKeyEnabled element to true causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+        Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+         For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "bucket_key_enabled")
 
     @property
     @pulumi.getter(name="serverSideEncryptionByDefault")
     def server_side_encryption_by_default(self) -> Optional['outputs.BucketServerSideEncryptionByDefault']:
+        """
+        Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+        """
         return pulumi.get(self, "server_side_encryption_by_default")
 
 
 @pulumi.output_type
 class BucketSourceSelectionCriteria(dict):
     """
-    A container that describes additional filters for identifying the source objects that you want to replicate.
+    A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2729,7 +3193,7 @@ class BucketSourceSelectionCriteria(dict):
                  replica_modifications: Optional['outputs.BucketReplicaModifications'] = None,
                  sse_kms_encrypted_objects: Optional['outputs.BucketSseKmsEncryptedObjects'] = None):
         """
-        A container that describes additional filters for identifying the source objects that you want to replicate.
+        A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
         :param 'BucketReplicaModifications' replica_modifications: A filter that you can specify for selection for modifications on replicas.
         :param 'BucketSseKmsEncryptedObjects' sse_kms_encrypted_objects: A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
         """
@@ -2764,7 +3228,7 @@ class BucketSseKmsEncryptedObjects(dict):
                  status: 'BucketSseKmsEncryptedObjectsStatus'):
         """
         A container for filter information for the selection of S3 objects encrypted with AWS KMS.
-        :param 'BucketSseKmsEncryptedObjectsStatus' status: Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
+        :param 'BucketSseKmsEncryptedObjectsStatus' status: Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
         """
         pulumi.set(__self__, "status", status)
 
@@ -2772,7 +3236,7 @@ class BucketSseKmsEncryptedObjects(dict):
     @pulumi.getter
     def status(self) -> 'BucketSseKmsEncryptedObjectsStatus':
         """
-        Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
+        Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
         """
         return pulumi.get(self, "status")
 
@@ -2803,6 +3267,7 @@ class BucketStorageClassAnalysis(dict):
                  data_export: Optional['outputs.BucketDataExport'] = None):
         """
         Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
+        :param 'BucketDataExport' data_export: Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
         """
         if data_export is not None:
             pulumi.set(__self__, "data_export", data_export)
@@ -2810,19 +3275,24 @@ class BucketStorageClassAnalysis(dict):
     @property
     @pulumi.getter(name="dataExport")
     def data_export(self) -> Optional['outputs.BucketDataExport']:
+        """
+        Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+        """
         return pulumi.get(self, "data_export")
 
 
 @pulumi.output_type
 class BucketTagFilter(dict):
     """
-    Tags to use to identify a subset of objects for an Amazon S3 bucket.
+    Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
     """
     def __init__(__self__, *,
                  key: str,
                  value: str):
         """
-        Tags to use to identify a subset of objects for an Amazon S3 bucket.
+        Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
+        :param str key: The tag key.
+        :param str value: The tag value.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2830,11 +3300,17 @@ class BucketTagFilter(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The tag key.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The tag value.
+        """
         return pulumi.get(self, "value")
 
 
@@ -2852,6 +3328,9 @@ class BucketTargetObjectKeyFormat(dict):
 
 @pulumi.output_type
 class BucketTiering(dict):
+    """
+    The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2873,7 +3352,8 @@ class BucketTiering(dict):
                  access_tier: 'BucketTieringAccessTier',
                  days: int):
         """
-        :param 'BucketTieringAccessTier' access_tier: S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class.
+        The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead.
+        :param 'BucketTieringAccessTier' access_tier: S3 Intelligent-Tiering access tier. See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
         :param int days: The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier. The minimum number of days specified for Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least 180 days. The maximum can be up to 2 years (730 days).
         """
         pulumi.set(__self__, "access_tier", access_tier)
@@ -2883,7 +3363,7 @@ class BucketTiering(dict):
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> 'BucketTieringAccessTier':
         """
-        S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class.
+        S3 Intelligent-Tiering access tier. See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
         """
         return pulumi.get(self, "access_tier")
 
@@ -2899,17 +3379,17 @@ class BucketTiering(dict):
 @pulumi.output_type
 class BucketTopicConfiguration(dict):
     """
-    The topic to which notifications are sent and the events for which notifications are generated.
+    A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.
     """
     def __init__(__self__, *,
                  event: str,
                  topic: str,
                  filter: Optional['outputs.BucketNotificationFilter'] = None):
         """
-        The topic to which notifications are sent and the events for which notifications are generated.
-        :param str event: The Amazon S3 bucket event about which to send notifications.
+        A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.
+        :param str event: The Amazon S3 bucket event about which to send notifications. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         :param str topic: The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
-        :param 'BucketNotificationFilter' filter: The filtering rules that determine for which objects to send notifications.
+        :param 'BucketNotificationFilter' filter: The filtering rules that determine for which objects to send notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket.
         """
         pulumi.set(__self__, "event", event)
         pulumi.set(__self__, "topic", topic)
@@ -2920,7 +3400,7 @@ class BucketTopicConfiguration(dict):
     @pulumi.getter
     def event(self) -> str:
         """
-        The Amazon S3 bucket event about which to send notifications.
+        The Amazon S3 bucket event about which to send notifications. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "event")
 
@@ -2936,7 +3416,7 @@ class BucketTopicConfiguration(dict):
     @pulumi.getter
     def filter(self) -> Optional['outputs.BucketNotificationFilter']:
         """
-        The filtering rules that determine for which objects to send notifications.
+        The filtering rules that determine for which objects to send notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket.
         """
         return pulumi.get(self, "filter")
 
@@ -2944,7 +3424,7 @@ class BucketTopicConfiguration(dict):
 @pulumi.output_type
 class BucketTransition(dict):
     """
-    You must specify at least one of "TransitionDate" and "TransitionInDays"
+    Specifies when an object transitions to a specified storage class. For more information about Amazon S3 lifecycle configuration rules, see [Transitioning Objects Using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html) in the *Amazon S3 User Guide*.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2972,7 +3452,10 @@ class BucketTransition(dict):
                  transition_date: Optional[str] = None,
                  transition_in_days: Optional[int] = None):
         """
-        You must specify at least one of "TransitionDate" and "TransitionInDays"
+        Specifies when an object transitions to a specified storage class. For more information about Amazon S3 lifecycle configuration rules, see [Transitioning Objects Using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html) in the *Amazon S3 User Guide*.
+        :param 'BucketTransitionStorageClass' storage_class: The storage class to which you want the object to transition.
+        :param str transition_date: Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+        :param int transition_in_days: Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if transition_date is not None:
@@ -2983,28 +3466,37 @@ class BucketTransition(dict):
     @property
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> 'BucketTransitionStorageClass':
+        """
+        The storage class to which you want the object to transition.
+        """
         return pulumi.get(self, "storage_class")
 
     @property
     @pulumi.getter(name="transitionDate")
     def transition_date(self) -> Optional[str]:
+        """
+        Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+        """
         return pulumi.get(self, "transition_date")
 
     @property
     @pulumi.getter(name="transitionInDays")
     def transition_in_days(self) -> Optional[int]:
+        """
+        Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+        """
         return pulumi.get(self, "transition_in_days")
 
 
 @pulumi.output_type
 class BucketVersioningConfiguration(dict):
     """
-    Describes the versioning state of an Amazon S3 bucket.
+    Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
     """
     def __init__(__self__, *,
                  status: 'BucketVersioningConfigurationStatus'):
         """
-        Describes the versioning state of an Amazon S3 bucket.
+        Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
         :param 'BucketVersioningConfigurationStatus' status: The versioning state of the bucket.
         """
         pulumi.set(__self__, "status", status)
@@ -3055,6 +3547,9 @@ class BucketWebsiteConfiguration(dict):
         Specifies website configuration parameters for an Amazon S3 bucket.
         :param str error_document: The name of the error document for the website.
         :param str index_document: The name of the index document for the website.
+        :param 'BucketRedirectAllRequestsTo' redirect_all_requests_to: The redirect behavior for every request to this bucket's website endpoint.
+                 If you specify this property, you can't specify any other property.
+        :param Sequence['BucketRoutingRule'] routing_rules: Rules that define when a redirect is applied and the redirect behavior.
         """
         if error_document is not None:
             pulumi.set(__self__, "error_document", error_document)
@@ -3084,11 +3579,18 @@ class BucketWebsiteConfiguration(dict):
     @property
     @pulumi.getter(name="redirectAllRequestsTo")
     def redirect_all_requests_to(self) -> Optional['outputs.BucketRedirectAllRequestsTo']:
+        """
+        The redirect behavior for every request to this bucket's website endpoint.
+          If you specify this property, you can't specify any other property.
+        """
         return pulumi.get(self, "redirect_all_requests_to")
 
     @property
     @pulumi.getter(name="routingRules")
     def routing_rules(self) -> Optional[Sequence['outputs.BucketRoutingRule']]:
+        """
+        Rules that define when a redirect is applied and the redirect behavior.
+        """
         return pulumi.get(self, "routing_rules")
 
 

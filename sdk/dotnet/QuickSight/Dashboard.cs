@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        [Output("linkEntities")]
+        public Output<ImmutableArray<string>> LinkEntities { get; private set; } = null!;
+
         [Output("linkSharingConfiguration")]
         public Output<Outputs.DashboardLinkSharingConfiguration?> LinkSharingConfiguration { get; private set; } = null!;
 
@@ -130,6 +133,14 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("definition")]
         public Input<Inputs.DashboardVersionDefinitionArgs>? Definition { get; set; }
+
+        [Input("linkEntities")]
+        private InputList<string>? _linkEntities;
+        public InputList<string> LinkEntities
+        {
+            get => _linkEntities ?? (_linkEntities = new InputList<string>());
+            set => _linkEntities = value;
+        }
 
         [Input("linkSharingConfiguration")]
         public Input<Inputs.DashboardLinkSharingConfigurationArgs>? LinkSharingConfiguration { get; set; }

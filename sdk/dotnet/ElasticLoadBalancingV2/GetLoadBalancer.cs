@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     public static class GetLoadBalancer
     {
         /// <summary>
-        /// Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
+        /// Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws-native:elasticloadbalancingv2:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
+        /// Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("aws-native:elasticloadbalancingv2:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the load balancer.
-        /// </summary>
         [Input("loadBalancerArn", required: true)]
         public string LoadBalancerArn { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the load balancer.
-        /// </summary>
         [Input("loadBalancerArn", required: true)]
         public Input<string> LoadBalancerArn { get; set; } = null!;
 
@@ -57,48 +51,43 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
-        /// <summary>
-        /// The ID of the Amazon Route 53 hosted zone associated with the load balancer.
-        /// </summary>
         public readonly string? CanonicalHostedZoneId;
-        /// <summary>
-        /// The public DNS name of the load balancer.
-        /// </summary>
         public readonly string? DnsName;
         /// <summary>
-        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+        /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
         /// </summary>
         public readonly string? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         /// <summary>
-        /// The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        /// The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
         /// </summary>
         public readonly string? IpAddressType;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the load balancer.
-        /// </summary>
         public readonly string? LoadBalancerArn;
         /// <summary>
         /// The load balancer attributes.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerAttribute> LoadBalancerAttributes;
-        /// <summary>
-        /// The full name of the load balancer.
-        /// </summary>
         public readonly string? LoadBalancerFullName;
-        /// <summary>
-        /// The name of the load balancer.
-        /// </summary>
         public readonly string? LoadBalancerName;
         /// <summary>
-        /// The IDs of the security groups for the load balancer.
+        /// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
         /// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+        ///  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+        ///  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+        ///  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+        ///  [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+        ///  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerSubnetMapping> SubnetMappings;
         /// <summary>
         /// The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+        ///  [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+        ///  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+        ///  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+        ///  [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+        ///  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
         /// </summary>
         public readonly ImmutableArray<string> Subnets;
         /// <summary>

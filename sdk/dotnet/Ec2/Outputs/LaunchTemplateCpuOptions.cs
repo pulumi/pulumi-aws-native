@@ -11,13 +11,14 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
     /// <summary>
-    /// specifies the CPU options for an instance.
+    /// Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
+    ///   ``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateCpuOptions
     {
         /// <summary>
-        /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+        /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
         /// </summary>
         public readonly Pulumi.AwsNative.Ec2.LaunchTemplateCpuOptionsAmdSevSnp? AmdSevSnp;
         /// <summary>
@@ -25,7 +26,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly int? CoreCount;
         /// <summary>
-        /// The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+        /// The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
         /// </summary>
         public readonly int? ThreadsPerCore;
 

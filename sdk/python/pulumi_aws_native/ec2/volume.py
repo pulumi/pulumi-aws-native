@@ -30,18 +30,49 @@ class VolumeArgs:
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Volume resource.
-        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the volume.
-        :param pulumi.Input[bool] auto_enable_io: The Availability Zone in which to create the volume.
-        :param pulumi.Input[bool] encrypted: Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types.
-        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. 
-        :param pulumi.Input[str] kms_key_id: The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+        :param pulumi.Input[str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+        :param pulumi.Input[bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
+        :param pulumi.Input[bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon Elastic Compute Cloud User Guide*.
+                Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances).
+        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+                The following are the supported values for each volume type:
+                 +   ``gp3``: 3,000 - 16,000 IOPS
+                 +   ``io1``: 100 - 64,000 IOPS
+                 +   ``io2``: 100 - 256,000 IOPS
+                 
+                For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+                This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
+        :param pulumi.Input[str] kms_key_id: The identifier of the kms-key-long to use for Amazon EBS encryption. If ``KmsKeyId`` is specified, the encrypted state must be ``true``.
+                If you omit this property and your account is enabled for encryption by default, or *Encrypted* is set to ``true``, then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the aws-managed-key.
+                Alternatively, if you want to specify a different key, you can specify one of the following:
+                 +  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+                 +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
+                 +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
+                 +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
         :param pulumi.Input[bool] multi_attach_enabled: Indicates whether Amazon EBS Multi-Attach is enabled.
+                CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. 
-        :param pulumi.Input[str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. 
+        :param pulumi.Input[int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+                The following are the supported volumes sizes for each volume type:
+                 +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
+                 +   ``io1``: 4 - 16,384 GiB
+                 +   ``io2``: 4 - 65,536 GiB
+                 +   ``st1`` and ``sc1``: 125 - 16,384 GiB
+                 +   ``standard``: 1 - 1024 GiB
+        :param pulumi.Input[str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply to the volume during creation.
-        :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s.
-        :param pulumi.Input[str] volume_type: The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
+        :param pulumi.Input[int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+                This parameter is valid only for ``gp3`` volumes. The default value is 125.
+                Valid Range: Minimum value of 125. Maximum value of 1000.
+        :param pulumi.Input[str] volume_type: The volume type. This parameter can be one of the following values:
+                 +  General Purpose SSD: ``gp2`` | ``gp3`` 
+                 +  Provisioned IOPS SSD: ``io1`` | ``io2`` 
+                 +  Throughput Optimized HDD: ``st1`` 
+                 +  Cold HDD: ``sc1`` 
+                 +  Magnetic: ``standard`` 
+                 
+                For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+                Default: ``gp2``
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         if auto_enable_io is not None:
@@ -71,7 +102,7 @@ class VolumeArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[str]:
         """
-        The Availability Zone in which to create the volume.
+        The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -83,7 +114,7 @@ class VolumeArgs:
     @pulumi.getter(name="autoEnableIo")
     def auto_enable_io(self) -> Optional[pulumi.Input[bool]]:
         """
-        The Availability Zone in which to create the volume.
+        Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         """
         return pulumi.get(self, "auto_enable_io")
 
@@ -95,7 +126,8 @@ class VolumeArgs:
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types.
+        Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon Elastic Compute Cloud User Guide*.
+         Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances).
         """
         return pulumi.get(self, "encrypted")
 
@@ -107,7 +139,14 @@ class VolumeArgs:
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. 
+        The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+         The following are the supported values for each volume type:
+          +   ``gp3``: 3,000 - 16,000 IOPS
+          +   ``io1``: 100 - 64,000 IOPS
+          +   ``io2``: 100 - 256,000 IOPS
+          
+         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+         This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
         """
         return pulumi.get(self, "iops")
 
@@ -119,7 +158,13 @@ class VolumeArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+        The identifier of the kms-key-long to use for Amazon EBS encryption. If ``KmsKeyId`` is specified, the encrypted state must be ``true``.
+         If you omit this property and your account is enabled for encryption by default, or *Encrypted* is set to ``true``, then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the aws-managed-key.
+         Alternatively, if you want to specify a different key, you can specify one of the following:
+          +  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+          +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
+          +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
+          +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -132,6 +177,7 @@ class VolumeArgs:
     def multi_attach_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates whether Amazon EBS Multi-Attach is enabled.
+         CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         """
         return pulumi.get(self, "multi_attach_enabled")
 
@@ -155,7 +201,13 @@ class VolumeArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. 
+        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+         The following are the supported volumes sizes for each volume type:
+          +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
+          +   ``io1``: 4 - 16,384 GiB
+          +   ``io2``: 4 - 65,536 GiB
+          +   ``st1`` and ``sc1``: 125 - 16,384 GiB
+          +   ``standard``: 1 - 1024 GiB
         """
         return pulumi.get(self, "size")
 
@@ -167,7 +219,7 @@ class VolumeArgs:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. 
+        The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -191,7 +243,9 @@ class VolumeArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The throughput that the volume supports, in MiB/s.
+        The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+         This parameter is valid only for ``gp3`` volumes. The default value is 125.
+         Valid Range: Minimum value of 125. Maximum value of 1000.
         """
         return pulumi.get(self, "throughput")
 
@@ -203,7 +257,15 @@ class VolumeArgs:
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
+        The volume type. This parameter can be one of the following values:
+          +  General Purpose SSD: ``gp2`` | ``gp3`` 
+          +  Provisioned IOPS SSD: ``io1`` | ``io2`` 
+          +  Throughput Optimized HDD: ``st1`` 
+          +  Cold HDD: ``sc1`` 
+          +  Magnetic: ``standard`` 
+          
+         For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         Default: ``gp2``
         """
         return pulumi.get(self, "volume_type")
 
@@ -231,22 +293,60 @@ class Volume(pulumi.CustomResource):
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::Volume
+        Specifies an Amazon Elastic Block Store (Amazon EBS) volume.
+         When you use CFNlong to update an Amazon EBS volume that modifies ``Iops``, ``Size``, or ``VolumeType``, there is a cooldown period before another operation can occur. This can cause your stack to report being in ``UPDATE_IN_PROGRESS`` or ``UPDATE_ROLLBACK_IN_PROGRESS`` for long periods of time.
+         Amazon EBS does not support sizing down an Amazon EBS volume. CFNlong does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
+         Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
+          +  You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
+          +  You successfully update an Amazon EBS volume and the update succeeds but another change in your ``update-stack`` call fails. The rollback will be subject to a cooldown period.
+
+         For more information on the coo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_enable_io: The Availability Zone in which to create the volume.
-        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the volume.
-        :param pulumi.Input[bool] encrypted: Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types.
-        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. 
-        :param pulumi.Input[str] kms_key_id: The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+        :param pulumi.Input[bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
+        :param pulumi.Input[str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+        :param pulumi.Input[bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon Elastic Compute Cloud User Guide*.
+                Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances).
+        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+                The following are the supported values for each volume type:
+                 +   ``gp3``: 3,000 - 16,000 IOPS
+                 +   ``io1``: 100 - 64,000 IOPS
+                 +   ``io2``: 100 - 256,000 IOPS
+                 
+                For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+                This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
+        :param pulumi.Input[str] kms_key_id: The identifier of the kms-key-long to use for Amazon EBS encryption. If ``KmsKeyId`` is specified, the encrypted state must be ``true``.
+                If you omit this property and your account is enabled for encryption by default, or *Encrypted* is set to ``true``, then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the aws-managed-key.
+                Alternatively, if you want to specify a different key, you can specify one of the following:
+                 +  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+                 +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
+                 +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
+                 +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
         :param pulumi.Input[bool] multi_attach_enabled: Indicates whether Amazon EBS Multi-Attach is enabled.
+                CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. 
-        :param pulumi.Input[str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. 
+        :param pulumi.Input[int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+                The following are the supported volumes sizes for each volume type:
+                 +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
+                 +   ``io1``: 4 - 16,384 GiB
+                 +   ``io2``: 4 - 65,536 GiB
+                 +   ``st1`` and ``sc1``: 125 - 16,384 GiB
+                 +   ``standard``: 1 - 1024 GiB
+        :param pulumi.Input[str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to apply to the volume during creation.
-        :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s.
-        :param pulumi.Input[str] volume_type: The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
+        :param pulumi.Input[int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+                This parameter is valid only for ``gp3`` volumes. The default value is 125.
+                Valid Range: Minimum value of 125. Maximum value of 1000.
+        :param pulumi.Input[str] volume_type: The volume type. This parameter can be one of the following values:
+                 +  General Purpose SSD: ``gp2`` | ``gp3`` 
+                 +  Provisioned IOPS SSD: ``io1`` | ``io2`` 
+                 +  Throughput Optimized HDD: ``st1`` 
+                 +  Cold HDD: ``sc1`` 
+                 +  Magnetic: ``standard`` 
+                 
+                For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+                Default: ``gp2``
         """
         ...
     @overload
@@ -255,7 +355,14 @@ class Volume(pulumi.CustomResource):
                  args: VolumeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::Volume
+        Specifies an Amazon Elastic Block Store (Amazon EBS) volume.
+         When you use CFNlong to update an Amazon EBS volume that modifies ``Iops``, ``Size``, or ``VolumeType``, there is a cooldown period before another operation can occur. This can cause your stack to report being in ``UPDATE_IN_PROGRESS`` or ``UPDATE_ROLLBACK_IN_PROGRESS`` for long periods of time.
+         Amazon EBS does not support sizing down an Amazon EBS volume. CFNlong does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
+         Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
+          +  You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
+          +  You successfully update an Amazon EBS volume and the update succeeds but another change in your ``update-stack`` call fails. The rollback will be subject to a cooldown period.
+
+         For more information on the coo
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
@@ -349,7 +456,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="autoEnableIo")
     def auto_enable_io(self) -> pulumi.Output[Optional[bool]]:
         """
-        The Availability Zone in which to create the volume.
+        Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         """
         return pulumi.get(self, "auto_enable_io")
 
@@ -357,7 +464,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
         """
-        The Availability Zone in which to create the volume.
+        The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -365,7 +472,8 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types.
+        Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon Elastic Compute Cloud User Guide*.
+         Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances).
         """
         return pulumi.get(self, "encrypted")
 
@@ -373,7 +481,14 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def iops(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. 
+        The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+         The following are the supported values for each volume type:
+          +   ``gp3``: 3,000 - 16,000 IOPS
+          +   ``io1``: 100 - 64,000 IOPS
+          +   ``io2``: 100 - 256,000 IOPS
+          
+         For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+         This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
         """
         return pulumi.get(self, "iops")
 
@@ -381,7 +496,13 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+        The identifier of the kms-key-long to use for Amazon EBS encryption. If ``KmsKeyId`` is specified, the encrypted state must be ``true``.
+         If you omit this property and your account is enabled for encryption by default, or *Encrypted* is set to ``true``, then the volume is encrypted using the default key specified for your account. If your account does not have a default key, then the volume is encrypted using the aws-managed-key.
+         Alternatively, if you want to specify a different key, you can specify one of the following:
+          +  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+          +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
+          +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
+          +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -390,6 +511,7 @@ class Volume(pulumi.CustomResource):
     def multi_attach_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether Amazon EBS Multi-Attach is enabled.
+         CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         """
         return pulumi.get(self, "multi_attach_enabled")
 
@@ -405,7 +527,13 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def size(self) -> pulumi.Output[Optional[int]]:
         """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. 
+        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+         The following are the supported volumes sizes for each volume type:
+          +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
+          +   ``io1``: 4 - 16,384 GiB
+          +   ``io2``: 4 - 65,536 GiB
+          +   ``st1`` and ``sc1``: 125 - 16,384 GiB
+          +   ``standard``: 1 - 1024 GiB
         """
         return pulumi.get(self, "size")
 
@@ -413,7 +541,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. 
+        The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -429,7 +557,9 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def throughput(self) -> pulumi.Output[Optional[int]]:
         """
-        The throughput that the volume supports, in MiB/s.
+        The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
+         This parameter is valid only for ``gp3`` volumes. The default value is 125.
+         Valid Range: Minimum value of 125. Maximum value of 1000.
         """
         return pulumi.get(self, "throughput")
 
@@ -442,7 +572,15 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
+        The volume type. This parameter can be one of the following values:
+          +  General Purpose SSD: ``gp2`` | ``gp3`` 
+          +  Provisioned IOPS SSD: ``io1`` | ``io2`` 
+          +  Throughput Optimized HDD: ``st1`` 
+          +  Cold HDD: ``sc1`` 
+          +  Magnetic: ``standard`` 
+          
+         For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         Default: ``gp2``
         """
         return pulumi.get(self, "volume_type")
 

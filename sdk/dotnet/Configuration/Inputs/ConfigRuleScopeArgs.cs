@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
     /// <summary>
-    /// Scope to constrain which resources can trigger the rule
+    /// Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
     /// </summary>
     public sealed class ConfigRuleScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the only one resource which we want to trigger the rule
+        /// The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
         /// </summary>
         [Input("complianceResourceId")]
         public Input<string>? ComplianceResourceId { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         private InputList<string>? _complianceResourceTypes;
 
         /// <summary>
-        /// Resource types of resources which we want to trigger the rule
+        /// The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
         /// </summary>
         public InputList<string> ComplianceResourceTypes
         {
@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         }
 
         /// <summary>
-        /// Tag key applied only to resources which we want to trigger the rule
+        /// The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
         /// </summary>
         [Input("tagKey")]
         public Input<string>? TagKey { get; set; }
 
         /// <summary>
-        /// Tag value applied only to resources which we want to trigger the rule
+        /// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for ``TagValue``, you must also specify a value for ``TagKey``.
         /// </summary>
         [Input("tagValue")]
         public Input<string>? TagValue { get; set; }

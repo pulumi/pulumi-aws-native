@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.MediaPackageV2
     public static class GetChannel
     {
         /// <summary>
-        /// Definition of AWS::MediaPackageV2::Channel Resource Type
+        /// &lt;p&gt;Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.&lt;/p&gt;
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("aws-native:mediapackagev2:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::MediaPackageV2::Channel Resource Type
+        /// &lt;p&gt;Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.&lt;/p&gt;
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:mediapackagev2:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class GetChannelArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;/p&gt;
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class GetChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;/p&gt;
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.MediaPackageV2
     [OutputType]
     public sealed class GetChannelResult
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;/p&gt;
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// &lt;p&gt;The date and time the channel was created.&lt;/p&gt;
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// &lt;p&gt;Enter any descriptive text that helps you to identify the channel.&lt;/p&gt;
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// &lt;p&gt;The list of ingest endpoints.&lt;/p&gt;
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelIngestEndpoint> IngestEndpoints;
+        /// <summary>
+        /// &lt;p&gt;The date and time the channel was modified.&lt;/p&gt;
+        /// </summary>
         public readonly string? ModifiedAt;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

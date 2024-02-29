@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Efs.Inputs
 {
 
+    /// <summary>
+    /// Describes the replication configuration for a specific file system.
+    /// </summary>
     public sealed class FileSystemReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinations")]
         private InputList<Inputs.FileSystemReplicationDestinationArgs>? _destinations;
+
+        /// <summary>
+        /// An array of destination objects. Only one destination object is supported.
+        /// </summary>
         public InputList<Inputs.FileSystemReplicationDestinationArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.FileSystemReplicationDestinationArgs>());

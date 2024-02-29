@@ -31,7 +31,8 @@ type LookupNetworkInterfaceAttachmentResult struct {
 	// The ID of the network interface attachment.
 	AttachmentId *string `pulumi:"attachmentId"`
 	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
-	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	DeleteOnTermination *bool                                          `pulumi:"deleteOnTermination"`
+	EnaSrdSpecification *NetworkInterfaceAttachmentEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 }
 
 func LookupNetworkInterfaceAttachmentOutput(ctx *pulumi.Context, args LookupNetworkInterfaceAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceAttachmentResultOutput {
@@ -78,6 +79,12 @@ func (o LookupNetworkInterfaceAttachmentResultOutput) AttachmentId() pulumi.Stri
 // Whether to delete the network interface when the instance terminates. By default, this value is set to true.
 func (o LookupNetworkInterfaceAttachmentResultOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupNetworkInterfaceAttachmentResultOutput) EnaSrdSpecification() NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceAttachmentResult) *NetworkInterfaceAttachmentEnaSrdSpecification {
+		return v.EnaSrdSpecification
+	}).(NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput)
 }
 
 func init() {

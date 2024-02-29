@@ -10,8 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics ``EventThreshold``.
+    /// </summary>
     public sealed class BucketReplicationTimeValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains an integer specifying time in minutes. 
+        ///   Valid value: 15
+        /// </summary>
         [Input("minutes", required: true)]
         public Input<int> Minutes { get; set; } = null!;
 

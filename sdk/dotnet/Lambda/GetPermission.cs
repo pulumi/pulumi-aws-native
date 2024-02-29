@@ -12,13 +12,17 @@ namespace Pulumi.AwsNative.Lambda
     public static class GetPermission
     {
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::Permission
+        /// The ``AWS::Lambda::Permission`` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
+        ///  To grant permission to another account, specify the account ID as the ``Principal``. To grant permission to an organization defined in AOlong, specify the organization ID as the ``PrincipalOrgID``. For AWS services, the principal is a domain-style identifier defined by the service, like ``s3.amazonaws.com`` or ``sns.amazonaws.com``. For AWS services, you can also specify the ARN of the associated resource as the ``SourceArn``. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
+        ///  If your function has a fu
         /// </summary>
         public static Task<GetPermissionResult> InvokeAsync(GetPermissionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionResult>("aws-native:lambda:getPermission", args ?? new GetPermissionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::Permission
+        /// The ``AWS::Lambda::Permission`` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
+        ///  To grant permission to another account, specify the account ID as the ``Principal``. To grant permission to an organization defined in AOlong, specify the organization ID as the ``PrincipalOrgID``. For AWS services, the principal is a domain-style identifier defined by the service, like ``s3.amazonaws.com`` or ``sns.amazonaws.com``. For AWS services, you can also specify the ARN of the associated resource as the ``SourceArn``. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
+        ///  If your function has a fu
         /// </summary>
         public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("aws-native:lambda:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
@@ -29,13 +33,16 @@ namespace Pulumi.AwsNative.Lambda
     {
         /// <summary>
         /// The name of the Lambda function, version, or alias.
+        ///   **Name formats**
+        ///  +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+        ///   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+        ///   +   *Partial ARN* – ``123456789012:function:my-function``.
+        ///   
+        ///  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         /// </summary>
         [Input("functionName", required: true)]
         public string FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// A statement identifier that differentiates the statement from others in the same policy.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -49,13 +56,16 @@ namespace Pulumi.AwsNative.Lambda
     {
         /// <summary>
         /// The name of the Lambda function, version, or alias.
+        ///   **Name formats**
+        ///  +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+        ///   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+        ///   +   *Partial ARN* – ``123456789012:function:my-function``.
+        ///   
+        ///  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// A statement identifier that differentiates the statement from others in the same policy.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -69,9 +79,6 @@ namespace Pulumi.AwsNative.Lambda
     [OutputType]
     public sealed class GetPermissionResult
     {
-        /// <summary>
-        /// A statement identifier that differentiates the statement from others in the same policy.
-        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

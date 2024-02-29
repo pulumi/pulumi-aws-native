@@ -12,17 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+// <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
 type ChannelGroup struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput    `pulumi:"arn"`
-	ChannelGroupName pulumi.StringPtrOutput `pulumi:"channelGroupName"`
-	CreatedAt        pulumi.StringOutput    `pulumi:"createdAt"`
-	Description      pulumi.StringPtrOutput `pulumi:"description"`
-	EgressDomain     pulumi.StringOutput    `pulumi:"egressDomain"`
-	ModifiedAt       pulumi.StringOutput    `pulumi:"modifiedAt"`
-	Tags             aws.TagArrayOutput     `pulumi:"tags"`
+	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+	Arn              pulumi.StringOutput `pulumi:"arn"`
+	ChannelGroupName pulumi.StringOutput `pulumi:"channelGroupName"`
+	// <p>The date and time the channel group was created.</p>
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// <p>Enter any descriptive text that helps you to identify the channel group.</p>
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
+	EgressDomain pulumi.StringOutput `pulumi:"egressDomain"`
+	// <p>The date and time the channel group was modified.</p>
+	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	Tags       aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewChannelGroup registers a new resource with the given unique name, arguments, and options.
@@ -69,16 +74,18 @@ func (ChannelGroupState) ElementType() reflect.Type {
 }
 
 type channelGroupArgs struct {
-	ChannelGroupName *string   `pulumi:"channelGroupName"`
-	Description      *string   `pulumi:"description"`
-	Tags             []aws.Tag `pulumi:"tags"`
+	ChannelGroupName *string `pulumi:"channelGroupName"`
+	// <p>Enter any descriptive text that helps you to identify the channel group.</p>
+	Description *string   `pulumi:"description"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ChannelGroup resource.
 type ChannelGroupArgs struct {
 	ChannelGroupName pulumi.StringPtrInput
-	Description      pulumi.StringPtrInput
-	Tags             aws.TagArrayInput
+	// <p>Enter any descriptive text that helps you to identify the channel group.</p>
+	Description pulumi.StringPtrInput
+	Tags        aws.TagArrayInput
 }
 
 func (ChannelGroupArgs) ElementType() reflect.Type {
@@ -118,26 +125,31 @@ func (o ChannelGroupOutput) ToChannelGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 func (o ChannelGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o ChannelGroupOutput) ChannelGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ChannelGroup) pulumi.StringPtrOutput { return v.ChannelGroupName }).(pulumi.StringPtrOutput)
+func (o ChannelGroupOutput) ChannelGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.ChannelGroupName }).(pulumi.StringOutput)
 }
 
+// <p>The date and time the channel group was created.</p>
 func (o ChannelGroupOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// <p>Enter any descriptive text that helps you to identify the channel group.</p>
 func (o ChannelGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
 func (o ChannelGroupOutput) EgressDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.EgressDomain }).(pulumi.StringOutput)
 }
 
+// <p>The date and time the channel group was modified.</p>
 func (o ChannelGroupOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelGroup) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }

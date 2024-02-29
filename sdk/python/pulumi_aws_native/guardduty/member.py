@@ -14,33 +14,26 @@ __all__ = ['MemberArgs', 'Member']
 @pulumi.input_type
 class MemberArgs:
     def __init__(__self__, *,
-                 detector_id: pulumi.Input[str],
                  email: pulumi.Input[str],
-                 member_id: pulumi.Input[str],
+                 detector_id: Optional[pulumi.Input[str]] = None,
                  disable_email_notification: Optional[pulumi.Input[bool]] = None,
+                 member_id: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Member resource.
         """
-        pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "member_id", member_id)
+        if detector_id is not None:
+            pulumi.set(__self__, "detector_id", detector_id)
         if disable_email_notification is not None:
             pulumi.set(__self__, "disable_email_notification", disable_email_notification)
+        if member_id is not None:
+            pulumi.set(__self__, "member_id", member_id)
         if message is not None:
             pulumi.set(__self__, "message", message)
         if status is not None:
             pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="detectorId")
-    def detector_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "detector_id")
-
-    @detector_id.setter
-    def detector_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "detector_id", value)
 
     @property
     @pulumi.getter
@@ -52,13 +45,13 @@ class MemberArgs:
         pulumi.set(self, "email", value)
 
     @property
-    @pulumi.getter(name="memberId")
-    def member_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "member_id")
+    @pulumi.getter(name="detectorId")
+    def detector_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "detector_id")
 
-    @member_id.setter
-    def member_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "member_id", value)
+    @detector_id.setter
+    def detector_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "detector_id", value)
 
     @property
     @pulumi.getter(name="disableEmailNotification")
@@ -68,6 +61,15 @@ class MemberArgs:
     @disable_email_notification.setter
     def disable_email_notification(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_email_notification", value)
+
+    @property
+    @pulumi.getter(name="memberId")
+    def member_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "member_id")
+
+    @member_id.setter
+    def member_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "member_id", value)
 
     @property
     @pulumi.getter
@@ -88,12 +90,7 @@ class MemberArgs:
         pulumi.set(self, "status", value)
 
 
-warnings.warn("""Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Member(pulumi.CustomResource):
-    warnings.warn("""Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -142,7 +139,6 @@ class Member(pulumi.CustomResource):
                  message: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Member is deprecated: Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -151,19 +147,15 @@ class Member(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MemberArgs.__new__(MemberArgs)
 
-            if detector_id is None and not opts.urn:
-                raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
             __props__.__dict__["disable_email_notification"] = disable_email_notification
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
-            if member_id is None and not opts.urn:
-                raise TypeError("Missing required property 'member_id'")
             __props__.__dict__["member_id"] = member_id
             __props__.__dict__["message"] = message
             __props__.__dict__["status"] = status
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_id", "email", "member_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_id", "member_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Member, __self__).__init__(
             'aws-native:guardduty:Member',
@@ -197,7 +189,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detectorId")
-    def detector_id(self) -> pulumi.Output[str]:
+    def detector_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "detector_id")
 
     @property
@@ -212,7 +204,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="memberId")
-    def member_id(self) -> pulumi.Output[str]:
+    def member_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "member_id")
 
     @property

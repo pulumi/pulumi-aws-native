@@ -39,7 +39,7 @@ class CompliancePropertiesArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        Compliance details of the Config rule
+        Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
         :param pulumi.Input[str] type: Compliance type determined by the Config rule
         """
         if type is not None:
@@ -65,10 +65,10 @@ class ConfigRuleCustomPolicyDetailsArgs:
                  policy_runtime: Optional[pulumi.Input[str]] = None,
                  policy_text: Optional[pulumi.Input[str]] = None):
         """
-        Custom policy details when rule is custom owned
-        :param pulumi.Input[bool] enable_debug_log_delivery: Logging toggle for custom policy rule
-        :param pulumi.Input[str] policy_runtime: Runtime system for custom policy rule
-        :param pulumi.Input[str] policy_text: Policy definition containing logic for custom policy rule
+        Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
+        :param pulumi.Input[bool] enable_debug_log_delivery: The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is ``false``.
+        :param pulumi.Input[str] policy_runtime: The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
+        :param pulumi.Input[str] policy_text: The policy definition containing the logic for your CC Custom Policy rule.
         """
         if enable_debug_log_delivery is not None:
             pulumi.set(__self__, "enable_debug_log_delivery", enable_debug_log_delivery)
@@ -81,7 +81,7 @@ class ConfigRuleCustomPolicyDetailsArgs:
     @pulumi.getter(name="enableDebugLogDelivery")
     def enable_debug_log_delivery(self) -> Optional[pulumi.Input[bool]]:
         """
-        Logging toggle for custom policy rule
+        The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is ``false``.
         """
         return pulumi.get(self, "enable_debug_log_delivery")
 
@@ -93,7 +93,7 @@ class ConfigRuleCustomPolicyDetailsArgs:
     @pulumi.getter(name="policyRuntime")
     def policy_runtime(self) -> Optional[pulumi.Input[str]]:
         """
-        Runtime system for custom policy rule
+        The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
         """
         return pulumi.get(self, "policy_runtime")
 
@@ -105,7 +105,7 @@ class ConfigRuleCustomPolicyDetailsArgs:
     @pulumi.getter(name="policyText")
     def policy_text(self) -> Optional[pulumi.Input[str]]:
         """
-        Policy definition containing logic for custom policy rule
+        The policy definition containing the logic for your CC Custom Policy rule.
         """
         return pulumi.get(self, "policy_text")
 
@@ -119,8 +119,8 @@ class ConfigRuleEvaluationModeConfigurationArgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[str]] = None):
         """
-        Evaluation mode for the AWS Config rule
-        :param pulumi.Input[str] mode: Mode of evaluation of AWS Config rule
+        The configuration object for CC rule evaluation mode. The supported valid values are Detective or Proactive.
+        :param pulumi.Input[str] mode: The mode of an evaluation. The valid values are Detective or Proactive.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
@@ -129,7 +129,7 @@ class ConfigRuleEvaluationModeConfigurationArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Mode of evaluation of AWS Config rule
+        The mode of an evaluation. The valid values are Detective or Proactive.
         """
         return pulumi.get(self, "mode")
 
@@ -146,11 +146,11 @@ class ConfigRuleScopeArgs:
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
-        Scope to constrain which resources can trigger the rule
-        :param pulumi.Input[str] compliance_resource_id: ID of the only one resource which we want to trigger the rule
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] compliance_resource_types: Resource types of resources which we want to trigger the rule
-        :param pulumi.Input[str] tag_key: Tag key applied only to resources which we want to trigger the rule
-        :param pulumi.Input[str] tag_value: Tag value applied only to resources which we want to trigger the rule
+        Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
+        :param pulumi.Input[str] compliance_resource_id: The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compliance_resource_types: The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
+        :param pulumi.Input[str] tag_key: The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
+        :param pulumi.Input[str] tag_value: The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for ``TagValue``, you must also specify a value for ``TagKey``.
         """
         if compliance_resource_id is not None:
             pulumi.set(__self__, "compliance_resource_id", compliance_resource_id)
@@ -165,7 +165,7 @@ class ConfigRuleScopeArgs:
     @pulumi.getter(name="complianceResourceId")
     def compliance_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the only one resource which we want to trigger the rule
+        The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
         """
         return pulumi.get(self, "compliance_resource_id")
 
@@ -177,7 +177,7 @@ class ConfigRuleScopeArgs:
     @pulumi.getter(name="complianceResourceTypes")
     def compliance_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Resource types of resources which we want to trigger the rule
+        The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
         """
         return pulumi.get(self, "compliance_resource_types")
 
@@ -189,7 +189,7 @@ class ConfigRuleScopeArgs:
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag key applied only to resources which we want to trigger the rule
+        The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
         """
         return pulumi.get(self, "tag_key")
 
@@ -201,7 +201,7 @@ class ConfigRuleScopeArgs:
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag value applied only to resources which we want to trigger the rule
+        The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for ``TagValue``, you must also specify a value for ``TagKey``.
         """
         return pulumi.get(self, "tag_value")
 
@@ -217,10 +217,18 @@ class ConfigRuleSourceDetailArgs:
                  message_type: pulumi.Input[str],
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None):
         """
-        Source and message type that can trigger the rule
-        :param pulumi.Input[str] event_source: Source of event that can trigger the rule
-        :param pulumi.Input[str] message_type: Notification type that can trigger the rule
-        :param pulumi.Input[str] maximum_execution_frequency: Frequency at which the rule has to be evaluated
+        Provides the source and the message types that trigger CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for ``SourceDetail`` only for custom rules.
+        :param pulumi.Input[str] event_source: The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
+        :param pulumi.Input[str] message_type: The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
+                 +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+                 +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+                 +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
+                 +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+                 
+                If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
+        :param pulumi.Input[str] maximum_execution_frequency: The frequency at which you want CC to run evaluations for a custom rule with a periodic trigger. If you specify a value for ``MaximumExecutionFrequency``, then ``MessageType`` must use the ``ScheduledNotification`` value.
+                 By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
+                Based on the valid value you choose, CC runs evaluations once for each valid value. For example, if you choose ``Three_Hours``, CC runs evaluations once every three hours. In this case, ``Three_Hours`` is the frequency of this rule.
         """
         pulumi.set(__self__, "event_source", event_source)
         pulumi.set(__self__, "message_type", message_type)
@@ -231,7 +239,7 @@ class ConfigRuleSourceDetailArgs:
     @pulumi.getter(name="eventSource")
     def event_source(self) -> pulumi.Input[str]:
         """
-        Source of event that can trigger the rule
+        The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
         """
         return pulumi.get(self, "event_source")
 
@@ -243,7 +251,13 @@ class ConfigRuleSourceDetailArgs:
     @pulumi.getter(name="messageType")
     def message_type(self) -> pulumi.Input[str]:
         """
-        Notification type that can trigger the rule
+        The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
+          +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+          +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+          +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
+          +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+          
+         If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
         """
         return pulumi.get(self, "message_type")
 
@@ -255,7 +269,9 @@ class ConfigRuleSourceDetailArgs:
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        Frequency at which the rule has to be evaluated
+        The frequency at which you want CC to run evaluations for a custom rule with a periodic trigger. If you specify a value for ``MaximumExecutionFrequency``, then ``MessageType`` must use the ``ScheduledNotification`` value.
+          By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
+         Based on the valid value you choose, CC runs evaluations once for each valid value. For example, if you choose ``Three_Hours``, CC runs evaluations once every three hours. In this case, ``Three_Hours`` is the frequency of this rule.
         """
         return pulumi.get(self, "maximum_execution_frequency")
 
@@ -272,11 +288,16 @@ class ConfigRuleSourceArgs:
                  source_details: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]]] = None,
                  source_identifier: Optional[pulumi.Input[str]] = None):
         """
-        Source of events for the config rule
-        :param pulumi.Input[str] owner: Owner of the config rule
-        :param pulumi.Input['ConfigRuleCustomPolicyDetailsArgs'] custom_policy_details: Custom policy details when rule is custom owned
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]] source_details: List of message types that can trigger the rule
-        :param pulumi.Input[str] source_identifier: Identifier for the source of events
+        Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
+        :param pulumi.Input[str] owner: Indicates whether AWS or the customer owns and manages the CC rule.
+                 CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+                 CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
+        :param pulumi.Input['ConfigRuleCustomPolicyDetailsArgs'] custom_policy_details: Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to ``CUSTOM_POLICY``.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]] source_details: Provides the source and the message types that cause CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic.
+                If the owner is set to ``CUSTOM_POLICY``, the only acceptable values for the CC rule trigger message type are ``ConfigurationItemChangeNotification`` and ``OversizedConfigurationItemChangeNotification``.
+        :param pulumi.Input[str] source_identifier: For CC Managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+                For CC Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's LAMlong function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name``.
+                For CC Custom Policy rules, this field will be ignored.
         """
         pulumi.set(__self__, "owner", owner)
         if custom_policy_details is not None:
@@ -290,7 +311,9 @@ class ConfigRuleSourceArgs:
     @pulumi.getter
     def owner(self) -> pulumi.Input[str]:
         """
-        Owner of the config rule
+        Indicates whether AWS or the customer owns and manages the CC rule.
+          CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+          CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
         """
         return pulumi.get(self, "owner")
 
@@ -302,7 +325,7 @@ class ConfigRuleSourceArgs:
     @pulumi.getter(name="customPolicyDetails")
     def custom_policy_details(self) -> Optional[pulumi.Input['ConfigRuleCustomPolicyDetailsArgs']]:
         """
-        Custom policy details when rule is custom owned
+        Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to ``CUSTOM_POLICY``.
         """
         return pulumi.get(self, "custom_policy_details")
 
@@ -314,7 +337,8 @@ class ConfigRuleSourceArgs:
     @pulumi.getter(name="sourceDetails")
     def source_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]]]:
         """
-        List of message types that can trigger the rule
+        Provides the source and the message types that cause CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic.
+         If the owner is set to ``CUSTOM_POLICY``, the only acceptable values for the CC rule trigger message type are ``ConfigurationItemChangeNotification`` and ``OversizedConfigurationItemChangeNotification``.
         """
         return pulumi.get(self, "source_details")
 
@@ -326,7 +350,9 @@ class ConfigRuleSourceArgs:
     @pulumi.getter(name="sourceIdentifier")
     def source_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier for the source of events
+        For CC Managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+         For CC Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's LAMlong function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name``.
+         For CC Custom Policy rules, this field will be ignored.
         """
         return pulumi.get(self, "source_identifier")
 

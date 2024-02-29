@@ -91,6 +91,9 @@ namespace Pulumi.AwsNative.Emr.Inputs
         [Input("terminationProtected")]
         public Input<bool>? TerminationProtected { get; set; }
 
+        [Input("unhealthyNodeReplacement")]
+        public Input<bool>? UnhealthyNodeReplacement { get; set; }
+
         public ClusterJobFlowInstancesConfigArgs()
         {
         }

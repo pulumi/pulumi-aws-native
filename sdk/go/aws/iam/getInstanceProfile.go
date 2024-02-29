@@ -11,7 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::IAM::InstanceProfile
+// Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
+//
+//	For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
 func LookupInstanceProfile(ctx *pulumi.Context, args *LookupInstanceProfileArgs, opts ...pulumi.InvokeOption) (*LookupInstanceProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceProfileResult
@@ -24,11 +26,11 @@ func LookupInstanceProfile(ctx *pulumi.Context, args *LookupInstanceProfileArgs,
 
 type LookupInstanceProfileArgs struct {
 	// The name of the instance profile to create.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	InstanceProfileName string `pulumi:"instanceProfileName"`
 }
 
 type LookupInstanceProfileResult struct {
-	// The Amazon Resource Name (ARN) of the instance profile.
 	Arn *string `pulumi:"arn"`
 	// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.
 	Roles []string `pulumi:"roles"`
@@ -49,6 +51,7 @@ func LookupInstanceProfileOutput(ctx *pulumi.Context, args LookupInstanceProfile
 
 type LookupInstanceProfileOutputArgs struct {
 	// The name of the instance profile to create.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	InstanceProfileName pulumi.StringInput `pulumi:"instanceProfileName"`
 }
 
@@ -70,7 +73,6 @@ func (o LookupInstanceProfileResultOutput) ToLookupInstanceProfileResultOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the instance profile.
 func (o LookupInstanceProfileResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceProfileResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }

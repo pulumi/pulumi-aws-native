@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// An origin in an origin group.
+    /// </summary>
     public sealed class DistributionOriginGroupMemberArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID for an origin in an origin group.
+        /// </summary>
         [Input("originId", required: true)]
         public Input<string> OriginId { get; set; } = null!;
 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
+ * Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
 
@@ -19,55 +19,47 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetLoadBalancerArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the load balancer.
-     */
     loadBalancerArn: string;
 }
 
 export interface GetLoadBalancerResult {
-    /**
-     * The ID of the Amazon Route 53 hosted zone associated with the load balancer.
-     */
     readonly canonicalHostedZoneId?: string;
-    /**
-     * The public DNS name of the load balancer.
-     */
     readonly dnsName?: string;
     /**
-     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+     * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
      */
     readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: string;
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+     * The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
      */
     readonly ipAddressType?: string;
-    /**
-     * The Amazon Resource Name (ARN) of the load balancer.
-     */
     readonly loadBalancerArn?: string;
     /**
      * The load balancer attributes.
      */
     readonly loadBalancerAttributes?: outputs.elasticloadbalancingv2.LoadBalancerAttribute[];
-    /**
-     * The full name of the load balancer.
-     */
     readonly loadBalancerFullName?: string;
-    /**
-     * The name of the load balancer.
-     */
     readonly loadBalancerName?: string;
     /**
-     * The IDs of the security groups for the load balancer.
+     * [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
      */
     readonly securityGroups?: string[];
     /**
      * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+     *  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+     *  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+     *  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+     *  [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+     *  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP
      */
     readonly subnetMappings?: outputs.elasticloadbalancingv2.LoadBalancerSubnetMapping[];
     /**
      * The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+     *  [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+     *  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+     *  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+     *  [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+     *  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
      */
     readonly subnets?: string[];
     /**
@@ -76,15 +68,12 @@ export interface GetLoadBalancerResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
+ * Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
  */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
     return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }
 
 export interface GetLoadBalancerOutputArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the load balancer.
-     */
     loadBalancerArn: pulumi.Input<string>;
 }

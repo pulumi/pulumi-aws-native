@@ -21,7 +21,7 @@ type AggregationAuthorizationTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Compliance details of the Config rule
+// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
 type ComplianceProperties struct {
 	// Compliance type determined by the Config rule
 	Type *string `pulumi:"type"`
@@ -38,7 +38,7 @@ type CompliancePropertiesInput interface {
 	ToCompliancePropertiesOutputWithContext(context.Context) CompliancePropertiesOutput
 }
 
-// Compliance details of the Config rule
+// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
 type CompliancePropertiesArgs struct {
 	// Compliance type determined by the Config rule
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -97,7 +97,7 @@ func (i *compliancePropertiesPtrType) ToCompliancePropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CompliancePropertiesPtrOutput)
 }
 
-// Compliance details of the Config rule
+// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
 type CompliancePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CompliancePropertiesOutput) ElementType() reflect.Type {
@@ -161,13 +161,13 @@ func (o CompliancePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom policy details when rule is custom owned
+// Provides the CustomPolicyDetails, the rule owner (```` for managed rules, “CUSTOM_POLICY“ for Custom Policy rules, and “CUSTOM_LAMBDA“ for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
 type ConfigRuleCustomPolicyDetails struct {
-	// Logging toggle for custom policy rule
+	// The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is ``false``.
 	EnableDebugLogDelivery *bool `pulumi:"enableDebugLogDelivery"`
-	// Runtime system for custom policy rule
+	// The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
 	PolicyRuntime *string `pulumi:"policyRuntime"`
-	// Policy definition containing logic for custom policy rule
+	// The policy definition containing the logic for your CC Custom Policy rule.
 	PolicyText *string `pulumi:"policyText"`
 }
 
@@ -182,13 +182,13 @@ type ConfigRuleCustomPolicyDetailsInput interface {
 	ToConfigRuleCustomPolicyDetailsOutputWithContext(context.Context) ConfigRuleCustomPolicyDetailsOutput
 }
 
-// Custom policy details when rule is custom owned
+// Provides the CustomPolicyDetails, the rule owner (```` for managed rules, “CUSTOM_POLICY“ for Custom Policy rules, and “CUSTOM_LAMBDA“ for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
 type ConfigRuleCustomPolicyDetailsArgs struct {
-	// Logging toggle for custom policy rule
+	// The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is ``false``.
 	EnableDebugLogDelivery pulumi.BoolPtrInput `pulumi:"enableDebugLogDelivery"`
-	// Runtime system for custom policy rule
+	// The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
 	PolicyRuntime pulumi.StringPtrInput `pulumi:"policyRuntime"`
-	// Policy definition containing logic for custom policy rule
+	// The policy definition containing the logic for your CC Custom Policy rule.
 	PolicyText pulumi.StringPtrInput `pulumi:"policyText"`
 }
 
@@ -245,7 +245,7 @@ func (i *configRuleCustomPolicyDetailsPtrType) ToConfigRuleCustomPolicyDetailsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleCustomPolicyDetailsPtrOutput)
 }
 
-// Custom policy details when rule is custom owned
+// Provides the CustomPolicyDetails, the rule owner (```` for managed rules, “CUSTOM_POLICY“ for Custom Policy rules, and “CUSTOM_LAMBDA“ for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
 type ConfigRuleCustomPolicyDetailsOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleCustomPolicyDetailsOutput) ElementType() reflect.Type {
@@ -270,17 +270,17 @@ func (o ConfigRuleCustomPolicyDetailsOutput) ToConfigRuleCustomPolicyDetailsPtrO
 	}).(ConfigRuleCustomPolicyDetailsPtrOutput)
 }
 
-// Logging toggle for custom policy rule
+// The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is “false“.
 func (o ConfigRuleCustomPolicyDetailsOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigRuleCustomPolicyDetails) *bool { return v.EnableDebugLogDelivery }).(pulumi.BoolPtrOutput)
 }
 
-// Runtime system for custom policy rule
+// The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
 func (o ConfigRuleCustomPolicyDetailsOutput) PolicyRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleCustomPolicyDetails) *string { return v.PolicyRuntime }).(pulumi.StringPtrOutput)
 }
 
-// Policy definition containing logic for custom policy rule
+// The policy definition containing the logic for your CC Custom Policy rule.
 func (o ConfigRuleCustomPolicyDetailsOutput) PolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleCustomPolicyDetails) *string { return v.PolicyText }).(pulumi.StringPtrOutput)
 }
@@ -309,7 +309,7 @@ func (o ConfigRuleCustomPolicyDetailsPtrOutput) Elem() ConfigRuleCustomPolicyDet
 	}).(ConfigRuleCustomPolicyDetailsOutput)
 }
 
-// Logging toggle for custom policy rule
+// The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is “false“.
 func (o ConfigRuleCustomPolicyDetailsPtrOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) *bool {
 		if v == nil {
@@ -319,7 +319,7 @@ func (o ConfigRuleCustomPolicyDetailsPtrOutput) EnableDebugLogDelivery() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Runtime system for custom policy rule
+// The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
 func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) *string {
 		if v == nil {
@@ -329,7 +329,7 @@ func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyRuntime() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy definition containing logic for custom policy rule
+// The policy definition containing the logic for your CC Custom Policy rule.
 func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) *string {
 		if v == nil {
@@ -339,9 +339,9 @@ func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyText() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Evaluation mode for the AWS Config rule
+// The configuration object for CC rule evaluation mode. The supported valid values are Detective or Proactive.
 type ConfigRuleEvaluationModeConfiguration struct {
-	// Mode of evaluation of AWS Config rule
+	// The mode of an evaluation. The valid values are Detective or Proactive.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -356,9 +356,9 @@ type ConfigRuleEvaluationModeConfigurationInput interface {
 	ToConfigRuleEvaluationModeConfigurationOutputWithContext(context.Context) ConfigRuleEvaluationModeConfigurationOutput
 }
 
-// Evaluation mode for the AWS Config rule
+// The configuration object for CC rule evaluation mode. The supported valid values are Detective or Proactive.
 type ConfigRuleEvaluationModeConfigurationArgs struct {
-	// Mode of evaluation of AWS Config rule
+	// The mode of an evaluation. The valid values are Detective or Proactive.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -399,7 +399,7 @@ func (i ConfigRuleEvaluationModeConfigurationArray) ToConfigRuleEvaluationModeCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleEvaluationModeConfigurationArrayOutput)
 }
 
-// Evaluation mode for the AWS Config rule
+// The configuration object for CC rule evaluation mode. The supported valid values are Detective or Proactive.
 type ConfigRuleEvaluationModeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleEvaluationModeConfigurationOutput) ElementType() reflect.Type {
@@ -414,7 +414,7 @@ func (o ConfigRuleEvaluationModeConfigurationOutput) ToConfigRuleEvaluationModeC
 	return o
 }
 
-// Mode of evaluation of AWS Config rule
+// The mode of an evaluation. The valid values are Detective or Proactive.
 func (o ConfigRuleEvaluationModeConfigurationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleEvaluationModeConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -439,15 +439,15 @@ func (o ConfigRuleEvaluationModeConfigurationArrayOutput) Index(i pulumi.IntInpu
 	}).(ConfigRuleEvaluationModeConfigurationOutput)
 }
 
-// Scope to constrain which resources can trigger the rule
+// Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
 type ConfigRuleScope struct {
-	// ID of the only one resource which we want to trigger the rule
+	// The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
 	ComplianceResourceId *string `pulumi:"complianceResourceId"`
-	// Resource types of resources which we want to trigger the rule
+	// The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
 	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
-	// Tag key applied only to resources which we want to trigger the rule
+	// The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
 	TagKey *string `pulumi:"tagKey"`
-	// Tag value applied only to resources which we want to trigger the rule
+	// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for ``TagValue``, you must also specify a value for ``TagKey``.
 	TagValue *string `pulumi:"tagValue"`
 }
 
@@ -462,15 +462,15 @@ type ConfigRuleScopeInput interface {
 	ToConfigRuleScopeOutputWithContext(context.Context) ConfigRuleScopeOutput
 }
 
-// Scope to constrain which resources can trigger the rule
+// Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
 type ConfigRuleScopeArgs struct {
-	// ID of the only one resource which we want to trigger the rule
+	// The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
 	ComplianceResourceId pulumi.StringPtrInput `pulumi:"complianceResourceId"`
-	// Resource types of resources which we want to trigger the rule
+	// The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
 	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
-	// Tag key applied only to resources which we want to trigger the rule
+	// The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Tag value applied only to resources which we want to trigger the rule
+	// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for ``TagValue``, you must also specify a value for ``TagKey``.
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
@@ -527,7 +527,7 @@ func (i *configRuleScopePtrType) ToConfigRuleScopePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleScopePtrOutput)
 }
 
-// Scope to constrain which resources can trigger the rule
+// Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
 type ConfigRuleScopeOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleScopeOutput) ElementType() reflect.Type {
@@ -552,22 +552,22 @@ func (o ConfigRuleScopeOutput) ToConfigRuleScopePtrOutputWithContext(ctx context
 	}).(ConfigRuleScopePtrOutput)
 }
 
-// ID of the only one resource which we want to trigger the rule
+// The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for “ComplianceResourceTypes“.
 func (o ConfigRuleScopeOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleScope) *string { return v.ComplianceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Resource types of resources which we want to trigger the rule
+// The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for “ComplianceResourceId“.
 func (o ConfigRuleScopeOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigRuleScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Tag key applied only to resources which we want to trigger the rule
+// The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
 func (o ConfigRuleScopeOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleScope) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
-// Tag value applied only to resources which we want to trigger the rule
+// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for “TagValue“, you must also specify a value for “TagKey“.
 func (o ConfigRuleScopeOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleScope) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -596,7 +596,7 @@ func (o ConfigRuleScopePtrOutput) Elem() ConfigRuleScopeOutput {
 	}).(ConfigRuleScopeOutput)
 }
 
-// ID of the only one resource which we want to trigger the rule
+// The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for “ComplianceResourceTypes“.
 func (o ConfigRuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleScope) *string {
 		if v == nil {
@@ -606,7 +606,7 @@ func (o ConfigRuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource types of resources which we want to trigger the rule
+// The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for “ComplianceResourceId“.
 func (o ConfigRuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigRuleScope) []string {
 		if v == nil {
@@ -616,7 +616,7 @@ func (o ConfigRuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Tag key applied only to resources which we want to trigger the rule
+// The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
 func (o ConfigRuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleScope) *string {
 		if v == nil {
@@ -626,7 +626,7 @@ func (o ConfigRuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tag value applied only to resources which we want to trigger the rule
+// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for “TagValue“, you must also specify a value for “TagKey“.
 func (o ConfigRuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleScope) *string {
 		if v == nil {
@@ -636,15 +636,20 @@ func (o ConfigRuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source of events for the config rule
+// Provides the CustomPolicyDetails, the rule owner (```` for managed rules, “CUSTOM_POLICY“ for Custom Policy rules, and “CUSTOM_LAMBDA“ for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
 type ConfigRuleSource struct {
-	// Custom policy details when rule is custom owned
+	// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to ``CUSTOM_POLICY``.
 	CustomPolicyDetails *ConfigRuleCustomPolicyDetails `pulumi:"customPolicyDetails"`
-	// Owner of the config rule
+	// Indicates whether AWS or the customer owns and manages the CC rule.
+	//   CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+	//   CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
 	Owner string `pulumi:"owner"`
-	// List of message types that can trigger the rule
+	// Provides the source and the message types that cause CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic.
+	//  If the owner is set to ``CUSTOM_POLICY``, the only acceptable values for the CC rule trigger message type are ``ConfigurationItemChangeNotification`` and ``OversizedConfigurationItemChangeNotification``.
 	SourceDetails []ConfigRuleSourceDetail `pulumi:"sourceDetails"`
-	// Identifier for the source of events
+	// For CC Managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+	//  For CC Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's LAMlong function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name``.
+	//  For CC Custom Policy rules, this field will be ignored.
 	SourceIdentifier *string `pulumi:"sourceIdentifier"`
 }
 
@@ -659,15 +664,20 @@ type ConfigRuleSourceInput interface {
 	ToConfigRuleSourceOutputWithContext(context.Context) ConfigRuleSourceOutput
 }
 
-// Source of events for the config rule
+// Provides the CustomPolicyDetails, the rule owner (```` for managed rules, “CUSTOM_POLICY“ for Custom Policy rules, and “CUSTOM_LAMBDA“ for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
 type ConfigRuleSourceArgs struct {
-	// Custom policy details when rule is custom owned
+	// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to ``CUSTOM_POLICY``.
 	CustomPolicyDetails ConfigRuleCustomPolicyDetailsPtrInput `pulumi:"customPolicyDetails"`
-	// Owner of the config rule
+	// Indicates whether AWS or the customer owns and manages the CC rule.
+	//   CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+	//   CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
 	Owner pulumi.StringInput `pulumi:"owner"`
-	// List of message types that can trigger the rule
+	// Provides the source and the message types that cause CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic.
+	//  If the owner is set to ``CUSTOM_POLICY``, the only acceptable values for the CC rule trigger message type are ``ConfigurationItemChangeNotification`` and ``OversizedConfigurationItemChangeNotification``.
 	SourceDetails ConfigRuleSourceDetailArrayInput `pulumi:"sourceDetails"`
-	// Identifier for the source of events
+	// For CC Managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+	//  For CC Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's LAMlong function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name``.
+	//  For CC Custom Policy rules, this field will be ignored.
 	SourceIdentifier pulumi.StringPtrInput `pulumi:"sourceIdentifier"`
 }
 
@@ -683,7 +693,7 @@ func (i ConfigRuleSourceArgs) ToConfigRuleSourceOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceOutput)
 }
 
-// Source of events for the config rule
+// Provides the CustomPolicyDetails, the rule owner (```` for managed rules, “CUSTOM_POLICY“ for Custom Policy rules, and “CUSTOM_LAMBDA“ for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
 type ConfigRuleSourceOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleSourceOutput) ElementType() reflect.Type {
@@ -698,22 +708,30 @@ func (o ConfigRuleSourceOutput) ToConfigRuleSourceOutputWithContext(ctx context.
 	return o
 }
 
-// Custom policy details when rule is custom owned
+// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to “CUSTOM_POLICY“.
 func (o ConfigRuleSourceOutput) CustomPolicyDetails() ConfigRuleCustomPolicyDetailsPtrOutput {
 	return o.ApplyT(func(v ConfigRuleSource) *ConfigRuleCustomPolicyDetails { return v.CustomPolicyDetails }).(ConfigRuleCustomPolicyDetailsPtrOutput)
 }
 
-// Owner of the config rule
+// Indicates whether AWS or the customer owns and manages the CC rule.
+//
+//	CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+//	CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
 func (o ConfigRuleSourceOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSource) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// List of message types that can trigger the rule
+// Provides the source and the message types that cause CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic.
+//
+//	If the owner is set to ``CUSTOM_POLICY``, the only acceptable values for the CC rule trigger message type are ``ConfigurationItemChangeNotification`` and ``OversizedConfigurationItemChangeNotification``.
 func (o ConfigRuleSourceOutput) SourceDetails() ConfigRuleSourceDetailArrayOutput {
 	return o.ApplyT(func(v ConfigRuleSource) []ConfigRuleSourceDetail { return v.SourceDetails }).(ConfigRuleSourceDetailArrayOutput)
 }
 
-// Identifier for the source of events
+// For CC Managed rules, a predefined identifier from a list. For example, “IAM_PASSWORD_POLICY“ is a managed rule. To reference a managed rule, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+//
+//	For CC Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's LAMlong function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name``.
+//	For CC Custom Policy rules, this field will be ignored.
 func (o ConfigRuleSourceOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleSource) *string { return v.SourceIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -742,7 +760,7 @@ func (o ConfigRuleSourcePtrOutput) Elem() ConfigRuleSourceOutput {
 	}).(ConfigRuleSourceOutput)
 }
 
-// Custom policy details when rule is custom owned
+// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to “CUSTOM_POLICY“.
 func (o ConfigRuleSourcePtrOutput) CustomPolicyDetails() ConfigRuleCustomPolicyDetailsPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleSource) *ConfigRuleCustomPolicyDetails {
 		if v == nil {
@@ -752,7 +770,10 @@ func (o ConfigRuleSourcePtrOutput) CustomPolicyDetails() ConfigRuleCustomPolicyD
 	}).(ConfigRuleCustomPolicyDetailsPtrOutput)
 }
 
-// Owner of the config rule
+// Indicates whether AWS or the customer owns and manages the CC rule.
+//
+//	CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+//	CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
 func (o ConfigRuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleSource) *string {
 		if v == nil {
@@ -762,7 +783,9 @@ func (o ConfigRuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of message types that can trigger the rule
+// Provides the source and the message types that cause CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic.
+//
+//	If the owner is set to ``CUSTOM_POLICY``, the only acceptable values for the CC rule trigger message type are ``ConfigurationItemChangeNotification`` and ``OversizedConfigurationItemChangeNotification``.
 func (o ConfigRuleSourcePtrOutput) SourceDetails() ConfigRuleSourceDetailArrayOutput {
 	return o.ApplyT(func(v *ConfigRuleSource) []ConfigRuleSourceDetail {
 		if v == nil {
@@ -772,7 +795,10 @@ func (o ConfigRuleSourcePtrOutput) SourceDetails() ConfigRuleSourceDetailArrayOu
 	}).(ConfigRuleSourceDetailArrayOutput)
 }
 
-// Identifier for the source of events
+// For CC Managed rules, a predefined identifier from a list. For example, “IAM_PASSWORD_POLICY“ is a managed rule. To reference a managed rule, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+//
+//	For CC Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's LAMlong function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name``.
+//	For CC Custom Policy rules, this field will be ignored.
 func (o ConfigRuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleSource) *string {
 		if v == nil {
@@ -782,13 +808,21 @@ func (o ConfigRuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source and message type that can trigger the rule
+// Provides the source and the message types that trigger CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for “SourceDetail“ only for custom rules.
 type ConfigRuleSourceDetail struct {
-	// Source of event that can trigger the rule
+	// The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
 	EventSource string `pulumi:"eventSource"`
-	// Frequency at which the rule has to be evaluated
+	// The frequency at which you want CC to run evaluations for a custom rule with a periodic trigger. If you specify a value for ``MaximumExecutionFrequency``, then ``MessageType`` must use the ``ScheduledNotification`` value.
+	//   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
+	//  Based on the valid value you choose, CC runs evaluations once for each valid value. For example, if you choose ``Three_Hours``, CC runs evaluations once every three hours. In this case, ``Three_Hours`` is the frequency of this rule.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
-	// Notification type that can trigger the rule
+	// The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
+	//   +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+	//   +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+	//   +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
+	//   +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+	//
+	//  If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
 	MessageType string `pulumi:"messageType"`
 }
 
@@ -803,13 +837,21 @@ type ConfigRuleSourceDetailInput interface {
 	ToConfigRuleSourceDetailOutputWithContext(context.Context) ConfigRuleSourceDetailOutput
 }
 
-// Source and message type that can trigger the rule
+// Provides the source and the message types that trigger CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for “SourceDetail“ only for custom rules.
 type ConfigRuleSourceDetailArgs struct {
-	// Source of event that can trigger the rule
+	// The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
 	EventSource pulumi.StringInput `pulumi:"eventSource"`
-	// Frequency at which the rule has to be evaluated
+	// The frequency at which you want CC to run evaluations for a custom rule with a periodic trigger. If you specify a value for ``MaximumExecutionFrequency``, then ``MessageType`` must use the ``ScheduledNotification`` value.
+	//   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
+	//  Based on the valid value you choose, CC runs evaluations once for each valid value. For example, if you choose ``Three_Hours``, CC runs evaluations once every three hours. In this case, ``Three_Hours`` is the frequency of this rule.
 	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
-	// Notification type that can trigger the rule
+	// The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
+	//   +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+	//   +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+	//   +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
+	//   +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+	//
+	//  If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
 	MessageType pulumi.StringInput `pulumi:"messageType"`
 }
 
@@ -850,7 +892,7 @@ func (i ConfigRuleSourceDetailArray) ToConfigRuleSourceDetailArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceDetailArrayOutput)
 }
 
-// Source and message type that can trigger the rule
+// Provides the source and the message types that trigger CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for “SourceDetail“ only for custom rules.
 type ConfigRuleSourceDetailOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleSourceDetailOutput) ElementType() reflect.Type {
@@ -865,17 +907,30 @@ func (o ConfigRuleSourceDetailOutput) ToConfigRuleSourceDetailOutputWithContext(
 	return o
 }
 
-// Source of event that can trigger the rule
+// The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
 func (o ConfigRuleSourceDetailOutput) EventSource() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSourceDetail) string { return v.EventSource }).(pulumi.StringOutput)
 }
 
-// Frequency at which the rule has to be evaluated
+// The frequency at which you want CC to run evaluations for a custom rule with a periodic trigger. If you specify a value for “MaximumExecutionFrequency“, then “MessageType“ must use the “ScheduledNotification“ value.
+//
+//	 By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
+//	Based on the valid value you choose, CC runs evaluations once for each valid value. For example, if you choose ``Three_Hours``, CC runs evaluations once every three hours. In this case, ``Three_Hours`` is the frequency of this rule.
 func (o ConfigRuleSourceDetailOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleSourceDetail) *string { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Notification type that can trigger the rule
+// The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
+//
+//   - “ConfigurationItemChangeNotification“ - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+//
+//   - “OversizedConfigurationItemChangeNotification“ - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+//
+//   - “ScheduledNotification“ - Triggers a periodic evaluation at the frequency specified for “MaximumExecutionFrequency“.
+//
+//   - “ConfigurationSnapshotDeliveryCompleted“ - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+//
+//     If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for “ConfigurationItemChangeNotification“ and one for “OversizedConfigurationItemChangeNotification“.
 func (o ConfigRuleSourceDetailOutput) MessageType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSourceDetail) string { return v.MessageType }).(pulumi.StringOutput)
 }

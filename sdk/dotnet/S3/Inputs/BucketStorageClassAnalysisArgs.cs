@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class BucketStorageClassAnalysisArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+        /// </summary>
         [Input("dataExport")]
         public Input<Inputs.BucketDataExportArgs>? DataExport { get; set; }
 

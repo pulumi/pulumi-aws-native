@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
+    /// <summary>
+    /// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+    ///  Available options:
+    ///   + EnableResourceNameDnsAAAARecord (true | false)
+    ///  + EnableResourceNameDnsARecord (true | false)
+    ///  + HostnameType (ip-name | resource-name)
+    /// </summary>
     public sealed class PrivateDnsNameOptionsOnLaunchPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("enableResourceNameDnsARecord")]

@@ -19,6 +19,9 @@ class VolumeAttachmentArgs:
                  device: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VolumeAttachment resource.
+        :param pulumi.Input[str] instance_id: The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
+        :param pulumi.Input[str] volume_id: The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
+        :param pulumi.Input[str] device: The device name (for example, ``/dev/sdh`` or ``xvdh``).
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "volume_id", volume_id)
@@ -28,6 +31,9 @@ class VolumeAttachmentArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -37,6 +43,9 @@ class VolumeAttachmentArgs:
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
+        """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
@@ -46,6 +55,9 @@ class VolumeAttachmentArgs:
     @property
     @pulumi.getter
     def device(self) -> Optional[pulumi.Input[str]]:
+        """
+        The device name (for example, ``/dev/sdh`` or ``xvdh``).
+        """
         return pulumi.get(self, "device")
 
     @device.setter
@@ -63,10 +75,16 @@ class VolumeAttachment(pulumi.CustomResource):
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::VolumeAttachment
+        Attaches an Amazon EBS volume to a running instance and exposes it to the instance with the specified device name.
+         Before this resource can be deleted (and therefore the volume detached), you must first unmount the volume in the instance. Failure to do so results in the volume being stuck in the busy state while it is trying to detach, which could possibly damage the file system or the data it contains.
+         If an Amazon EBS volume is the root device of an instance, it cannot be detached while the instance is in the "running" state. To detach the root volume, stop the instance first.
+         If the root volume is detached from an instance with an MKT product code, then the product codes from that volume are no longer associated with the instance.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] device: The device name (for example, ``/dev/sdh`` or ``xvdh``).
+        :param pulumi.Input[str] instance_id: The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
+        :param pulumi.Input[str] volume_id: The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
         """
         ...
     @overload
@@ -75,7 +93,10 @@ class VolumeAttachment(pulumi.CustomResource):
                  args: VolumeAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::VolumeAttachment
+        Attaches an Amazon EBS volume to a running instance and exposes it to the instance with the specified device name.
+         Before this resource can be deleted (and therefore the volume detached), you must first unmount the volume in the instance. Failure to do so results in the volume being stuck in the busy state while it is trying to detach, which could possibly damage the file system or the data it contains.
+         If an Amazon EBS volume is the root device of an instance, it cannot be detached while the instance is in the "running" state. To detach the root volume, stop the instance first.
+         If the root volume is detached from an instance with an MKT product code, then the product codes from that volume are no longer associated with the instance.
 
         :param str resource_name: The name of the resource.
         :param VolumeAttachmentArgs args: The arguments to use to populate this resource's properties.
@@ -143,15 +164,24 @@ class VolumeAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def device(self) -> pulumi.Output[Optional[str]]:
+        """
+        The device name (for example, ``/dev/sdh`` or ``xvdh``).
+        """
         return pulumi.get(self, "device")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an [AWS::EC2::Volume](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html) resource, or it can be the volume ID of an existing Amazon EBS volume.
+        """
         return pulumi.get(self, "volume_id")
 

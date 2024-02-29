@@ -18,10 +18,10 @@ type OriginEndpoint struct {
 	pulumi.CustomResourceState
 
 	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
-	Arn              pulumi.StringOutput               `pulumi:"arn"`
-	ChannelGroupName pulumi.StringPtrOutput            `pulumi:"channelGroupName"`
-	ChannelName      pulumi.StringPtrOutput            `pulumi:"channelName"`
-	ContainerType    OriginEndpointContainerTypeOutput `pulumi:"containerType"`
+	Arn              pulumi.StringOutput                  `pulumi:"arn"`
+	ChannelGroupName pulumi.StringOutput                  `pulumi:"channelGroupName"`
+	ChannelName      pulumi.StringOutput                  `pulumi:"channelName"`
+	ContainerType    OriginEndpointContainerTypePtrOutput `pulumi:"containerType"`
 	// <p>The date and time the origin endpoint was created.</p>
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
@@ -32,7 +32,7 @@ type OriginEndpoint struct {
 	LowLatencyHlsManifests OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput `pulumi:"lowLatencyHlsManifests"`
 	// <p>The date and time the origin endpoint was modified.</p>
 	ModifiedAt         pulumi.StringOutput            `pulumi:"modifiedAt"`
-	OriginEndpointName pulumi.StringPtrOutput         `pulumi:"originEndpointName"`
+	OriginEndpointName pulumi.StringOutput            `pulumi:"originEndpointName"`
 	Segment            OriginEndpointSegmentPtrOutput `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds pulumi.IntPtrOutput `pulumi:"startoverWindowSeconds"`
@@ -46,8 +46,11 @@ func NewOriginEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ContainerType == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerType'")
+	if args.ChannelGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelGroupName'")
+	}
+	if args.ChannelName == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelName'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"channelGroupName",
@@ -88,9 +91,9 @@ func (OriginEndpointState) ElementType() reflect.Type {
 }
 
 type originEndpointArgs struct {
-	ChannelGroupName *string                     `pulumi:"channelGroupName"`
-	ChannelName      *string                     `pulumi:"channelName"`
-	ContainerType    OriginEndpointContainerType `pulumi:"containerType"`
+	ChannelGroupName string                       `pulumi:"channelGroupName"`
+	ChannelName      string                       `pulumi:"channelName"`
+	ContainerType    *OriginEndpointContainerType `pulumi:"containerType"`
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 	Description *string `pulumi:"description"`
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
@@ -106,9 +109,9 @@ type originEndpointArgs struct {
 
 // The set of arguments for constructing a OriginEndpoint resource.
 type OriginEndpointArgs struct {
-	ChannelGroupName pulumi.StringPtrInput
-	ChannelName      pulumi.StringPtrInput
-	ContainerType    OriginEndpointContainerTypeInput
+	ChannelGroupName pulumi.StringInput
+	ChannelName      pulumi.StringInput
+	ContainerType    OriginEndpointContainerTypePtrInput
 	// <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
 	Description pulumi.StringPtrInput
 	// <p>An HTTP live streaming (HLS) manifest configuration.</p>
@@ -164,16 +167,16 @@ func (o OriginEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o OriginEndpointOutput) ChannelGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringPtrOutput { return v.ChannelGroupName }).(pulumi.StringPtrOutput)
+func (o OriginEndpointOutput) ChannelGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.ChannelGroupName }).(pulumi.StringOutput)
 }
 
-func (o OriginEndpointOutput) ChannelName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringPtrOutput { return v.ChannelName }).(pulumi.StringPtrOutput)
+func (o OriginEndpointOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
 
-func (o OriginEndpointOutput) ContainerType() OriginEndpointContainerTypeOutput {
-	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointContainerTypeOutput { return v.ContainerType }).(OriginEndpointContainerTypeOutput)
+func (o OriginEndpointOutput) ContainerType() OriginEndpointContainerTypePtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointContainerTypePtrOutput { return v.ContainerType }).(OriginEndpointContainerTypePtrOutput)
 }
 
 // <p>The date and time the origin endpoint was created.</p>
@@ -203,8 +206,8 @@ func (o OriginEndpointOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
-func (o OriginEndpointOutput) OriginEndpointName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringPtrOutput { return v.OriginEndpointName }).(pulumi.StringPtrOutput)
+func (o OriginEndpointOutput) OriginEndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.OriginEndpointName }).(pulumi.StringOutput)
 }
 
 func (o OriginEndpointOutput) Segment() OriginEndpointSegmentPtrOutput {

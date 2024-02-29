@@ -42,26 +42,41 @@ class GetChannelGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        <p>The date and time the channel group was created.</p>
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        <p>Enter any descriptive text that helps you to identify the channel group.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="egressDomain")
     def egress_domain(self) -> Optional[str]:
+        """
+        <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
+        """
         return pulumi.get(self, "egress_domain")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[str]:
+        """
+        <p>The date and time the channel group was modified.</p>
+        """
         return pulumi.get(self, "modified_at")
 
     @property
@@ -87,7 +102,10 @@ class AwaitableGetChannelGroupResult(GetChannelGroupResult):
 def get_channel_group(arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelGroupResult:
     """
-    Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+    <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
+
+
+    :param str arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -107,6 +125,9 @@ def get_channel_group(arn: Optional[str] = None,
 def get_channel_group_output(arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelGroupResult]:
     """
-    Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+    <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
+
+
+    :param str arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>
     """
     ...

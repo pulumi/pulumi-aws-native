@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("deviceIndex")]
         public Output<string> DeviceIndex { get; private set; } = null!;
 
+        [Output("enaSrdSpecification")]
+        public Output<Outputs.NetworkInterfaceAttachmentEnaSrdSpecification?> EnaSrdSpecification { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the instance to which you will attach the ENI.
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("deviceIndex", required: true)]
         public Input<string> DeviceIndex { get; set; } = null!;
+
+        [Input("enaSrdSpecification")]
+        public Input<Inputs.NetworkInterfaceAttachmentEnaSrdSpecificationArgs>? EnaSrdSpecification { get; set; }
 
         /// <summary>
         /// The ID of the instance to which you will attach the ENI.

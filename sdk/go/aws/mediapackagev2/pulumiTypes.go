@@ -18,11 +18,15 @@ type ChannelGroupTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// <p>The ingest domain URL where the source stream should be sent.</p>
 type ChannelIngestEndpoint struct {
-	Id  *string `pulumi:"id"`
+	// <p>The system-generated unique identifier for the IngestEndpoint.</p>
+	Id *string `pulumi:"id"`
+	// <p>The ingest domain URL where the source stream should be sent.</p>
 	Url *string `pulumi:"url"`
 }
 
+// <p>The ingest domain URL where the source stream should be sent.</p>
 type ChannelIngestEndpointOutput struct{ *pulumi.OutputState }
 
 func (ChannelIngestEndpointOutput) ElementType() reflect.Type {
@@ -37,10 +41,12 @@ func (o ChannelIngestEndpointOutput) ToChannelIngestEndpointOutputWithContext(ct
 	return o
 }
 
+// <p>The system-generated unique identifier for the IngestEndpoint.</p>
 func (o ChannelIngestEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// <p>The ingest domain URL where the source stream should be sent.</p>
 func (o ChannelIngestEndpointOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
 }

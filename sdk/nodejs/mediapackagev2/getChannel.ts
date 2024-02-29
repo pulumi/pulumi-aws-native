@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::MediaPackageV2::Channel Resource Type
+ * <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
 
@@ -19,24 +19,45 @@ export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetChannelArgs {
+    /**
+     * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+     */
     arn: string;
 }
 
 export interface GetChannelResult {
+    /**
+     * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+     */
     readonly arn?: string;
+    /**
+     * <p>The date and time the channel was created.</p>
+     */
     readonly createdAt?: string;
+    /**
+     * <p>Enter any descriptive text that helps you to identify the channel.</p>
+     */
     readonly description?: string;
+    /**
+     * <p>The list of ingest endpoints.</p>
+     */
     readonly ingestEndpoints?: outputs.mediapackagev2.ChannelIngestEndpoint[];
+    /**
+     * <p>The date and time the channel was modified.</p>
+     */
     readonly modifiedAt?: string;
     readonly tags?: outputs.Tag[];
 }
 /**
- * Definition of AWS::MediaPackageV2::Channel Resource Type
+ * <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
     return pulumi.output(args).apply((a: any) => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {
+    /**
+     * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+     */
     arn: pulumi.Input<string>;
 }

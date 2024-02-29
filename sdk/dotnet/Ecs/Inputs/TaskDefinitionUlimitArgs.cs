@@ -10,14 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// The ``ulimit`` settings to pass to the container.
+    ///  Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``1024`` and the default hard limit is ``65535``.
+    ///  You can specify the ``ulimit`` settings for a container in a task definition.
+    /// </summary>
     public sealed class TaskDefinitionUlimitArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The hard limit for the ``ulimit`` type.
+        /// </summary>
         [Input("hardLimit", required: true)]
         public Input<int> HardLimit { get; set; } = null!;
 
+        /// <summary>
+        /// The ``type`` of the ``ulimit``.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The soft limit for the ``ulimit`` type.
+        /// </summary>
         [Input("softLimit", required: true)]
         public Input<int> SoftLimit { get; set; } = null!;
 

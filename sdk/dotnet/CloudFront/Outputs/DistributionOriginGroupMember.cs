@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// An origin in an origin group.
+    /// </summary>
     [OutputType]
     public sealed class DistributionOriginGroupMember
     {
+        /// <summary>
+        /// The ID for an origin in an origin group.
+        /// </summary>
         public readonly string OriginId;
 
         [OutputConstructor]

@@ -12,13 +12,15 @@ namespace Pulumi.AwsNative.Iam
     public static class GetInstanceProfile
     {
         /// <summary>
-        /// Resource Type definition for AWS::IAM::InstanceProfile
+        /// Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
+        ///   For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
         /// </summary>
         public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::IAM::InstanceProfile
+        /// Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
+        ///   For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
         /// </summary>
         public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
@@ -29,6 +31,7 @@ namespace Pulumi.AwsNative.Iam
     {
         /// <summary>
         /// The name of the instance profile to create.
+        ///  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         /// </summary>
         [Input("instanceProfileName", required: true)]
         public string InstanceProfileName { get; set; } = null!;
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.Iam
     {
         /// <summary>
         /// The name of the instance profile to create.
+        ///  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         /// </summary>
         [Input("instanceProfileName", required: true)]
         public Input<string> InstanceProfileName { get; set; } = null!;
@@ -57,9 +61,6 @@ namespace Pulumi.AwsNative.Iam
     [OutputType]
     public sealed class GetInstanceProfileResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance profile.
-        /// </summary>
         public readonly string? Arn;
         /// <summary>
         /// The name of the role to associate with the instance profile. Only one role can be assigned to an EC2 instance at a time, and all applications on the instance share the same role and permissions.

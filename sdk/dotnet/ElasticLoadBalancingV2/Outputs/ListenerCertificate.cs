@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 {
 
+    /// <summary>
+    /// Specifies an SSL server certificate to use as the default certificate for a secure listener.
+    /// </summary>
     [OutputType]
     public sealed class ListenerCertificate
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificate.
+        /// </summary>
         public readonly string? CertificateArn;
 
         [OutputConstructor]

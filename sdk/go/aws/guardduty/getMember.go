@@ -23,13 +23,13 @@ func LookupMember(ctx *pulumi.Context, args *LookupMemberArgs, opts ...pulumi.In
 }
 
 type LookupMemberArgs struct {
-	MemberId string `pulumi:"memberId"`
+	DetectorId string `pulumi:"detectorId"`
+	MemberId   string `pulumi:"memberId"`
 }
 
 type LookupMemberResult struct {
-	DisableEmailNotification *bool   `pulumi:"disableEmailNotification"`
-	Message                  *string `pulumi:"message"`
-	Status                   *string `pulumi:"status"`
+	Email  *string `pulumi:"email"`
+	Status *string `pulumi:"status"`
 }
 
 func LookupMemberOutput(ctx *pulumi.Context, args LookupMemberOutputArgs, opts ...pulumi.InvokeOption) LookupMemberResultOutput {
@@ -46,7 +46,8 @@ func LookupMemberOutput(ctx *pulumi.Context, args LookupMemberOutputArgs, opts .
 }
 
 type LookupMemberOutputArgs struct {
-	MemberId pulumi.StringInput `pulumi:"memberId"`
+	DetectorId pulumi.StringInput `pulumi:"detectorId"`
+	MemberId   pulumi.StringInput `pulumi:"memberId"`
 }
 
 func (LookupMemberOutputArgs) ElementType() reflect.Type {
@@ -67,12 +68,8 @@ func (o LookupMemberResultOutput) ToLookupMemberResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o LookupMemberResultOutput) DisableEmailNotification() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupMemberResult) *bool { return v.DisableEmailNotification }).(pulumi.BoolPtrOutput)
-}
-
-func (o LookupMemberResultOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupMemberResult) *string { return v.Message }).(pulumi.StringPtrOutput)
+func (o LookupMemberResultOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMemberResult) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupMemberResultOutput) Status() pulumi.StringPtrOutput {

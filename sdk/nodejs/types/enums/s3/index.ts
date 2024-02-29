@@ -49,7 +49,7 @@ export const BucketAccelerateConfigurationAccelerationStatus = {
 } as const;
 
 /**
- * Configures the transfer acceleration state for an Amazon S3 bucket.
+ * Specifies the transfer acceleration status of the bucket.
  */
 export type BucketAccelerateConfigurationAccelerationStatus = (typeof BucketAccelerateConfigurationAccelerationStatus)[keyof typeof BucketAccelerateConfigurationAccelerationStatus];
 
@@ -65,7 +65,10 @@ export const BucketAccessControl = {
 } as const;
 
 /**
- * A canned access control list (ACL) that grants predefined permissions to the bucket.
+ * This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+ *   A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.
+ *   S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.
+ *   The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
  */
 export type BucketAccessControl = (typeof BucketAccessControl)[keyof typeof BucketAccessControl];
 
@@ -84,6 +87,9 @@ export const BucketDefaultRetentionMode = {
     Governance: "GOVERNANCE",
 } as const;
 
+/**
+ * The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+ */
 export type BucketDefaultRetentionMode = (typeof BucketDefaultRetentionMode)[keyof typeof BucketDefaultRetentionMode];
 
 export const BucketDeleteMarkerReplicationStatus = {
@@ -91,6 +97,9 @@ export const BucketDeleteMarkerReplicationStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Indicates whether to replicate delete markers. Disabled by default.
+ */
 export type BucketDeleteMarkerReplicationStatus = (typeof BucketDeleteMarkerReplicationStatus)[keyof typeof BucketDeleteMarkerReplicationStatus];
 
 export const BucketDestinationFormat = {
@@ -101,6 +110,7 @@ export const BucketDestinationFormat = {
 
 /**
  * Specifies the file format used when exporting data to Amazon S3.
+ *  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
  */
 export type BucketDestinationFormat = (typeof BucketDestinationFormat)[keyof typeof BucketDestinationFormat];
 
@@ -120,7 +130,7 @@ export const BucketInventoryConfigurationIncludedObjectVersions = {
 } as const;
 
 /**
- * Object versions to include in the inventory list.
+ * Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
  */
 export type BucketInventoryConfigurationIncludedObjectVersions = (typeof BucketInventoryConfigurationIncludedObjectVersions)[keyof typeof BucketInventoryConfigurationIncludedObjectVersions];
 
@@ -159,6 +169,9 @@ export const BucketMetricsStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Specifies whether the replication metrics are enabled.
+ */
 export type BucketMetricsStatus = (typeof BucketMetricsStatus)[keyof typeof BucketMetricsStatus];
 
 export const BucketNoncurrentVersionTransitionStorageClass = {
@@ -213,6 +226,7 @@ export const BucketReplicaModificationsStatus = {
 
 /**
  * Specifies whether Amazon S3 replicates modifications on replicas.
+ *  *Allowed values*: ``Enabled`` | ``Disabled``
  */
 export type BucketReplicaModificationsStatus = (typeof BucketReplicaModificationsStatus)[keyof typeof BucketReplicaModificationsStatus];
 
@@ -228,7 +242,8 @@ export const BucketReplicationDestinationStorageClass = {
 } as const;
 
 /**
- * The storage class to use when replicating objects, such as S3 Standard or reduced redundancy.
+ * The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
+ *  For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
  */
 export type BucketReplicationDestinationStorageClass = (typeof BucketReplicationDestinationStorageClass)[keyof typeof BucketReplicationDestinationStorageClass];
 
@@ -247,6 +262,9 @@ export const BucketReplicationTimeStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Specifies whether the replication time is enabled.
+ */
 export type BucketReplicationTimeStatus = (typeof BucketReplicationTimeStatus)[keyof typeof BucketReplicationTimeStatus];
 
 export const BucketRuleStatus = {
@@ -254,6 +272,9 @@ export const BucketRuleStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * If ``Enabled``, the rule is currently being applied. If ``Disabled``, the rule is not currently being applied.
+ */
 export type BucketRuleStatus = (typeof BucketRuleStatus)[keyof typeof BucketRuleStatus];
 
 export const BucketServerSideEncryptionByDefaultSseAlgorithm = {
@@ -262,6 +283,9 @@ export const BucketServerSideEncryptionByDefaultSseAlgorithm = {
     Awskmsdsse: "aws:kms:dsse",
 } as const;
 
+/**
+ * Server-side encryption algorithm to use for the default encryption.
+ */
 export type BucketServerSideEncryptionByDefaultSseAlgorithm = (typeof BucketServerSideEncryptionByDefaultSseAlgorithm)[keyof typeof BucketServerSideEncryptionByDefaultSseAlgorithm];
 
 export const BucketSseKmsEncryptedObjectsStatus = {
@@ -270,7 +294,7 @@ export const BucketSseKmsEncryptedObjectsStatus = {
 } as const;
 
 /**
- * Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
+ * Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
  */
 export type BucketSseKmsEncryptedObjectsStatus = (typeof BucketSseKmsEncryptedObjectsStatus)[keyof typeof BucketSseKmsEncryptedObjectsStatus];
 
@@ -280,7 +304,7 @@ export const BucketTieringAccessTier = {
 } as const;
 
 /**
- * S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class.
+ * S3 Intelligent-Tiering access tier. See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
  */
 export type BucketTieringAccessTier = (typeof BucketTieringAccessTier)[keyof typeof BucketTieringAccessTier];
 
@@ -293,6 +317,9 @@ export const BucketTransitionStorageClass = {
     StandardIa: "STANDARD_IA",
 } as const;
 
+/**
+ * The storage class to which you want the object to transition.
+ */
 export type BucketTransitionStorageClass = (typeof BucketTransitionStorageClass)[keyof typeof BucketTransitionStorageClass];
 
 export const BucketVersioningConfigurationStatus = {

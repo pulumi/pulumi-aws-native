@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.MediaPackageV2
     public static class GetChannelGroup
     {
         /// <summary>
-        /// Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+        /// &lt;p&gt;Represents a channel group that facilitates the grouping of multiple channels.&lt;/p&gt;
         /// </summary>
         public static Task<GetChannelGroupResult> InvokeAsync(GetChannelGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelGroupResult>("aws-native:mediapackagev2:getChannelGroup", args ?? new GetChannelGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+        /// &lt;p&gt;Represents a channel group that facilitates the grouping of multiple channels.&lt;/p&gt;
         /// </summary>
         public static Output<GetChannelGroupResult> Invoke(GetChannelGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelGroupResult>("aws-native:mediapackagev2:getChannelGroup", args ?? new GetChannelGroupInvokeArgs(), options.WithDefaults());
@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class GetChannelGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;/p&gt;
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class GetChannelGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;/p&gt;
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.MediaPackageV2
     [OutputType]
     public sealed class GetChannelGroupResult
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;/p&gt;
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// &lt;p&gt;The date and time the channel group was created.&lt;/p&gt;
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// &lt;p&gt;Enter any descriptive text that helps you to identify the channel group.&lt;/p&gt;
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// &lt;p&gt;The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.&lt;/p&gt;
+        /// </summary>
         public readonly string? EgressDomain;
+        /// <summary>
+        /// &lt;p&gt;The date and time the channel group was modified.&lt;/p&gt;
+        /// </summary>
         public readonly string? ModifiedAt;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

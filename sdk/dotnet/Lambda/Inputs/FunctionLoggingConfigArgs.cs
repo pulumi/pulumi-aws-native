@@ -11,30 +11,30 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// The function's logging configuration.
+    /// The function's Amazon CloudWatch Logs configuration settings.
     /// </summary>
     public sealed class FunctionLoggingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Application log granularity level, can only be used when LogFormat is set to JSON
+        /// Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
         /// </summary>
         [Input("applicationLogLevel")]
         public Input<Pulumi.AwsNative.Lambda.FunctionLoggingConfigApplicationLogLevel>? ApplicationLogLevel { get; set; }
 
         /// <summary>
-        /// Log delivery format for the lambda function
+        /// The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
         /// </summary>
         [Input("logFormat")]
         public Input<Pulumi.AwsNative.Lambda.FunctionLoggingConfigLogFormat>? LogFormat { get; set; }
 
         /// <summary>
-        /// The log group name.
+        /// The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/&lt;function name&gt;``. To use a different log group, enter an existing log group or enter a new log group name.
         /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
 
         /// <summary>
-        /// System log granularity level, can only be used when LogFormat is set to JSON
+        /// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
         /// </summary>
         [Input("systemLogLevel")]
         public Input<Pulumi.AwsNative.Lambda.FunctionLoggingConfigSystemLogLevel>? SystemLogLevel { get; set; }

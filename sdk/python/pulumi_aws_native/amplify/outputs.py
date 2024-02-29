@@ -19,6 +19,8 @@ __all__ = [
     'BranchBackend',
     'BranchBasicAuthConfig',
     'BranchEnvironmentVariable',
+    'DomainCertificate',
+    'DomainCertificateSettings',
     'DomainSubDomainSetting',
 ]
 
@@ -339,6 +341,96 @@ class BranchEnvironmentVariable(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DomainCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+        elif key == "certificateType":
+            suggest = "certificate_type"
+        elif key == "certificateVerificationDnsRecord":
+            suggest = "certificate_verification_dns_record"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_arn: Optional[str] = None,
+                 certificate_type: Optional['DomainCertificateCertificateType'] = None,
+                 certificate_verification_dns_record: Optional[str] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if certificate_type is not None:
+            pulumi.set(__self__, "certificate_type", certificate_type)
+        if certificate_verification_dns_record is not None:
+            pulumi.set(__self__, "certificate_verification_dns_record", certificate_verification_dns_record)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_arn")
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> Optional['DomainCertificateCertificateType']:
+        return pulumi.get(self, "certificate_type")
+
+    @property
+    @pulumi.getter(name="certificateVerificationDnsRecord")
+    def certificate_verification_dns_record(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_verification_dns_record")
+
+
+@pulumi.output_type
+class DomainCertificateSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateType":
+            suggest = "certificate_type"
+        elif key == "customCertificateArn":
+            suggest = "custom_certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainCertificateSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainCertificateSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainCertificateSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_type: Optional['DomainCertificateSettingsCertificateType'] = None,
+                 custom_certificate_arn: Optional[str] = None):
+        if certificate_type is not None:
+            pulumi.set(__self__, "certificate_type", certificate_type)
+        if custom_certificate_arn is not None:
+            pulumi.set(__self__, "custom_certificate_arn", custom_certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateType")
+    def certificate_type(self) -> Optional['DomainCertificateSettingsCertificateType']:
+        return pulumi.get(self, "certificate_type")
+
+    @property
+    @pulumi.getter(name="customCertificateArn")
+    def custom_certificate_arn(self) -> Optional[str]:
+        return pulumi.get(self, "custom_certificate_arn")
 
 
 @pulumi.output_type

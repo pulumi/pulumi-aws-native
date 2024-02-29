@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Outputs
 {
 
+    /// <summary>
+    /// Defines a ``PolicyInformation`` qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
+    /// </summary>
     [OutputType]
     public sealed class CertificateQualifier
     {
+        /// <summary>
+        /// Contains a pointer to a certification practice statement (CPS) published by the CA.
+        /// </summary>
         public readonly string CpsUri;
 
         [OutputConstructor]

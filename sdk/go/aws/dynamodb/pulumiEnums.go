@@ -175,6 +175,7 @@ func (in *globalTableKinesisStreamSpecificationApproximateCreationDateTimePrecis
 	return pulumi.ToOutputWithContext(ctx, in).(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrOutput)
 }
 
+// The precision for the time and date that the stream was created.
 type TableKinesisStreamSpecificationApproximateCreationDateTimePrecision string
 
 const (

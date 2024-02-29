@@ -10,32 +10,62 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
+    /// <summary>
+    /// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+    /// </summary>
     public sealed class CertificateKeyUsageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Key can be used to sign CRLs.
+        /// </summary>
         [Input("crlSign")]
         public Input<bool>? CrlSign { get; set; }
 
+        /// <summary>
+        /// Key can be used to decipher data.
+        /// </summary>
         [Input("dataEncipherment")]
         public Input<bool>? DataEncipherment { get; set; }
 
+        /// <summary>
+        /// Key can be used only to decipher data.
+        /// </summary>
         [Input("decipherOnly")]
         public Input<bool>? DecipherOnly { get; set; }
 
+        /// <summary>
+        /// Key can be used for digital signing.
+        /// </summary>
         [Input("digitalSignature")]
         public Input<bool>? DigitalSignature { get; set; }
 
+        /// <summary>
+        /// Key can be used only to encipher data.
+        /// </summary>
         [Input("encipherOnly")]
         public Input<bool>? EncipherOnly { get; set; }
 
+        /// <summary>
+        /// Key can be used in a key-agreement protocol.
+        /// </summary>
         [Input("keyAgreement")]
         public Input<bool>? KeyAgreement { get; set; }
 
+        /// <summary>
+        /// Key can be used to sign certificates.
+        /// </summary>
         [Input("keyCertSign")]
         public Input<bool>? KeyCertSign { get; set; }
 
+        /// <summary>
+        /// Key can be used to encipher data.
+        /// </summary>
         [Input("keyEncipherment")]
         public Input<bool>? KeyEncipherment { get; set; }
 
+        /// <summary>
+        /// Key can be used for non-repudiation.
+        /// </summary>
         [Input("nonRepudiation")]
         public Input<bool>? NonRepudiation { get; set; }
 

@@ -1137,6 +1137,8 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
             suggest = "cloud_watch_logging_options"
         elif key == "compressionFormat":
             suggest = "compression_format"
+        elif key == "customTimeZone":
+            suggest = "custom_time_zone"
         elif key == "dataFormatConversionConfiguration":
             suggest = "data_format_conversion_configuration"
         elif key == "dynamicPartitioningConfiguration":
@@ -1145,6 +1147,8 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
             suggest = "encryption_configuration"
         elif key == "errorOutputPrefix":
             suggest = "error_output_prefix"
+        elif key == "fileExtension":
+            suggest = "file_extension"
         elif key == "processingConfiguration":
             suggest = "processing_configuration"
         elif key == "s3BackupConfiguration":
@@ -1169,10 +1173,12 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
                  buffering_hints: Optional['outputs.DeliveryStreamBufferingHints'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  compression_format: Optional['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat'] = None,
+                 custom_time_zone: Optional[str] = None,
                  data_format_conversion_configuration: Optional['outputs.DeliveryStreamDataFormatConversionConfiguration'] = None,
                  dynamic_partitioning_configuration: Optional['outputs.DeliveryStreamDynamicPartitioningConfiguration'] = None,
                  encryption_configuration: Optional['outputs.DeliveryStreamEncryptionConfiguration'] = None,
                  error_output_prefix: Optional[str] = None,
+                 file_extension: Optional[str] = None,
                  prefix: Optional[str] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
                  s3_backup_configuration: Optional['outputs.DeliveryStreamS3DestinationConfiguration'] = None,
@@ -1185,6 +1191,8 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if compression_format is not None:
             pulumi.set(__self__, "compression_format", compression_format)
+        if custom_time_zone is not None:
+            pulumi.set(__self__, "custom_time_zone", custom_time_zone)
         if data_format_conversion_configuration is not None:
             pulumi.set(__self__, "data_format_conversion_configuration", data_format_conversion_configuration)
         if dynamic_partitioning_configuration is not None:
@@ -1193,6 +1201,8 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if error_output_prefix is not None:
             pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if processing_configuration is not None:
@@ -1228,6 +1238,11 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         return pulumi.get(self, "compression_format")
 
     @property
+    @pulumi.getter(name="customTimeZone")
+    def custom_time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "custom_time_zone")
+
+    @property
     @pulumi.getter(name="dataFormatConversionConfiguration")
     def data_format_conversion_configuration(self) -> Optional['outputs.DeliveryStreamDataFormatConversionConfiguration']:
         return pulumi.get(self, "data_format_conversion_configuration")
@@ -1246,6 +1261,11 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[str]:
         return pulumi.get(self, "error_output_prefix")
+
+    @property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[str]:
+        return pulumi.get(self, "file_extension")
 
     @property
     @pulumi.getter

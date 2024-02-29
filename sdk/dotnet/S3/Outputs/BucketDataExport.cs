@@ -16,9 +16,12 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketDataExport
     {
+        /// <summary>
+        /// The place to store the data for an analysis.
+        /// </summary>
         public readonly Outputs.BucketDestination Destination;
         /// <summary>
-        /// The version of the output schema to use when exporting data.
+        /// The version of the output schema to use when exporting data. Must be ``V_1``.
         /// </summary>
         public readonly string OutputSchemaVersion;
 

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -46,6 +49,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      * The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
      */
     public readonly deviceIndex!: pulumi.Output<string>;
+    public readonly enaSrdSpecification!: pulumi.Output<outputs.ec2.NetworkInterfaceAttachmentEnaSrdSpecification | undefined>;
     /**
      * The ID of the instance to which you will attach the ENI.
      */
@@ -77,6 +81,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             }
             resourceInputs["deleteOnTermination"] = args ? args.deleteOnTermination : undefined;
             resourceInputs["deviceIndex"] = args ? args.deviceIndex : undefined;
+            resourceInputs["enaSrdSpecification"] = args ? args.enaSrdSpecification : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["attachmentId"] = undefined /*out*/;
@@ -84,6 +89,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["deleteOnTermination"] = undefined /*out*/;
             resourceInputs["deviceIndex"] = undefined /*out*/;
+            resourceInputs["enaSrdSpecification"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
         }
@@ -106,6 +112,7 @@ export interface NetworkInterfaceAttachmentArgs {
      * The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
      */
     deviceIndex: pulumi.Input<string>;
+    enaSrdSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceAttachmentEnaSrdSpecificationArgs>;
     /**
      * The ID of the instance to which you will attach the ENI.
      */

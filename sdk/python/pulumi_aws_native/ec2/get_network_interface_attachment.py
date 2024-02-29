@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetNetworkInterfaceAttachmentResult',
@@ -18,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkInterfaceAttachmentResult:
-    def __init__(__self__, attachment_id=None, delete_on_termination=None):
+    def __init__(__self__, attachment_id=None, delete_on_termination=None, ena_srd_specification=None):
         if attachment_id and not isinstance(attachment_id, str):
             raise TypeError("Expected argument 'attachment_id' to be a str")
         pulumi.set(__self__, "attachment_id", attachment_id)
         if delete_on_termination and not isinstance(delete_on_termination, bool):
             raise TypeError("Expected argument 'delete_on_termination' to be a bool")
         pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if ena_srd_specification and not isinstance(ena_srd_specification, dict):
+            raise TypeError("Expected argument 'ena_srd_specification' to be a dict")
+        pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
 
     @property
     @pulumi.getter(name="attachmentId")
@@ -42,6 +46,11 @@ class GetNetworkInterfaceAttachmentResult:
         """
         return pulumi.get(self, "delete_on_termination")
 
+    @property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional['outputs.NetworkInterfaceAttachmentEnaSrdSpecification']:
+        return pulumi.get(self, "ena_srd_specification")
+
 
 class AwaitableGetNetworkInterfaceAttachmentResult(GetNetworkInterfaceAttachmentResult):
     # pylint: disable=using-constant-test
@@ -50,7 +59,8 @@ class AwaitableGetNetworkInterfaceAttachmentResult(GetNetworkInterfaceAttachment
             yield self
         return GetNetworkInterfaceAttachmentResult(
             attachment_id=self.attachment_id,
-            delete_on_termination=self.delete_on_termination)
+            delete_on_termination=self.delete_on_termination,
+            ena_srd_specification=self.ena_srd_specification)
 
 
 def get_network_interface_attachment(attachment_id: Optional[str] = None,
@@ -68,7 +78,8 @@ def get_network_interface_attachment(attachment_id: Optional[str] = None,
 
     return AwaitableGetNetworkInterfaceAttachmentResult(
         attachment_id=pulumi.get(__ret__, 'attachment_id'),
-        delete_on_termination=pulumi.get(__ret__, 'delete_on_termination'))
+        delete_on_termination=pulumi.get(__ret__, 'delete_on_termination'),
+        ena_srd_specification=pulumi.get(__ret__, 'ena_srd_specification'))
 
 
 @_utilities.lift_output_func(get_network_interface_attachment)

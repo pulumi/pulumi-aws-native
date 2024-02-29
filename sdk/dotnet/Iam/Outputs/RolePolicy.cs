@@ -11,13 +11,15 @@ namespace Pulumi.AwsNative.Iam.Outputs
 {
 
     /// <summary>
-    /// The inline policy document that is embedded in the specified IAM role.
+    /// Contains information about an attached policy.
+    ///  An attached policy is a managed policy that has been attached to a user, group, or role.
+    ///  For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
     /// </summary>
     [OutputType]
     public sealed class RolePolicy
     {
         /// <summary>
-        /// The policy document.
+        /// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         /// </summary>
         public readonly string PolicyDocument;
         /// <summary>

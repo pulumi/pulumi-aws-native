@@ -10,10 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The constraint on task placement in the task definition. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+    ///   Task placement constraints aren't supported for tasks run on FARGATElong.
+    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionPlacementConstraint
     {
+        /// <summary>
+        /// A cluster query language expression to apply to the constraint. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
+        /// </summary>
         public readonly string? Expression;
+        /// <summary>
+        /// The type of constraint. The ``MemberOf`` constraint restricts selection to be from a group of valid candidates.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

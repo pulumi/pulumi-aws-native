@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly string? CreatedTime;
         public readonly string? LastPublishedTime;
         public readonly string? LastUpdatedTime;
+        public readonly ImmutableArray<string> LinkEntities;
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.DashboardResourcePermission> Permissions;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -76,6 +77,8 @@ namespace Pulumi.AwsNative.QuickSight
 
             string? lastUpdatedTime,
 
+            ImmutableArray<string> linkEntities,
+
             string? name,
 
             ImmutableArray<Outputs.DashboardResourcePermission> permissions,
@@ -88,6 +91,7 @@ namespace Pulumi.AwsNative.QuickSight
             CreatedTime = createdTime;
             LastPublishedTime = lastPublishedTime;
             LastUpdatedTime = lastUpdatedTime;
+            LinkEntities = linkEntities;
             Name = name;
             Permissions = permissions;
             Tags = tags;

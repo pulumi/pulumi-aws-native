@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetMemberArgs : global::Pulumi.InvokeArgs
     {
+        [Input("detectorId", required: true)]
+        public string DetectorId { get; set; } = null!;
+
         [Input("memberId", required: true)]
         public string MemberId { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetMemberInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("detectorId", required: true)]
+        public Input<string> DetectorId { get; set; } = null!;
+
         [Input("memberId", required: true)]
         public Input<string> MemberId { get; set; } = null!;
 
@@ -51,20 +57,16 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetMemberResult
     {
-        public readonly bool? DisableEmailNotification;
-        public readonly string? Message;
+        public readonly string? Email;
         public readonly string? Status;
 
         [OutputConstructor]
         private GetMemberResult(
-            bool? disableEmailNotification,
-
-            string? message,
+            string? email,
 
             string? status)
         {
-            DisableEmailNotification = disableEmailNotification;
-            Message = message;
+            Email = email;
             Status = status;
         }
     }

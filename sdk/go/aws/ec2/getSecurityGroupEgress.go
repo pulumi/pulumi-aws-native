@@ -11,7 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::SecurityGroupEgress
+// Adds the specified outbound (egress) rule to a security group.
+//
+//	An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
+//	You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+//	You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
+//	Rule changes are propagated to instances associated with the security group as quickly as possible
 func LookupSecurityGroupEgress(ctx *pulumi.Context, args *LookupSecurityGroupEgressArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupEgressResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityGroupEgressResult
@@ -23,15 +28,14 @@ func LookupSecurityGroupEgress(ctx *pulumi.Context, args *LookupSecurityGroupEgr
 }
 
 type LookupSecurityGroupEgressArgs struct {
-	// The Security Group Rule Id
 	Id string `pulumi:"id"`
 }
 
 type LookupSecurityGroupEgressResult struct {
-	// Resource Type definition for an egress (outbound) security group rule.
+	// The description of an egress (outbound) security group rule.
+	//  Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 	Description *string `pulumi:"description"`
-	// The Security Group Rule Id
-	Id *string `pulumi:"id"`
+	Id          *string `pulumi:"id"`
 }
 
 func LookupSecurityGroupEgressOutput(ctx *pulumi.Context, args LookupSecurityGroupEgressOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupEgressResultOutput {
@@ -48,7 +52,6 @@ func LookupSecurityGroupEgressOutput(ctx *pulumi.Context, args LookupSecurityGro
 }
 
 type LookupSecurityGroupEgressOutputArgs struct {
-	// The Security Group Rule Id
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -70,12 +73,13 @@ func (o LookupSecurityGroupEgressResultOutput) ToLookupSecurityGroupEgressResult
 	return o
 }
 
-// Resource Type definition for an egress (outbound) security group rule.
+// The description of an egress (outbound) security group rule.
+//
+//	Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 func (o LookupSecurityGroupEgressResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityGroupEgressResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Security Group Rule Id
 func (o LookupSecurityGroupEgressResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityGroupEgressResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

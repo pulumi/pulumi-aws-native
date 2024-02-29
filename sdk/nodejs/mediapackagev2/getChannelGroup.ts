@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+ * <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
  */
 export function getChannelGroup(args: GetChannelGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelGroupResult> {
 
@@ -19,24 +19,45 @@ export function getChannelGroup(args: GetChannelGroupArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetChannelGroupArgs {
+    /**
+     * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+     */
     arn: string;
 }
 
 export interface GetChannelGroupResult {
+    /**
+     * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+     */
     readonly arn?: string;
+    /**
+     * <p>The date and time the channel group was created.</p>
+     */
     readonly createdAt?: string;
+    /**
+     * <p>Enter any descriptive text that helps you to identify the channel group.</p>
+     */
     readonly description?: string;
+    /**
+     * <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
+     */
     readonly egressDomain?: string;
+    /**
+     * <p>The date and time the channel group was modified.</p>
+     */
     readonly modifiedAt?: string;
     readonly tags?: outputs.Tag[];
 }
 /**
- * Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+ * <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
  */
 export function getChannelGroupOutput(args: GetChannelGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelGroupResult> {
     return pulumi.output(args).apply((a: any) => getChannelGroup(a, opts))
 }
 
 export interface GetChannelGroupOutputArgs {
+    /**
+     * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+     */
     arn: pulumi.Input<string>;
 }

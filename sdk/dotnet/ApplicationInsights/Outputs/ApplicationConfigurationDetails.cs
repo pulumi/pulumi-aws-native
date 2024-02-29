@@ -41,6 +41,18 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationLog> Logs;
         /// <summary>
+        /// The NetWeaver Prometheus Exporter settings.
+        /// </summary>
+        public readonly Outputs.ApplicationNetWeaverPrometheusExporter? NetWeaverPrometheusExporter;
+        /// <summary>
+        /// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationProcess> Processes;
+        /// <summary>
+        /// The SQL Prometheus Exporter settings.
+        /// </summary>
+        public readonly Outputs.ApplicationSqlServerPrometheusExporter? SqlServerPrometheusExporter;
+        /// <summary>
         /// A list of Windows Events to log.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationWindowsEvent> WindowsEvents;
@@ -59,6 +71,12 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
             ImmutableArray<Outputs.ApplicationLog> logs,
 
+            Outputs.ApplicationNetWeaverPrometheusExporter? netWeaverPrometheusExporter,
+
+            ImmutableArray<Outputs.ApplicationProcess> processes,
+
+            Outputs.ApplicationSqlServerPrometheusExporter? sqlServerPrometheusExporter,
+
             ImmutableArray<Outputs.ApplicationWindowsEvent> windowsEvents)
         {
             AlarmMetrics = alarmMetrics;
@@ -67,6 +85,9 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
             HanaPrometheusExporter = hanaPrometheusExporter;
             JmxPrometheusExporter = jmxPrometheusExporter;
             Logs = logs;
+            NetWeaverPrometheusExporter = netWeaverPrometheusExporter;
+            Processes = processes;
+            SqlServerPrometheusExporter = sqlServerPrometheusExporter;
             WindowsEvents = windowsEvents;
         }
     }

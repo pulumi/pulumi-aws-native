@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds.Inputs
 {
 
+    /// <summary>
+    /// The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+    /// </summary>
     public sealed class DbInstanceProcessorFeatureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        /// The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         /// </summary>
         [Input("name")]
         public Input<Pulumi.AwsNative.Rds.DbInstanceProcessorFeatureName>? Name { get; set; }

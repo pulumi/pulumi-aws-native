@@ -34,9 +34,9 @@ type LookupPipelineResult struct {
 	// A list of endpoints that can be used for ingesting data into a pipeline
 	IngestEndpointUrls   []string                      `pulumi:"ingestEndpointUrls"`
 	LogPublishingOptions *PipelineLogPublishingOptions `pulumi:"logPublishingOptions"`
-	// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits *int `pulumi:"maxUnits"`
-	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+	// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MinUnits *int `pulumi:"minUnits"`
 	// The Amazon Resource Name (ARN) of the pipeline.
 	PipelineArn *string `pulumi:"pipelineArn"`
@@ -101,12 +101,12 @@ func (o LookupPipelineResultOutput) LogPublishingOptions() PipelineLogPublishing
 	return o.ApplyT(func(v LookupPipelineResult) *PipelineLogPublishingOptions { return v.LogPublishingOptions }).(PipelineLogPublishingOptionsPtrOutput)
 }
 
-// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 func (o LookupPipelineResultOutput) MaxUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *int { return v.MaxUnits }).(pulumi.IntPtrOutput)
 }
 
-// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 func (o LookupPipelineResultOutput) MinUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *int { return v.MinUnits }).(pulumi.IntPtrOutput)
 }

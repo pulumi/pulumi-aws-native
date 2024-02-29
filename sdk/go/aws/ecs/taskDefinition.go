@@ -12,29 +12,82 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Schema describing various properties for ECS TaskDefinition
+// Registers a new task definition from the supplied “family“ and “containerDefinitions“. Optionally, you can add data volumes to your containers with the “volumes“ parameter. For more information about task definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	You can specify a role for your task with the ``taskRoleArn`` parameter. When you specify a role for a task, its containers can then use the latest versions of the CLI or SDKs to make API requests to the AWS services that are specified in the policy that's associated with the role. For more information, see [IAM Roles for Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	You can specify a Docker networking mode for the containers in your task definition with the ``networkMod
 type TaskDefinition struct {
 	pulumi.CustomResourceState
 
-	ContainerDefinitions    TaskDefinitionContainerDefinitionArrayOutput  `pulumi:"containerDefinitions"`
-	Cpu                     pulumi.StringPtrOutput                        `pulumi:"cpu"`
-	EphemeralStorage        TaskDefinitionEphemeralStoragePtrOutput       `pulumi:"ephemeralStorage"`
-	ExecutionRoleArn        pulumi.StringPtrOutput                        `pulumi:"executionRoleArn"`
-	Family                  pulumi.StringPtrOutput                        `pulumi:"family"`
-	InferenceAccelerators   TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
-	IpcMode                 pulumi.StringPtrOutput                        `pulumi:"ipcMode"`
-	Memory                  pulumi.StringPtrOutput                        `pulumi:"memory"`
-	NetworkMode             pulumi.StringPtrOutput                        `pulumi:"networkMode"`
-	PidMode                 pulumi.StringPtrOutput                        `pulumi:"pidMode"`
-	PlacementConstraints    TaskDefinitionPlacementConstraintArrayOutput  `pulumi:"placementConstraints"`
-	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrOutput     `pulumi:"proxyConfiguration"`
-	RequiresCompatibilities pulumi.StringArrayOutput                      `pulumi:"requiresCompatibilities"`
-	RuntimePlatform         TaskDefinitionRuntimePlatformPtrOutput        `pulumi:"runtimePlatform"`
-	Tags                    aws.TagArrayOutput                            `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the Amazon ECS task definition
-	TaskDefinitionArn pulumi.StringOutput             `pulumi:"taskDefinitionArn"`
-	TaskRoleArn       pulumi.StringPtrOutput          `pulumi:"taskRoleArn"`
-	Volumes           TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
+	// A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
+	ContainerDefinitions TaskDefinitionContainerDefinitionArrayOutput `pulumi:"containerDefinitions"`
+	// The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.
+	//  The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.
+	//   +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
+	//   +  512 (.5 vCPU) - Available ``memory`` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
+	//   +  1024 (1 vCPU) - Available ``memory`` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
+	//   +  2048 (2 vCPU) - Available ``memory`` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
+	//   +  4096 (4 vCPU) - Available ``memory`` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+	//   +  8192 (8 vCPU) - Available ``memory`` va
+	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
+	// The ephemeral storage settings to use for tasks run with the task definition.
+	EphemeralStorage TaskDefinitionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. The task execution IAM role is required depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html) in the *Amazon Elastic Container Service Developer Guide*.
+	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
+	// The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+	//  A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
+	//   To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
+	Family pulumi.StringPtrOutput `pulumi:"family"`
+	// The Elastic Inference accelerators to use for the containers in the task.
+	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
+	// The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference*.
+	//  If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more inform
+	IpcMode pulumi.StringPtrOutput `pulumi:"ipcMode"`
+	// The amount (in MiB) of memory used by the task.
+	//  If your tasks runs on Amazon EC2 instances, you must specify either a task-level memory value or a container-level memory value. This field is optional and any value can be used. If a task-level memory value is specified, the container-level memory value is optional. For more information regarding container-level memory and memory reservation, see [ContainerDefinition](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html).
+	//  If your tasks runs on FARGATElong, this field is required. You must use one of the following values. The value you choose determines your range of valid values for the ``cpu`` parameter.
+	//   +  512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available ``cpu`` values: 256 (.25 vCPU)
+	//   +  1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available ``cpu`` values: 512 (.5 vCPU)
+	//   +  2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available ``cpu`` va
+	Memory pulumi.StringPtrOutput `pulumi:"memory"`
+	// The Docker networking mode to use for the containers in the task. The valid values are ``none``, ``bridge``, ``awsvpc``, and ``host``. If no network mode is specified, the default is ``bridge``.
+	//  For Amazon ECS tasks on Fargate, the ``awsvpc`` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, ``<default>`` or ``awsvpc`` can be used. If the network mode is set to ``none``, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
+	//  With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elasti
+	NetworkMode pulumi.StringPtrOutput `pulumi:"networkMode"`
+	// The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
+	//  If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
+	//  If ``task`` is specified, all containers within the specified task share the same process namespace.
+	//  If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference*.
+	//  If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://doc
+	PidMode pulumi.StringPtrOutput `pulumi:"pidMode"`
+	// An array of placement constraint objects to use for tasks.
+	//   This parameter isn't supported for tasks run on FARGATElong.
+	PlacementConstraints TaskDefinitionPlacementConstraintArrayOutput `pulumi:"placementConstraints"`
+	// The configuration details for the App Mesh proxy.
+	//  Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+	ProxyConfiguration TaskDefinitionProxyConfigurationPtrOutput `pulumi:"proxyConfiguration"`
+	// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
+	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+	//  When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
+	RuntimePlatform TaskDefinitionRuntimePlatformPtrOutput `pulumi:"runtimePlatform"`
+	// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
+	//  The following basic restrictions apply to tags:
+	//   +  Maximum number of tags per resource - 50
+	//   +  For each resource, each tag key must be unique, and each tag key can have only one value.
+	//   +  Maximum key length - 128 Unicode characters in UTF-8
+	//   +  Maximum value length - 256 Unicode characters in UTF-8
+	//   +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	//   +  Tag keys and values are case-sensitive.
+	//   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values
+	Tags              aws.TagArrayOutput  `pulumi:"tags"`
+	TaskDefinitionArn pulumi.StringOutput `pulumi:"taskDefinitionArn"`
+	// The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.
+	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
+	// The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
+	Volumes TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
 }
 
 // NewTaskDefinition registers a new resource with the given unique name, arguments, and options.
@@ -96,44 +149,146 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 }
 
 type taskDefinitionArgs struct {
-	ContainerDefinitions    []TaskDefinitionContainerDefinition  `pulumi:"containerDefinitions"`
-	Cpu                     *string                              `pulumi:"cpu"`
-	EphemeralStorage        *TaskDefinitionEphemeralStorage      `pulumi:"ephemeralStorage"`
-	ExecutionRoleArn        *string                              `pulumi:"executionRoleArn"`
-	Family                  *string                              `pulumi:"family"`
-	InferenceAccelerators   []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
-	IpcMode                 *string                              `pulumi:"ipcMode"`
-	Memory                  *string                              `pulumi:"memory"`
-	NetworkMode             *string                              `pulumi:"networkMode"`
-	PidMode                 *string                              `pulumi:"pidMode"`
-	PlacementConstraints    []TaskDefinitionPlacementConstraint  `pulumi:"placementConstraints"`
-	ProxyConfiguration      *TaskDefinitionProxyConfiguration    `pulumi:"proxyConfiguration"`
-	RequiresCompatibilities []string                             `pulumi:"requiresCompatibilities"`
-	RuntimePlatform         *TaskDefinitionRuntimePlatform       `pulumi:"runtimePlatform"`
-	Tags                    []aws.Tag                            `pulumi:"tags"`
-	TaskRoleArn             *string                              `pulumi:"taskRoleArn"`
-	Volumes                 []TaskDefinitionVolume               `pulumi:"volumes"`
+	// A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
+	ContainerDefinitions []TaskDefinitionContainerDefinition `pulumi:"containerDefinitions"`
+	// The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.
+	//  The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.
+	//   +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
+	//   +  512 (.5 vCPU) - Available ``memory`` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
+	//   +  1024 (1 vCPU) - Available ``memory`` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
+	//   +  2048 (2 vCPU) - Available ``memory`` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
+	//   +  4096 (4 vCPU) - Available ``memory`` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+	//   +  8192 (8 vCPU) - Available ``memory`` va
+	Cpu *string `pulumi:"cpu"`
+	// The ephemeral storage settings to use for tasks run with the task definition.
+	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. The task execution IAM role is required depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html) in the *Amazon Elastic Container Service Developer Guide*.
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
+	// The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+	//  A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
+	//   To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
+	Family *string `pulumi:"family"`
+	// The Elastic Inference accelerators to use for the containers in the task.
+	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
+	// The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference*.
+	//  If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more inform
+	IpcMode *string `pulumi:"ipcMode"`
+	// The amount (in MiB) of memory used by the task.
+	//  If your tasks runs on Amazon EC2 instances, you must specify either a task-level memory value or a container-level memory value. This field is optional and any value can be used. If a task-level memory value is specified, the container-level memory value is optional. For more information regarding container-level memory and memory reservation, see [ContainerDefinition](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html).
+	//  If your tasks runs on FARGATElong, this field is required. You must use one of the following values. The value you choose determines your range of valid values for the ``cpu`` parameter.
+	//   +  512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available ``cpu`` values: 256 (.25 vCPU)
+	//   +  1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available ``cpu`` values: 512 (.5 vCPU)
+	//   +  2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available ``cpu`` va
+	Memory *string `pulumi:"memory"`
+	// The Docker networking mode to use for the containers in the task. The valid values are ``none``, ``bridge``, ``awsvpc``, and ``host``. If no network mode is specified, the default is ``bridge``.
+	//  For Amazon ECS tasks on Fargate, the ``awsvpc`` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, ``<default>`` or ``awsvpc`` can be used. If the network mode is set to ``none``, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
+	//  With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elasti
+	NetworkMode *string `pulumi:"networkMode"`
+	// The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
+	//  If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
+	//  If ``task`` is specified, all containers within the specified task share the same process namespace.
+	//  If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference*.
+	//  If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://doc
+	PidMode *string `pulumi:"pidMode"`
+	// An array of placement constraint objects to use for tasks.
+	//   This parameter isn't supported for tasks run on FARGATElong.
+	PlacementConstraints []TaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
+	// The configuration details for the App Mesh proxy.
+	//  Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
+	// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
+	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+	//  When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
+	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
+	// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
+	//  The following basic restrictions apply to tags:
+	//   +  Maximum number of tags per resource - 50
+	//   +  For each resource, each tag key must be unique, and each tag key can have only one value.
+	//   +  Maximum key length - 128 Unicode characters in UTF-8
+	//   +  Maximum value length - 256 Unicode characters in UTF-8
+	//   +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	//   +  Tag keys and values are case-sensitive.
+	//   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values
+	Tags []aws.Tag `pulumi:"tags"`
+	// The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.
+	TaskRoleArn *string `pulumi:"taskRoleArn"`
+	// The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
+	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
 }
 
 // The set of arguments for constructing a TaskDefinition resource.
 type TaskDefinitionArgs struct {
-	ContainerDefinitions    TaskDefinitionContainerDefinitionArrayInput
-	Cpu                     pulumi.StringPtrInput
-	EphemeralStorage        TaskDefinitionEphemeralStoragePtrInput
-	ExecutionRoleArn        pulumi.StringPtrInput
-	Family                  pulumi.StringPtrInput
-	InferenceAccelerators   TaskDefinitionInferenceAcceleratorArrayInput
-	IpcMode                 pulumi.StringPtrInput
-	Memory                  pulumi.StringPtrInput
-	NetworkMode             pulumi.StringPtrInput
-	PidMode                 pulumi.StringPtrInput
-	PlacementConstraints    TaskDefinitionPlacementConstraintArrayInput
-	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrInput
+	// A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
+	ContainerDefinitions TaskDefinitionContainerDefinitionArrayInput
+	// The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.
+	//  The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.
+	//   +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
+	//   +  512 (.5 vCPU) - Available ``memory`` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
+	//   +  1024 (1 vCPU) - Available ``memory`` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
+	//   +  2048 (2 vCPU) - Available ``memory`` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
+	//   +  4096 (4 vCPU) - Available ``memory`` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+	//   +  8192 (8 vCPU) - Available ``memory`` va
+	Cpu pulumi.StringPtrInput
+	// The ephemeral storage settings to use for tasks run with the task definition.
+	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
+	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. The task execution IAM role is required depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html) in the *Amazon Elastic Container Service Developer Guide*.
+	ExecutionRoleArn pulumi.StringPtrInput
+	// The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+	//  A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
+	//   To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
+	Family pulumi.StringPtrInput
+	// The Elastic Inference accelerators to use for the containers in the task.
+	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
+	// The IPC resource namespace to use for the containers in the task. The valid values are ``host``, ``task``, or ``none``. If ``host`` is specified, then all containers within the tasks that specified the ``host`` IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If ``task`` is specified, all containers within the specified task share the same IPC resources. If ``none`` is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference*.
+	//  If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more inform
+	IpcMode pulumi.StringPtrInput
+	// The amount (in MiB) of memory used by the task.
+	//  If your tasks runs on Amazon EC2 instances, you must specify either a task-level memory value or a container-level memory value. This field is optional and any value can be used. If a task-level memory value is specified, the container-level memory value is optional. For more information regarding container-level memory and memory reservation, see [ContainerDefinition](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html).
+	//  If your tasks runs on FARGATElong, this field is required. You must use one of the following values. The value you choose determines your range of valid values for the ``cpu`` parameter.
+	//   +  512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available ``cpu`` values: 256 (.25 vCPU)
+	//   +  1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available ``cpu`` values: 512 (.5 vCPU)
+	//   +  2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available ``cpu`` va
+	Memory pulumi.StringPtrInput
+	// The Docker networking mode to use for the containers in the task. The valid values are ``none``, ``bridge``, ``awsvpc``, and ``host``. If no network mode is specified, the default is ``bridge``.
+	//  For Amazon ECS tasks on Fargate, the ``awsvpc`` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, ``<default>`` or ``awsvpc`` can be used. If the network mode is set to ``none``, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
+	//  With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elasti
+	NetworkMode pulumi.StringPtrInput
+	// The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
+	//  If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
+	//  If ``task`` is specified, all containers within the specified task share the same process namespace.
+	//  If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference*.
+	//  If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://doc
+	PidMode pulumi.StringPtrInput
+	// An array of placement constraint objects to use for tasks.
+	//   This parameter isn't supported for tasks run on FARGATElong.
+	PlacementConstraints TaskDefinitionPlacementConstraintArrayInput
+	// The configuration details for the App Mesh proxy.
+	//  Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
+	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
+	// The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities pulumi.StringArrayInput
-	RuntimePlatform         TaskDefinitionRuntimePlatformPtrInput
-	Tags                    aws.TagArrayInput
-	TaskRoleArn             pulumi.StringPtrInput
-	Volumes                 TaskDefinitionVolumeArrayInput
+	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+	//  When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
+	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
+	// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
+	//  The following basic restrictions apply to tags:
+	//   +  Maximum number of tags per resource - 50
+	//   +  For each resource, each tag key must be unique, and each tag key can have only one value.
+	//   +  Maximum key length - 128 Unicode characters in UTF-8
+	//   +  Maximum value length - 256 Unicode characters in UTF-8
+	//   +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	//   +  Tag keys and values are case-sensitive.
+	//   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values
+	Tags aws.TagArrayInput
+	// The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.
+	TaskRoleArn pulumi.StringPtrInput
+	// The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
+	Volumes TaskDefinitionVolumeArrayInput
 }
 
 func (TaskDefinitionArgs) ElementType() reflect.Type {
@@ -173,75 +328,137 @@ func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A list of container definitions in JSON format that describe the different containers that make up your task. For more information about container definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o TaskDefinitionOutput) ContainerDefinitions() TaskDefinitionContainerDefinitionArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionContainerDefinitionArrayOutput { return v.ContainerDefinitions }).(TaskDefinitionContainerDefinitionArrayOutput)
 }
 
+// The number of “cpu“ units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the “memory“ parameter.
+//
+//	The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.
+//	 +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)
+//	 +  512 (.5 vCPU) - Available ``memory`` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)
+//	 +  1024 (1 vCPU) - Available ``memory`` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
+//	 +  2048 (2 vCPU) - Available ``memory`` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)
+//	 +  4096 (4 vCPU) - Available ``memory`` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+//	 +  8192 (8 vCPU) - Available ``memory`` va
 func (o TaskDefinitionOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
+// The ephemeral storage settings to use for tasks run with the task definition.
 func (o TaskDefinitionOutput) EphemeralStorage() TaskDefinitionEphemeralStoragePtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionEphemeralStoragePtrOutput { return v.EphemeralStorage }).(TaskDefinitionEphemeralStoragePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. The task execution IAM role is required depending on the requirements of your task. For more information, see [Amazon ECS task execution IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o TaskDefinitionOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+//
+//	A family groups multiple versions of a task definition. Amazon ECS gives the first task definition that you registered to a family a revision number of 1. Amazon ECS gives sequential revision numbers to each task definition that you add.
+//	 To use revision numbers when you update a task definition, specify this property. If you don't specify a value, CFNlong generates a new task definition each time that you update it.
 func (o TaskDefinitionOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Family }).(pulumi.StringPtrOutput)
 }
 
+// The Elastic Inference accelerators to use for the containers in the task.
 func (o TaskDefinitionOutput) InferenceAccelerators() TaskDefinitionInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionInferenceAcceleratorArrayOutput { return v.InferenceAccelerators }).(TaskDefinitionInferenceAcceleratorArrayOutput)
 }
 
+// The IPC resource namespace to use for the containers in the task. The valid values are “host“, “task“, or “none“. If “host“ is specified, then all containers within the tasks that specified the “host“ IPC mode on the same container instance share the same IPC resources with the host Amazon EC2 instance. If “task“ is specified, all containers within the specified task share the same IPC resources. If “none“ is specified, then IPC resources within the containers of a task are private and not shared with other containers in a task or on the container instance. If no value is specified, then the IPC resource namespace sharing depends on the Docker daemon setting on the container instance. For more information, see [IPC settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#ipc-settings---ipc) in the *Docker run reference*.
+//
+//	If the ``host`` IPC mode is used, be aware that there is a heightened risk of undesired IPC namespace expose. For more inform
 func (o TaskDefinitionOutput) IpcMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.IpcMode }).(pulumi.StringPtrOutput)
 }
 
+// The amount (in MiB) of memory used by the task.
+//
+//	If your tasks runs on Amazon EC2 instances, you must specify either a task-level memory value or a container-level memory value. This field is optional and any value can be used. If a task-level memory value is specified, the container-level memory value is optional. For more information regarding container-level memory and memory reservation, see [ContainerDefinition](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html).
+//	If your tasks runs on FARGATElong, this field is required. You must use one of the following values. The value you choose determines your range of valid values for the ``cpu`` parameter.
+//	 +  512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available ``cpu`` values: 256 (.25 vCPU)
+//	 +  1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available ``cpu`` values: 512 (.5 vCPU)
+//	 +  2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available ``cpu`` va
 func (o TaskDefinitionOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Memory }).(pulumi.StringPtrOutput)
 }
 
+// The Docker networking mode to use for the containers in the task. The valid values are “none“, “bridge“, “awsvpc“, and “host“. If no network mode is specified, the default is “bridge“.
+//
+//	For Amazon ECS tasks on Fargate, the ``awsvpc`` network mode is required. For Amazon ECS tasks on Amazon EC2 Linux instances, any network mode can be used. For Amazon ECS tasks on Amazon EC2 Windows instances, ``<default>`` or ``awsvpc`` can be used. If the network mode is set to ``none``, you cannot specify port mappings in your container definitions, and the tasks containers do not have external connectivity. The ``host`` and ``awsvpc`` network modes offer the highest networking performance for containers because they use the EC2 network stack instead of the virtualized network stack provided by the ``bridge`` mode.
+//	With the ``host`` and ``awsvpc`` network modes, exposed container ports are mapped directly to the corresponding host port (for the ``host`` network mode) or the attached elasti
 func (o TaskDefinitionOutput) NetworkMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.NetworkMode }).(pulumi.StringPtrOutput)
 }
 
+// The process namespace to use for the containers in the task. The valid values are “host“ or “task“. On Fargate for Linux containers, the only valid value is “task“. For example, monitoring sidecars might need “pidMode“ to access information about other containers running in the same task.
+//
+//	If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
+//	If ``task`` is specified, all containers within the specified task share the same process namespace.
+//	If no value is specified, the default is a private namespace for each container. For more information, see [PID settings](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#pid-settings---pid) in the *Docker run reference*.
+//	If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure. For more information, see [Docker security](https://doc
 func (o TaskDefinitionOutput) PidMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.PidMode }).(pulumi.StringPtrOutput)
 }
 
+// An array of placement constraint objects to use for tasks.
+//
+//	This parameter isn't supported for tasks run on FARGATElong.
 func (o TaskDefinitionOutput) PlacementConstraints() TaskDefinitionPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionPlacementConstraintArrayOutput { return v.PlacementConstraints }).(TaskDefinitionPlacementConstraintArrayOutput)
 }
 
+// The configuration details for the App Mesh proxy.
+//
+//	Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o TaskDefinitionOutput) ProxyConfiguration() TaskDefinitionProxyConfigurationPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionProxyConfigurationPtrOutput { return v.ProxyConfiguration }).(TaskDefinitionProxyConfigurationPtrOutput)
 }
 
+// The task launch types the task definition was validated against. The valid values are “EC2“, “FARGATE“, and “EXTERNAL“. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o TaskDefinitionOutput) RequiresCompatibilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringArrayOutput { return v.RequiresCompatibilities }).(pulumi.StringArrayOutput)
 }
 
+// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+//
+//	When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
 func (o TaskDefinitionOutput) RuntimePlatform() TaskDefinitionRuntimePlatformPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionRuntimePlatformPtrOutput { return v.RuntimePlatform }).(TaskDefinitionRuntimePlatformPtrOutput)
 }
 
+// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
+//
+//	The following basic restrictions apply to tags:
+//	 +  Maximum number of tags per resource - 50
+//	 +  For each resource, each tag key must be unique, and each tag key can have only one value.
+//	 +  Maximum key length - 128 Unicode characters in UTF-8
+//	 +  Maximum value length - 256 Unicode characters in UTF-8
+//	 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+//	 +  Tag keys and values are case-sensitive.
+//	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values
 func (o TaskDefinitionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon ECS task definition
 func (o TaskDefinitionOutput) TaskDefinitionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.TaskDefinitionArn }).(pulumi.StringOutput)
 }
 
+// The short name or full Amazon Resource Name (ARN) of the IAMlong role that grants containers in the task permission to call AWS APIs on your behalf. For more information, see [Amazon ECS Task Role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	IAM roles for tasks on Windows require that the ``-EnableTaskIAMRole`` option is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some configuration code to use the feature. For more information, see [Windows IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o TaskDefinitionOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The list of data volume definitions for the task. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	The ``host`` and ``sourcePath`` parameters aren't supported for tasks run on FARGATElong.
 func (o TaskDefinitionOutput) Volumes() TaskDefinitionVolumeArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionVolumeArrayOutput { return v.Volumes }).(TaskDefinitionVolumeArrayOutput)
 }

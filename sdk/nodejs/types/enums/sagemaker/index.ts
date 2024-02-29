@@ -322,6 +322,19 @@ export const FeatureGroupThroughputMode = {
  */
 export type FeatureGroupThroughputMode = (typeof FeatureGroupThroughputMode)[keyof typeof FeatureGroupThroughputMode];
 
+export const FeatureGroupUnit = {
+    Seconds: "Seconds",
+    Minutes: "Minutes",
+    Hours: "Hours",
+    Days: "Days",
+    Weeks: "Weeks",
+} as const;
+
+/**
+ * Unit of ttl configuration
+ */
+export type FeatureGroupUnit = (typeof FeatureGroupUnit)[keyof typeof FeatureGroupUnit];
+
 export const ImageVersionJobType = {
     Training: "TRAINING",
     Inference: "INFERENCE",

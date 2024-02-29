@@ -13,14 +13,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+// The “AWS::RDS::DBSubnetGroup“ resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+//
+//	For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
 type DbSubnetGroup struct {
 	pulumi.CustomResourceState
 
-	DbSubnetGroupDescription pulumi.StringOutput      `pulumi:"dbSubnetGroupDescription"`
-	DbSubnetGroupName        pulumi.StringPtrOutput   `pulumi:"dbSubnetGroupName"`
-	SubnetIds                pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// An array of key-value pairs to apply to this resource.
+	// The description for the DB subnet group.
+	DbSubnetGroupDescription pulumi.StringOutput `pulumi:"dbSubnetGroupDescription"`
+	// The name for the DB subnet group. This value is stored as a lowercase string.
+	//  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+	//  Example: ``mysubnetgroup``
+	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
+	// The EC2 Subnet IDs for the DB subnet group.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// An optional array of key-value pairs to apply to this DB subnet group.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -74,19 +81,29 @@ func (DbSubnetGroupState) ElementType() reflect.Type {
 }
 
 type dbSubnetGroupArgs struct {
-	DbSubnetGroupDescription string   `pulumi:"dbSubnetGroupDescription"`
-	DbSubnetGroupName        *string  `pulumi:"dbSubnetGroupName"`
-	SubnetIds                []string `pulumi:"subnetIds"`
-	// An array of key-value pairs to apply to this resource.
+	// The description for the DB subnet group.
+	DbSubnetGroupDescription string `pulumi:"dbSubnetGroupDescription"`
+	// The name for the DB subnet group. This value is stored as a lowercase string.
+	//  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+	//  Example: ``mysubnetgroup``
+	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// The EC2 Subnet IDs for the DB subnet group.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// An optional array of key-value pairs to apply to this DB subnet group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DbSubnetGroup resource.
 type DbSubnetGroupArgs struct {
+	// The description for the DB subnet group.
 	DbSubnetGroupDescription pulumi.StringInput
-	DbSubnetGroupName        pulumi.StringPtrInput
-	SubnetIds                pulumi.StringArrayInput
-	// An array of key-value pairs to apply to this resource.
+	// The name for the DB subnet group. This value is stored as a lowercase string.
+	//  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+	//  Example: ``mysubnetgroup``
+	DbSubnetGroupName pulumi.StringPtrInput
+	// The EC2 Subnet IDs for the DB subnet group.
+	SubnetIds pulumi.StringArrayInput
+	// An optional array of key-value pairs to apply to this DB subnet group.
 	Tags aws.TagArrayInput
 }
 
@@ -127,19 +144,25 @@ func (o DbSubnetGroupOutput) ToDbSubnetGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The description for the DB subnet group.
 func (o DbSubnetGroupOutput) DbSubnetGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbSubnetGroup) pulumi.StringOutput { return v.DbSubnetGroupDescription }).(pulumi.StringOutput)
 }
 
+// The name for the DB subnet group. This value is stored as a lowercase string.
+//
+//	Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+//	Example: ``mysubnetgroup``
 func (o DbSubnetGroupOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbSubnetGroup) pulumi.StringPtrOutput { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The EC2 Subnet IDs for the DB subnet group.
 func (o DbSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DbSubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// An optional array of key-value pairs to apply to this DB subnet group.
 func (o DbSubnetGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DbSubnetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

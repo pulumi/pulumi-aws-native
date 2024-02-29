@@ -12,17 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for IAM User Policy
+// Adds or updates an inline policy document that is embedded in the specified IAM user.
+//
+//	An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use [AWS::IAM::User](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html). To create a new managed policy, use [AWS::IAM::ManagedPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html). For information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
+//	For information about the maximum number of inline policies that you can embed in a user, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
 type UserPolicy struct {
 	pulumi.CustomResourceState
 
 	// The policy document.
+	//  You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+	//  The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+	//   +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
+	//   +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
+	//   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The name of the policy document.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
 	// The name of the user to associate the policy with.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -78,24 +88,38 @@ func (UserPolicyState) ElementType() reflect.Type {
 
 type userPolicyArgs struct {
 	// The policy document.
+	//  You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+	//  The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+	//   +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
+	//   +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
+	//   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The name of the policy document.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	PolicyName string `pulumi:"policyName"`
 	// The name of the user to associate the policy with.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a UserPolicy resource.
 type UserPolicyArgs struct {
 	// The policy document.
+	//  You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+	//  The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+	//   +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
+	//   +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
+	//   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
 	// The name of the policy document.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	PolicyName pulumi.StringInput
 	// The name of the user to associate the policy with.
+	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 	UserName pulumi.StringInput
 }
 
@@ -138,17 +162,27 @@ func (o UserPolicyOutput) ToUserPolicyOutputWithContext(ctx context.Context) Use
 
 // The policy document.
 //
+//	You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+//	The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+//	 +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
+//	 +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
+//	 +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property.
 func (o UserPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *UserPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
 // The name of the policy document.
+//
+//	This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o UserPolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
 // The name of the user to associate the policy with.
+//
+//	This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o UserPolicyOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPolicy) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

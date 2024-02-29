@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+    /// </summary>
     public sealed class FunctionFileSystemConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -19,7 +22,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// The path where the function can access the file system, starting with /mnt/.
+        /// The path where the function can access the file system, starting with ``/mnt/``.
         /// </summary>
         [Input("localMountPath", required: true)]
         public Input<string> LocalMountPath { get; set; } = null!;

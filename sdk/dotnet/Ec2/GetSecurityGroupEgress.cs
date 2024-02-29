@@ -12,13 +12,21 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetSecurityGroupEgress
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::SecurityGroupEgress
+        /// Adds the specified outbound (egress) rule to a security group.
+        ///  An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
+        ///  You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+        ///  You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
+        ///  Rule changes are propagated to instances associated with the security group as quickly as possible
         /// </summary>
         public static Task<GetSecurityGroupEgressResult> InvokeAsync(GetSecurityGroupEgressArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupEgressResult>("aws-native:ec2:getSecurityGroupEgress", args ?? new GetSecurityGroupEgressArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::SecurityGroupEgress
+        /// Adds the specified outbound (egress) rule to a security group.
+        ///  An outbound rule permits instances to send traffic to the specified IPv4 or IPv6 address range, the IP addresses that are specified by a prefix list, or the instances that are associated with a destination security group. For more information, see [Security group rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html).
+        ///  You must specify exactly one of the following destinations: an IPv4 or IPv6 address range, a prefix list, or a security group. Otherwise, the stack launches successfully but the rule is not added to the security group.
+        ///  You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
+        ///  Rule changes are propagated to instances associated with the security group as quickly as possible
         /// </summary>
         public static Output<GetSecurityGroupEgressResult> Invoke(GetSecurityGroupEgressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupEgressResult>("aws-native:ec2:getSecurityGroupEgress", args ?? new GetSecurityGroupEgressInvokeArgs(), options.WithDefaults());
@@ -27,9 +35,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSecurityGroupEgressArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Security Group Rule Id
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -41,9 +46,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSecurityGroupEgressInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Security Group Rule Id
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -58,12 +60,10 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetSecurityGroupEgressResult
     {
         /// <summary>
-        /// Resource Type definition for an egress (outbound) security group rule.
+        /// The description of an egress (outbound) security group rule.
+        ///  Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The Security Group Rule Id
-        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

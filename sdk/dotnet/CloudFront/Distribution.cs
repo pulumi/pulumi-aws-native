@@ -10,17 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudFront::Distribution
+    /// A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:Distribution")]
     public partial class Distribution : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The distribution's configuration.
+        /// </summary>
         [Output("distributionConfig")]
         public Output<Outputs.DistributionConfig> DistributionConfig { get; private set; } = null!;
 
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// A complex type that contains zero or more ``Tag`` elements.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -69,11 +75,18 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class DistributionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The distribution's configuration.
+        /// </summary>
         [Input("distributionConfig", required: true)]
         public Input<Inputs.DistributionConfigArgs> DistributionConfig { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A complex type that contains zero or more ``Tag`` elements.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

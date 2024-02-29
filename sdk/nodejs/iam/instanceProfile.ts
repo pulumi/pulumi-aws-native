@@ -5,7 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::IAM::InstanceProfile
+ * Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
+ *   For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
  */
 export class InstanceProfile extends pulumi.CustomResource {
     /**
@@ -34,16 +35,16 @@ export class InstanceProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceProfile.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the instance profile.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the instance profile to create.
+     *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
      */
     public readonly instanceProfileName!: pulumi.Output<string | undefined>;
     /**
-     * The path to the instance profile.
+     * The path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*.
+     *  This parameter is optional. If it is not included, it defaults to a slash (/).
+     *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
      */
     public readonly path!: pulumi.Output<string | undefined>;
     /**
@@ -88,10 +89,13 @@ export class InstanceProfile extends pulumi.CustomResource {
 export interface InstanceProfileArgs {
     /**
      * The name of the instance profile to create.
+     *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
      */
     instanceProfileName?: pulumi.Input<string>;
     /**
-     * The path to the instance profile.
+     * The path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the *IAM User Guide*.
+     *  This parameter is optional. If it is not included, it defaults to a slash (/).
+     *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (``\u0021``) through the DEL character (``\u007F``), including most punctuation characters, digits, and upper and lowercased letters.
      */
     path?: pulumi.Input<string>;
     /**

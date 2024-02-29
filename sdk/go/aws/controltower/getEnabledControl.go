@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type LookupEnabledControlArgs struct {
 type LookupEnabledControlResult struct {
 	// Parameters to configure the enabled control behavior.
 	Parameters []EnabledControlParameter `pulumi:"parameters"`
+	// A set of tags to assign to the enabled control.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEnabledControlOutput(ctx *pulumi.Context, args LookupEnabledControlOutputArgs, opts ...pulumi.InvokeOption) LookupEnabledControlResultOutput {
@@ -75,6 +78,11 @@ func (o LookupEnabledControlResultOutput) ToLookupEnabledControlResultOutputWith
 // Parameters to configure the enabled control behavior.
 func (o LookupEnabledControlResultOutput) Parameters() EnabledControlParameterArrayOutput {
 	return o.ApplyT(func(v LookupEnabledControlResult) []EnabledControlParameter { return v.Parameters }).(EnabledControlParameterArrayOutput)
+}
+
+// A set of tags to assign to the enabled control.
+func (o LookupEnabledControlResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupEnabledControlResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

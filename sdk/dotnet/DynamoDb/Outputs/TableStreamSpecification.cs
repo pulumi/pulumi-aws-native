@@ -10,19 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Outputs
 {
 
+    /// <summary>
+    /// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+    /// </summary>
     [OutputType]
     public sealed class TableStreamSpecification
     {
-        public readonly Outputs.TableResourcePolicy? ResourcePolicy;
+        /// <summary>
+        /// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
+        ///   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+        ///   +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+        ///   +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+        ///   +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+        /// </summary>
         public readonly string StreamViewType;
 
         [OutputConstructor]
-        private TableStreamSpecification(
-            Outputs.TableResourcePolicy? resourcePolicy,
-
-            string streamViewType)
+        private TableStreamSpecification(string streamViewType)
         {
-            ResourcePolicy = resourcePolicy;
             StreamViewType = streamViewType;
         }
     }

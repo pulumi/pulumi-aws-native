@@ -19,7 +19,7 @@ export const DbInstanceProcessorFeatureName = {
 } as const;
 
 /**
- * The name of the processor feature. Valid names are coreCount and threadsPerCore.
+ * The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
  */
 export type DbInstanceProcessorFeatureName = (typeof DbInstanceProcessorFeatureName)[keyof typeof DbInstanceProcessorFeatureName];
 

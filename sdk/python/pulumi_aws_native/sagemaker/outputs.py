@@ -93,6 +93,7 @@ __all__ = [
     'FeatureGroupOnlineStoreSecurityConfig',
     'FeatureGroupS3StorageConfig',
     'FeatureGroupThroughputConfig',
+    'FeatureGroupTtlDuration',
     'InferenceComponentComputeResourceRequirements',
     'InferenceComponentContainerSpecification',
     'InferenceComponentDeployedImage',
@@ -453,7 +454,7 @@ class AppImageConfigFileSystemConfig(dict):
 @pulumi.output_type
 class AppImageConfigJupyterLabAppImageConfig(dict):
     """
-    The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+    The configuration for the kernels in a SageMaker image running as a JupyterLab app.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -475,7 +476,7 @@ class AppImageConfigJupyterLabAppImageConfig(dict):
     def __init__(__self__, *,
                  container_config: Optional['outputs.AppImageConfigContainerConfig'] = None):
         """
-        The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+        The configuration for the kernels in a SageMaker image running as a JupyterLab app.
         :param 'AppImageConfigContainerConfig' container_config: The container configuration for a SageMaker image.
         """
         if container_config is not None:
@@ -4521,6 +4522,33 @@ class FeatureGroupThroughputConfig(dict):
         For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
         """
         return pulumi.get(self, "provisioned_write_capacity_units")
+
+
+@pulumi.output_type
+class FeatureGroupTtlDuration(dict):
+    """
+    TTL configuration of the feature group
+    """
+    def __init__(__self__, *,
+                 unit: Optional['FeatureGroupUnit'] = None,
+                 value: Optional[int] = None):
+        """
+        TTL configuration of the feature group
+        """
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional['FeatureGroupUnit']:
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[int]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -13730,6 +13758,8 @@ class OnlineStoreConfigProperties(dict):
             suggest = "security_config"
         elif key == "storageType":
             suggest = "storage_type"
+        elif key == "ttlDuration":
+            suggest = "ttl_duration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OnlineStoreConfigProperties. Access the value via the '{suggest}' property getter instead.")
@@ -13745,13 +13775,16 @@ class OnlineStoreConfigProperties(dict):
     def __init__(__self__, *,
                  enable_online_store: Optional[bool] = None,
                  security_config: Optional['outputs.FeatureGroupOnlineStoreSecurityConfig'] = None,
-                 storage_type: Optional['FeatureGroupStorageType'] = None):
+                 storage_type: Optional['FeatureGroupStorageType'] = None,
+                 ttl_duration: Optional['outputs.FeatureGroupTtlDuration'] = None):
         if enable_online_store is not None:
             pulumi.set(__self__, "enable_online_store", enable_online_store)
         if security_config is not None:
             pulumi.set(__self__, "security_config", security_config)
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
+        if ttl_duration is not None:
+            pulumi.set(__self__, "ttl_duration", ttl_duration)
 
     @property
     @pulumi.getter(name="enableOnlineStore")
@@ -13767,6 +13800,11 @@ class OnlineStoreConfigProperties(dict):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional['FeatureGroupStorageType']:
         return pulumi.get(self, "storage_type")
+
+    @property
+    @pulumi.getter(name="ttlDuration")
+    def ttl_duration(self) -> Optional['outputs.FeatureGroupTtlDuration']:
+        return pulumi.get(self, "ttl_duration")
 
 
 @pulumi.output_type

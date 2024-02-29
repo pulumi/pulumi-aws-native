@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.Osis
         public Output<Outputs.PipelineLogPublishingOptions?> LogPublishingOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+        /// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         /// </summary>
         [Output("maxUnits")]
         public Output<int> MaxUnits { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+        /// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         /// </summary>
         [Output("minUnits")]
         public Output<int> MinUnits { get; private set; } = null!;
@@ -134,13 +134,13 @@ namespace Pulumi.AwsNative.Osis
         public Input<Inputs.PipelineLogPublishingOptionsArgs>? LogPublishingOptions { get; set; }
 
         /// <summary>
-        /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+        /// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         /// </summary>
         [Input("maxUnits", required: true)]
         public Input<int> MaxUnits { get; set; } = null!;
 
         /// <summary>
-        /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+        /// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         /// </summary>
         [Input("minUnits", required: true)]
         public Input<int> MinUnits { get; set; } = null!;

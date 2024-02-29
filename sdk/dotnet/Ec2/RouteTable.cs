@@ -10,14 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::RouteTable
+    /// Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+    ///  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:RouteTable")]
     public partial class RouteTable : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The route table ID.
-        /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 

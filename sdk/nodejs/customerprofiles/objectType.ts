@@ -48,7 +48,7 @@ export class ObjectType extends pulumi.CustomResource {
     /**
      * Description of the profile object type.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The unique name of the domain.
      */
@@ -76,7 +76,7 @@ export class ObjectType extends pulumi.CustomResource {
     /**
      * The name of the profile object type.
      */
-    public readonly objectTypeName!: pulumi.Output<string | undefined>;
+    public readonly objectTypeName!: pulumi.Output<string>;
     /**
      * The format of your sourceLastUpdatedTimestamp that was previously set up.
      */
@@ -101,6 +101,9 @@ export class ObjectType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.description === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'description'");
+            }
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
@@ -150,7 +153,7 @@ export interface ObjectTypeArgs {
     /**
      * Description of the profile object type.
      */
-    description?: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * The unique name of the domain.
      */

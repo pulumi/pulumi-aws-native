@@ -12,29 +12,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for AWS Config ConfigRule
+// You must first create and start the CC configuration recorder in order to create CC managed rules with CFNlong. For more information, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html).
+//
+//	Adds or updates an CC rule to evaluate if your AWS resources comply with your desired configurations. For information on how many CC rules you can have per account, see [Service Limits](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in the *Developer Guide*.
+//	There are two types of rules: *Managed Rules* and *Custom Rules*. You can use the ``ConfigRule`` resource to create both CC Managed Rules and CC Custom Rules.
+//	CC Managed Rules are predefined, customizable rules created by CC. For a list of managed rules, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html). If you are adding an CC managed rule, you must specify the rule's identifi
 type ConfigRule struct {
 	pulumi.CustomResourceState
 
-	// ARN generated for the AWS Config rule
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Compliance details of the Config rule
-	Compliance CompliancePropertiesPtrOutput `pulumi:"compliance"`
-	// ID of the config rule
-	ConfigRuleId pulumi.StringOutput `pulumi:"configRuleId"`
-	// Name for the AWS Config rule
+	// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
+	Compliance   CompliancePropertiesPtrOutput `pulumi:"compliance"`
+	ConfigRuleId pulumi.StringOutput           `pulumi:"configRuleId"`
+	// A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
 	ConfigRuleName pulumi.StringPtrOutput `pulumi:"configRuleName"`
-	// Description provided for the AWS Config rule
+	// The description that you provide for the CC rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// List of EvaluationModeConfiguration objects
+	// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
 	EvaluationModes ConfigRuleEvaluationModeConfigurationArrayOutput `pulumi:"evaluationModes"`
-	// JSON string passed the Lambda function
+	// A string, in JSON format, that is passed to the CC rule Lambda function.
 	InputParameters pulumi.StringPtrOutput `pulumi:"inputParameters"`
-	// Maximum frequency at which the rule has to be evaluated
+	// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
+	//   +  You are using an AWS managed rule that is triggered at a periodic frequency.
+	//   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
+	//
+	//   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
 	MaximumExecutionFrequency pulumi.StringPtrOutput `pulumi:"maximumExecutionFrequency"`
-	// Scope to constrain which resources can trigger the AWS Config rule
+	// Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
+	//   The scope can be empty.
 	Scope ConfigRuleScopePtrOutput `pulumi:"scope"`
-	// Source of events for the AWS Config rule
+	// Provides the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
 	Source ConfigRuleSourceOutput `pulumi:"source"`
 }
 
@@ -85,41 +92,51 @@ func (ConfigRuleState) ElementType() reflect.Type {
 }
 
 type configRuleArgs struct {
-	// Compliance details of the Config rule
+	// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
 	Compliance *ComplianceProperties `pulumi:"compliance"`
-	// Name for the AWS Config rule
+	// A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
 	ConfigRuleName *string `pulumi:"configRuleName"`
-	// Description provided for the AWS Config rule
+	// The description that you provide for the CC rule.
 	Description *string `pulumi:"description"`
-	// List of EvaluationModeConfiguration objects
+	// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
 	EvaluationModes []ConfigRuleEvaluationModeConfiguration `pulumi:"evaluationModes"`
-	// JSON string passed the Lambda function
+	// A string, in JSON format, that is passed to the CC rule Lambda function.
 	InputParameters *string `pulumi:"inputParameters"`
-	// Maximum frequency at which the rule has to be evaluated
+	// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
+	//   +  You are using an AWS managed rule that is triggered at a periodic frequency.
+	//   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
+	//
+	//   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
-	// Scope to constrain which resources can trigger the AWS Config rule
+	// Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
+	//   The scope can be empty.
 	Scope *ConfigRuleScope `pulumi:"scope"`
-	// Source of events for the AWS Config rule
+	// Provides the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
 	Source ConfigRuleSource `pulumi:"source"`
 }
 
 // The set of arguments for constructing a ConfigRule resource.
 type ConfigRuleArgs struct {
-	// Compliance details of the Config rule
+	// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
 	Compliance CompliancePropertiesPtrInput
-	// Name for the AWS Config rule
+	// A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
 	ConfigRuleName pulumi.StringPtrInput
-	// Description provided for the AWS Config rule
+	// The description that you provide for the CC rule.
 	Description pulumi.StringPtrInput
-	// List of EvaluationModeConfiguration objects
+	// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
 	EvaluationModes ConfigRuleEvaluationModeConfigurationArrayInput
-	// JSON string passed the Lambda function
+	// A string, in JSON format, that is passed to the CC rule Lambda function.
 	InputParameters pulumi.StringPtrInput
-	// Maximum frequency at which the rule has to be evaluated
+	// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
+	//   +  You are using an AWS managed rule that is triggered at a periodic frequency.
+	//   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
+	//
+	//   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
 	MaximumExecutionFrequency pulumi.StringPtrInput
-	// Scope to constrain which resources can trigger the AWS Config rule
+	// Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
+	//   The scope can be empty.
 	Scope ConfigRuleScopePtrInput
-	// Source of events for the AWS Config rule
+	// Provides the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
 	Source ConfigRuleSourceInput
 }
 
@@ -160,52 +177,58 @@ func (o ConfigRuleOutput) ToConfigRuleOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-// ARN generated for the AWS Config rule
 func (o ConfigRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Compliance details of the Config rule
+// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
 func (o ConfigRuleOutput) Compliance() CompliancePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConfigRule) CompliancePropertiesPtrOutput { return v.Compliance }).(CompliancePropertiesPtrOutput)
 }
 
-// ID of the config rule
 func (o ConfigRuleOutput) ConfigRuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringOutput { return v.ConfigRuleId }).(pulumi.StringOutput)
 }
 
-// Name for the AWS Config rule
+// A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
 func (o ConfigRuleOutput) ConfigRuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.ConfigRuleName }).(pulumi.StringPtrOutput)
 }
 
-// Description provided for the AWS Config rule
+// The description that you provide for the CC rule.
 func (o ConfigRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// List of EvaluationModeConfiguration objects
+// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
 func (o ConfigRuleOutput) EvaluationModes() ConfigRuleEvaluationModeConfigurationArrayOutput {
 	return o.ApplyT(func(v *ConfigRule) ConfigRuleEvaluationModeConfigurationArrayOutput { return v.EvaluationModes }).(ConfigRuleEvaluationModeConfigurationArrayOutput)
 }
 
-// JSON string passed the Lambda function
+// A string, in JSON format, that is passed to the CC rule Lambda function.
 func (o ConfigRuleOutput) InputParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.InputParameters }).(pulumi.StringPtrOutput)
 }
 
-// Maximum frequency at which the rule has to be evaluated
+// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for “MaximumExecutionFrequency“ when:
+//
+//   - You are using an AWS managed rule that is triggered at a periodic frequency.
+//
+//   - Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
+//
+//     By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the “MaximumExecutionFrequency“ parameter.
 func (o ConfigRuleOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Scope to constrain which resources can trigger the AWS Config rule
+// Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
+//
+//	The scope can be empty.
 func (o ConfigRuleOutput) Scope() ConfigRuleScopePtrOutput {
 	return o.ApplyT(func(v *ConfigRule) ConfigRuleScopePtrOutput { return v.Scope }).(ConfigRuleScopePtrOutput)
 }
 
-// Source of events for the AWS Config rule
+// Provides the rule owner (```` for managed rules, “CUSTOM_POLICY“ for Custom Policy rules, and “CUSTOM_LAMBDA“ for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
 func (o ConfigRuleOutput) Source() ConfigRuleSourceOutput {
 	return o.ApplyT(func(v *ConfigRule) ConfigRuleSourceOutput { return v.Source }).(ConfigRuleSourceOutput)
 }

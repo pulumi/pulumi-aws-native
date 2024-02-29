@@ -25,6 +25,7 @@ type Dashboard struct {
 	Definition               DashboardVersionDefinitionPtrOutput        `pulumi:"definition"`
 	LastPublishedTime        pulumi.StringOutput                        `pulumi:"lastPublishedTime"`
 	LastUpdatedTime          pulumi.StringOutput                        `pulumi:"lastUpdatedTime"`
+	LinkEntities             pulumi.StringArrayOutput                   `pulumi:"linkEntities"`
 	LinkSharingConfiguration DashboardLinkSharingConfigurationPtrOutput `pulumi:"linkSharingConfiguration"`
 	Name                     pulumi.StringOutput                        `pulumi:"name"`
 	Parameters               DashboardParametersPtrOutput               `pulumi:"parameters"`
@@ -92,6 +93,7 @@ type dashboardArgs struct {
 	DashboardId              string                             `pulumi:"dashboardId"`
 	DashboardPublishOptions  *DashboardPublishOptions           `pulumi:"dashboardPublishOptions"`
 	Definition               *DashboardVersionDefinition        `pulumi:"definition"`
+	LinkEntities             []string                           `pulumi:"linkEntities"`
 	LinkSharingConfiguration *DashboardLinkSharingConfiguration `pulumi:"linkSharingConfiguration"`
 	Name                     *string                            `pulumi:"name"`
 	Parameters               *DashboardParameters               `pulumi:"parameters"`
@@ -109,6 +111,7 @@ type DashboardArgs struct {
 	DashboardId              pulumi.StringInput
 	DashboardPublishOptions  DashboardPublishOptionsPtrInput
 	Definition               DashboardVersionDefinitionPtrInput
+	LinkEntities             pulumi.StringArrayInput
 	LinkSharingConfiguration DashboardLinkSharingConfigurationPtrInput
 	Name                     pulumi.StringPtrInput
 	Parameters               DashboardParametersPtrInput
@@ -187,6 +190,10 @@ func (o DashboardOutput) LastPublishedTime() pulumi.StringOutput {
 
 func (o DashboardOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+func (o DashboardOutput) LinkEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.LinkEntities }).(pulumi.StringArrayOutput)
 }
 
 func (o DashboardOutput) LinkSharingConfiguration() DashboardLinkSharingConfigurationPtrOutput {

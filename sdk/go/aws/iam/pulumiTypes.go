@@ -127,9 +127,12 @@ type OidcProviderTag struct {
 	Value string `pulumi:"value"`
 }
 
-// The inline policy document that is embedded in the specified IAM role.
+// Contains information about an attached policy.
+//
+//	An attached policy is a managed policy that has been attached to a user, group, or role.
+//	For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
 type RolePolicyType struct {
-	// The policy document.
+	// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
 	PolicyDocument string `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName string `pulumi:"policyName"`
@@ -146,9 +149,12 @@ type RolePolicyTypeInput interface {
 	ToRolePolicyTypeOutputWithContext(context.Context) RolePolicyTypeOutput
 }
 
-// The inline policy document that is embedded in the specified IAM role.
+// Contains information about an attached policy.
+//
+//	An attached policy is a managed policy that has been attached to a user, group, or role.
+//	For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
 type RolePolicyTypeArgs struct {
-	// The policy document.
+	// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
 	PolicyDocument pulumi.StringInput `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName pulumi.StringInput `pulumi:"policyName"`
@@ -191,7 +197,10 @@ func (i RolePolicyTypeArray) ToRolePolicyTypeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyTypeArrayOutput)
 }
 
-// The inline policy document that is embedded in the specified IAM role.
+// Contains information about an attached policy.
+//
+//	An attached policy is a managed policy that has been attached to a user, group, or role.
+//	For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
 type RolePolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (RolePolicyTypeOutput) ElementType() reflect.Type {
@@ -206,7 +215,7 @@ func (o RolePolicyTypeOutput) ToRolePolicyTypeOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The policy document.
+// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
 func (o RolePolicyTypeOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v RolePolicyType) string { return v.PolicyDocument }).(pulumi.StringOutput)
 }
@@ -236,11 +245,12 @@ func (o RolePolicyTypeArrayOutput) Index(i pulumi.IntInput) RolePolicyTypeOutput
 	}).(RolePolicyTypeOutput)
 }
 
-// A key-value pair to associate with a resource.
+// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.
 type RoleTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The value associated with this tag. For example, tags with a key name of ``Department`` could have values such as ``Human Resources``, ``Accounting``, and ``Support``. Tags with a key name of ``Cost Center`` might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.
+	//    AWS always interprets the tag ``Value`` as a single string. If you need to store an array, you can store comma-separated values in the string. However, you must interpret the value in your code.
 	Value string `pulumi:"value"`
 }
 
@@ -260,7 +270,7 @@ type ServerCertificateTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Contains the user name and password create date for a user.
+// Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
 type UserLoginProfile struct {
 	// The user's password.
 	Password string `pulumi:"password"`
@@ -279,7 +289,7 @@ type UserLoginProfileInput interface {
 	ToUserLoginProfileOutputWithContext(context.Context) UserLoginProfileOutput
 }
 
-// Contains the user name and password create date for a user.
+// Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
 type UserLoginProfileArgs struct {
 	// The user's password.
 	Password pulumi.StringInput `pulumi:"password"`
@@ -340,7 +350,7 @@ func (i *userLoginProfilePtrType) ToUserLoginProfilePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfilePtrOutput)
 }
 
-// Contains the user name and password create date for a user.
+// Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
 type UserLoginProfileOutput struct{ *pulumi.OutputState }
 
 func (UserLoginProfileOutput) ElementType() reflect.Type {
@@ -420,8 +430,11 @@ func (o UserLoginProfilePtrOutput) PasswordResetRequired() pulumi.BoolPtrOutput 
 }
 
 // Contains information about an attached policy.
+//
+//	An attached policy is a managed policy that has been attached to a user, group, or role.
+//	For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
 type UserPolicyType struct {
-	// The policy document.
+	// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName string `pulumi:"policyName"`
@@ -439,8 +452,11 @@ type UserPolicyTypeInput interface {
 }
 
 // Contains information about an attached policy.
+//
+//	An attached policy is a managed policy that has been attached to a user, group, or role.
+//	For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
 type UserPolicyTypeArgs struct {
-	// The policy document.
+	// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
 	PolicyDocument pulumi.Input `pulumi:"policyDocument"`
 	// The friendly name (not ARN) identifying the policy.
 	PolicyName pulumi.StringInput `pulumi:"policyName"`
@@ -484,6 +500,9 @@ func (i UserPolicyTypeArray) ToUserPolicyTypeArrayOutputWithContext(ctx context.
 }
 
 // Contains information about an attached policy.
+//
+//	An attached policy is a managed policy that has been attached to a user, group, or role.
+//	For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
 type UserPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPolicyTypeOutput) ElementType() reflect.Type {
@@ -498,7 +517,7 @@ func (o UserPolicyTypeOutput) ToUserPolicyTypeOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The policy document.
+// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
 func (o UserPolicyTypeOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v UserPolicyType) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
@@ -528,11 +547,12 @@ func (o UserPolicyTypeArrayOutput) Index(i pulumi.IntInput) UserPolicyTypeOutput
 	}).(UserPolicyTypeOutput)
 }
 
-// A key-value pair to associate with a resource.
+// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.
 type UserTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The key name that can be used to look up or retrieve the associated value. For example, ``Department`` or ``Cost Center`` are common choices.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The value associated with this tag. For example, tags with a key name of ``Department`` could have values such as ``Human Resources``, ``Accounting``, and ``Support``. Tags with a key name of ``Cost Center`` might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.
+	//    AWS always interprets the tag ``Value`` as a single string. If you need to store an array, you can store comma-separated values in the string. However, you must interpret the value in your code.
 	Value string `pulumi:"value"`
 }
 

@@ -10,10 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// A filter that you can specify for selection for modifications on replicas.
+    /// </summary>
     public sealed class BucketReplicaModificationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether Amazon S3 replicates modifications on replicas.
+        ///  *Allowed values*: ``Enabled`` | ``Disabled``
         /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketReplicaModificationsStatus> Status { get; set; } = null!;

@@ -10,67 +10,69 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
-    /// Schema for AWS Config ConfigRule
+    /// You must first create and start the CC configuration recorder in order to create CC managed rules with CFNlong. For more information, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html).
+    ///  Adds or updates an CC rule to evaluate if your AWS resources comply with your desired configurations. For information on how many CC rules you can have per account, see [Service Limits](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in the *Developer Guide*.
+    ///  There are two types of rules: *Managed Rules* and *Custom Rules*. You can use the ``ConfigRule`` resource to create both CC Managed Rules and CC Custom Rules.
+    ///  CC Managed Rules are predefined, customizable rules created by CC. For a list of managed rules, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html). If you are adding an CC managed rule, you must specify the rule's identifi
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:ConfigRule")]
     public partial class ConfigRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN generated for the AWS Config rule 
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Compliance details of the Config rule
+        /// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
         /// </summary>
         [Output("compliance")]
         public Output<Outputs.ComplianceProperties?> Compliance { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the config rule
-        /// </summary>
         [Output("configRuleId")]
         public Output<string> ConfigRuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Name for the AWS Config rule
+        /// A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
         /// </summary>
         [Output("configRuleName")]
         public Output<string?> ConfigRuleName { get; private set; } = null!;
 
         /// <summary>
-        /// Description provided for the AWS Config rule
+        /// The description that you provide for the CC rule.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// List of EvaluationModeConfiguration objects
+        /// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
         /// </summary>
         [Output("evaluationModes")]
         public Output<ImmutableArray<Outputs.ConfigRuleEvaluationModeConfiguration>> EvaluationModes { get; private set; } = null!;
 
         /// <summary>
-        /// JSON string passed the Lambda function
+        /// A string, in JSON format, that is passed to the CC rule Lambda function.
         /// </summary>
         [Output("inputParameters")]
         public Output<string?> InputParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum frequency at which the rule has to be evaluated
+        /// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
+        ///   +  You are using an AWS managed rule that is triggered at a periodic frequency.
+        ///   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
+        ///   
+        ///   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
         /// </summary>
         [Output("maximumExecutionFrequency")]
         public Output<string?> MaximumExecutionFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// Scope to constrain which resources can trigger the AWS Config rule
+        /// Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
+        ///   The scope can be empty.
         /// </summary>
         [Output("scope")]
         public Output<Outputs.ConfigRuleScope?> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// Source of events for the AWS Config rule
+        /// Provides the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
         /// </summary>
         [Output("source")]
         public Output<Outputs.ConfigRuleSource> Source { get; private set; } = null!;
@@ -125,19 +127,19 @@ namespace Pulumi.AwsNative.Configuration
     public sealed class ConfigRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Compliance details of the Config rule
+        /// Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
         /// </summary>
         [Input("compliance")]
         public Input<Inputs.CompliancePropertiesArgs>? Compliance { get; set; }
 
         /// <summary>
-        /// Name for the AWS Config rule
+        /// A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
         /// </summary>
         [Input("configRuleName")]
         public Input<string>? ConfigRuleName { get; set; }
 
         /// <summary>
-        /// Description provided for the AWS Config rule
+        /// The description that you provide for the CC rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -146,7 +148,7 @@ namespace Pulumi.AwsNative.Configuration
         private InputList<Inputs.ConfigRuleEvaluationModeConfigurationArgs>? _evaluationModes;
 
         /// <summary>
-        /// List of EvaluationModeConfiguration objects
+        /// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
         /// </summary>
         public InputList<Inputs.ConfigRuleEvaluationModeConfigurationArgs> EvaluationModes
         {
@@ -155,25 +157,30 @@ namespace Pulumi.AwsNative.Configuration
         }
 
         /// <summary>
-        /// JSON string passed the Lambda function
+        /// A string, in JSON format, that is passed to the CC rule Lambda function.
         /// </summary>
         [Input("inputParameters")]
         public Input<string>? InputParameters { get; set; }
 
         /// <summary>
-        /// Maximum frequency at which the rule has to be evaluated
+        /// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
+        ///   +  You are using an AWS managed rule that is triggered at a periodic frequency.
+        ///   +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
+        ///   
+        ///   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
         /// </summary>
         [Input("maximumExecutionFrequency")]
         public Input<string>? MaximumExecutionFrequency { get; set; }
 
         /// <summary>
-        /// Scope to constrain which resources can trigger the AWS Config rule
+        /// Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
+        ///   The scope can be empty.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.ConfigRuleScopeArgs>? Scope { get; set; }
 
         /// <summary>
-        /// Source of events for the AWS Config rule
+        /// Provides the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ConfigRuleSourceArgs> Source { get; set; } = null!;

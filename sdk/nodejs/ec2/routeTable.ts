@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::RouteTable
+ * Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+ *  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
  */
 export class RouteTable extends pulumi.CustomResource {
     /**
@@ -37,9 +38,6 @@ export class RouteTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteTable.__pulumiType;
     }
 
-    /**
-     * The route table ID.
-     */
     public /*out*/ readonly routeTableId!: pulumi.Output<string>;
     /**
      * Any tags assigned to the route table.

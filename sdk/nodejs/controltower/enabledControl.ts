@@ -46,6 +46,10 @@ export class EnabledControl extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<outputs.controltower.EnabledControlParameter[] | undefined>;
     /**
+     * A set of tags to assign to the enabled control.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * Arn for Organizational unit to which the control needs to be applied
      */
     public readonly targetIdentifier!: pulumi.Output<string>;
@@ -69,10 +73,12 @@ export class EnabledControl extends pulumi.CustomResource {
             }
             resourceInputs["controlIdentifier"] = args ? args.controlIdentifier : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
         } else {
             resourceInputs["controlIdentifier"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -94,6 +100,10 @@ export interface EnabledControlArgs {
      * Parameters to configure the enabled control behavior.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.controltower.EnabledControlParameterArgs>[]>;
+    /**
+     * A set of tags to assign to the enabled control.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Arn for Organizational unit to which the control needs to be applied
      */

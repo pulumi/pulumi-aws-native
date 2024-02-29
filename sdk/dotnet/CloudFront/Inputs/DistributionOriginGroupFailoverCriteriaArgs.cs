@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A complex data type that includes information about the failover criteria for an origin group, including the status codes for which CloudFront will failover from the primary origin to the second origin.
+    /// </summary>
     public sealed class DistributionOriginGroupFailoverCriteriaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
+        /// </summary>
         [Input("statusCodes", required: true)]
         public Input<Inputs.DistributionStatusCodesArgs> StatusCodes { get; set; } = null!;
 

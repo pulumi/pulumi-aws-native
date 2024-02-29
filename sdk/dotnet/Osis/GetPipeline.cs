@@ -65,11 +65,11 @@ namespace Pulumi.AwsNative.Osis
         public readonly ImmutableArray<string> IngestEndpointUrls;
         public readonly Outputs.PipelineLogPublishingOptions? LogPublishingOptions;
         /// <summary>
-        /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+        /// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         /// </summary>
         public readonly int? MaxUnits;
         /// <summary>
-        /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+        /// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         /// </summary>
         public readonly int? MinUnits;
         /// <summary>

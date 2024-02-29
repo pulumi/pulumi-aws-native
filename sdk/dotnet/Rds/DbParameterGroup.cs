@@ -10,13 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds
 {
     /// <summary>
-    /// The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+    /// The ``AWS::RDS::DBParameterGroup`` resource creates a custom parameter group for an RDS database family.
+    ///  This type can be declared in a template and referenced in the ``DBParameterGroupName`` property of an ``AWS::RDS::DBInstance`` resource.
+    ///  For information about configuring parameters for Amazon RDS DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.
+    ///  For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+    ///   Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DbParameterGroup")]
     public partial class DbParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the name of the DB parameter group
+        /// The name of the DB parameter group.
+        ///  Constraints:
+        ///   +  Must be 1 to 255 letters, numbers, or hyphens.
+        ///   +  First character must be a letter
+        ///   +  Can't end with a hyphen or contain two consecutive hyphens
+        ///   
+        ///  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
+        ///   This value is stored as a lowercase string.
         /// </summary>
         [Output("dbParameterGroupName")]
         public Output<string?> DbParameterGroupName { get; private set; } = null!;
@@ -28,13 +39,22 @@ namespace Pulumi.AwsNative.Rds
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The DB parameter group family name.
+        /// The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a DB engine and engine version compatible with that DB parameter group family.
+        ///   The DB parameter group family can't be changed when updating a DB parameter group.
+        ///   To list all of the available parameter group families, use the following command:
+        ///  ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"``
+        ///  The output contains duplicates.
+        ///  For more information, see ``CreateDBParameterGroup``.
         /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// An array of parameter names and values for the parameter update.
+        /// An array of parameter names and values for the parameter update. At least one parameter name and value must be supplied. Subsequent arguments are optional.
+        ///  RDS for Db2 requires you to bring your own Db2 license. You must enter your IBM customer ID (``rds.ibm_customer_id``) and site number (``rds.ibm_site_id``) before starting a Db2 instance.
+        ///  For more information about DB parameters and DB parameter groups for Amazon RDS DB engines, see [Working with DB Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.
+        ///  For more information about DB cluster and DB instance parameters and parameter groups for Amazon Aurora DB engines, see [Working with DB Parameter Groups and DB Cluster Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+        ///   AWS CloudFormation doesn't support specifying an apply method for each individual 
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
         /// </summary>
@@ -42,7 +62,8 @@ namespace Pulumi.AwsNative.Rds
         public Output<object?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// An optional array of key-value pairs to apply to this DB parameter group.
+        ///   Currently, this is the only property that supports drift detection.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -99,7 +120,14 @@ namespace Pulumi.AwsNative.Rds
     public sealed class DbParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the DB parameter group
+        /// The name of the DB parameter group.
+        ///  Constraints:
+        ///   +  Must be 1 to 255 letters, numbers, or hyphens.
+        ///   +  First character must be a letter
+        ///   +  Can't end with a hyphen or contain two consecutive hyphens
+        ///   
+        ///  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
+        ///   This value is stored as a lowercase string.
         /// </summary>
         [Input("dbParameterGroupName")]
         public Input<string>? DbParameterGroupName { get; set; }
@@ -111,13 +139,22 @@ namespace Pulumi.AwsNative.Rds
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// The DB parameter group family name.
+        /// The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a DB engine and engine version compatible with that DB parameter group family.
+        ///   The DB parameter group family can't be changed when updating a DB parameter group.
+        ///   To list all of the available parameter group families, use the following command:
+        ///  ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"``
+        ///  The output contains duplicates.
+        ///  For more information, see ``CreateDBParameterGroup``.
         /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// An array of parameter names and values for the parameter update.
+        /// An array of parameter names and values for the parameter update. At least one parameter name and value must be supplied. Subsequent arguments are optional.
+        ///  RDS for Db2 requires you to bring your own Db2 license. You must enter your IBM customer ID (``rds.ibm_customer_id``) and site number (``rds.ibm_site_id``) before starting a Db2 instance.
+        ///  For more information about DB parameters and DB parameter groups for Amazon RDS DB engines, see [Working with DB Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.
+        ///  For more information about DB cluster and DB instance parameters and parameter groups for Amazon Aurora DB engines, see [Working with DB Parameter Groups and DB Cluster Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+        ///   AWS CloudFormation doesn't support specifying an apply method for each individual 
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
         /// </summary>
@@ -128,7 +165,8 @@ namespace Pulumi.AwsNative.Rds
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// An optional array of key-value pairs to apply to this DB parameter group.
+        ///   Currently, this is the only property that supports drift detection.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

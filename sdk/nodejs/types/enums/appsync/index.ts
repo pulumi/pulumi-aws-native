@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ResolverMetricsConfig = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type ResolverMetricsConfig = (typeof ResolverMetricsConfig)[keyof typeof ResolverMetricsConfig];
+
 export const SourceApiAssociationConfigMergeType = {
     AutoMerge: "AUTO_MERGE",
     ManualMerge: "MANUAL_MERGE",

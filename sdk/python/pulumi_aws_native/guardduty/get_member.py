@@ -18,26 +18,18 @@ __all__ = [
 
 @pulumi.output_type
 class GetMemberResult:
-    def __init__(__self__, disable_email_notification=None, message=None, status=None):
-        if disable_email_notification and not isinstance(disable_email_notification, bool):
-            raise TypeError("Expected argument 'disable_email_notification' to be a bool")
-        pulumi.set(__self__, "disable_email_notification", disable_email_notification)
-        if message and not isinstance(message, str):
-            raise TypeError("Expected argument 'message' to be a str")
-        pulumi.set(__self__, "message", message)
+    def __init__(__self__, email=None, status=None):
+        if email and not isinstance(email, str):
+            raise TypeError("Expected argument 'email' to be a str")
+        pulumi.set(__self__, "email", email)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="disableEmailNotification")
-    def disable_email_notification(self) -> Optional[bool]:
-        return pulumi.get(self, "disable_email_notification")
-
-    @property
     @pulumi.getter
-    def message(self) -> Optional[str]:
-        return pulumi.get(self, "message")
+    def email(self) -> Optional[str]:
+        return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
@@ -51,29 +43,30 @@ class AwaitableGetMemberResult(GetMemberResult):
         if False:
             yield self
         return GetMemberResult(
-            disable_email_notification=self.disable_email_notification,
-            message=self.message,
+            email=self.email,
             status=self.status)
 
 
-def get_member(member_id: Optional[str] = None,
+def get_member(detector_id: Optional[str] = None,
+               member_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMemberResult:
     """
     Resource Type definition for AWS::GuardDuty::Member
     """
     __args__ = dict()
+    __args__['detectorId'] = detector_id
     __args__['memberId'] = member_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:guardduty:getMember', __args__, opts=opts, typ=GetMemberResult).value
 
     return AwaitableGetMemberResult(
-        disable_email_notification=pulumi.get(__ret__, 'disable_email_notification'),
-        message=pulumi.get(__ret__, 'message'),
+        email=pulumi.get(__ret__, 'email'),
         status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_member)
-def get_member_output(member_id: Optional[pulumi.Input[str]] = None,
+def get_member_output(detector_id: Optional[pulumi.Input[str]] = None,
+                      member_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMemberResult]:
     """
     Resource Type definition for AWS::GuardDuty::Member

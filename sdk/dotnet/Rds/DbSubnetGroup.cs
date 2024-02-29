@@ -10,22 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds
 {
     /// <summary>
-    /// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+    /// The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+    ///  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DbSubnetGroup")]
     public partial class DbSubnetGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The description for the DB subnet group.
+        /// </summary>
         [Output("dbSubnetGroupDescription")]
         public Output<string> DbSubnetGroupDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The name for the DB subnet group. This value is stored as a lowercase string.
+        ///  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+        ///  Example: ``mysubnetgroup``
+        /// </summary>
         [Output("dbSubnetGroupName")]
         public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The EC2 Subnet IDs for the DB subnet group.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// An optional array of key-value pairs to apply to this DB subnet group.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -79,14 +91,26 @@ namespace Pulumi.AwsNative.Rds
 
     public sealed class DbSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description for the DB subnet group.
+        /// </summary>
         [Input("dbSubnetGroupDescription", required: true)]
         public Input<string> DbSubnetGroupDescription { get; set; } = null!;
 
+        /// <summary>
+        /// The name for the DB subnet group. This value is stored as a lowercase string.
+        ///  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+        ///  Example: ``mysubnetgroup``
+        /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The EC2 Subnet IDs for the DB subnet group.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -97,7 +121,7 @@ namespace Pulumi.AwsNative.Rds
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// An optional array of key-value pairs to apply to this DB subnet group.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

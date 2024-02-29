@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
+    /// </summary>
     public sealed class BucketAccelerateConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the transfer acceleration state for an Amazon S3 bucket.
+        /// Specifies the transfer acceleration status of the bucket.
         /// </summary>
         [Input("accelerationStatus", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketAccelerateConfigurationAccelerationStatus> AccelerationStatus { get; set; } = null!;

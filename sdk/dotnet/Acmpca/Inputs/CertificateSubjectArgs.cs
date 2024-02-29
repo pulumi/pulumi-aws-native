@@ -30,6 +30,11 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
 
         [Input("customAttributes")]
         private InputList<Inputs.CertificateCustomAttributeArgs>? _customAttributes;
+
+        /// <summary>
+        /// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+        ///   Custom attributes cannot be used in combination with standard attributes.
+        /// </summary>
         public InputList<Inputs.CertificateCustomAttributeArgs> CustomAttributes
         {
             get => _customAttributes ?? (_customAttributes = new InputList<Inputs.CertificateCustomAttributeArgs>());

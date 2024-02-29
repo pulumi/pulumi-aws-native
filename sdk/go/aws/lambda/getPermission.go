@@ -11,7 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Lambda::Permission
+// The “AWS::Lambda::Permission“ resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
+//
+//	To grant permission to another account, specify the account ID as the ``Principal``. To grant permission to an organization defined in AOlong, specify the organization ID as the ``PrincipalOrgID``. For AWS services, the principal is a domain-style identifier defined by the service, like ``s3.amazonaws.com`` or ``sns.amazonaws.com``. For AWS services, you can also specify the ARN of the associated resource as the ``SourceArn``. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
+//	If your function has a fu
 func LookupPermission(ctx *pulumi.Context, args *LookupPermissionArgs, opts ...pulumi.InvokeOption) (*LookupPermissionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionResult
@@ -24,13 +27,17 @@ func LookupPermission(ctx *pulumi.Context, args *LookupPermissionArgs, opts ...p
 
 type LookupPermissionArgs struct {
 	// The name of the Lambda function, version, or alias.
+	//   **Name formats**
+	//  +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+	//   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+	//   +   *Partial ARN* – ``123456789012:function:my-function``.
+	//
+	//  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName string `pulumi:"functionName"`
-	// A statement identifier that differentiates the statement from others in the same policy.
-	Id string `pulumi:"id"`
+	Id           string `pulumi:"id"`
 }
 
 type LookupPermissionResult struct {
-	// A statement identifier that differentiates the statement from others in the same policy.
 	Id *string `pulumi:"id"`
 }
 
@@ -49,9 +56,14 @@ func LookupPermissionOutput(ctx *pulumi.Context, args LookupPermissionOutputArgs
 
 type LookupPermissionOutputArgs struct {
 	// The name of the Lambda function, version, or alias.
+	//   **Name formats**
+	//  +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+	//   +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+	//   +   *Partial ARN* – ``123456789012:function:my-function``.
+	//
+	//  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// A statement identifier that differentiates the statement from others in the same policy.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id           pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupPermissionOutputArgs) ElementType() reflect.Type {
@@ -72,7 +84,6 @@ func (o LookupPermissionResultOutput) ToLookupPermissionResultOutputWithContext(
 	return o
 }
 
-// A statement identifier that differentiates the statement from others in the same policy.
 func (o LookupPermissionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPermissionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
