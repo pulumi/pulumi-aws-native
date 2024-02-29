@@ -19,9 +19,9 @@ __all__ = ['ObjectTypeArgs', 'ObjectType']
 @pulumi.input_type
 class ObjectTypeArgs:
     def __init__(__self__, *,
+                 description: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
                  allow_profile_creation: Optional[pulumi.Input[bool]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  expiration_days: Optional[pulumi.Input[int]] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]]] = None,
@@ -32,9 +32,9 @@ class ObjectTypeArgs:
                  template_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ObjectType resource.
+        :param pulumi.Input[str] description: Description of the profile object type.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[bool] allow_profile_creation: Indicates whether a profile should be created when data is received.
-        :param pulumi.Input[str] description: Description of the profile object type.
         :param pulumi.Input[str] encryption_key: The default encryption key
         :param pulumi.Input[int] expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]] fields: A list of the name and ObjectType field.
@@ -44,11 +44,10 @@ class ObjectTypeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the integration.
         :param pulumi.Input[str] template_id: A unique identifier for the object template.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "domain_name", domain_name)
         if allow_profile_creation is not None:
             pulumi.set(__self__, "allow_profile_creation", allow_profile_creation)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
         if encryption_key is not None:
             pulumi.set(__self__, "encryption_key", encryption_key)
         if expiration_days is not None:
@@ -65,6 +64,18 @@ class ObjectTypeArgs:
             pulumi.set(__self__, "tags", tags)
         if template_id is not None:
             pulumi.set(__self__, "template_id", template_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[str]:
+        """
+        Description of the profile object type.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="domainName")
@@ -89,18 +100,6 @@ class ObjectTypeArgs:
     @allow_profile_creation.setter
     def allow_profile_creation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_profile_creation", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the profile object type.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="encryptionKey")
@@ -278,6 +277,8 @@ class ObjectType(pulumi.CustomResource):
             __props__ = ObjectTypeArgs.__new__(ObjectTypeArgs)
 
             __props__.__dict__["allow_profile_creation"] = allow_profile_creation
+            if description is None and not opts.urn:
+                raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
@@ -349,7 +350,7 @@ class ObjectType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         Description of the profile object type.
         """
@@ -405,7 +406,7 @@ class ObjectType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectTypeName")
-    def object_type_name(self) -> pulumi.Output[Optional[str]]:
+    def object_type_name(self) -> pulumi.Output[str]:
         """
         The name of the profile object type.
         """

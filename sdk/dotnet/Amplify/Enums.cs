@@ -97,4 +97,60 @@ namespace Pulumi.AwsNative.Amplify
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct DomainCertificateCertificateType : IEquatable<DomainCertificateCertificateType>
+    {
+        private readonly string _value;
+
+        private DomainCertificateCertificateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainCertificateCertificateType AmplifyManaged { get; } = new DomainCertificateCertificateType("AMPLIFY_MANAGED");
+        public static DomainCertificateCertificateType Custom { get; } = new DomainCertificateCertificateType("CUSTOM");
+
+        public static bool operator ==(DomainCertificateCertificateType left, DomainCertificateCertificateType right) => left.Equals(right);
+        public static bool operator !=(DomainCertificateCertificateType left, DomainCertificateCertificateType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainCertificateCertificateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainCertificateCertificateType other && Equals(other);
+        public bool Equals(DomainCertificateCertificateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DomainCertificateSettingsCertificateType : IEquatable<DomainCertificateSettingsCertificateType>
+    {
+        private readonly string _value;
+
+        private DomainCertificateSettingsCertificateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainCertificateSettingsCertificateType AmplifyManaged { get; } = new DomainCertificateSettingsCertificateType("AMPLIFY_MANAGED");
+        public static DomainCertificateSettingsCertificateType Custom { get; } = new DomainCertificateSettingsCertificateType("CUSTOM");
+
+        public static bool operator ==(DomainCertificateSettingsCertificateType left, DomainCertificateSettingsCertificateType right) => left.Equals(right);
+        public static bool operator !=(DomainCertificateSettingsCertificateType left, DomainCertificateSettingsCertificateType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainCertificateSettingsCertificateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainCertificateSettingsCertificateType other && Equals(other);
+        public bool Equals(DomainCertificateSettingsCertificateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The ingest domain URL where the source stream should be sent.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class ChannelIngestEndpoint
     {
+        /// <summary>
+        /// &lt;p&gt;The system-generated unique identifier for the IngestEndpoint.&lt;/p&gt;
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// &lt;p&gt;The ingest domain URL where the source stream should be sent.&lt;/p&gt;
+        /// </summary>
         public readonly string? Url;
 
         [OutputConstructor]

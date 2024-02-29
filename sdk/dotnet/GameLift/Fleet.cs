@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.GameLift
         public Output<Outputs.FleetAnywhereConfiguration?> AnywhereConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        /// Determines whether to apply fleet or location capacities on fleet creation.
         /// </summary>
         [Output("applyCapacity")]
         public Output<Pulumi.AwsNative.GameLift.FleetApplyCapacity?> ApplyCapacity { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.AwsNative.GameLift
         public Input<Inputs.FleetAnywhereConfigurationArgs>? AnywhereConfiguration { get; set; }
 
         /// <summary>
-        /// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        /// Determines whether to apply fleet or location capacities on fleet creation.
         /// </summary>
         [Input("applyCapacity")]
         public Input<Pulumi.AwsNative.GameLift.FleetApplyCapacity>? ApplyCapacity { get; set; }

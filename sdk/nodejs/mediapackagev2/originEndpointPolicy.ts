@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
+ * <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
  */
 export class OriginEndpointPolicy extends pulumi.CustomResource {
     /**
@@ -34,9 +34,9 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginEndpointPolicy.__pulumiType;
     }
 
-    public readonly channelGroupName!: pulumi.Output<string | undefined>;
-    public readonly channelName!: pulumi.Output<string | undefined>;
-    public readonly originEndpointName!: pulumi.Output<string | undefined>;
+    public readonly channelGroupName!: pulumi.Output<string>;
+    public readonly channelName!: pulumi.Output<string>;
+    public readonly originEndpointName!: pulumi.Output<string>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
      */
@@ -53,6 +53,15 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'channelGroupName'");
+            }
+            if ((!args || args.channelName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'channelName'");
+            }
+            if ((!args || args.originEndpointName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'originEndpointName'");
+            }
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
@@ -77,9 +86,9 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginEndpointPolicy resource.
  */
 export interface OriginEndpointPolicyArgs {
-    channelGroupName?: pulumi.Input<string>;
-    channelName?: pulumi.Input<string>;
-    originEndpointName?: pulumi.Input<string>;
+    channelGroupName: pulumi.Input<string>;
+    channelName: pulumi.Input<string>;
+    originEndpointName: pulumi.Input<string>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
      */

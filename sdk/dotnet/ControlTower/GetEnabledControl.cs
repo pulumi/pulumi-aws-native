@@ -73,11 +73,19 @@ namespace Pulumi.AwsNative.ControlTower
         /// Parameters to configure the enabled control behavior.
         /// </summary>
         public readonly ImmutableArray<Outputs.EnabledControlParameter> Parameters;
+        /// <summary>
+        /// A set of tags to assign to the enabled control.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetEnabledControlResult(ImmutableArray<Outputs.EnabledControlParameter> parameters)
+        private GetEnabledControlResult(
+            ImmutableArray<Outputs.EnabledControlParameter> parameters,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Parameters = parameters;
+            Tags = tags;
         }
     }
 }

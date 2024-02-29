@@ -12,6 +12,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     /// <summary>
     /// Specifies the placement of an instance.
+    ///  ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     public sealed class LaunchTemplatePlacementArgs : global::Pulumi.ResourceArgs
     {
@@ -28,7 +29,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+        /// The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
@@ -46,13 +47,13 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? HostId { get; set; }
 
         /// <summary>
-        /// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+        /// The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to ``host``.
         /// </summary>
         [Input("hostResourceGroupArn")]
         public Input<string>? HostResourceGroupArn { get; set; }
 
         /// <summary>
-        /// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+        /// The number of the partition the instance should launch in. Valid only if the placement group strategy is set to ``partition``.
         /// </summary>
         [Input("partitionNumber")]
         public Input<int>? PartitionNumber { get; set; }
@@ -64,7 +65,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? SpreadDomain { get; set; }
 
         /// <summary>
-        /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+        /// The tenancy of the instance. An instance with a tenancy of dedicated runs on single-tenant hardware.
         /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }

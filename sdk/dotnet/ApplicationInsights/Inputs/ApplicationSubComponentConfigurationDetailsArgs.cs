@@ -39,6 +39,18 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
             set => _logs = value;
         }
 
+        [Input("processes")]
+        private InputList<Inputs.ApplicationProcessArgs>? _processes;
+
+        /// <summary>
+        /// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+        /// </summary>
+        public InputList<Inputs.ApplicationProcessArgs> Processes
+        {
+            get => _processes ?? (_processes = new InputList<Inputs.ApplicationProcessArgs>());
+            set => _processes = value;
+        }
+
         [Input("windowsEvents")]
         private InputList<Inputs.ApplicationWindowsEventArgs>? _windowsEvents;
 

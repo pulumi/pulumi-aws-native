@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::Subnet
+ * Specifies a subnet for the specified VPC.
+ *  For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
+ *  For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
  */
 export class Subnet extends pulumi.CustomResource {
     /**
@@ -37,42 +39,85 @@ export class Subnet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Subnet.__pulumiType;
     }
 
+    /**
+     * Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
+     *  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+     */
     public readonly assignIpv6AddressOnCreation!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Availability Zone of the subnet.
+     *  If you update this property, you must also update the ``CidrBlock`` property.
+     */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    /**
+     * The AZ ID of the subnet.
+     */
     public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
+    /**
+     * The IPv4 CIDR block assigned to the subnet.
+     *  If you update this property, we create a new subnet, and then delete the existing one.
+     */
     public readonly cidrBlock!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+     */
     public readonly enableDns64!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+     * An IPv4 IPAM pool ID for the subnet.
      */
     public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
     /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+     * An IPv4 netmask length for the subnet.
      */
     public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
+    /**
+     * The IPv6 CIDR block.
+     *  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+     */
     public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
+    /**
+     * The IPv6 network ranges for the subnet, in CIDR notation.
+     */
     public readonly ipv6CidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
-     * The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+     * An IPv6 IPAM pool ID for the subnet.
      */
     public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
+     */
     public readonly ipv6Native!: pulumi.Output<boolean | undefined>;
     /**
-     * The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+     * An IPv6 netmask length for the subnet.
      */
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
+    /**
+     * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
+     *  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+     */
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
-    /**
-     * The ID of the network ACL that is associated with the subnet's VPC
-     */
     public /*out*/ readonly networkAclAssociationId!: pulumi.Output<string>;
-    public readonly outpostArn!: pulumi.Output<string | undefined>;
-    public readonly privateDnsNameOptionsOnLaunch!: pulumi.Output<outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties | undefined>;
     /**
-     * The ID of the subnet
+     * The Amazon Resource Name (ARN) of the Outpost.
      */
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
+    /**
+     * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+     *  Available options:
+     *   + EnableResourceNameDnsAAAARecord (true | false)
+     *  + EnableResourceNameDnsARecord (true | false)
+     *  + HostnameType (ip-name | resource-name)
+     */
+    public readonly privateDnsNameOptionsOnLaunch!: pulumi.Output<outputs.ec2.PrivateDnsNameOptionsOnLaunchProperties | undefined>;
     public /*out*/ readonly subnetId!: pulumi.Output<string>;
+    /**
+     * Any tags assigned to the subnet.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC the subnet is in.
+     *  If you update this property, you must also update the ``CidrBlock`` property.
+     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -140,33 +185,82 @@ export class Subnet extends pulumi.CustomResource {
  * The set of arguments for constructing a Subnet resource.
  */
 export interface SubnetArgs {
+    /**
+     * Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
+     *  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+     */
     assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    /**
+     * The Availability Zone of the subnet.
+     *  If you update this property, you must also update the ``CidrBlock`` property.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The AZ ID of the subnet.
+     */
     availabilityZoneId?: pulumi.Input<string>;
+    /**
+     * The IPv4 CIDR block assigned to the subnet.
+     *  If you update this property, we create a new subnet, and then delete the existing one.
+     */
     cidrBlock?: pulumi.Input<string>;
+    /**
+     * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+     */
     enableDns64?: pulumi.Input<boolean>;
     /**
-     * The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+     * An IPv4 IPAM pool ID for the subnet.
      */
     ipv4IpamPoolId?: pulumi.Input<string>;
     /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+     * An IPv4 netmask length for the subnet.
      */
     ipv4NetmaskLength?: pulumi.Input<number>;
+    /**
+     * The IPv6 CIDR block.
+     *  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+     */
     ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * The IPv6 network ranges for the subnet, in CIDR notation.
+     */
     ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+     * An IPv6 IPAM pool ID for the subnet.
      */
     ipv6IpamPoolId?: pulumi.Input<string>;
+    /**
+     * Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
+     */
     ipv6Native?: pulumi.Input<boolean>;
     /**
-     * The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+     * An IPv6 netmask length for the subnet.
      */
     ipv6NetmaskLength?: pulumi.Input<number>;
+    /**
+     * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
+     *  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+     */
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
     outpostArn?: pulumi.Input<string>;
+    /**
+     * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+     *  Available options:
+     *   + EnableResourceNameDnsAAAARecord (true | false)
+     *  + EnableResourceNameDnsARecord (true | false)
+     *  + HostnameType (ip-name | resource-name)
+     */
     privateDnsNameOptionsOnLaunch?: pulumi.Input<inputs.ec2.PrivateDnsNameOptionsOnLaunchPropertiesArgs>;
+    /**
+     * Any tags assigned to the subnet.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the VPC the subnet is in.
+     *  If you update this property, you must also update the ``CidrBlock`` property.
+     */
     vpcId: pulumi.Input<string>;
 }

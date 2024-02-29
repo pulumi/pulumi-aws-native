@@ -63,7 +63,7 @@
   "primaryIdentifier" : [ "/properties/CollectionId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rekognition:CreateCollection", "rekognition:DescribeCollection", "rekognition:ListTagsForResource" ]
+      "permissions" : [ "rekognition:CreateCollection", "rekognition:DescribeCollection", "rekognition:ListTagsForResource", "rekognition:TagResource" ]
     },
     "read" : {
       "permissions" : [ "rekognition:DescribeCollection", "rekognition:ListTagsForResource" ]

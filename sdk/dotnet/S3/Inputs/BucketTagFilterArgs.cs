@@ -11,13 +11,19 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// Tags to use to identify a subset of objects for an Amazon S3 bucket.
+    /// Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
     /// </summary>
     public sealed class BucketTagFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The tag key.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The tag value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

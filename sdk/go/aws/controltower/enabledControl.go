@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,6 +21,8 @@ type EnabledControl struct {
 	ControlIdentifier pulumi.StringOutput `pulumi:"controlIdentifier"`
 	// Parameters to configure the enabled control behavior.
 	Parameters EnabledControlParameterArrayOutput `pulumi:"parameters"`
+	// A set of tags to assign to the enabled control.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Arn for Organizational unit to which the control needs to be applied
 	TargetIdentifier pulumi.StringOutput `pulumi:"targetIdentifier"`
 }
@@ -79,6 +82,8 @@ type enabledControlArgs struct {
 	ControlIdentifier string `pulumi:"controlIdentifier"`
 	// Parameters to configure the enabled control behavior.
 	Parameters []EnabledControlParameter `pulumi:"parameters"`
+	// A set of tags to assign to the enabled control.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Arn for Organizational unit to which the control needs to be applied
 	TargetIdentifier string `pulumi:"targetIdentifier"`
 }
@@ -89,6 +94,8 @@ type EnabledControlArgs struct {
 	ControlIdentifier pulumi.StringInput
 	// Parameters to configure the enabled control behavior.
 	Parameters EnabledControlParameterArrayInput
+	// A set of tags to assign to the enabled control.
+	Tags aws.TagArrayInput
 	// Arn for Organizational unit to which the control needs to be applied
 	TargetIdentifier pulumi.StringInput
 }
@@ -138,6 +145,11 @@ func (o EnabledControlOutput) ControlIdentifier() pulumi.StringOutput {
 // Parameters to configure the enabled control behavior.
 func (o EnabledControlOutput) Parameters() EnabledControlParameterArrayOutput {
 	return o.ApplyT(func(v *EnabledControl) EnabledControlParameterArrayOutput { return v.Parameters }).(EnabledControlParameterArrayOutput)
+}
+
+// A set of tags to assign to the enabled control.
+func (o EnabledControlOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *EnabledControl) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Arn for Organizational unit to which the control needs to be applied

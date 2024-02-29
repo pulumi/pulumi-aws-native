@@ -47,6 +47,7 @@ export interface GetResolverResult {
      * The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
      */
     readonly maxBatchSize?: number;
+    readonly metricsConfig?: enums.appsync.ResolverMetricsConfig;
     /**
      * Functions linked with the pipeline resolver.
      */

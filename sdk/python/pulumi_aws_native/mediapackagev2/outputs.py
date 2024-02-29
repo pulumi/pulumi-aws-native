@@ -27,9 +27,17 @@ __all__ = [
 
 @pulumi.output_type
 class ChannelIngestEndpoint(dict):
+    """
+    <p>The ingest domain URL where the source stream should be sent.</p>
+    """
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  url: Optional[str] = None):
+        """
+        <p>The ingest domain URL where the source stream should be sent.</p>
+        :param str id: <p>The system-generated unique identifier for the IngestEndpoint.</p>
+        :param str url: <p>The ingest domain URL where the source stream should be sent.</p>
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if url is not None:
@@ -38,11 +46,17 @@ class ChannelIngestEndpoint(dict):
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        <p>The system-generated unique identifier for the IngestEndpoint.</p>
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def url(self) -> Optional[str]:
+        """
+        <p>The ingest domain URL where the source stream should be sent.</p>
+        """
         return pulumi.get(self, "url")
 
 

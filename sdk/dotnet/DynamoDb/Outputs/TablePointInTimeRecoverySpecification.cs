@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Outputs
 {
 
+    /// <summary>
+    /// The settings used to enable point in time recovery.
+    /// </summary>
     [OutputType]
     public sealed class TablePointInTimeRecoverySpecification
     {
+        /// <summary>
+        /// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+        /// </summary>
         public readonly bool? PointInTimeRecoveryEnabled;
 
         [OutputConstructor]

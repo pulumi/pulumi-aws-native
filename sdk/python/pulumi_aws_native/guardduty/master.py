@@ -19,6 +19,9 @@ class MasterArgs:
                  invitation_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Master resource.
+        :param pulumi.Input[str] detector_id: Unique ID of the detector of the GuardDuty member account.
+        :param pulumi.Input[str] master_id: ID of the account used as the master account.
+        :param pulumi.Input[str] invitation_id: Value used to validate the master account to the member account.
         """
         pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "master_id", master_id)
@@ -28,6 +31,9 @@ class MasterArgs:
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[str]:
+        """
+        Unique ID of the detector of the GuardDuty member account.
+        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -37,6 +43,9 @@ class MasterArgs:
     @property
     @pulumi.getter(name="masterId")
     def master_id(self) -> pulumi.Input[str]:
+        """
+        ID of the account used as the master account.
+        """
         return pulumi.get(self, "master_id")
 
     @master_id.setter
@@ -46,6 +55,9 @@ class MasterArgs:
     @property
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value used to validate the master account to the member account.
+        """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
@@ -53,12 +65,7 @@ class MasterArgs:
         pulumi.set(self, "invitation_id", value)
 
 
-warnings.warn("""Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Master(pulumi.CustomResource):
-    warnings.warn("""Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -68,10 +75,13 @@ class Master(pulumi.CustomResource):
                  master_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::GuardDuty::Master
+        GuardDuty Master resource schema
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] detector_id: Unique ID of the detector of the GuardDuty member account.
+        :param pulumi.Input[str] invitation_id: Value used to validate the master account to the member account.
+        :param pulumi.Input[str] master_id: ID of the account used as the master account.
         """
         ...
     @overload
@@ -80,7 +90,7 @@ class Master(pulumi.CustomResource):
                  args: MasterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::GuardDuty::Master
+        GuardDuty Master resource schema
 
         :param str resource_name: The name of the resource.
         :param MasterArgs args: The arguments to use to populate this resource's properties.
@@ -101,7 +111,6 @@ class Master(pulumi.CustomResource):
                  invitation_id: Optional[pulumi.Input[str]] = None,
                  master_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Master is deprecated: Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -149,15 +158,24 @@ class Master(pulumi.CustomResource):
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[str]:
+        """
+        Unique ID of the detector of the GuardDuty member account.
+        """
         return pulumi.get(self, "detector_id")
 
     @property
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Value used to validate the master account to the member account.
+        """
         return pulumi.get(self, "invitation_id")
 
     @property
     @pulumi.getter(name="masterId")
     def master_id(self) -> pulumi.Output[str]:
+        """
+        ID of the account used as the master account.
+        """
         return pulumi.get(self, "master_id")
 

@@ -551,7 +551,11 @@ type AccessPointTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// The backup policy turns automatic backups for the file system on or off.
 type FileSystemBackupPolicy struct {
+	// Set the backup policy status for the file system.
+	//   +   *ENABLED* - Turns automatic backups on for the file system.
+	//   +   *DISABLED* - Turns automatic backups off for the file system.
 	Status string `pulumi:"status"`
 }
 
@@ -566,7 +570,11 @@ type FileSystemBackupPolicyInput interface {
 	ToFileSystemBackupPolicyOutputWithContext(context.Context) FileSystemBackupPolicyOutput
 }
 
+// The backup policy turns automatic backups for the file system on or off.
 type FileSystemBackupPolicyArgs struct {
+	// Set the backup policy status for the file system.
+	//   +   *ENABLED* - Turns automatic backups on for the file system.
+	//   +   *DISABLED* - Turns automatic backups off for the file system.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -623,6 +631,7 @@ func (i *fileSystemBackupPolicyPtrType) ToFileSystemBackupPolicyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemBackupPolicyPtrOutput)
 }
 
+// The backup policy turns automatic backups for the file system on or off.
 type FileSystemBackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemBackupPolicyOutput) ElementType() reflect.Type {
@@ -647,6 +656,9 @@ func (o FileSystemBackupPolicyOutput) ToFileSystemBackupPolicyPtrOutputWithConte
 	}).(FileSystemBackupPolicyPtrOutput)
 }
 
+// Set the backup policy status for the file system.
+//   - *ENABLED* - Turns automatic backups on for the file system.
+//   - *DISABLED* - Turns automatic backups off for the file system.
 func (o FileSystemBackupPolicyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemBackupPolicy) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -675,6 +687,9 @@ func (o FileSystemBackupPolicyPtrOutput) Elem() FileSystemBackupPolicyOutput {
 	}).(FileSystemBackupPolicyOutput)
 }
 
+// Set the backup policy status for the file system.
+//   - *ENABLED* - Turns automatic backups on for the file system.
+//   - *DISABLED* - Turns automatic backups off for the file system.
 func (o FileSystemBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemBackupPolicy) *string {
 		if v == nil {
@@ -684,14 +699,23 @@ func (o FileSystemBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A tag is a key-value pair attached to a file system. Allowed characters in the “Key“ and “Value“ properties are letters, white space, and numbers that can be represented in UTF-8, and the following characters:“+ - = . _ : /“
 type FileSystemElasticFileSystemTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key (String). The key can't start with ``aws:``.
+	Key string `pulumi:"key"`
+	// The value of the tag key.
 	Value string `pulumi:"value"`
 }
 
+// Describes a policy used by Lifecycle management that specifies when to transition files into and out of the EFS storage classes. For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
+//   - Each “LifecyclePolicy“ object can have only a single transition. This means that in a request body, “LifecyclePolicies“ must be structured as an array of “LifecyclePolicy“ objects, one object for each transition, “TransitionToIA“, “TransitionToArchive“, “TransitionToPrimaryStorageClass“.
+//   - See the AWS::EFS::FileSystem examples for the correct “LifecyclePolicy“ structure. Do not use the syntax shown on this page.
 type FileSystemLifecyclePolicy struct {
-	TransitionToArchive             *string `pulumi:"transitionToArchive"`
-	TransitionToIa                  *string `pulumi:"transitionToIa"`
+	// The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+	TransitionToArchive *string `pulumi:"transitionToArchive"`
+	// The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+	TransitionToIa *string `pulumi:"transitionToIa"`
+	// Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
 	TransitionToPrimaryStorageClass *string `pulumi:"transitionToPrimaryStorageClass"`
 }
 
@@ -706,9 +730,15 @@ type FileSystemLifecyclePolicyInput interface {
 	ToFileSystemLifecyclePolicyOutputWithContext(context.Context) FileSystemLifecyclePolicyOutput
 }
 
+// Describes a policy used by Lifecycle management that specifies when to transition files into and out of the EFS storage classes. For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
+//   - Each “LifecyclePolicy“ object can have only a single transition. This means that in a request body, “LifecyclePolicies“ must be structured as an array of “LifecyclePolicy“ objects, one object for each transition, “TransitionToIA“, “TransitionToArchive“, “TransitionToPrimaryStorageClass“.
+//   - See the AWS::EFS::FileSystem examples for the correct “LifecyclePolicy“ structure. Do not use the syntax shown on this page.
 type FileSystemLifecyclePolicyArgs struct {
-	TransitionToArchive             pulumi.StringPtrInput `pulumi:"transitionToArchive"`
-	TransitionToIa                  pulumi.StringPtrInput `pulumi:"transitionToIa"`
+	// The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+	TransitionToArchive pulumi.StringPtrInput `pulumi:"transitionToArchive"`
+	// The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+	TransitionToIa pulumi.StringPtrInput `pulumi:"transitionToIa"`
+	// Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
 	TransitionToPrimaryStorageClass pulumi.StringPtrInput `pulumi:"transitionToPrimaryStorageClass"`
 }
 
@@ -749,6 +779,9 @@ func (i FileSystemLifecyclePolicyArray) ToFileSystemLifecyclePolicyArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyArrayOutput)
 }
 
+// Describes a policy used by Lifecycle management that specifies when to transition files into and out of the EFS storage classes. For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
+//   - Each “LifecyclePolicy“ object can have only a single transition. This means that in a request body, “LifecyclePolicies“ must be structured as an array of “LifecyclePolicy“ objects, one object for each transition, “TransitionToIA“, “TransitionToArchive“, “TransitionToPrimaryStorageClass“.
+//   - See the AWS::EFS::FileSystem examples for the correct “LifecyclePolicy“ structure. Do not use the syntax shown on this page.
 type FileSystemLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -763,14 +796,17 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutputWithCo
 	return o
 }
 
+// The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
 func (o FileSystemLifecyclePolicyOutput) TransitionToArchive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToArchive }).(pulumi.StringPtrOutput)
 }
 
+// The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
 func (o FileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToIa }).(pulumi.StringPtrOutput)
 }
 
+// Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
 func (o FileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringPtrOutput)
 }
@@ -795,7 +831,14 @@ func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSyste
 	}).(FileSystemLifecyclePolicyOutput)
 }
 
+// Describes the protection on the file system.
 type FileSystemProtection struct {
+	// The status of the file system's replication overwrite protection.
+	//   +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default.
+	//   +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+	//   +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.
+	//
+	//  If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
 	ReplicationOverwriteProtection *FileSystemProtectionReplicationOverwriteProtection `pulumi:"replicationOverwriteProtection"`
 }
 
@@ -810,7 +853,14 @@ type FileSystemProtectionInput interface {
 	ToFileSystemProtectionOutputWithContext(context.Context) FileSystemProtectionOutput
 }
 
+// Describes the protection on the file system.
 type FileSystemProtectionArgs struct {
+	// The status of the file system's replication overwrite protection.
+	//   +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default.
+	//   +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+	//   +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.
+	//
+	//  If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
 	ReplicationOverwriteProtection FileSystemProtectionReplicationOverwriteProtectionPtrInput `pulumi:"replicationOverwriteProtection"`
 }
 
@@ -867,6 +917,7 @@ func (i *fileSystemProtectionPtrType) ToFileSystemProtectionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemProtectionPtrOutput)
 }
 
+// Describes the protection on the file system.
 type FileSystemProtectionOutput struct{ *pulumi.OutputState }
 
 func (FileSystemProtectionOutput) ElementType() reflect.Type {
@@ -891,6 +942,15 @@ func (o FileSystemProtectionOutput) ToFileSystemProtectionPtrOutputWithContext(c
 	}).(FileSystemProtectionPtrOutput)
 }
 
+// The status of the file system's replication overwrite protection.
+//
+//   - “ENABLED“ – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is “ENABLED“ by default.
+//
+//   - “DISABLED“ – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+//
+//   - “REPLICATING“ – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.
+//
+//     If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
 func (o FileSystemProtectionOutput) ReplicationOverwriteProtection() FileSystemProtectionReplicationOverwriteProtectionPtrOutput {
 	return o.ApplyT(func(v FileSystemProtection) *FileSystemProtectionReplicationOverwriteProtection {
 		return v.ReplicationOverwriteProtection
@@ -921,6 +981,15 @@ func (o FileSystemProtectionPtrOutput) Elem() FileSystemProtectionOutput {
 	}).(FileSystemProtectionOutput)
 }
 
+// The status of the file system's replication overwrite protection.
+//
+//   - “ENABLED“ – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is “ENABLED“ by default.
+//
+//   - “DISABLED“ – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+//
+//   - “REPLICATING“ – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.
+//
+//     If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
 func (o FileSystemProtectionPtrOutput) ReplicationOverwriteProtection() FileSystemProtectionReplicationOverwriteProtectionPtrOutput {
 	return o.ApplyT(func(v *FileSystemProtection) *FileSystemProtectionReplicationOverwriteProtection {
 		if v == nil {
@@ -930,7 +999,9 @@ func (o FileSystemProtectionPtrOutput) ReplicationOverwriteProtection() FileSyst
 	}).(FileSystemProtectionReplicationOverwriteProtectionPtrOutput)
 }
 
+// Describes the replication configuration for a specific file system.
 type FileSystemReplicationConfiguration struct {
+	// An array of destination objects. Only one destination object is supported.
 	Destinations []FileSystemReplicationDestination `pulumi:"destinations"`
 }
 
@@ -945,7 +1016,9 @@ type FileSystemReplicationConfigurationInput interface {
 	ToFileSystemReplicationConfigurationOutputWithContext(context.Context) FileSystemReplicationConfigurationOutput
 }
 
+// Describes the replication configuration for a specific file system.
 type FileSystemReplicationConfigurationArgs struct {
+	// An array of destination objects. Only one destination object is supported.
 	Destinations FileSystemReplicationDestinationArrayInput `pulumi:"destinations"`
 }
 
@@ -1002,6 +1075,7 @@ func (i *fileSystemReplicationConfigurationPtrType) ToFileSystemReplicationConfi
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationConfigurationPtrOutput)
 }
 
+// Describes the replication configuration for a specific file system.
 type FileSystemReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemReplicationConfigurationOutput) ElementType() reflect.Type {
@@ -1026,6 +1100,7 @@ func (o FileSystemReplicationConfigurationOutput) ToFileSystemReplicationConfigu
 	}).(FileSystemReplicationConfigurationPtrOutput)
 }
 
+// An array of destination objects. Only one destination object is supported.
 func (o FileSystemReplicationConfigurationOutput) Destinations() FileSystemReplicationDestinationArrayOutput {
 	return o.ApplyT(func(v FileSystemReplicationConfiguration) []FileSystemReplicationDestination { return v.Destinations }).(FileSystemReplicationDestinationArrayOutput)
 }
@@ -1054,6 +1129,7 @@ func (o FileSystemReplicationConfigurationPtrOutput) Elem() FileSystemReplicatio
 	}).(FileSystemReplicationConfigurationOutput)
 }
 
+// An array of destination objects. Only one destination object is supported.
 func (o FileSystemReplicationConfigurationPtrOutput) Destinations() FileSystemReplicationDestinationArrayOutput {
 	return o.ApplyT(func(v *FileSystemReplicationConfiguration) []FileSystemReplicationDestination {
 		if v == nil {
@@ -1063,11 +1139,19 @@ func (o FileSystemReplicationConfigurationPtrOutput) Destinations() FileSystemRe
 	}).(FileSystemReplicationDestinationArrayOutput)
 }
 
+// Describes the destination file system in the replication configuration.
 type FileSystemReplicationDestination struct {
+	// The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.
+	//  Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
+	//   One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
-	FileSystemId         *string `pulumi:"fileSystemId"`
-	KmsKeyId             *string `pulumi:"kmsKeyId"`
-	Region               *string `pulumi:"region"`
+	// The ID of the destination Amazon EFS file system.
+	FileSystemId *string `pulumi:"fileSystemId"`
+	// The ID of an kms-key-long used to protect the encrypted file system.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The AWS-Region in which the destination file system is located.
+	//   For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
+	Region *string `pulumi:"region"`
 }
 
 // FileSystemReplicationDestinationInput is an input type that accepts FileSystemReplicationDestinationArgs and FileSystemReplicationDestinationOutput values.
@@ -1081,11 +1165,19 @@ type FileSystemReplicationDestinationInput interface {
 	ToFileSystemReplicationDestinationOutputWithContext(context.Context) FileSystemReplicationDestinationOutput
 }
 
+// Describes the destination file system in the replication configuration.
 type FileSystemReplicationDestinationArgs struct {
+	// The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.
+	//  Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
+	//   One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
 	AvailabilityZoneName pulumi.StringPtrInput `pulumi:"availabilityZoneName"`
-	FileSystemId         pulumi.StringPtrInput `pulumi:"fileSystemId"`
-	KmsKeyId             pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	Region               pulumi.StringPtrInput `pulumi:"region"`
+	// The ID of the destination Amazon EFS file system.
+	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	// The ID of an kms-key-long used to protect the encrypted file system.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The AWS-Region in which the destination file system is located.
+	//   For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (FileSystemReplicationDestinationArgs) ElementType() reflect.Type {
@@ -1125,6 +1217,7 @@ func (i FileSystemReplicationDestinationArray) ToFileSystemReplicationDestinatio
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationDestinationArrayOutput)
 }
 
+// Describes the destination file system in the replication configuration.
 type FileSystemReplicationDestinationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemReplicationDestinationOutput) ElementType() reflect.Type {
@@ -1139,18 +1232,27 @@ func (o FileSystemReplicationDestinationOutput) ToFileSystemReplicationDestinati
 	return o
 }
 
+// The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.
+//
+//	Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
+//	 One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
 func (o FileSystemReplicationDestinationOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.AvailabilityZoneName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the destination Amazon EFS file system.
 func (o FileSystemReplicationDestinationOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of an kms-key-long used to protect the encrypted file system.
 func (o FileSystemReplicationDestinationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The AWS-Region in which the destination file system is located.
+//
+//	For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
 func (o FileSystemReplicationDestinationOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.Region }).(pulumi.StringPtrOutput)
 }

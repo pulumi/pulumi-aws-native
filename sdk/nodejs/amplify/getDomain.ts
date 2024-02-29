@@ -26,11 +26,14 @@ export interface GetDomainResult {
     readonly arn?: string;
     readonly autoSubDomainCreationPatterns?: string[];
     readonly autoSubDomainIamRole?: string;
+    readonly certificate?: outputs.amplify.DomainCertificate;
     readonly certificateRecord?: string;
+    readonly certificateSettings?: outputs.amplify.DomainCertificateSettings;
     readonly domainStatus?: string;
     readonly enableAutoSubDomain?: boolean;
     readonly statusReason?: string;
     readonly subDomainSettings?: outputs.amplify.DomainSubDomainSetting[];
+    readonly updateStatus?: string;
 }
 /**
  * The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.

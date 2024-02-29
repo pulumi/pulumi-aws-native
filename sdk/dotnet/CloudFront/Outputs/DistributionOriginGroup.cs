@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
+    /// </summary>
     [OutputType]
     public sealed class DistributionOriginGroup
     {
+        /// <summary>
+        /// A complex type that contains information about the failover criteria for an origin group.
+        /// </summary>
         public readonly Outputs.DistributionOriginGroupFailoverCriteria FailoverCriteria;
+        /// <summary>
+        /// The origin group's ID.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A complex type that contains information about the origins in an origin group.
+        /// </summary>
         public readonly Outputs.DistributionOriginGroupMembers Members;
 
         [OutputConstructor]

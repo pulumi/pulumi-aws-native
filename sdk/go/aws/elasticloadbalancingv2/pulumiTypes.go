@@ -13,15 +13,24 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Specifies an action for a listener rule.
 type ListenerAction struct {
+	// [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
 	AuthenticateCognitoConfig *ListenerAuthenticateCognitoConfig `pulumi:"authenticateCognitoConfig"`
-	AuthenticateOidcConfig    *ListenerAuthenticateOidcConfig    `pulumi:"authenticateOidcConfig"`
-	FixedResponseConfig       *ListenerFixedResponseConfig       `pulumi:"fixedResponseConfig"`
-	ForwardConfig             *ListenerForwardConfig             `pulumi:"forwardConfig"`
-	Order                     *int                               `pulumi:"order"`
-	RedirectConfig            *ListenerRedirectConfig            `pulumi:"redirectConfig"`
-	TargetGroupArn            *string                            `pulumi:"targetGroupArn"`
-	Type                      string                             `pulumi:"type"`
+	// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
+	AuthenticateOidcConfig *ListenerAuthenticateOidcConfig `pulumi:"authenticateOidcConfig"`
+	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
+	FixedResponseConfig *ListenerFixedResponseConfig `pulumi:"fixedResponseConfig"`
+	// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+	ForwardConfig *ListenerForwardConfig `pulumi:"forwardConfig"`
+	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+	Order *int `pulumi:"order"`
+	// [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
+	RedirectConfig *ListenerRedirectConfig `pulumi:"redirectConfig"`
+	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+	TargetGroupArn *string `pulumi:"targetGroupArn"`
+	// The type of action.
+	Type string `pulumi:"type"`
 }
 
 // ListenerActionInput is an input type that accepts ListenerActionArgs and ListenerActionOutput values.
@@ -35,15 +44,24 @@ type ListenerActionInput interface {
 	ToListenerActionOutputWithContext(context.Context) ListenerActionOutput
 }
 
+// Specifies an action for a listener rule.
 type ListenerActionArgs struct {
+	// [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
 	AuthenticateCognitoConfig ListenerAuthenticateCognitoConfigPtrInput `pulumi:"authenticateCognitoConfig"`
-	AuthenticateOidcConfig    ListenerAuthenticateOidcConfigPtrInput    `pulumi:"authenticateOidcConfig"`
-	FixedResponseConfig       ListenerFixedResponseConfigPtrInput       `pulumi:"fixedResponseConfig"`
-	ForwardConfig             ListenerForwardConfigPtrInput             `pulumi:"forwardConfig"`
-	Order                     pulumi.IntPtrInput                        `pulumi:"order"`
-	RedirectConfig            ListenerRedirectConfigPtrInput            `pulumi:"redirectConfig"`
-	TargetGroupArn            pulumi.StringPtrInput                     `pulumi:"targetGroupArn"`
-	Type                      pulumi.StringInput                        `pulumi:"type"`
+	// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
+	AuthenticateOidcConfig ListenerAuthenticateOidcConfigPtrInput `pulumi:"authenticateOidcConfig"`
+	// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
+	FixedResponseConfig ListenerFixedResponseConfigPtrInput `pulumi:"fixedResponseConfig"`
+	// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+	ForwardConfig ListenerForwardConfigPtrInput `pulumi:"forwardConfig"`
+	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
+	RedirectConfig ListenerRedirectConfigPtrInput `pulumi:"redirectConfig"`
+	// The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
+	// The type of action.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ListenerActionArgs) ElementType() reflect.Type {
@@ -83,6 +101,7 @@ func (i ListenerActionArray) ToListenerActionArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerActionArrayOutput)
 }
 
+// Specifies an action for a listener rule.
 type ListenerActionOutput struct{ *pulumi.OutputState }
 
 func (ListenerActionOutput) ElementType() reflect.Type {
@@ -97,34 +116,42 @@ func (o ListenerActionOutput) ToListenerActionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when “Type“ is “authenticate-cognito“.
 func (o ListenerActionOutput) AuthenticateCognitoConfig() ListenerAuthenticateCognitoConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerAuthenticateCognitoConfig { return v.AuthenticateCognitoConfig }).(ListenerAuthenticateCognitoConfigPtrOutput)
 }
 
+// [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when “Type“ is “authenticate-oidc“.
 func (o ListenerActionOutput) AuthenticateOidcConfig() ListenerAuthenticateOidcConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerAuthenticateOidcConfig { return v.AuthenticateOidcConfig }).(ListenerAuthenticateOidcConfigPtrOutput)
 }
 
+// [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when “Type“ is “fixed-response“.
 func (o ListenerActionOutput) FixedResponseConfig() ListenerFixedResponseConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerFixedResponseConfig { return v.FixedResponseConfig }).(ListenerFixedResponseConfigPtrOutput)
 }
 
+// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
 func (o ListenerActionOutput) ForwardConfig() ListenerForwardConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerForwardConfig { return v.ForwardConfig }).(ListenerForwardConfigPtrOutput)
 }
 
+// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 func (o ListenerActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
+// [Application Load Balancer] Information for creating a redirect action. Specify only when “Type“ is “redirect“.
 func (o ListenerActionOutput) RedirectConfig() ListenerRedirectConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerRedirectConfig { return v.RedirectConfig }).(ListenerRedirectConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the target group. Specify only when “Type“ is “forward“ and you want to route to a single target group. To route to one or more target groups, use “ForwardConfig“ instead.
 func (o ListenerActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The type of action.
 func (o ListenerActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -149,15 +176,28 @@ func (o ListenerActionArrayOutput) Index(i pulumi.IntInput) ListenerActionOutput
 	}).(ListenerActionOutput)
 }
 
+// Specifies information required when integrating with Amazon Cognito to authenticate users.
 type ListenerAuthenticateCognitoConfig struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         *string           `pulumi:"onUnauthenticatedRequest"`
-	Scope                            *string           `pulumi:"scope"`
-	SessionCookieName                *string           `pulumi:"sessionCookieName"`
-	SessionTimeout                   *string           `pulumi:"sessionTimeout"`
-	UserPoolArn                      string            `pulumi:"userPoolArn"`
-	UserPoolClientId                 string            `pulumi:"userPoolClientId"`
-	UserPoolDomain                   string            `pulumi:"userPoolDomain"`
+	// The behavior if the user is not authenticated. The following are possible values:
+	//   +  deny```` - Return an HTTP 401 Unauthorized error.
+	//   +  allow```` - Allow the request to be forwarded to the target.
+	//   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
+	// The set of user claims to be requested from the IdP. The default is ``openid``.
+	//  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+	Scope *string `pulumi:"scope"`
+	// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+	SessionCookieName *string `pulumi:"sessionCookieName"`
+	// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+	SessionTimeout *string `pulumi:"sessionTimeout"`
+	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+	UserPoolArn string `pulumi:"userPoolArn"`
+	// The ID of the Amazon Cognito user pool client.
+	UserPoolClientId string `pulumi:"userPoolClientId"`
+	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+	UserPoolDomain string `pulumi:"userPoolDomain"`
 }
 
 // ListenerAuthenticateCognitoConfigInput is an input type that accepts ListenerAuthenticateCognitoConfigArgs and ListenerAuthenticateCognitoConfigOutput values.
@@ -171,15 +211,28 @@ type ListenerAuthenticateCognitoConfigInput interface {
 	ToListenerAuthenticateCognitoConfigOutputWithContext(context.Context) ListenerAuthenticateCognitoConfigOutput
 }
 
+// Specifies information required when integrating with Amazon Cognito to authenticate users.
 type ListenerAuthenticateCognitoConfigArgs struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringPtrInput `pulumi:"scope"`
-	SessionCookieName                pulumi.StringPtrInput `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.StringPtrInput `pulumi:"sessionTimeout"`
-	UserPoolArn                      pulumi.StringInput    `pulumi:"userPoolArn"`
-	UserPoolClientId                 pulumi.StringInput    `pulumi:"userPoolClientId"`
-	UserPoolDomain                   pulumi.StringInput    `pulumi:"userPoolDomain"`
+	// The behavior if the user is not authenticated. The following are possible values:
+	//   +  deny```` - Return an HTTP 401 Unauthorized error.
+	//   +  allow```` - Allow the request to be forwarded to the target.
+	//   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
+	// The set of user claims to be requested from the IdP. The default is ``openid``.
+	//  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+	SessionCookieName pulumi.StringPtrInput `pulumi:"sessionCookieName"`
+	// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+	SessionTimeout pulumi.StringPtrInput `pulumi:"sessionTimeout"`
+	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
+	// The ID of the Amazon Cognito user pool client.
+	UserPoolClientId pulumi.StringInput `pulumi:"userPoolClientId"`
+	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+	UserPoolDomain pulumi.StringInput `pulumi:"userPoolDomain"`
 }
 
 func (ListenerAuthenticateCognitoConfigArgs) ElementType() reflect.Type {
@@ -235,6 +288,7 @@ func (i *listenerAuthenticateCognitoConfigPtrType) ToListenerAuthenticateCognito
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerAuthenticateCognitoConfigPtrOutput)
 }
 
+// Specifies information required when integrating with Amazon Cognito to authenticate users.
 type ListenerAuthenticateCognitoConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerAuthenticateCognitoConfigOutput) ElementType() reflect.Type {
@@ -259,34 +313,47 @@ func (o ListenerAuthenticateCognitoConfigOutput) ToListenerAuthenticateCognitoCo
 	}).(ListenerAuthenticateCognitoConfigPtrOutput)
 }
 
+// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 func (o ListenerAuthenticateCognitoConfigOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) map[string]string { return v.AuthenticationRequestExtraParams }).(pulumi.StringMapOutput)
 }
 
+// The behavior if the user is not authenticated. The following are possible values:
+//   - deny```` - Return an HTTP 401 Unauthorized error.
+//   - allow```` - Allow the request to be forwarded to the target.
+//   - authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
 func (o ListenerAuthenticateCognitoConfigOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
 
+// The set of user claims to be requested from the IdP. The default is “openid“.
+//
+//	To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 func (o ListenerAuthenticateCognitoConfigOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
 func (o ListenerAuthenticateCognitoConfigOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) *string { return v.SessionCookieName }).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
 func (o ListenerAuthenticateCognitoConfigOutput) SessionTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) *string { return v.SessionTimeout }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
 func (o ListenerAuthenticateCognitoConfigOutput) UserPoolArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) string { return v.UserPoolArn }).(pulumi.StringOutput)
 }
 
+// The ID of the Amazon Cognito user pool client.
 func (o ListenerAuthenticateCognitoConfigOutput) UserPoolClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) string { return v.UserPoolClientId }).(pulumi.StringOutput)
 }
 
+// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
 func (o ListenerAuthenticateCognitoConfigOutput) UserPoolDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateCognitoConfig) string { return v.UserPoolDomain }).(pulumi.StringOutput)
 }
@@ -315,6 +382,7 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) Elem() ListenerAuthenticateC
 	}).(ListenerAuthenticateCognitoConfigOutput)
 }
 
+// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 func (o ListenerAuthenticateCognitoConfigPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) map[string]string {
 		if v == nil {
@@ -324,6 +392,10 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) AuthenticationRequestExtraPa
 	}).(pulumi.StringMapOutput)
 }
 
+// The behavior if the user is not authenticated. The following are possible values:
+//   - deny```` - Return an HTTP 401 Unauthorized error.
+//   - allow```` - Allow the request to be forwarded to the target.
+//   - authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
 func (o ListenerAuthenticateCognitoConfigPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -333,6 +405,9 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) OnUnauthenticatedRequest() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The set of user claims to be requested from the IdP. The default is “openid“.
+//
+//	To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 func (o ListenerAuthenticateCognitoConfigPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -342,6 +417,7 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) Scope() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
 func (o ListenerAuthenticateCognitoConfigPtrOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -351,6 +427,7 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) SessionCookieName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
 func (o ListenerAuthenticateCognitoConfigPtrOutput) SessionTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -360,6 +437,7 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) SessionTimeout() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
 func (o ListenerAuthenticateCognitoConfigPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -369,6 +447,7 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) UserPoolArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Amazon Cognito user pool client.
 func (o ListenerAuthenticateCognitoConfigPtrOutput) UserPoolClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -378,6 +457,7 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) UserPoolClientId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
 func (o ListenerAuthenticateCognitoConfigPtrOutput) UserPoolDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateCognitoConfig) *string {
 		if v == nil {
@@ -387,19 +467,36 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) UserPoolDomain() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 type ListenerAuthenticateOidcConfig struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            string            `pulumi:"authorizationEndpoint"`
-	ClientId                         string            `pulumi:"clientId"`
-	ClientSecret                     *string           `pulumi:"clientSecret"`
-	Issuer                           string            `pulumi:"issuer"`
-	OnUnauthenticatedRequest         *string           `pulumi:"onUnauthenticatedRequest"`
-	Scope                            *string           `pulumi:"scope"`
-	SessionCookieName                *string           `pulumi:"sessionCookieName"`
-	SessionTimeout                   *string           `pulumi:"sessionTimeout"`
-	TokenEndpoint                    string            `pulumi:"tokenEndpoint"`
-	UseExistingClientSecret          *bool             `pulumi:"useExistingClientSecret"`
-	UserInfoEndpoint                 string            `pulumi:"userInfoEndpoint"`
+	// The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// The OAuth 2.0 client identifier.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	Issuer string `pulumi:"issuer"`
+	// The behavior if the user is not authenticated. The following are possible values:
+	//   +  deny```` - Return an HTTP 401 Unauthorized error.
+	//   +  allow```` - Allow the request to be forwarded to the target.
+	//   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
+	// The set of user claims to be requested from the IdP. The default is ``openid``.
+	//  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+	Scope *string `pulumi:"scope"`
+	// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+	SessionCookieName *string `pulumi:"sessionCookieName"`
+	// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+	SessionTimeout *string `pulumi:"sessionTimeout"`
+	// The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+	// Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+	UseExistingClientSecret *bool `pulumi:"useExistingClientSecret"`
+	// The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
 }
 
 // ListenerAuthenticateOidcConfigInput is an input type that accepts ListenerAuthenticateOidcConfigArgs and ListenerAuthenticateOidcConfigOutput values.
@@ -413,19 +510,36 @@ type ListenerAuthenticateOidcConfigInput interface {
 	ToListenerAuthenticateOidcConfigOutputWithContext(context.Context) ListenerAuthenticateOidcConfigOutput
 }
 
+// Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 type ListenerAuthenticateOidcConfigArgs struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            pulumi.StringInput    `pulumi:"authorizationEndpoint"`
-	ClientId                         pulumi.StringInput    `pulumi:"clientId"`
-	ClientSecret                     pulumi.StringPtrInput `pulumi:"clientSecret"`
-	Issuer                           pulumi.StringInput    `pulumi:"issuer"`
-	OnUnauthenticatedRequest         pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringPtrInput `pulumi:"scope"`
-	SessionCookieName                pulumi.StringPtrInput `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.StringPtrInput `pulumi:"sessionTimeout"`
-	TokenEndpoint                    pulumi.StringInput    `pulumi:"tokenEndpoint"`
-	UseExistingClientSecret          pulumi.BoolPtrInput   `pulumi:"useExistingClientSecret"`
-	UserInfoEndpoint                 pulumi.StringInput    `pulumi:"userInfoEndpoint"`
+	// The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// The OAuth 2.0 client identifier.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The behavior if the user is not authenticated. The following are possible values:
+	//   +  deny```` - Return an HTTP 401 Unauthorized error.
+	//   +  allow```` - Allow the request to be forwarded to the target.
+	//   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
+	// The set of user claims to be requested from the IdP. The default is ``openid``.
+	//  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+	SessionCookieName pulumi.StringPtrInput `pulumi:"sessionCookieName"`
+	// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+	SessionTimeout pulumi.StringPtrInput `pulumi:"sessionTimeout"`
+	// The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+	// Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+	UseExistingClientSecret pulumi.BoolPtrInput `pulumi:"useExistingClientSecret"`
+	// The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	UserInfoEndpoint pulumi.StringInput `pulumi:"userInfoEndpoint"`
 }
 
 func (ListenerAuthenticateOidcConfigArgs) ElementType() reflect.Type {
@@ -481,6 +595,7 @@ func (i *listenerAuthenticateOidcConfigPtrType) ToListenerAuthenticateOidcConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerAuthenticateOidcConfigPtrOutput)
 }
 
+// Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
 type ListenerAuthenticateOidcConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerAuthenticateOidcConfigOutput) ElementType() reflect.Type {
@@ -505,50 +620,67 @@ func (o ListenerAuthenticateOidcConfigOutput) ToListenerAuthenticateOidcConfigPt
 	}).(ListenerAuthenticateOidcConfigPtrOutput)
 }
 
+// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 func (o ListenerAuthenticateOidcConfigOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) map[string]string { return v.AuthenticationRequestExtraParams }).(pulumi.StringMapOutput)
 }
 
+// The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerAuthenticateOidcConfigOutput) AuthorizationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client identifier.
 func (o ListenerAuthenticateOidcConfigOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set “UseExistingClientSecret“ to true.
 func (o ListenerAuthenticateOidcConfigOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
+// The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerAuthenticateOidcConfigOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
+// The behavior if the user is not authenticated. The following are possible values:
+//   - deny```` - Return an HTTP 401 Unauthorized error.
+//   - allow```` - Allow the request to be forwarded to the target.
+//   - authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
 func (o ListenerAuthenticateOidcConfigOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
 
+// The set of user claims to be requested from the IdP. The default is “openid“.
+//
+//	To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 func (o ListenerAuthenticateOidcConfigOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
 func (o ListenerAuthenticateOidcConfigOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *string { return v.SessionCookieName }).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
 func (o ListenerAuthenticateOidcConfigOutput) SessionTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *string { return v.SessionTimeout }).(pulumi.StringPtrOutput)
 }
 
+// The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerAuthenticateOidcConfigOutput) TokenEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) string { return v.TokenEndpoint }).(pulumi.StringOutput)
 }
 
+// Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
 func (o ListenerAuthenticateOidcConfigOutput) UseExistingClientSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) *bool { return v.UseExistingClientSecret }).(pulumi.BoolPtrOutput)
 }
 
+// The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerAuthenticateOidcConfigOutput) UserInfoEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerAuthenticateOidcConfig) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
 }
@@ -577,6 +709,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) Elem() ListenerAuthenticateOidc
 	}).(ListenerAuthenticateOidcConfigOutput)
 }
 
+// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
 func (o ListenerAuthenticateOidcConfigPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) map[string]string {
 		if v == nil {
@@ -586,6 +719,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) AuthenticationRequestExtraParam
 	}).(pulumi.StringMapOutput)
 }
 
+// The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerAuthenticateOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -595,6 +729,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OAuth 2.0 client identifier.
 func (o ListenerAuthenticateOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -604,6 +739,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set “UseExistingClientSecret“ to true.
 func (o ListenerAuthenticateOidcConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -613,6 +749,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) ClientSecret() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerAuthenticateOidcConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -622,6 +759,10 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) Issuer() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The behavior if the user is not authenticated. The following are possible values:
+//   - deny```` - Return an HTTP 401 Unauthorized error.
+//   - allow```` - Allow the request to be forwarded to the target.
+//   - authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
 func (o ListenerAuthenticateOidcConfigPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -631,6 +772,9 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) OnUnauthenticatedRequest() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The set of user claims to be requested from the IdP. The default is “openid“.
+//
+//	To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 func (o ListenerAuthenticateOidcConfigPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -640,6 +784,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) Scope() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
 func (o ListenerAuthenticateOidcConfigPtrOutput) SessionCookieName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -649,6 +794,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) SessionCookieName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
 func (o ListenerAuthenticateOidcConfigPtrOutput) SessionTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -658,6 +804,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) SessionTimeout() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerAuthenticateOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -667,6 +814,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
 func (o ListenerAuthenticateOidcConfigPtrOutput) UseExistingClientSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *bool {
 		if v == nil {
@@ -676,6 +824,7 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) UseExistingClientSecret() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 func (o ListenerAuthenticateOidcConfigPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerAuthenticateOidcConfig) *string {
 		if v == nil {
@@ -685,7 +834,9 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) UserInfoEndpoint() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies an SSL server certificate to use as the default certificate for a secure listener.
 type ListenerCertificateType struct {
+	// The Amazon Resource Name (ARN) of the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 }
 
@@ -700,7 +851,9 @@ type ListenerCertificateTypeInput interface {
 	ToListenerCertificateTypeOutputWithContext(context.Context) ListenerCertificateTypeOutput
 }
 
+// Specifies an SSL server certificate to use as the default certificate for a secure listener.
 type ListenerCertificateTypeArgs struct {
+	// The Amazon Resource Name (ARN) of the certificate.
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
 }
 
@@ -741,6 +894,7 @@ func (i ListenerCertificateTypeArray) ToListenerCertificateTypeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateTypeArrayOutput)
 }
 
+// Specifies an SSL server certificate to use as the default certificate for a secure listener.
 type ListenerCertificateTypeOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateTypeOutput) ElementType() reflect.Type {
@@ -755,6 +909,7 @@ func (o ListenerCertificateTypeOutput) ToListenerCertificateTypeOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the certificate.
 func (o ListenerCertificateTypeOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerCertificateType) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -873,10 +1028,15 @@ func (o ListenerCertificateCertificateArrayOutput) Index(i pulumi.IntInput) List
 	}).(ListenerCertificateCertificateOutput)
 }
 
+// Specifies information required when returning a custom HTTP response.
 type ListenerFixedResponseConfig struct {
+	// The content type.
+	//  Valid Values: text/plain | text/css | text/html | application/javascript | application/json
 	ContentType *string `pulumi:"contentType"`
+	// The message.
 	MessageBody *string `pulumi:"messageBody"`
-	StatusCode  string  `pulumi:"statusCode"`
+	// The HTTP response code (2XX, 4XX, or 5XX).
+	StatusCode string `pulumi:"statusCode"`
 }
 
 // ListenerFixedResponseConfigInput is an input type that accepts ListenerFixedResponseConfigArgs and ListenerFixedResponseConfigOutput values.
@@ -890,10 +1050,15 @@ type ListenerFixedResponseConfigInput interface {
 	ToListenerFixedResponseConfigOutputWithContext(context.Context) ListenerFixedResponseConfigOutput
 }
 
+// Specifies information required when returning a custom HTTP response.
 type ListenerFixedResponseConfigArgs struct {
+	// The content type.
+	//  Valid Values: text/plain | text/css | text/html | application/javascript | application/json
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The message.
 	MessageBody pulumi.StringPtrInput `pulumi:"messageBody"`
-	StatusCode  pulumi.StringInput    `pulumi:"statusCode"`
+	// The HTTP response code (2XX, 4XX, or 5XX).
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
 func (ListenerFixedResponseConfigArgs) ElementType() reflect.Type {
@@ -949,6 +1114,7 @@ func (i *listenerFixedResponseConfigPtrType) ToListenerFixedResponseConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerFixedResponseConfigPtrOutput)
 }
 
+// Specifies information required when returning a custom HTTP response.
 type ListenerFixedResponseConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerFixedResponseConfigOutput) ElementType() reflect.Type {
@@ -973,14 +1139,19 @@ func (o ListenerFixedResponseConfigOutput) ToListenerFixedResponseConfigPtrOutpu
 	}).(ListenerFixedResponseConfigPtrOutput)
 }
 
+// The content type.
+//
+//	Valid Values: text/plain | text/css | text/html | application/javascript | application/json
 func (o ListenerFixedResponseConfigOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerFixedResponseConfig) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
+// The message.
 func (o ListenerFixedResponseConfigOutput) MessageBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerFixedResponseConfig) *string { return v.MessageBody }).(pulumi.StringPtrOutput)
 }
 
+// The HTTP response code (2XX, 4XX, or 5XX).
 func (o ListenerFixedResponseConfigOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerFixedResponseConfig) string { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -1009,6 +1180,9 @@ func (o ListenerFixedResponseConfigPtrOutput) Elem() ListenerFixedResponseConfig
 	}).(ListenerFixedResponseConfigOutput)
 }
 
+// The content type.
+//
+//	Valid Values: text/plain | text/css | text/html | application/javascript | application/json
 func (o ListenerFixedResponseConfigPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerFixedResponseConfig) *string {
 		if v == nil {
@@ -1018,6 +1192,7 @@ func (o ListenerFixedResponseConfigPtrOutput) ContentType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The message.
 func (o ListenerFixedResponseConfigPtrOutput) MessageBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerFixedResponseConfig) *string {
 		if v == nil {
@@ -1027,6 +1202,7 @@ func (o ListenerFixedResponseConfigPtrOutput) MessageBody() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The HTTP response code (2XX, 4XX, or 5XX).
 func (o ListenerFixedResponseConfigPtrOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerFixedResponseConfig) *string {
 		if v == nil {
@@ -1036,9 +1212,12 @@ func (o ListenerFixedResponseConfigPtrOutput) StatusCode() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
 type ListenerForwardConfig struct {
+	// Information about the target group stickiness for a rule.
 	TargetGroupStickinessConfig *ListenerTargetGroupStickinessConfig `pulumi:"targetGroupStickinessConfig"`
-	TargetGroups                []ListenerTargetGroupTuple           `pulumi:"targetGroups"`
+	// Information about how traffic will be distributed between multiple target groups in a forward rule.
+	TargetGroups []ListenerTargetGroupTuple `pulumi:"targetGroups"`
 }
 
 // ListenerForwardConfigInput is an input type that accepts ListenerForwardConfigArgs and ListenerForwardConfigOutput values.
@@ -1052,9 +1231,12 @@ type ListenerForwardConfigInput interface {
 	ToListenerForwardConfigOutputWithContext(context.Context) ListenerForwardConfigOutput
 }
 
+// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
 type ListenerForwardConfigArgs struct {
+	// Information about the target group stickiness for a rule.
 	TargetGroupStickinessConfig ListenerTargetGroupStickinessConfigPtrInput `pulumi:"targetGroupStickinessConfig"`
-	TargetGroups                ListenerTargetGroupTupleArrayInput          `pulumi:"targetGroups"`
+	// Information about how traffic will be distributed between multiple target groups in a forward rule.
+	TargetGroups ListenerTargetGroupTupleArrayInput `pulumi:"targetGroups"`
 }
 
 func (ListenerForwardConfigArgs) ElementType() reflect.Type {
@@ -1110,6 +1292,7 @@ func (i *listenerForwardConfigPtrType) ToListenerForwardConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerForwardConfigPtrOutput)
 }
 
+// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when “Type“ is “forward“. If you specify both “ForwardConfig“ and “TargetGroupArn“, you can specify only one target group using “ForwardConfig“ and it must be the same target group specified in “TargetGroupArn“.
 type ListenerForwardConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerForwardConfigOutput) ElementType() reflect.Type {
@@ -1134,12 +1317,14 @@ func (o ListenerForwardConfigOutput) ToListenerForwardConfigPtrOutputWithContext
 	}).(ListenerForwardConfigPtrOutput)
 }
 
+// Information about the target group stickiness for a rule.
 func (o ListenerForwardConfigOutput) TargetGroupStickinessConfig() ListenerTargetGroupStickinessConfigPtrOutput {
 	return o.ApplyT(func(v ListenerForwardConfig) *ListenerTargetGroupStickinessConfig {
 		return v.TargetGroupStickinessConfig
 	}).(ListenerTargetGroupStickinessConfigPtrOutput)
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 func (o ListenerForwardConfigOutput) TargetGroups() ListenerTargetGroupTupleArrayOutput {
 	return o.ApplyT(func(v ListenerForwardConfig) []ListenerTargetGroupTuple { return v.TargetGroups }).(ListenerTargetGroupTupleArrayOutput)
 }
@@ -1168,6 +1353,7 @@ func (o ListenerForwardConfigPtrOutput) Elem() ListenerForwardConfigOutput {
 	}).(ListenerForwardConfigOutput)
 }
 
+// Information about the target group stickiness for a rule.
 func (o ListenerForwardConfigPtrOutput) TargetGroupStickinessConfig() ListenerTargetGroupStickinessConfigPtrOutput {
 	return o.ApplyT(func(v *ListenerForwardConfig) *ListenerTargetGroupStickinessConfig {
 		if v == nil {
@@ -1177,6 +1363,7 @@ func (o ListenerForwardConfigPtrOutput) TargetGroupStickinessConfig() ListenerTa
 	}).(ListenerTargetGroupStickinessConfigPtrOutput)
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 func (o ListenerForwardConfigPtrOutput) TargetGroups() ListenerTargetGroupTupleArrayOutput {
 	return o.ApplyT(func(v *ListenerForwardConfig) []ListenerTargetGroupTuple {
 		if v == nil {
@@ -1186,10 +1373,14 @@ func (o ListenerForwardConfigPtrOutput) TargetGroups() ListenerTargetGroupTupleA
 	}).(ListenerTargetGroupTupleArrayOutput)
 }
 
+// Specifies the configuration information for mutual authentication.
 type ListenerMutualAuthentication struct {
-	IgnoreClientCertificateExpiry *bool   `pulumi:"ignoreClientCertificateExpiry"`
-	Mode                          *string `pulumi:"mode"`
-	TrustStoreArn                 *string `pulumi:"trustStoreArn"`
+	// Indicates whether expired client certificates are ignored.
+	IgnoreClientCertificateExpiry *bool `pulumi:"ignoreClientCertificateExpiry"`
+	// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+	Mode *string `pulumi:"mode"`
+	// The Amazon Resource Name (ARN) of the trust store.
+	TrustStoreArn *string `pulumi:"trustStoreArn"`
 }
 
 // ListenerMutualAuthenticationInput is an input type that accepts ListenerMutualAuthenticationArgs and ListenerMutualAuthenticationOutput values.
@@ -1203,10 +1394,14 @@ type ListenerMutualAuthenticationInput interface {
 	ToListenerMutualAuthenticationOutputWithContext(context.Context) ListenerMutualAuthenticationOutput
 }
 
+// Specifies the configuration information for mutual authentication.
 type ListenerMutualAuthenticationArgs struct {
-	IgnoreClientCertificateExpiry pulumi.BoolPtrInput   `pulumi:"ignoreClientCertificateExpiry"`
-	Mode                          pulumi.StringPtrInput `pulumi:"mode"`
-	TrustStoreArn                 pulumi.StringPtrInput `pulumi:"trustStoreArn"`
+	// Indicates whether expired client certificates are ignored.
+	IgnoreClientCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreClientCertificateExpiry"`
+	// The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The Amazon Resource Name (ARN) of the trust store.
+	TrustStoreArn pulumi.StringPtrInput `pulumi:"trustStoreArn"`
 }
 
 func (ListenerMutualAuthenticationArgs) ElementType() reflect.Type {
@@ -1262,6 +1457,7 @@ func (i *listenerMutualAuthenticationPtrType) ToListenerMutualAuthenticationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationPtrOutput)
 }
 
+// Specifies the configuration information for mutual authentication.
 type ListenerMutualAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ListenerMutualAuthenticationOutput) ElementType() reflect.Type {
@@ -1286,14 +1482,17 @@ func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOut
 	}).(ListenerMutualAuthenticationPtrOutput)
 }
 
+// Indicates whether expired client certificates are ignored.
 func (o ListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) *bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolPtrOutput)
 }
 
+// The client certificate handling method. Options are “off“, “passthrough“ or “verify“. The default value is “off“.
 func (o ListenerMutualAuthenticationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the trust store.
 func (o ListenerMutualAuthenticationOutput) TrustStoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.TrustStoreArn }).(pulumi.StringPtrOutput)
 }
@@ -1322,6 +1521,7 @@ func (o ListenerMutualAuthenticationPtrOutput) Elem() ListenerMutualAuthenticati
 	}).(ListenerMutualAuthenticationOutput)
 }
 
+// Indicates whether expired client certificates are ignored.
 func (o ListenerMutualAuthenticationPtrOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ListenerMutualAuthentication) *bool {
 		if v == nil {
@@ -1331,6 +1531,7 @@ func (o ListenerMutualAuthenticationPtrOutput) IgnoreClientCertificateExpiry() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The client certificate handling method. Options are “off“, “passthrough“ or “verify“. The default value is “off“.
 func (o ListenerMutualAuthenticationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
 		if v == nil {
@@ -1340,6 +1541,7 @@ func (o ListenerMutualAuthenticationPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the trust store.
 func (o ListenerMutualAuthenticationPtrOutput) TrustStoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
 		if v == nil {
@@ -1349,13 +1551,30 @@ func (o ListenerMutualAuthenticationPtrOutput) TrustStoreArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information about a redirect action.
+//
+//	A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+//	You can reuse URI components using the following reserved keywords:
+//	 +  #{protocol}
+//	 +  #{host}
+//	 +  #{port}
+//	 +  #{path} (the leading "/" is removed)
+//	 +  #{query}
+//
+//	For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 type ListenerRedirectConfig struct {
-	Host       *string `pulumi:"host"`
-	Path       *string `pulumi:"path"`
-	Port       *string `pulumi:"port"`
-	Protocol   *string `pulumi:"protocol"`
-	Query      *string `pulumi:"query"`
-	StatusCode string  `pulumi:"statusCode"`
+	// The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+	Host *string `pulumi:"host"`
+	// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+	Path *string `pulumi:"path"`
+	// The port. You can specify a value from 1 to 65535 or #{port}.
+	Port *string `pulumi:"port"`
+	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	Protocol *string `pulumi:"protocol"`
+	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+	Query *string `pulumi:"query"`
+	// The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+	StatusCode string `pulumi:"statusCode"`
 }
 
 // ListenerRedirectConfigInput is an input type that accepts ListenerRedirectConfigArgs and ListenerRedirectConfigOutput values.
@@ -1369,13 +1588,30 @@ type ListenerRedirectConfigInput interface {
 	ToListenerRedirectConfigOutputWithContext(context.Context) ListenerRedirectConfigOutput
 }
 
+// Information about a redirect action.
+//
+//	A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+//	You can reuse URI components using the following reserved keywords:
+//	 +  #{protocol}
+//	 +  #{host}
+//	 +  #{port}
+//	 +  #{path} (the leading "/" is removed)
+//	 +  #{query}
+//
+//	For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 type ListenerRedirectConfigArgs struct {
-	Host       pulumi.StringPtrInput `pulumi:"host"`
-	Path       pulumi.StringPtrInput `pulumi:"path"`
-	Port       pulumi.StringPtrInput `pulumi:"port"`
-	Protocol   pulumi.StringPtrInput `pulumi:"protocol"`
-	Query      pulumi.StringPtrInput `pulumi:"query"`
-	StatusCode pulumi.StringInput    `pulumi:"statusCode"`
+	// The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port. You can specify a value from 1 to 65535 or #{port}.
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
 func (ListenerRedirectConfigArgs) ElementType() reflect.Type {
@@ -1431,6 +1667,17 @@ func (i *listenerRedirectConfigPtrType) ToListenerRedirectConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRedirectConfigPtrOutput)
 }
 
+// Information about a redirect action.
+//
+//	A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+//	You can reuse URI components using the following reserved keywords:
+//	 +  #{protocol}
+//	 +  #{host}
+//	 +  #{port}
+//	 +  #{path} (the leading "/" is removed)
+//	 +  #{query}
+//
+//	For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 type ListenerRedirectConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRedirectConfigOutput) ElementType() reflect.Type {
@@ -1455,26 +1702,32 @@ func (o ListenerRedirectConfigOutput) ToListenerRedirectConfigPtrOutputWithConte
 	}).(ListenerRedirectConfigPtrOutput)
 }
 
+// The hostname. This component is not percent-encoded. The hostname can contain #{host}.
 func (o ListenerRedirectConfigOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRedirectConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
+// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
 func (o ListenerRedirectConfigOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRedirectConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port. You can specify a value from 1 to 65535 or #{port}.
 func (o ListenerRedirectConfigOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRedirectConfig) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
+// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
 func (o ListenerRedirectConfigOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRedirectConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 func (o ListenerRedirectConfigOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRedirectConfig) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
+// The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
 func (o ListenerRedirectConfigOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRedirectConfig) string { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -1503,6 +1756,7 @@ func (o ListenerRedirectConfigPtrOutput) Elem() ListenerRedirectConfigOutput {
 	}).(ListenerRedirectConfigOutput)
 }
 
+// The hostname. This component is not percent-encoded. The hostname can contain #{host}.
 func (o ListenerRedirectConfigPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRedirectConfig) *string {
 		if v == nil {
@@ -1512,6 +1766,7 @@ func (o ListenerRedirectConfigPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
 func (o ListenerRedirectConfigPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRedirectConfig) *string {
 		if v == nil {
@@ -1521,6 +1776,7 @@ func (o ListenerRedirectConfigPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port. You can specify a value from 1 to 65535 or #{port}.
 func (o ListenerRedirectConfigPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRedirectConfig) *string {
 		if v == nil {
@@ -1530,6 +1786,7 @@ func (o ListenerRedirectConfigPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
 func (o ListenerRedirectConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRedirectConfig) *string {
 		if v == nil {
@@ -1539,6 +1796,7 @@ func (o ListenerRedirectConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 func (o ListenerRedirectConfigPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRedirectConfig) *string {
 		if v == nil {
@@ -1548,6 +1806,7 @@ func (o ListenerRedirectConfigPtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
 func (o ListenerRedirectConfigPtrOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRedirectConfig) *string {
 		if v == nil {
@@ -4053,9 +4312,12 @@ func (o ListenerRuleTargetGroupTupleArrayOutput) Index(i pulumi.IntInput) Listen
 	}).(ListenerRuleTargetGroupTupleOutput)
 }
 
+// Information about the target group stickiness for a rule.
 type ListenerTargetGroupStickinessConfig struct {
-	DurationSeconds *int  `pulumi:"durationSeconds"`
-	Enabled         *bool `pulumi:"enabled"`
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	DurationSeconds *int `pulumi:"durationSeconds"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled *bool `pulumi:"enabled"`
 }
 
 // ListenerTargetGroupStickinessConfigInput is an input type that accepts ListenerTargetGroupStickinessConfigArgs and ListenerTargetGroupStickinessConfigOutput values.
@@ -4069,9 +4331,12 @@ type ListenerTargetGroupStickinessConfigInput interface {
 	ToListenerTargetGroupStickinessConfigOutputWithContext(context.Context) ListenerTargetGroupStickinessConfigOutput
 }
 
+// Information about the target group stickiness for a rule.
 type ListenerTargetGroupStickinessConfigArgs struct {
-	DurationSeconds pulumi.IntPtrInput  `pulumi:"durationSeconds"`
-	Enabled         pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
 func (ListenerTargetGroupStickinessConfigArgs) ElementType() reflect.Type {
@@ -4127,6 +4392,7 @@ func (i *listenerTargetGroupStickinessConfigPtrType) ToListenerTargetGroupSticki
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerTargetGroupStickinessConfigPtrOutput)
 }
 
+// Information about the target group stickiness for a rule.
 type ListenerTargetGroupStickinessConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerTargetGroupStickinessConfigOutput) ElementType() reflect.Type {
@@ -4151,10 +4417,12 @@ func (o ListenerTargetGroupStickinessConfigOutput) ToListenerTargetGroupStickine
 	}).(ListenerTargetGroupStickinessConfigPtrOutput)
 }
 
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 func (o ListenerTargetGroupStickinessConfigOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerTargetGroupStickinessConfig) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether target group stickiness is enabled.
 func (o ListenerTargetGroupStickinessConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerTargetGroupStickinessConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4183,6 +4451,7 @@ func (o ListenerTargetGroupStickinessConfigPtrOutput) Elem() ListenerTargetGroup
 	}).(ListenerTargetGroupStickinessConfigOutput)
 }
 
+// The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 func (o ListenerTargetGroupStickinessConfigPtrOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerTargetGroupStickinessConfig) *int {
 		if v == nil {
@@ -4192,6 +4461,7 @@ func (o ListenerTargetGroupStickinessConfigPtrOutput) DurationSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether target group stickiness is enabled.
 func (o ListenerTargetGroupStickinessConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ListenerTargetGroupStickinessConfig) *bool {
 		if v == nil {
@@ -4201,9 +4471,12 @@ func (o ListenerTargetGroupStickinessConfigPtrOutput) Enabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 type ListenerTargetGroupTuple struct {
+	// The Amazon Resource Name (ARN) of the target group.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
-	Weight         *int    `pulumi:"weight"`
+	// The weight. The range is 0 to 999.
+	Weight *int `pulumi:"weight"`
 }
 
 // ListenerTargetGroupTupleInput is an input type that accepts ListenerTargetGroupTupleArgs and ListenerTargetGroupTupleOutput values.
@@ -4217,9 +4490,12 @@ type ListenerTargetGroupTupleInput interface {
 	ToListenerTargetGroupTupleOutputWithContext(context.Context) ListenerTargetGroupTupleOutput
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 type ListenerTargetGroupTupleArgs struct {
+	// The Amazon Resource Name (ARN) of the target group.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
-	Weight         pulumi.IntPtrInput    `pulumi:"weight"`
+	// The weight. The range is 0 to 999.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (ListenerTargetGroupTupleArgs) ElementType() reflect.Type {
@@ -4259,6 +4535,7 @@ func (i ListenerTargetGroupTupleArray) ToListenerTargetGroupTupleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerTargetGroupTupleArrayOutput)
 }
 
+// Information about how traffic will be distributed between multiple target groups in a forward rule.
 type ListenerTargetGroupTupleOutput struct{ *pulumi.OutputState }
 
 func (ListenerTargetGroupTupleOutput) ElementType() reflect.Type {
@@ -4273,10 +4550,12 @@ func (o ListenerTargetGroupTupleOutput) ToListenerTargetGroupTupleOutputWithCont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the target group.
 func (o ListenerTargetGroupTupleOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerTargetGroupTuple) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// The weight. The range is 0 to 999.
 func (o ListenerTargetGroupTupleOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerTargetGroupTuple) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -4301,8 +4580,18 @@ func (o ListenerTargetGroupTupleArrayOutput) Index(i pulumi.IntInput) ListenerTa
 	}).(ListenerTargetGroupTupleOutput)
 }
 
+// Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 type LoadBalancerAttribute struct {
-	Key   *string `pulumi:"key"`
+	// The name of the attribute.
+	//  The following attributes are supported by all load balancers:
+	//   +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
+	//   +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+	//
+	//  The following attributes are supported by both Application Load Balancers and Network Load Balancers:
+	//   +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+	//   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and h
+	Key *string `pulumi:"key"`
+	// The value of the attribute.
 	Value *string `pulumi:"value"`
 }
 
@@ -4317,8 +4606,18 @@ type LoadBalancerAttributeInput interface {
 	ToLoadBalancerAttributeOutputWithContext(context.Context) LoadBalancerAttributeOutput
 }
 
+// Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 type LoadBalancerAttributeArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// The name of the attribute.
+	//  The following attributes are supported by all load balancers:
+	//   +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
+	//   +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+	//
+	//  The following attributes are supported by both Application Load Balancers and Network Load Balancers:
+	//   +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+	//   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and h
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value of the attribute.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4359,6 +4658,7 @@ func (i LoadBalancerAttributeArray) ToLoadBalancerAttributeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAttributeArrayOutput)
 }
 
+// Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 type LoadBalancerAttributeOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerAttributeOutput) ElementType() reflect.Type {
@@ -4373,10 +4673,20 @@ func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutputWithContext(ct
 	return o
 }
 
+// The name of the attribute.
+//
+//	The following attributes are supported by all load balancers:
+//	 +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
+//	 +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+//
+//	The following attributes are supported by both Application Load Balancers and Network Load Balancers:
+//	 +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+//	 +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and h
 func (o LoadBalancerAttributeOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The value of the attribute.
 func (o LoadBalancerAttributeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4401,11 +4711,16 @@ func (o LoadBalancerAttributeArrayOutput) Index(i pulumi.IntInput) LoadBalancerA
 	}).(LoadBalancerAttributeOutput)
 }
 
+// Specifies a subnet for a load balancer.
 type LoadBalancerSubnetMapping struct {
-	AllocationId       *string `pulumi:"allocationId"`
-	IPv6Address        *string `pulumi:"iPv6Address"`
+	// [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
+	AllocationId *string `pulumi:"allocationId"`
+	// [Network Load Balancers] The IPv6 address.
+	IPv6Address *string `pulumi:"iPv6Address"`
+	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
 	PrivateIPv4Address *string `pulumi:"privateIPv4Address"`
-	SubnetId           string  `pulumi:"subnetId"`
+	// The ID of the subnet.
+	SubnetId string `pulumi:"subnetId"`
 }
 
 // LoadBalancerSubnetMappingInput is an input type that accepts LoadBalancerSubnetMappingArgs and LoadBalancerSubnetMappingOutput values.
@@ -4419,11 +4734,16 @@ type LoadBalancerSubnetMappingInput interface {
 	ToLoadBalancerSubnetMappingOutputWithContext(context.Context) LoadBalancerSubnetMappingOutput
 }
 
+// Specifies a subnet for a load balancer.
 type LoadBalancerSubnetMappingArgs struct {
-	AllocationId       pulumi.StringPtrInput `pulumi:"allocationId"`
-	IPv6Address        pulumi.StringPtrInput `pulumi:"iPv6Address"`
+	// [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
+	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
+	// [Network Load Balancers] The IPv6 address.
+	IPv6Address pulumi.StringPtrInput `pulumi:"iPv6Address"`
+	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
 	PrivateIPv4Address pulumi.StringPtrInput `pulumi:"privateIPv4Address"`
-	SubnetId           pulumi.StringInput    `pulumi:"subnetId"`
+	// The ID of the subnet.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (LoadBalancerSubnetMappingArgs) ElementType() reflect.Type {
@@ -4463,6 +4783,7 @@ func (i LoadBalancerSubnetMappingArray) ToLoadBalancerSubnetMappingArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerSubnetMappingArrayOutput)
 }
 
+// Specifies a subnet for a load balancer.
 type LoadBalancerSubnetMappingOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerSubnetMappingOutput) ElementType() reflect.Type {
@@ -4477,18 +4798,22 @@ func (o LoadBalancerSubnetMappingOutput) ToLoadBalancerSubnetMappingOutputWithCo
 	return o
 }
 
+// [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
 func (o LoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
+// [Network Load Balancers] The IPv6 address.
 func (o LoadBalancerSubnetMappingOutput) IPv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.IPv6Address }).(pulumi.StringPtrOutput)
 }
 
+// [Network Load Balancers] The private IPv4 address for an internal load balancer.
 func (o LoadBalancerSubnetMappingOutput) PrivateIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.PrivateIPv4Address }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the subnet.
 func (o LoadBalancerSubnetMappingOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -4513,8 +4838,11 @@ func (o LoadBalancerSubnetMappingArrayOutput) Index(i pulumi.IntInput) LoadBalan
 	}).(LoadBalancerSubnetMappingOutput)
 }
 
+// Information about a tag.
 type LoadBalancerTag struct {
-	Key   string  `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value *string `pulumi:"value"`
 }
 

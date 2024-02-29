@@ -19,9 +19,9 @@ __all__ = ['OriginEndpointArgs', 'OriginEndpoint']
 @pulumi.input_type
 class OriginEndpointArgs:
     def __init__(__self__, *,
-                 container_type: pulumi.Input['OriginEndpointContainerType'],
-                 channel_group_name: Optional[pulumi.Input[str]] = None,
-                 channel_name: Optional[pulumi.Input[str]] = None,
+                 channel_group_name: pulumi.Input[str],
+                 channel_name: pulumi.Input[str],
+                 container_type: Optional[pulumi.Input['OriginEndpointContainerType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]]] = None,
                  low_latency_hls_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]] = None,
@@ -36,11 +36,10 @@ class OriginEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
         :param pulumi.Input[int] startover_window_seconds: <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
         """
-        pulumi.set(__self__, "container_type", container_type)
-        if channel_group_name is not None:
-            pulumi.set(__self__, "channel_group_name", channel_group_name)
-        if channel_name is not None:
-            pulumi.set(__self__, "channel_name", channel_name)
+        pulumi.set(__self__, "channel_group_name", channel_group_name)
+        pulumi.set(__self__, "channel_name", channel_name)
+        if container_type is not None:
+            pulumi.set(__self__, "container_type", container_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if hls_manifests is not None:
@@ -57,31 +56,31 @@ class OriginEndpointArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="containerType")
-    def container_type(self) -> pulumi.Input['OriginEndpointContainerType']:
-        return pulumi.get(self, "container_type")
-
-    @container_type.setter
-    def container_type(self, value: pulumi.Input['OriginEndpointContainerType']):
-        pulumi.set(self, "container_type", value)
-
-    @property
     @pulumi.getter(name="channelGroupName")
-    def channel_group_name(self) -> Optional[pulumi.Input[str]]:
+    def channel_group_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "channel_group_name")
 
     @channel_group_name.setter
-    def channel_group_name(self, value: Optional[pulumi.Input[str]]):
+    def channel_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_group_name", value)
 
     @property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> Optional[pulumi.Input[str]]:
+    def channel_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
-    def channel_name(self, value: Optional[pulumi.Input[str]]):
+    def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter(name="containerType")
+    def container_type(self) -> Optional[pulumi.Input['OriginEndpointContainerType']]:
+        return pulumi.get(self, "container_type")
+
+    @container_type.setter
+    def container_type(self, value: Optional[pulumi.Input['OriginEndpointContainerType']]):
+        pulumi.set(self, "container_type", value)
 
     @property
     @pulumi.getter
@@ -228,10 +227,12 @@ class OriginEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OriginEndpointArgs.__new__(OriginEndpointArgs)
 
+            if channel_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'channel_group_name'")
             __props__.__dict__["channel_group_name"] = channel_group_name
+            if channel_name is None and not opts.urn:
+                raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
-            if container_type is None and not opts.urn:
-                raise TypeError("Missing required property 'container_type'")
             __props__.__dict__["container_type"] = container_type
             __props__.__dict__["description"] = description
             __props__.__dict__["hls_manifests"] = hls_manifests
@@ -292,17 +293,17 @@ class OriginEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="channelGroupName")
-    def channel_group_name(self) -> pulumi.Output[Optional[str]]:
+    def channel_group_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "channel_group_name")
 
     @property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Output[Optional[str]]:
+    def channel_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "channel_name")
 
     @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> pulumi.Output['OriginEndpointContainerType']:
+    def container_type(self) -> pulumi.Output[Optional['OriginEndpointContainerType']]:
         return pulumi.get(self, "container_type")
 
     @property
@@ -347,7 +348,7 @@ class OriginEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originEndpointName")
-    def origin_endpoint_name(self) -> pulumi.Output[Optional[str]]:
+    def origin_endpoint_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "origin_endpoint_name")
 
     @property

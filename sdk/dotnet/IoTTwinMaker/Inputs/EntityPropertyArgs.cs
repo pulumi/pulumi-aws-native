@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTTwinMaker.Inputs
 {
 
+    /// <summary>
+    /// An object that specifies information about a property.
+    /// </summary>
     public sealed class EntityPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object that specifies information about a property.
+        /// The definition of the property.
         /// </summary>
         [Input("definition")]
-        public Input<Inputs.EntityPropertyDefinitionPropertiesArgs>? Definition { get; set; }
+        public Input<Inputs.EntityDefinitionArgs>? Definition { get; set; }
 
         /// <summary>
         /// The value of the property.

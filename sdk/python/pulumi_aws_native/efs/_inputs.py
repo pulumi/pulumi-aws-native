@@ -176,11 +176,22 @@ class AccessPointRootDirectoryArgs:
 class FileSystemBackupPolicyArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
+        """
+        The backup policy turns automatic backups for the file system on or off.
+        :param pulumi.Input[str] status: Set the backup policy status for the file system.
+                 +   *ENABLED* - Turns automatic backups on for the file system. 
+                 +   *DISABLED* - Turns automatic backups off for the file system.
+        """
         pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
+        """
+        Set the backup policy status for the file system.
+          +   *ENABLED* - Turns automatic backups on for the file system. 
+          +   *DISABLED* - Turns automatic backups off for the file system.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -194,6 +205,14 @@ class FileSystemLifecyclePolicyArgs:
                  transition_to_archive: Optional[pulumi.Input[str]] = None,
                  transition_to_ia: Optional[pulumi.Input[str]] = None,
                  transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a policy used by Lifecycle management that specifies when to transition files into and out of the EFS storage classes. For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
+          + Each ``LifecyclePolicy`` object can have only a single transition. This means that in a request body, ``LifecyclePolicies`` must be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive``, ``TransitionToPrimaryStorageClass``.
+         + See the AWS::EFS::FileSystem examples for the correct ``LifecyclePolicy`` structure. Do not use the syntax shown on this page.
+        :param pulumi.Input[str] transition_to_archive: The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        :param pulumi.Input[str] transition_to_ia: The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        :param pulumi.Input[str] transition_to_primary_storage_class: Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        """
         if transition_to_archive is not None:
             pulumi.set(__self__, "transition_to_archive", transition_to_archive)
         if transition_to_ia is not None:
@@ -204,6 +223,9 @@ class FileSystemLifecyclePolicyArgs:
     @property
     @pulumi.getter(name="transitionToArchive")
     def transition_to_archive(self) -> Optional[pulumi.Input[str]]:
+        """
+        The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        """
         return pulumi.get(self, "transition_to_archive")
 
     @transition_to_archive.setter
@@ -213,6 +235,9 @@ class FileSystemLifecyclePolicyArgs:
     @property
     @pulumi.getter(name="transitionToIa")
     def transition_to_ia(self) -> Optional[pulumi.Input[str]]:
+        """
+        The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        """
         return pulumi.get(self, "transition_to_ia")
 
     @transition_to_ia.setter
@@ -222,6 +247,9 @@ class FileSystemLifecyclePolicyArgs:
     @property
     @pulumi.getter(name="transitionToPrimaryStorageClass")
     def transition_to_primary_storage_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+        """
         return pulumi.get(self, "transition_to_primary_storage_class")
 
     @transition_to_primary_storage_class.setter
@@ -233,12 +261,29 @@ class FileSystemLifecyclePolicyArgs:
 class FileSystemProtectionArgs:
     def __init__(__self__, *,
                  replication_overwrite_protection: Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']] = None):
+        """
+        Describes the protection on the file system.
+        :param pulumi.Input['FileSystemProtectionReplicationOverwriteProtection'] replication_overwrite_protection: The status of the file system's replication overwrite protection.
+                 +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
+                 +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+                 +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.
+                 
+                If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
+        """
         if replication_overwrite_protection is not None:
             pulumi.set(__self__, "replication_overwrite_protection", replication_overwrite_protection)
 
     @property
     @pulumi.getter(name="replicationOverwriteProtection")
     def replication_overwrite_protection(self) -> Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']]:
+        """
+        The status of the file system's replication overwrite protection.
+          +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
+          +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+          +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.
+          
+         If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
+        """
         return pulumi.get(self, "replication_overwrite_protection")
 
     @replication_overwrite_protection.setter
@@ -250,12 +295,19 @@ class FileSystemProtectionArgs:
 class FileSystemReplicationConfigurationArgs:
     def __init__(__self__, *,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]] = None):
+        """
+        Describes the replication configuration for a specific file system.
+        :param pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]] destinations: An array of destination objects. Only one destination object is supported.
+        """
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
 
     @property
     @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemReplicationDestinationArgs']]]]:
+        """
+        An array of destination objects. Only one destination object is supported.
+        """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
@@ -270,6 +322,16 @@ class FileSystemReplicationDestinationArgs:
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the destination file system in the replication configuration.
+        :param pulumi.Input[str] availability_zone_name: The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
+                Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
+                 One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
+        :param pulumi.Input[str] file_system_id: The ID of the destination Amazon EFS file system.
+        :param pulumi.Input[str] kms_key_id: The ID of an kms-key-long used to protect the encrypted file system.
+        :param pulumi.Input[str] region: The AWS-Region in which the destination file system is located.
+                 For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
+        """
         if availability_zone_name is not None:
             pulumi.set(__self__, "availability_zone_name", availability_zone_name)
         if file_system_id is not None:
@@ -282,6 +344,11 @@ class FileSystemReplicationDestinationArgs:
     @property
     @pulumi.getter(name="availabilityZoneName")
     def availability_zone_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
+         Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
+          One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
+        """
         return pulumi.get(self, "availability_zone_name")
 
     @availability_zone_name.setter
@@ -291,6 +358,9 @@ class FileSystemReplicationDestinationArgs:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the destination Amazon EFS file system.
+        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -300,6 +370,9 @@ class FileSystemReplicationDestinationArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an kms-key-long used to protect the encrypted file system.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -309,6 +382,10 @@ class FileSystemReplicationDestinationArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS-Region in which the destination file system is located.
+          For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
+        """
         return pulumi.get(self, "region")
 
     @region.setter

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::Distribution
+ * A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
  */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
 
@@ -23,13 +23,19 @@ export interface GetDistributionArgs {
 }
 
 export interface GetDistributionResult {
+    /**
+     * The distribution's configuration.
+     */
     readonly distributionConfig?: outputs.cloudfront.DistributionConfig;
     readonly domainName?: string;
     readonly id?: string;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::CloudFront::Distribution
+ * A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
  */
 export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
     return pulumi.output(args).apply((a: any) => getDistribution(a, opts))

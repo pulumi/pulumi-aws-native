@@ -10,26 +10,41 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackageV2
 {
     /// <summary>
-    /// Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+    /// &lt;p&gt;Represents a channel group that facilitates the grouping of multiple channels.&lt;/p&gt;
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackagev2:ChannelGroup")]
     public partial class ChannelGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("channelGroupName")]
-        public Output<string?> ChannelGroupName { get; private set; } = null!;
+        public Output<string> ChannelGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The date and time the channel group was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Enter any descriptive text that helps you to identify the channel group.&lt;/p&gt;
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.&lt;/p&gt;
+        /// </summary>
         [Output("egressDomain")]
         public Output<string> EgressDomain { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The date and time the channel group was modified.&lt;/p&gt;
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
@@ -88,6 +103,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Input("channelGroupName")]
         public Input<string>? ChannelGroupName { get; set; }
 
+        /// <summary>
+        /// &lt;p&gt;Enter any descriptive text that helps you to identify the channel group.&lt;/p&gt;
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

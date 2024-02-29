@@ -10,11 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// A filter that you can specify for selection for modifications on replicas.
+    /// </summary>
     [OutputType]
     public sealed class BucketReplicaModifications
     {
         /// <summary>
         /// Specifies whether Amazon S3 replicates modifications on replicas.
+        ///  *Allowed values*: ``Enabled`` | ``Disabled``
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketReplicaModificationsStatus Status;
 

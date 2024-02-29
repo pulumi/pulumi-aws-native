@@ -52,52 +52,74 @@ class GetSubnetResult:
     @property
     @pulumi.getter(name="assignIpv6AddressOnCreation")
     def assign_ipv6_address_on_creation(self) -> Optional[bool]:
+        """
+        Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
+         If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+        """
         return pulumi.get(self, "assign_ipv6_address_on_creation")
 
     @property
     @pulumi.getter(name="enableDns64")
     def enable_dns64(self) -> Optional[bool]:
+        """
+        Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+        """
         return pulumi.get(self, "enable_dns64")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[str]:
+        """
+        The IPv6 CIDR block.
+         If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[Sequence[str]]:
+        """
+        The IPv6 network ranges for the subnet, in CIDR notation.
+        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @property
     @pulumi.getter(name="mapPublicIpOnLaunch")
     def map_public_ip_on_launch(self) -> Optional[bool]:
+        """
+        Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
+         AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+        """
         return pulumi.get(self, "map_public_ip_on_launch")
 
     @property
     @pulumi.getter(name="networkAclAssociationId")
     def network_acl_association_id(self) -> Optional[str]:
-        """
-        The ID of the network ACL that is associated with the subnet's VPC
-        """
         return pulumi.get(self, "network_acl_association_id")
 
     @property
     @pulumi.getter(name="privateDnsNameOptionsOnLaunch")
     def private_dns_name_options_on_launch(self) -> Optional['outputs.PrivateDnsNameOptionsOnLaunchProperties']:
+        """
+        The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+         Available options:
+          + EnableResourceNameDnsAAAARecord (true | false)
+         + EnableResourceNameDnsARecord (true | false)
+         + HostnameType (ip-name | resource-name)
+        """
         return pulumi.get(self, "private_dns_name_options_on_launch")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
-        """
-        The ID of the subnet
-        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Any tags assigned to the subnet.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -121,10 +143,9 @@ class AwaitableGetSubnetResult(GetSubnetResult):
 def get_subnet(subnet_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
-    Resource Type definition for AWS::EC2::Subnet
-
-
-    :param str subnet_id: The ID of the subnet
+    Specifies a subnet for the specified VPC.
+     For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
+     For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
     """
     __args__ = dict()
     __args__['subnetId'] = subnet_id
@@ -147,9 +168,8 @@ def get_subnet(subnet_id: Optional[str] = None,
 def get_subnet_output(subnet_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
     """
-    Resource Type definition for AWS::EC2::Subnet
-
-
-    :param str subnet_id: The ID of the subnet
+    Specifies a subnet for the specified VPC.
+     For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
+     For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
     """
     ...

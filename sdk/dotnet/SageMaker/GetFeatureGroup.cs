@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The status of the feature group.
         /// </summary>
         public readonly string? FeatureGroupStatus;
+        public readonly Outputs.OnlineStoreConfigProperties? OnlineStoreConfig;
         public readonly Outputs.FeatureGroupThroughputConfig? ThroughputConfig;
 
         [OutputConstructor]
@@ -79,11 +80,14 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? featureGroupStatus,
 
+            Outputs.OnlineStoreConfigProperties? onlineStoreConfig,
+
             Outputs.FeatureGroupThroughputConfig? throughputConfig)
         {
             CreationTime = creationTime;
             FeatureDefinitions = featureDefinitions;
             FeatureGroupStatus = featureGroupStatus;
+            OnlineStoreConfig = onlineStoreConfig;
             ThroughputConfig = throughputConfig;
         }
     }

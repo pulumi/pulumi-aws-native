@@ -33,12 +33,21 @@
       "type" : "string",
       "maxLength" : 1000
     },
+    "Certificate" : {
+      "$ref" : "#/definitions/Certificate"
+    },
+    "CertificateSettings" : {
+      "$ref" : "#/definitions/CertificateSettings"
+    },
     "DomainName" : {
       "type" : "string",
       "pattern" : "^(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])(\\.)?$",
       "maxLength" : 255
     },
     "DomainStatus" : {
+      "type" : "string"
+    },
+    "UpdateStatus" : {
       "type" : "string"
     },
     "EnableAutoSubDomain" : {
@@ -58,6 +67,38 @@
     }
   },
   "definitions" : {
+    "CertificateSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CertificateType" : {
+          "type" : "string",
+          "enum" : [ "AMPLIFY_MANAGED", "CUSTOM" ]
+        },
+        "CustomCertificateArn" : {
+          "type" : "string",
+          "pattern" : "\"^arn:aws:acm:[a-z0-9-]+:\\d{12}:certificate\\/.+$\""
+        }
+      }
+    },
+    "Certificate" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CertificateType" : {
+          "type" : "string",
+          "enum" : [ "AMPLIFY_MANAGED", "CUSTOM" ]
+        },
+        "CertificateArn" : {
+          "type" : "string",
+          "pattern" : "\"^arn:aws:acm:[a-z0-9-]+:\\d{12}:certificate\\/.+$\""
+        },
+        "CertificateVerificationDNSRecord" : {
+          "type" : "string",
+          "maxLength" : 1000
+        }
+      }
+    },
     "SubDomainSetting" : {
       "type" : "object",
       "additionalProperties" : false,

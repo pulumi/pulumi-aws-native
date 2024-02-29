@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The ``HostEntry`` property specifies a hostname and an IP address that are added to the ``/etc/hosts`` file of a container through the ``extraHosts`` parameter of its ``ContainerDefinition`` resource.
+    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionHostEntry
     {
+        /// <summary>
+        /// The hostname to use in the ``/etc/hosts`` entry.
+        /// </summary>
         public readonly string? Hostname;
+        /// <summary>
+        /// The IP address to use in the ``/etc/hosts`` entry.
+        /// </summary>
         public readonly string? IpAddress;
 
         [OutputConstructor]

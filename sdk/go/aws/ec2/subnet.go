@@ -13,35 +13,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::Subnet
+// Specifies a subnet for the specified VPC.
+//
+//	For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
+//	For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
 type Subnet struct {
 	pulumi.CustomResourceState
 
-	AssignIpv6AddressOnCreation pulumi.BoolPtrOutput   `pulumi:"assignIpv6AddressOnCreation"`
-	AvailabilityZone            pulumi.StringPtrOutput `pulumi:"availabilityZone"`
-	AvailabilityZoneId          pulumi.StringPtrOutput `pulumi:"availabilityZoneId"`
-	CidrBlock                   pulumi.StringPtrOutput `pulumi:"cidrBlock"`
-	EnableDns64                 pulumi.BoolPtrOutput   `pulumi:"enableDns64"`
-	// The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+	// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
+	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+	AssignIpv6AddressOnCreation pulumi.BoolPtrOutput `pulumi:"assignIpv6AddressOnCreation"`
+	// The Availability Zone of the subnet.
+	//  If you update this property, you must also update the ``CidrBlock`` property.
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	// The AZ ID of the subnet.
+	AvailabilityZoneId pulumi.StringPtrOutput `pulumi:"availabilityZoneId"`
+	// The IPv4 CIDR block assigned to the subnet.
+	//  If you update this property, we create a new subnet, and then delete the existing one.
+	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
+	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+	EnableDns64 pulumi.BoolPtrOutput `pulumi:"enableDns64"`
+	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
-	// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-	Ipv4NetmaskLength pulumi.IntPtrOutput      `pulumi:"ipv4NetmaskLength"`
-	Ipv6CidrBlock     pulumi.StringPtrOutput   `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlocks    pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
-	// The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+	// An IPv4 netmask length for the subnet.
+	Ipv4NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv4NetmaskLength"`
+	// The IPv6 CIDR block.
+	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
+	// The IPv6 network ranges for the subnet, in CIDR notation.
+	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
+	// An IPv6 IPAM pool ID for the subnet.
 	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
-	Ipv6Native     pulumi.BoolPtrOutput   `pulumi:"ipv6Native"`
-	// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-	Ipv6NetmaskLength   pulumi.IntPtrOutput  `pulumi:"ipv6NetmaskLength"`
-	MapPublicIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
-	// The ID of the network ACL that is associated with the subnet's VPC
-	NetworkAclAssociationId       pulumi.StringOutput                              `pulumi:"networkAclAssociationId"`
-	OutpostArn                    pulumi.StringPtrOutput                           `pulumi:"outpostArn"`
+	// Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
+	Ipv6Native pulumi.BoolPtrOutput `pulumi:"ipv6Native"`
+	// An IPv6 netmask length for the subnet.
+	Ipv6NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv6NetmaskLength"`
+	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
+	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	MapPublicIpOnLaunch     pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
+	NetworkAclAssociationId pulumi.StringOutput  `pulumi:"networkAclAssociationId"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
+	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+	//  Available options:
+	//   + EnableResourceNameDnsAAAARecord (true | false)
+	//  + EnableResourceNameDnsARecord (true | false)
+	//  + HostnameType (ip-name | resource-name)
 	PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput `pulumi:"privateDnsNameOptionsOnLaunch"`
-	// The ID of the subnet
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	Tags     aws.TagArrayOutput  `pulumi:"tags"`
-	VpcId    pulumi.StringOutput `pulumi:"vpcId"`
+	SubnetId                      pulumi.StringOutput                              `pulumi:"subnetId"`
+	// Any tags assigned to the subnet.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC the subnet is in.
+	//  If you update this property, you must also update the ``CidrBlock`` property.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
@@ -100,52 +124,98 @@ func (SubnetState) ElementType() reflect.Type {
 }
 
 type subnetArgs struct {
-	AssignIpv6AddressOnCreation *bool   `pulumi:"assignIpv6AddressOnCreation"`
-	AvailabilityZone            *string `pulumi:"availabilityZone"`
-	AvailabilityZoneId          *string `pulumi:"availabilityZoneId"`
-	CidrBlock                   *string `pulumi:"cidrBlock"`
-	EnableDns64                 *bool   `pulumi:"enableDns64"`
-	// The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+	// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
+	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+	AssignIpv6AddressOnCreation *bool `pulumi:"assignIpv6AddressOnCreation"`
+	// The Availability Zone of the subnet.
+	//  If you update this property, you must also update the ``CidrBlock`` property.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The AZ ID of the subnet.
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
+	// The IPv4 CIDR block assigned to the subnet.
+	//  If you update this property, we create a new subnet, and then delete the existing one.
+	CidrBlock *string `pulumi:"cidrBlock"`
+	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+	EnableDns64 *bool `pulumi:"enableDns64"`
+	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
-	// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-	Ipv4NetmaskLength *int     `pulumi:"ipv4NetmaskLength"`
-	Ipv6CidrBlock     *string  `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlocks    []string `pulumi:"ipv6CidrBlocks"`
-	// The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+	// An IPv4 netmask length for the subnet.
+	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
+	// The IPv6 CIDR block.
+	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// The IPv6 network ranges for the subnet, in CIDR notation.
+	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
+	// An IPv6 IPAM pool ID for the subnet.
 	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
-	Ipv6Native     *bool   `pulumi:"ipv6Native"`
-	// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-	Ipv6NetmaskLength             *int                                     `pulumi:"ipv6NetmaskLength"`
-	MapPublicIpOnLaunch           *bool                                    `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn                    *string                                  `pulumi:"outpostArn"`
+	// Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
+	Ipv6Native *bool `pulumi:"ipv6Native"`
+	// An IPv6 netmask length for the subnet.
+	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
+	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
+	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn *string `pulumi:"outpostArn"`
+	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+	//  Available options:
+	//   + EnableResourceNameDnsAAAARecord (true | false)
+	//  + EnableResourceNameDnsARecord (true | false)
+	//  + HostnameType (ip-name | resource-name)
 	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
-	Tags                          []aws.Tag                                `pulumi:"tags"`
-	VpcId                         string                                   `pulumi:"vpcId"`
+	// Any tags assigned to the subnet.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC the subnet is in.
+	//  If you update this property, you must also update the ``CidrBlock`` property.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
+	// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
+	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
 	AssignIpv6AddressOnCreation pulumi.BoolPtrInput
-	AvailabilityZone            pulumi.StringPtrInput
-	AvailabilityZoneId          pulumi.StringPtrInput
-	CidrBlock                   pulumi.StringPtrInput
-	EnableDns64                 pulumi.BoolPtrInput
-	// The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+	// The Availability Zone of the subnet.
+	//  If you update this property, you must also update the ``CidrBlock`` property.
+	AvailabilityZone pulumi.StringPtrInput
+	// The AZ ID of the subnet.
+	AvailabilityZoneId pulumi.StringPtrInput
+	// The IPv4 CIDR block assigned to the subnet.
+	//  If you update this property, we create a new subnet, and then delete the existing one.
+	CidrBlock pulumi.StringPtrInput
+	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+	EnableDns64 pulumi.BoolPtrInput
+	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId pulumi.StringPtrInput
-	// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+	// An IPv4 netmask length for the subnet.
 	Ipv4NetmaskLength pulumi.IntPtrInput
-	Ipv6CidrBlock     pulumi.StringPtrInput
-	Ipv6CidrBlocks    pulumi.StringArrayInput
-	// The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+	// The IPv6 CIDR block.
+	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+	Ipv6CidrBlock pulumi.StringPtrInput
+	// The IPv6 network ranges for the subnet, in CIDR notation.
+	Ipv6CidrBlocks pulumi.StringArrayInput
+	// An IPv6 IPAM pool ID for the subnet.
 	Ipv6IpamPoolId pulumi.StringPtrInput
-	Ipv6Native     pulumi.BoolPtrInput
-	// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-	Ipv6NetmaskLength             pulumi.IntPtrInput
-	MapPublicIpOnLaunch           pulumi.BoolPtrInput
-	OutpostArn                    pulumi.StringPtrInput
+	// Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
+	Ipv6Native pulumi.BoolPtrInput
+	// An IPv6 netmask length for the subnet.
+	Ipv6NetmaskLength pulumi.IntPtrInput
+	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
+	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	MapPublicIpOnLaunch pulumi.BoolPtrInput
+	// The Amazon Resource Name (ARN) of the Outpost.
+	OutpostArn pulumi.StringPtrInput
+	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+	//  Available options:
+	//   + EnableResourceNameDnsAAAARecord (true | false)
+	//  + EnableResourceNameDnsARecord (true | false)
+	//  + HostnameType (ip-name | resource-name)
 	PrivateDnsNameOptionsOnLaunch PrivateDnsNameOptionsOnLaunchPropertiesPtrInput
-	Tags                          aws.TagArrayInput
-	VpcId                         pulumi.StringInput
+	// Any tags assigned to the subnet.
+	Tags aws.TagArrayInput
+	// The ID of the VPC the subnet is in.
+	//  If you update this property, you must also update the ``CidrBlock`` property.
+	VpcId pulumi.StringInput
 }
 
 func (SubnetArgs) ElementType() reflect.Type {
@@ -185,86 +255,114 @@ func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutpu
 	return o
 }
 
+// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is “false“.
+//
+//	If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
 func (o SubnetOutput) AssignIpv6AddressOnCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.AssignIpv6AddressOnCreation }).(pulumi.BoolPtrOutput)
 }
 
+// The Availability Zone of the subnet.
+//
+//	If you update this property, you must also update the ``CidrBlock`` property.
 func (o SubnetOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The AZ ID of the subnet.
 func (o SubnetOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
+// The IPv4 CIDR block assigned to the subnet.
+//
+//	If you update this property, we create a new subnet, and then delete the existing one.
 func (o SubnetOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
 func (o SubnetOutput) EnableDns64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+// An IPv4 IPAM pool ID for the subnet.
 func (o SubnetOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Ipv4IpamPoolId }).(pulumi.StringPtrOutput)
 }
 
-// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+// An IPv4 netmask length for the subnet.
 func (o SubnetOutput) Ipv4NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.IntPtrOutput { return v.Ipv4NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
+// The IPv6 CIDR block.
+//
+//	If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
 func (o SubnetOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
+// The IPv6 network ranges for the subnet, in CIDR notation.
 func (o SubnetOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringArrayOutput { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+// An IPv6 IPAM pool ID for the subnet.
 func (o SubnetOutput) Ipv6IpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Ipv6IpamPoolId }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether this is an IPv6 only subnet. For more information, see [Subnet basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.
 func (o SubnetOutput) Ipv6Native() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.Ipv6Native }).(pulumi.BoolPtrOutput)
 }
 
-// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+// An IPv6 netmask length for the subnet.
 func (o SubnetOutput) Ipv6NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.IntPtrOutput { return v.Ipv6NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is “false“.
+//
+//	AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
 func (o SubnetOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the network ACL that is associated with the subnet's VPC
 func (o SubnetOutput) NetworkAclAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.NetworkAclAssociationId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Outpost.
 func (o SubnetOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
+// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+//
+//	Available options:
+//	 + EnableResourceNameDnsAAAARecord (true | false)
+//	+ EnableResourceNameDnsARecord (true | false)
+//	+ HostnameType (ip-name | resource-name)
 func (o SubnetOutput) PrivateDnsNameOptionsOnLaunch() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
 	return o.ApplyT(func(v *Subnet) PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
 		return v.PrivateDnsNameOptionsOnLaunch
 	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
 }
 
-// The ID of the subnet
 func (o SubnetOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
+// Any tags assigned to the subnet.
 func (o SubnetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Subnet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC the subnet is in.
+//
+//	If you update this property, you must also update the ``CidrBlock`` property.
 func (o SubnetOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

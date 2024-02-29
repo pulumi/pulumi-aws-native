@@ -41,7 +41,8 @@ type LookupResolverResult struct {
 	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind *string `pulumi:"kind"`
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
-	MaxBatchSize *int `pulumi:"maxBatchSize"`
+	MaxBatchSize  *int                   `pulumi:"maxBatchSize"`
+	MetricsConfig *ResolverMetricsConfig `pulumi:"metricsConfig"`
 	// Functions linked with the pipeline resolver.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
 	// The request mapping template.
@@ -116,6 +117,10 @@ func (o LookupResolverResultOutput) Kind() pulumi.StringPtrOutput {
 // The maximum number of resolver request inputs that will be sent to a single LAMlong function in a “BatchInvoke“ operation.
 func (o LookupResolverResultOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *int { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupResolverResultOutput) MetricsConfig() ResolverMetricsConfigPtrOutput {
+	return o.ApplyT(func(v LookupResolverResult) *ResolverMetricsConfig { return v.MetricsConfig }).(ResolverMetricsConfigPtrOutput)
 }
 
 // Functions linked with the pipeline resolver.

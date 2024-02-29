@@ -22,7 +22,7 @@ type ObjectType struct {
 	// The time of this integration got created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Description of the profile object type.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The unique name of the domain.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The default encryption key
@@ -36,7 +36,7 @@ type ObjectType struct {
 	// The time of this integration got last updated at.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The name of the profile object type.
-	ObjectTypeName pulumi.StringPtrOutput `pulumi:"objectTypeName"`
+	ObjectTypeName pulumi.StringOutput `pulumi:"objectTypeName"`
 	// The format of your sourceLastUpdatedTimestamp that was previously set up.
 	SourceLastUpdatedTimestampFormat pulumi.StringPtrOutput `pulumi:"sourceLastUpdatedTimestampFormat"`
 	// The tags (keys and values) associated with the integration.
@@ -52,6 +52,9 @@ func NewObjectType(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
+	}
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
@@ -96,7 +99,7 @@ type objectTypeArgs struct {
 	// Indicates whether a profile should be created when data is received.
 	AllowProfileCreation *bool `pulumi:"allowProfileCreation"`
 	// Description of the profile object type.
-	Description *string `pulumi:"description"`
+	Description string `pulumi:"description"`
 	// The unique name of the domain.
 	DomainName string `pulumi:"domainName"`
 	// The default encryption key
@@ -122,7 +125,7 @@ type ObjectTypeArgs struct {
 	// Indicates whether a profile should be created when data is received.
 	AllowProfileCreation pulumi.BoolPtrInput
 	// Description of the profile object type.
-	Description pulumi.StringPtrInput
+	Description pulumi.StringInput
 	// The unique name of the domain.
 	DomainName pulumi.StringInput
 	// The default encryption key
@@ -191,8 +194,8 @@ func (o ObjectTypeOutput) CreatedAt() pulumi.StringOutput {
 }
 
 // Description of the profile object type.
-func (o ObjectTypeOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o ObjectTypeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // The unique name of the domain.
@@ -226,8 +229,8 @@ func (o ObjectTypeOutput) LastUpdatedAt() pulumi.StringOutput {
 }
 
 // The name of the profile object type.
-func (o ObjectTypeOutput) ObjectTypeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectType) pulumi.StringPtrOutput { return v.ObjectTypeName }).(pulumi.StringPtrOutput)
+func (o ObjectTypeOutput) ObjectTypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectType) pulumi.StringOutput { return v.ObjectTypeName }).(pulumi.StringOutput)
 }
 
 // The format of your sourceLastUpdatedTimestamp that was previously set up.

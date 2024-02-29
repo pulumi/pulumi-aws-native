@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDashboardResult:
-    def __init__(__self__, arn=None, created_time=None, last_published_time=None, last_updated_time=None, name=None, permissions=None, tags=None, version=None):
+    def __init__(__self__, arn=None, created_time=None, last_published_time=None, last_updated_time=None, link_entities=None, name=None, permissions=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetDashboardResult:
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if link_entities and not isinstance(link_entities, list):
+            raise TypeError("Expected argument 'link_entities' to be a list")
+        pulumi.set(__self__, "link_entities", link_entities)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -68,6 +71,11 @@ class GetDashboardResult:
         return pulumi.get(self, "last_updated_time")
 
     @property
+    @pulumi.getter(name="linkEntities")
+    def link_entities(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "link_entities")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
@@ -98,6 +106,7 @@ class AwaitableGetDashboardResult(GetDashboardResult):
             created_time=self.created_time,
             last_published_time=self.last_published_time,
             last_updated_time=self.last_updated_time,
+            link_entities=self.link_entities,
             name=self.name,
             permissions=self.permissions,
             tags=self.tags,
@@ -121,6 +130,7 @@ def get_dashboard(aws_account_id: Optional[str] = None,
         created_time=pulumi.get(__ret__, 'created_time'),
         last_published_time=pulumi.get(__ret__, 'last_published_time'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        link_entities=pulumi.get(__ret__, 'link_entities'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
         tags=pulumi.get(__ret__, 'tags'),

@@ -41,22 +41,35 @@ class BucketArgs:
                  website_configuration: Optional[pulumi.Input['BucketWebsiteConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Bucket resource.
-        :param pulumi.Input['BucketAccelerateConfigurationArgs'] accelerate_configuration: Configuration for the transfer acceleration state.
-        :param pulumi.Input['BucketAccessControl'] access_control: A canned access control list (ACL) that grants predefined permissions to the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]] analytics_configurations: The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
-        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
-        :param pulumi.Input['BucketCorsConfigurationArgs'] cors_configuration: Rules that define cross-origin resource sharing of objects in this bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationArgs']]] intelligent_tiering_configurations: Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]] inventory_configurations: The inventory configuration for an Amazon S3 bucket.
-        :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Rules that define how Amazon S3 manages objects during their lifetime.
+        :param pulumi.Input['BucketAccelerateConfigurationArgs'] accelerate_configuration: Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input['BucketAccessControl'] access_control: This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+                 A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.
+                 S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.
+                 The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]] analytics_configurations: Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        :param pulumi.Input['BucketEncryptionArgs'] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+                 If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        :param pulumi.Input['BucketCorsConfigurationArgs'] cors_configuration: Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationArgs']]] intelligent_tiering_configurations: Defines how Amazon S3 handles Intelligent-Tiering storage.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]] inventory_configurations: Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketLoggingConfigurationArgs'] logging_configuration: Settings that define where logs are stored.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]] metrics_configurations: Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]] metrics_configurations: Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
         :param pulumi.Input['BucketNotificationConfigurationArgs'] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
-        :param pulumi.Input['BucketObjectLockConfigurationArgs'] object_lock_configuration: Places an Object Lock configuration on the specified bucket.
-        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
-        :param pulumi.Input['BucketOwnershipControlsArgs'] ownership_controls: Specifies the container element for object ownership rules.
-        :param pulumi.Input['BucketReplicationConfigurationArgs'] replication_configuration: Configuration for replicating objects in an S3 bucket.
+        :param pulumi.Input['BucketObjectLockConfigurationArgs'] object_lock_configuration: This operation is not supported by directory buckets.
+                 Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
+                  +  The ``DefaultRetention`` settings require both a mode and a period.
+                 +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
+                 +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+        :param pulumi.Input['BucketOwnershipControlsArgs'] ownership_controls: Configuration that defines how Amazon S3 handles Object Ownership rules.
+        :param pulumi.Input['BucketPublicAccessBlockConfigurationArgs'] public_access_block_configuration: Configuration that defines how Amazon S3 handles public access.
+        :param pulumi.Input['BucketReplicationConfigurationArgs'] replication_configuration: Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
+                Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
+        :param pulumi.Input['BucketVersioningConfigurationArgs'] versioning_configuration: Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+        :param pulumi.Input['BucketWebsiteConfigurationArgs'] website_configuration: Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
         """
         if accelerate_configuration is not None:
             pulumi.set(__self__, "accelerate_configuration", accelerate_configuration)
@@ -103,7 +116,7 @@ class BucketArgs:
     @pulumi.getter(name="accelerateConfiguration")
     def accelerate_configuration(self) -> Optional[pulumi.Input['BucketAccelerateConfigurationArgs']]:
         """
-        Configuration for the transfer acceleration state.
+        Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "accelerate_configuration")
 
@@ -115,7 +128,10 @@ class BucketArgs:
     @pulumi.getter(name="accessControl")
     def access_control(self) -> Optional[pulumi.Input['BucketAccessControl']]:
         """
-        A canned access control list (ACL) that grants predefined permissions to the bucket.
+        This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+          A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.
+          S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.
+          The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "access_control")
 
@@ -127,7 +143,7 @@ class BucketArgs:
     @pulumi.getter(name="analyticsConfigurations")
     def analytics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]]]:
         """
-        The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
         """
         return pulumi.get(self, "analytics_configurations")
 
@@ -138,6 +154,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="bucketEncryption")
     def bucket_encryption(self) -> Optional[pulumi.Input['BucketEncryptionArgs']]:
+        """
+        Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
+        """
         return pulumi.get(self, "bucket_encryption")
 
     @bucket_encryption.setter
@@ -148,7 +167,8 @@ class BucketArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+          If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -160,7 +180,7 @@ class BucketArgs:
     @pulumi.getter(name="corsConfiguration")
     def cors_configuration(self) -> Optional[pulumi.Input['BucketCorsConfigurationArgs']]:
         """
-        Rules that define cross-origin resource sharing of objects in this bucket.
+        Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "cors_configuration")
 
@@ -172,7 +192,7 @@ class BucketArgs:
     @pulumi.getter(name="intelligentTieringConfigurations")
     def intelligent_tiering_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationArgs']]]]:
         """
-        Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+        Defines how Amazon S3 handles Intelligent-Tiering storage.
         """
         return pulumi.get(self, "intelligent_tiering_configurations")
 
@@ -184,7 +204,7 @@ class BucketArgs:
     @pulumi.getter(name="inventoryConfigurations")
     def inventory_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]]]:
         """
-        The inventory configuration for an Amazon S3 bucket.
+        Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         """
         return pulumi.get(self, "inventory_configurations")
 
@@ -196,7 +216,7 @@ class BucketArgs:
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> Optional[pulumi.Input['BucketLifecycleConfigurationArgs']]:
         """
-        Rules that define how Amazon S3 manages objects during their lifetime.
+        Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "lifecycle_configuration")
 
@@ -220,7 +240,7 @@ class BucketArgs:
     @pulumi.getter(name="metricsConfigurations")
     def metrics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]]]:
         """
-        Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+        Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
         """
         return pulumi.get(self, "metrics_configurations")
 
@@ -244,7 +264,11 @@ class BucketArgs:
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationArgs']]:
         """
-        Places an Object Lock configuration on the specified bucket.
+        This operation is not supported by directory buckets.
+          Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
+           +  The ``DefaultRetention`` settings require both a mode and a period.
+          +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
+          +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
         """
         return pulumi.get(self, "object_lock_configuration")
 
@@ -256,7 +280,7 @@ class BucketArgs:
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether this bucket has an Object Lock configuration enabled.
+        Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
         """
         return pulumi.get(self, "object_lock_enabled")
 
@@ -268,7 +292,7 @@ class BucketArgs:
     @pulumi.getter(name="ownershipControls")
     def ownership_controls(self) -> Optional[pulumi.Input['BucketOwnershipControlsArgs']]:
         """
-        Specifies the container element for object ownership rules.
+        Configuration that defines how Amazon S3 handles Object Ownership rules.
         """
         return pulumi.get(self, "ownership_controls")
 
@@ -279,6 +303,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="publicAccessBlockConfiguration")
     def public_access_block_configuration(self) -> Optional[pulumi.Input['BucketPublicAccessBlockConfigurationArgs']]:
+        """
+        Configuration that defines how Amazon S3 handles public access.
+        """
         return pulumi.get(self, "public_access_block_configuration")
 
     @public_access_block_configuration.setter
@@ -289,7 +316,8 @@ class BucketArgs:
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> Optional[pulumi.Input['BucketReplicationConfigurationArgs']]:
         """
-        Configuration for replicating objects in an S3 bucket.
+        Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
+         Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
         """
         return pulumi.get(self, "replication_configuration")
 
@@ -312,6 +340,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> Optional[pulumi.Input['BucketVersioningConfigurationArgs']]:
+        """
+        Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+        """
         return pulumi.get(self, "versioning_configuration")
 
     @versioning_configuration.setter
@@ -321,6 +352,9 @@ class BucketArgs:
     @property
     @pulumi.getter(name="websiteConfiguration")
     def website_configuration(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationArgs']]:
+        """
+        Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
+        """
         return pulumi.get(self, "website_configuration")
 
     @website_configuration.setter
@@ -355,26 +389,41 @@ class Bucket(pulumi.CustomResource):
                  website_configuration: Optional[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationArgs']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::S3::Bucket
+        The ``AWS::S3::Bucket`` resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.
+         To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
+          You can only delete empty buckets. Deletion fails for buckets that have contents.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']] accelerate_configuration: Configuration for the transfer acceleration state.
-        :param pulumi.Input['BucketAccessControl'] access_control: A canned access control list (ACL) that grants predefined permissions to the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]] analytics_configurations: The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
-        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
-        :param pulumi.Input[pulumi.InputType['BucketCorsConfigurationArgs']] cors_configuration: Rules that define cross-origin resource sharing of objects in this bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationArgs']]]] intelligent_tiering_configurations: Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketInventoryConfigurationArgs']]]] inventory_configurations: The inventory configuration for an Amazon S3 bucket.
-        :param pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']] lifecycle_configuration: Rules that define how Amazon S3 manages objects during their lifetime.
+        :param pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']] accelerate_configuration: Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input['BucketAccessControl'] access_control: This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+                 A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.
+                 S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.
+                 The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]] analytics_configurations: Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        :param pulumi.Input[pulumi.InputType['BucketEncryptionArgs']] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[str] bucket_name: A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+                 If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
+        :param pulumi.Input[pulumi.InputType['BucketCorsConfigurationArgs']] cors_configuration: Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationArgs']]]] intelligent_tiering_configurations: Defines how Amazon S3 handles Intelligent-Tiering storage.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketInventoryConfigurationArgs']]]] inventory_configurations: Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+        :param pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']] lifecycle_configuration: Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input[pulumi.InputType['BucketLoggingConfigurationArgs']] logging_configuration: Settings that define where logs are stored.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketMetricsConfigurationArgs']]]] metrics_configurations: Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketMetricsConfigurationArgs']]]] metrics_configurations: Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
         :param pulumi.Input[pulumi.InputType['BucketNotificationConfigurationArgs']] notification_configuration: Configuration that defines how Amazon S3 handles bucket notifications.
-        :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']] object_lock_configuration: Places an Object Lock configuration on the specified bucket.
-        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled.
-        :param pulumi.Input[pulumi.InputType['BucketOwnershipControlsArgs']] ownership_controls: Specifies the container element for object ownership rules.
-        :param pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']] replication_configuration: Configuration for replicating objects in an S3 bucket.
+        :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationArgs']] object_lock_configuration: This operation is not supported by directory buckets.
+                 Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
+                  +  The ``DefaultRetention`` settings require both a mode and a period.
+                 +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
+                 +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
+        :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+        :param pulumi.Input[pulumi.InputType['BucketOwnershipControlsArgs']] ownership_controls: Configuration that defines how Amazon S3 handles Object Ownership rules.
+        :param pulumi.Input[pulumi.InputType['BucketPublicAccessBlockConfigurationArgs']] public_access_block_configuration: Configuration that defines how Amazon S3 handles public access.
+        :param pulumi.Input[pulumi.InputType['BucketReplicationConfigurationArgs']] replication_configuration: Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
+                Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this S3 bucket.
+        :param pulumi.Input[pulumi.InputType['BucketVersioningConfigurationArgs']] versioning_configuration: Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+        :param pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationArgs']] website_configuration: Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
         """
         ...
     @overload
@@ -383,7 +432,9 @@ class Bucket(pulumi.CustomResource):
                  args: Optional[BucketArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::S3::Bucket
+        The ``AWS::S3::Bucket`` resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.
+         To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
+          You can only delete empty buckets. Deletion fails for buckets that have contents.
 
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.
@@ -509,7 +560,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="accelerateConfiguration")
     def accelerate_configuration(self) -> pulumi.Output[Optional['outputs.BucketAccelerateConfiguration']]:
         """
-        Configuration for the transfer acceleration state.
+        Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "accelerate_configuration")
 
@@ -517,7 +568,10 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="accessControl")
     def access_control(self) -> pulumi.Output[Optional['BucketAccessControl']]:
         """
-        A canned access control list (ACL) that grants predefined permissions to the bucket.
+        This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+          A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.
+          S3 buckets are created with ACLs disabled by default. Therefore, unless you explicitly set the [AWS::S3::OwnershipControls](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html) property to enable ACLs, your resource will fail to deploy with any value other than Private. Use cases requiring ACLs are uncommon.
+          The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "access_control")
 
@@ -525,7 +579,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="analyticsConfigurations")
     def analytics_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketAnalyticsConfiguration']]]:
         """
-        The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
         """
         return pulumi.get(self, "analytics_configurations")
 
@@ -540,13 +594,17 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bucketEncryption")
     def bucket_encryption(self) -> pulumi.Output[Optional['outputs.BucketEncryption']]:
+        """
+        Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
+        """
         return pulumi.get(self, "bucket_encryption")
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[Optional[str]]:
         """
-        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*. 
+          If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -554,7 +612,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="corsConfiguration")
     def cors_configuration(self) -> pulumi.Output[Optional['outputs.BucketCorsConfiguration']]:
         """
-        Rules that define cross-origin resource sharing of objects in this bucket.
+        Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "cors_configuration")
 
@@ -578,7 +636,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="intelligentTieringConfigurations")
     def intelligent_tiering_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketIntelligentTieringConfiguration']]]:
         """
-        Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+        Defines how Amazon S3 handles Intelligent-Tiering storage.
         """
         return pulumi.get(self, "intelligent_tiering_configurations")
 
@@ -586,7 +644,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="inventoryConfigurations")
     def inventory_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketInventoryConfiguration']]]:
         """
-        The inventory configuration for an Amazon S3 bucket.
+        Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
         """
         return pulumi.get(self, "inventory_configurations")
 
@@ -594,7 +652,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> pulumi.Output[Optional['outputs.BucketLifecycleConfiguration']]:
         """
-        Rules that define how Amazon S3 manages objects during their lifetime.
+        Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "lifecycle_configuration")
 
@@ -610,7 +668,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="metricsConfigurations")
     def metrics_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.BucketMetricsConfiguration']]]:
         """
-        Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+        Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
         """
         return pulumi.get(self, "metrics_configurations")
 
@@ -626,7 +684,11 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="objectLockConfiguration")
     def object_lock_configuration(self) -> pulumi.Output[Optional['outputs.BucketObjectLockConfiguration']]:
         """
-        Places an Object Lock configuration on the specified bucket.
+        This operation is not supported by directory buckets.
+          Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). 
+           +  The ``DefaultRetention`` settings require both a mode and a period.
+          +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
+          +  You can enable Object Lock for new or existing buckets. For more information, see [Configuring Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html).
         """
         return pulumi.get(self, "object_lock_configuration")
 
@@ -634,7 +696,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether this bucket has an Object Lock configuration enabled.
+        Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
         """
         return pulumi.get(self, "object_lock_enabled")
 
@@ -642,13 +704,16 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="ownershipControls")
     def ownership_controls(self) -> pulumi.Output[Optional['outputs.BucketOwnershipControls']]:
         """
-        Specifies the container element for object ownership rules.
+        Configuration that defines how Amazon S3 handles Object Ownership rules.
         """
         return pulumi.get(self, "ownership_controls")
 
     @property
     @pulumi.getter(name="publicAccessBlockConfiguration")
     def public_access_block_configuration(self) -> pulumi.Output[Optional['outputs.BucketPublicAccessBlockConfiguration']]:
+        """
+        Configuration that defines how Amazon S3 handles public access.
+        """
         return pulumi.get(self, "public_access_block_configuration")
 
     @property
@@ -663,7 +728,8 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> pulumi.Output[Optional['outputs.BucketReplicationConfiguration']]:
         """
-        Configuration for replicating objects in an S3 bucket.
+        Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property.
+         Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.
         """
         return pulumi.get(self, "replication_configuration")
 
@@ -678,11 +744,17 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> pulumi.Output[Optional['outputs.BucketVersioningConfiguration']]:
+        """
+        Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+        """
         return pulumi.get(self, "versioning_configuration")
 
     @property
     @pulumi.getter(name="websiteConfiguration")
     def website_configuration(self) -> pulumi.Output[Optional['outputs.BucketWebsiteConfiguration']]:
+        """
+        Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
+        """
         return pulumi.get(self, "website_configuration")
 
     @property

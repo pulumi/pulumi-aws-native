@@ -48,16 +48,27 @@ class GetListenerResult:
     @property
     @pulumi.getter(name="alpnPolicy")
     def alpn_policy(self) -> Optional[Sequence[str]]:
+        """
+        [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+        """
         return pulumi.get(self, "alpn_policy")
 
     @property
     @pulumi.getter
     def certificates(self) -> Optional[Sequence['outputs.ListenerCertificate']]:
+        """
+        The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+         To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
+        """
         return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> Optional[Sequence['outputs.ListenerAction']]:
+        """
+        The actions for the default rule. You cannot define a condition for a default rule.
+         To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
+        """
         return pulumi.get(self, "default_actions")
 
     @property
@@ -68,21 +79,34 @@ class GetListenerResult:
     @property
     @pulumi.getter(name="mutualAuthentication")
     def mutual_authentication(self) -> Optional['outputs.ListenerMutualAuthentication']:
+        """
+        The mutual authentication configuration information.
+        """
         return pulumi.get(self, "mutual_authentication")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[int]:
+        """
+        The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
     def protocol(self) -> Optional[str]:
+        """
+        The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> Optional[str]:
+        """
+        [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+         For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
+        """
         return pulumi.get(self, "ssl_policy")
 
 
@@ -105,7 +129,7 @@ class AwaitableGetListenerResult(GetListenerResult):
 def get_listener(listener_arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
     """
-    Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
+    Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
     """
     __args__ = dict()
     __args__['listenerArn'] = listener_arn
@@ -127,6 +151,6 @@ def get_listener(listener_arn: Optional[str] = None,
 def get_listener_output(listener_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
-    Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
+    Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
     """
     ...

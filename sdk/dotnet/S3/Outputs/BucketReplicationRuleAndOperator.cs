@@ -10,10 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. 
+    ///  For example:
+    ///   +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag. 
+    ///   +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag
+    /// </summary>
     [OutputType]
     public sealed class BucketReplicationRuleAndOperator
     {
+        /// <summary>
+        /// An object key name prefix that identifies the subset of objects to which the rule applies.
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// An array of tags containing key and value pairs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BucketTagFilter> TagFilters;
 
         [OutputConstructor]

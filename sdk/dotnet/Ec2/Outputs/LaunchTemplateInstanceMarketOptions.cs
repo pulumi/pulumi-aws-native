@@ -11,7 +11,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
     /// <summary>
-    /// The market (purchasing) option for the instances.
+    /// Specifies the market (purchasing) option for an instance.
+    ///  ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateInstanceMarketOptions
@@ -20,6 +21,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The market type.
         /// </summary>
         public readonly string? MarketType;
+        /// <summary>
+        /// The options for Spot Instances.
+        /// </summary>
         public readonly Outputs.LaunchTemplateSpotOptions? SpotOptions;
 
         [OutputConstructor]

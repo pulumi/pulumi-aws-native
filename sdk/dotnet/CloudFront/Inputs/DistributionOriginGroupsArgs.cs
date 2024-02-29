@@ -10,16 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A complex data type for the origin groups specified for a distribution.
+    /// </summary>
     public sealed class DistributionOriginGroupsArgs : global::Pulumi.ResourceArgs
     {
         [Input("items")]
         private InputList<Inputs.DistributionOriginGroupArgs>? _items;
+
+        /// <summary>
+        /// The items (origin groups) in a distribution.
+        /// </summary>
         public InputList<Inputs.DistributionOriginGroupArgs> Items
         {
             get => _items ?? (_items = new InputList<Inputs.DistributionOriginGroupArgs>());
             set => _items = value;
         }
 
+        /// <summary>
+        /// The number of origin groups.
+        /// </summary>
         [Input("quantity", required: true)]
         public Input<int> Quantity { get; set; } = null!;
 

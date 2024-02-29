@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("storageType")]
         public Input<Pulumi.AwsNative.SageMaker.FeatureGroupStorageType>? StorageType { get; set; }
 
+        [Input("ttlDuration")]
+        public Input<Inputs.FeatureGroupTtlDurationArgs>? TtlDuration { get; set; }
+
         public OnlineStoreConfigPropertiesArgs()
         {
         }

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class LaunchTemplateEnclaveOptions
     {
         /// <summary>
-        /// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+        /// If this parameter is set to ``true``, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
         /// </summary>
         public readonly bool? Enabled;
 

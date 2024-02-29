@@ -360,6 +360,7 @@ namespace Pulumi.AwsNative.Ssm
         public static PatchBaselineOperatingSystem Macos { get; } = new PatchBaselineOperatingSystem("MACOS");
         public static PatchBaselineOperatingSystem Raspbian { get; } = new PatchBaselineOperatingSystem("RASPBIAN");
         public static PatchBaselineOperatingSystem RockyLinux { get; } = new PatchBaselineOperatingSystem("ROCKY_LINUX");
+        public static PatchBaselineOperatingSystem AlmaLinux { get; } = new PatchBaselineOperatingSystem("ALMA_LINUX");
 
         public static bool operator ==(PatchBaselineOperatingSystem left, PatchBaselineOperatingSystem right) => left.Equals(right);
         public static bool operator !=(PatchBaselineOperatingSystem left, PatchBaselineOperatingSystem right) => !left.Equals(right);

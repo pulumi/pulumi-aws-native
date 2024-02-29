@@ -883,6 +883,8 @@ class ClusterJobFlowInstancesConfig(dict):
             suggest = "task_instance_groups"
         elif key == "terminationProtected":
             suggest = "termination_protected"
+        elif key == "unhealthyNodeReplacement":
+            suggest = "unhealthy_node_replacement"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterJobFlowInstancesConfig. Access the value via the '{suggest}' property getter instead.")
@@ -913,7 +915,8 @@ class ClusterJobFlowInstancesConfig(dict):
                  service_access_security_group: Optional[str] = None,
                  task_instance_fleets: Optional[Sequence['outputs.ClusterInstanceFleetConfig']] = None,
                  task_instance_groups: Optional[Sequence['outputs.ClusterInstanceGroupConfig']] = None,
-                 termination_protected: Optional[bool] = None):
+                 termination_protected: Optional[bool] = None,
+                 unhealthy_node_replacement: Optional[bool] = None):
         if additional_master_security_groups is not None:
             pulumi.set(__self__, "additional_master_security_groups", additional_master_security_groups)
         if additional_slave_security_groups is not None:
@@ -950,6 +953,8 @@ class ClusterJobFlowInstancesConfig(dict):
             pulumi.set(__self__, "task_instance_groups", task_instance_groups)
         if termination_protected is not None:
             pulumi.set(__self__, "termination_protected", termination_protected)
+        if unhealthy_node_replacement is not None:
+            pulumi.set(__self__, "unhealthy_node_replacement", unhealthy_node_replacement)
 
     @property
     @pulumi.getter(name="additionalMasterSecurityGroups")
@@ -1040,6 +1045,11 @@ class ClusterJobFlowInstancesConfig(dict):
     @pulumi.getter(name="terminationProtected")
     def termination_protected(self) -> Optional[bool]:
         return pulumi.get(self, "termination_protected")
+
+    @property
+    @pulumi.getter(name="unhealthyNodeReplacement")
+    def unhealthy_node_replacement(self) -> Optional[bool]:
+        return pulumi.get(self, "unhealthy_node_replacement")
 
 
 @pulumi.output_type

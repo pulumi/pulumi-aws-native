@@ -67,7 +67,7 @@ class FunctionArchitecturesItem(str, Enum):
 
 class FunctionLoggingConfigApplicationLogLevel(str, Enum):
     """
-    Application log granularity level, can only be used when LogFormat is set to JSON
+    Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
     """
     TRACE = "TRACE"
     DEBUG = "DEBUG"
@@ -79,7 +79,7 @@ class FunctionLoggingConfigApplicationLogLevel(str, Enum):
 
 class FunctionLoggingConfigLogFormat(str, Enum):
     """
-    Log delivery format for the lambda function
+    The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
     """
     TEXT = "Text"
     JSON = "JSON"
@@ -87,7 +87,7 @@ class FunctionLoggingConfigLogFormat(str, Enum):
 
 class FunctionLoggingConfigSystemLogLevel(str, Enum):
     """
-    System log granularity level, can only be used when LogFormat is set to JSON
+    Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
     """
     DEBUG = "DEBUG"
     INFO = "INFO"
@@ -96,7 +96,7 @@ class FunctionLoggingConfigSystemLogLevel(str, Enum):
 
 class FunctionPackageType(str, Enum):
     """
-    PackageType.
+    The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
     """
     IMAGE = "Image"
     ZIP = "Zip"
@@ -104,7 +104,10 @@ class FunctionPackageType(str, Enum):
 
 class FunctionRuntimeManagementConfigUpdateRuntimeOn(str, Enum):
     """
-    Trigger for runtime update
+    Specify the runtime update mode.
+      + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+     + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+     + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
     """
     AUTO = "Auto"
     FUNCTION_UPDATE = "FunctionUpdate"
@@ -113,7 +116,7 @@ class FunctionRuntimeManagementConfigUpdateRuntimeOn(str, Enum):
 
 class FunctionSnapStartApplyOn(str, Enum):
     """
-    Applying SnapStart setting on function resource type.
+    Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
     """
     PUBLISHED_VERSIONS = "PublishedVersions"
     NONE = "None"
@@ -121,7 +124,7 @@ class FunctionSnapStartApplyOn(str, Enum):
 
 class FunctionSnapStartResponseApplyOn(str, Enum):
     """
-    Applying SnapStart setting on function resource type.
+    When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
     """
     PUBLISHED_VERSIONS = "PublishedVersions"
     NONE = "None"
@@ -129,7 +132,7 @@ class FunctionSnapStartResponseApplyOn(str, Enum):
 
 class FunctionSnapStartResponseOptimizationStatus(str, Enum):
     """
-    Indicates whether SnapStart is activated for the specified function version.
+    When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
     """
     ON = "On"
     OFF = "Off"
@@ -145,7 +148,7 @@ class FunctionTracingConfigMode(str, Enum):
 
 class PermissionFunctionUrlAuthType(str, Enum):
     """
-    The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+    The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
     """
     AWS_IAM = "AWS_IAM"
     NONE = "NONE"

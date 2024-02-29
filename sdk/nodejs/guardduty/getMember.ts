@@ -11,17 +11,18 @@ export function getMember(args: GetMemberArgs, opts?: pulumi.InvokeOptions): Pro
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:guardduty:getMember", {
+        "detectorId": args.detectorId,
         "memberId": args.memberId,
     }, opts);
 }
 
 export interface GetMemberArgs {
+    detectorId: string;
     memberId: string;
 }
 
 export interface GetMemberResult {
-    readonly disableEmailNotification?: boolean;
-    readonly message?: string;
+    readonly email?: string;
     readonly status?: string;
 }
 /**
@@ -32,5 +33,6 @@ export function getMemberOutput(args: GetMemberOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetMemberOutputArgs {
+    detectorId: pulumi.Input<string>;
     memberId: pulumi.Input<string>;
 }

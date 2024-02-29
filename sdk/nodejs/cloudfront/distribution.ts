@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::Distribution
+ * A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
  */
 export class Distribution extends pulumi.CustomResource {
     /**
@@ -37,8 +37,14 @@ export class Distribution extends pulumi.CustomResource {
         return obj['__pulumiType'] === Distribution.__pulumiType;
     }
 
+    /**
+     * The distribution's configuration.
+     */
     public readonly distributionConfig!: pulumi.Output<outputs.cloudfront.DistributionConfig>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -72,6 +78,12 @@ export class Distribution extends pulumi.CustomResource {
  * The set of arguments for constructing a Distribution resource.
  */
 export interface DistributionArgs {
+    /**
+     * The distribution's configuration.
+     */
     distributionConfig: pulumi.Input<inputs.cloudfront.DistributionConfigArgs>;
+    /**
+     * A complex type that contains zero or more ``Tag`` elements.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

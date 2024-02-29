@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Route53Resolver
     public static class GetResolverRuleAssociation
     {
         /// <summary>
-        /// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+        /// In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
         /// </summary>
         public static Task<GetResolverRuleAssociationResult> InvokeAsync(GetResolverRuleAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+        /// In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
         /// </summary>
         public static Output<GetResolverRuleAssociationResult> Invoke(GetResolverRuleAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationInvokeArgs(), options.WithDefaults());
@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.Route53Resolver
 
     public sealed class GetResolverRuleAssociationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Primary Identifier for Resolver Rule Association
-        /// </summary>
         [Input("resolverRuleAssociationId", required: true)]
         public string ResolverRuleAssociationId { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.Route53Resolver
 
     public sealed class GetResolverRuleAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Primary Identifier for Resolver Rule Association
-        /// </summary>
         [Input("resolverRuleAssociationId", required: true)]
         public Input<string> ResolverRuleAssociationId { get; set; } = null!;
 
@@ -57,9 +51,6 @@ namespace Pulumi.AwsNative.Route53Resolver
     [OutputType]
     public sealed class GetResolverRuleAssociationResult
     {
-        /// <summary>
-        /// Primary Identifier for Resolver Rule Association
-        /// </summary>
         public readonly string? ResolverRuleAssociationId;
 
         [OutputConstructor]

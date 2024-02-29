@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// A function's ephemeral storage settings.
+    /// The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
     /// </summary>
     public sealed class FunctionEphemeralStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of ephemeral storage that your function has access to.
+        /// The size of the function's ``/tmp`` directory.
         /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;

@@ -12,12 +12,11 @@ namespace Pulumi.AwsNative.GuardDuty
     /// <summary>
     /// Resource Type definition for AWS::GuardDuty::Member
     /// </summary>
-    [Obsolete(@"Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:Member")]
     public partial class Member : global::Pulumi.CustomResource
     {
         [Output("detectorId")]
-        public Output<string> DetectorId { get; private set; } = null!;
+        public Output<string?> DetectorId { get; private set; } = null!;
 
         [Output("disableEmailNotification")]
         public Output<bool?> DisableEmailNotification { get; private set; } = null!;
@@ -26,7 +25,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string> Email { get; private set; } = null!;
 
         [Output("memberId")]
-        public Output<string> MemberId { get; private set; } = null!;
+        public Output<string?> MemberId { get; private set; } = null!;
 
         [Output("message")]
         public Output<string?> Message { get; private set; } = null!;
@@ -60,7 +59,6 @@ namespace Pulumi.AwsNative.GuardDuty
                 ReplaceOnChanges =
                 {
                     "detectorId",
-                    "email",
                     "memberId",
                 },
             };
@@ -85,8 +83,8 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class MemberArgs : global::Pulumi.ResourceArgs
     {
-        [Input("detectorId", required: true)]
-        public Input<string> DetectorId { get; set; } = null!;
+        [Input("detectorId")]
+        public Input<string>? DetectorId { get; set; }
 
         [Input("disableEmailNotification")]
         public Input<bool>? DisableEmailNotification { get; set; }
@@ -94,8 +92,8 @@ namespace Pulumi.AwsNative.GuardDuty
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
-        [Input("memberId", required: true)]
-        public Input<string> MemberId { get; set; } = null!;
+        [Input("memberId")]
+        public Input<string>? MemberId { get; set; }
 
         [Input("message")]
         public Input<string>? Message { get; set; }

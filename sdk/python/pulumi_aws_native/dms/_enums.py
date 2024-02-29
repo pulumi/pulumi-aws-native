@@ -23,7 +23,7 @@ class DataProviderEngine(str, Enum):
     """
     The property describes a data engine for the data provider.
     """
-    POSTGRESQL = "postgresql"
+    POSTGRES = "postgres"
     MYSQL = "mysql"
     ORACLE = "oracle"
     SQLSERVER = "sqlserver"

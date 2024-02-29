@@ -22,6 +22,8 @@ class DistributionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Distribution resource.
+        :param pulumi.Input['DistributionConfigArgs'] distribution_config: The distribution's configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         pulumi.set(__self__, "distribution_config", distribution_config)
         if tags is not None:
@@ -30,6 +32,9 @@ class DistributionArgs:
     @property
     @pulumi.getter(name="distributionConfig")
     def distribution_config(self) -> pulumi.Input['DistributionConfigArgs']:
+        """
+        The distribution's configuration.
+        """
         return pulumi.get(self, "distribution_config")
 
     @distribution_config.setter
@@ -39,6 +44,9 @@ class DistributionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A complex type that contains zero or more ``Tag`` elements.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -55,10 +63,12 @@ class Distribution(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::Distribution
+        A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DistributionConfigArgs']] distribution_config: The distribution's configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -67,7 +77,7 @@ class Distribution(pulumi.CustomResource):
                  args: DistributionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::Distribution
+        A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 
         :param str resource_name: The name of the resource.
         :param DistributionArgs args: The arguments to use to populate this resource's properties.
@@ -130,6 +140,9 @@ class Distribution(pulumi.CustomResource):
     @property
     @pulumi.getter(name="distributionConfig")
     def distribution_config(self) -> pulumi.Output['outputs.DistributionConfig']:
+        """
+        The distribution's configuration.
+        """
         return pulumi.get(self, "distribution_config")
 
     @property
@@ -140,5 +153,8 @@ class Distribution(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A complex type that contains zero or more ``Tag`` elements.
+        """
         return pulumi.get(self, "tags")
 

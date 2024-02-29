@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// A key-value pair object.
+    /// </summary>
     public sealed class TaskDefinitionKeyValuePairArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

@@ -29,3 +29,17 @@ export const BranchStage = {
 } as const;
 
 export type BranchStage = (typeof BranchStage)[keyof typeof BranchStage];
+
+export const DomainCertificateCertificateType = {
+    AmplifyManaged: "AMPLIFY_MANAGED",
+    Custom: "CUSTOM",
+} as const;
+
+export type DomainCertificateCertificateType = (typeof DomainCertificateCertificateType)[keyof typeof DomainCertificateCertificateType];
+
+export const DomainCertificateSettingsCertificateType = {
+    AmplifyManaged: "AMPLIFY_MANAGED",
+    Custom: "CUSTOM",
+} as const;
+
+export type DomainCertificateSettingsCertificateType = (typeof DomainCertificateSettingsCertificateType)[keyof typeof DomainCertificateSettingsCertificateType];

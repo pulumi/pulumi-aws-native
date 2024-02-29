@@ -12,15 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::GuardDuty::Master
-//
-// Deprecated: Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// GuardDuty Master resource schema
 type Master struct {
 	pulumi.CustomResourceState
 
-	DetectorId   pulumi.StringOutput    `pulumi:"detectorId"`
+	// Unique ID of the detector of the GuardDuty member account.
+	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
+	// Value used to validate the master account to the member account.
 	InvitationId pulumi.StringPtrOutput `pulumi:"invitationId"`
-	MasterId     pulumi.StringOutput    `pulumi:"masterId"`
+	// ID of the account used as the master account.
+	MasterId pulumi.StringOutput `pulumi:"masterId"`
 }
 
 // NewMaster registers a new resource with the given unique name, arguments, and options.
@@ -75,16 +76,22 @@ func (MasterState) ElementType() reflect.Type {
 }
 
 type masterArgs struct {
-	DetectorId   string  `pulumi:"detectorId"`
+	// Unique ID of the detector of the GuardDuty member account.
+	DetectorId string `pulumi:"detectorId"`
+	// Value used to validate the master account to the member account.
 	InvitationId *string `pulumi:"invitationId"`
-	MasterId     string  `pulumi:"masterId"`
+	// ID of the account used as the master account.
+	MasterId string `pulumi:"masterId"`
 }
 
 // The set of arguments for constructing a Master resource.
 type MasterArgs struct {
-	DetectorId   pulumi.StringInput
+	// Unique ID of the detector of the GuardDuty member account.
+	DetectorId pulumi.StringInput
+	// Value used to validate the master account to the member account.
 	InvitationId pulumi.StringPtrInput
-	MasterId     pulumi.StringInput
+	// ID of the account used as the master account.
+	MasterId pulumi.StringInput
 }
 
 func (MasterArgs) ElementType() reflect.Type {
@@ -124,14 +131,17 @@ func (o MasterOutput) ToMasterOutputWithContext(ctx context.Context) MasterOutpu
 	return o
 }
 
+// Unique ID of the detector of the GuardDuty member account.
 func (o MasterOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Master) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
+// Value used to validate the master account to the member account.
 func (o MasterOutput) InvitationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Master) pulumi.StringPtrOutput { return v.InvitationId }).(pulumi.StringPtrOutput)
 }
 
+// ID of the account used as the master account.
 func (o MasterOutput) MasterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Master) pulumi.StringOutput { return v.MasterId }).(pulumi.StringOutput)
 }

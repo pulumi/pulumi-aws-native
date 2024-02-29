@@ -824,7 +824,8 @@ class ClusterJobFlowInstancesConfigArgs:
                  service_access_security_group: Optional[pulumi.Input[str]] = None,
                  task_instance_fleets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceFleetConfigArgs']]]] = None,
                  task_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupConfigArgs']]]] = None,
-                 termination_protected: Optional[pulumi.Input[bool]] = None):
+                 termination_protected: Optional[pulumi.Input[bool]] = None,
+                 unhealthy_node_replacement: Optional[pulumi.Input[bool]] = None):
         if additional_master_security_groups is not None:
             pulumi.set(__self__, "additional_master_security_groups", additional_master_security_groups)
         if additional_slave_security_groups is not None:
@@ -861,6 +862,8 @@ class ClusterJobFlowInstancesConfigArgs:
             pulumi.set(__self__, "task_instance_groups", task_instance_groups)
         if termination_protected is not None:
             pulumi.set(__self__, "termination_protected", termination_protected)
+        if unhealthy_node_replacement is not None:
+            pulumi.set(__self__, "unhealthy_node_replacement", unhealthy_node_replacement)
 
     @property
     @pulumi.getter(name="additionalMasterSecurityGroups")
@@ -1023,6 +1026,15 @@ class ClusterJobFlowInstancesConfigArgs:
     @termination_protected.setter
     def termination_protected(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "termination_protected", value)
+
+    @property
+    @pulumi.getter(name="unhealthyNodeReplacement")
+    def unhealthy_node_replacement(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "unhealthy_node_replacement")
+
+    @unhealthy_node_replacement.setter
+    def unhealthy_node_replacement(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "unhealthy_node_replacement", value)
 
 
 @pulumi.input_type

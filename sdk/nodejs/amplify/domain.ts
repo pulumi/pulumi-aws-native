@@ -41,12 +41,15 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly autoSubDomainCreationPatterns!: pulumi.Output<string[] | undefined>;
     public readonly autoSubDomainIamRole!: pulumi.Output<string | undefined>;
+    public readonly certificate!: pulumi.Output<outputs.amplify.DomainCertificate | undefined>;
     public /*out*/ readonly certificateRecord!: pulumi.Output<string>;
+    public readonly certificateSettings!: pulumi.Output<outputs.amplify.DomainCertificateSettings | undefined>;
     public readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly domainStatus!: pulumi.Output<string>;
     public readonly enableAutoSubDomain!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
     public readonly subDomainSettings!: pulumi.Output<outputs.amplify.DomainSubDomainSetting[]>;
+    public readonly updateStatus!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -68,9 +71,12 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["autoSubDomainCreationPatterns"] = args ? args.autoSubDomainCreationPatterns : undefined;
             resourceInputs["autoSubDomainIamRole"] = args ? args.autoSubDomainIamRole : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["certificateSettings"] = args ? args.certificateSettings : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
             resourceInputs["subDomainSettings"] = args ? args.subDomainSettings : undefined;
+            resourceInputs["updateStatus"] = args ? args.updateStatus : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateRecord"] = undefined /*out*/;
             resourceInputs["domainStatus"] = undefined /*out*/;
@@ -80,12 +86,15 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoSubDomainCreationPatterns"] = undefined /*out*/;
             resourceInputs["autoSubDomainIamRole"] = undefined /*out*/;
+            resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["certificateRecord"] = undefined /*out*/;
+            resourceInputs["certificateSettings"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainStatus"] = undefined /*out*/;
             resourceInputs["enableAutoSubDomain"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
             resourceInputs["subDomainSettings"] = undefined /*out*/;
+            resourceInputs["updateStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["appId", "domainName"] };
@@ -101,7 +110,10 @@ export interface DomainArgs {
     appId: pulumi.Input<string>;
     autoSubDomainCreationPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     autoSubDomainIamRole?: pulumi.Input<string>;
+    certificate?: pulumi.Input<inputs.amplify.DomainCertificateArgs>;
+    certificateSettings?: pulumi.Input<inputs.amplify.DomainCertificateSettingsArgs>;
     domainName?: pulumi.Input<string>;
     enableAutoSubDomain?: pulumi.Input<boolean>;
     subDomainSettings: pulumi.Input<pulumi.Input<inputs.amplify.DomainSubDomainSettingArgs>[]>;
+    updateStatus?: pulumi.Input<string>;
 }

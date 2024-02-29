@@ -19,27 +19,26 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
+                 default_expiration_days: pulumi.Input[int],
                  dead_letter_queue_url: Optional[pulumi.Input[str]] = None,
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
-                 default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
                  rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
+        :param pulumi.Input[int] default_expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[str] dead_letter_queue_url: The URL of the SQS dead letter queue
         :param pulumi.Input[str] default_encryption_key: The default encryption key
-        :param pulumi.Input[int] default_expiration_days: The default number of days until the data within the domain expires.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the domain
         """
+        pulumi.set(__self__, "default_expiration_days", default_expiration_days)
         if dead_letter_queue_url is not None:
             pulumi.set(__self__, "dead_letter_queue_url", dead_letter_queue_url)
         if default_encryption_key is not None:
             pulumi.set(__self__, "default_encryption_key", default_encryption_key)
-        if default_expiration_days is not None:
-            pulumi.set(__self__, "default_expiration_days", default_expiration_days)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if matching is not None:
@@ -48,6 +47,18 @@ class DomainArgs:
             pulumi.set(__self__, "rule_based_matching", rule_based_matching)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="defaultExpirationDays")
+    def default_expiration_days(self) -> pulumi.Input[int]:
+        """
+        The default number of days until the data within the domain expires.
+        """
+        return pulumi.get(self, "default_expiration_days")
+
+    @default_expiration_days.setter
+    def default_expiration_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "default_expiration_days", value)
 
     @property
     @pulumi.getter(name="deadLetterQueueUrl")
@@ -72,18 +83,6 @@ class DomainArgs:
     @default_encryption_key.setter
     def default_encryption_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_encryption_key", value)
-
-    @property
-    @pulumi.getter(name="defaultExpirationDays")
-    def default_expiration_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The default number of days until the data within the domain expires.
-        """
-        return pulumi.get(self, "default_expiration_days")
-
-    @default_expiration_days.setter
-    def default_expiration_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "default_expiration_days", value)
 
     @property
     @pulumi.getter(name="domainName")
@@ -156,7 +155,7 @@ class Domain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DomainArgs] = None,
+                 args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A domain defined for 3rd party data source in Profile Service
@@ -194,6 +193,8 @@ class Domain(pulumi.CustomResource):
 
             __props__.__dict__["dead_letter_queue_url"] = dead_letter_queue_url
             __props__.__dict__["default_encryption_key"] = default_encryption_key
+            if default_expiration_days is None and not opts.urn:
+                raise TypeError("Missing required property 'default_expiration_days'")
             __props__.__dict__["default_expiration_days"] = default_expiration_days
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["matching"] = matching
@@ -264,7 +265,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultExpirationDays")
-    def default_expiration_days(self) -> pulumi.Output[Optional[int]]:
+    def default_expiration_days(self) -> pulumi.Output[int]:
         """
         The default number of days until the data within the domain expires.
         """

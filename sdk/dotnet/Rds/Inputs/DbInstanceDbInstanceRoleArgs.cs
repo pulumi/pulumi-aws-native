@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds.Inputs
 {
 
+    /// <summary>
+    /// Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
+    /// </summary>
     public sealed class DbInstanceDbInstanceRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        /// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         /// </summary>
         [Input("featureName", required: true)]
         public Input<string> FeatureName { get; set; } = null!;

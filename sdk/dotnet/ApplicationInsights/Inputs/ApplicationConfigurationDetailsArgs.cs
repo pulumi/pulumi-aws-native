@@ -69,6 +69,30 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
             set => _logs = value;
         }
 
+        /// <summary>
+        /// The NetWeaver Prometheus Exporter settings.
+        /// </summary>
+        [Input("netWeaverPrometheusExporter")]
+        public Input<Inputs.ApplicationNetWeaverPrometheusExporterArgs>? NetWeaverPrometheusExporter { get; set; }
+
+        [Input("processes")]
+        private InputList<Inputs.ApplicationProcessArgs>? _processes;
+
+        /// <summary>
+        /// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+        /// </summary>
+        public InputList<Inputs.ApplicationProcessArgs> Processes
+        {
+            get => _processes ?? (_processes = new InputList<Inputs.ApplicationProcessArgs>());
+            set => _processes = value;
+        }
+
+        /// <summary>
+        /// The SQL Prometheus Exporter settings.
+        /// </summary>
+        [Input("sqlServerPrometheusExporter")]
+        public Input<Inputs.ApplicationSqlServerPrometheusExporterArgs>? SqlServerPrometheusExporter { get; set; }
+
         [Input("windowsEvents")]
         private InputList<Inputs.ApplicationWindowsEventArgs>? _windowsEvents;
 

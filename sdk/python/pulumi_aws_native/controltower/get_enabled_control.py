@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetEnabledControlResult',
@@ -19,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetEnabledControlResult:
-    def __init__(__self__, parameters=None):
+    def __init__(__self__, parameters=None, tags=None):
         if parameters and not isinstance(parameters, list):
             raise TypeError("Expected argument 'parameters' to be a list")
         pulumi.set(__self__, "parameters", parameters)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -32,6 +36,14 @@ class GetEnabledControlResult:
         """
         return pulumi.get(self, "parameters")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of tags to assign to the enabled control.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetEnabledControlResult(GetEnabledControlResult):
     # pylint: disable=using-constant-test
@@ -39,7 +51,8 @@ class AwaitableGetEnabledControlResult(GetEnabledControlResult):
         if False:
             yield self
         return GetEnabledControlResult(
-            parameters=self.parameters)
+            parameters=self.parameters,
+            tags=self.tags)
 
 
 def get_enabled_control(control_identifier: Optional[str] = None,
@@ -59,7 +72,8 @@ def get_enabled_control(control_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:controltower:getEnabledControl', __args__, opts=opts, typ=GetEnabledControlResult).value
 
     return AwaitableGetEnabledControlResult(
-        parameters=pulumi.get(__ret__, 'parameters'))
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_enabled_control)

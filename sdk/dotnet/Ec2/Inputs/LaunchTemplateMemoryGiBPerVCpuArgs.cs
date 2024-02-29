@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class LaunchTemplateMemoryGiBPerVCpuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum amount of memory per vCPU, in GiB.
+        /// The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
         /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
         /// <summary>
-        /// TThe minimum amount of memory per vCPU, in GiB.
+        /// The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
         /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }

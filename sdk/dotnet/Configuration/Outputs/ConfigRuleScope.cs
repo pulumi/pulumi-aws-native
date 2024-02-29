@@ -11,25 +11,25 @@ namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
     /// <summary>
-    /// Scope to constrain which resources can trigger the rule
+    /// Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
     /// </summary>
     [OutputType]
     public sealed class ConfigRuleScope
     {
         /// <summary>
-        /// ID of the only one resource which we want to trigger the rule
+        /// The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
         /// </summary>
         public readonly string? ComplianceResourceId;
         /// <summary>
-        /// Resource types of resources which we want to trigger the rule
+        /// The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
         /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceTypes;
         /// <summary>
-        /// Tag key applied only to resources which we want to trigger the rule
+        /// The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
         /// </summary>
         public readonly string? TagKey;
         /// <summary>
-        /// Tag value applied only to resources which we want to trigger the rule
+        /// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for ``TagValue``, you must also specify a value for ``TagKey``.
         /// </summary>
         public readonly string? TagValue;
 

@@ -471,7 +471,7 @@ func (o AppImageConfigFileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+// The configuration for the kernels in a SageMaker image running as a JupyterLab app.
 type AppImageConfigJupyterLabAppImageConfig struct {
 	// The container configuration for a SageMaker image.
 	ContainerConfig *AppImageConfigContainerConfig `pulumi:"containerConfig"`
@@ -488,7 +488,7 @@ type AppImageConfigJupyterLabAppImageConfigInput interface {
 	ToAppImageConfigJupyterLabAppImageConfigOutputWithContext(context.Context) AppImageConfigJupyterLabAppImageConfigOutput
 }
 
-// The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+// The configuration for the kernels in a SageMaker image running as a JupyterLab app.
 type AppImageConfigJupyterLabAppImageConfigArgs struct {
 	// The container configuration for a SageMaker image.
 	ContainerConfig AppImageConfigContainerConfigPtrInput `pulumi:"containerConfig"`
@@ -547,7 +547,7 @@ func (i *appImageConfigJupyterLabAppImageConfigPtrType) ToAppImageConfigJupyterL
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigJupyterLabAppImageConfigPtrOutput)
 }
 
-// The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+// The configuration for the kernels in a SageMaker image running as a JupyterLab app.
 type AppImageConfigJupyterLabAppImageConfigOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigJupyterLabAppImageConfigOutput) ElementType() reflect.Type {
@@ -12129,6 +12129,157 @@ func (o FeatureGroupThroughputConfigPtrOutput) ThroughputMode() FeatureGroupThro
 		}
 		return &v.ThroughputMode
 	}).(FeatureGroupThroughputModePtrOutput)
+}
+
+// TTL configuration of the feature group
+type FeatureGroupTtlDuration struct {
+	Unit  *FeatureGroupUnit `pulumi:"unit"`
+	Value *int              `pulumi:"value"`
+}
+
+// FeatureGroupTtlDurationInput is an input type that accepts FeatureGroupTtlDurationArgs and FeatureGroupTtlDurationOutput values.
+// You can construct a concrete instance of `FeatureGroupTtlDurationInput` via:
+//
+//	FeatureGroupTtlDurationArgs{...}
+type FeatureGroupTtlDurationInput interface {
+	pulumi.Input
+
+	ToFeatureGroupTtlDurationOutput() FeatureGroupTtlDurationOutput
+	ToFeatureGroupTtlDurationOutputWithContext(context.Context) FeatureGroupTtlDurationOutput
+}
+
+// TTL configuration of the feature group
+type FeatureGroupTtlDurationArgs struct {
+	Unit  FeatureGroupUnitPtrInput `pulumi:"unit"`
+	Value pulumi.IntPtrInput       `pulumi:"value"`
+}
+
+func (FeatureGroupTtlDurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupTtlDuration)(nil)).Elem()
+}
+
+func (i FeatureGroupTtlDurationArgs) ToFeatureGroupTtlDurationOutput() FeatureGroupTtlDurationOutput {
+	return i.ToFeatureGroupTtlDurationOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupTtlDurationArgs) ToFeatureGroupTtlDurationOutputWithContext(ctx context.Context) FeatureGroupTtlDurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupTtlDurationOutput)
+}
+
+func (i FeatureGroupTtlDurationArgs) ToFeatureGroupTtlDurationPtrOutput() FeatureGroupTtlDurationPtrOutput {
+	return i.ToFeatureGroupTtlDurationPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupTtlDurationArgs) ToFeatureGroupTtlDurationPtrOutputWithContext(ctx context.Context) FeatureGroupTtlDurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupTtlDurationOutput).ToFeatureGroupTtlDurationPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupTtlDurationPtrInput is an input type that accepts FeatureGroupTtlDurationArgs, FeatureGroupTtlDurationPtr and FeatureGroupTtlDurationPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupTtlDurationPtrInput` via:
+//
+//	        FeatureGroupTtlDurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeatureGroupTtlDurationPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupTtlDurationPtrOutput() FeatureGroupTtlDurationPtrOutput
+	ToFeatureGroupTtlDurationPtrOutputWithContext(context.Context) FeatureGroupTtlDurationPtrOutput
+}
+
+type featureGroupTtlDurationPtrType FeatureGroupTtlDurationArgs
+
+func FeatureGroupTtlDurationPtr(v *FeatureGroupTtlDurationArgs) FeatureGroupTtlDurationPtrInput {
+	return (*featureGroupTtlDurationPtrType)(v)
+}
+
+func (*featureGroupTtlDurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupTtlDuration)(nil)).Elem()
+}
+
+func (i *featureGroupTtlDurationPtrType) ToFeatureGroupTtlDurationPtrOutput() FeatureGroupTtlDurationPtrOutput {
+	return i.ToFeatureGroupTtlDurationPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupTtlDurationPtrType) ToFeatureGroupTtlDurationPtrOutputWithContext(ctx context.Context) FeatureGroupTtlDurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupTtlDurationPtrOutput)
+}
+
+// TTL configuration of the feature group
+type FeatureGroupTtlDurationOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupTtlDurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupTtlDuration)(nil)).Elem()
+}
+
+func (o FeatureGroupTtlDurationOutput) ToFeatureGroupTtlDurationOutput() FeatureGroupTtlDurationOutput {
+	return o
+}
+
+func (o FeatureGroupTtlDurationOutput) ToFeatureGroupTtlDurationOutputWithContext(ctx context.Context) FeatureGroupTtlDurationOutput {
+	return o
+}
+
+func (o FeatureGroupTtlDurationOutput) ToFeatureGroupTtlDurationPtrOutput() FeatureGroupTtlDurationPtrOutput {
+	return o.ToFeatureGroupTtlDurationPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupTtlDurationOutput) ToFeatureGroupTtlDurationPtrOutputWithContext(ctx context.Context) FeatureGroupTtlDurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupTtlDuration) *FeatureGroupTtlDuration {
+		return &v
+	}).(FeatureGroupTtlDurationPtrOutput)
+}
+
+func (o FeatureGroupTtlDurationOutput) Unit() FeatureGroupUnitPtrOutput {
+	return o.ApplyT(func(v FeatureGroupTtlDuration) *FeatureGroupUnit { return v.Unit }).(FeatureGroupUnitPtrOutput)
+}
+
+func (o FeatureGroupTtlDurationOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FeatureGroupTtlDuration) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type FeatureGroupTtlDurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupTtlDurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupTtlDuration)(nil)).Elem()
+}
+
+func (o FeatureGroupTtlDurationPtrOutput) ToFeatureGroupTtlDurationPtrOutput() FeatureGroupTtlDurationPtrOutput {
+	return o
+}
+
+func (o FeatureGroupTtlDurationPtrOutput) ToFeatureGroupTtlDurationPtrOutputWithContext(ctx context.Context) FeatureGroupTtlDurationPtrOutput {
+	return o
+}
+
+func (o FeatureGroupTtlDurationPtrOutput) Elem() FeatureGroupTtlDurationOutput {
+	return o.ApplyT(func(v *FeatureGroupTtlDuration) FeatureGroupTtlDuration {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupTtlDuration
+		return ret
+	}).(FeatureGroupTtlDurationOutput)
+}
+
+func (o FeatureGroupTtlDurationPtrOutput) Unit() FeatureGroupUnitPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupTtlDuration) *FeatureGroupUnit {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(FeatureGroupUnitPtrOutput)
+}
+
+func (o FeatureGroupTtlDurationPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupTtlDuration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -35106,6 +35257,7 @@ type OnlineStoreConfigProperties struct {
 	EnableOnlineStore *bool                                  `pulumi:"enableOnlineStore"`
 	SecurityConfig    *FeatureGroupOnlineStoreSecurityConfig `pulumi:"securityConfig"`
 	StorageType       *FeatureGroupStorageType               `pulumi:"storageType"`
+	TtlDuration       *FeatureGroupTtlDuration               `pulumi:"ttlDuration"`
 }
 
 // OnlineStoreConfigPropertiesInput is an input type that accepts OnlineStoreConfigPropertiesArgs and OnlineStoreConfigPropertiesOutput values.
@@ -35123,6 +35275,7 @@ type OnlineStoreConfigPropertiesArgs struct {
 	EnableOnlineStore pulumi.BoolPtrInput                           `pulumi:"enableOnlineStore"`
 	SecurityConfig    FeatureGroupOnlineStoreSecurityConfigPtrInput `pulumi:"securityConfig"`
 	StorageType       FeatureGroupStorageTypePtrInput               `pulumi:"storageType"`
+	TtlDuration       FeatureGroupTtlDurationPtrInput               `pulumi:"ttlDuration"`
 }
 
 func (OnlineStoreConfigPropertiesArgs) ElementType() reflect.Type {
@@ -35214,6 +35367,10 @@ func (o OnlineStoreConfigPropertiesOutput) StorageType() FeatureGroupStorageType
 	return o.ApplyT(func(v OnlineStoreConfigProperties) *FeatureGroupStorageType { return v.StorageType }).(FeatureGroupStorageTypePtrOutput)
 }
 
+func (o OnlineStoreConfigPropertiesOutput) TtlDuration() FeatureGroupTtlDurationPtrOutput {
+	return o.ApplyT(func(v OnlineStoreConfigProperties) *FeatureGroupTtlDuration { return v.TtlDuration }).(FeatureGroupTtlDurationPtrOutput)
+}
+
 type OnlineStoreConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (OnlineStoreConfigPropertiesPtrOutput) ElementType() reflect.Type {
@@ -35263,6 +35420,15 @@ func (o OnlineStoreConfigPropertiesPtrOutput) StorageType() FeatureGroupStorageT
 		}
 		return v.StorageType
 	}).(FeatureGroupStorageTypePtrOutput)
+}
+
+func (o OnlineStoreConfigPropertiesPtrOutput) TtlDuration() FeatureGroupTtlDurationPtrOutput {
+	return o.ApplyT(func(v *OnlineStoreConfigProperties) *FeatureGroupTtlDuration {
+		if v == nil {
+			return nil
+		}
+		return v.TtlDuration
+	}).(FeatureGroupTtlDurationPtrOutput)
 }
 
 type ParallelismConfigurationProperties struct {
@@ -41172,6 +41338,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupS3StorageConfigPtrInput)(nil)).Elem(), FeatureGroupS3StorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputConfigInput)(nil)).Elem(), FeatureGroupThroughputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputConfigPtrInput)(nil)).Elem(), FeatureGroupThroughputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTtlDurationInput)(nil)).Elem(), FeatureGroupTtlDurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTtlDurationPtrInput)(nil)).Elem(), FeatureGroupTtlDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentComputeResourceRequirementsInput)(nil)).Elem(), InferenceComponentComputeResourceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentContainerSpecificationInput)(nil)).Elem(), InferenceComponentContainerSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentContainerSpecificationPtrInput)(nil)).Elem(), InferenceComponentContainerSpecificationArgs{})
@@ -41685,6 +41853,8 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupS3StorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupThroughputConfigOutput{})
 	pulumi.RegisterOutputType(FeatureGroupThroughputConfigPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupTtlDurationOutput{})
+	pulumi.RegisterOutputType(FeatureGroupTtlDurationPtrOutput{})
 	pulumi.RegisterOutputType(InferenceComponentComputeResourceRequirementsOutput{})
 	pulumi.RegisterOutputType(InferenceComponentComputeResourceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(InferenceComponentContainerSpecificationOutput{})

@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::GuardDuty::Master
- *
- * @deprecated Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * GuardDuty Master resource schema
  */
 export class Master extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class Master extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Master {
-        pulumi.log.warn("Master is deprecated: Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Master(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,8 +34,17 @@ export class Master extends pulumi.CustomResource {
         return obj['__pulumiType'] === Master.__pulumiType;
     }
 
+    /**
+     * Unique ID of the detector of the GuardDuty member account.
+     */
     public readonly detectorId!: pulumi.Output<string>;
+    /**
+     * Value used to validate the master account to the member account.
+     */
     public readonly invitationId!: pulumi.Output<string | undefined>;
+    /**
+     * ID of the account used as the master account.
+     */
     public readonly masterId!: pulumi.Output<string>;
 
     /**
@@ -48,9 +54,7 @@ export class Master extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MasterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Master is deprecated: Master is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -79,7 +83,16 @@ export class Master extends pulumi.CustomResource {
  * The set of arguments for constructing a Master resource.
  */
 export interface MasterArgs {
+    /**
+     * Unique ID of the detector of the GuardDuty member account.
+     */
     detectorId: pulumi.Input<string>;
+    /**
+     * Value used to validate the master account to the member account.
+     */
     invitationId?: pulumi.Input<string>;
+    /**
+     * ID of the account used as the master account.
+     */
     masterId: pulumi.Input<string>;
 }

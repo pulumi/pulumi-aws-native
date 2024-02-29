@@ -34,6 +34,7 @@ type LookupFeatureGroupResult struct {
 	FeatureDefinitions []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
 	// The status of the feature group.
 	FeatureGroupStatus *string                       `pulumi:"featureGroupStatus"`
+	OnlineStoreConfig  *OnlineStoreConfigProperties  `pulumi:"onlineStoreConfig"`
 	ThroughputConfig   *FeatureGroupThroughputConfig `pulumi:"throughputConfig"`
 }
 
@@ -86,6 +87,10 @@ func (o LookupFeatureGroupResultOutput) FeatureDefinitions() FeatureGroupFeature
 // The status of the feature group.
 func (o LookupFeatureGroupResultOutput) FeatureGroupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFeatureGroupResult) *string { return v.FeatureGroupStatus }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFeatureGroupResultOutput) OnlineStoreConfig() OnlineStoreConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupFeatureGroupResult) *OnlineStoreConfigProperties { return v.OnlineStoreConfig }).(OnlineStoreConfigPropertiesPtrOutput)
 }
 
 func (o LookupFeatureGroupResultOutput) ThroughputConfig() FeatureGroupThroughputConfigPtrOutput {

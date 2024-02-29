@@ -2552,16 +2552,21 @@ func (o EventSourceMappingSourceAccessConfigurationArrayOutput) Index(i pulumi.I
 	}).(EventSourceMappingSourceAccessConfigurationOutput)
 }
 
+// The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
+//
+//	Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
 type FunctionCode struct {
-	// ImageUri.
+	// URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
 	ImageUri *string `pulumi:"imageUri"`
-	// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+	// An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
 	S3Key *string `pulumi:"s3Key"`
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
-	// The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
+	// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
+	//   For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
+	//  If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs
 	ZipFile *string `pulumi:"zipFile"`
 }
 
@@ -2576,16 +2581,21 @@ type FunctionCodeInput interface {
 	ToFunctionCodeOutputWithContext(context.Context) FunctionCodeOutput
 }
 
+// The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
+//
+//	Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
 type FunctionCodeArgs struct {
-	// ImageUri.
+	// URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
 	ImageUri pulumi.StringPtrInput `pulumi:"imageUri"`
-	// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+	// An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
 	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
 	S3Key pulumi.StringPtrInput `pulumi:"s3Key"`
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
-	// The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
+	// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
+	//   For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
+	//  If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs
 	ZipFile pulumi.StringPtrInput `pulumi:"zipFile"`
 }
 
@@ -2601,6 +2611,9 @@ func (i FunctionCodeArgs) ToFunctionCodeOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionCodeOutput)
 }
 
+// The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
+//
+//	Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
 type FunctionCodeOutput struct{ *pulumi.OutputState }
 
 func (FunctionCodeOutput) ElementType() reflect.Type {
@@ -2615,12 +2628,12 @@ func (o FunctionCodeOutput) ToFunctionCodeOutputWithContext(ctx context.Context)
 	return o
 }
 
-// ImageUri.
+// URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
 func (o FunctionCodeOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionCode) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
 
-// An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+// An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
 func (o FunctionCodeOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionCode) *string { return v.S3Bucket }).(pulumi.StringPtrOutput)
 }
@@ -2635,12 +2648,15 @@ func (o FunctionCodeOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionCode) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
-// The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
+// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named “index“ and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the “Handler“ property, the first part of the handler identifier must be “index“. For example, “index.handler“.
+//
+//	 For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
+//	If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs
 func (o FunctionCodeOutput) ZipFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionCode) *string { return v.ZipFile }).(pulumi.StringPtrOutput)
 }
 
-// The dead-letter queue for failed asynchronous invocations.
+// The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
 type FunctionDeadLetterConfig struct {
 	// The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 	TargetArn *string `pulumi:"targetArn"`
@@ -2657,7 +2673,7 @@ type FunctionDeadLetterConfigInput interface {
 	ToFunctionDeadLetterConfigOutputWithContext(context.Context) FunctionDeadLetterConfigOutput
 }
 
-// The dead-letter queue for failed asynchronous invocations.
+// The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
 type FunctionDeadLetterConfigArgs struct {
 	// The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 	TargetArn pulumi.StringPtrInput `pulumi:"targetArn"`
@@ -2716,7 +2732,7 @@ func (i *functionDeadLetterConfigPtrType) ToFunctionDeadLetterConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDeadLetterConfigPtrOutput)
 }
 
-// The dead-letter queue for failed asynchronous invocations.
+// The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
 type FunctionDeadLetterConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionDeadLetterConfigOutput) ElementType() reflect.Type {
@@ -2780,9 +2796,9 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A function's environment variable settings.
+// A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 type FunctionEnvironment struct {
-	// Environment variable key-value pairs.
+	// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
 	Variables map[string]string `pulumi:"variables"`
 }
 
@@ -2797,9 +2813,9 @@ type FunctionEnvironmentInput interface {
 	ToFunctionEnvironmentOutputWithContext(context.Context) FunctionEnvironmentOutput
 }
 
-// A function's environment variable settings.
+// A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 type FunctionEnvironmentArgs struct {
-	// Environment variable key-value pairs.
+	// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
 	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
@@ -2856,7 +2872,7 @@ func (i *functionEnvironmentPtrType) ToFunctionEnvironmentPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEnvironmentPtrOutput)
 }
 
-// A function's environment variable settings.
+// A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 type FunctionEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (FunctionEnvironmentOutput) ElementType() reflect.Type {
@@ -2881,7 +2897,7 @@ func (o FunctionEnvironmentOutput) ToFunctionEnvironmentPtrOutputWithContext(ctx
 	}).(FunctionEnvironmentPtrOutput)
 }
 
-// Environment variable key-value pairs.
+// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
 func (o FunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
@@ -2910,7 +2926,7 @@ func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
 	}).(FunctionEnvironmentOutput)
 }
 
-// Environment variable key-value pairs.
+// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
 func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FunctionEnvironment) map[string]string {
 		if v == nil {
@@ -2920,9 +2936,9 @@ func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// A function's ephemeral storage settings.
+// The size of the function's “/tmp“ directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
 type FunctionEphemeralStorage struct {
-	// The amount of ephemeral storage that your function has access to.
+	// The size of the function's ``/tmp`` directory.
 	Size int `pulumi:"size"`
 }
 
@@ -2937,9 +2953,9 @@ type FunctionEphemeralStorageInput interface {
 	ToFunctionEphemeralStorageOutputWithContext(context.Context) FunctionEphemeralStorageOutput
 }
 
-// A function's ephemeral storage settings.
+// The size of the function's “/tmp“ directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
 type FunctionEphemeralStorageArgs struct {
-	// The amount of ephemeral storage that your function has access to.
+	// The size of the function's ``/tmp`` directory.
 	Size pulumi.IntInput `pulumi:"size"`
 }
 
@@ -2996,7 +3012,7 @@ func (i *functionEphemeralStoragePtrType) ToFunctionEphemeralStoragePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEphemeralStoragePtrOutput)
 }
 
-// A function's ephemeral storage settings.
+// The size of the function's “/tmp“ directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
 type FunctionEphemeralStorageOutput struct{ *pulumi.OutputState }
 
 func (FunctionEphemeralStorageOutput) ElementType() reflect.Type {
@@ -3021,7 +3037,7 @@ func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStoragePtrOutputWithC
 	}).(FunctionEphemeralStoragePtrOutput)
 }
 
-// The amount of ephemeral storage that your function has access to.
+// The size of the function's “/tmp“ directory.
 func (o FunctionEphemeralStorageOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v FunctionEphemeralStorage) int { return v.Size }).(pulumi.IntOutput)
 }
@@ -3050,7 +3066,7 @@ func (o FunctionEphemeralStoragePtrOutput) Elem() FunctionEphemeralStorageOutput
 	}).(FunctionEphemeralStorageOutput)
 }
 
-// The amount of ephemeral storage that your function has access to.
+// The size of the function's “/tmp“ directory.
 func (o FunctionEphemeralStoragePtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionEphemeralStorage) *int {
 		if v == nil {
@@ -3060,10 +3076,11 @@ func (o FunctionEphemeralStoragePtrOutput) Size() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
 	Arn string `pulumi:"arn"`
-	// The path where the function can access the file system, starting with /mnt/.
+	// The path where the function can access the file system, starting with ``/mnt/``.
 	LocalMountPath string `pulumi:"localMountPath"`
 }
 
@@ -3078,10 +3095,11 @@ type FunctionFileSystemConfigInput interface {
 	ToFunctionFileSystemConfigOutputWithContext(context.Context) FunctionFileSystemConfigOutput
 }
 
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfigArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The path where the function can access the file system, starting with /mnt/.
+	// The path where the function can access the file system, starting with ``/mnt/``.
 	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
 }
 
@@ -3122,6 +3140,7 @@ func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigArrayOutput)
 }
 
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionFileSystemConfigOutput) ElementType() reflect.Type {
@@ -3141,7 +3160,7 @@ func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The path where the function can access the file system, starting with /mnt/.
+// The path where the function can access the file system, starting with “/mnt/“.
 func (o FunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
 }
@@ -3166,12 +3185,13 @@ func (o FunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) FunctionFi
 	}).(FunctionFileSystemConfigOutput)
 }
 
+// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
 type FunctionImageConfig struct {
-	// Command.
+	// Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
 	Command []string `pulumi:"command"`
-	// EntryPoint.
+	// Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
 	EntryPoint []string `pulumi:"entryPoint"`
-	// WorkingDirectory.
+	// Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
@@ -3186,12 +3206,13 @@ type FunctionImageConfigInput interface {
 	ToFunctionImageConfigOutputWithContext(context.Context) FunctionImageConfigOutput
 }
 
+// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
 type FunctionImageConfigArgs struct {
-	// Command.
+	// Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
 	Command pulumi.StringArrayInput `pulumi:"command"`
-	// EntryPoint.
+	// Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
 	EntryPoint pulumi.StringArrayInput `pulumi:"entryPoint"`
-	// WorkingDirectory.
+	// Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
 	WorkingDirectory pulumi.StringPtrInput `pulumi:"workingDirectory"`
 }
 
@@ -3248,6 +3269,7 @@ func (i *functionImageConfigPtrType) ToFunctionImageConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionImageConfigPtrOutput)
 }
 
+// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
 type FunctionImageConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionImageConfigOutput) ElementType() reflect.Type {
@@ -3272,17 +3294,17 @@ func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutputWithContext(ctx
 	}).(FunctionImageConfigPtrOutput)
 }
 
-// Command.
+// Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
 func (o FunctionImageConfigOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionImageConfig) []string { return v.Command }).(pulumi.StringArrayOutput)
 }
 
-// EntryPoint.
+// Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
 func (o FunctionImageConfigOutput) EntryPoint() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionImageConfig) []string { return v.EntryPoint }).(pulumi.StringArrayOutput)
 }
 
-// WorkingDirectory.
+// Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
 func (o FunctionImageConfigOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionImageConfig) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }
@@ -3311,7 +3333,7 @@ func (o FunctionImageConfigPtrOutput) Elem() FunctionImageConfigOutput {
 	}).(FunctionImageConfigOutput)
 }
 
-// Command.
+// Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
 func (o FunctionImageConfigPtrOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) []string {
 		if v == nil {
@@ -3321,7 +3343,7 @@ func (o FunctionImageConfigPtrOutput) Command() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// EntryPoint.
+// Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
 func (o FunctionImageConfigPtrOutput) EntryPoint() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) []string {
 		if v == nil {
@@ -3331,7 +3353,7 @@ func (o FunctionImageConfigPtrOutput) EntryPoint() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// WorkingDirectory.
+// Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
 func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) *string {
 		if v == nil {
@@ -3341,15 +3363,15 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The function's logging configuration.
+// The function's Amazon CloudWatch Logs configuration settings.
 type FunctionLoggingConfig struct {
-	// Application log granularity level, can only be used when LogFormat is set to JSON
+	// Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
 	ApplicationLogLevel *FunctionLoggingConfigApplicationLogLevel `pulumi:"applicationLogLevel"`
-	// Log delivery format for the lambda function
+	// The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
 	LogFormat *FunctionLoggingConfigLogFormat `pulumi:"logFormat"`
-	// The log group name.
+	// The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
 	LogGroup *string `pulumi:"logGroup"`
-	// System log granularity level, can only be used when LogFormat is set to JSON
+	// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
 	SystemLogLevel *FunctionLoggingConfigSystemLogLevel `pulumi:"systemLogLevel"`
 }
 
@@ -3364,15 +3386,15 @@ type FunctionLoggingConfigInput interface {
 	ToFunctionLoggingConfigOutputWithContext(context.Context) FunctionLoggingConfigOutput
 }
 
-// The function's logging configuration.
+// The function's Amazon CloudWatch Logs configuration settings.
 type FunctionLoggingConfigArgs struct {
-	// Application log granularity level, can only be used when LogFormat is set to JSON
+	// Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
 	ApplicationLogLevel FunctionLoggingConfigApplicationLogLevelPtrInput `pulumi:"applicationLogLevel"`
-	// Log delivery format for the lambda function
+	// The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
 	LogFormat FunctionLoggingConfigLogFormatPtrInput `pulumi:"logFormat"`
-	// The log group name.
+	// The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
-	// System log granularity level, can only be used when LogFormat is set to JSON
+	// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
 	SystemLogLevel FunctionLoggingConfigSystemLogLevelPtrInput `pulumi:"systemLogLevel"`
 }
 
@@ -3429,7 +3451,7 @@ func (i *functionLoggingConfigPtrType) ToFunctionLoggingConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionLoggingConfigPtrOutput)
 }
 
-// The function's logging configuration.
+// The function's Amazon CloudWatch Logs configuration settings.
 type FunctionLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionLoggingConfigOutput) ElementType() reflect.Type {
@@ -3454,22 +3476,22 @@ func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigPtrOutputWithContext
 	}).(FunctionLoggingConfigPtrOutput)
 }
 
-// Application log granularity level, can only be used when LogFormat is set to JSON
+// Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where “TRACE“ is the highest level and “FATAL“ is the lowest.
 func (o FunctionLoggingConfigOutput) ApplicationLogLevel() FunctionLoggingConfigApplicationLogLevelPtrOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) *FunctionLoggingConfigApplicationLogLevel { return v.ApplicationLogLevel }).(FunctionLoggingConfigApplicationLogLevelPtrOutput)
 }
 
-// Log delivery format for the lambda function
+// The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
 func (o FunctionLoggingConfigOutput) LogFormat() FunctionLoggingConfigLogFormatPtrOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) *FunctionLoggingConfigLogFormat { return v.LogFormat }).(FunctionLoggingConfigLogFormatPtrOutput)
 }
 
-// The log group name.
+// The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named “/aws/lambda/<function name>“. To use a different log group, enter an existing log group or enter a new log group name.
 func (o FunctionLoggingConfigOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
 
-// System log granularity level, can only be used when LogFormat is set to JSON
+// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where “DEBUG“ is the highest level and “WARN“ is the lowest.
 func (o FunctionLoggingConfigOutput) SystemLogLevel() FunctionLoggingConfigSystemLogLevelPtrOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) *FunctionLoggingConfigSystemLogLevel { return v.SystemLogLevel }).(FunctionLoggingConfigSystemLogLevelPtrOutput)
 }
@@ -3498,7 +3520,7 @@ func (o FunctionLoggingConfigPtrOutput) Elem() FunctionLoggingConfigOutput {
 	}).(FunctionLoggingConfigOutput)
 }
 
-// Application log granularity level, can only be used when LogFormat is set to JSON
+// Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where “TRACE“ is the highest level and “FATAL“ is the lowest.
 func (o FunctionLoggingConfigPtrOutput) ApplicationLogLevel() FunctionLoggingConfigApplicationLogLevelPtrOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfig) *FunctionLoggingConfigApplicationLogLevel {
 		if v == nil {
@@ -3508,7 +3530,7 @@ func (o FunctionLoggingConfigPtrOutput) ApplicationLogLevel() FunctionLoggingCon
 	}).(FunctionLoggingConfigApplicationLogLevelPtrOutput)
 }
 
-// Log delivery format for the lambda function
+// The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
 func (o FunctionLoggingConfigPtrOutput) LogFormat() FunctionLoggingConfigLogFormatPtrOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfig) *FunctionLoggingConfigLogFormat {
 		if v == nil {
@@ -3518,7 +3540,7 @@ func (o FunctionLoggingConfigPtrOutput) LogFormat() FunctionLoggingConfigLogForm
 	}).(FunctionLoggingConfigLogFormatPtrOutput)
 }
 
-// The log group name.
+// The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named “/aws/lambda/<function name>“. To use a different log group, enter an existing log group or enter a new log group name.
 func (o FunctionLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
 		if v == nil {
@@ -3528,7 +3550,7 @@ func (o FunctionLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// System log granularity level, can only be used when LogFormat is set to JSON
+// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where “DEBUG“ is the highest level and “WARN“ is the lowest.
 func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() FunctionLoggingConfigSystemLogLevelPtrOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfig) *FunctionLoggingConfigSystemLogLevel {
 		if v == nil {
@@ -3538,10 +3560,15 @@ func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() FunctionLoggingConfigSy
 	}).(FunctionLoggingConfigSystemLogLevelPtrOutput)
 }
 
+// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 type FunctionRuntimeManagementConfig struct {
-	// Unique identifier for a runtime version arn
+	// The ARN of the runtime version you want the function to use.
+	//   This is only required if you're using the *Manual* runtime update mode.
 	RuntimeVersionArn *string `pulumi:"runtimeVersionArn"`
-	// Trigger for runtime update
+	// Specify the runtime update mode.
+	//   + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+	//  + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+	//  + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
 	UpdateRuntimeOn FunctionRuntimeManagementConfigUpdateRuntimeOn `pulumi:"updateRuntimeOn"`
 }
 
@@ -3556,10 +3583,15 @@ type FunctionRuntimeManagementConfigInput interface {
 	ToFunctionRuntimeManagementConfigOutputWithContext(context.Context) FunctionRuntimeManagementConfigOutput
 }
 
+// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 type FunctionRuntimeManagementConfigArgs struct {
-	// Unique identifier for a runtime version arn
+	// The ARN of the runtime version you want the function to use.
+	//   This is only required if you're using the *Manual* runtime update mode.
 	RuntimeVersionArn pulumi.StringPtrInput `pulumi:"runtimeVersionArn"`
-	// Trigger for runtime update
+	// Specify the runtime update mode.
+	//   + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+	//  + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+	//  + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
 	UpdateRuntimeOn FunctionRuntimeManagementConfigUpdateRuntimeOnInput `pulumi:"updateRuntimeOn"`
 }
 
@@ -3616,6 +3648,7 @@ func (i *functionRuntimeManagementConfigPtrType) ToFunctionRuntimeManagementConf
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeManagementConfigPtrOutput)
 }
 
+// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 type FunctionRuntimeManagementConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionRuntimeManagementConfigOutput) ElementType() reflect.Type {
@@ -3640,12 +3673,17 @@ func (o FunctionRuntimeManagementConfigOutput) ToFunctionRuntimeManagementConfig
 	}).(FunctionRuntimeManagementConfigPtrOutput)
 }
 
-// Unique identifier for a runtime version arn
+// The ARN of the runtime version you want the function to use.
+//
+//	This is only required if you're using the *Manual* runtime update mode.
 func (o FunctionRuntimeManagementConfigOutput) RuntimeVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionRuntimeManagementConfig) *string { return v.RuntimeVersionArn }).(pulumi.StringPtrOutput)
 }
 
-// Trigger for runtime update
+// Specify the runtime update mode.
+//   - *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+//   - *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+//   - *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
 func (o FunctionRuntimeManagementConfigOutput) UpdateRuntimeOn() FunctionRuntimeManagementConfigUpdateRuntimeOnOutput {
 	return o.ApplyT(func(v FunctionRuntimeManagementConfig) FunctionRuntimeManagementConfigUpdateRuntimeOn {
 		return v.UpdateRuntimeOn
@@ -3676,7 +3714,9 @@ func (o FunctionRuntimeManagementConfigPtrOutput) Elem() FunctionRuntimeManageme
 	}).(FunctionRuntimeManagementConfigOutput)
 }
 
-// Unique identifier for a runtime version arn
+// The ARN of the runtime version you want the function to use.
+//
+//	This is only required if you're using the *Manual* runtime update mode.
 func (o FunctionRuntimeManagementConfigPtrOutput) RuntimeVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionRuntimeManagementConfig) *string {
 		if v == nil {
@@ -3686,7 +3726,10 @@ func (o FunctionRuntimeManagementConfigPtrOutput) RuntimeVersionArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Trigger for runtime update
+// Specify the runtime update mode.
+//   - *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+//   - *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+//   - *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
 func (o FunctionRuntimeManagementConfigPtrOutput) UpdateRuntimeOn() FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput {
 	return o.ApplyT(func(v *FunctionRuntimeManagementConfig) *FunctionRuntimeManagementConfigUpdateRuntimeOn {
 		if v == nil {
@@ -3696,9 +3739,9 @@ func (o FunctionRuntimeManagementConfigPtrOutput) UpdateRuntimeOn() FunctionRunt
 	}).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
 }
 
-// The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 type FunctionSnapStart struct {
-	// Applying SnapStart setting on function resource type.
+	// Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
 	ApplyOn FunctionSnapStartApplyOn `pulumi:"applyOn"`
 }
 
@@ -3713,9 +3756,9 @@ type FunctionSnapStartInput interface {
 	ToFunctionSnapStartOutputWithContext(context.Context) FunctionSnapStartOutput
 }
 
-// The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 type FunctionSnapStartArgs struct {
-	// Applying SnapStart setting on function resource type.
+	// Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
 	ApplyOn FunctionSnapStartApplyOnInput `pulumi:"applyOn"`
 }
 
@@ -3772,7 +3815,7 @@ func (i *functionSnapStartPtrType) ToFunctionSnapStartPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionSnapStartPtrOutput)
 }
 
-// The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 type FunctionSnapStartOutput struct{ *pulumi.OutputState }
 
 func (FunctionSnapStartOutput) ElementType() reflect.Type {
@@ -3797,7 +3840,7 @@ func (o FunctionSnapStartOutput) ToFunctionSnapStartPtrOutputWithContext(ctx con
 	}).(FunctionSnapStartPtrOutput)
 }
 
-// Applying SnapStart setting on function resource type.
+// Set “ApplyOn“ to “PublishedVersions“ to create a snapshot of the initialized execution environment when you publish a function version.
 func (o FunctionSnapStartOutput) ApplyOn() FunctionSnapStartApplyOnOutput {
 	return o.ApplyT(func(v FunctionSnapStart) FunctionSnapStartApplyOn { return v.ApplyOn }).(FunctionSnapStartApplyOnOutput)
 }
@@ -3826,7 +3869,7 @@ func (o FunctionSnapStartPtrOutput) Elem() FunctionSnapStartOutput {
 	}).(FunctionSnapStartOutput)
 }
 
-// Applying SnapStart setting on function resource type.
+// Set “ApplyOn“ to “PublishedVersions“ to create a snapshot of the initialized execution environment when you publish a function version.
 func (o FunctionSnapStartPtrOutput) ApplyOn() FunctionSnapStartApplyOnPtrOutput {
 	return o.ApplyT(func(v *FunctionSnapStart) *FunctionSnapStartApplyOn {
 		if v == nil {
@@ -3836,15 +3879,15 @@ func (o FunctionSnapStartPtrOutput) ApplyOn() FunctionSnapStartApplyOnPtrOutput 
 	}).(FunctionSnapStartApplyOnPtrOutput)
 }
 
-// The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 type FunctionSnapStartResponse struct {
-	// Applying SnapStart setting on function resource type.
+	// When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
 	ApplyOn *FunctionSnapStartResponseApplyOn `pulumi:"applyOn"`
-	// Indicates whether SnapStart is activated for the specified function version.
+	// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
 	OptimizationStatus *FunctionSnapStartResponseOptimizationStatus `pulumi:"optimizationStatus"`
 }
 
-// The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 type FunctionSnapStartResponseOutput struct{ *pulumi.OutputState }
 
 func (FunctionSnapStartResponseOutput) ElementType() reflect.Type {
@@ -3859,12 +3902,12 @@ func (o FunctionSnapStartResponseOutput) ToFunctionSnapStartResponseOutputWithCo
 	return o
 }
 
-// Applying SnapStart setting on function resource type.
+// When set to “PublishedVersions“, Lambda creates a snapshot of the execution environment when you publish a function version.
 func (o FunctionSnapStartResponseOutput) ApplyOn() FunctionSnapStartResponseApplyOnPtrOutput {
 	return o.ApplyT(func(v FunctionSnapStartResponse) *FunctionSnapStartResponseApplyOn { return v.ApplyOn }).(FunctionSnapStartResponseApplyOnPtrOutput)
 }
 
-// Indicates whether SnapStart is activated for the specified function version.
+// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
 func (o FunctionSnapStartResponseOutput) OptimizationStatus() FunctionSnapStartResponseOptimizationStatusPtrOutput {
 	return o.ApplyT(func(v FunctionSnapStartResponse) *FunctionSnapStartResponseOptimizationStatus {
 		return v.OptimizationStatus
@@ -3895,7 +3938,7 @@ func (o FunctionSnapStartResponsePtrOutput) Elem() FunctionSnapStartResponseOutp
 	}).(FunctionSnapStartResponseOutput)
 }
 
-// Applying SnapStart setting on function resource type.
+// When set to “PublishedVersions“, Lambda creates a snapshot of the execution environment when you publish a function version.
 func (o FunctionSnapStartResponsePtrOutput) ApplyOn() FunctionSnapStartResponseApplyOnPtrOutput {
 	return o.ApplyT(func(v *FunctionSnapStartResponse) *FunctionSnapStartResponseApplyOn {
 		if v == nil {
@@ -3905,7 +3948,7 @@ func (o FunctionSnapStartResponsePtrOutput) ApplyOn() FunctionSnapStartResponseA
 	}).(FunctionSnapStartResponseApplyOnPtrOutput)
 }
 
-// Indicates whether SnapStart is activated for the specified function version.
+// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
 func (o FunctionSnapStartResponsePtrOutput) OptimizationStatus() FunctionSnapStartResponseOptimizationStatusPtrOutput {
 	return o.ApplyT(func(v *FunctionSnapStartResponse) *FunctionSnapStartResponseOptimizationStatus {
 		if v == nil {
@@ -3916,13 +3959,11 @@ func (o FunctionSnapStartResponsePtrOutput) OptimizationStatus() FunctionSnapSta
 }
 
 type FunctionTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key   string  `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
-// The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
+// The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set “Mode“ to “Active“.
 type FunctionTracingConfig struct {
 	// The tracing mode.
 	Mode *FunctionTracingConfigMode `pulumi:"mode"`
@@ -3939,7 +3980,7 @@ type FunctionTracingConfigInput interface {
 	ToFunctionTracingConfigOutputWithContext(context.Context) FunctionTracingConfigOutput
 }
 
-// The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
+// The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set “Mode“ to “Active“.
 type FunctionTracingConfigArgs struct {
 	// The tracing mode.
 	Mode FunctionTracingConfigModePtrInput `pulumi:"mode"`
@@ -3998,7 +4039,7 @@ func (i *functionTracingConfigPtrType) ToFunctionTracingConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionTracingConfigPtrOutput)
 }
 
-// The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
+// The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set “Mode“ to “Active“.
 type FunctionTracingConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionTracingConfigOutput) ElementType() reflect.Type {
@@ -4062,11 +4103,14 @@ func (o FunctionTracingConfigPtrOutput) Mode() FunctionTracingConfigModePtrOutpu
 	}).(FunctionTracingConfigModePtrOutput)
 }
 
-// The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
+// The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+//
+//	 When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
+//	To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
 type FunctionVpcConfig struct {
-	// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+	// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
 	Ipv6AllowedForDualStack *bool `pulumi:"ipv6AllowedForDualStack"`
-	// A list of VPC security groups IDs.
+	// A list of VPC security group IDs.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -4083,11 +4127,14 @@ type FunctionVpcConfigInput interface {
 	ToFunctionVpcConfigOutputWithContext(context.Context) FunctionVpcConfigOutput
 }
 
-// The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
+// The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+//
+//	 When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
+//	To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
 type FunctionVpcConfigArgs struct {
-	// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+	// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
 	Ipv6AllowedForDualStack pulumi.BoolPtrInput `pulumi:"ipv6AllowedForDualStack"`
-	// A list of VPC security groups IDs.
+	// A list of VPC security group IDs.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
@@ -4146,7 +4193,10 @@ func (i *functionVpcConfigPtrType) ToFunctionVpcConfigPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionVpcConfigPtrOutput)
 }
 
-// The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
+// The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+//
+//	 When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
+//	To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
 type FunctionVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionVpcConfigOutput) ElementType() reflect.Type {
@@ -4171,12 +4221,12 @@ func (o FunctionVpcConfigOutput) ToFunctionVpcConfigPtrOutputWithContext(ctx con
 	}).(FunctionVpcConfigPtrOutput)
 }
 
-// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
 func (o FunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionVpcConfig) *bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolPtrOutput)
 }
 
-// A list of VPC security groups IDs.
+// A list of VPC security group IDs.
 func (o FunctionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -4210,7 +4260,7 @@ func (o FunctionVpcConfigPtrOutput) Elem() FunctionVpcConfigOutput {
 	}).(FunctionVpcConfigOutput)
 }
 
-// A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
 func (o FunctionVpcConfigPtrOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FunctionVpcConfig) *bool {
 		if v == nil {
@@ -4220,7 +4270,7 @@ func (o FunctionVpcConfigPtrOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list of VPC security groups IDs.
+// A list of VPC security group IDs.
 func (o FunctionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionVpcConfig) []string {
 		if v == nil {

@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::GuardDuty::Member
- *
- * @deprecated Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Member extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class Member extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Member {
-        pulumi.log.warn("Member is deprecated: Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Member(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,10 +34,10 @@ export class Member extends pulumi.CustomResource {
         return obj['__pulumiType'] === Member.__pulumiType;
     }
 
-    public readonly detectorId!: pulumi.Output<string>;
+    public readonly detectorId!: pulumi.Output<string | undefined>;
     public readonly disableEmailNotification!: pulumi.Output<boolean | undefined>;
     public readonly email!: pulumi.Output<string>;
-    public readonly memberId!: pulumi.Output<string>;
+    public readonly memberId!: pulumi.Output<string | undefined>;
     public readonly message!: pulumi.Output<string | undefined>;
     public readonly status!: pulumi.Output<string | undefined>;
 
@@ -51,20 +48,12 @@ export class Member extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MemberArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Member is deprecated: Member is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'detectorId'");
-            }
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
-            }
-            if ((!args || args.memberId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'memberId'");
             }
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
             resourceInputs["disableEmailNotification"] = args ? args.disableEmailNotification : undefined;
@@ -81,7 +70,7 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["detectorId", "email", "memberId"] };
+        const replaceOnChanges = { replaceOnChanges: ["detectorId", "memberId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Member.__pulumiType, name, resourceInputs, opts);
     }
@@ -91,10 +80,10 @@ export class Member extends pulumi.CustomResource {
  * The set of arguments for constructing a Member resource.
  */
 export interface MemberArgs {
-    detectorId: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string>;
     disableEmailNotification?: pulumi.Input<boolean>;
     email: pulumi.Input<string>;
-    memberId: pulumi.Input<string>;
+    memberId?: pulumi.Input<string>;
     message?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
 }

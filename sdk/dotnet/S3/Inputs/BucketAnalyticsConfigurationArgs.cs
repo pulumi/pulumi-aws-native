@@ -27,11 +27,19 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
+        /// </summary>
         [Input("storageClassAnalysis", required: true)]
         public Input<Inputs.BucketStorageClassAnalysisArgs> StorageClassAnalysis { get; set; } = null!;
 
         [Input("tagFilters")]
         private InputList<Inputs.BucketTagFilterArgs>? _tagFilters;
+
+        /// <summary>
+        /// The tags to use when evaluating an analytics filter.
+        ///  The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
+        /// </summary>
         public InputList<Inputs.BucketTagFilterArgs> TagFilters
         {
             get => _tagFilters ?? (_tagFilters = new InputList<Inputs.BucketTagFilterArgs>());

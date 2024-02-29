@@ -12,13 +12,15 @@ namespace Pulumi.AwsNative.Rds
     public static class GetDbSubnetGroup
     {
         /// <summary>
-        /// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+        /// The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region. 
+        ///  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
         /// </summary>
         public static Task<GetDbSubnetGroupResult> InvokeAsync(GetDbSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbSubnetGroupResult>("aws-native:rds:getDbSubnetGroup", args ?? new GetDbSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+        /// The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region. 
+        ///  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
         /// </summary>
         public static Output<GetDbSubnetGroupResult> Invoke(GetDbSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbSubnetGroupResult>("aws-native:rds:getDbSubnetGroup", args ?? new GetDbSubnetGroupInvokeArgs(), options.WithDefaults());
@@ -27,6 +29,11 @@ namespace Pulumi.AwsNative.Rds
 
     public sealed class GetDbSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name for the DB subnet group. This value is stored as a lowercase string.
+        ///  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+        ///  Example: ``mysubnetgroup``
+        /// </summary>
         [Input("dbSubnetGroupName", required: true)]
         public string DbSubnetGroupName { get; set; } = null!;
 
@@ -38,6 +45,11 @@ namespace Pulumi.AwsNative.Rds
 
     public sealed class GetDbSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name for the DB subnet group. This value is stored as a lowercase string.
+        ///  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+        ///  Example: ``mysubnetgroup``
+        /// </summary>
         [Input("dbSubnetGroupName", required: true)]
         public Input<string> DbSubnetGroupName { get; set; } = null!;
 
@@ -51,9 +63,12 @@ namespace Pulumi.AwsNative.Rds
     [OutputType]
     public sealed class GetDbSubnetGroupResult
     {
+        /// <summary>
+        /// The description for the DB subnet group.
+        /// </summary>
         public readonly string? DbSubnetGroupDescription;
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// An optional array of key-value pairs to apply to this DB subnet group.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

@@ -31,6 +31,7 @@ namespace Pulumi.AwsNative.Emr.Outputs
         public readonly ImmutableArray<Outputs.ClusterInstanceFleetConfig> TaskInstanceFleets;
         public readonly ImmutableArray<Outputs.ClusterInstanceGroupConfig> TaskInstanceGroups;
         public readonly bool? TerminationProtected;
+        public readonly bool? UnhealthyNodeReplacement;
 
         [OutputConstructor]
         private ClusterJobFlowInstancesConfig(
@@ -68,7 +69,9 @@ namespace Pulumi.AwsNative.Emr.Outputs
 
             ImmutableArray<Outputs.ClusterInstanceGroupConfig> taskInstanceGroups,
 
-            bool? terminationProtected)
+            bool? terminationProtected,
+
+            bool? unhealthyNodeReplacement)
         {
             AdditionalMasterSecurityGroups = additionalMasterSecurityGroups;
             AdditionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
@@ -88,6 +91,7 @@ namespace Pulumi.AwsNative.Emr.Outputs
             TaskInstanceFleets = taskInstanceFleets;
             TaskInstanceGroups = taskInstanceGroups;
             TerminationProtected = terminationProtected;
+            UnhealthyNodeReplacement = unhealthyNodeReplacement;
         }
     }
 }

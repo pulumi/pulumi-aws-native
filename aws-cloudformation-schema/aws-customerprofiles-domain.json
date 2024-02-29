@@ -356,7 +356,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "DomainName" ],
+  "required" : [ "DomainName", "DefaultExpirationDays" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,

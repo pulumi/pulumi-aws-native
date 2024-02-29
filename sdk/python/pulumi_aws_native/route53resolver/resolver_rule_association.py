@@ -19,7 +19,7 @@ class ResolverRuleAssociationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResolverRuleAssociation resource.
-        :param pulumi.Input[str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        :param pulumi.Input[str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
         :param pulumi.Input[str] vpc_id: The ID of the VPC that you associated the Resolver rule with.
         :param pulumi.Input[str] name: The name of an association between a Resolver rule and a VPC.
         """
@@ -32,7 +32,7 @@ class ResolverRuleAssociationArgs:
     @pulumi.getter(name="resolverRuleId")
     def resolver_rule_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
         """
         return pulumi.get(self, "resolver_rule_id")
 
@@ -75,12 +75,12 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+        In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of an association between a Resolver rule and a VPC.
-        :param pulumi.Input[str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        :param pulumi.Input[str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
         :param pulumi.Input[str] vpc_id: The ID of the VPC that you associated the Resolver rule with.
         """
         ...
@@ -90,7 +90,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                  args: ResolverRuleAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+        In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
 
         :param str resource_name: The name of the resource.
         :param ResolverRuleAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -168,16 +168,13 @@ class ResolverRuleAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resolverRuleAssociationId")
     def resolver_rule_association_id(self) -> pulumi.Output[str]:
-        """
-        Primary Identifier for Resolver Rule Association
-        """
         return pulumi.get(self, "resolver_rule_association_id")
 
     @property
     @pulumi.getter(name="resolverRuleId")
     def resolver_rule_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+        The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
         """
         return pulumi.get(self, "resolver_rule_id")
 

@@ -61,24 +61,18 @@ class GetLoadBalancerResult:
     @property
     @pulumi.getter(name="canonicalHostedZoneId")
     def canonical_hosted_zone_id(self) -> Optional[str]:
-        """
-        The ID of the Amazon Route 53 hosted zone associated with the load balancer.
-        """
         return pulumi.get(self, "canonical_hosted_zone_id")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[str]:
-        """
-        The public DNS name of the load balancer.
-        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
     def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[str]:
         """
-        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
         """
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
@@ -86,16 +80,13 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[str]:
         """
-        The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
         """
         return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the load balancer.
-        """
         return pulumi.get(self, "load_balancer_arn")
 
     @property
@@ -109,24 +100,18 @@ class GetLoadBalancerResult:
     @property
     @pulumi.getter(name="loadBalancerFullName")
     def load_balancer_full_name(self) -> Optional[str]:
-        """
-        The full name of the load balancer.
-        """
         return pulumi.get(self, "load_balancer_full_name")
 
     @property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> Optional[str]:
-        """
-        The name of the load balancer.
-        """
         return pulumi.get(self, "load_balancer_name")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        The IDs of the security groups for the load balancer.
+        [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
         """
         return pulumi.get(self, "security_groups")
 
@@ -135,6 +120,11 @@ class GetLoadBalancerResult:
     def subnet_mappings(self) -> Optional[Sequence['outputs.LoadBalancerSubnetMapping']]:
         """
         The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+         [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+         [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+         [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+         [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+         [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP
         """
         return pulumi.get(self, "subnet_mappings")
 
@@ -143,6 +133,11 @@ class GetLoadBalancerResult:
     def subnets(self) -> Optional[Sequence[str]]:
         """
         The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+         [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+         [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+         [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+         [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+         [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
         """
         return pulumi.get(self, "subnets")
 
@@ -178,10 +173,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
 def get_load_balancer(load_balancer_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
-    Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
-
-
-    :param str load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
+    Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
     """
     __args__ = dict()
     __args__['loadBalancerArn'] = load_balancer_arn
@@ -207,9 +199,6 @@ def get_load_balancer(load_balancer_arn: Optional[str] = None,
 def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
-    Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
-
-
-    :param str load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
+    Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
     """
     ...

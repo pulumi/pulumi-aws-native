@@ -11,17 +11,18 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+    /// Specifies a cross-origin access rule for an Amazon S3 bucket.
     /// </summary>
     [OutputType]
     public sealed class BucketCorsRule
     {
         /// <summary>
-        /// Headers that are specified in the Access-Control-Request-Headers header.
+        /// Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
         /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
         /// <summary>
-        /// An HTTP method that you allow the origin to execute.
+        /// An HTTP method that you allow the origin to run.
+        ///  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.S3.BucketCorsRuleAllowedMethodsItem> AllowedMethods;
         /// <summary>
@@ -29,11 +30,11 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
         /// <summary>
-        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
+        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript ``XMLHttpRequest`` object).
         /// </summary>
         public readonly ImmutableArray<string> ExposedHeaders;
         /// <summary>
-        /// A unique identifier for this rule.
+        /// A unique identifier for this rule. The value must be no more than 255 characters.
         /// </summary>
         public readonly string? Id;
         /// <summary>

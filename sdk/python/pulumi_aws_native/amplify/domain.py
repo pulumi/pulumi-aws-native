@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DomainArgs', 'Domain']
@@ -20,8 +21,11 @@ class DomainArgs:
                  sub_domain_settings: pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]],
                  auto_sub_domain_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_sub_domain_iam_role: Optional[pulumi.Input[str]] = None,
+                 certificate: Optional[pulumi.Input['DomainCertificateArgs']] = None,
+                 certificate_settings: Optional[pulumi.Input['DomainCertificateSettingsArgs']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None):
+                 enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
+                 update_status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Domain resource.
         """
@@ -31,10 +35,16 @@ class DomainArgs:
             pulumi.set(__self__, "auto_sub_domain_creation_patterns", auto_sub_domain_creation_patterns)
         if auto_sub_domain_iam_role is not None:
             pulumi.set(__self__, "auto_sub_domain_iam_role", auto_sub_domain_iam_role)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_settings is not None:
+            pulumi.set(__self__, "certificate_settings", certificate_settings)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if enable_auto_sub_domain is not None:
             pulumi.set(__self__, "enable_auto_sub_domain", enable_auto_sub_domain)
+        if update_status is not None:
+            pulumi.set(__self__, "update_status", update_status)
 
     @property
     @pulumi.getter(name="appId")
@@ -73,6 +83,24 @@ class DomainArgs:
         pulumi.set(self, "auto_sub_domain_iam_role", value)
 
     @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input['DomainCertificateArgs']]:
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input['DomainCertificateArgs']]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateSettings")
+    def certificate_settings(self) -> Optional[pulumi.Input['DomainCertificateSettingsArgs']]:
+        return pulumi.get(self, "certificate_settings")
+
+    @certificate_settings.setter
+    def certificate_settings(self, value: Optional[pulumi.Input['DomainCertificateSettingsArgs']]):
+        pulumi.set(self, "certificate_settings", value)
+
+    @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "domain_name")
@@ -90,6 +118,15 @@ class DomainArgs:
     def enable_auto_sub_domain(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_auto_sub_domain", value)
 
+    @property
+    @pulumi.getter(name="updateStatus")
+    def update_status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "update_status")
+
+    @update_status.setter
+    def update_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_status", value)
+
 
 class Domain(pulumi.CustomResource):
     @overload
@@ -99,9 +136,12 @@ class Domain(pulumi.CustomResource):
                  app_id: Optional[pulumi.Input[str]] = None,
                  auto_sub_domain_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_sub_domain_iam_role: Optional[pulumi.Input[str]] = None,
+                 certificate: Optional[pulumi.Input[pulumi.InputType['DomainCertificateArgs']]] = None,
+                 certificate_settings: Optional[pulumi.Input[pulumi.InputType['DomainCertificateSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
                  sub_domain_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainSubDomainSettingArgs']]]]] = None,
+                 update_status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
@@ -136,9 +176,12 @@ class Domain(pulumi.CustomResource):
                  app_id: Optional[pulumi.Input[str]] = None,
                  auto_sub_domain_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_sub_domain_iam_role: Optional[pulumi.Input[str]] = None,
+                 certificate: Optional[pulumi.Input[pulumi.InputType['DomainCertificateArgs']]] = None,
+                 certificate_settings: Optional[pulumi.Input[pulumi.InputType['DomainCertificateSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
                  sub_domain_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainSubDomainSettingArgs']]]]] = None,
+                 update_status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -153,11 +196,14 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["app_id"] = app_id
             __props__.__dict__["auto_sub_domain_creation_patterns"] = auto_sub_domain_creation_patterns
             __props__.__dict__["auto_sub_domain_iam_role"] = auto_sub_domain_iam_role
+            __props__.__dict__["certificate"] = certificate
+            __props__.__dict__["certificate_settings"] = certificate_settings
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["enable_auto_sub_domain"] = enable_auto_sub_domain
             if sub_domain_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'sub_domain_settings'")
             __props__.__dict__["sub_domain_settings"] = sub_domain_settings
+            __props__.__dict__["update_status"] = update_status
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate_record"] = None
             __props__.__dict__["domain_status"] = None
@@ -190,12 +236,15 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_sub_domain_creation_patterns"] = None
         __props__.__dict__["auto_sub_domain_iam_role"] = None
+        __props__.__dict__["certificate"] = None
         __props__.__dict__["certificate_record"] = None
+        __props__.__dict__["certificate_settings"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["domain_status"] = None
         __props__.__dict__["enable_auto_sub_domain"] = None
         __props__.__dict__["status_reason"] = None
         __props__.__dict__["sub_domain_settings"] = None
+        __props__.__dict__["update_status"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -219,9 +268,19 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "auto_sub_domain_iam_role")
 
     @property
+    @pulumi.getter
+    def certificate(self) -> pulumi.Output[Optional['outputs.DomainCertificate']]:
+        return pulumi.get(self, "certificate")
+
+    @property
     @pulumi.getter(name="certificateRecord")
     def certificate_record(self) -> pulumi.Output[str]:
         return pulumi.get(self, "certificate_record")
+
+    @property
+    @pulumi.getter(name="certificateSettings")
+    def certificate_settings(self) -> pulumi.Output[Optional['outputs.DomainCertificateSettings']]:
+        return pulumi.get(self, "certificate_settings")
 
     @property
     @pulumi.getter(name="domainName")
@@ -247,4 +306,9 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="subDomainSettings")
     def sub_domain_settings(self) -> pulumi.Output[Sequence['outputs.DomainSubDomainSetting']]:
         return pulumi.get(self, "sub_domain_settings")
+
+    @property
+    @pulumi.getter(name="updateStatus")
+    def update_status(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "update_status")
 

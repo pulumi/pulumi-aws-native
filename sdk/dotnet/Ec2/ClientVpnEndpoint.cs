@@ -28,9 +28,6 @@ namespace Pulumi.AwsNative.Ec2
         [Output("clientLoginBannerOptions")]
         public Output<Outputs.ClientVpnEndpointClientLoginBannerOptions?> ClientLoginBannerOptions { get; private set; } = null!;
 
-        [Output("clientRouteMonitoringOptions")]
-        public Output<Outputs.ClientVpnEndpointClientRouteMonitoringOptions?> ClientRouteMonitoringOptions { get; private set; } = null!;
-
         [Output("connectionLogOptions")]
         public Output<Outputs.ClientVpnEndpointConnectionLogOptions> ConnectionLogOptions { get; private set; } = null!;
 
@@ -135,9 +132,6 @@ namespace Pulumi.AwsNative.Ec2
 
         [Input("clientLoginBannerOptions")]
         public Input<Inputs.ClientVpnEndpointClientLoginBannerOptionsArgs>? ClientLoginBannerOptions { get; set; }
-
-        [Input("clientRouteMonitoringOptions")]
-        public Input<Inputs.ClientVpnEndpointClientRouteMonitoringOptionsArgs>? ClientRouteMonitoringOptions { get; set; }
 
         [Input("connectionLogOptions", required: true)]
         public Input<Inputs.ClientVpnEndpointConnectionLogOptionsArgs> ConnectionLogOptions { get; set; } = null!;

@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
+    /// A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
     /// </summary>
     [OutputType]
     public sealed class BucketReplicationConfiguration
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects.
+        /// The Amazon Resource Name (ARN) of the IAMlong (IAM) role that Amazon S3 assumes when replicating objects. For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide*.
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// A container for one or more replication rules.
+        /// A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketReplicationRule> Rules;
 

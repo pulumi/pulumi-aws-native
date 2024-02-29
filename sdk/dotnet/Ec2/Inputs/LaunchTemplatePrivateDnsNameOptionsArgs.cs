@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
     /// <summary>
-    /// Describes the options for instance hostnames.
+    /// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
     /// </summary>
     public sealed class LaunchTemplatePrivateDnsNameOptionsArgs : global::Pulumi.ResourceArgs
     {
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<bool>? EnableResourceNameDnsAaaaRecord { get; set; }
 
         /// <summary>
-        /// The type of hostname for EC2 instances.
+        /// The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
         /// </summary>
         [Input("hostnameType")]
         public Input<string>? HostnameType { get; set; }

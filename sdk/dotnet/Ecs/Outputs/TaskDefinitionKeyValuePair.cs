@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// A key-value pair object.
+    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionKeyValuePair
     {
+        /// <summary>
+        /// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

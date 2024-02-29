@@ -624,6 +624,13 @@ class ContinuousDeploymentPolicyTrafficConfig(dict):
 
 @pulumi.output_type
 class DistributionCacheBehavior(dict):
+    """
+    A complex type that describes how CloudFront processes requests.
+     You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.
+     For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.
+     If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element because this is invalid.
+     To delete all cache behaviors in an exist
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -698,6 +705,61 @@ class DistributionCacheBehavior(dict):
                  smooth_streaming: Optional[bool] = None,
                  trusted_key_groups: Optional[Sequence[str]] = None,
                  trusted_signers: Optional[Sequence[str]] = None):
+        """
+        A complex type that describes how CloudFront processes requests.
+         You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.
+         For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.
+         If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element because this is invalid.
+         To delete all cache behaviors in an exist
+        :param str path_pattern: The pattern (for example, ``images/*.jpg``) that specifies which requests to apply the behavior to. When CloudFront receives a viewer request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution.
+                 You can optionally include a slash (``/``) at the beginning of the path pattern. For example, ``/images/*.jpg``. CloudFront behavior is the same with or without the leading ``/``.
+                 The path pattern for the default cache behavior is ``*`` and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior.
+                For more information, see [Path Pattern](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesPathPattern) in the *Amazon CloudFront Developer Guide*.
+        :param str target_origin_id: The value of ``ID`` for the origin that you want CloudFront to route requests to when they match this cache behavior.
+        :param str viewer_protocol_policy: The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
+                 +   ``allow-all``: Viewers can use HTTP or HTTPS.
+                 +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+                 +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+                 
+                For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
+                 The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+        :param Sequence[str] allowed_methods: A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:
+                 +  CloudFront forwards only ``GET`` and ``HEAD`` requests.
+                 +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+                 +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.
+                 
+                If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+        :param str cache_policy_id: The unique identifier of the cache policy that is attached to this cache behavior. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                A ``CacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+        :param Sequence[str] cached_methods: A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
+                 +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.
+                 +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+                 
+                If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
+        :param bool compress: Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify true; if not, specify false. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
+        :param float default_ttl: This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+        :param str field_level_encryption_id: The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for this cache behavior.
+        :param 'DistributionForwardedValues' forwarded_values: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
+                If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+        :param Sequence['DistributionFunctionAssociation'] function_associations: A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        :param Sequence['DistributionLambdaFunctionAssociation'] lambda_function_associations: A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
+        :param float max_ttl: This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+        :param float min_ttl: This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+                You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+        :param str origin_request_policy_id: The unique identifier of the origin request policy that is attached to this cache behavior. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+        :param str realtime_log_config_arn: The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this cache behavior. For more information, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the *Amazon CloudFront Developer Guide*.
+        :param str response_headers_policy_id: The identifier for a response headers policy.
+        :param bool smooth_streaming: Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+        :param Sequence[str] trusted_key_groups: A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
+                When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+        :param Sequence[str] trusted_signers: We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+                 A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
+                When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in the trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+        """
         pulumi.set(__self__, "path_pattern", path_pattern)
         pulumi.set(__self__, "target_origin_id", target_origin_id)
         pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
@@ -739,106 +801,197 @@ class DistributionCacheBehavior(dict):
     @property
     @pulumi.getter(name="pathPattern")
     def path_pattern(self) -> str:
+        """
+        The pattern (for example, ``images/*.jpg``) that specifies which requests to apply the behavior to. When CloudFront receives a viewer request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution.
+          You can optionally include a slash (``/``) at the beginning of the path pattern. For example, ``/images/*.jpg``. CloudFront behavior is the same with or without the leading ``/``.
+          The path pattern for the default cache behavior is ``*`` and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior.
+         For more information, see [Path Pattern](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesPathPattern) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "path_pattern")
 
     @property
     @pulumi.getter(name="targetOriginId")
     def target_origin_id(self) -> str:
+        """
+        The value of ``ID`` for the origin that you want CloudFront to route requests to when they match this cache behavior.
+        """
         return pulumi.get(self, "target_origin_id")
 
     @property
     @pulumi.getter(name="viewerProtocolPolicy")
     def viewer_protocol_policy(self) -> str:
+        """
+        The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
+          +   ``allow-all``: Viewers can use HTTP or HTTPS.
+          +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+          +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+          
+         For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
+          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+        """
         return pulumi.get(self, "viewer_protocol_policy")
 
     @property
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional[Sequence[str]]:
+        """
+        A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:
+          +  CloudFront forwards only ``GET`` and ``HEAD`` requests.
+          +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+          +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.
+          
+         If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+        """
         return pulumi.get(self, "allowed_methods")
 
     @property
     @pulumi.getter(name="cachePolicyId")
     def cache_policy_id(self) -> Optional[str]:
+        """
+        The unique identifier of the cache policy that is attached to this cache behavior. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         A ``CacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+        """
         return pulumi.get(self, "cache_policy_id")
 
     @property
     @pulumi.getter(name="cachedMethods")
     def cached_methods(self) -> Optional[Sequence[str]]:
+        """
+        A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
+          +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.
+          +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+          
+         If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
+        """
         return pulumi.get(self, "cached_methods")
 
     @property
     @pulumi.getter
     def compress(self) -> Optional[bool]:
+        """
+        Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify true; if not, specify false. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "compress")
 
     @property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[float]:
+        """
+        This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+        """
         return pulumi.get(self, "default_ttl")
 
     @property
     @pulumi.getter(name="fieldLevelEncryptionId")
     def field_level_encryption_id(self) -> Optional[str]:
+        """
+        The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for this cache behavior.
+        """
         return pulumi.get(self, "field_level_encryption_id")
 
     @property
     @pulumi.getter(name="forwardedValues")
     def forwarded_values(self) -> Optional['outputs.DistributionForwardedValues']:
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
+         If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+        """
         return pulumi.get(self, "forwarded_values")
 
     @property
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> Optional[Sequence['outputs.DistributionFunctionAssociation']]:
+        """
+        A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        """
         return pulumi.get(self, "function_associations")
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[Sequence['outputs.DistributionLambdaFunctionAssociation']]:
+        """
+        A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
+        """
         return pulumi.get(self, "lambda_function_associations")
 
     @property
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[float]:
+        """
+        This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+        """
         return pulumi.get(self, "max_ttl")
 
     @property
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[float]:
+        """
+        This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+         You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+        """
         return pulumi.get(self, "min_ttl")
 
     @property
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[str]:
+        """
+        The unique identifier of the origin request policy that is attached to this cache behavior. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_request_policy_id")
 
     @property
     @pulumi.getter(name="realtimeLogConfigArn")
     def realtime_log_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this cache behavior. For more information, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "realtime_log_config_arn")
 
     @property
     @pulumi.getter(name="responseHeadersPolicyId")
     def response_headers_policy_id(self) -> Optional[str]:
+        """
+        The identifier for a response headers policy.
+        """
         return pulumi.get(self, "response_headers_policy_id")
 
     @property
     @pulumi.getter(name="smoothStreaming")
     def smooth_streaming(self) -> Optional[bool]:
+        """
+        Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+        """
         return pulumi.get(self, "smooth_streaming")
 
     @property
     @pulumi.getter(name="trustedKeyGroups")
     def trusted_key_groups(self) -> Optional[Sequence[str]]:
+        """
+        A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
+         When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "trusted_key_groups")
 
     @property
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> Optional[Sequence[str]]:
+        """
+        We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+          A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
+         When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in the trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "trusted_signers")
 
 
 @pulumi.output_type
 class DistributionConfig(dict):
+    """
+    A distribution configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -902,6 +1055,43 @@ class DistributionConfig(dict):
                  staging: Optional[bool] = None,
                  viewer_certificate: Optional['outputs.DistributionViewerCertificate'] = None,
                  web_acl_id: Optional[str] = None):
+        """
+        A distribution configuration.
+        :param 'DistributionDefaultCacheBehavior' default_cache_behavior: A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+        :param bool enabled: From this field, you can enable or disable the selected distribution.
+        :param Sequence[str] aliases: A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+        :param Sequence['DistributionCacheBehavior'] cache_behaviors: A complex type that contains zero or more ``CacheBehavior`` elements.
+        :param str comment: A comment to describe the distribution. The comment cannot be longer than 128 characters.
+        :param str continuous_deployment_policy_id: The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
+        :param Sequence['DistributionCustomErrorResponse'] custom_error_responses: A complex type that controls the following:
+                 +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
+                 +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
+                 
+                For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+        :param str default_root_object: The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
+                Specify only the object name, for example, ``index.html``. Don't add a ``/`` before the object name.
+                If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+                To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
+                To replace the default root object, update the distribution configuration and specify the new object.
+                For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/D
+        :param str http_version: (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
+                For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
+                For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
+        :param bool ipv6_enabled: If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
+                In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/Devel
+        :param 'DistributionLogging' logging: A complex type that controls whether access logs are written for the distribution.
+                For more information about logging, see [Access Logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) in the *Amazon CloudFront Developer Guide*.
+        :param 'DistributionOriginGroups' origin_groups: A complex type that contains information about origin groups for this distribution.
+        :param Sequence['DistributionOrigin'] origins: A complex type that contains information about origins for this distribution.
+        :param str price_class: The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
+                If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
+                For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
+        :param 'DistributionRestrictions' restrictions: A complex type that identifies ways in which you want to restrict distribution of your content.
+        :param bool staging: A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
+        :param 'DistributionViewerCertificate' viewer_certificate: A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
+        :param str web_acl_id: A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
+                 WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest
+        """
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         pulumi.set(__self__, "enabled", enabled)
         if aliases is not None:
@@ -946,21 +1136,33 @@ class DistributionConfig(dict):
     @property
     @pulumi.getter(name="defaultCacheBehavior")
     def default_cache_behavior(self) -> 'outputs.DistributionDefaultCacheBehavior':
+        """
+        A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+        """
         return pulumi.get(self, "default_cache_behavior")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        From this field, you can enable or disable the selected distribution.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def aliases(self) -> Optional[Sequence[str]]:
+        """
+        A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+        """
         return pulumi.get(self, "aliases")
 
     @property
     @pulumi.getter(name="cacheBehaviors")
     def cache_behaviors(self) -> Optional[Sequence['outputs.DistributionCacheBehavior']]:
+        """
+        A complex type that contains zero or more ``CacheBehavior`` elements.
+        """
         return pulumi.get(self, "cache_behaviors")
 
     @property
@@ -971,16 +1173,29 @@ class DistributionConfig(dict):
     @property
     @pulumi.getter
     def comment(self) -> Optional[str]:
+        """
+        A comment to describe the distribution. The comment cannot be longer than 128 characters.
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="continuousDeploymentPolicyId")
     def continuous_deployment_policy_id(self) -> Optional[str]:
+        """
+        The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
+        """
         return pulumi.get(self, "continuous_deployment_policy_id")
 
     @property
     @pulumi.getter(name="customErrorResponses")
     def custom_error_responses(self) -> Optional[Sequence['outputs.DistributionCustomErrorResponse']]:
+        """
+        A complex type that controls the following:
+          +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
+          +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
+          
+         For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "custom_error_responses")
 
     @property
@@ -991,41 +1206,76 @@ class DistributionConfig(dict):
     @property
     @pulumi.getter(name="defaultRootObject")
     def default_root_object(self) -> Optional[str]:
+        """
+        The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
+         Specify only the object name, for example, ``index.html``. Don't add a ``/`` before the object name.
+         If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+         To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
+         To replace the default root object, update the distribution configuration and specify the new object.
+         For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/D
+        """
         return pulumi.get(self, "default_root_object")
 
     @property
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> Optional[str]:
+        """
+        (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
+         For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
+         For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
+        """
         return pulumi.get(self, "http_version")
 
     @property
     @pulumi.getter(name="ipv6Enabled")
     def ipv6_enabled(self) -> Optional[bool]:
+        """
+        If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
+         In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/Devel
+        """
         return pulumi.get(self, "ipv6_enabled")
 
     @property
     @pulumi.getter
     def logging(self) -> Optional['outputs.DistributionLogging']:
+        """
+        A complex type that controls whether access logs are written for the distribution.
+         For more information about logging, see [Access Logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "logging")
 
     @property
     @pulumi.getter(name="originGroups")
     def origin_groups(self) -> Optional['outputs.DistributionOriginGroups']:
+        """
+        A complex type that contains information about origin groups for this distribution.
+        """
         return pulumi.get(self, "origin_groups")
 
     @property
     @pulumi.getter
     def origins(self) -> Optional[Sequence['outputs.DistributionOrigin']]:
+        """
+        A complex type that contains information about origins for this distribution.
+        """
         return pulumi.get(self, "origins")
 
     @property
     @pulumi.getter(name="priceClass")
     def price_class(self) -> Optional[str]:
+        """
+        The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
+         If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
+         For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
+        """
         return pulumi.get(self, "price_class")
 
     @property
     @pulumi.getter
     def restrictions(self) -> Optional['outputs.DistributionRestrictions']:
+        """
+        A complex type that identifies ways in which you want to restrict distribution of your content.
+        """
         return pulumi.get(self, "restrictions")
 
     @property
@@ -1036,21 +1286,37 @@ class DistributionConfig(dict):
     @property
     @pulumi.getter
     def staging(self) -> Optional[bool]:
+        """
+        A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
+        """
         return pulumi.get(self, "staging")
 
     @property
     @pulumi.getter(name="viewerCertificate")
     def viewer_certificate(self) -> Optional['outputs.DistributionViewerCertificate']:
+        """
+        A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
+        """
         return pulumi.get(self, "viewer_certificate")
 
     @property
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[str]:
+        """
+        A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
+          WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest
+        """
         return pulumi.get(self, "web_acl_id")
 
 
 @pulumi.output_type
 class DistributionCookies(dict):
+    """
+    This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+     If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+     If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+     A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1071,6 +1337,21 @@ class DistributionCookies(dict):
     def __init__(__self__, *,
                  forward: str,
                  whitelisted_names: Optional[Sequence[str]] = None):
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+        :param str forward: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+                If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+                If you want to send cookies to the origin but not include them in the cache key, use origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+                Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
+                Amazon S3 doesn't process cookies. When the cache behavior is forw
+        :param Sequence[str] whitelisted_names: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+                If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+                If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+                Required if you specify ``whitelist`` for the value of ``Forward``. A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward se
+        """
         pulumi.set(__self__, "forward", forward)
         if whitelisted_names is not None:
             pulumi.set(__self__, "whitelisted_names", whitelisted_names)
@@ -1078,16 +1359,36 @@ class DistributionCookies(dict):
     @property
     @pulumi.getter
     def forward(self) -> str:
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         If you want to send cookies to the origin but not include them in the cache key, use origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
+         Amazon S3 doesn't process cookies. When the cache behavior is forw
+        """
         return pulumi.get(self, "forward")
 
     @property
     @pulumi.getter(name="whitelistedNames")
     def whitelisted_names(self) -> Optional[Sequence[str]]:
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         Required if you specify ``whitelist`` for the value of ``Forward``. A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward se
+        """
         return pulumi.get(self, "whitelisted_names")
 
 
 @pulumi.output_type
 class DistributionCustomErrorResponse(dict):
+    """
+    A complex type that controls:
+      +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
+      +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
+      
+     For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1116,6 +1417,28 @@ class DistributionCustomErrorResponse(dict):
                  error_caching_min_ttl: Optional[float] = None,
                  response_code: Optional[int] = None,
                  response_page_path: Optional[str] = None):
+        """
+        A complex type that controls:
+          +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
+          +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
+          
+         For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+        :param int error_code: The HTTP status code for which you want to specify a custom error page and/or a caching duration.
+        :param float error_caching_min_ttl: The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode``. When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
+                For more information, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+        :param int response_code: The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
+                 +  Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200``, the response typically won't be intercepted.
+                 +  If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors.
+                 +  You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down.
+                 
+                If you specify a value for ``ResponseCode``, you must also specify a value for ``ResponsePagePath``.
+        :param str response_page_path: The path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ``ErrorCode``, for example, ``/4xx-errors/403-forbidden.html``. If you want to store your objects and your custom error pages in different locations, your distribution must include a cache behavior for which the following is true:
+                 +  The value of ``PathPattern`` matches the path to your custom error messages. For example, suppose you saved custom error pages for 4xx errors in an Amazon S3 bucket in a directory named ``/4xx-errors``. Your distribution must include a cache behavior for which the path pattern routes requests for your custom error pages to that location, for example, ``/4xx-errors/*``.
+                 +  The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages.
+                 
+                If you specify a value for ``ResponsePagePath``, you must also specify a value for ``ResponseCode``.
+                We recommend 
+        """
         pulumi.set(__self__, "error_code", error_code)
         if error_caching_min_ttl is not None:
             pulumi.set(__self__, "error_caching_min_ttl", error_caching_min_ttl)
@@ -1127,26 +1450,52 @@ class DistributionCustomErrorResponse(dict):
     @property
     @pulumi.getter(name="errorCode")
     def error_code(self) -> int:
+        """
+        The HTTP status code for which you want to specify a custom error page and/or a caching duration.
+        """
         return pulumi.get(self, "error_code")
 
     @property
     @pulumi.getter(name="errorCachingMinTtl")
     def error_caching_min_ttl(self) -> Optional[float]:
+        """
+        The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode``. When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
+         For more information, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "error_caching_min_ttl")
 
     @property
     @pulumi.getter(name="responseCode")
     def response_code(self) -> Optional[int]:
+        """
+        The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
+          +  Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200``, the response typically won't be intercepted.
+          +  If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors.
+          +  You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down.
+          
+         If you specify a value for ``ResponseCode``, you must also specify a value for ``ResponsePagePath``.
+        """
         return pulumi.get(self, "response_code")
 
     @property
     @pulumi.getter(name="responsePagePath")
     def response_page_path(self) -> Optional[str]:
+        """
+        The path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ``ErrorCode``, for example, ``/4xx-errors/403-forbidden.html``. If you want to store your objects and your custom error pages in different locations, your distribution must include a cache behavior for which the following is true:
+          +  The value of ``PathPattern`` matches the path to your custom error messages. For example, suppose you saved custom error pages for 4xx errors in an Amazon S3 bucket in a directory named ``/4xx-errors``. Your distribution must include a cache behavior for which the path pattern routes requests for your custom error pages to that location, for example, ``/4xx-errors/*``.
+          +  The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages.
+          
+         If you specify a value for ``ResponsePagePath``, you must also specify a value for ``ResponseCode``.
+         We recommend 
+        """
         return pulumi.get(self, "response_page_path")
 
 
 @pulumi.output_type
 class DistributionCustomOriginConfig(dict):
+    """
+    A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1181,6 +1530,21 @@ class DistributionCustomOriginConfig(dict):
                  origin_keepalive_timeout: Optional[int] = None,
                  origin_read_timeout: Optional[int] = None,
                  origin_ssl_protocols: Optional[Sequence[str]] = None):
+        """
+        A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+        :param str origin_protocol_policy: Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
+                 +   ``http-only`` – CloudFront always uses HTTP to connect to the origin.
+                 +   ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
+                 +   ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
+        :param int http_port: The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+        :param int https_port: The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+        :param int origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+                For more information, see [Origin Keep-alive Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+        :param int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+                For more information, see [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+        :param Sequence[str] origin_ssl_protocols: Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
+                For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+        """
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
         if http_port is not None:
             pulumi.set(__self__, "http_port", http_port)
@@ -1196,36 +1560,63 @@ class DistributionCustomOriginConfig(dict):
     @property
     @pulumi.getter(name="originProtocolPolicy")
     def origin_protocol_policy(self) -> str:
+        """
+        Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
+          +   ``http-only`` – CloudFront always uses HTTP to connect to the origin.
+          +   ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
+          +   ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
+        """
         return pulumi.get(self, "origin_protocol_policy")
 
     @property
     @pulumi.getter(name="httpPort")
     def http_port(self) -> Optional[int]:
+        """
+        The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+        """
         return pulumi.get(self, "http_port")
 
     @property
     @pulumi.getter(name="httpsPort")
     def https_port(self) -> Optional[int]:
+        """
+        The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+        """
         return pulumi.get(self, "https_port")
 
     @property
     @pulumi.getter(name="originKeepaliveTimeout")
     def origin_keepalive_timeout(self) -> Optional[int]:
+        """
+        Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+         For more information, see [Origin Keep-alive Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_keepalive_timeout")
 
     @property
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[int]:
+        """
+        Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+         For more information, see [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_read_timeout")
 
     @property
     @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
+         For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_ssl_protocols")
 
 
 @pulumi.output_type
 class DistributionDefaultCacheBehavior(dict):
+    """
+    A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if request URLs don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1297,6 +1688,53 @@ class DistributionDefaultCacheBehavior(dict):
                  smooth_streaming: Optional[bool] = None,
                  trusted_key_groups: Optional[Sequence[str]] = None,
                  trusted_signers: Optional[Sequence[str]] = None):
+        """
+        A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if request URLs don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+        :param str target_origin_id: The value of ``ID`` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
+        :param str viewer_protocol_policy: The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
+                 +   ``allow-all``: Viewers can use HTTP or HTTPS.
+                 +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+                 +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+                 
+                For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
+                 The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+        :param Sequence[str] allowed_methods: A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:
+                 +  CloudFront forwards only ``GET`` and ``HEAD`` requests.
+                 +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+                 +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.
+                 
+                If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+        :param str cache_policy_id: The unique identifier of the cache policy that is attached to the default cache behavior. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                A ``DefaultCacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+        :param Sequence[str] cached_methods: A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
+                 +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.
+                 +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+                 
+                If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
+        :param bool compress: Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify ``true``; if not, specify ``false``. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
+        :param float default_ttl: This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+        :param str field_level_encryption_id: The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for the default cache behavior.
+        :param 'DistributionForwardedValues' forwarded_values: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
+                If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+        :param Sequence['DistributionFunctionAssociation'] function_associations: A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        :param Sequence['DistributionLambdaFunctionAssociation'] lambda_function_associations: A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
+        :param float max_ttl: This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+        :param float min_ttl: This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+                The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+                You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+        :param str origin_request_policy_id: The unique identifier of the origin request policy that is attached to the default cache behavior. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+        :param str realtime_log_config_arn: The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this cache behavior. For more information, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the *Amazon CloudFront Developer Guide*.
+        :param str response_headers_policy_id: The identifier for a response headers policy.
+        :param bool smooth_streaming: Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+        :param Sequence[str] trusted_key_groups: A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
+                When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+        :param Sequence[str] trusted_signers: We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+                 A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
+                When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in a trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+        """
         pulumi.set(__self__, "target_origin_id", target_origin_id)
         pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
         if allowed_methods is not None:
@@ -1337,101 +1775,189 @@ class DistributionDefaultCacheBehavior(dict):
     @property
     @pulumi.getter(name="targetOriginId")
     def target_origin_id(self) -> str:
+        """
+        The value of ``ID`` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
+        """
         return pulumi.get(self, "target_origin_id")
 
     @property
     @pulumi.getter(name="viewerProtocolPolicy")
     def viewer_protocol_policy(self) -> str:
+        """
+        The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
+          +   ``allow-all``: Viewers can use HTTP or HTTPS.
+          +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+          +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+          
+         For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
+          The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+        """
         return pulumi.get(self, "viewer_protocol_policy")
 
     @property
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional[Sequence[str]]:
+        """
+        A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:
+          +  CloudFront forwards only ``GET`` and ``HEAD`` requests.
+          +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+          +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.
+          
+         If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+        """
         return pulumi.get(self, "allowed_methods")
 
     @property
     @pulumi.getter(name="cachePolicyId")
     def cache_policy_id(self) -> Optional[str]:
+        """
+        The unique identifier of the cache policy that is attached to the default cache behavior. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         A ``DefaultCacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+        """
         return pulumi.get(self, "cache_policy_id")
 
     @property
     @pulumi.getter(name="cachedMethods")
     def cached_methods(self) -> Optional[Sequence[str]]:
+        """
+        A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
+          +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.
+          +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+          
+         If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
+        """
         return pulumi.get(self, "cached_methods")
 
     @property
     @pulumi.getter
     def compress(self) -> Optional[bool]:
+        """
+        Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify ``true``; if not, specify ``false``. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "compress")
 
     @property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[float]:
+        """
+        This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+        """
         return pulumi.get(self, "default_ttl")
 
     @property
     @pulumi.getter(name="fieldLevelEncryptionId")
     def field_level_encryption_id(self) -> Optional[str]:
+        """
+        The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for the default cache behavior.
+        """
         return pulumi.get(self, "field_level_encryption_id")
 
     @property
     @pulumi.getter(name="forwardedValues")
     def forwarded_values(self) -> Optional['outputs.DistributionForwardedValues']:
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
+         If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+        """
         return pulumi.get(self, "forwarded_values")
 
     @property
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> Optional[Sequence['outputs.DistributionFunctionAssociation']]:
+        """
+        A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        """
         return pulumi.get(self, "function_associations")
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
     def lambda_function_associations(self) -> Optional[Sequence['outputs.DistributionLambdaFunctionAssociation']]:
+        """
+        A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
+        """
         return pulumi.get(self, "lambda_function_associations")
 
     @property
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[float]:
+        """
+        This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+        """
         return pulumi.get(self, "max_ttl")
 
     @property
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[float]:
+        """
+        This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+         You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+        """
         return pulumi.get(self, "min_ttl")
 
     @property
     @pulumi.getter(name="originRequestPolicyId")
     def origin_request_policy_id(self) -> Optional[str]:
+        """
+        The unique identifier of the origin request policy that is attached to the default cache behavior. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_request_policy_id")
 
     @property
     @pulumi.getter(name="realtimeLogConfigArn")
     def realtime_log_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this cache behavior. For more information, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "realtime_log_config_arn")
 
     @property
     @pulumi.getter(name="responseHeadersPolicyId")
     def response_headers_policy_id(self) -> Optional[str]:
+        """
+        The identifier for a response headers policy.
+        """
         return pulumi.get(self, "response_headers_policy_id")
 
     @property
     @pulumi.getter(name="smoothStreaming")
     def smooth_streaming(self) -> Optional[bool]:
+        """
+        Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+        """
         return pulumi.get(self, "smooth_streaming")
 
     @property
     @pulumi.getter(name="trustedKeyGroups")
     def trusted_key_groups(self) -> Optional[Sequence[str]]:
+        """
+        A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
+         When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "trusted_key_groups")
 
     @property
     @pulumi.getter(name="trustedSigners")
     def trusted_signers(self) -> Optional[Sequence[str]]:
+        """
+        We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+          A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
+         When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in a trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "trusted_signers")
 
 
 @pulumi.output_type
 class DistributionForwardedValues(dict):
+    """
+    This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+     If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+     If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+     A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1456,6 +1982,28 @@ class DistributionForwardedValues(dict):
                  cookies: Optional['outputs.DistributionCookies'] = None,
                  headers: Optional[Sequence[str]] = None,
                  query_string_cache_keys: Optional[Sequence[str]] = None):
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
+        :param bool query_string: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+                If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+                If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+                Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of
+        :param 'DistributionCookies' cookies: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+                If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+                If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+                A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+        :param Sequence[str] headers: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+                If you want to include headers in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+                If you want to send headers to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+                A complex type that specifies the ``Headers``, if any, that you want CloudFront to forward to the origin for this cache behavior (whitelisted headers). For the headers that you specify, CloudFront also caches separate versio
+        :param Sequence[str] query_string_cache_keys: This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+                If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+                If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+                A complex type that contains information about the query string parameters that you want CloudFront to use for caching for this cache behavior.
+        """
         pulumi.set(__self__, "query_string", query_string)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
@@ -1467,26 +2015,53 @@ class DistributionForwardedValues(dict):
     @property
     @pulumi.getter(name="queryString")
     def query_string(self) -> bool:
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of
+        """
         return pulumi.get(self, "query_string")
 
     @property
     @pulumi.getter
     def cookies(self) -> Optional['outputs.DistributionCookies']:
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+        """
         return pulumi.get(self, "cookies")
 
     @property
     @pulumi.getter
     def headers(self) -> Optional[Sequence[str]]:
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         If you want to include headers in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         If you want to send headers to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         A complex type that specifies the ``Headers``, if any, that you want CloudFront to forward to the origin for this cache behavior (whitelisted headers). For the headers that you specify, CloudFront also caches separate versio
+        """
         return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter(name="queryStringCacheKeys")
     def query_string_cache_keys(self) -> Optional[Sequence[str]]:
+        """
+        This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         A complex type that contains information about the query string parameters that you want CloudFront to use for caching for this cache behavior.
+        """
         return pulumi.get(self, "query_string_cache_keys")
 
 
 @pulumi.output_type
 class DistributionFunctionAssociation(dict):
+    """
+    A CloudFront function that is associated with a cache behavior in a CloudFront distribution.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1509,6 +2084,11 @@ class DistributionFunctionAssociation(dict):
     def __init__(__self__, *,
                  event_type: Optional[str] = None,
                  function_arn: Optional[str] = None):
+        """
+        A CloudFront function that is associated with a cache behavior in a CloudFront distribution.
+        :param str event_type: The event type of the function, either ``viewer-request`` or ``viewer-response``. You cannot use origin-facing event types (``origin-request`` and ``origin-response``) with a CloudFront function.
+        :param str function_arn: The Amazon Resource Name (ARN) of the function.
+        """
         if event_type is not None:
             pulumi.set(__self__, "event_type", event_type)
         if function_arn is not None:
@@ -1517,16 +2097,25 @@ class DistributionFunctionAssociation(dict):
     @property
     @pulumi.getter(name="eventType")
     def event_type(self) -> Optional[str]:
+        """
+        The event type of the function, either ``viewer-request`` or ``viewer-response``. You cannot use origin-facing event types (``origin-request`` and ``origin-response``) with a CloudFront function.
+        """
         return pulumi.get(self, "event_type")
 
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the function.
+        """
         return pulumi.get(self, "function_arn")
 
 
 @pulumi.output_type
 class DistributionGeoRestriction(dict):
+    """
+    A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1547,6 +2136,16 @@ class DistributionGeoRestriction(dict):
     def __init__(__self__, *,
                  restriction_type: str,
                  locations: Optional[Sequence[str]] = None):
+        """
+        A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
+        :param str restriction_type: The method that you want to use to restrict distribution of your content by country:
+                 +   ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
+                 +   ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+                 +   ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
+        :param Sequence[str] locations: A complex type that contains a ``Location`` element for each country in which you want CloudFront either to distribute your content (``whitelist``) or not distribute your content (``blacklist``).
+                The ``Location`` element is a two-letter, uppercase country code for a country that you want to include in your ``blacklist`` or ``whitelist``. Include one ``Location`` element for each country.
+                CloudFront and ``MaxMind`` both use ``ISO 3166`` country codes. For the current list of countries and the corresponding codes, see ``ISO 3166-1-alpha-2`` code on the *International Organization for Standardization* website. You can also refer to the country list on the CloudFront console, which includes both country names and codes.
+        """
         pulumi.set(__self__, "restriction_type", restriction_type)
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -1554,16 +2153,30 @@ class DistributionGeoRestriction(dict):
     @property
     @pulumi.getter(name="restrictionType")
     def restriction_type(self) -> str:
+        """
+        The method that you want to use to restrict distribution of your content by country:
+          +   ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
+          +   ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+          +   ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
+        """
         return pulumi.get(self, "restriction_type")
 
     @property
     @pulumi.getter
     def locations(self) -> Optional[Sequence[str]]:
+        """
+        A complex type that contains a ``Location`` element for each country in which you want CloudFront either to distribute your content (``whitelist``) or not distribute your content (``blacklist``).
+         The ``Location`` element is a two-letter, uppercase country code for a country that you want to include in your ``blacklist`` or ``whitelist``. Include one ``Location`` element for each country.
+         CloudFront and ``MaxMind`` both use ``ISO 3166`` country codes. For the current list of countries and the corresponding codes, see ``ISO 3166-1-alpha-2`` code on the *International Organization for Standardization* website. You can also refer to the country list on the CloudFront console, which includes both country names and codes.
+        """
         return pulumi.get(self, "locations")
 
 
 @pulumi.output_type
 class DistributionLambdaFunctionAssociation(dict):
+    """
+    A complex type that contains a Lambda@Edge function association.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1589,6 +2202,17 @@ class DistributionLambdaFunctionAssociation(dict):
                  event_type: Optional[str] = None,
                  include_body: Optional[bool] = None,
                  lambda_function_arn: Optional[str] = None):
+        """
+        A complex type that contains a Lambda@Edge function association.
+        :param str event_type: Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:
+                 +   ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
+                 +   ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
+                 +   ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
+                 +   ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
+                If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
+        :param bool include_body: A flag that allows a Lambda@Edge function to have read access to the body content. For more information, see [Accessing the Request Body by Choosing the Include Body Option](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html) in the Amazon CloudFront Developer Guide.
+        :param str lambda_function_arn: The ARN of the Lambda@Edge function. You must specify the ARN of a function version; you can't specify an alias or $LATEST.
+        """
         if event_type is not None:
             pulumi.set(__self__, "event_type", event_type)
         if include_body is not None:
@@ -1599,16 +2223,30 @@ class DistributionLambdaFunctionAssociation(dict):
     @property
     @pulumi.getter(name="eventType")
     def event_type(self) -> Optional[str]:
+        """
+        Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:
+          +   ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
+          +   ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
+          +   ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
+          +   ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
+         If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
+        """
         return pulumi.get(self, "event_type")
 
     @property
     @pulumi.getter(name="includeBody")
     def include_body(self) -> Optional[bool]:
+        """
+        A flag that allows a Lambda@Edge function to have read access to the body content. For more information, see [Accessing the Request Body by Choosing the Include Body Option](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html) in the Amazon CloudFront Developer Guide.
+        """
         return pulumi.get(self, "include_body")
 
     @property
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> Optional[str]:
+        """
+        The ARN of the Lambda@Edge function. You must specify the ARN of a function version; you can't specify an alias or $LATEST.
+        """
         return pulumi.get(self, "lambda_function_arn")
 
 
@@ -1720,6 +2358,9 @@ class DistributionLegacyS3Origin(dict):
 
 @pulumi.output_type
 class DistributionLogging(dict):
+    """
+    A complex type that controls whether access logs are written for the distribution.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1741,6 +2382,12 @@ class DistributionLogging(dict):
                  bucket: str,
                  include_cookies: Optional[bool] = None,
                  prefix: Optional[str] = None):
+        """
+        A complex type that controls whether access logs are written for the distribution.
+        :param str bucket: The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
+        :param bool include_cookies: Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
+        :param str prefix: An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+        """
         pulumi.set(__self__, "bucket", bucket)
         if include_cookies is not None:
             pulumi.set(__self__, "include_cookies", include_cookies)
@@ -1750,21 +2397,44 @@ class DistributionLogging(dict):
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        """
+        The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="includeCookies")
     def include_cookies(self) -> Optional[bool]:
+        """
+        Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
+        """
         return pulumi.get(self, "include_cookies")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+        """
         return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type
 class DistributionOrigin(dict):
+    """
+    An origin.
+     An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
+      +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+      +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
+      +  An Amazon S3 bucket that is configured with static website hosting
+      +  An Elastic Load Balancing load balancer
+      +  An EMPlong endpoint
+      +  An EMSlong container
+      +  Any other HTTP server, running on an Amazon EC2 instance or any other kind of host
+      
+      
+     For the current maximum number of origins that you can specify per distribution, see [General Quotas on Web Distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-web-distributions) in the *Amazon CloudFront Developer Guide* (quotas were formerly referred to as limits).
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1809,6 +2479,39 @@ class DistributionOrigin(dict):
                  origin_path: Optional[str] = None,
                  origin_shield: Optional['outputs.DistributionOriginShield'] = None,
                  s3_origin_config: Optional['outputs.DistributionS3OriginConfig'] = None):
+        """
+        An origin.
+         An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
+          +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+          +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
+          +  An Amazon S3 bucket that is configured with static website hosting
+          +  An Elastic Load Balancing load balancer
+          +  An EMPlong endpoint
+          +  An EMSlong container
+          +  Any other HTTP server, running on an Amazon EC2 instance or any other kind of host
+          
+          
+         For the current maximum number of origins that you can specify per distribution, see [General Quotas on Web Distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-web-distributions) in the *Amazon CloudFront Developer Guide* (quotas were formerly referred to as limits).
+        :param str domain_name: The domain name for the origin.
+                For more information, see [Origin Domain Name](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName) in the *Amazon CloudFront Developer Guide*.
+        :param str id: A unique identifier for the origin. This value must be unique within the distribution.
+                Use this value to specify the ``TargetOriginId`` in a ``CacheBehavior`` or ``DefaultCacheBehavior``.
+        :param int connection_attempts: The number of times that CloudFront attempts to connect to the origin. The minimum number is 1, the maximum is 3, and the default (if you don't specify otherwise) is 3.
+                For a custom origin (including an Amazon S3 bucket that's configured with static website hosting), this value also specifies the number of times that CloudFront attempts to get a response from the origin, in the case of an [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout).
+                For more information, see [Origin Connection Attempts](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts) in the *Amazon CloudFront Developer Guide*.
+        :param int connection_timeout: The number of seconds that CloudFront waits when trying to establish a connection to the origin. The minimum timeout is 1 second, the maximum is 10 seconds, and the default (if you don't specify otherwise) is 10 seconds.
+                For more information, see [Origin Connection Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-timeout) in the *Amazon CloudFront Developer Guide*.
+        :param 'DistributionCustomOriginConfig' custom_origin_config: Use this type to specify an origin that is not an Amazon S3 bucket, with one exception. If the Amazon S3 bucket is configured with static website hosting, use this type. If the Amazon S3 bucket is not configured with static website hosting, use the ``S3OriginConfig`` type instead.
+        :param str origin_access_control_id: The unique identifier of an origin access control for this origin.
+                For more information, see [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide*.
+        :param Sequence['DistributionOriginCustomHeader'] origin_custom_headers: A list of HTTP header names and values that CloudFront adds to the requests that it sends to the origin.
+                For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html) in the *Amazon CloudFront Developer Guide*.
+        :param str origin_path: An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
+                For more information, see [Origin Path](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath) in the *Amazon CloudFront Developer Guide*.
+        :param 'DistributionOriginShield' origin_shield: CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
+                For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
+        :param 'DistributionS3OriginConfig' s3_origin_config: Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
+        """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "id", id)
         if connection_attempts is not None:
@@ -1831,56 +2534,98 @@ class DistributionOrigin(dict):
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
+        """
+        The domain name for the origin.
+         For more information, see [Origin Domain Name](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        A unique identifier for the origin. This value must be unique within the distribution.
+         Use this value to specify the ``TargetOriginId`` in a ``CacheBehavior`` or ``DefaultCacheBehavior``.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="connectionAttempts")
     def connection_attempts(self) -> Optional[int]:
+        """
+        The number of times that CloudFront attempts to connect to the origin. The minimum number is 1, the maximum is 3, and the default (if you don't specify otherwise) is 3.
+         For a custom origin (including an Amazon S3 bucket that's configured with static website hosting), this value also specifies the number of times that CloudFront attempts to get a response from the origin, in the case of an [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout).
+         For more information, see [Origin Connection Attempts](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "connection_attempts")
 
     @property
     @pulumi.getter(name="connectionTimeout")
     def connection_timeout(self) -> Optional[int]:
+        """
+        The number of seconds that CloudFront waits when trying to establish a connection to the origin. The minimum timeout is 1 second, the maximum is 10 seconds, and the default (if you don't specify otherwise) is 10 seconds.
+         For more information, see [Origin Connection Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-timeout) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "connection_timeout")
 
     @property
     @pulumi.getter(name="customOriginConfig")
     def custom_origin_config(self) -> Optional['outputs.DistributionCustomOriginConfig']:
+        """
+        Use this type to specify an origin that is not an Amazon S3 bucket, with one exception. If the Amazon S3 bucket is configured with static website hosting, use this type. If the Amazon S3 bucket is not configured with static website hosting, use the ``S3OriginConfig`` type instead.
+        """
         return pulumi.get(self, "custom_origin_config")
 
     @property
     @pulumi.getter(name="originAccessControlId")
     def origin_access_control_id(self) -> Optional[str]:
+        """
+        The unique identifier of an origin access control for this origin.
+         For more information, see [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_access_control_id")
 
     @property
     @pulumi.getter(name="originCustomHeaders")
     def origin_custom_headers(self) -> Optional[Sequence['outputs.DistributionOriginCustomHeader']]:
+        """
+        A list of HTTP header names and values that CloudFront adds to the requests that it sends to the origin.
+         For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_custom_headers")
 
     @property
     @pulumi.getter(name="originPath")
     def origin_path(self) -> Optional[str]:
+        """
+        An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
+         For more information, see [Origin Path](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_path")
 
     @property
     @pulumi.getter(name="originShield")
     def origin_shield(self) -> Optional['outputs.DistributionOriginShield']:
+        """
+        CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
+         For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_shield")
 
     @property
     @pulumi.getter(name="s3OriginConfig")
     def s3_origin_config(self) -> Optional['outputs.DistributionS3OriginConfig']:
+        """
+        Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
+        """
         return pulumi.get(self, "s3_origin_config")
 
 
 @pulumi.output_type
 class DistributionOriginCustomHeader(dict):
+    """
+    A complex type that contains ``HeaderName`` and ``HeaderValue`` elements, if any, for this distribution.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1903,22 +2648,36 @@ class DistributionOriginCustomHeader(dict):
     def __init__(__self__, *,
                  header_name: str,
                  header_value: str):
+        """
+        A complex type that contains ``HeaderName`` and ``HeaderValue`` elements, if any, for this distribution.
+        :param str header_name: The name of a header that you want CloudFront to send to your origin. For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html) in the *Amazon CloudFront Developer Guide*.
+        :param str header_value: The value for the header that you specified in the ``HeaderName`` field.
+        """
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "header_value", header_value)
 
     @property
     @pulumi.getter(name="headerName")
     def header_name(self) -> str:
+        """
+        The name of a header that you want CloudFront to send to your origin. For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "header_name")
 
     @property
     @pulumi.getter(name="headerValue")
     def header_value(self) -> str:
+        """
+        The value for the header that you specified in the ``HeaderName`` field.
+        """
         return pulumi.get(self, "header_value")
 
 
 @pulumi.output_type
 class DistributionOriginGroup(dict):
+    """
+    An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1940,6 +2699,12 @@ class DistributionOriginGroup(dict):
                  failover_criteria: 'outputs.DistributionOriginGroupFailoverCriteria',
                  id: str,
                  members: 'outputs.DistributionOriginGroupMembers'):
+        """
+        An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
+        :param 'DistributionOriginGroupFailoverCriteria' failover_criteria: A complex type that contains information about the failover criteria for an origin group.
+        :param str id: The origin group's ID.
+        :param 'DistributionOriginGroupMembers' members: A complex type that contains information about the origins in an origin group.
+        """
         pulumi.set(__self__, "failover_criteria", failover_criteria)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "members", members)
@@ -1947,21 +2712,33 @@ class DistributionOriginGroup(dict):
     @property
     @pulumi.getter(name="failoverCriteria")
     def failover_criteria(self) -> 'outputs.DistributionOriginGroupFailoverCriteria':
+        """
+        A complex type that contains information about the failover criteria for an origin group.
+        """
         return pulumi.get(self, "failover_criteria")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The origin group's ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def members(self) -> 'outputs.DistributionOriginGroupMembers':
+        """
+        A complex type that contains information about the origins in an origin group.
+        """
         return pulumi.get(self, "members")
 
 
 @pulumi.output_type
 class DistributionOriginGroupFailoverCriteria(dict):
+    """
+    A complex data type that includes information about the failover criteria for an origin group, including the status codes for which CloudFront will failover from the primary origin to the second origin.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1981,16 +2758,26 @@ class DistributionOriginGroupFailoverCriteria(dict):
 
     def __init__(__self__, *,
                  status_codes: 'outputs.DistributionStatusCodes'):
+        """
+        A complex data type that includes information about the failover criteria for an origin group, including the status codes for which CloudFront will failover from the primary origin to the second origin.
+        :param 'DistributionStatusCodes' status_codes: The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
+        """
         pulumi.set(__self__, "status_codes", status_codes)
 
     @property
     @pulumi.getter(name="statusCodes")
     def status_codes(self) -> 'outputs.DistributionStatusCodes':
+        """
+        The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
+        """
         return pulumi.get(self, "status_codes")
 
 
 @pulumi.output_type
 class DistributionOriginGroupMember(dict):
+    """
+    An origin in an origin group.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2010,38 +2797,67 @@ class DistributionOriginGroupMember(dict):
 
     def __init__(__self__, *,
                  origin_id: str):
+        """
+        An origin in an origin group.
+        :param str origin_id: The ID for an origin in an origin group.
+        """
         pulumi.set(__self__, "origin_id", origin_id)
 
     @property
     @pulumi.getter(name="originId")
     def origin_id(self) -> str:
+        """
+        The ID for an origin in an origin group.
+        """
         return pulumi.get(self, "origin_id")
 
 
 @pulumi.output_type
 class DistributionOriginGroupMembers(dict):
+    """
+    A complex data type for the origins included in an origin group.
+    """
     def __init__(__self__, *,
                  items: Sequence['outputs.DistributionOriginGroupMember'],
                  quantity: int):
+        """
+        A complex data type for the origins included in an origin group.
+        :param Sequence['DistributionOriginGroupMember'] items: Items (origins) in an origin group.
+        :param int quantity: The number of origins in an origin group.
+        """
         pulumi.set(__self__, "items", items)
         pulumi.set(__self__, "quantity", quantity)
 
     @property
     @pulumi.getter
     def items(self) -> Sequence['outputs.DistributionOriginGroupMember']:
+        """
+        Items (origins) in an origin group.
+        """
         return pulumi.get(self, "items")
 
     @property
     @pulumi.getter
     def quantity(self) -> int:
+        """
+        The number of origins in an origin group.
+        """
         return pulumi.get(self, "quantity")
 
 
 @pulumi.output_type
 class DistributionOriginGroups(dict):
+    """
+    A complex data type for the origin groups specified for a distribution.
+    """
     def __init__(__self__, *,
                  quantity: int,
                  items: Optional[Sequence['outputs.DistributionOriginGroup']] = None):
+        """
+        A complex data type for the origin groups specified for a distribution.
+        :param int quantity: The number of origin groups.
+        :param Sequence['DistributionOriginGroup'] items: The items (origin groups) in a distribution.
+        """
         pulumi.set(__self__, "quantity", quantity)
         if items is not None:
             pulumi.set(__self__, "items", items)
@@ -2049,16 +2865,26 @@ class DistributionOriginGroups(dict):
     @property
     @pulumi.getter
     def quantity(self) -> int:
+        """
+        The number of origin groups.
+        """
         return pulumi.get(self, "quantity")
 
     @property
     @pulumi.getter
     def items(self) -> Optional[Sequence['outputs.DistributionOriginGroup']]:
+        """
+        The items (origin groups) in a distribution.
+        """
         return pulumi.get(self, "items")
 
 
 @pulumi.output_type
 class DistributionOriginShield(dict):
+    """
+    CloudFront Origin Shield.
+     Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2079,6 +2905,15 @@ class DistributionOriginShield(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  origin_shield_region: Optional[str] = None):
+        """
+        CloudFront Origin Shield.
+         Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
+        :param bool enabled: A flag that specifies whether Origin Shield is enabled.
+                When it's enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it's disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
+        :param str origin_shield_region: The AWS-Region for Origin Shield.
+                Specify the AWS-Region that has the lowest latency to your origin. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as ``us-east-2``.
+                When you enable CloudFront Origin Shield, you must specify the AWS-Region for Origin Shield. For the list of AWS-Regions that you can specify, and for help choosing the best Region for your origin, see [Choosing the for Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region) in the *Amazon CloudFront Developer Guide*.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if origin_shield_region is not None:
@@ -2087,16 +2922,28 @@ class DistributionOriginShield(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        A flag that specifies whether Origin Shield is enabled.
+         When it's enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it's disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="originShieldRegion")
     def origin_shield_region(self) -> Optional[str]:
+        """
+        The AWS-Region for Origin Shield.
+         Specify the AWS-Region that has the lowest latency to your origin. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as ``us-east-2``.
+         When you enable CloudFront Origin Shield, you must specify the AWS-Region for Origin Shield. For the list of AWS-Regions that you can specify, and for help choosing the best Region for your origin, see [Choosing the for Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region) in the *Amazon CloudFront Developer Guide*.
+        """
         return pulumi.get(self, "origin_shield_region")
 
 
 @pulumi.output_type
 class DistributionRestrictions(dict):
+    """
+    A complex type that identifies ways in which you want to restrict distribution of your content.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2116,16 +2963,26 @@ class DistributionRestrictions(dict):
 
     def __init__(__self__, *,
                  geo_restriction: 'outputs.DistributionGeoRestriction'):
+        """
+        A complex type that identifies ways in which you want to restrict distribution of your content.
+        :param 'DistributionGeoRestriction' geo_restriction: A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
+        """
         pulumi.set(__self__, "geo_restriction", geo_restriction)
 
     @property
     @pulumi.getter(name="geoRestriction")
     def geo_restriction(self) -> 'outputs.DistributionGeoRestriction':
+        """
+        A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
+        """
         return pulumi.get(self, "geo_restriction")
 
 
 @pulumi.output_type
 class DistributionS3OriginConfig(dict):
+    """
+    A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin or an S3 bucket that is configured as a website endpoint, use the ``CustomOriginConfig`` element instead.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2145,36 +3002,76 @@ class DistributionS3OriginConfig(dict):
 
     def __init__(__self__, *,
                  origin_access_identity: Optional[str] = None):
+        """
+        A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin or an S3 bucket that is configured as a website endpoint, use the ``CustomOriginConfig`` element instead.
+        :param str origin_access_identity: The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
+                origin-access-identity/cloudfront/*ID-of-origin-access-identity* 
+                where ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
+                If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
+                To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
+                To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
+                For more information about the origin access identity, see [Serving Private Content through CloudFront](https://d
+        """
         if origin_access_identity is not None:
             pulumi.set(__self__, "origin_access_identity", origin_access_identity)
 
     @property
     @pulumi.getter(name="originAccessIdentity")
     def origin_access_identity(self) -> Optional[str]:
+        """
+        The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
+         origin-access-identity/cloudfront/*ID-of-origin-access-identity* 
+         where ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
+         If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
+         To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
+         To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
+         For more information about the origin access identity, see [Serving Private Content through CloudFront](https://d
+        """
         return pulumi.get(self, "origin_access_identity")
 
 
 @pulumi.output_type
 class DistributionStatusCodes(dict):
+    """
+    A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
+    """
     def __init__(__self__, *,
                  items: Sequence[int],
                  quantity: int):
+        """
+        A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
+        :param Sequence[int] items: The items (status codes) for an origin group.
+        :param int quantity: The number of status codes.
+        """
         pulumi.set(__self__, "items", items)
         pulumi.set(__self__, "quantity", quantity)
 
     @property
     @pulumi.getter
     def items(self) -> Sequence[int]:
+        """
+        The items (status codes) for an origin group.
+        """
         return pulumi.get(self, "items")
 
     @property
     @pulumi.getter
     def quantity(self) -> int:
+        """
+        The number of status codes.
+        """
         return pulumi.get(self, "quantity")
 
 
 @pulumi.output_type
 class DistributionViewerCertificate(dict):
+    """
+    A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
+     If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty.
+     If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:
+      +  Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.
+      +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field n
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2206,6 +3103,36 @@ class DistributionViewerCertificate(dict):
                  iam_certificate_id: Optional[str] = None,
                  minimum_protocol_version: Optional[str] = None,
                  ssl_support_method: Optional[str] = None):
+        """
+        A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
+         If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty.
+         If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:
+          +  Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.
+          +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field n
+        :param str acm_certificate_arn: In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.
+                 If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html), provide the Amazon Resource Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US East (N. Virginia) Region (``us-east-1``).
+                If you specify an ACM certificate ARN, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+        :param bool cloud_front_default_certificate: If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, set this field to ``true``.
+                If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), omit this field and specify values for the following fields:
+                 +   ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both) 
+                 +   ``MinimumProtocolVersion`` 
+                 +   ``SslSupportMethod``
+        :param str iam_certificate_id: In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
+                 If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html), provide the ID of the IAM certificate.
+                If you specify an IAM certificate ID, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+        :param str minimum_protocol_version: If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify the security policy that you want CloudFront to use for HTTPS connections with viewers. The security policy determines two settings:
+                 +  The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.
+                 +  The ciphers that CloudFront can use to encrypt the content that it returns to viewers.
+                 
+                For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) and [Supported Protocols and Ciphers Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers) in the *Amazon CloudFront Developer Guide*.
+                 On the CloudFront console, this setting is called *Security Policy*.
+                 When you're using SNI only (you set ``SSLSupportMethod`` to ``sni-onl
+        :param str ssl_support_method: In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.
+                 If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.
+                 +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
+                 +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
+                 +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
+        """
         if acm_certificate_arn is not None:
             pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
         if cloud_front_default_certificate is not None:
@@ -2220,26 +3147,59 @@ class DistributionViewerCertificate(dict):
     @property
     @pulumi.getter(name="acmCertificateArn")
     def acm_certificate_arn(self) -> Optional[str]:
+        """
+        In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.
+          If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html), provide the Amazon Resource Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US East (N. Virginia) Region (``us-east-1``).
+         If you specify an ACM certificate ARN, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+        """
         return pulumi.get(self, "acm_certificate_arn")
 
     @property
     @pulumi.getter(name="cloudFrontDefaultCertificate")
     def cloud_front_default_certificate(self) -> Optional[bool]:
+        """
+        If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, set this field to ``true``.
+         If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), omit this field and specify values for the following fields:
+          +   ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both) 
+          +   ``MinimumProtocolVersion`` 
+          +   ``SslSupportMethod``
+        """
         return pulumi.get(self, "cloud_front_default_certificate")
 
     @property
     @pulumi.getter(name="iamCertificateId")
     def iam_certificate_id(self) -> Optional[str]:
+        """
+        In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
+          If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html), provide the ID of the IAM certificate.
+         If you specify an IAM certificate ID, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+        """
         return pulumi.get(self, "iam_certificate_id")
 
     @property
     @pulumi.getter(name="minimumProtocolVersion")
     def minimum_protocol_version(self) -> Optional[str]:
+        """
+        If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify the security policy that you want CloudFront to use for HTTPS connections with viewers. The security policy determines two settings:
+          +  The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.
+          +  The ciphers that CloudFront can use to encrypt the content that it returns to viewers.
+          
+         For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) and [Supported Protocols and Ciphers Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers) in the *Amazon CloudFront Developer Guide*.
+          On the CloudFront console, this setting is called *Security Policy*.
+          When you're using SNI only (you set ``SSLSupportMethod`` to ``sni-onl
+        """
         return pulumi.get(self, "minimum_protocol_version")
 
     @property
     @pulumi.getter(name="sslSupportMethod")
     def ssl_support_method(self) -> Optional[str]:
+        """
+        In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.
+          If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.
+          +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
+          +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
+          +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
+        """
         return pulumi.get(self, "ssl_support_method")
 
 

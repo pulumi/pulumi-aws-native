@@ -10,13 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// The ``LogConfiguration`` property specifies log configuration options to send to a custom log driver for the container.
+    /// </summary>
     public sealed class TaskDefinitionLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The log driver to use for the container.
+        ///  For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+        ///  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+        ///  For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+        ///  For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+        ///   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs
+        /// </summary>
         [Input("logDriver", required: true)]
         public Input<string> LogDriver { get; set; } = null!;
 
         [Input("options")]
         private InputMap<string>? _options;
+
+        /// <summary>
+        /// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+        /// </summary>
         public InputMap<string> Options
         {
             get => _options ?? (_options = new InputMap<string>());
@@ -25,6 +40,10 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
         [Input("secretOptions")]
         private InputList<Inputs.TaskDefinitionSecretArgs>? _secretOptions;
+
+        /// <summary>
+        /// The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+        /// </summary>
         public InputList<Inputs.TaskDefinitionSecretArgs> SecretOptions
         {
             get => _secretOptions ?? (_secretOptions = new InputList<Inputs.TaskDefinitionSecretArgs>());

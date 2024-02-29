@@ -11,13 +11,14 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
+    /// Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
     /// </summary>
     [OutputType]
     public sealed class BucketDestination
     {
         /// <summary>
-        /// The account ID that owns the destination S3 bucket. 
+        /// The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+        ///    Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
         /// </summary>
         public readonly string? BucketAccountId;
         /// <summary>
@@ -26,6 +27,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly string BucketArn;
         /// <summary>
         /// Specifies the file format used when exporting data to Amazon S3.
+        ///  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketDestinationFormat Format;
         /// <summary>

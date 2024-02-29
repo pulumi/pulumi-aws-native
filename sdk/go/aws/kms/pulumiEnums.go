@@ -10,7 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is “AWS_KMS“, which means that KMS creates the key material.
+//
+//	To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
+//	You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations.
+//	 CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
 type KeyOrigin string
 
 const (
@@ -176,7 +180,10 @@ func (in *keyOriginPtr) ToKeyOriginPtrOutputWithContext(ctx context.Context) Key
 	return pulumi.ToOutputWithContext(ctx, in).(KeyOriginPtrOutput)
 }
 
-// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
+// Specifies the type of KMS key to create. The default value, “SYMMETRIC_DEFAULT“, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, “SYMMETRIC_DEFAULT“ creates a 128-bit symmetric key that uses SM4 encryption. You can't change the “KeySpec“ value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.
+//
+//	The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.
+//	 If you change the value of the ``KeySpec`` property on an existing KMS key, the u
 type KeySpec string
 
 const (
@@ -364,7 +371,13 @@ func (in *keySpecPtr) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpec
 	return pulumi.ToOutputWithContext(ctx, in).(KeySpecPtrOutput)
 }
 
-// Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
+// Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is “ENCRYPT_DECRYPT“. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the “KeyUsage“ value after the KMS key is created.
+//
+//	If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.
+//	Select only one valid value.
+//	+  For symmetric encryption KMS keys, omit the property or specify ``ENCRYPT_DECRYPT``.
+//	+  For asymmetric KMS keys with RSA key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
+//	+  For asymmetric KMS keys with ECC key material, specify
 type KeyUsage string
 
 const (

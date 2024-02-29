@@ -10,16 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
+    /// </summary>
     public sealed class DistributionStatusCodesArgs : global::Pulumi.ResourceArgs
     {
         [Input("items", required: true)]
         private InputList<int>? _items;
+
+        /// <summary>
+        /// The items (status codes) for an origin group.
+        /// </summary>
         public InputList<int> Items
         {
             get => _items ?? (_items = new InputList<int>());
             set => _items = value;
         }
 
+        /// <summary>
+        /// The number of status codes.
+        /// </summary>
         [Input("quantity", required: true)]
         public Input<int> Quantity { get; set; } = null!;
 

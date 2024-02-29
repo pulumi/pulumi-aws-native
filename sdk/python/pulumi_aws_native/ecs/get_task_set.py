@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -20,13 +21,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetTaskSetResult:
-    def __init__(__self__, id=None, scale=None):
+    def __init__(__self__, id=None, scale=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if scale and not isinstance(scale, dict):
             raise TypeError("Expected argument 'scale' to be a dict")
         pulumi.set(__self__, "scale", scale)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -44,6 +48,11 @@ class GetTaskSetResult:
         """
         return pulumi.get(self, "scale")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetTaskSetResult(GetTaskSetResult):
     # pylint: disable=using-constant-test
@@ -52,7 +61,8 @@ class AwaitableGetTaskSetResult(GetTaskSetResult):
             yield self
         return GetTaskSetResult(
             id=self.id,
-            scale=self.scale)
+            scale=self.scale,
+            tags=self.tags)
 
 
 def get_task_set(cluster: Optional[str] = None,
@@ -76,7 +86,8 @@ def get_task_set(cluster: Optional[str] = None,
 
     return AwaitableGetTaskSetResult(
         id=pulumi.get(__ret__, 'id'),
-        scale=pulumi.get(__ret__, 'scale'))
+        scale=pulumi.get(__ret__, 'scale'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_task_set)

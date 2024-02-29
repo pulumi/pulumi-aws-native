@@ -50,7 +50,7 @@ class BuildOperatingSystem(str, Enum):
 
 class FleetApplyCapacity(str, Enum):
     """
-    ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+    Determines whether to apply fleet or location capacities on fleet creation.
     """
     ON_UPDATE = "ON_UPDATE"
     ON_CREATE_AND_UPDATE = "ON_CREATE_AND_UPDATE"

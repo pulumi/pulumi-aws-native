@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// Description of the profile object type.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The unique name of the domain.
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The name of the profile object type.
         /// </summary>
         [Output("objectTypeName")]
-        public Output<string?> ObjectTypeName { get; private set; } = null!;
+        public Output<string> ObjectTypeName { get; private set; } = null!;
 
         /// <summary>
         /// The format of your sourceLastUpdatedTimestamp that was previously set up.
@@ -152,8 +152,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// Description of the profile object type.
         /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
+        [Input("description", required: true)]
+        public Input<string> Description { get; set; } = null!;
 
         /// <summary>
         /// The unique name of the domain.

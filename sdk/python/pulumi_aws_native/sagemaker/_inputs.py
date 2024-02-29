@@ -92,6 +92,7 @@ __all__ = [
     'FeatureGroupOnlineStoreSecurityConfigArgs',
     'FeatureGroupS3StorageConfigArgs',
     'FeatureGroupThroughputConfigArgs',
+    'FeatureGroupTtlDurationArgs',
     'InferenceComponentComputeResourceRequirementsArgs',
     'InferenceComponentContainerSpecificationArgs',
     'InferenceComponentDeployedImageArgs',
@@ -437,7 +438,7 @@ class AppImageConfigJupyterLabAppImageConfigArgs:
     def __init__(__self__, *,
                  container_config: Optional[pulumi.Input['AppImageConfigContainerConfigArgs']] = None):
         """
-        The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+        The configuration for the kernels in a SageMaker image running as a JupyterLab app.
         :param pulumi.Input['AppImageConfigContainerConfigArgs'] container_config: The container configuration for a SageMaker image.
         """
         if container_config is not None:
@@ -3840,6 +3841,38 @@ class FeatureGroupThroughputConfigArgs:
     @provisioned_write_capacity_units.setter
     def provisioned_write_capacity_units(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "provisioned_write_capacity_units", value)
+
+
+@pulumi.input_type
+class FeatureGroupTtlDurationArgs:
+    def __init__(__self__, *,
+                 unit: Optional[pulumi.Input['FeatureGroupUnit']] = None,
+                 value: Optional[pulumi.Input[int]] = None):
+        """
+        TTL configuration of the feature group
+        """
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input['FeatureGroupUnit']]:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input['FeatureGroupUnit']]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -11768,13 +11801,16 @@ class OnlineStoreConfigPropertiesArgs:
     def __init__(__self__, *,
                  enable_online_store: Optional[pulumi.Input[bool]] = None,
                  security_config: Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']] = None,
-                 storage_type: Optional[pulumi.Input['FeatureGroupStorageType']] = None):
+                 storage_type: Optional[pulumi.Input['FeatureGroupStorageType']] = None,
+                 ttl_duration: Optional[pulumi.Input['FeatureGroupTtlDurationArgs']] = None):
         if enable_online_store is not None:
             pulumi.set(__self__, "enable_online_store", enable_online_store)
         if security_config is not None:
             pulumi.set(__self__, "security_config", security_config)
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
+        if ttl_duration is not None:
+            pulumi.set(__self__, "ttl_duration", ttl_duration)
 
     @property
     @pulumi.getter(name="enableOnlineStore")
@@ -11802,6 +11838,15 @@ class OnlineStoreConfigPropertiesArgs:
     @storage_type.setter
     def storage_type(self, value: Optional[pulumi.Input['FeatureGroupStorageType']]):
         pulumi.set(self, "storage_type", value)
+
+    @property
+    @pulumi.getter(name="ttlDuration")
+    def ttl_duration(self) -> Optional[pulumi.Input['FeatureGroupTtlDurationArgs']]:
+        return pulumi.get(self, "ttl_duration")
+
+    @ttl_duration.setter
+    def ttl_duration(self, value: Optional[pulumi.Input['FeatureGroupTtlDurationArgs']]):
+        pulumi.set(self, "ttl_duration", value)
 
 
 @pulumi.input_type

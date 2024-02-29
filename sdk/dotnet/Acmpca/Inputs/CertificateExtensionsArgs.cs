@@ -11,12 +11,17 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
     /// <summary>
-    /// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+    /// Contains X.509 extension information for a certificate.
     /// </summary>
     public sealed class CertificateExtensionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificatePolicies")]
         private InputList<Inputs.CertificatePolicyInformationArgs>? _certificatePolicies;
+
+        /// <summary>
+        /// Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+        ///  In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
+        /// </summary>
         public InputList<Inputs.CertificatePolicyInformationArgs> CertificatePolicies
         {
             get => _certificatePolicies ?? (_certificatePolicies = new InputList<Inputs.CertificatePolicyInformationArgs>());
@@ -25,6 +30,10 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
 
         [Input("customExtensions")]
         private InputList<Inputs.CertificateCustomExtensionArgs>? _customExtensions;
+
+        /// <summary>
+        /// Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+        /// </summary>
         public InputList<Inputs.CertificateCustomExtensionArgs> CustomExtensions
         {
             get => _customExtensions ?? (_customExtensions = new InputList<Inputs.CertificateCustomExtensionArgs>());
@@ -33,6 +42,10 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
 
         [Input("extendedKeyUsage")]
         private InputList<Inputs.CertificateExtendedKeyUsageArgs>? _extendedKeyUsage;
+
+        /// <summary>
+        /// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+        /// </summary>
         public InputList<Inputs.CertificateExtendedKeyUsageArgs> ExtendedKeyUsage
         {
             get => _extendedKeyUsage ?? (_extendedKeyUsage = new InputList<Inputs.CertificateExtendedKeyUsageArgs>());
@@ -47,6 +60,10 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
 
         [Input("subjectAlternativeNames")]
         private InputList<Inputs.CertificateGeneralNameArgs>? _subjectAlternativeNames;
+
+        /// <summary>
+        /// The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
+        /// </summary>
         public InputList<Inputs.CertificateGeneralNameArgs> SubjectAlternativeNames
         {
             get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<Inputs.CertificateGeneralNameArgs>());

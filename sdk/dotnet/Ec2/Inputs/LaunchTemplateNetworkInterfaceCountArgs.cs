@@ -11,13 +11,19 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
     /// <summary>
-    /// TThe minimum and maximum number of network interfaces.
+    /// The minimum and maximum number of network interfaces.
     /// </summary>
     public sealed class LaunchTemplateNetworkInterfaceCountArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
+        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

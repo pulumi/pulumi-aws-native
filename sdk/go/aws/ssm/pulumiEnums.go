@@ -1730,6 +1730,7 @@ const (
 	PatchBaselineOperatingSystemMacos                 = PatchBaselineOperatingSystem("MACOS")
 	PatchBaselineOperatingSystemRaspbian              = PatchBaselineOperatingSystem("RASPBIAN")
 	PatchBaselineOperatingSystemRockyLinux            = PatchBaselineOperatingSystem("ROCKY_LINUX")
+	PatchBaselineOperatingSystemAlmaLinux             = PatchBaselineOperatingSystem("ALMA_LINUX")
 )
 
 func (PatchBaselineOperatingSystem) ElementType() reflect.Type {
@@ -1868,6 +1869,7 @@ func (o PatchBaselineOperatingSystemPtrOutput) ToStringPtrOutputWithContext(ctx 
 //	PatchBaselineOperatingSystemMacos
 //	PatchBaselineOperatingSystemRaspbian
 //	PatchBaselineOperatingSystemRockyLinux
+//	PatchBaselineOperatingSystemAlmaLinux
 type PatchBaselineOperatingSystemInput interface {
 	pulumi.Input
 

@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Inputs
 {
 
+    /// <summary>
+    /// The format options for the data that was imported into the target table. There is one value, CsvOption.
+    /// </summary>
     public sealed class TableInputFormatOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The options for imported source files in CSV format. The values are Delimiter and HeaderList.
+        /// </summary>
         [Input("csv")]
         public Input<Inputs.TableCsvArgs>? Csv { get; set; }
 

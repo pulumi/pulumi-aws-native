@@ -45,7 +45,9 @@ class CertificateApiPassthroughArgs:
                  extensions: Optional[pulumi.Input['CertificateExtensionsArgs']] = None,
                  subject: Optional[pulumi.Input['CertificateSubjectArgs']] = None):
         """
-        Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+        Contains X.509 certificate information to be placed in an issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored. 
+         If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
+        :param pulumi.Input['CertificateExtensionsArgs'] extensions: Specifies X.509 extension information for a certificate.
         :param pulumi.Input['CertificateSubjectArgs'] subject: Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
         """
         if extensions is not None:
@@ -56,6 +58,9 @@ class CertificateApiPassthroughArgs:
     @property
     @pulumi.getter
     def extensions(self) -> Optional[pulumi.Input['CertificateExtensionsArgs']]:
+        """
+        Specifies X.509 extension information for a certificate.
+        """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
@@ -835,12 +840,20 @@ class CertificateCustomAttributeArgs:
     def __init__(__self__, *,
                  object_identifier: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        Defines the X.500 relative distinguished name (RDN).
+        :param pulumi.Input[str] object_identifier: Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
+        :param pulumi.Input[str] value: Specifies the attribute value of relative distinguished name (RDN).
+        """
         pulumi.set(__self__, "object_identifier", object_identifier)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="objectIdentifier")
     def object_identifier(self) -> pulumi.Input[str]:
+        """
+        Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
+        """
         return pulumi.get(self, "object_identifier")
 
     @object_identifier.setter
@@ -850,6 +863,9 @@ class CertificateCustomAttributeArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Specifies the attribute value of relative distinguished name (RDN).
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -863,6 +879,13 @@ class CertificateCustomExtensionArgs:
                  object_identifier: pulumi.Input[str],
                  value: pulumi.Input[str],
                  critical: Optional[pulumi.Input[bool]] = None):
+        """
+        Specifies the X.509 extension information for a certificate.
+         Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+        :param pulumi.Input[str] object_identifier: Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+        :param pulumi.Input[str] value: Specifies the base64-encoded value of the X.509 extension.
+        :param pulumi.Input[bool] critical: Specifies the critical flag of the X.509 extension.
+        """
         pulumi.set(__self__, "object_identifier", object_identifier)
         pulumi.set(__self__, "value", value)
         if critical is not None:
@@ -871,6 +894,9 @@ class CertificateCustomExtensionArgs:
     @property
     @pulumi.getter(name="objectIdentifier")
     def object_identifier(self) -> pulumi.Input[str]:
+        """
+        Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+        """
         return pulumi.get(self, "object_identifier")
 
     @object_identifier.setter
@@ -880,6 +906,9 @@ class CertificateCustomExtensionArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Specifies the base64-encoded value of the X.509 extension.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -889,6 +918,9 @@ class CertificateCustomExtensionArgs:
     @property
     @pulumi.getter
     def critical(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies the critical flag of the X.509 extension.
+        """
         return pulumi.get(self, "critical")
 
     @critical.setter
@@ -901,12 +933,20 @@ class CertificateEdiPartyNameArgs:
     def __init__(__self__, *,
                  name_assigner: pulumi.Input[str],
                  party_name: pulumi.Input[str]):
+        """
+        Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
+        :param pulumi.Input[str] name_assigner: Specifies the name assigner.
+        :param pulumi.Input[str] party_name: Specifies the party name.
+        """
         pulumi.set(__self__, "name_assigner", name_assigner)
         pulumi.set(__self__, "party_name", party_name)
 
     @property
     @pulumi.getter(name="nameAssigner")
     def name_assigner(self) -> pulumi.Input[str]:
+        """
+        Specifies the name assigner.
+        """
         return pulumi.get(self, "name_assigner")
 
     @name_assigner.setter
@@ -916,6 +956,9 @@ class CertificateEdiPartyNameArgs:
     @property
     @pulumi.getter(name="partyName")
     def party_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the party name.
+        """
         return pulumi.get(self, "party_name")
 
     @party_name.setter
@@ -928,6 +971,11 @@ class CertificateExtendedKeyUsageArgs:
     def __init__(__self__, *,
                  extended_key_usage_object_identifier: Optional[pulumi.Input[str]] = None,
                  extended_key_usage_type: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+        :param pulumi.Input[str] extended_key_usage_object_identifier: Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
+        :param pulumi.Input[str] extended_key_usage_type: Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
+        """
         if extended_key_usage_object_identifier is not None:
             pulumi.set(__self__, "extended_key_usage_object_identifier", extended_key_usage_object_identifier)
         if extended_key_usage_type is not None:
@@ -936,6 +984,9 @@ class CertificateExtendedKeyUsageArgs:
     @property
     @pulumi.getter(name="extendedKeyUsageObjectIdentifier")
     def extended_key_usage_object_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
+        """
         return pulumi.get(self, "extended_key_usage_object_identifier")
 
     @extended_key_usage_object_identifier.setter
@@ -945,6 +996,9 @@ class CertificateExtendedKeyUsageArgs:
     @property
     @pulumi.getter(name="extendedKeyUsageType")
     def extended_key_usage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
+        """
         return pulumi.get(self, "extended_key_usage_type")
 
     @extended_key_usage_type.setter
@@ -961,8 +1015,13 @@ class CertificateExtensionsArgs:
                  key_usage: Optional[pulumi.Input['CertificateKeyUsageArgs']] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]] = None):
         """
-        Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        Contains X.509 extension information for a certificate.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]] certificate_policies: Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+                In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]] custom_extensions: Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]] extended_key_usage: Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
         :param pulumi.Input['CertificateKeyUsageArgs'] key_usage: Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]] subject_alternative_names: The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
         """
         if certificate_policies is not None:
             pulumi.set(__self__, "certificate_policies", certificate_policies)
@@ -978,6 +1037,10 @@ class CertificateExtensionsArgs:
     @property
     @pulumi.getter(name="certificatePolicies")
     def certificate_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]]:
+        """
+        Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+         In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
+        """
         return pulumi.get(self, "certificate_policies")
 
     @certificate_policies.setter
@@ -987,6 +1050,9 @@ class CertificateExtensionsArgs:
     @property
     @pulumi.getter(name="customExtensions")
     def custom_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomExtensionArgs']]]]:
+        """
+        Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+        """
         return pulumi.get(self, "custom_extensions")
 
     @custom_extensions.setter
@@ -996,6 +1062,9 @@ class CertificateExtensionsArgs:
     @property
     @pulumi.getter(name="extendedKeyUsage")
     def extended_key_usage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]]:
+        """
+        Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+        """
         return pulumi.get(self, "extended_key_usage")
 
     @extended_key_usage.setter
@@ -1017,6 +1086,9 @@ class CertificateExtensionsArgs:
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]]:
+        """
+        The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
+        """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
@@ -1036,8 +1108,15 @@ class CertificateGeneralNameArgs:
                  rfc822_name: Optional[pulumi.Input[str]] = None,
                  uniform_resource_identifier: Optional[pulumi.Input[str]] = None):
         """
-        Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+        Describes an ASN.1 X.400 ``GeneralName`` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an ``InvalidArgsException`` error.
         :param pulumi.Input['CertificateSubjectArgs'] directory_name: Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+        :param pulumi.Input[str] dns_name: Represents ``GeneralName`` as a DNS name.
+        :param pulumi.Input['CertificateEdiPartyNameArgs'] edi_party_name: Represents ``GeneralName`` as an ``EdiPartyName`` object.
+        :param pulumi.Input[str] ip_address: Represents ``GeneralName`` as an IPv4 or IPv6 address.
+        :param pulumi.Input['CertificateOtherNameArgs'] other_name: Represents ``GeneralName`` using an ``OtherName`` object.
+        :param pulumi.Input[str] registered_id: Represents ``GeneralName`` as an object identifier (OID).
+        :param pulumi.Input[str] rfc822_name: Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
+        :param pulumi.Input[str] uniform_resource_identifier: Represents ``GeneralName`` as a URI.
         """
         if directory_name is not None:
             pulumi.set(__self__, "directory_name", directory_name)
@@ -1071,6 +1150,9 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents ``GeneralName`` as a DNS name.
+        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -1080,6 +1162,9 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="ediPartyName")
     def edi_party_name(self) -> Optional[pulumi.Input['CertificateEdiPartyNameArgs']]:
+        """
+        Represents ``GeneralName`` as an ``EdiPartyName`` object.
+        """
         return pulumi.get(self, "edi_party_name")
 
     @edi_party_name.setter
@@ -1089,6 +1174,9 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents ``GeneralName`` as an IPv4 or IPv6 address.
+        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -1098,6 +1186,9 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="otherName")
     def other_name(self) -> Optional[pulumi.Input['CertificateOtherNameArgs']]:
+        """
+        Represents ``GeneralName`` using an ``OtherName`` object.
+        """
         return pulumi.get(self, "other_name")
 
     @other_name.setter
@@ -1107,6 +1198,9 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="registeredId")
     def registered_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents ``GeneralName`` as an object identifier (OID).
+        """
         return pulumi.get(self, "registered_id")
 
     @registered_id.setter
@@ -1116,6 +1210,9 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="rfc822Name")
     def rfc822_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
+        """
         return pulumi.get(self, "rfc822_name")
 
     @rfc822_name.setter
@@ -1125,6 +1222,9 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="uniformResourceIdentifier")
     def uniform_resource_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents ``GeneralName`` as a URI.
+        """
         return pulumi.get(self, "uniform_resource_identifier")
 
     @uniform_resource_identifier.setter
@@ -1144,6 +1244,18 @@ class CertificateKeyUsageArgs:
                  key_cert_sign: Optional[pulumi.Input[bool]] = None,
                  key_encipherment: Optional[pulumi.Input[bool]] = None,
                  non_repudiation: Optional[pulumi.Input[bool]] = None):
+        """
+        Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        :param pulumi.Input[bool] crl_sign: Key can be used to sign CRLs.
+        :param pulumi.Input[bool] data_encipherment: Key can be used to decipher data.
+        :param pulumi.Input[bool] decipher_only: Key can be used only to decipher data.
+        :param pulumi.Input[bool] digital_signature: Key can be used for digital signing.
+        :param pulumi.Input[bool] encipher_only: Key can be used only to encipher data.
+        :param pulumi.Input[bool] key_agreement: Key can be used in a key-agreement protocol.
+        :param pulumi.Input[bool] key_cert_sign: Key can be used to sign certificates.
+        :param pulumi.Input[bool] key_encipherment: Key can be used to encipher data.
+        :param pulumi.Input[bool] non_repudiation: Key can be used for non-repudiation.
+        """
         if crl_sign is not None:
             pulumi.set(__self__, "crl_sign", crl_sign)
         if data_encipherment is not None:
@@ -1166,6 +1278,9 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="crlSign")
     def crl_sign(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used to sign CRLs.
+        """
         return pulumi.get(self, "crl_sign")
 
     @crl_sign.setter
@@ -1175,6 +1290,9 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="dataEncipherment")
     def data_encipherment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used to decipher data.
+        """
         return pulumi.get(self, "data_encipherment")
 
     @data_encipherment.setter
@@ -1184,6 +1302,9 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="decipherOnly")
     def decipher_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used only to decipher data.
+        """
         return pulumi.get(self, "decipher_only")
 
     @decipher_only.setter
@@ -1193,6 +1314,9 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="digitalSignature")
     def digital_signature(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used for digital signing.
+        """
         return pulumi.get(self, "digital_signature")
 
     @digital_signature.setter
@@ -1202,6 +1326,9 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="encipherOnly")
     def encipher_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used only to encipher data.
+        """
         return pulumi.get(self, "encipher_only")
 
     @encipher_only.setter
@@ -1211,6 +1338,9 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="keyAgreement")
     def key_agreement(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used in a key-agreement protocol.
+        """
         return pulumi.get(self, "key_agreement")
 
     @key_agreement.setter
@@ -1220,6 +1350,9 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="keyCertSign")
     def key_cert_sign(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used to sign certificates.
+        """
         return pulumi.get(self, "key_cert_sign")
 
     @key_cert_sign.setter
@@ -1229,6 +1362,9 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="keyEncipherment")
     def key_encipherment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used to encipher data.
+        """
         return pulumi.get(self, "key_encipherment")
 
     @key_encipherment.setter
@@ -1238,6 +1374,9 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="nonRepudiation")
     def non_repudiation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Key can be used for non-repudiation.
+        """
         return pulumi.get(self, "non_repudiation")
 
     @non_repudiation.setter
@@ -1250,12 +1389,20 @@ class CertificateOtherNameArgs:
     def __init__(__self__, *,
                  type_id: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        Defines a custom ASN.1 X.400 ``GeneralName`` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+        :param pulumi.Input[str] type_id: Specifies an OID.
+        :param pulumi.Input[str] value: Specifies an OID value.
+        """
         pulumi.set(__self__, "type_id", type_id)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="typeId")
     def type_id(self) -> pulumi.Input[str]:
+        """
+        Specifies an OID.
+        """
         return pulumi.get(self, "type_id")
 
     @type_id.setter
@@ -1265,6 +1412,9 @@ class CertificateOtherNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Specifies an OID value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1277,6 +1427,11 @@ class CertificatePolicyInformationArgs:
     def __init__(__self__, *,
                  cert_policy_id: pulumi.Input[str],
                  policy_qualifiers: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]] = None):
+        """
+        Defines the X.509 ``CertificatePolicies`` extension.
+        :param pulumi.Input[str] cert_policy_id: Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+        :param pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]] policy_qualifiers: Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+        """
         pulumi.set(__self__, "cert_policy_id", cert_policy_id)
         if policy_qualifiers is not None:
             pulumi.set(__self__, "policy_qualifiers", policy_qualifiers)
@@ -1284,6 +1439,9 @@ class CertificatePolicyInformationArgs:
     @property
     @pulumi.getter(name="certPolicyId")
     def cert_policy_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+        """
         return pulumi.get(self, "cert_policy_id")
 
     @cert_policy_id.setter
@@ -1293,6 +1451,9 @@ class CertificatePolicyInformationArgs:
     @property
     @pulumi.getter(name="policyQualifiers")
     def policy_qualifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]]:
+        """
+        Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+        """
         return pulumi.get(self, "policy_qualifiers")
 
     @policy_qualifiers.setter
@@ -1305,12 +1466,20 @@ class CertificatePolicyQualifierInfoArgs:
     def __init__(__self__, *,
                  policy_qualifier_id: pulumi.Input[str],
                  qualifier: pulumi.Input['CertificateQualifierArgs']):
+        """
+        Modifies the ``CertPolicyId`` of a ``PolicyInformation`` object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+        :param pulumi.Input[str] policy_qualifier_id: Identifies the qualifier modifying a ``CertPolicyId``.
+        :param pulumi.Input['CertificateQualifierArgs'] qualifier: Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
+        """
         pulumi.set(__self__, "policy_qualifier_id", policy_qualifier_id)
         pulumi.set(__self__, "qualifier", qualifier)
 
     @property
     @pulumi.getter(name="policyQualifierId")
     def policy_qualifier_id(self) -> pulumi.Input[str]:
+        """
+        Identifies the qualifier modifying a ``CertPolicyId``.
+        """
         return pulumi.get(self, "policy_qualifier_id")
 
     @policy_qualifier_id.setter
@@ -1320,6 +1489,9 @@ class CertificatePolicyQualifierInfoArgs:
     @property
     @pulumi.getter
     def qualifier(self) -> pulumi.Input['CertificateQualifierArgs']:
+        """
+        Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
+        """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
@@ -1331,11 +1503,18 @@ class CertificatePolicyQualifierInfoArgs:
 class CertificateQualifierArgs:
     def __init__(__self__, *,
                  cps_uri: pulumi.Input[str]):
+        """
+        Defines a ``PolicyInformation`` qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
+        :param pulumi.Input[str] cps_uri: Contains a pointer to a certification practice statement (CPS) published by the CA.
+        """
         pulumi.set(__self__, "cps_uri", cps_uri)
 
     @property
     @pulumi.getter(name="cpsUri")
     def cps_uri(self) -> pulumi.Input[str]:
+        """
+        Contains a pointer to a certification practice statement (CPS) published by the CA.
+        """
         return pulumi.get(self, "cps_uri")
 
     @cps_uri.setter
@@ -1366,6 +1545,8 @@ class CertificateSubjectArgs:
         :param pulumi.Input[str] common_name: For CA and end-entity certificates in a private PKI, the common name (CN) can be any string within the length limit.
                 Note: In publicly trusted certificates, the common name must be a fully qualified domain name (FQDN) associated with the certificate subject.
         :param pulumi.Input[str] country: Two-digit code that specifies the country in which the certificate subject located.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]] custom_attributes: Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+                 Custom attributes cannot be used in combination with standard attributes.
         :param pulumi.Input[str] distinguished_name_qualifier: Disambiguating information for the certificate subject.
         :param pulumi.Input[str] generation_qualifier: Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
         :param pulumi.Input[str] given_name: First name.
@@ -1438,6 +1619,10 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="customAttributes")
     def custom_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCustomAttributeArgs']]]]:
+        """
+        Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+          Custom attributes cannot be used in combination with standard attributes.
+        """
         return pulumi.get(self, "custom_attributes")
 
     @custom_attributes.setter
@@ -1597,7 +1782,7 @@ class CertificateValidityArgs:
         """
         Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the ``IssueCertificate`` operation.
         :param pulumi.Input[str] type: Specifies whether the ``Value`` parameter represents days, months, or years.
-        :param pulumi.Input[float] value: Time period.
+        :param pulumi.Input[float] value: A long integer interpreted according to the value of ``Type``, below.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -1618,7 +1803,7 @@ class CertificateValidityArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[float]:
         """
-        Time period.
+        A long integer interpreted according to the value of ``Type``, below.
         """
         return pulumi.get(self, "value")
 

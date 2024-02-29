@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A CloudFront function that is associated with a cache behavior in a CloudFront distribution.
+    /// </summary>
     public sealed class DistributionFunctionAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The event type of the function, either ``viewer-request`` or ``viewer-response``. You cannot use origin-facing event types (``origin-request`` and ``origin-response``) with a CloudFront function.
+        /// </summary>
         [Input("eventType")]
         public Input<string>? EventType { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the function.
+        /// </summary>
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
 

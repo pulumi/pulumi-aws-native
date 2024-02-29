@@ -30,16 +30,30 @@ class LoadBalancerArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
-        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
-        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+        :param pulumi.Input[str] ip_address_type: The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]] load_balancer_attributes: The load balancer attributes.
-        :param pulumi.Input[str] name: The name of the load balancer.
-        :param pulumi.Input[str] scheme: The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The IDs of the security groups for the load balancer.
+        :param pulumi.Input[str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+                If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
+        :param pulumi.Input[str] scheme: The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+                The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
+                The default is an Internet-facing load balancer.
+                You cannot specify a scheme for a Gateway Load Balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]] subnet_mappings: The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+                [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+                [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+                [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+                [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+                [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+                [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+                [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+                [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+                [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+                [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the load balancer.
-        :param pulumi.Input[str] type: The type of load balancer. The default is application.
+        :param pulumi.Input[str] type: The type of load balancer. The default is ``application``.
         """
         if enforce_security_group_inbound_rules_on_private_link_traffic is not None:
             pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
@@ -66,7 +80,7 @@ class LoadBalancerArgs:
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
     def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
         """
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
@@ -78,7 +92,7 @@ class LoadBalancerArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -102,7 +116,8 @@ class LoadBalancerArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the load balancer.
+        The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+         If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
         """
         return pulumi.get(self, "name")
 
@@ -114,7 +129,10 @@ class LoadBalancerArgs:
     @pulumi.getter
     def scheme(self) -> Optional[pulumi.Input[str]]:
         """
-        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+         The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
+         The default is an Internet-facing load balancer.
+         You cannot specify a scheme for a Gateway Load Balancer.
         """
         return pulumi.get(self, "scheme")
 
@@ -126,7 +144,7 @@ class LoadBalancerArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The IDs of the security groups for the load balancer.
+        [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
         """
         return pulumi.get(self, "security_groups")
 
@@ -139,6 +157,11 @@ class LoadBalancerArgs:
     def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]:
         """
         The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+         [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+         [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+         [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+         [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+         [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP
         """
         return pulumi.get(self, "subnet_mappings")
 
@@ -151,6 +174,11 @@ class LoadBalancerArgs:
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+         [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+         [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+         [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+         [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+         [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
         """
         return pulumi.get(self, "subnets")
 
@@ -174,7 +202,7 @@ class LoadBalancerArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of load balancer. The default is application.
+        The type of load balancer. The default is ``application``.
         """
         return pulumi.get(self, "type")
 
@@ -200,20 +228,34 @@ class LoadBalancer(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
+        Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
-        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+        :param pulumi.Input[str] ip_address_type: The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerAttributeArgs']]]] load_balancer_attributes: The load balancer attributes.
-        :param pulumi.Input[str] name: The name of the load balancer.
-        :param pulumi.Input[str] scheme: The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The IDs of the security groups for the load balancer.
+        :param pulumi.Input[str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+                If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
+        :param pulumi.Input[str] scheme: The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+                The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
+                The default is an Internet-facing load balancer.
+                You cannot specify a scheme for a Gateway Load Balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerSubnetMappingArgs']]]] subnet_mappings: The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+                [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+                [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+                [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+                [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+                [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+                [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+                [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+                [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+                [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+                [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the load balancer.
-        :param pulumi.Input[str] type: The type of load balancer. The default is application.
+        :param pulumi.Input[str] type: The type of load balancer. The default is ``application``.
         """
         ...
     @overload
@@ -222,7 +264,7 @@ class LoadBalancer(pulumi.CustomResource):
                  args: Optional[LoadBalancerArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
+        Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
@@ -317,24 +359,18 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="canonicalHostedZoneId")
     def canonical_hosted_zone_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the Amazon Route 53 hosted zone associated with the load balancer.
-        """
         return pulumi.get(self, "canonical_hosted_zone_id")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
-        """
-        The public DNS name of the load balancer.
-        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
     def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+        Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
         """
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
 
@@ -342,16 +378,13 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
+        The IP address type. The possible values are ``ipv4`` (for IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
         """
         return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the load balancer.
-        """
         return pulumi.get(self, "load_balancer_arn")
 
     @property
@@ -365,24 +398,19 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="loadBalancerFullName")
     def load_balancer_full_name(self) -> pulumi.Output[str]:
-        """
-        The full name of the load balancer.
-        """
         return pulumi.get(self, "load_balancer_full_name")
 
     @property
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> pulumi.Output[str]:
-        """
-        The name of the load balancer.
-        """
         return pulumi.get(self, "load_balancer_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the load balancer.
+        The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+         If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
         """
         return pulumi.get(self, "name")
 
@@ -390,7 +418,10 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def scheme(self) -> pulumi.Output[Optional[str]]:
         """
-        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+        The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+         The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
+         The default is an Internet-facing load balancer.
+         You cannot specify a scheme for a Gateway Load Balancer.
         """
         return pulumi.get(self, "scheme")
 
@@ -398,7 +429,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The IDs of the security groups for the load balancer.
+        [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
         """
         return pulumi.get(self, "security_groups")
 
@@ -407,6 +438,11 @@ class LoadBalancer(pulumi.CustomResource):
     def subnet_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerSubnetMapping']]]:
         """
         The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
+         [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+         [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+         [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+         [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+         [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP
         """
         return pulumi.get(self, "subnet_mappings")
 
@@ -415,6 +451,11 @@ class LoadBalancer(pulumi.CustomResource):
     def subnets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
+         [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+         [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+         [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+         [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+         [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
         """
         return pulumi.get(self, "subnets")
 
@@ -430,7 +471,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of load balancer. The default is application.
+        The type of load balancer. The default is ``application``.
         """
         return pulumi.get(self, "type")
 

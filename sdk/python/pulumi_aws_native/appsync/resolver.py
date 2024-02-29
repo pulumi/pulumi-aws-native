@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ResolverArgs', 'Resolver']
@@ -25,6 +26,7 @@ class ResolverArgs:
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  max_batch_size: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input['ResolverMetricsConfig']] = None,
                  pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
@@ -69,6 +71,8 @@ class ResolverArgs:
             pulumi.set(__self__, "kind", kind)
         if max_batch_size is not None:
             pulumi.set(__self__, "max_batch_size", max_batch_size)
+        if metrics_config is not None:
+            pulumi.set(__self__, "metrics_config", metrics_config)
         if pipeline_config is not None:
             pulumi.set(__self__, "pipeline_config", pipeline_config)
         if request_mapping_template is not None:
@@ -195,6 +199,15 @@ class ResolverArgs:
         pulumi.set(self, "max_batch_size", value)
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> Optional[pulumi.Input['ResolverMetricsConfig']]:
+        return pulumi.get(self, "metrics_config")
+
+    @metrics_config.setter
+    def metrics_config(self, value: Optional[pulumi.Input['ResolverMetricsConfig']]):
+        pulumi.set(self, "metrics_config", value)
+
+    @property
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> Optional[pulumi.Input['ResolverPipelineConfigArgs']]:
         """
@@ -293,6 +306,7 @@ class Resolver(pulumi.CustomResource):
                  field_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  max_batch_size: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input['ResolverMetricsConfig']] = None,
                  pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
@@ -363,6 +377,7 @@ class Resolver(pulumi.CustomResource):
                  field_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  max_batch_size: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input['ResolverMetricsConfig']] = None,
                  pipeline_config: Optional[pulumi.Input[pulumi.InputType['ResolverPipelineConfigArgs']]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
@@ -392,6 +407,7 @@ class Resolver(pulumi.CustomResource):
             __props__.__dict__["field_name"] = field_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["max_batch_size"] = max_batch_size
+            __props__.__dict__["metrics_config"] = metrics_config
             __props__.__dict__["pipeline_config"] = pipeline_config
             __props__.__dict__["request_mapping_template"] = request_mapping_template
             __props__.__dict__["request_mapping_template_s3_location"] = request_mapping_template_s3_location
@@ -435,6 +451,7 @@ class Resolver(pulumi.CustomResource):
         __props__.__dict__["field_name"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["max_batch_size"] = None
+        __props__.__dict__["metrics_config"] = None
         __props__.__dict__["pipeline_config"] = None
         __props__.__dict__["request_mapping_template"] = None
         __props__.__dict__["request_mapping_template_s3_location"] = None
@@ -511,6 +528,11 @@ class Resolver(pulumi.CustomResource):
         The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
         """
         return pulumi.get(self, "max_batch_size")
+
+    @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> pulumi.Output[Optional['ResolverMetricsConfig']]:
+        return pulumi.get(self, "metrics_config")
 
     @property
     @pulumi.getter(name="pipelineConfig")

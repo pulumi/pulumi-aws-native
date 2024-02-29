@@ -10,9 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The repository credentials for private registry authentication.
+    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionRepositoryCredentials
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+        ///   When you use the Amazon ECS API, CLI, or AWS SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the AWS Management Console, you must specify the full ARN of the secret.
+        /// </summary>
         public readonly string? CredentialsParameter;
 
         [OutputConstructor]

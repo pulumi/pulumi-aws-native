@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Efs.Outputs
 {
 
+    /// <summary>
+    /// Describes the replication configuration for a specific file system.
+    /// </summary>
     [OutputType]
     public sealed class FileSystemReplicationConfiguration
     {
+        /// <summary>
+        /// An array of destination objects. Only one destination object is supported.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FileSystemReplicationDestination> Destinations;
 
         [OutputConstructor]

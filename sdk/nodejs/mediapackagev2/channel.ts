@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::MediaPackageV2::Channel Resource Type
+ * <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
  */
 export class Channel extends pulumi.CustomResource {
     /**
@@ -37,12 +37,27 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
+    /**
+     * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly channelGroupName!: pulumi.Output<string | undefined>;
-    public readonly channelName!: pulumi.Output<string | undefined>;
+    public readonly channelGroupName!: pulumi.Output<string>;
+    public readonly channelName!: pulumi.Output<string>;
+    /**
+     * <p>The date and time the channel was created.</p>
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * <p>Enter any descriptive text that helps you to identify the channel.</p>
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * <p>The list of ingest endpoints.</p>
+     */
     public /*out*/ readonly ingestEndpoints!: pulumi.Output<outputs.mediapackagev2.ChannelIngestEndpoint[]>;
+    /**
+     * <p>The date and time the channel was modified.</p>
+     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -53,10 +68,13 @@ export class Channel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.channelGroupName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'channelGroupName'");
+            }
             resourceInputs["channelGroupName"] = args ? args.channelGroupName : undefined;
             resourceInputs["channelName"] = args ? args.channelName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -86,8 +104,11 @@ export class Channel extends pulumi.CustomResource {
  * The set of arguments for constructing a Channel resource.
  */
 export interface ChannelArgs {
-    channelGroupName?: pulumi.Input<string>;
+    channelGroupName: pulumi.Input<string>;
     channelName?: pulumi.Input<string>;
+    /**
+     * <p>Enter any descriptive text that helps you to identify the channel.</p>
+     */
     description?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

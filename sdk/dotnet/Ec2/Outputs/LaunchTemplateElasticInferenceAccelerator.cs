@@ -12,16 +12,18 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
     /// <summary>
     /// Specifies an elastic inference accelerator.
+    ///  ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateElasticInferenceAccelerator
     {
         /// <summary>
-        /// The number of elastic inference accelerators to attach to the instance.
+        /// The number of elastic inference accelerators to attach to the instance. 
+        ///  Default: 1
         /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// The type of elastic inference accelerator.
+        /// The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
         /// </summary>
         public readonly string? Type;
 

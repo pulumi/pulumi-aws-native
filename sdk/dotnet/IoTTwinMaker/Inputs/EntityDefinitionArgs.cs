@@ -11,15 +11,15 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Inputs
 {
 
     /// <summary>
-    /// An object that specifies information about a property.
+    /// An object that specifies information about a property definition.
     /// </summary>
-    public sealed class EntityPropertyDefinitionPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class EntityDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("configuration")]
         private InputMap<string>? _configuration;
 
         /// <summary>
-        /// An object that specifies information about a property.
+        /// An object that specifies information about a property configuration.
         /// </summary>
         public InputMap<string> Configuration
         {
@@ -81,9 +81,9 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Inputs
         [Input("isTimeSeries")]
         public Input<bool>? IsTimeSeries { get; set; }
 
-        public EntityPropertyDefinitionPropertiesArgs()
+        public EntityDefinitionArgs()
         {
         }
-        public static new EntityPropertyDefinitionPropertiesArgs Empty => new EntityPropertyDefinitionPropertiesArgs();
+        public static new EntityDefinitionArgs Empty => new EntityDefinitionArgs();
     }
 }

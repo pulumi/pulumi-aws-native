@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.AppSync
 {
+    [EnumType]
+    public readonly struct ResolverMetricsConfig : IEquatable<ResolverMetricsConfig>
+    {
+        private readonly string _value;
+
+        private ResolverMetricsConfig(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResolverMetricsConfig Enabled { get; } = new ResolverMetricsConfig("ENABLED");
+        public static ResolverMetricsConfig Disabled { get; } = new ResolverMetricsConfig("DISABLED");
+
+        public static bool operator ==(ResolverMetricsConfig left, ResolverMetricsConfig right) => left.Equals(right);
+        public static bool operator !=(ResolverMetricsConfig left, ResolverMetricsConfig right) => !left.Equals(right);
+
+        public static explicit operator string(ResolverMetricsConfig value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResolverMetricsConfig other && Equals(other);
+        public bool Equals(ResolverMetricsConfig other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Configuration of the merged behavior for the association. For example when it could be auto or has to be manual.
     /// </summary>

@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetDistribution
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::Distribution
+        /// A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
         /// </summary>
         public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionResult>("aws-native:cloudfront:getDistribution", args ?? new GetDistributionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::Distribution
+        /// A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
         /// </summary>
         public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws-native:cloudfront:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());
@@ -51,9 +51,15 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetDistributionResult
     {
+        /// <summary>
+        /// The distribution's configuration.
+        /// </summary>
         public readonly Outputs.DistributionConfig? DistributionConfig;
         public readonly string? DomainName;
         public readonly string? Id;
+        /// <summary>
+        /// A complex type that contains zero or more ``Tag`` elements.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

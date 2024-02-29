@@ -25,6 +25,7 @@ __all__ = [
     'FeatureGroupStorageType',
     'FeatureGroupTableFormat',
     'FeatureGroupThroughputMode',
+    'FeatureGroupUnit',
     'ImageVersionJobType',
     'ImageVersionProcessor',
     'ImageVersionVendorGuidance',
@@ -368,6 +369,17 @@ class FeatureGroupThroughputMode(str, Enum):
     """
     ON_DEMAND = "OnDemand"
     PROVISIONED = "Provisioned"
+
+
+class FeatureGroupUnit(str, Enum):
+    """
+    Unit of ttl configuration
+    """
+    SECONDS = "Seconds"
+    MINUTES = "Minutes"
+    HOURS = "Hours"
+    DAYS = "Days"
+    WEEKS = "Weeks"
 
 
 class ImageVersionJobType(str, Enum):

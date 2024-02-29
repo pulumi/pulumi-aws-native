@@ -108,6 +108,13 @@
   },
   "required" : [ "Name", "SourceS3Location" ],
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "primaryIdentifier" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/DisplayName", "/properties/Description", "/properties/SourceS3Location", "/properties/SetupScriptDetails", "/properties/PackagingType", "/properties/PostSetupScriptDetails" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime" ],

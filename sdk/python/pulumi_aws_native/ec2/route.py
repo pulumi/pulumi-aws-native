@@ -31,18 +31,19 @@ class RouteArgs:
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Route resource.
-        :param pulumi.Input[str] route_table_id: The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
+        :param pulumi.Input[str] route_table_id: The ID of the route table for the route.
         :param pulumi.Input[str] carrier_gateway_id: The ID of the carrier gateway.
+                You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of the core network.
-        :param pulumi.Input[str] destination_cidr_block: The IPv4 CIDR block used for the destination match.
-        :param pulumi.Input[str] destination_ipv6_cidr_block: The IPv6 CIDR block used for the destination match.
-        :param pulumi.Input[str] destination_prefix_list_id: The ID of managed prefix list, it's a set of one or more CIDR blocks.
-        :param pulumi.Input[str] egress_only_internet_gateway_id: The ID of the egress-only internet gateway.
+        :param pulumi.Input[str] destination_cidr_block: The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
+        :param pulumi.Input[str] destination_ipv6_cidr_block: The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
+        :param pulumi.Input[str] destination_prefix_list_id: The ID of a prefix list used for the destination match.
+        :param pulumi.Input[str] egress_only_internet_gateway_id: [IPv6 traffic only] The ID of an egress-only internet gateway.
         :param pulumi.Input[str] gateway_id: The ID of an internet gateway or virtual private gateway attached to your VPC.
-        :param pulumi.Input[str] instance_id: The ID of a NAT instance in your VPC.
+        :param pulumi.Input[str] instance_id: The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
         :param pulumi.Input[str] local_gateway_id: The ID of the local gateway.
-        :param pulumi.Input[str] nat_gateway_id: The ID of a NAT gateway.
-        :param pulumi.Input[str] network_interface_id: The ID of the network interface.
+        :param pulumi.Input[str] nat_gateway_id: [IPv4 traffic only] The ID of a NAT gateway.
+        :param pulumi.Input[str] network_interface_id: The ID of a network interface.
         :param pulumi.Input[str] transit_gateway_id: The ID of a transit gateway.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of a VPC peering connection.
@@ -81,7 +82,7 @@ class RouteArgs:
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[str]:
         """
-        The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
+        The ID of the route table for the route.
         """
         return pulumi.get(self, "route_table_id")
 
@@ -94,6 +95,7 @@ class RouteArgs:
     def carrier_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the carrier gateway.
+         You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
         """
         return pulumi.get(self, "carrier_gateway_id")
 
@@ -117,7 +119,7 @@ class RouteArgs:
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv4 CIDR block used for the destination match.
+        The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
         """
         return pulumi.get(self, "destination_cidr_block")
 
@@ -129,7 +131,7 @@ class RouteArgs:
     @pulumi.getter(name="destinationIpv6CidrBlock")
     def destination_ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv6 CIDR block used for the destination match.
+        The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
         """
         return pulumi.get(self, "destination_ipv6_cidr_block")
 
@@ -141,7 +143,7 @@ class RouteArgs:
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of managed prefix list, it's a set of one or more CIDR blocks.
+        The ID of a prefix list used for the destination match.
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -153,7 +155,7 @@ class RouteArgs:
     @pulumi.getter(name="egressOnlyInternetGatewayId")
     def egress_only_internet_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the egress-only internet gateway.
+        [IPv6 traffic only] The ID of an egress-only internet gateway.
         """
         return pulumi.get(self, "egress_only_internet_gateway_id")
 
@@ -177,7 +179,7 @@ class RouteArgs:
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a NAT instance in your VPC.
+        The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
         """
         return pulumi.get(self, "instance_id")
 
@@ -201,7 +203,7 @@ class RouteArgs:
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a NAT gateway.
+        [IPv4 traffic only] The ID of a NAT gateway.
         """
         return pulumi.get(self, "nat_gateway_id")
 
@@ -213,7 +215,7 @@ class RouteArgs:
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the network interface.
+        The ID of a network interface.
         """
         return pulumi.get(self, "network_interface_id")
 
@@ -280,22 +282,25 @@ class Route(pulumi.CustomResource):
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::Route
+        Specifies a route in a route table. For more information, see [Routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#route-table-routes) in the *Amazon VPC User Guide*.
+         You must specify either a destination CIDR block or prefix list ID. You must also specify exactly one of the resources as the target.
+         If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) in the ``AWS::EC2::Route`` resource to explicitly declare a dependency on the ``AWS::EC2::TransitGatewayAttachment`` resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] carrier_gateway_id: The ID of the carrier gateway.
+                You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of the core network.
-        :param pulumi.Input[str] destination_cidr_block: The IPv4 CIDR block used for the destination match.
-        :param pulumi.Input[str] destination_ipv6_cidr_block: The IPv6 CIDR block used for the destination match.
-        :param pulumi.Input[str] destination_prefix_list_id: The ID of managed prefix list, it's a set of one or more CIDR blocks.
-        :param pulumi.Input[str] egress_only_internet_gateway_id: The ID of the egress-only internet gateway.
+        :param pulumi.Input[str] destination_cidr_block: The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
+        :param pulumi.Input[str] destination_ipv6_cidr_block: The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
+        :param pulumi.Input[str] destination_prefix_list_id: The ID of a prefix list used for the destination match.
+        :param pulumi.Input[str] egress_only_internet_gateway_id: [IPv6 traffic only] The ID of an egress-only internet gateway.
         :param pulumi.Input[str] gateway_id: The ID of an internet gateway or virtual private gateway attached to your VPC.
-        :param pulumi.Input[str] instance_id: The ID of a NAT instance in your VPC.
+        :param pulumi.Input[str] instance_id: The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
         :param pulumi.Input[str] local_gateway_id: The ID of the local gateway.
-        :param pulumi.Input[str] nat_gateway_id: The ID of a NAT gateway.
-        :param pulumi.Input[str] network_interface_id: The ID of the network interface.
-        :param pulumi.Input[str] route_table_id: The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
+        :param pulumi.Input[str] nat_gateway_id: [IPv4 traffic only] The ID of a NAT gateway.
+        :param pulumi.Input[str] network_interface_id: The ID of a network interface.
+        :param pulumi.Input[str] route_table_id: The ID of the route table for the route.
         :param pulumi.Input[str] transit_gateway_id: The ID of a transit gateway.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of a VPC peering connection.
@@ -307,7 +312,9 @@ class Route(pulumi.CustomResource):
                  args: RouteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::Route
+        Specifies a route in a route table. For more information, see [Routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#route-table-routes) in the *Amazon VPC User Guide*.
+         You must specify either a destination CIDR block or prefix list ID. You must also specify exactly one of the resources as the target.
+         If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) in the ``AWS::EC2::Route`` resource to explicitly declare a dependency on the ``AWS::EC2::TransitGatewayAttachment`` resource.
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
@@ -413,15 +420,13 @@ class Route(pulumi.CustomResource):
     def carrier_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the carrier gateway.
+         You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
         """
         return pulumi.get(self, "carrier_gateway_id")
 
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[str]:
-        """
-        The primary identifier of the resource generated by the service.
-        """
         return pulumi.get(self, "cidr_block")
 
     @property
@@ -436,7 +441,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
-        The IPv4 CIDR block used for the destination match.
+        The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
         """
         return pulumi.get(self, "destination_cidr_block")
 
@@ -444,7 +449,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="destinationIpv6CidrBlock")
     def destination_ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
         """
-        The IPv6 CIDR block used for the destination match.
+        The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
         """
         return pulumi.get(self, "destination_ipv6_cidr_block")
 
@@ -452,7 +457,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of managed prefix list, it's a set of one or more CIDR blocks.
+        The ID of a prefix list used for the destination match.
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -460,7 +465,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="egressOnlyInternetGatewayId")
     def egress_only_internet_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the egress-only internet gateway.
+        [IPv6 traffic only] The ID of an egress-only internet gateway.
         """
         return pulumi.get(self, "egress_only_internet_gateway_id")
 
@@ -476,7 +481,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a NAT instance in your VPC.
+        The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
         """
         return pulumi.get(self, "instance_id")
 
@@ -492,7 +497,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a NAT gateway.
+        [IPv4 traffic only] The ID of a NAT gateway.
         """
         return pulumi.get(self, "nat_gateway_id")
 
@@ -500,7 +505,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the network interface.
+        The ID of a network interface.
         """
         return pulumi.get(self, "network_interface_id")
 
@@ -508,7 +513,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[str]:
         """
-        The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to.
+        The ID of the route table for the route.
         """
         return pulumi.get(self, "route_table_id")
 

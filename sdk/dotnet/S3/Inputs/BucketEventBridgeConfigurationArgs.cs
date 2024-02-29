@@ -11,12 +11,13 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+    /// Amazon S3 can send events to Amazon EventBridge whenever certain events happen in your bucket, see [Using EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html) in the *Amazon S3 User Guide*.
+    ///  Unlike other destinations, delivery of events to EventBridge can be either enabled or disabled for a bucket. If enabled, all events will be sent to EventBridge and you can use EventBridge rules to route events to additional targets. For more information, see [What Is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*
     /// </summary>
     public sealed class BucketEventBridgeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+        /// Enables delivery of events to Amazon EventBridge.
         /// </summary>
         [Input("eventBridgeEnabled", required: true)]
         public Input<bool> EventBridgeEnabled { get; set; } = null!;

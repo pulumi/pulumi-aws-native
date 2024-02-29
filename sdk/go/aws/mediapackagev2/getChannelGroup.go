@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+// <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
 func LookupChannelGroup(ctx *pulumi.Context, args *LookupChannelGroupArgs, opts ...pulumi.InvokeOption) (*LookupChannelGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupChannelGroupResult
@@ -24,16 +24,22 @@ func LookupChannelGroup(ctx *pulumi.Context, args *LookupChannelGroupArgs, opts 
 }
 
 type LookupChannelGroupArgs struct {
+	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 	Arn string `pulumi:"arn"`
 }
 
 type LookupChannelGroupResult struct {
-	Arn          *string   `pulumi:"arn"`
-	CreatedAt    *string   `pulumi:"createdAt"`
-	Description  *string   `pulumi:"description"`
-	EgressDomain *string   `pulumi:"egressDomain"`
-	ModifiedAt   *string   `pulumi:"modifiedAt"`
-	Tags         []aws.Tag `pulumi:"tags"`
+	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The date and time the channel group was created.</p>
+	CreatedAt *string `pulumi:"createdAt"`
+	// <p>Enter any descriptive text that helps you to identify the channel group.</p>
+	Description *string `pulumi:"description"`
+	// <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
+	EgressDomain *string `pulumi:"egressDomain"`
+	// <p>The date and time the channel group was modified.</p>
+	ModifiedAt *string   `pulumi:"modifiedAt"`
+	Tags       []aws.Tag `pulumi:"tags"`
 }
 
 func LookupChannelGroupOutput(ctx *pulumi.Context, args LookupChannelGroupOutputArgs, opts ...pulumi.InvokeOption) LookupChannelGroupResultOutput {
@@ -50,6 +56,7 @@ func LookupChannelGroupOutput(ctx *pulumi.Context, args LookupChannelGroupOutput
 }
 
 type LookupChannelGroupOutputArgs struct {
+	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,22 +78,27 @@ func (o LookupChannelGroupResultOutput) ToLookupChannelGroupResultOutputWithCont
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 func (o LookupChannelGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// <p>The date and time the channel group was created.</p>
 func (o LookupChannelGroupResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelGroupResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// <p>Enter any descriptive text that helps you to identify the channel group.</p>
 func (o LookupChannelGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
 func (o LookupChannelGroupResultOutput) EgressDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelGroupResult) *string { return v.EgressDomain }).(pulumi.StringPtrOutput)
 }
 
+// <p>The date and time the channel group was modified.</p>
 func (o LookupChannelGroupResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelGroupResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }

@@ -16,11 +16,15 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class BucketServerSideEncryptionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the BucketKeyEnabled element to true causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+        /// Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+        ///  For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
         /// </summary>
         [Input("bucketKeyEnabled")]
         public Input<bool>? BucketKeyEnabled { get; set; }
 
+        /// <summary>
+        /// Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+        /// </summary>
         [Input("serverSideEncryptionByDefault")]
         public Input<Inputs.BucketServerSideEncryptionByDefaultArgs>? ServerSideEncryptionByDefault { get; set; }
 

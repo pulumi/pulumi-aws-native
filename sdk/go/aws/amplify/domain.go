@@ -16,16 +16,19 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
-	AppId                         pulumi.StringOutput               `pulumi:"appId"`
-	Arn                           pulumi.StringOutput               `pulumi:"arn"`
-	AutoSubDomainCreationPatterns pulumi.StringArrayOutput          `pulumi:"autoSubDomainCreationPatterns"`
-	AutoSubDomainIamRole          pulumi.StringPtrOutput            `pulumi:"autoSubDomainIamRole"`
-	CertificateRecord             pulumi.StringOutput               `pulumi:"certificateRecord"`
-	DomainName                    pulumi.StringOutput               `pulumi:"domainName"`
-	DomainStatus                  pulumi.StringOutput               `pulumi:"domainStatus"`
-	EnableAutoSubDomain           pulumi.BoolPtrOutput              `pulumi:"enableAutoSubDomain"`
-	StatusReason                  pulumi.StringOutput               `pulumi:"statusReason"`
-	SubDomainSettings             DomainSubDomainSettingArrayOutput `pulumi:"subDomainSettings"`
+	AppId                         pulumi.StringOutput                `pulumi:"appId"`
+	Arn                           pulumi.StringOutput                `pulumi:"arn"`
+	AutoSubDomainCreationPatterns pulumi.StringArrayOutput           `pulumi:"autoSubDomainCreationPatterns"`
+	AutoSubDomainIamRole          pulumi.StringPtrOutput             `pulumi:"autoSubDomainIamRole"`
+	Certificate                   DomainCertificatePtrOutput         `pulumi:"certificate"`
+	CertificateRecord             pulumi.StringOutput                `pulumi:"certificateRecord"`
+	CertificateSettings           DomainCertificateSettingsPtrOutput `pulumi:"certificateSettings"`
+	DomainName                    pulumi.StringOutput                `pulumi:"domainName"`
+	DomainStatus                  pulumi.StringOutput                `pulumi:"domainStatus"`
+	EnableAutoSubDomain           pulumi.BoolPtrOutput               `pulumi:"enableAutoSubDomain"`
+	StatusReason                  pulumi.StringOutput                `pulumi:"statusReason"`
+	SubDomainSettings             DomainSubDomainSettingArrayOutput  `pulumi:"subDomainSettings"`
+	UpdateStatus                  pulumi.StringPtrOutput             `pulumi:"updateStatus"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -79,12 +82,15 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	AppId                         string                   `pulumi:"appId"`
-	AutoSubDomainCreationPatterns []string                 `pulumi:"autoSubDomainCreationPatterns"`
-	AutoSubDomainIamRole          *string                  `pulumi:"autoSubDomainIamRole"`
-	DomainName                    *string                  `pulumi:"domainName"`
-	EnableAutoSubDomain           *bool                    `pulumi:"enableAutoSubDomain"`
-	SubDomainSettings             []DomainSubDomainSetting `pulumi:"subDomainSettings"`
+	AppId                         string                     `pulumi:"appId"`
+	AutoSubDomainCreationPatterns []string                   `pulumi:"autoSubDomainCreationPatterns"`
+	AutoSubDomainIamRole          *string                    `pulumi:"autoSubDomainIamRole"`
+	Certificate                   *DomainCertificate         `pulumi:"certificate"`
+	CertificateSettings           *DomainCertificateSettings `pulumi:"certificateSettings"`
+	DomainName                    *string                    `pulumi:"domainName"`
+	EnableAutoSubDomain           *bool                      `pulumi:"enableAutoSubDomain"`
+	SubDomainSettings             []DomainSubDomainSetting   `pulumi:"subDomainSettings"`
+	UpdateStatus                  *string                    `pulumi:"updateStatus"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -92,9 +98,12 @@ type DomainArgs struct {
 	AppId                         pulumi.StringInput
 	AutoSubDomainCreationPatterns pulumi.StringArrayInput
 	AutoSubDomainIamRole          pulumi.StringPtrInput
+	Certificate                   DomainCertificatePtrInput
+	CertificateSettings           DomainCertificateSettingsPtrInput
 	DomainName                    pulumi.StringPtrInput
 	EnableAutoSubDomain           pulumi.BoolPtrInput
 	SubDomainSettings             DomainSubDomainSettingArrayInput
+	UpdateStatus                  pulumi.StringPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -150,8 +159,16 @@ func (o DomainOutput) AutoSubDomainIamRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AutoSubDomainIamRole }).(pulumi.StringPtrOutput)
 }
 
+func (o DomainOutput) Certificate() DomainCertificatePtrOutput {
+	return o.ApplyT(func(v *Domain) DomainCertificatePtrOutput { return v.Certificate }).(DomainCertificatePtrOutput)
+}
+
 func (o DomainOutput) CertificateRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.CertificateRecord }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) CertificateSettings() DomainCertificateSettingsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainCertificateSettingsPtrOutput { return v.CertificateSettings }).(DomainCertificateSettingsPtrOutput)
 }
 
 func (o DomainOutput) DomainName() pulumi.StringOutput {
@@ -172,6 +189,10 @@ func (o DomainOutput) StatusReason() pulumi.StringOutput {
 
 func (o DomainOutput) SubDomainSettings() DomainSubDomainSettingArrayOutput {
 	return o.ApplyT(func(v *Domain) DomainSubDomainSettingArrayOutput { return v.SubDomainSettings }).(DomainSubDomainSettingArrayOutput)
+}
+
+func (o DomainOutput) UpdateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.UpdateStatus }).(pulumi.StringPtrOutput)
 }
 
 func init() {

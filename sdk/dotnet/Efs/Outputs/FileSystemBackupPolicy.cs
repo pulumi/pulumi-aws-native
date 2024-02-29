@@ -10,9 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Efs.Outputs
 {
 
+    /// <summary>
+    /// The backup policy turns automatic backups for the file system on or off.
+    /// </summary>
     [OutputType]
     public sealed class FileSystemBackupPolicy
     {
+        /// <summary>
+        /// Set the backup policy status for the file system.
+        ///   +   *ENABLED* - Turns automatic backups on for the file system. 
+        ///   +   *DISABLED* - Turns automatic backups off for the file system.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

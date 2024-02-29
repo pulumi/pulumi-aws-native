@@ -10,16 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackageV2
 {
     /// <summary>
-    /// Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
+    /// &lt;p&gt;Represents a resource-based policy that allows or denies access to a channel.&lt;/p&gt;
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackagev2:ChannelPolicy")]
     public partial class ChannelPolicy : global::Pulumi.CustomResource
     {
         [Output("channelGroupName")]
-        public Output<string?> ChannelGroupName { get; private set; } = null!;
+        public Output<string> ChannelGroupName { get; private set; } = null!;
 
         [Output("channelName")]
-        public Output<string?> ChannelName { get; private set; } = null!;
+        public Output<string> ChannelName { get; private set; } = null!;
 
         /// <summary>
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
@@ -77,11 +77,11 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class ChannelPolicyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("channelGroupName")]
-        public Input<string>? ChannelGroupName { get; set; }
+        [Input("channelGroupName", required: true)]
+        public Input<string> ChannelGroupName { get; set; } = null!;
 
-        [Input("channelName")]
-        public Input<string>? ChannelName { get; set; }
+        [Input("channelName", required: true)]
+        public Input<string> ChannelName { get; set; } = null!;
 
         /// <summary>
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.

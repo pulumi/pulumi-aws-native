@@ -363,6 +363,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
         public static DeliveryStreamProcessorType RecordDeAggregation { get; } = new DeliveryStreamProcessorType("RecordDeAggregation");
         public static DeliveryStreamProcessorType Decompression { get; } = new DeliveryStreamProcessorType("Decompression");
+        public static DeliveryStreamProcessorType CloudWatchLogProcessing { get; } = new DeliveryStreamProcessorType("CloudWatchLogProcessing");
         public static DeliveryStreamProcessorType Lambda { get; } = new DeliveryStreamProcessorType("Lambda");
         public static DeliveryStreamProcessorType MetadataExtraction { get; } = new DeliveryStreamProcessorType("MetadataExtraction");
         public static DeliveryStreamProcessorType AppendDelimiterToRecord { get; } = new DeliveryStreamProcessorType("AppendDelimiterToRecord");

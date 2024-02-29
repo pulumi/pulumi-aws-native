@@ -19,9 +19,16 @@ class RolePolicyInitArgs:
                  policy_document: Optional[Any] = None):
         """
         The set of arguments for constructing a RolePolicy resource.
-        :param pulumi.Input[str] policy_name: The friendly name (not ARN) identifying the policy.
-        :param pulumi.Input[str] role_name: The name of the policy document.
+        :param pulumi.Input[str] policy_name: The name of the policy document.
+                This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        :param pulumi.Input[str] role_name: The name of the role to associate the policy with.
+                This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :param Any policy_document: The policy document.
+                You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+                The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+                 +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range
+                 +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)
+                 +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
         """
@@ -34,7 +41,8 @@ class RolePolicyInitArgs:
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Input[str]:
         """
-        The friendly name (not ARN) identifying the policy.
+        The name of the policy document.
+         This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         """
         return pulumi.get(self, "policy_name")
 
@@ -46,7 +54,8 @@ class RolePolicyInitArgs:
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Input[str]:
         """
-        The name of the policy document.
+        The name of the role to associate the policy with.
+         This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         """
         return pulumi.get(self, "role_name")
 
@@ -59,6 +68,11 @@ class RolePolicyInitArgs:
     def policy_document(self) -> Optional[Any]:
         """
         The policy document.
+         You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+         The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+          +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range
+          +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)
+          +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
         """
@@ -79,15 +93,24 @@ class RolePolicy(pulumi.CustomResource):
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Schema for IAM Role Policy
+        Adds or updates an inline policy document that is embedded in the specified IAM role.
+         When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html). You can update a role's trust policy using [UpdateAssumeRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html). For information about roles, see [roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html) in the *IAM User Guide*.
+         A role can also have a managed policy attached to it. To attach a managed policy to a role, use [AWS::IAM::Role](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html). To create a new managed policy, use [AWS::IAM::ManagedPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-i
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy_document: The policy document.
+                You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+                The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+                 +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range
+                 +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)
+                 +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
-        :param pulumi.Input[str] policy_name: The friendly name (not ARN) identifying the policy.
-        :param pulumi.Input[str] role_name: The name of the policy document.
+        :param pulumi.Input[str] policy_name: The name of the policy document.
+                This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        :param pulumi.Input[str] role_name: The name of the role to associate the policy with.
+                This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         """
         ...
     @overload
@@ -96,7 +119,9 @@ class RolePolicy(pulumi.CustomResource):
                  args: RolePolicyInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Schema for IAM Role Policy
+        Adds or updates an inline policy document that is embedded in the specified IAM role.
+         When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html). You can update a role's trust policy using [UpdateAssumeRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html). For information about roles, see [roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html) in the *IAM User Guide*.
+         A role can also have a managed policy attached to it. To attach a managed policy to a role, use [AWS::IAM::Role](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html). To create a new managed policy, use [AWS::IAM::ManagedPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-i
 
         :param str resource_name: The name of the resource.
         :param RolePolicyInitArgs args: The arguments to use to populate this resource's properties.
@@ -166,6 +191,11 @@ class RolePolicy(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[Optional[Any]]:
         """
         The policy document.
+         You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
+         The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
+          +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range
+          +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)
+          +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
         """
@@ -175,7 +205,8 @@ class RolePolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Output[str]:
         """
-        The friendly name (not ARN) identifying the policy.
+        The name of the policy document.
+         This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         """
         return pulumi.get(self, "policy_name")
 
@@ -183,7 +214,8 @@ class RolePolicy(pulumi.CustomResource):
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Output[str]:
         """
-        The name of the policy document.
+        The name of the role to associate the policy with.
+         This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         """
         return pulumi.get(self, "role_name")
 

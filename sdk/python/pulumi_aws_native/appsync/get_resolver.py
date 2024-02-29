@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetResolverResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetResolverResult:
-    def __init__(__self__, caching_config=None, code=None, data_source_name=None, kind=None, max_batch_size=None, pipeline_config=None, request_mapping_template=None, resolver_arn=None, response_mapping_template=None, runtime=None, sync_config=None):
+    def __init__(__self__, caching_config=None, code=None, data_source_name=None, kind=None, max_batch_size=None, metrics_config=None, pipeline_config=None, request_mapping_template=None, resolver_arn=None, response_mapping_template=None, runtime=None, sync_config=None):
         if caching_config and not isinstance(caching_config, dict):
             raise TypeError("Expected argument 'caching_config' to be a dict")
         pulumi.set(__self__, "caching_config", caching_config)
@@ -35,6 +36,9 @@ class GetResolverResult:
         if max_batch_size and not isinstance(max_batch_size, int):
             raise TypeError("Expected argument 'max_batch_size' to be a int")
         pulumi.set(__self__, "max_batch_size", max_batch_size)
+        if metrics_config and not isinstance(metrics_config, str):
+            raise TypeError("Expected argument 'metrics_config' to be a str")
+        pulumi.set(__self__, "metrics_config", metrics_config)
         if pipeline_config and not isinstance(pipeline_config, dict):
             raise TypeError("Expected argument 'pipeline_config' to be a dict")
         pulumi.set(__self__, "pipeline_config", pipeline_config)
@@ -97,6 +101,11 @@ class GetResolverResult:
         return pulumi.get(self, "max_batch_size")
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> Optional['ResolverMetricsConfig']:
+        return pulumi.get(self, "metrics_config")
+
+    @property
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> Optional['outputs.ResolverPipelineConfig']:
         """
@@ -154,6 +163,7 @@ class AwaitableGetResolverResult(GetResolverResult):
             data_source_name=self.data_source_name,
             kind=self.kind,
             max_batch_size=self.max_batch_size,
+            metrics_config=self.metrics_config,
             pipeline_config=self.pipeline_config,
             request_mapping_template=self.request_mapping_template,
             resolver_arn=self.resolver_arn,
@@ -180,6 +190,7 @@ def get_resolver(resolver_arn: Optional[str] = None,
         data_source_name=pulumi.get(__ret__, 'data_source_name'),
         kind=pulumi.get(__ret__, 'kind'),
         max_batch_size=pulumi.get(__ret__, 'max_batch_size'),
+        metrics_config=pulumi.get(__ret__, 'metrics_config'),
         pipeline_config=pulumi.get(__ret__, 'pipeline_config'),
         request_mapping_template=pulumi.get(__ret__, 'request_mapping_template'),
         resolver_arn=pulumi.get(__ret__, 'resolver_arn'),

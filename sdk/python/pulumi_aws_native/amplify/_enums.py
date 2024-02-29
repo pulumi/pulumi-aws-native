@@ -8,6 +8,8 @@ __all__ = [
     'AppAutoBranchCreationConfigStage',
     'AppPlatform',
     'BranchStage',
+    'DomainCertificateCertificateType',
+    'DomainCertificateSettingsCertificateType',
 ]
 
 
@@ -31,3 +33,13 @@ class BranchStage(str, Enum):
     PULL_REQUEST = "PULL_REQUEST"
     PRODUCTION = "PRODUCTION"
     DEVELOPMENT = "DEVELOPMENT"
+
+
+class DomainCertificateCertificateType(str, Enum):
+    AMPLIFY_MANAGED = "AMPLIFY_MANAGED"
+    CUSTOM = "CUSTOM"
+
+
+class DomainCertificateSettingsCertificateType(str, Enum):
+    AMPLIFY_MANAGED = "AMPLIFY_MANAGED"
+    CUSTOM = "CUSTOM"

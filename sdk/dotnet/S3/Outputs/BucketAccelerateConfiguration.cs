@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
+    /// </summary>
     [OutputType]
     public sealed class BucketAccelerateConfiguration
     {
         /// <summary>
-        /// Configures the transfer acceleration state for an Amazon S3 bucket.
+        /// Specifies the transfer acceleration status of the bucket.
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketAccelerateConfigurationAccelerationStatus AccelerationStatus;
 

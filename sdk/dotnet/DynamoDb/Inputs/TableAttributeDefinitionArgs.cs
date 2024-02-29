@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Inputs
 {
 
+    /// <summary>
+    /// Represents an attribute for describing the key schema for the table and indexes.
+    /// </summary>
     public sealed class TableAttributeDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A name for the attribute.
+        /// </summary>
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 
+        /// <summary>
+        /// The data type for the attribute, where:
+        ///   +   ``S`` - the attribute is of type String
+        ///   +   ``N`` - the attribute is of type Number
+        ///   +   ``B`` - the attribute is of type Binary
+        /// </summary>
         [Input("attributeType", required: true)]
         public Input<string> AttributeType { get; set; } = null!;
 

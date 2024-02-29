@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
 {
 
     /// <summary>
-    /// An object that specifies information about a property.
+    /// An object that specifies information about a property definition.
     /// </summary>
     [OutputType]
-    public sealed class EntityPropertyDefinitionProperties
+    public sealed class EntityDefinition
     {
         /// <summary>
-        /// An object that specifies information about a property.
+        /// An object that specifies information about a property configuration.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Configuration;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
         public readonly bool? IsTimeSeries;
 
         [OutputConstructor]
-        private EntityPropertyDefinitionProperties(
+        private EntityDefinition(
             ImmutableDictionary<string, string>? configuration,
 
             Outputs.EntityDataType? dataType,

@@ -36,7 +36,8 @@ type Resolver struct {
 	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
-	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
+	MaxBatchSize  pulumi.IntPtrOutput            `pulumi:"maxBatchSize"`
+	MetricsConfig ResolverMetricsConfigPtrOutput `pulumi:"metricsConfig"`
 	// Functions linked with the pipeline resolver.
 	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
 	// The request mapping template.
@@ -129,7 +130,8 @@ type resolverArgs struct {
 	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind *string `pulumi:"kind"`
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
-	MaxBatchSize *int `pulumi:"maxBatchSize"`
+	MaxBatchSize  *int                   `pulumi:"maxBatchSize"`
+	MetricsConfig *ResolverMetricsConfig `pulumi:"metricsConfig"`
 	// Functions linked with the pipeline resolver.
 	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
 	// The request mapping template.
@@ -168,7 +170,8 @@ type ResolverArgs struct {
 	//   +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
 	Kind pulumi.StringPtrInput
 	// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
-	MaxBatchSize pulumi.IntPtrInput
+	MaxBatchSize  pulumi.IntPtrInput
+	MetricsConfig ResolverMetricsConfigPtrInput
 	// Functions linked with the pipeline resolver.
 	PipelineConfig ResolverPipelineConfigPtrInput
 	// The request mapping template.
@@ -265,6 +268,10 @@ func (o ResolverOutput) Kind() pulumi.StringPtrOutput {
 // The maximum number of resolver request inputs that will be sent to a single LAMlong function in a “BatchInvoke“ operation.
 func (o ResolverOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o ResolverOutput) MetricsConfig() ResolverMetricsConfigPtrOutput {
+	return o.ApplyT(func(v *Resolver) ResolverMetricsConfigPtrOutput { return v.MetricsConfig }).(ResolverMetricsConfigPtrOutput)
 }
 
 // Functions linked with the pipeline resolver.

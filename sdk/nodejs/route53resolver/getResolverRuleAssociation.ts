@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+ * In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
  */
 export function getResolverRuleAssociation(args: GetResolverRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleAssociationResult> {
 
@@ -16,28 +16,19 @@ export function getResolverRuleAssociation(args: GetResolverRuleAssociationArgs,
 }
 
 export interface GetResolverRuleAssociationArgs {
-    /**
-     * Primary Identifier for Resolver Rule Association
-     */
     resolverRuleAssociationId: string;
 }
 
 export interface GetResolverRuleAssociationResult {
-    /**
-     * Primary Identifier for Resolver Rule Association
-     */
     readonly resolverRuleAssociationId?: string;
 }
 /**
- * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+ * In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
  */
 export function getResolverRuleAssociationOutput(args: GetResolverRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleAssociationResult> {
     return pulumi.output(args).apply((a: any) => getResolverRuleAssociation(a, opts))
 }
 
 export interface GetResolverRuleAssociationOutputArgs {
-    /**
-     * Primary Identifier for Resolver Rule Association
-     */
     resolverRuleAssociationId: pulumi.Input<string>;
 }

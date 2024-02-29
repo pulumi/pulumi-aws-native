@@ -1011,7 +1011,7 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
-    /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+    /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
     /// </summary>
     [EnumType]
     public readonly struct LaunchTemplateCpuOptionsAmdSevSnp : IEquatable<LaunchTemplateCpuOptionsAmdSevSnp>
@@ -1824,6 +1824,10 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of endpoint.
+    ///  Default: Gateway
+    /// </summary>
     [EnumType]
     public readonly struct VpcEndpointType : IEquatable<VpcEndpointType>
     {

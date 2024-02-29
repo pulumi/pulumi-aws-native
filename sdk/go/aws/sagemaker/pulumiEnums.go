@@ -3580,6 +3580,178 @@ func (in *featureGroupThroughputModePtr) ToFeatureGroupThroughputModePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureGroupThroughputModePtrOutput)
 }
 
+// Unit of ttl configuration
+type FeatureGroupUnit string
+
+const (
+	FeatureGroupUnitSeconds = FeatureGroupUnit("Seconds")
+	FeatureGroupUnitMinutes = FeatureGroupUnit("Minutes")
+	FeatureGroupUnitHours   = FeatureGroupUnit("Hours")
+	FeatureGroupUnitDays    = FeatureGroupUnit("Days")
+	FeatureGroupUnitWeeks   = FeatureGroupUnit("Weeks")
+)
+
+func (FeatureGroupUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupUnit)(nil)).Elem()
+}
+
+func (e FeatureGroupUnit) ToFeatureGroupUnitOutput() FeatureGroupUnitOutput {
+	return pulumi.ToOutput(e).(FeatureGroupUnitOutput)
+}
+
+func (e FeatureGroupUnit) ToFeatureGroupUnitOutputWithContext(ctx context.Context) FeatureGroupUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FeatureGroupUnitOutput)
+}
+
+func (e FeatureGroupUnit) ToFeatureGroupUnitPtrOutput() FeatureGroupUnitPtrOutput {
+	return e.ToFeatureGroupUnitPtrOutputWithContext(context.Background())
+}
+
+func (e FeatureGroupUnit) ToFeatureGroupUnitPtrOutputWithContext(ctx context.Context) FeatureGroupUnitPtrOutput {
+	return FeatureGroupUnit(e).ToFeatureGroupUnitOutputWithContext(ctx).ToFeatureGroupUnitPtrOutputWithContext(ctx)
+}
+
+func (e FeatureGroupUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureGroupUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureGroupUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FeatureGroupUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FeatureGroupUnitOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupUnit)(nil)).Elem()
+}
+
+func (o FeatureGroupUnitOutput) ToFeatureGroupUnitOutput() FeatureGroupUnitOutput {
+	return o
+}
+
+func (o FeatureGroupUnitOutput) ToFeatureGroupUnitOutputWithContext(ctx context.Context) FeatureGroupUnitOutput {
+	return o
+}
+
+func (o FeatureGroupUnitOutput) ToFeatureGroupUnitPtrOutput() FeatureGroupUnitPtrOutput {
+	return o.ToFeatureGroupUnitPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupUnitOutput) ToFeatureGroupUnitPtrOutputWithContext(ctx context.Context) FeatureGroupUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupUnit) *FeatureGroupUnit {
+		return &v
+	}).(FeatureGroupUnitPtrOutput)
+}
+
+func (o FeatureGroupUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeatureGroupUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FeatureGroupUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeatureGroupUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupUnit)(nil)).Elem()
+}
+
+func (o FeatureGroupUnitPtrOutput) ToFeatureGroupUnitPtrOutput() FeatureGroupUnitPtrOutput {
+	return o
+}
+
+func (o FeatureGroupUnitPtrOutput) ToFeatureGroupUnitPtrOutputWithContext(ctx context.Context) FeatureGroupUnitPtrOutput {
+	return o
+}
+
+func (o FeatureGroupUnitPtrOutput) Elem() FeatureGroupUnitOutput {
+	return o.ApplyT(func(v *FeatureGroupUnit) FeatureGroupUnit {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupUnit
+		return ret
+	}).(FeatureGroupUnitOutput)
+}
+
+func (o FeatureGroupUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FeatureGroupUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FeatureGroupUnitInput is an input type that accepts values of the FeatureGroupUnit enum
+// A concrete instance of `FeatureGroupUnitInput` can be one of the following:
+//
+//	FeatureGroupUnitSeconds
+//	FeatureGroupUnitMinutes
+//	FeatureGroupUnitHours
+//	FeatureGroupUnitDays
+//	FeatureGroupUnitWeeks
+type FeatureGroupUnitInput interface {
+	pulumi.Input
+
+	ToFeatureGroupUnitOutput() FeatureGroupUnitOutput
+	ToFeatureGroupUnitOutputWithContext(context.Context) FeatureGroupUnitOutput
+}
+
+var featureGroupUnitPtrType = reflect.TypeOf((**FeatureGroupUnit)(nil)).Elem()
+
+type FeatureGroupUnitPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupUnitPtrOutput() FeatureGroupUnitPtrOutput
+	ToFeatureGroupUnitPtrOutputWithContext(context.Context) FeatureGroupUnitPtrOutput
+}
+
+type featureGroupUnitPtr string
+
+func FeatureGroupUnitPtr(v string) FeatureGroupUnitPtrInput {
+	return (*featureGroupUnitPtr)(&v)
+}
+
+func (*featureGroupUnitPtr) ElementType() reflect.Type {
+	return featureGroupUnitPtrType
+}
+
+func (in *featureGroupUnitPtr) ToFeatureGroupUnitPtrOutput() FeatureGroupUnitPtrOutput {
+	return pulumi.ToOutput(in).(FeatureGroupUnitPtrOutput)
+}
+
+func (in *featureGroupUnitPtr) ToFeatureGroupUnitPtrOutputWithContext(ctx context.Context) FeatureGroupUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FeatureGroupUnitPtrOutput)
+}
+
 // Indicates SageMaker job type compatibility.
 type ImageVersionJobType string
 
@@ -13714,6 +13886,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatPtrInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputModeInput)(nil)).Elem(), FeatureGroupThroughputMode("OnDemand"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputModePtrInput)(nil)).Elem(), FeatureGroupThroughputMode("OnDemand"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupUnitInput)(nil)).Elem(), FeatureGroupUnit("Seconds"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupUnitPtrInput)(nil)).Elem(), FeatureGroupUnit("Seconds"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionJobTypeInput)(nil)).Elem(), ImageVersionJobType("TRAINING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionJobTypePtrInput)(nil)).Elem(), ImageVersionJobType("TRAINING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionProcessorInput)(nil)).Elem(), ImageVersionProcessor("CPU"))
@@ -13864,6 +14038,8 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupTableFormatPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupThroughputModeOutput{})
 	pulumi.RegisterOutputType(FeatureGroupThroughputModePtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupUnitOutput{})
+	pulumi.RegisterOutputType(FeatureGroupUnitPtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionJobTypeOutput{})
 	pulumi.RegisterOutputType(ImageVersionJobTypePtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionProcessorOutput{})

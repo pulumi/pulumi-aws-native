@@ -10,10 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Outputs
 {
 
+    /// <summary>
+    /// The Kinesis Data Streams configuration for the specified table.
+    /// </summary>
     [OutputType]
     public sealed class TableKinesisStreamSpecification
     {
+        /// <summary>
+        /// The precision for the time and date that the stream was created.
+        /// </summary>
         public readonly Pulumi.AwsNative.DynamoDb.TableKinesisStreamSpecificationApproximateCreationDateTimePrecision? ApproximateCreationDateTimePrecision;
+        /// <summary>
+        /// The ARN for a specific Kinesis data stream.
+        ///  Length Constraints: Minimum length of 37. Maximum length of 1024.
+        /// </summary>
         public readonly string StreamArn;
 
         [OutputConstructor]

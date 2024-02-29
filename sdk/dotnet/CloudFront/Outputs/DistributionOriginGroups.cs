@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// A complex data type for the origin groups specified for a distribution.
+    /// </summary>
     [OutputType]
     public sealed class DistributionOriginGroups
     {
+        /// <summary>
+        /// The items (origin groups) in a distribution.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOriginGroup> Items;
+        /// <summary>
+        /// The number of origin groups.
+        /// </summary>
         public readonly int Quantity;
 
         [OutputConstructor]

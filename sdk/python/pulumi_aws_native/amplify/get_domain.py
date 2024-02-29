@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetDomainResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, arn=None, auto_sub_domain_creation_patterns=None, auto_sub_domain_iam_role=None, certificate_record=None, domain_status=None, enable_auto_sub_domain=None, status_reason=None, sub_domain_settings=None):
+    def __init__(__self__, arn=None, auto_sub_domain_creation_patterns=None, auto_sub_domain_iam_role=None, certificate=None, certificate_record=None, certificate_settings=None, domain_status=None, enable_auto_sub_domain=None, status_reason=None, sub_domain_settings=None, update_status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -29,9 +30,15 @@ class GetDomainResult:
         if auto_sub_domain_iam_role and not isinstance(auto_sub_domain_iam_role, str):
             raise TypeError("Expected argument 'auto_sub_domain_iam_role' to be a str")
         pulumi.set(__self__, "auto_sub_domain_iam_role", auto_sub_domain_iam_role)
+        if certificate and not isinstance(certificate, dict):
+            raise TypeError("Expected argument 'certificate' to be a dict")
+        pulumi.set(__self__, "certificate", certificate)
         if certificate_record and not isinstance(certificate_record, str):
             raise TypeError("Expected argument 'certificate_record' to be a str")
         pulumi.set(__self__, "certificate_record", certificate_record)
+        if certificate_settings and not isinstance(certificate_settings, dict):
+            raise TypeError("Expected argument 'certificate_settings' to be a dict")
+        pulumi.set(__self__, "certificate_settings", certificate_settings)
         if domain_status and not isinstance(domain_status, str):
             raise TypeError("Expected argument 'domain_status' to be a str")
         pulumi.set(__self__, "domain_status", domain_status)
@@ -44,6 +51,9 @@ class GetDomainResult:
         if sub_domain_settings and not isinstance(sub_domain_settings, list):
             raise TypeError("Expected argument 'sub_domain_settings' to be a list")
         pulumi.set(__self__, "sub_domain_settings", sub_domain_settings)
+        if update_status and not isinstance(update_status, str):
+            raise TypeError("Expected argument 'update_status' to be a str")
+        pulumi.set(__self__, "update_status", update_status)
 
     @property
     @pulumi.getter
@@ -61,9 +71,19 @@ class GetDomainResult:
         return pulumi.get(self, "auto_sub_domain_iam_role")
 
     @property
+    @pulumi.getter
+    def certificate(self) -> Optional['outputs.DomainCertificate']:
+        return pulumi.get(self, "certificate")
+
+    @property
     @pulumi.getter(name="certificateRecord")
     def certificate_record(self) -> Optional[str]:
         return pulumi.get(self, "certificate_record")
+
+    @property
+    @pulumi.getter(name="certificateSettings")
+    def certificate_settings(self) -> Optional['outputs.DomainCertificateSettings']:
+        return pulumi.get(self, "certificate_settings")
 
     @property
     @pulumi.getter(name="domainStatus")
@@ -85,6 +105,11 @@ class GetDomainResult:
     def sub_domain_settings(self) -> Optional[Sequence['outputs.DomainSubDomainSetting']]:
         return pulumi.get(self, "sub_domain_settings")
 
+    @property
+    @pulumi.getter(name="updateStatus")
+    def update_status(self) -> Optional[str]:
+        return pulumi.get(self, "update_status")
+
 
 class AwaitableGetDomainResult(GetDomainResult):
     # pylint: disable=using-constant-test
@@ -95,11 +120,14 @@ class AwaitableGetDomainResult(GetDomainResult):
             arn=self.arn,
             auto_sub_domain_creation_patterns=self.auto_sub_domain_creation_patterns,
             auto_sub_domain_iam_role=self.auto_sub_domain_iam_role,
+            certificate=self.certificate,
             certificate_record=self.certificate_record,
+            certificate_settings=self.certificate_settings,
             domain_status=self.domain_status,
             enable_auto_sub_domain=self.enable_auto_sub_domain,
             status_reason=self.status_reason,
-            sub_domain_settings=self.sub_domain_settings)
+            sub_domain_settings=self.sub_domain_settings,
+            update_status=self.update_status)
 
 
 def get_domain(arn: Optional[str] = None,
@@ -116,11 +144,14 @@ def get_domain(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         auto_sub_domain_creation_patterns=pulumi.get(__ret__, 'auto_sub_domain_creation_patterns'),
         auto_sub_domain_iam_role=pulumi.get(__ret__, 'auto_sub_domain_iam_role'),
+        certificate=pulumi.get(__ret__, 'certificate'),
         certificate_record=pulumi.get(__ret__, 'certificate_record'),
+        certificate_settings=pulumi.get(__ret__, 'certificate_settings'),
         domain_status=pulumi.get(__ret__, 'domain_status'),
         enable_auto_sub_domain=pulumi.get(__ret__, 'enable_auto_sub_domain'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
-        sub_domain_settings=pulumi.get(__ret__, 'sub_domain_settings'))
+        sub_domain_settings=pulumi.get(__ret__, 'sub_domain_settings'),
+        update_status=pulumi.get(__ret__, 'update_status'))
 
 
 @_utilities.lift_output_func(get_domain)

@@ -12,7 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Lambda::Function in region
+// The “AWS::Lambda::Function“ resource creates a Lambda function. To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html). The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
+//
+//	You set the package type to ``Image`` if the deployment package is a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html). For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties.
+//	You set the package type to ``Zip`` if the deployment package is a [.zip file archive](https://docs.aws.amazon.com/lam
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionResult
@@ -24,57 +27,59 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 }
 
 type LookupFunctionArgs struct {
-	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
+	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
+	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	FunctionName string `pulumi:"functionName"`
 }
 
 type LookupFunctionResult struct {
+	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures []FunctionArchitecturesItem `pulumi:"architectures"`
-	// Unique identifier for function resources
-	Arn *string `pulumi:"arn"`
-	// A unique Arn for CodeSigningConfig resource
+	Arn           *string                     `pulumi:"arn"`
+	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
-	// A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
 	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// A description of the function.
 	Description *string `pulumi:"description"`
 	// Environment variables that are accessible from function code during execution.
 	Environment *FunctionEnvironment `pulumi:"environment"`
-	// A function's ephemeral storage settings.
+	// The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
 	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
-	// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
+	// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
+	//  For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
 	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
-	// The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
+	// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 	Handler *string `pulumi:"handler"`
-	// ImageConfig
+	// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
 	ImageConfig *FunctionImageConfig `pulumi:"imageConfig"`
-	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
+	// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
 	Layers []string `pulumi:"layers"`
-	// The logging configuration of your function
+	// The function's Amazon CloudWatch Logs configuration settings.
 	LoggingConfig *FunctionLoggingConfig `pulumi:"loggingConfig"`
-	// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize *int `pulumi:"memorySize"`
-	// PackageType.
+	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
 	PackageType *FunctionPackageType `pulumi:"packageType"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
 	Role *string `pulumi:"role"`
-	// The identifier of the function's runtime.
+	// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive.
+	//  The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy).
 	Runtime *string `pulumi:"runtime"`
-	// RuntimeManagementConfig
+	// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 	RuntimeManagementConfig *FunctionRuntimeManagementConfig `pulumi:"runtimeManagementConfig"`
-	// The SnapStart response of your function
-	SnapStartResponse *FunctionSnapStartResponse `pulumi:"snapStartResponse"`
-	// A list of tags to apply to the function.
+	SnapStartResponse       *FunctionSnapStartResponse       `pulumi:"snapStartResponse"`
+	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+	// The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
 	Timeout *int `pulumi:"timeout"`
-	// Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
+	// Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
 	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
-	// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+	// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
 	VpcConfig *FunctionVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -92,7 +97,8 @@ func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, op
 }
 
 type LookupFunctionOutputArgs struct {
-	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
+	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
+	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 }
 
@@ -114,21 +120,21 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 	return o
 }
 
+// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is “x86_64“.
 func (o LookupFunctionResultOutput) Architectures() FunctionArchitecturesItemArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []FunctionArchitecturesItem { return v.Architectures }).(FunctionArchitecturesItemArrayOutput)
 }
 
-// Unique identifier for function resources
 func (o LookupFunctionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A unique Arn for CodeSigningConfig resource
+// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 func (o LookupFunctionResultOutput) CodeSigningConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.CodeSigningConfigArn }).(pulumi.StringPtrOutput)
 }
 
-// A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
 func (o LookupFunctionResultOutput) DeadLetterConfig() FunctionDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionDeadLetterConfig { return v.DeadLetterConfig }).(FunctionDeadLetterConfigPtrOutput)
 }
@@ -143,47 +149,49 @@ func (o LookupFunctionResultOutput) Environment() FunctionEnvironmentPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionEnvironment { return v.Environment }).(FunctionEnvironmentPtrOutput)
 }
 
-// A function's ephemeral storage settings.
+// The size of the function's “/tmp“ directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
 func (o LookupFunctionResultOutput) EphemeralStorage() FunctionEphemeralStoragePtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionEphemeralStorage { return v.EphemeralStorage }).(FunctionEphemeralStoragePtrOutput)
 }
 
-// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
+// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a “DependsOn“ attribute to ensure that the mount target is created or updated before the function.
+//
+//	For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
 func (o LookupFunctionResultOutput) FileSystemConfigs() FunctionFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []FunctionFileSystemConfig { return v.FileSystemConfigs }).(FunctionFileSystemConfigArrayOutput)
 }
 
-// The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
+// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 func (o LookupFunctionResultOutput) Handler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Handler }).(pulumi.StringPtrOutput)
 }
 
-// ImageConfig
+// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
 func (o LookupFunctionResultOutput) ImageConfig() FunctionImageConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionImageConfig { return v.ImageConfig }).(FunctionImageConfigPtrOutput)
 }
 
-// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption). When [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) is activated, Lambda also uses this key is to encrypt your function's snapshot. If you deploy your function using a container image, Lambda also uses this key to encrypt your function when it's deployed. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service key.
 func (o LookupFunctionResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
+// A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
 func (o LookupFunctionResultOutput) Layers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []string { return v.Layers }).(pulumi.StringArrayOutput)
 }
 
-// The logging configuration of your function
+// The function's Amazon CloudWatch Logs configuration settings.
 func (o LookupFunctionResultOutput) LoggingConfig() FunctionLoggingConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionLoggingConfig { return v.LoggingConfig }).(FunctionLoggingConfigPtrOutput)
 }
 
-// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 func (o LookupFunctionResultOutput) MemorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *int { return v.MemorySize }).(pulumi.IntPtrOutput)
 }
 
-// PackageType.
+// The type of deployment package. Set to “Image“ for container image and set “Zip“ for .zip file archive.
 func (o LookupFunctionResultOutput) PackageType() FunctionPackageTypePtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionPackageType { return v.PackageType }).(FunctionPackageTypePtrOutput)
 }
@@ -198,37 +206,38 @@ func (o LookupFunctionResultOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the function's runtime.
+// The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive.
+//
+//	The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy).
 func (o LookupFunctionResultOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
-// RuntimeManagementConfig
+// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 func (o LookupFunctionResultOutput) RuntimeManagementConfig() FunctionRuntimeManagementConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionRuntimeManagementConfig { return v.RuntimeManagementConfig }).(FunctionRuntimeManagementConfigPtrOutput)
 }
 
-// The SnapStart response of your function
 func (o LookupFunctionResultOutput) SnapStartResponse() FunctionSnapStartResponsePtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionSnapStartResponse { return v.SnapStartResponse }).(FunctionSnapStartResponsePtrOutput)
 }
 
-// A list of tags to apply to the function.
+// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 func (o LookupFunctionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+// The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
 func (o LookupFunctionResultOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
+// Set “Mode“ to “Active“ to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
 func (o LookupFunctionResultOutput) TracingConfig() FunctionTracingConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionTracingConfig { return v.TracingConfig }).(FunctionTracingConfigPtrOutput)
 }
 
-// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
 func (o LookupFunctionResultOutput) VpcConfig() FunctionVpcConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionVpcConfig { return v.VpcConfig }).(FunctionVpcConfigPtrOutput)
 }

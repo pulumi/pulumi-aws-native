@@ -22,7 +22,6 @@ class ClientVpnEndpointArgs:
                  server_certificate_arn: pulumi.Input[str],
                  client_connect_options: Optional[pulumi.Input['ClientVpnEndpointClientConnectOptionsArgs']] = None,
                  client_login_banner_options: Optional[pulumi.Input['ClientVpnEndpointClientLoginBannerOptionsArgs']] = None,
-                 client_route_monitoring_options: Optional[pulumi.Input['ClientVpnEndpointClientRouteMonitoringOptionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -44,8 +43,6 @@ class ClientVpnEndpointArgs:
             pulumi.set(__self__, "client_connect_options", client_connect_options)
         if client_login_banner_options is not None:
             pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
-        if client_route_monitoring_options is not None:
-            pulumi.set(__self__, "client_route_monitoring_options", client_route_monitoring_options)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if dns_servers is not None:
@@ -120,15 +117,6 @@ class ClientVpnEndpointArgs:
     @client_login_banner_options.setter
     def client_login_banner_options(self, value: Optional[pulumi.Input['ClientVpnEndpointClientLoginBannerOptionsArgs']]):
         pulumi.set(self, "client_login_banner_options", value)
-
-    @property
-    @pulumi.getter(name="clientRouteMonitoringOptions")
-    def client_route_monitoring_options(self) -> Optional[pulumi.Input['ClientVpnEndpointClientRouteMonitoringOptionsArgs']]:
-        return pulumi.get(self, "client_route_monitoring_options")
-
-    @client_route_monitoring_options.setter
-    def client_route_monitoring_options(self, value: Optional[pulumi.Input['ClientVpnEndpointClientRouteMonitoringOptionsArgs']]):
-        pulumi.set(self, "client_route_monitoring_options", value)
 
     @property
     @pulumi.getter
@@ -235,7 +223,6 @@ class ClientVpnEndpoint(pulumi.CustomResource):
                  client_cidr_block: Optional[pulumi.Input[str]] = None,
                  client_connect_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientConnectOptionsArgs']]] = None,
                  client_login_banner_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientLoginBannerOptionsArgs']]] = None,
-                 client_route_monitoring_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientRouteMonitoringOptionsArgs']]] = None,
                  connection_log_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointConnectionLogOptionsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -283,7 +270,6 @@ class ClientVpnEndpoint(pulumi.CustomResource):
                  client_cidr_block: Optional[pulumi.Input[str]] = None,
                  client_connect_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientConnectOptionsArgs']]] = None,
                  client_login_banner_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientLoginBannerOptionsArgs']]] = None,
-                 client_route_monitoring_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointClientRouteMonitoringOptionsArgs']]] = None,
                  connection_log_options: Optional[pulumi.Input[pulumi.InputType['ClientVpnEndpointConnectionLogOptionsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -314,7 +300,6 @@ class ClientVpnEndpoint(pulumi.CustomResource):
             __props__.__dict__["client_cidr_block"] = client_cidr_block
             __props__.__dict__["client_connect_options"] = client_connect_options
             __props__.__dict__["client_login_banner_options"] = client_login_banner_options
-            __props__.__dict__["client_route_monitoring_options"] = client_route_monitoring_options
             if connection_log_options is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_log_options'")
             __props__.__dict__["connection_log_options"] = connection_log_options
@@ -359,7 +344,6 @@ class ClientVpnEndpoint(pulumi.CustomResource):
         __props__.__dict__["client_cidr_block"] = None
         __props__.__dict__["client_connect_options"] = None
         __props__.__dict__["client_login_banner_options"] = None
-        __props__.__dict__["client_route_monitoring_options"] = None
         __props__.__dict__["connection_log_options"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["dns_servers"] = None
@@ -393,11 +377,6 @@ class ClientVpnEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="clientLoginBannerOptions")
     def client_login_banner_options(self) -> pulumi.Output[Optional['outputs.ClientVpnEndpointClientLoginBannerOptions']]:
         return pulumi.get(self, "client_login_banner_options")
-
-    @property
-    @pulumi.getter(name="clientRouteMonitoringOptions")
-    def client_route_monitoring_options(self) -> pulumi.Output[Optional['outputs.ClientVpnEndpointClientRouteMonitoringOptions']]:
-        return pulumi.get(self, "client_route_monitoring_options")
 
     @property
     @pulumi.getter(name="connectionLogOptions")

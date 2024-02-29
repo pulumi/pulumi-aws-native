@@ -23,6 +23,9 @@ __all__ = [
     'ApplicationLogPatternSetArgs',
     'ApplicationLogPatternArgs',
     'ApplicationLogArgs',
+    'ApplicationNetWeaverPrometheusExporterArgs',
+    'ApplicationProcessArgs',
+    'ApplicationSqlServerPrometheusExporterArgs',
     'ApplicationSubComponentConfigurationDetailsArgs',
     'ApplicationSubComponentTypeConfigurationArgs',
     'ApplicationWindowsEventArgs',
@@ -241,6 +244,9 @@ class ApplicationConfigurationDetailsArgs:
                  hana_prometheus_exporter: Optional[pulumi.Input['ApplicationHanaPrometheusExporterArgs']] = None,
                  jmx_prometheus_exporter: Optional[pulumi.Input['ApplicationJmxPrometheusExporterArgs']] = None,
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]] = None,
+                 net_weaver_prometheus_exporter: Optional[pulumi.Input['ApplicationNetWeaverPrometheusExporterArgs']] = None,
+                 processes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]] = None,
+                 sql_server_prometheus_exporter: Optional[pulumi.Input['ApplicationSqlServerPrometheusExporterArgs']] = None,
                  windows_events: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]] = None):
         """
         The configuration settings.
@@ -250,6 +256,9 @@ class ApplicationConfigurationDetailsArgs:
         :param pulumi.Input['ApplicationHanaPrometheusExporterArgs'] hana_prometheus_exporter: The HANA DB Prometheus Exporter settings.
         :param pulumi.Input['ApplicationJmxPrometheusExporterArgs'] jmx_prometheus_exporter: The JMX Prometheus Exporter settings.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]] logs: A list of logs to monitor for the component.
+        :param pulumi.Input['ApplicationNetWeaverPrometheusExporterArgs'] net_weaver_prometheus_exporter: The NetWeaver Prometheus Exporter settings.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]] processes: A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+        :param pulumi.Input['ApplicationSqlServerPrometheusExporterArgs'] sql_server_prometheus_exporter: The SQL Prometheus Exporter settings.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]] windows_events: A list of Windows Events to log.
         """
         if alarm_metrics is not None:
@@ -264,6 +273,12 @@ class ApplicationConfigurationDetailsArgs:
             pulumi.set(__self__, "jmx_prometheus_exporter", jmx_prometheus_exporter)
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
+        if net_weaver_prometheus_exporter is not None:
+            pulumi.set(__self__, "net_weaver_prometheus_exporter", net_weaver_prometheus_exporter)
+        if processes is not None:
+            pulumi.set(__self__, "processes", processes)
+        if sql_server_prometheus_exporter is not None:
+            pulumi.set(__self__, "sql_server_prometheus_exporter", sql_server_prometheus_exporter)
         if windows_events is not None:
             pulumi.set(__self__, "windows_events", windows_events)
 
@@ -338,6 +353,42 @@ class ApplicationConfigurationDetailsArgs:
     @logs.setter
     def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]]):
         pulumi.set(self, "logs", value)
+
+    @property
+    @pulumi.getter(name="netWeaverPrometheusExporter")
+    def net_weaver_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationNetWeaverPrometheusExporterArgs']]:
+        """
+        The NetWeaver Prometheus Exporter settings.
+        """
+        return pulumi.get(self, "net_weaver_prometheus_exporter")
+
+    @net_weaver_prometheus_exporter.setter
+    def net_weaver_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationNetWeaverPrometheusExporterArgs']]):
+        pulumi.set(self, "net_weaver_prometheus_exporter", value)
+
+    @property
+    @pulumi.getter
+    def processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]]:
+        """
+        A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+        """
+        return pulumi.get(self, "processes")
+
+    @processes.setter
+    def processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]]):
+        pulumi.set(self, "processes", value)
+
+    @property
+    @pulumi.getter(name="sqlServerPrometheusExporter")
+    def sql_server_prometheus_exporter(self) -> Optional[pulumi.Input['ApplicationSqlServerPrometheusExporterArgs']]:
+        """
+        The SQL Prometheus Exporter settings.
+        """
+        return pulumi.get(self, "sql_server_prometheus_exporter")
+
+    @sql_server_prometheus_exporter.setter
+    def sql_server_prometheus_exporter(self, value: Optional[pulumi.Input['ApplicationSqlServerPrometheusExporterArgs']]):
+        pulumi.set(self, "sql_server_prometheus_exporter", value)
 
     @property
     @pulumi.getter(name="windowsEvents")
@@ -739,21 +790,155 @@ class ApplicationLogArgs:
 
 
 @pulumi.input_type
+class ApplicationNetWeaverPrometheusExporterArgs:
+    def __init__(__self__, *,
+                 instance_numbers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 sapsid: pulumi.Input[str],
+                 prometheus_port: Optional[pulumi.Input[str]] = None):
+        """
+        The NetWeaver Prometheus Exporter Settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_numbers: SAP instance numbers for ASCS, ERS, and App Servers.
+        :param pulumi.Input[str] sapsid: SAP NetWeaver SID.
+        :param pulumi.Input[str] prometheus_port: Prometheus exporter port.
+        """
+        pulumi.set(__self__, "instance_numbers", instance_numbers)
+        pulumi.set(__self__, "sapsid", sapsid)
+        if prometheus_port is not None:
+            pulumi.set(__self__, "prometheus_port", prometheus_port)
+
+    @property
+    @pulumi.getter(name="instanceNumbers")
+    def instance_numbers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        SAP instance numbers for ASCS, ERS, and App Servers.
+        """
+        return pulumi.get(self, "instance_numbers")
+
+    @instance_numbers.setter
+    def instance_numbers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "instance_numbers", value)
+
+    @property
+    @pulumi.getter
+    def sapsid(self) -> pulumi.Input[str]:
+        """
+        SAP NetWeaver SID.
+        """
+        return pulumi.get(self, "sapsid")
+
+    @sapsid.setter
+    def sapsid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sapsid", value)
+
+    @property
+    @pulumi.getter(name="prometheusPort")
+    def prometheus_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prometheus exporter port.
+        """
+        return pulumi.get(self, "prometheus_port")
+
+    @prometheus_port.setter
+    def prometheus_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prometheus_port", value)
+
+
+@pulumi.input_type
+class ApplicationProcessArgs:
+    def __init__(__self__, *,
+                 alarm_metrics: pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]],
+                 process_name: pulumi.Input[str]):
+        """
+        A process to be monitored for the component.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]] alarm_metrics: A list of metrics to monitor for the component.
+        :param pulumi.Input[str] process_name: The name of the process to be monitored for the component.
+        """
+        pulumi.set(__self__, "alarm_metrics", alarm_metrics)
+        pulumi.set(__self__, "process_name", process_name)
+
+    @property
+    @pulumi.getter(name="alarmMetrics")
+    def alarm_metrics(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]:
+        """
+        A list of metrics to monitor for the component.
+        """
+        return pulumi.get(self, "alarm_metrics")
+
+    @alarm_metrics.setter
+    def alarm_metrics(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]):
+        pulumi.set(self, "alarm_metrics", value)
+
+    @property
+    @pulumi.getter(name="processName")
+    def process_name(self) -> pulumi.Input[str]:
+        """
+        The name of the process to be monitored for the component.
+        """
+        return pulumi.get(self, "process_name")
+
+    @process_name.setter
+    def process_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "process_name", value)
+
+
+@pulumi.input_type
+class ApplicationSqlServerPrometheusExporterArgs:
+    def __init__(__self__, *,
+                 prometheus_port: pulumi.Input[str],
+                 sql_secret_name: pulumi.Input[str]):
+        """
+        The SQL prometheus exporter settings.
+        :param pulumi.Input[str] prometheus_port: Prometheus exporter port.
+        :param pulumi.Input[str] sql_secret_name: Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
+        """
+        pulumi.set(__self__, "prometheus_port", prometheus_port)
+        pulumi.set(__self__, "sql_secret_name", sql_secret_name)
+
+    @property
+    @pulumi.getter(name="prometheusPort")
+    def prometheus_port(self) -> pulumi.Input[str]:
+        """
+        Prometheus exporter port.
+        """
+        return pulumi.get(self, "prometheus_port")
+
+    @prometheus_port.setter
+    def prometheus_port(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prometheus_port", value)
+
+    @property
+    @pulumi.getter(name="sqlSecretName")
+    def sql_secret_name(self) -> pulumi.Input[str]:
+        """
+        Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
+        """
+        return pulumi.get(self, "sql_secret_name")
+
+    @sql_secret_name.setter
+    def sql_secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_secret_name", value)
+
+
+@pulumi.input_type
 class ApplicationSubComponentConfigurationDetailsArgs:
     def __init__(__self__, *,
                  alarm_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]]] = None,
                  logs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]] = None,
+                 processes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]] = None,
                  windows_events: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]]] = None):
         """
         The configuration settings of sub components.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationAlarmMetricArgs']]] alarm_metrics: A list of metrics to monitor for the component.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]] logs: A list of logs to monitor for the component.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]] processes: A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationWindowsEventArgs']]] windows_events: A list of Windows Events to log.
         """
         if alarm_metrics is not None:
             pulumi.set(__self__, "alarm_metrics", alarm_metrics)
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
+        if processes is not None:
+            pulumi.set(__self__, "processes", processes)
         if windows_events is not None:
             pulumi.set(__self__, "windows_events", windows_events)
 
@@ -780,6 +965,18 @@ class ApplicationSubComponentConfigurationDetailsArgs:
     @logs.setter
     def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogArgs']]]]):
         pulumi.set(self, "logs", value)
+
+    @property
+    @pulumi.getter
+    def processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]]:
+        """
+        A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+        """
+        return pulumi.get(self, "processes")
+
+    @processes.setter
+    def processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationProcessArgs']]]]):
+        pulumi.set(self, "processes", value)
 
     @property
     @pulumi.getter(name="windowsEvents")

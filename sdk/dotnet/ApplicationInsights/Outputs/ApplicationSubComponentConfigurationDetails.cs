@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationLog> Logs;
         /// <summary>
+        /// A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationProcess> Processes;
+        /// <summary>
         /// A list of Windows Events to log.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationWindowsEvent> WindowsEvents;
@@ -35,10 +39,13 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
             ImmutableArray<Outputs.ApplicationLog> logs,
 
+            ImmutableArray<Outputs.ApplicationProcess> processes,
+
             ImmutableArray<Outputs.ApplicationWindowsEvent> windowsEvents)
         {
             AlarmMetrics = alarmMetrics;
             Logs = logs;
+            Processes = processes;
             WindowsEvents = windowsEvents;
         }
     }

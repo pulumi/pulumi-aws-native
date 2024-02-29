@@ -12,7 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::Subnet
+// Specifies a subnet for the specified VPC.
+//
+//	For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
+//	For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetResult
@@ -24,22 +27,33 @@ func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.In
 }
 
 type LookupSubnetArgs struct {
-	// The ID of the subnet
 	SubnetId string `pulumi:"subnetId"`
 }
 
 type LookupSubnetResult struct {
-	AssignIpv6AddressOnCreation *bool    `pulumi:"assignIpv6AddressOnCreation"`
-	EnableDns64                 *bool    `pulumi:"enableDns64"`
-	Ipv6CidrBlock               *string  `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlocks              []string `pulumi:"ipv6CidrBlocks"`
-	MapPublicIpOnLaunch         *bool    `pulumi:"mapPublicIpOnLaunch"`
-	// The ID of the network ACL that is associated with the subnet's VPC
-	NetworkAclAssociationId       *string                                  `pulumi:"networkAclAssociationId"`
+	// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is ``false``.
+	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+	AssignIpv6AddressOnCreation *bool `pulumi:"assignIpv6AddressOnCreation"`
+	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
+	EnableDns64 *bool `pulumi:"enableDns64"`
+	// The IPv6 CIDR block.
+	//  If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// The IPv6 network ranges for the subnet, in CIDR notation.
+	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
+	// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
+	//  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+	MapPublicIpOnLaunch     *bool   `pulumi:"mapPublicIpOnLaunch"`
+	NetworkAclAssociationId *string `pulumi:"networkAclAssociationId"`
+	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+	//  Available options:
+	//   + EnableResourceNameDnsAAAARecord (true | false)
+	//  + EnableResourceNameDnsARecord (true | false)
+	//  + HostnameType (ip-name | resource-name)
 	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
-	// The ID of the subnet
-	SubnetId *string   `pulumi:"subnetId"`
-	Tags     []aws.Tag `pulumi:"tags"`
+	SubnetId                      *string                                  `pulumi:"subnetId"`
+	// Any tags assigned to the subnet.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
@@ -56,7 +70,6 @@ func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts .
 }
 
 type LookupSubnetOutputArgs struct {
-	// The ID of the subnet
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -78,42 +91,58 @@ func (o LookupSubnetResultOutput) ToLookupSubnetResultOutputWithContext(ctx cont
 	return o
 }
 
+// Indicates whether a network interface created in this subnet receives an IPv6 address. The default value is “false“.
+//
+//	If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
 func (o LookupSubnetResultOutput) AssignIpv6AddressOnCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *bool { return v.AssignIpv6AddressOnCreation }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
 func (o LookupSubnetResultOutput) EnableDns64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *bool { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
 }
 
+// The IPv6 CIDR block.
+//
+//	If you specify ``AssignIpv6AddressOnCreation``, you must also specify an IPv6 CIDR block.
 func (o LookupSubnetResultOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
+// The IPv6 network ranges for the subnet, in CIDR notation.
 func (o LookupSubnetResultOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetResult) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is “false“.
+//
+//	AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
 func (o LookupSubnetResultOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *bool { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the network ACL that is associated with the subnet's VPC
 func (o LookupSubnetResultOutput) NetworkAclAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.NetworkAclAssociationId }).(pulumi.StringPtrOutput)
 }
 
+// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+//
+//	Available options:
+//	 + EnableResourceNameDnsAAAARecord (true | false)
+//	+ EnableResourceNameDnsARecord (true | false)
+//	+ HostnameType (ip-name | resource-name)
 func (o LookupSubnetResultOutput) PrivateDnsNameOptionsOnLaunch() PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *PrivateDnsNameOptionsOnLaunchProperties {
 		return v.PrivateDnsNameOptionsOnLaunch
 	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
 }
 
-// The ID of the subnet
 func (o LookupSubnetResultOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// Any tags assigned to the subnet.
 func (o LookupSubnetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupSubnetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

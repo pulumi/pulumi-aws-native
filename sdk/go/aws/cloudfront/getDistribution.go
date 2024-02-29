@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::Distribution
+// A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts ...pulumi.InvokeOption) (*LookupDistributionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDistributionResult
@@ -28,10 +28,12 @@ type LookupDistributionArgs struct {
 }
 
 type LookupDistributionResult struct {
+	// The distribution's configuration.
 	DistributionConfig *DistributionConfig `pulumi:"distributionConfig"`
 	DomainName         *string             `pulumi:"domainName"`
 	Id                 *string             `pulumi:"id"`
-	Tags               []aws.Tag           `pulumi:"tags"`
+	// A complex type that contains zero or more ``Tag`` elements.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionResultOutput {
@@ -69,6 +71,7 @@ func (o LookupDistributionResultOutput) ToLookupDistributionResultOutputWithCont
 	return o
 }
 
+// The distribution's configuration.
 func (o LookupDistributionResultOutput) DistributionConfig() DistributionConfigPtrOutput {
 	return o.ApplyT(func(v LookupDistributionResult) *DistributionConfig { return v.DistributionConfig }).(DistributionConfigPtrOutput)
 }
@@ -81,6 +84,7 @@ func (o LookupDistributionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDistributionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A complex type that contains zero or more “Tag“ elements.
 func (o LookupDistributionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDistributionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

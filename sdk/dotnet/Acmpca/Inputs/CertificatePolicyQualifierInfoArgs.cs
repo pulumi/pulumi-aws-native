@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
+    /// <summary>
+    /// Modifies the ``CertPolicyId`` of a ``PolicyInformation`` object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+    /// </summary>
     public sealed class CertificatePolicyQualifierInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifies the qualifier modifying a ``CertPolicyId``.
+        /// </summary>
         [Input("policyQualifierId", required: true)]
         public Input<string> PolicyQualifierId { get; set; } = null!;
 
+        /// <summary>
+        /// Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
+        /// </summary>
         [Input("qualifier", required: true)]
         public Input<Inputs.CertificateQualifierArgs> Qualifier { get; set; } = null!;
 

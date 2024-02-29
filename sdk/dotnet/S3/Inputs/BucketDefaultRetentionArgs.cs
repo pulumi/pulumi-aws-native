@@ -11,16 +11,27 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// The default retention period that you want to apply to new objects placed in the specified bucket.
+    /// The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+    ///    +  The ``DefaultRetention`` settings require both a mode and a period.
+    ///   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
     /// </summary>
     public sealed class BucketDefaultRetentionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
+        /// <summary>
+        /// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+        /// </summary>
         [Input("mode")]
         public Input<Pulumi.AwsNative.S3.BucketDefaultRetentionMode>? Mode { get; set; }
 
+        /// <summary>
+        /// The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+        /// </summary>
         [Input("years")]
         public Input<int>? Years { get; set; }
 

@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::RouteTable
+// Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+//
+//	For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteTableResult
@@ -24,12 +26,10 @@ func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...p
 }
 
 type LookupRouteTableArgs struct {
-	// The route table ID.
 	RouteTableId string `pulumi:"routeTableId"`
 }
 
 type LookupRouteTableResult struct {
-	// The route table ID.
 	RouteTableId *string `pulumi:"routeTableId"`
 	// Any tags assigned to the route table.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -49,7 +49,6 @@ func LookupRouteTableOutput(ctx *pulumi.Context, args LookupRouteTableOutputArgs
 }
 
 type LookupRouteTableOutputArgs struct {
-	// The route table ID.
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 }
 
@@ -71,7 +70,6 @@ func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(
 	return o
 }
 
-// The route table ID.
 func (o LookupRouteTableResultOutput) RouteTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteTableResult) *string { return v.RouteTableId }).(pulumi.StringPtrOutput)
 }

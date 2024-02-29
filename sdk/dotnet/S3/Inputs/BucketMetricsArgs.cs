@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// A container specifying replication metrics-related settings enabling replication metrics and events.
+    /// </summary>
     public sealed class BucketMetricsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A container specifying the time threshold for emitting the ``s3:Replication:OperationMissedThreshold`` event.
+        /// </summary>
         [Input("eventThreshold")]
         public Input<Inputs.BucketReplicationTimeValueArgs>? EventThreshold { get; set; }
 
+        /// <summary>
+        /// Specifies whether the replication metrics are enabled.
+        /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketMetricsStatus> Status { get; set; } = null!;
 

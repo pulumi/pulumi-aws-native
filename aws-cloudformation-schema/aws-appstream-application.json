@@ -118,6 +118,13 @@
     }
   },
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "required" : [ "Name", "IconS3Location", "LaunchPath", "Platforms", "InstanceFamilies", "AppBlockArn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/InstanceFamilies", "/properties/Platforms" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime" ],

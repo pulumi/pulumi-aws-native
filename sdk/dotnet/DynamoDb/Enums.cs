@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.DynamoDb
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The precision for the time and date that the stream was created.
+    /// </summary>
     [EnumType]
     public readonly struct TableKinesisStreamSpecificationApproximateCreationDateTimePrecision : IEquatable<TableKinesisStreamSpecificationApproximateCreationDateTimePrecision>
     {

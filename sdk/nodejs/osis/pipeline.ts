@@ -45,11 +45,11 @@ export class Pipeline extends pulumi.CustomResource {
     public /*out*/ readonly ingestEndpointUrls!: pulumi.Output<string[]>;
     public readonly logPublishingOptions!: pulumi.Output<outputs.osis.PipelineLogPublishingOptions | undefined>;
     /**
-     * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+     * The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
      */
     public readonly maxUnits!: pulumi.Output<number>;
     /**
-     * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+     * The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
      */
     public readonly minUnits!: pulumi.Output<number>;
     /**
@@ -135,11 +135,11 @@ export interface PipelineArgs {
     encryptionAtRestOptions?: pulumi.Input<inputs.osis.PipelineEncryptionAtRestOptionsArgs>;
     logPublishingOptions?: pulumi.Input<inputs.osis.PipelineLogPublishingOptionsArgs>;
     /**
-     * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+     * The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
      */
     maxUnits: pulumi.Input<number>;
     /**
-     * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+     * The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
      */
     minUnits: pulumi.Input<number>;
     /**

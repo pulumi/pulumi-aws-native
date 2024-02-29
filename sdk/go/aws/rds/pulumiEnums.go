@@ -178,7 +178,7 @@ func (in *customDbEngineVersionStatusPtr) ToCustomDbEngineVersionStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(CustomDbEngineVersionStatusPtrOutput)
 }
 
-// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+// The name of the processor feature. Valid names are “coreCount“ and “threadsPerCore“.
 type DbInstanceProcessorFeatureName string
 
 const (

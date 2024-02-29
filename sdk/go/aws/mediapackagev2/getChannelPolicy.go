@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
+// <p>Represents a resource-based policy that allows or denies access to a channel.</p>
 func LookupChannelPolicy(ctx *pulumi.Context, args *LookupChannelPolicyArgs, opts ...pulumi.InvokeOption) (*LookupChannelPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupChannelPolicyResult

@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.Ec2.Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem> InstanceGenerations;
         public readonly Pulumi.AwsNative.Ec2.Ec2FleetInstanceRequirementsRequestLocalStorage? LocalStorage;
         public readonly ImmutableArray<Pulumi.AwsNative.Ec2.Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem> LocalStorageTypes;
+        public readonly int? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         public readonly Outputs.Ec2FleetMemoryGiBPerVCpuRequest? MemoryGiBPerVCpu;
         public readonly Outputs.Ec2FleetMemoryMiBRequest? MemoryMiB;
         public readonly Outputs.Ec2FleetNetworkBandwidthGbpsRequest? NetworkBandwidthGbps;
@@ -67,6 +68,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             ImmutableArray<Pulumi.AwsNative.Ec2.Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem> localStorageTypes,
 
+            int? maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+
             Outputs.Ec2FleetMemoryGiBPerVCpuRequest? memoryGiBPerVCpu,
 
             Outputs.Ec2FleetMemoryMiBRequest? memoryMiB,
@@ -99,6 +102,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             InstanceGenerations = instanceGenerations;
             LocalStorage = localStorage;
             LocalStorageTypes = localStorageTypes;
+            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             MemoryGiBPerVCpu = memoryGiBPerVCpu;
             MemoryMiB = memoryMiB;
             NetworkBandwidthGbps = networkBandwidthGbps;

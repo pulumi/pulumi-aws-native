@@ -7,32 +7,41 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::MediaPackageV2::Channel Resource Type
+// <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
 type Channel struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput              `pulumi:"arn"`
-	ChannelGroupName pulumi.StringPtrOutput           `pulumi:"channelGroupName"`
-	ChannelName      pulumi.StringPtrOutput           `pulumi:"channelName"`
-	CreatedAt        pulumi.StringOutput              `pulumi:"createdAt"`
-	Description      pulumi.StringPtrOutput           `pulumi:"description"`
-	IngestEndpoints  ChannelIngestEndpointArrayOutput `pulumi:"ingestEndpoints"`
-	ModifiedAt       pulumi.StringOutput              `pulumi:"modifiedAt"`
-	Tags             aws.TagArrayOutput               `pulumi:"tags"`
+	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+	Arn              pulumi.StringOutput `pulumi:"arn"`
+	ChannelGroupName pulumi.StringOutput `pulumi:"channelGroupName"`
+	ChannelName      pulumi.StringOutput `pulumi:"channelName"`
+	// <p>The date and time the channel was created.</p>
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// <p>Enter any descriptive text that helps you to identify the channel.</p>
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// <p>The list of ingest endpoints.</p>
+	IngestEndpoints ChannelIngestEndpointArrayOutput `pulumi:"ingestEndpoints"`
+	// <p>The date and time the channel was modified.</p>
+	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	Tags       aws.TagArrayOutput  `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
 func NewChannel(ctx *pulumi.Context,
 	name string, args *ChannelArgs, opts ...pulumi.ResourceOption) (*Channel, error) {
 	if args == nil {
-		args = &ChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ChannelGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelGroupName'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"channelGroupName",
 		"channelName",
@@ -71,18 +80,20 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	ChannelGroupName *string   `pulumi:"channelGroupName"`
-	ChannelName      *string   `pulumi:"channelName"`
-	Description      *string   `pulumi:"description"`
-	Tags             []aws.Tag `pulumi:"tags"`
+	ChannelGroupName string  `pulumi:"channelGroupName"`
+	ChannelName      *string `pulumi:"channelName"`
+	// <p>Enter any descriptive text that helps you to identify the channel.</p>
+	Description *string   `pulumi:"description"`
+	Tags        []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
-	ChannelGroupName pulumi.StringPtrInput
+	ChannelGroupName pulumi.StringInput
 	ChannelName      pulumi.StringPtrInput
-	Description      pulumi.StringPtrInput
-	Tags             aws.TagArrayInput
+	// <p>Enter any descriptive text that helps you to identify the channel.</p>
+	Description pulumi.StringPtrInput
+	Tags        aws.TagArrayInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {
@@ -122,30 +133,35 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 func (o ChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o ChannelOutput) ChannelGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ChannelGroupName }).(pulumi.StringPtrOutput)
+func (o ChannelOutput) ChannelGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelGroupName }).(pulumi.StringOutput)
 }
 
-func (o ChannelOutput) ChannelName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ChannelName }).(pulumi.StringPtrOutput)
+func (o ChannelOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
 
+// <p>The date and time the channel was created.</p>
 func (o ChannelOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// <p>Enter any descriptive text that helps you to identify the channel.</p>
 func (o ChannelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// <p>The list of ingest endpoints.</p>
 func (o ChannelOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
 	return o.ApplyT(func(v *Channel) ChannelIngestEndpointArrayOutput { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
 }
 
+// <p>The date and time the channel was modified.</p>
 func (o ChannelOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }

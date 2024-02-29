@@ -133,6 +133,7 @@ export const PatchBaselineOperatingSystem = {
     Macos: "MACOS",
     Raspbian: "RASPBIAN",
     RockyLinux: "ROCKY_LINUX",
+    AlmaLinux: "ALMA_LINUX",
 } as const;
 
 /**

@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
+    /// <summary>
+    /// Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+    /// </summary>
     public sealed class CertificateExtendedKeyUsageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
+        /// </summary>
         [Input("extendedKeyUsageObjectIdentifier")]
         public Input<string>? ExtendedKeyUsageObjectIdentifier { get; set; }
 
+        /// <summary>
+        /// Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
+        /// </summary>
         [Input("extendedKeyUsageType")]
         public Input<string>? ExtendedKeyUsageType { get; set; }
 

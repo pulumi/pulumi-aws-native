@@ -75,9 +75,13 @@ export namespace accessanalyzer {
 
 export namespace acmpca {
     /**
-     * Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+     * Contains X.509 certificate information to be placed in an issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored. 
+     *  If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
      */
     export interface CertificateApiPassthrough {
+        /**
+         * Specifies X.509 extension information for a certificate.
+         */
         extensions?: outputs.acmpca.CertificateExtensions;
         /**
          * Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
@@ -218,86 +222,223 @@ export namespace acmpca {
         title?: string;
     }
 
+    /**
+     * Defines the X.500 relative distinguished name (RDN).
+     */
     export interface CertificateCustomAttribute {
+        /**
+         * Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
+         */
         objectIdentifier: string;
+        /**
+         * Specifies the attribute value of relative distinguished name (RDN).
+         */
         value: string;
     }
 
+    /**
+     * Specifies the X.509 extension information for a certificate.
+     *  Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+     */
     export interface CertificateCustomExtension {
+        /**
+         * Specifies the critical flag of the X.509 extension.
+         */
         critical?: boolean;
+        /**
+         * Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+         */
         objectIdentifier: string;
+        /**
+         * Specifies the base64-encoded value of the X.509 extension.
+         */
         value: string;
     }
 
+    /**
+     * Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
+     */
     export interface CertificateEdiPartyName {
+        /**
+         * Specifies the name assigner.
+         */
         nameAssigner: string;
+        /**
+         * Specifies the party name.
+         */
         partyName: string;
     }
 
+    /**
+     * Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+     */
     export interface CertificateExtendedKeyUsage {
+        /**
+         * Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
+         */
         extendedKeyUsageObjectIdentifier?: string;
+        /**
+         * Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
+         */
         extendedKeyUsageType?: string;
     }
 
     /**
-     * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+     * Contains X.509 extension information for a certificate.
      */
     export interface CertificateExtensions {
+        /**
+         * Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+         *  In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
+         */
         certificatePolicies?: outputs.acmpca.CertificatePolicyInformation[];
+        /**
+         * Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
+         */
         customExtensions?: outputs.acmpca.CertificateCustomExtension[];
+        /**
+         * Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+         */
         extendedKeyUsage?: outputs.acmpca.CertificateExtendedKeyUsage[];
         /**
          * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
          */
         keyUsage?: outputs.acmpca.CertificateKeyUsage;
+        /**
+         * The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
+         */
         subjectAlternativeNames?: outputs.acmpca.CertificateGeneralName[];
     }
 
     /**
-     * Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+     * Describes an ASN.1 X.400 ``GeneralName`` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an ``InvalidArgsException`` error.
      */
     export interface CertificateGeneralName {
         /**
          * Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
          */
         directoryName?: outputs.acmpca.CertificateSubject;
+        /**
+         * Represents ``GeneralName`` as a DNS name.
+         */
         dnsName?: string;
+        /**
+         * Represents ``GeneralName`` as an ``EdiPartyName`` object.
+         */
         ediPartyName?: outputs.acmpca.CertificateEdiPartyName;
+        /**
+         * Represents ``GeneralName`` as an IPv4 or IPv6 address.
+         */
         ipAddress?: string;
+        /**
+         * Represents ``GeneralName`` using an ``OtherName`` object.
+         */
         otherName?: outputs.acmpca.CertificateOtherName;
+        /**
+         * Represents ``GeneralName`` as an object identifier (OID).
+         */
         registeredId?: string;
+        /**
+         * Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
+         */
         rfc822Name?: string;
+        /**
+         * Represents ``GeneralName`` as a URI.
+         */
         uniformResourceIdentifier?: string;
     }
 
+    /**
+     * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+     */
     export interface CertificateKeyUsage {
+        /**
+         * Key can be used to sign CRLs.
+         */
         crlSign?: boolean;
+        /**
+         * Key can be used to decipher data.
+         */
         dataEncipherment?: boolean;
+        /**
+         * Key can be used only to decipher data.
+         */
         decipherOnly?: boolean;
+        /**
+         * Key can be used for digital signing.
+         */
         digitalSignature?: boolean;
+        /**
+         * Key can be used only to encipher data.
+         */
         encipherOnly?: boolean;
+        /**
+         * Key can be used in a key-agreement protocol.
+         */
         keyAgreement?: boolean;
+        /**
+         * Key can be used to sign certificates.
+         */
         keyCertSign?: boolean;
+        /**
+         * Key can be used to encipher data.
+         */
         keyEncipherment?: boolean;
+        /**
+         * Key can be used for non-repudiation.
+         */
         nonRepudiation?: boolean;
     }
 
+    /**
+     * Defines a custom ASN.1 X.400 ``GeneralName`` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+     */
     export interface CertificateOtherName {
+        /**
+         * Specifies an OID.
+         */
         typeId: string;
+        /**
+         * Specifies an OID value.
+         */
         value: string;
     }
 
+    /**
+     * Defines the X.509 ``CertificatePolicies`` extension.
+     */
     export interface CertificatePolicyInformation {
+        /**
+         * Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+         */
         certPolicyId: string;
+        /**
+         * Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+         */
         policyQualifiers?: outputs.acmpca.CertificatePolicyQualifierInfo[];
     }
 
+    /**
+     * Modifies the ``CertPolicyId`` of a ``PolicyInformation`` object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+     */
     export interface CertificatePolicyQualifierInfo {
+        /**
+         * Identifies the qualifier modifying a ``CertPolicyId``.
+         */
         policyQualifierId: string;
+        /**
+         * Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
+         */
         qualifier: outputs.acmpca.CertificateQualifier;
     }
 
+    /**
+     * Defines a ``PolicyInformation`` qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
+     */
     export interface CertificateQualifier {
+        /**
+         * Contains a pointer to a certification practice statement (CPS) published by the CA.
+         */
         cpsUri: string;
     }
 
@@ -314,6 +455,10 @@ export namespace acmpca {
          * Two-digit code that specifies the country in which the certificate subject located.
          */
         country?: string;
+        /**
+         * Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+         *   Custom attributes cannot be used in combination with standard attributes.
+         */
         customAttributes?: outputs.acmpca.CertificateCustomAttribute[];
         /**
          * Disambiguating information for the certificate subject.
@@ -374,7 +519,7 @@ export namespace acmpca {
          */
         type: string;
         /**
-         * Time period.
+         * A long integer interpreted according to the value of ``Type``, below.
          */
         value: number;
     }
@@ -478,6 +623,17 @@ export namespace amplify {
     export interface BranchEnvironmentVariable {
         name: string;
         value: string;
+    }
+
+    export interface DomainCertificate {
+        certificateArn?: string;
+        certificateType?: enums.amplify.DomainCertificateCertificateType;
+        certificateVerificationDnsRecord?: string;
+    }
+
+    export interface DomainCertificateSettings {
+        certificateType?: enums.amplify.DomainCertificateSettingsCertificateType;
+        customCertificateArn?: string;
     }
 
     export interface DomainSubDomainSetting {
@@ -1022,7 +1178,7 @@ export namespace apigateway {
          */
         integrationResponses?: outputs.apigateway.MethodIntegrationResponse[];
         /**
-         * Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. ``NEVER``: rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
+         * Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in ``requestTemplates``. The valid value is one of the following: ``WHEN_NO_MATCH``: passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. ``WHEN_NO_TEMPLATES``: passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response
          */
         passthroughBehavior?: enums.apigateway.MethodIntegrationPassthroughBehavior;
         /**
@@ -1044,7 +1200,7 @@ export namespace apigateway {
         type: enums.apigateway.MethodIntegrationType;
         /**
          * Specifies Uniform Resource Identifier (URI) of the integration endpoint.
-         *  For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_api refers to the path to an AWS service resource, including the region of the integrated AWS service, if applicable. For example, for integration with the S3 API of GetObject, the uri can be either ``arn:aws:apigateway:us-west-2:s3:action/GetObject&Bucket={bucket}&Key={key}`` or ``arn:aws:apigateway:us-west-2:s3:path/{bucket}/{key}``
+         *  For ``HTTP`` or ``HTTP_PROXY`` integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification for standard integrations. If ``connectionType`` is ``VPC_LINK`` specify the Network Load Balancer DNS name. For ``AWS`` or ``AWS_PROXY`` integrations, the URI is of the form ``arn:aws:apigateway:{region}:{subdomain.service|service}:path|action/{service_api}``. Here, {Region} is the API Gateway region (e.g., us-east-1); {service} is the name of the integrated AWS service (e.g., s3); and {subdomain} is a designated subdomain supported by certain AWS service for fast host-name lookup. action can be used for an AWS service action-based API, using an Action={name}&{p1}={v1}&p2={v2}... query string. The ensuing {service_api} refers to a supported action {name} plus any required input parameters. Alternatively, path can be used for an AWS service path-based API. The ensuing service_ap
          */
         uri?: string;
     }
@@ -2854,6 +3010,18 @@ export namespace applicationinsights {
          */
         logs?: outputs.applicationinsights.ApplicationLog[];
         /**
+         * The NetWeaver Prometheus Exporter settings.
+         */
+        netWeaverPrometheusExporter?: outputs.applicationinsights.ApplicationNetWeaverPrometheusExporter;
+        /**
+         * A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+         */
+        processes?: outputs.applicationinsights.ApplicationProcess[];
+        /**
+         * The SQL Prometheus Exporter settings.
+         */
+        sqlServerPrometheusExporter?: outputs.applicationinsights.ApplicationSqlServerPrometheusExporter;
+        /**
          * A list of Windows Events to log.
          */
         windowsEvents?: outputs.applicationinsights.ApplicationWindowsEvent[];
@@ -2989,6 +3157,52 @@ export namespace applicationinsights {
     }
 
     /**
+     * The NetWeaver Prometheus Exporter Settings.
+     */
+    export interface ApplicationNetWeaverPrometheusExporter {
+        /**
+         * SAP instance numbers for ASCS, ERS, and App Servers.
+         */
+        instanceNumbers: string[];
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort?: string;
+        /**
+         * SAP NetWeaver SID.
+         */
+        sapsid: string;
+    }
+
+    /**
+     * A process to be monitored for the component.
+     */
+    export interface ApplicationProcess {
+        /**
+         * A list of metrics to monitor for the component.
+         */
+        alarmMetrics: outputs.applicationinsights.ApplicationAlarmMetric[];
+        /**
+         * The name of the process to be monitored for the component.
+         */
+        processName: string;
+    }
+
+    /**
+     * The SQL prometheus exporter settings.
+     */
+    export interface ApplicationSqlServerPrometheusExporter {
+        /**
+         * Prometheus exporter port.
+         */
+        prometheusPort: string;
+        /**
+         * Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
+         */
+        sqlSecretName: string;
+    }
+
+    /**
      * The configuration settings of sub components.
      */
     export interface ApplicationSubComponentConfigurationDetails {
@@ -3000,6 +3214,10 @@ export namespace applicationinsights {
          * A list of logs to monitor for the component.
          */
         logs?: outputs.applicationinsights.ApplicationLog[];
+        /**
+         * A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+         */
+        processes?: outputs.applicationinsights.ApplicationProcess[];
         /**
          * A list of Windows Events to log.
          */
@@ -6115,116 +6333,515 @@ export namespace cloudfront {
         type: enums.cloudfront.ContinuousDeploymentPolicyTrafficConfigType;
     }
 
+    /**
+     * A complex type that describes how CloudFront processes requests.
+     *  You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.
+     *  For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.
+     *  If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element because this is invalid.
+     *  To delete all cache behaviors in an exist
+     */
     export interface DistributionCacheBehavior {
+        /**
+         * A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:
+         *   +  CloudFront forwards only ``GET`` and ``HEAD`` requests.
+         *   +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+         *   +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.
+         *   
+         *  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+         */
         allowedMethods?: string[];
+        /**
+         * The unique identifier of the cache policy that is attached to this cache behavior. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  A ``CacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+         */
         cachePolicyId?: string;
+        /**
+         * A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
+         *   +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.
+         *   +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+         *   
+         *  If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
+         */
         cachedMethods?: string[];
+        /**
+         * Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify true; if not, specify false. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
+         */
         compress?: boolean;
+        /**
+         * This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+         */
         defaultTtl?: number;
+        /**
+         * The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for this cache behavior.
+         */
         fieldLevelEncryptionId?: string;
+        /**
+         * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+         */
         forwardedValues?: outputs.cloudfront.DistributionForwardedValues;
+        /**
+         * A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+         */
         functionAssociations?: outputs.cloudfront.DistributionFunctionAssociation[];
+        /**
+         * A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
+         */
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionLambdaFunctionAssociation[];
+        /**
+         * This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+         */
         maxTtl?: number;
+        /**
+         * This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+         */
         minTtl?: number;
+        /**
+         * The unique identifier of the origin request policy that is attached to this cache behavior. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+         */
         originRequestPolicyId?: string;
+        /**
+         * The pattern (for example, ``images/*.jpg``) that specifies which requests to apply the behavior to. When CloudFront receives a viewer request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution.
+         *   You can optionally include a slash (``/``) at the beginning of the path pattern. For example, ``/images/*.jpg``. CloudFront behavior is the same with or without the leading ``/``.
+         *   The path pattern for the default cache behavior is ``*`` and cannot be changed. If the request for an object does not match the path pattern for any cache behaviors, CloudFront applies the behavior in the default cache behavior.
+         *  For more information, see [Path Pattern](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesPathPattern) in the *Amazon CloudFront Developer Guide*.
+         */
         pathPattern: string;
+        /**
+         * The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this cache behavior. For more information, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the *Amazon CloudFront Developer Guide*.
+         */
         realtimeLogConfigArn?: string;
+        /**
+         * The identifier for a response headers policy.
+         */
         responseHeadersPolicyId?: string;
+        /**
+         * Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+         */
         smoothStreaming?: boolean;
+        /**
+         * The value of ``ID`` for the origin that you want CloudFront to route requests to when they match this cache behavior.
+         */
         targetOriginId: string;
+        /**
+         * A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
+         *  When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+         */
         trustedKeyGroups?: string[];
+        /**
+         * We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+         *   A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
+         *  When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in the trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+         */
         trustedSigners?: string[];
+        /**
+         * The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
+         *   +   ``allow-all``: Viewers can use HTTP or HTTPS.
+         *   +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+         *   +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+         *   
+         *  For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
+         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+         */
         viewerProtocolPolicy: string;
     }
 
+    /**
+     * A distribution configuration.
+     */
     export interface DistributionConfig {
+        /**
+         * A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+         */
         aliases?: string[];
+        /**
+         * A complex type that contains zero or more ``CacheBehavior`` elements.
+         */
         cacheBehaviors?: outputs.cloudfront.DistributionCacheBehavior[];
         cnames?: string[];
+        /**
+         * A comment to describe the distribution. The comment cannot be longer than 128 characters.
+         */
         comment?: string;
+        /**
+         * The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
+         */
         continuousDeploymentPolicyId?: string;
+        /**
+         * A complex type that controls the following:
+         *   +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
+         *   +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
+         *   
+         *  For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+         */
         customErrorResponses?: outputs.cloudfront.DistributionCustomErrorResponse[];
         customOrigin?: outputs.cloudfront.DistributionLegacyCustomOrigin;
+        /**
+         * A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+         */
         defaultCacheBehavior: outputs.cloudfront.DistributionDefaultCacheBehavior;
+        /**
+         * The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
+         *  Specify only the object name, for example, ``index.html``. Don't add a ``/`` before the object name.
+         *  If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
+         *  To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
+         *  To replace the default root object, update the distribution configuration and specify the new object.
+         *  For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/D
+         */
         defaultRootObject?: string;
+        /**
+         * From this field, you can enable or disable the selected distribution.
+         */
         enabled: boolean;
+        /**
+         * (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
+         *  For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
+         *  For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
+         */
         httpVersion?: string;
+        /**
+         * If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
+         *  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/Devel
+         */
         ipv6Enabled?: boolean;
+        /**
+         * A complex type that controls whether access logs are written for the distribution.
+         *  For more information about logging, see [Access Logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) in the *Amazon CloudFront Developer Guide*.
+         */
         logging?: outputs.cloudfront.DistributionLogging;
+        /**
+         * A complex type that contains information about origin groups for this distribution.
+         */
         originGroups?: outputs.cloudfront.DistributionOriginGroups;
+        /**
+         * A complex type that contains information about origins for this distribution.
+         */
         origins?: outputs.cloudfront.DistributionOrigin[];
+        /**
+         * The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
+         *  If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
+         *  For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
+         */
         priceClass?: string;
+        /**
+         * A complex type that identifies ways in which you want to restrict distribution of your content.
+         */
         restrictions?: outputs.cloudfront.DistributionRestrictions;
         s3Origin?: outputs.cloudfront.DistributionLegacyS3Origin;
+        /**
+         * A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
+         */
         staging?: boolean;
+        /**
+         * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
+         */
         viewerCertificate?: outputs.cloudfront.DistributionViewerCertificate;
+        /**
+         * A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
+         *   WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest
+         */
         webAclId?: string;
     }
 
+    /**
+     * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+     *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+     *  If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+     *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+     */
     export interface DistributionCookies {
+        /**
+         * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to send cookies to the origin but not include them in the cache key, use origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         *  Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
+         *  Amazon S3 doesn't process cookies. When the cache behavior is forw
+         */
         forward: string;
+        /**
+         * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         *  Required if you specify ``whitelist`` for the value of ``Forward``. A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward se
+         */
         whitelistedNames?: string[];
     }
 
+    /**
+     * A complex type that controls:
+     *   +  Whether CloudFront replaces HTTP status codes in the 4xx and 5xx range with custom error messages before returning the response to the viewer.
+     *   +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
+     *   
+     *  For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+     */
     export interface DistributionCustomErrorResponse {
+        /**
+         * The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status code specified in ``ErrorCode``. When this time period has elapsed, CloudFront queries your origin to see whether the problem that caused the error has been resolved and the requested object is now available.
+         *  For more information, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
+         */
         errorCachingMinTtl?: number;
+        /**
+         * The HTTP status code for which you want to specify a custom error page and/or a caching duration.
+         */
         errorCode: number;
+        /**
+         * The HTTP status code that you want CloudFront to return to the viewer along with the custom error page. There are a variety of reasons that you might want CloudFront to return a status code different from the status code that your origin returned to CloudFront, for example:
+         *   +  Some Internet devices (some firewalls and corporate proxies, for example) intercept HTTP 4xx and 5xx and prevent the response from being returned to the viewer. If you substitute ``200``, the response typically won't be intercepted.
+         *   +  If you don't care about distinguishing among different client errors or server errors, you can specify ``400`` or ``500`` as the ``ResponseCode`` for all 4xx or 5xx errors.
+         *   +  You might want to return a ``200`` status code (OK) and static website so your customers don't know that your website is down.
+         *   
+         *  If you specify a value for ``ResponseCode``, you must also specify a value for ``ResponsePagePath``.
+         */
         responseCode?: number;
+        /**
+         * The path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ``ErrorCode``, for example, ``/4xx-errors/403-forbidden.html``. If you want to store your objects and your custom error pages in different locations, your distribution must include a cache behavior for which the following is true:
+         *   +  The value of ``PathPattern`` matches the path to your custom error messages. For example, suppose you saved custom error pages for 4xx errors in an Amazon S3 bucket in a directory named ``/4xx-errors``. Your distribution must include a cache behavior for which the path pattern routes requests for your custom error pages to that location, for example, ``/4xx-errors/*``.
+         *   +  The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages.
+         *   
+         *  If you specify a value for ``ResponsePagePath``, you must also specify a value for ``ResponseCode``.
+         *  We recommend 
+         */
         responsePagePath?: string;
     }
 
+    /**
+     * A custom origin. A custom origin is any origin that is *not* an Amazon S3 bucket, with one exception. An Amazon S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+     */
     export interface DistributionCustomOriginConfig {
+        /**
+         * The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+         */
         httpPort?: number;
+        /**
+         * The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+         */
         httpsPort?: number;
+        /**
+         * Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+         *  For more information, see [Origin Keep-alive Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+         */
         originKeepaliveTimeout?: number;
+        /**
+         * Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
+         *   +   ``http-only`` – CloudFront always uses HTTP to connect to the origin.
+         *   +   ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.
+         *   +   ``https-only`` – CloudFront always uses HTTPS to connect to the origin.
+         */
         originProtocolPolicy: string;
+        /**
+         * Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+         *  For more information, see [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+         */
         originReadTimeout?: number;
+        /**
+         * Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
+         *  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
+         */
         originSslProtocols?: string[];
     }
 
+    /**
+     * A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if request URLs don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
+     */
     export interface DistributionDefaultCacheBehavior {
+        /**
+         * A complex type that controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin. There are three choices:
+         *   +  CloudFront forwards only ``GET`` and ``HEAD`` requests.
+         *   +  CloudFront forwards only ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+         *   +  CloudFront forwards ``GET, HEAD, OPTIONS, PUT, PATCH, POST``, and ``DELETE`` requests.
+         *   
+         *  If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or to your custom origin so users can't perform operations that you don't want them to. For example, you might not want users to have permissions to delete objects from your origin.
+         */
         allowedMethods?: string[];
+        /**
+         * The unique identifier of the cache policy that is attached to the default cache behavior. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  A ``DefaultCacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+         */
         cachePolicyId?: string;
+        /**
+         * A complex type that controls whether CloudFront caches the response to requests using the specified HTTP methods. There are two choices:
+         *   +  CloudFront caches responses to ``GET`` and ``HEAD`` requests.
+         *   +  CloudFront caches responses to ``GET``, ``HEAD``, and ``OPTIONS`` requests.
+         *   
+         *  If you pick the second choice for your Amazon S3 Origin, you may need to forward Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers for the responses to be cached correctly.
+         */
         cachedMethods?: string[];
+        /**
+         * Whether you want CloudFront to automatically compress certain files for this cache behavior. If so, specify ``true``; if not, specify ``false``. For more information, see [Serving Compressed Files](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html) in the *Amazon CloudFront Developer Guide*.
+         */
         compress?: boolean;
+        /**
+         * This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+         */
         defaultTtl?: number;
+        /**
+         * The value of ``ID`` for the field-level encryption configuration that you want CloudFront to use for encrypting specific fields of data for the default cache behavior.
+         */
         fieldLevelEncryptionId?: string;
+        /**
+         * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+         */
         forwardedValues?: outputs.cloudfront.DistributionForwardedValues;
+        /**
+         * A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+         */
         functionAssociations?: outputs.cloudfront.DistributionFunctionAssociation[];
+        /**
+         * A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
+         */
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionLambdaFunctionAssociation[];
+        /**
+         * This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+         */
         maxTtl?: number;
+        /**
+         * This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+         */
         minTtl?: number;
+        /**
+         * The unique identifier of the origin request policy that is attached to the default cache behavior. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+         */
         originRequestPolicyId?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this cache behavior. For more information, see [Real-time logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html) in the *Amazon CloudFront Developer Guide*.
+         */
         realtimeLogConfigArn?: string;
+        /**
+         * The identifier for a response headers policy.
+         */
         responseHeadersPolicyId?: string;
+        /**
+         * Indicates whether you want to distribute media files in the Microsoft Smooth Streaming format using the origin that is associated with this cache behavior. If so, specify ``true``; if not, specify ``false``. If you specify ``true`` for ``SmoothStreaming``, you can still distribute other content using this cache behavior if the content matches the value of ``PathPattern``.
+         */
         smoothStreaming?: boolean;
+        /**
+         * The value of ``ID`` for the origin that you want CloudFront to route requests to when they use the default cache behavior.
+         */
         targetOriginId: string;
+        /**
+         * A list of key groups that CloudFront can use to validate signed URLs or signed cookies.
+         *  When a cache behavior contains trusted key groups, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+         */
         trustedKeyGroups?: string[];
+        /**
+         * We recommend using ``TrustedKeyGroups`` instead of ``TrustedSigners``.
+         *   A list of AWS-account IDs whose public keys CloudFront can use to validate signed URLs or signed cookies.
+         *  When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with the private key of a CloudFront key pair in a trusted signer's AWS-account. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see [Serving private content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
+         */
         trustedSigners?: string[];
+        /**
+         * The protocol that viewers can use to access the files in the origin specified by ``TargetOriginId`` when a request matches the path pattern in ``PathPattern``. You can specify the following options:
+         *   +   ``allow-all``: Viewers can use HTTP or HTTPS.
+         *   +   ``redirect-to-https``: If a viewer submits an HTTP request, CloudFront returns an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS URL. The viewer then resubmits the request using the new URL.
+         *   +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
+         *   
+         *  For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
+         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+         */
         viewerProtocolPolicy: string;
     }
 
+    /**
+     * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+     *  If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+     *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+     *  A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
+     */
     export interface DistributionForwardedValues {
+        /**
+         * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+         */
         cookies?: outputs.cloudfront.DistributionCookies;
+        /**
+         * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         *  If you want to include headers in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to send headers to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         *  A complex type that specifies the ``Headers``, if any, that you want CloudFront to forward to the origin for this cache behavior (whitelisted headers). For the headers that you specify, CloudFront also caches separate versio
+         */
         headers?: string[];
+        /**
+         * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         *  If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         *  Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of
+         */
         queryString: boolean;
+        /**
+         * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
+         *  If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
+         *  If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
+         *  A complex type that contains information about the query string parameters that you want CloudFront to use for caching for this cache behavior.
+         */
         queryStringCacheKeys?: string[];
     }
 
+    /**
+     * A CloudFront function that is associated with a cache behavior in a CloudFront distribution.
+     */
     export interface DistributionFunctionAssociation {
+        /**
+         * The event type of the function, either ``viewer-request`` or ``viewer-response``. You cannot use origin-facing event types (``origin-request`` and ``origin-response``) with a CloudFront function.
+         */
         eventType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the function.
+         */
         functionArn?: string;
     }
 
+    /**
+     * A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
+     */
     export interface DistributionGeoRestriction {
+        /**
+         * A complex type that contains a ``Location`` element for each country in which you want CloudFront either to distribute your content (``whitelist``) or not distribute your content (``blacklist``).
+         *  The ``Location`` element is a two-letter, uppercase country code for a country that you want to include in your ``blacklist`` or ``whitelist``. Include one ``Location`` element for each country.
+         *  CloudFront and ``MaxMind`` both use ``ISO 3166`` country codes. For the current list of countries and the corresponding codes, see ``ISO 3166-1-alpha-2`` code on the *International Organization for Standardization* website. You can also refer to the country list on the CloudFront console, which includes both country names and codes.
+         */
         locations?: string[];
+        /**
+         * The method that you want to use to restrict distribution of your content by country:
+         *   +   ``none``: No geo restriction is enabled, meaning access to content is not restricted by client geo location.
+         *   +   ``blacklist``: The ``Location`` elements specify the countries in which you don't want CloudFront to distribute your content.
+         *   +   ``whitelist``: The ``Location`` elements specify the countries in which you want CloudFront to distribute your content.
+         */
         restrictionType: string;
     }
 
+    /**
+     * A complex type that contains a Lambda@Edge function association.
+     */
     export interface DistributionLambdaFunctionAssociation {
+        /**
+         * Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:
+         *   +   ``viewer-request``: The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
+         *   +   ``origin-request``: The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
+         *   +   ``origin-response``: The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
+         *   +   ``viewer-response``: The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
+         *  If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
+         */
         eventType?: string;
+        /**
+         * A flag that allows a Lambda@Edge function to have read access to the body content. For more information, see [Accessing the Request Body by Choosing the Include Body Option](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html) in the Amazon CloudFront Developer Guide.
+         */
         includeBody?: boolean;
+        /**
+         * The ARN of the Lambda@Edge function. You must specify the ARN of a function version; you can't specify an alias or $LATEST.
+         */
         lambdaFunctionArn?: string;
     }
 
@@ -6241,77 +6858,273 @@ export namespace cloudfront {
         originAccessIdentity?: string;
     }
 
+    /**
+     * A complex type that controls whether access logs are written for the distribution.
+     */
     export interface DistributionLogging {
+        /**
+         * The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
+         */
         bucket: string;
+        /**
+         * Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
+         */
         includeCookies?: boolean;
+        /**
+         * An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
+         */
         prefix?: string;
     }
 
+    /**
+     * An origin.
+     *  An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
+     *   +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+     *   +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
+     *   +  An Amazon S3 bucket that is configured with static website hosting
+     *   +  An Elastic Load Balancing load balancer
+     *   +  An EMPlong endpoint
+     *   +  An EMSlong container
+     *   +  Any other HTTP server, running on an Amazon EC2 instance or any other kind of host
+     *   
+     *   
+     *  For the current maximum number of origins that you can specify per distribution, see [General Quotas on Web Distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-web-distributions) in the *Amazon CloudFront Developer Guide* (quotas were formerly referred to as limits).
+     */
     export interface DistributionOrigin {
+        /**
+         * The number of times that CloudFront attempts to connect to the origin. The minimum number is 1, the maximum is 3, and the default (if you don't specify otherwise) is 3.
+         *  For a custom origin (including an Amazon S3 bucket that's configured with static website hosting), this value also specifies the number of times that CloudFront attempts to get a response from the origin, in the case of an [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout).
+         *  For more information, see [Origin Connection Attempts](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts) in the *Amazon CloudFront Developer Guide*.
+         */
         connectionAttempts?: number;
+        /**
+         * The number of seconds that CloudFront waits when trying to establish a connection to the origin. The minimum timeout is 1 second, the maximum is 10 seconds, and the default (if you don't specify otherwise) is 10 seconds.
+         *  For more information, see [Origin Connection Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-timeout) in the *Amazon CloudFront Developer Guide*.
+         */
         connectionTimeout?: number;
+        /**
+         * Use this type to specify an origin that is not an Amazon S3 bucket, with one exception. If the Amazon S3 bucket is configured with static website hosting, use this type. If the Amazon S3 bucket is not configured with static website hosting, use the ``S3OriginConfig`` type instead.
+         */
         customOriginConfig?: outputs.cloudfront.DistributionCustomOriginConfig;
+        /**
+         * The domain name for the origin.
+         *  For more information, see [Origin Domain Name](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName) in the *Amazon CloudFront Developer Guide*.
+         */
         domainName: string;
+        /**
+         * A unique identifier for the origin. This value must be unique within the distribution.
+         *  Use this value to specify the ``TargetOriginId`` in a ``CacheBehavior`` or ``DefaultCacheBehavior``.
+         */
         id: string;
+        /**
+         * The unique identifier of an origin access control for this origin.
+         *  For more information, see [Restricting access to an Amazon S3 origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide*.
+         */
         originAccessControlId?: string;
+        /**
+         * A list of HTTP header names and values that CloudFront adds to the requests that it sends to the origin.
+         *  For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html) in the *Amazon CloudFront Developer Guide*.
+         */
         originCustomHeaders?: outputs.cloudfront.DistributionOriginCustomHeader[];
+        /**
+         * An optional path that CloudFront appends to the origin domain name when CloudFront requests content from the origin.
+         *  For more information, see [Origin Path](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath) in the *Amazon CloudFront Developer Guide*.
+         */
         originPath?: string;
+        /**
+         * CloudFront Origin Shield. Using Origin Shield can help reduce the load on your origin.
+         *  For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
+         */
         originShield?: outputs.cloudfront.DistributionOriginShield;
+        /**
+         * Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
+         */
         s3OriginConfig?: outputs.cloudfront.DistributionS3OriginConfig;
     }
 
+    /**
+     * A complex type that contains ``HeaderName`` and ``HeaderValue`` elements, if any, for this distribution.
+     */
     export interface DistributionOriginCustomHeader {
+        /**
+         * The name of a header that you want CloudFront to send to your origin. For more information, see [Adding Custom Headers to Origin Requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html) in the *Amazon CloudFront Developer Guide*.
+         */
         headerName: string;
+        /**
+         * The value for the header that you specified in the ``HeaderName`` field.
+         */
         headerValue: string;
     }
 
+    /**
+     * An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
+     */
     export interface DistributionOriginGroup {
+        /**
+         * A complex type that contains information about the failover criteria for an origin group.
+         */
         failoverCriteria: outputs.cloudfront.DistributionOriginGroupFailoverCriteria;
+        /**
+         * The origin group's ID.
+         */
         id: string;
+        /**
+         * A complex type that contains information about the origins in an origin group.
+         */
         members: outputs.cloudfront.DistributionOriginGroupMembers;
     }
 
+    /**
+     * A complex data type that includes information about the failover criteria for an origin group, including the status codes for which CloudFront will failover from the primary origin to the second origin.
+     */
     export interface DistributionOriginGroupFailoverCriteria {
+        /**
+         * The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
+         */
         statusCodes: outputs.cloudfront.DistributionStatusCodes;
     }
 
+    /**
+     * An origin in an origin group.
+     */
     export interface DistributionOriginGroupMember {
+        /**
+         * The ID for an origin in an origin group.
+         */
         originId: string;
     }
 
+    /**
+     * A complex data type for the origins included in an origin group.
+     */
     export interface DistributionOriginGroupMembers {
+        /**
+         * Items (origins) in an origin group.
+         */
         items: outputs.cloudfront.DistributionOriginGroupMember[];
+        /**
+         * The number of origins in an origin group.
+         */
         quantity: number;
     }
 
+    /**
+     * A complex data type for the origin groups specified for a distribution.
+     */
     export interface DistributionOriginGroups {
+        /**
+         * The items (origin groups) in a distribution.
+         */
         items?: outputs.cloudfront.DistributionOriginGroup[];
+        /**
+         * The number of origin groups.
+         */
         quantity: number;
     }
 
+    /**
+     * CloudFront Origin Shield.
+     *  Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
+     */
     export interface DistributionOriginShield {
+        /**
+         * A flag that specifies whether Origin Shield is enabled.
+         *  When it's enabled, CloudFront routes all requests through Origin Shield, which can help protect your origin. When it's disabled, CloudFront might send requests directly to your origin from multiple edge locations or regional edge caches.
+         */
         enabled?: boolean;
+        /**
+         * The AWS-Region for Origin Shield.
+         *  Specify the AWS-Region that has the lowest latency to your origin. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as ``us-east-2``.
+         *  When you enable CloudFront Origin Shield, you must specify the AWS-Region for Origin Shield. For the list of AWS-Regions that you can specify, and for help choosing the best Region for your origin, see [Choosing the for Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region) in the *Amazon CloudFront Developer Guide*.
+         */
         originShieldRegion?: string;
     }
 
+    /**
+     * A complex type that identifies ways in which you want to restrict distribution of your content.
+     */
     export interface DistributionRestrictions {
+        /**
+         * A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
+         */
         geoRestriction: outputs.cloudfront.DistributionGeoRestriction;
     }
 
+    /**
+     * A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin or an S3 bucket that is configured as a website endpoint, use the ``CustomOriginConfig`` element instead.
+     */
     export interface DistributionS3OriginConfig {
+        /**
+         * The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
+         *  origin-access-identity/cloudfront/*ID-of-origin-access-identity* 
+         *  where ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
+         *  If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
+         *  To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
+         *  To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
+         *  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://d
+         */
         originAccessIdentity?: string;
     }
 
+    /**
+     * A complex data type for the status codes that you specify that, when returned by a primary origin, trigger CloudFront to failover to a second origin.
+     */
     export interface DistributionStatusCodes {
+        /**
+         * The items (status codes) for an origin group.
+         */
         items: number[];
+        /**
+         * The number of status codes.
+         */
         quantity: number;
     }
 
+    /**
+     * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
+     *  If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty.
+     *  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:
+     *   +  Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.
+     *   +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field n
+     */
     export interface DistributionViewerCertificate {
+        /**
+         * In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.
+         *   If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html), provide the Amazon Resource Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US East (N. Virginia) Region (``us-east-1``).
+         *  If you specify an ACM certificate ARN, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+         */
         acmCertificateArn?: string;
+        /**
+         * If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, set this field to ``true``.
+         *  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), omit this field and specify values for the following fields:
+         *   +   ``AcmCertificateArn`` or ``IamCertificateId`` (specify a value for one, not both) 
+         *   +   ``MinimumProtocolVersion`` 
+         *   +   ``SslSupportMethod``
+         */
         cloudFrontDefaultCertificate?: boolean;
+        /**
+         * In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.
+         *   If the distribution uses ``Aliases`` (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html), provide the ID of the IAM certificate.
+         *  If you specify an IAM certificate ID, you must also specify values for ``MinimumProtocolVersion`` and ``SSLSupportMethod``. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+         */
         iamCertificateId?: string;
+        /**
+         * If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify the security policy that you want CloudFront to use for HTTPS connections with viewers. The security policy determines two settings:
+         *   +  The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.
+         *   +  The ciphers that CloudFront can use to encrypt the content that it returns to viewers.
+         *   
+         *  For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) and [Supported Protocols and Ciphers Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers) in the *Amazon CloudFront Developer Guide*.
+         *   On the CloudFront console, this setting is called *Security Policy*.
+         *   When you're using SNI only (you set ``SSLSupportMethod`` to ``sni-onl
+         */
         minimumProtocolVersion?: string;
+        /**
+         * In CloudFormation, this field name is ``SslSupportMethod``. Note the different capitalization.
+         *   If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.
+         *   +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
+         *   +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
+         *   +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
+         */
         sslSupportMethod?: string;
     }
 
@@ -7857,7 +8670,7 @@ export namespace config {
 
 export namespace configuration {
     /**
-     * Compliance details of the Config rule
+     * Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.
      */
     export interface ComplianceProperties {
         /**
@@ -7867,91 +8680,104 @@ export namespace configuration {
     }
 
     /**
-     * Custom policy details when rule is custom owned
+     * Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
      */
     export interface ConfigRuleCustomPolicyDetails {
         /**
-         * Logging toggle for custom policy rule
+         * The boolean expression for enabling debug logging for your CC Custom Policy rule. The default value is ``false``.
          */
         enableDebugLogDelivery?: boolean;
         /**
-         * Runtime system for custom policy rule
+         * The runtime system for your CC Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by CC Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://docs.aws.amazon.com/https://github.com/aws-cloudformation/cloudformation-guard).
          */
         policyRuntime?: string;
         /**
-         * Policy definition containing logic for custom policy rule
+         * The policy definition containing the logic for your CC Custom Policy rule.
          */
         policyText?: string;
     }
 
     /**
-     * Evaluation mode for the AWS Config rule
+     * The configuration object for CC rule evaluation mode. The supported valid values are Detective or Proactive.
      */
     export interface ConfigRuleEvaluationModeConfiguration {
         /**
-         * Mode of evaluation of AWS Config rule
+         * The mode of an evaluation. The valid values are Detective or Proactive.
          */
         mode?: string;
     }
 
     /**
-     * Scope to constrain which resources can trigger the rule
+     * Defines which resources trigger an evaluation for an CC rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
      */
     export interface ConfigRuleScope {
         /**
-         * ID of the only one resource which we want to trigger the rule
+         * The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ``ComplianceResourceTypes``.
          */
         complianceResourceId?: string;
         /**
-         * Resource types of resources which we want to trigger the rule
+         * The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ``ComplianceResourceId``.
          */
         complianceResourceTypes?: string[];
         /**
-         * Tag key applied only to resources which we want to trigger the rule
+         * The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
          */
         tagKey?: string;
         /**
-         * Tag value applied only to resources which we want to trigger the rule
+         * The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for ``TagValue``, you must also specify a value for ``TagKey``.
          */
         tagValue?: string;
     }
 
     /**
-     * Source of events for the config rule
+     * Provides the CustomPolicyDetails, the rule owner (```` for managed rules, ``CUSTOM_POLICY`` for Custom Policy rules, and ``CUSTOM_LAMBDA`` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.
      */
     export interface ConfigRuleSource {
         /**
-         * Custom policy details when rule is custom owned
+         * Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to ``CUSTOM_POLICY``.
          */
         customPolicyDetails?: outputs.configuration.ConfigRuleCustomPolicyDetails;
         /**
-         * Owner of the config rule
+         * Indicates whether AWS or the customer owns and manages the CC rule.
+         *   CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+         *   CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
          */
         owner: string;
         /**
-         * List of message types that can trigger the rule
+         * Provides the source and the message types that cause CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic.
+         *  If the owner is set to ``CUSTOM_POLICY``, the only acceptable values for the CC rule trigger message type are ``ConfigurationItemChangeNotification`` and ``OversizedConfigurationItemChangeNotification``.
          */
         sourceDetails?: outputs.configuration.ConfigRuleSourceDetail[];
         /**
-         * Identifier for the source of events
+         * For CC Managed rules, a predefined identifier from a list. For example, ``IAM_PASSWORD_POLICY`` is a managed rule. To reference a managed rule, see [List of Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
+         *  For CC Custom Lambda rules, the identifier is the Amazon Resource Name (ARN) of the rule's LAMlong function, such as ``arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name``.
+         *  For CC Custom Policy rules, this field will be ignored.
          */
         sourceIdentifier?: string;
     }
 
     /**
-     * Source and message type that can trigger the rule
+     * Provides the source and the message types that trigger CC to evaluate your AWS resources against a rule. It also provides the frequency with which you want CC to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for ``SourceDetail`` only for custom rules.
      */
     export interface ConfigRuleSourceDetail {
         /**
-         * Source of event that can trigger the rule
+         * The source of the event, such as an AWS service, that triggers CC to evaluate your AWS resources.
          */
         eventSource: string;
         /**
-         * Frequency at which the rule has to be evaluated
+         * The frequency at which you want CC to run evaluations for a custom rule with a periodic trigger. If you specify a value for ``MaximumExecutionFrequency``, then ``MessageType`` must use the ``ScheduledNotification`` value.
+         *   By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the ``MaximumExecutionFrequency`` parameter.
+         *  Based on the valid value you choose, CC runs evaluations once for each valid value. For example, if you choose ``Three_Hours``, CC runs evaluations once every three hours. In this case, ``Three_Hours`` is the frequency of this rule.
          */
         maximumExecutionFrequency?: string;
         /**
-         * Notification type that can trigger the rule
+         * The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
+         *   +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+         *   +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+         *   +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
+         *   +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+         *   
+         *  If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
          */
         messageType: string;
     }
@@ -8824,6 +9650,11 @@ export namespace connectcampaigns {
 }
 
 export namespace controltower {
+    export interface EnabledBaselineParameter {
+        key?: string;
+        value?: string | any | number | (boolean | number | any | string)[] | boolean;
+    }
+
     export interface EnabledControlParameter {
         key: string;
         value: (string | number | any | boolean)[] | string | number | any | boolean;
@@ -11230,92 +12061,278 @@ export namespace dynamodb {
         writeCapacityAutoScalingSettings?: outputs.dynamodb.GlobalTableCapacityAutoScalingSettings;
     }
 
+    /**
+     * Represents an attribute for describing the key schema for the table and indexes.
+     */
     export interface TableAttributeDefinition {
+        /**
+         * A name for the attribute.
+         */
         attributeName: string;
+        /**
+         * The data type for the attribute, where:
+         *   +   ``S`` - the attribute is of type String
+         *   +   ``N`` - the attribute is of type Number
+         *   +   ``B`` - the attribute is of type Binary
+         */
         attributeType: string;
     }
 
+    /**
+     * The settings used to enable or disable CloudWatch Contributor Insights.
+     */
     export interface TableContributorInsightsSpecification {
+        /**
+         * Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
+         */
         enabled: boolean;
     }
 
+    /**
+     * The options for imported source files in CSV format. The values are Delimiter and HeaderList.
+     */
     export interface TableCsv {
+        /**
+         * The delimiter used for separating items in the CSV file being imported.
+         */
         delimiter?: string;
+        /**
+         * List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.
+         */
         headerList?: string[];
     }
 
+    /**
+     * Represents the properties of a global secondary index.
+     */
     export interface TableGlobalSecondaryIndex {
+        /**
+         * The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index.
+         */
         contributorInsightsSpecification?: outputs.dynamodb.TableContributorInsightsSpecification;
+        /**
+         * The name of the global secondary index. The name must be unique among all other indexes on this table.
+         */
         indexName: string;
+        /**
+         * The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+         *   +   ``HASH`` - partition key
+         *   +   ``RANGE`` - sort key
+         *   
+         *   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+         *  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+         */
         keySchema: outputs.dynamodb.TableKeySchema[];
+        /**
+         * Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+         */
         projection: outputs.dynamodb.TableProjection;
+        /**
+         * Represents the provisioned throughput settings for the specified global secondary index.
+         *  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
+         */
         provisionedThroughput?: outputs.dynamodb.TableProvisionedThroughput;
     }
 
+    /**
+     * Specifies the properties of data being imported from the S3 bucket source to the table.
+     */
     export interface TableImportSourceSpecification {
+        /**
+         * Type of compression to be used on the input coming from the imported table.
+         */
         inputCompressionType?: string;
+        /**
+         * The format of the source data. Valid values for ``ImportFormat`` are ``CSV``, ``DYNAMODB_JSON`` or ``ION``.
+         */
         inputFormat: string;
+        /**
+         * Additional properties that specify how the input is formatted,
+         */
         inputFormatOptions?: outputs.dynamodb.TableInputFormatOptions;
+        /**
+         * The S3 bucket that provides the source for the import.
+         */
         s3BucketSource: outputs.dynamodb.TableS3BucketSource;
     }
 
+    /**
+     * The format options for the data that was imported into the target table. There is one value, CsvOption.
+     */
     export interface TableInputFormatOptions {
+        /**
+         * The options for imported source files in CSV format. The values are Delimiter and HeaderList.
+         */
         csv?: outputs.dynamodb.TableCsv;
     }
 
+    /**
+     * Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+     *  A ``KeySchemaElement`` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one ``KeySchemaElement`` (for the partition key). A composite primary key would require one ``KeySchemaElement`` for the partition key, and another ``KeySchemaElement`` for the sort key.
+     *  A ``KeySchemaElement`` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+     */
     export interface TableKeySchema {
+        /**
+         * The name of a key attribute.
+         */
         attributeName: string;
+        /**
+         * The role that this key attribute will assume:
+         *   +   ``HASH`` - partition key
+         *   +   ``RANGE`` - sort key
+         *   
+         *   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+         *  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+         */
         keyType: string;
     }
 
+    /**
+     * The Kinesis Data Streams configuration for the specified table.
+     */
     export interface TableKinesisStreamSpecification {
+        /**
+         * The precision for the time and date that the stream was created.
+         */
         approximateCreationDateTimePrecision?: enums.dynamodb.TableKinesisStreamSpecificationApproximateCreationDateTimePrecision;
+        /**
+         * The ARN for a specific Kinesis data stream.
+         *  Length Constraints: Minimum length of 37. Maximum length of 1024.
+         */
         streamArn: string;
     }
 
+    /**
+     * Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+     */
     export interface TableLocalSecondaryIndex {
+        /**
+         * The name of the local secondary index. The name must be unique among all other indexes on this table.
+         */
         indexName: string;
+        /**
+         * The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
+         *   +   ``HASH`` - partition key
+         *   +   ``RANGE`` - sort key
+         *   
+         *   The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+         *  The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+         */
         keySchema: outputs.dynamodb.TableKeySchema[];
+        /**
+         * Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+         */
         projection: outputs.dynamodb.TableProjection;
     }
 
+    /**
+     * The settings used to enable point in time recovery.
+     */
     export interface TablePointInTimeRecoverySpecification {
+        /**
+         * Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+         */
         pointInTimeRecoveryEnabled?: boolean;
     }
 
+    /**
+     * Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+     */
     export interface TableProjection {
+        /**
+         * Represents the non-key attribute names which will be projected into the index.
+         *  For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+         */
         nonKeyAttributes?: string[];
+        /**
+         * The set of attributes that are projected into the index:
+         *   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
+         *   +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
+         *   +   ``ALL`` - All of the table attributes are projected into the index.
+         */
         projectionType?: string;
     }
 
+    /**
+     * Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
+     */
     export interface TableProvisionedThroughput {
+        /**
+         * The maximum number of strongly consistent reads consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+         *  If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+         */
         readCapacityUnits: number;
+        /**
+         * The maximum number of writes consumed per second before DynamoDB returns a ``ThrottlingException``. For more information, see [Specifying Read and Write Requirements](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html) in the *Amazon DynamoDB Developer Guide*.
+         *  If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+         */
         writeCapacityUnits: number;
     }
 
-    export interface TableResourcePolicy {
-        policyDocument: any;
-    }
-
+    /**
+     * The S3 bucket that is being imported from.
+     */
     export interface TableS3BucketSource {
+        /**
+         * The S3 bucket that is being imported from.
+         */
         s3Bucket: string;
+        /**
+         * The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
+         */
         s3BucketOwner?: string;
+        /**
+         * The key prefix shared by all S3 Objects that are being imported.
+         */
         s3KeyPrefix?: string;
     }
 
+    /**
+     * Represents the settings used to enable server-side encryption.
+     */
     export interface TableSseSpecification {
+        /**
+         * The KMS key that should be used for the KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key ``alias/aws/dynamodb``.
+         */
         kmsMasterKeyId?: string;
+        /**
+         * Indicates whether server-side encryption is done using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed key is used (KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned key.
+         */
         sseEnabled: boolean;
+        /**
+         * Server-side encryption type. The only supported value is:
+         *   +   ``KMS`` - Server-side encryption that uses KMSlong. The key is stored in your account and is managed by KMS (KMS charges apply).
+         */
         sseType?: string;
     }
 
+    /**
+     * Represents the DynamoDB Streams configuration for a table in DynamoDB.
+     */
     export interface TableStreamSpecification {
-        resourcePolicy?: outputs.dynamodb.TableResourcePolicy;
+        /**
+         * When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
+         *   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+         *   +   ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
+         *   +   ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
+         *   +   ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
+         */
         streamViewType: string;
     }
 
+    /**
+     * Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
+     */
     export interface TableTimeToLiveSpecification {
+        /**
+         * The name of the TTL attribute used to store the expiration time for items in the table.
+         *    + The ``AttributeName`` property is required when enabling the TTL, or when TTL is already enabled.
+         *   +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
+         */
         attributeName?: string;
+        /**
+         * Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+         */
         enabled: boolean;
     }
 
@@ -11371,10 +12388,6 @@ export namespace ec2 {
     export interface ClientVpnEndpointClientLoginBannerOptions {
         bannerText?: string;
         enabled: boolean;
-    }
-
-    export interface ClientVpnEndpointClientRouteMonitoringOptions {
-        enabled?: boolean;
     }
 
     export interface ClientVpnEndpointConnectionLogOptions {
@@ -11469,6 +12482,7 @@ export namespace ec2 {
         instanceGenerations?: enums.ec2.Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem[];
         localStorage?: enums.ec2.Ec2FleetInstanceRequirementsRequestLocalStorage;
         localStorageTypes?: enums.ec2.Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem[];
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
         memoryGiBPerVCpu?: outputs.ec2.Ec2FleetMemoryGiBPerVCpuRequest;
         memoryMiB?: outputs.ec2.Ec2FleetMemoryMiBRequest;
         networkBandwidthGbps?: outputs.ec2.Ec2FleetNetworkBandwidthGbpsRequest;
@@ -11717,15 +12731,15 @@ export namespace ec2 {
     }
 
     /**
-     * The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferential chips) on an instance.
+     * The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
      */
     export interface LaunchTemplateAcceleratorCount {
         /**
-         * The maximum number of accelerators.
+         * The maximum number of accelerators. To specify no maximum limit, omit this parameter. To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
          */
         max?: number;
         /**
-         * The minimum number of accelerators.
+         * The minimum number of accelerators. To specify no minimum limit, omit this parameter.
          */
         min?: number;
     }
@@ -11735,61 +12749,72 @@ export namespace ec2 {
      */
     export interface LaunchTemplateAcceleratorTotalMemoryMiB {
         /**
-         * The maximum amount of accelerator memory, in MiB.
+         * The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum amount of accelerator memory, in MiB.
+         * The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
          */
         min?: number;
     }
 
     /**
-     * The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps.
+     * The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
      */
     export interface LaunchTemplateBaselineEbsBandwidthMbps {
         /**
-         * The maximum baseline bandwidth, in Mbps.
+         * The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum baseline bandwidth, in Mbps.
+         * The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter.
          */
         min?: number;
     }
 
     /**
-     * Information about a block device mapping for an Amazon EC2 launch template.
+     * Specifies a block device mapping for a launch template. You must specify ``DeviceName`` plus exactly one of the following properties: ``Ebs``, ``NoDevice``, or ``VirtualName``.
+     *   ``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateBlockDeviceMapping {
         /**
-         * The user data to make available to the instance.
+         * The device name (for example, /dev/sdh or xvdh).
          */
         deviceName?: string;
+        /**
+         * Parameters used to automatically set up EBS volumes when the instance is launched.
+         */
         ebs?: outputs.ec2.LaunchTemplateEbs;
         /**
          * To omit the device from the block device mapping, specify an empty string.
          */
         noDevice?: string;
         /**
-         * The virtual device name (ephemeralN).
+         * The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
          */
         virtualName?: string;
     }
 
     /**
-     * Specifies an instance's Capacity Reservation targeting option.
+     * Specifies an instance's Capacity Reservation targeting option. You can specify only one option at a time.
+     *   ``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateCapacityReservationSpecification {
         /**
-         * Indicates the instance's Capacity Reservation preferences.
+         * Indicates the instance's Capacity Reservation preferences. Possible preferences include:
+         *   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+         *   +   ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
          */
         capacityReservationPreference?: string;
+        /**
+         * Information about the target Capacity Reservation or Capacity Reservation group.
+         */
         capacityReservationTarget?: outputs.ec2.LaunchTemplateCapacityReservationTarget;
     }
 
     /**
      * Specifies a target Capacity Reservation.
+     *   ``CapacityReservationTarget`` is a property of the [Amazon EC2 LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) property type.
      */
     export interface LaunchTemplateCapacityReservationTarget {
         /**
@@ -11803,29 +12828,30 @@ export namespace ec2 {
     }
 
     /**
-     * Allows customer to specify Connection Tracking options
+     * A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide*.
      */
     export interface LaunchTemplateConnectionTrackingSpecification {
         /**
-         * Integer value for TCP Established Timeout
+         * Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
          */
         tcpEstablishedTimeout?: number;
         /**
-         * Integer value for UDP Stream Timeout
+         * Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
          */
         udpStreamTimeout?: number;
         /**
-         * Integer value for UDP Timeout
+         * Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
          */
         udpTimeout?: number;
     }
 
     /**
-     * specifies the CPU options for an instance.
+     * Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
+     *   ``CpuOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateCpuOptions {
         /**
-         * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
+         * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
          */
         amdSevSnp?: enums.ec2.LaunchTemplateCpuOptionsAmdSevSnp;
         /**
@@ -11833,108 +12859,183 @@ export namespace ec2 {
          */
         coreCount?: number;
         /**
-         * The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+         * The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
          */
         threadsPerCore?: number;
     }
 
     /**
-     * The user data to make available to the instance.
+     * Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
+     *   ``CreditSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateCreditSpecification {
         /**
-         * The user data to make available to the instance.
+         * The credit option for CPU usage of a T instance.
+         *  Valid values: ``standard`` | ``unlimited``
          */
         cpuCredits?: string;
     }
 
     /**
-     * The information for the launch template.
+     * The information to include in the launch template.
+     *   You must specify at least one parameter for the launch template data.
      */
     export interface LaunchTemplateData {
         /**
          * The block device mapping.
          */
         blockDeviceMappings?: outputs.ec2.LaunchTemplateBlockDeviceMapping[];
+        /**
+         * The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to ``open``, which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+         */
         capacityReservationSpecification?: outputs.ec2.LaunchTemplateCapacityReservationSpecification;
+        /**
+         * The CPU options for the instance. For more information, see [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         */
         cpuOptions?: outputs.ec2.LaunchTemplateCpuOptions;
+        /**
+         * The credit option for CPU usage of the instance. Valid only for T instances.
+         */
         creditSpecification?: outputs.ec2.LaunchTemplateCreditSpecification;
         /**
-         * Indicates whether to enable the instance for stop protection.
+         * Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.
          */
         disableApiStop?: boolean;
         /**
-         * If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API.
+         * If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
          */
         disableApiTermination?: boolean;
         /**
-         * Indicates whether the instance is optimized for Amazon EBS I/O.
+         * Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
          */
         ebsOptimized?: boolean;
         /**
-         * An elastic GPU to associate with the instance.
+         * Deprecated.
+         *   Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
          */
         elasticGpuSpecifications?: outputs.ec2.LaunchTemplateElasticGpuSpecification[];
         /**
-         * The elastic inference accelerator for the instance.
+         * An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
+         *  You cannot specify accelerators from different generations in the same request.
+         *   Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
          */
         elasticInferenceAccelerators?: outputs.ec2.LaunchTemplateElasticInferenceAccelerator[];
+        /**
+         * Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
+         *  You can't enable AWS Nitro Enclaves and hibernation on the same instance.
+         */
         enclaveOptions?: outputs.ec2.LaunchTemplateEnclaveOptions;
+        /**
+         * Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         */
         hibernationOptions?: outputs.ec2.LaunchTemplateHibernationOptions;
+        /**
+         * The name or Amazon Resource Name (ARN) of an IAM instance profile.
+         */
         iamInstanceProfile?: outputs.ec2.LaunchTemplateIamInstanceProfile;
         /**
          * The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
+         *  Valid formats:
+         *   +   ``ami-17characters00000`` 
+         *   +   ``resolve:ssm:parameter-name`` 
+         *   +   ``resolve:ssm:parameter-name:version-number`` 
+         *   +   ``resolve:ssm:parameter-name:label`` 
+         *   
+         *  For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.
          */
         imageId?: string;
         /**
          * Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+         *  Default: ``stop``
          */
         instanceInitiatedShutdownBehavior?: string;
+        /**
+         * The market (purchasing) option for the instances.
+         */
         instanceMarketOptions?: outputs.ec2.LaunchTemplateInstanceMarketOptions;
+        /**
+         * The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+         *  You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+         *  When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+         *  To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+         *   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+         *   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+         *   
+         *   If you specify ``InstanceReq
+         */
         instanceRequirements?: outputs.ec2.LaunchTemplateInstanceRequirements;
+        /**
+         * The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         *  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
+         */
         instanceType?: string;
         /**
          * The ID of the kernel.
+         *  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon EC2 User Guide*.
          */
         kernelId?: string;
         /**
-         * The name of the EC2 key pair
+         * The name of the key pair. You can create a key pair using [CreateKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html) or [ImportKeyPair](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html).
+         *   If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
          */
         keyName?: string;
         /**
          * The license configurations.
          */
         licenseSpecifications?: outputs.ec2.LaunchTemplateLicenseSpecification[];
+        /**
+         * The maintenance options of your instance.
+         */
         maintenanceOptions?: outputs.ec2.LaunchTemplateMaintenanceOptions;
+        /**
+         * The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         */
         metadataOptions?: outputs.ec2.LaunchTemplateMetadataOptions;
+        /**
+         * The monitoring for the instance.
+         */
         monitoring?: outputs.ec2.LaunchTemplateMonitoring;
         /**
-         * If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+         * One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
          */
         networkInterfaces?: outputs.ec2.LaunchTemplateNetworkInterface[];
+        /**
+         * The placement for the instance.
+         */
         placement?: outputs.ec2.LaunchTemplatePlacement;
+        /**
+         * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+         */
         privateDnsNameOptions?: outputs.ec2.LaunchTemplatePrivateDnsNameOptions;
+        /**
+         * The ID of the RAM disk.
+         *   We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         */
         ramDiskId?: string;
         /**
-         * One or more security group IDs. 
+         * The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
          */
         securityGroupIds?: string[];
         /**
-         * One or more security group names.
+         * One or more security group names. For a nondefault VPC, you must use security group IDs instead.
          */
         securityGroups?: string[];
         /**
          * The tags to apply to the resources that are created during instance launch.
+         *  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
+         *  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
          */
         tagSpecifications?: outputs.ec2.TagSpecification[];
         /**
-         * The user data to make available to the instance.
+         * The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.
+         *  If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
          */
         userData?: string;
     }
 
     /**
      * Parameters for a block device for an EBS volume in an Amazon EC2 launch template.
+     *   ``Ebs`` is a property of [AWS::EC2::LaunchTemplate BlockDeviceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html).
      */
     export interface LaunchTemplateEbs {
         /**
@@ -11946,11 +13047,18 @@ export namespace ec2 {
          */
         encrypted?: boolean;
         /**
-         * The number of I/O operations per second (IOPS).
+         * The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+         *  The following are the supported values for each volume type:
+         *   +   ``gp3``: 3,000 - 16,000 IOPS
+         *   +   ``io1``: 100 - 64,000 IOPS
+         *   +   ``io2``: 100 - 256,000 IOPS
+         *   
+         *  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+         *  This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
          */
         iops?: number;
         /**
-         * The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+         * The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
          */
         kmsKeyId?: string;
         /**
@@ -11958,60 +13066,73 @@ export namespace ec2 {
          */
         snapshotId?: string;
         /**
-         * The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+         * The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.
+         *  Valid Range: Minimum value of 125. Maximum value of 1000.
          */
         throughput?: number;
         /**
-         * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+         * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
+         *   +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
+         *   +   ``io1``: 4 - 16,384 GiB
+         *   +   ``io2``: 4 - 65,536 GiB
+         *   +   ``st1`` and ``sc1``: 125 - 16,384 GiB
+         *   +   ``standard``: 1 - 1024 GiB
          */
         volumeSize?: number;
         /**
-         * The volume type.
+         * The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
          */
         volumeType?: string;
     }
 
     /**
-     * Specifies a specification for an Elastic GPU for launch template.
+     * Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+     *   ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateElasticGpuSpecification {
         /**
-         * The type of Elastic Graphics accelerator.
+         * The type of Elastic Graphics accelerator. For more information about the values to specify for ``Type``, see [Elastic Graphics Basics](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics), specifically the Elastic Graphics accelerator column, in the *Amazon Elastic Compute Cloud User Guide for Windows Instances*.
          */
         type?: string;
     }
 
     /**
      * Specifies an elastic inference accelerator.
+     *  ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateElasticInferenceAccelerator {
         /**
-         * The number of elastic inference accelerators to attach to the instance.
+         * The number of elastic inference accelerators to attach to the instance. 
+         *  Default: 1
          */
         count?: number;
         /**
-         * The type of elastic inference accelerator.
+         * The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
          */
         type?: string;
     }
 
     /**
-     * Allows customer to specify ENA-SRD options
+     * ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+     *  To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
      */
     export interface LaunchTemplateEnaSrdSpecification {
         /**
-         * Enables TCP ENA-SRD
+         * Indicates whether ENA Express is enabled for the network interface.
          */
         enaSrdEnabled?: boolean;
+        /**
+         * Configures ENA Express for UDP network traffic.
+         */
         enaSrdUdpSpecification?: outputs.ec2.LaunchTemplateEnaSrdUdpSpecification;
     }
 
     /**
-     * Allows customer to specify ENA-SRD (UDP) options
+     * ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic automatically uses it. However, some UDP-based applications are designed to handle network packets that are out of order, without a need for retransmission, such as live video broadcasting or other near-real-time applications. For UDP traffic, you can specify whether to use ENA Express, based on your application environment needs.
      */
     export interface LaunchTemplateEnaSrdUdpSpecification {
         /**
-         * Enables UDP ENA-SRD
+         * Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting, you must first enable ENA Express.
          */
         enaSrdUdpEnabled?: boolean;
     }
@@ -12021,23 +13142,27 @@ export namespace ec2 {
      */
     export interface LaunchTemplateEnclaveOptions {
         /**
-         * If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+         * If this parameter is set to ``true``, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
          */
         enabled?: boolean;
     }
 
     /**
-     * Specifies whether your instance is configured for hibernation.
+     * Specifies whether your instance is configured for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites). For more information, see [Hibernate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon EC2 User Guide*.
+     *   ``HibernationOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateHibernationOptions {
         /**
-         * TIf you set this parameter to true, the instance is enabled for hibernation.
+         * If you set this parameter to ``true``, the instance is enabled for hibernation.
+         *  Default: ``false``
          */
         configured?: boolean;
     }
 
     /**
-     * Specifies an IAM instance profile, which is a container for an IAM role for your instance.
+     * Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
+     *  If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+     *   ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateIamInstanceProfile {
         /**
@@ -12051,114 +13176,247 @@ export namespace ec2 {
     }
 
     /**
-     * The market (purchasing) option for the instances.
+     * Specifies the market (purchasing) option for an instance.
+     *  ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateInstanceMarketOptions {
         /**
          * The market type.
          */
         marketType?: string;
+        /**
+         * The options for Spot Instances.
+         */
         spotOptions?: outputs.ec2.LaunchTemplateSpotOptions;
     }
 
     /**
-     * The attributes for the instance types.
+     * The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
+     *  You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+     *  When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+     *  To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+     *   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+     *   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+     *   
+     *   If you specify ``InstanceReq
      */
     export interface LaunchTemplateInstanceRequirements {
+        /**
+         * The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+         *  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+         *  Default: No minimum or maximum limits
+         */
         acceleratorCount?: outputs.ec2.LaunchTemplateAcceleratorCount;
         /**
          * Indicates whether instance types must have accelerators by specific manufacturers.
+         *   +  For instance types with AWS devices, specify ``amazon-web-services``.
+         *   +  For instance types with AMD devices, specify ``amd``.
+         *   +  For instance types with Habana devices, specify ``habana``.
+         *   +  For instance types with NVIDIA devices, specify ``nvidia``.
+         *   +  For instance types with Xilinx devices, specify ``xilinx``.
+         *   
+         *  Default: Any manufacturer
          */
         acceleratorManufacturers?: string[];
         /**
          * The accelerators that must be on the instance type.
+         *   +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.
+         *   +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
+         *   +  For instance types with NVIDIA H100 GPUs, specify ``h100``.
+         *   +  For instance types with AWS Inferentia chips, specify ``inferentia``.
+         *   +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.
+         *   +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+         *   +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
+         *   +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+         *   +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
+         *   +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.
+         *   +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
+         *   +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
+         *   
+         *  Default: Any accelerator
          */
         acceleratorNames?: string[];
+        /**
+         * The minimum and maximum amount of total accelerator memory, in MiB.
+         *  Default: No minimum or maximum limits
+         */
         acceleratorTotalMemoryMiB?: outputs.ec2.LaunchTemplateAcceleratorTotalMemoryMiB;
         /**
          * The accelerator types that must be on the instance type.
+         *   +  For instance types with GPU accelerators, specify ``gpu``.
+         *   +  For instance types with FPGA accelerators, specify ``fpga``.
+         *   +  For instance types with inference accelerators, specify ``inference``.
+         *   
+         *  Default: Any accelerator type
          */
         acceleratorTypes?: string[];
         /**
-         * The instance types to apply your specified attributes against.
+         * The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+         *  You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+         *  For example, if you specify ``c5*``,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
+         *   If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+         *   Default: All instance types
          */
         allowedInstanceTypes?: string[];
         /**
          * Indicates whether bare metal instance types must be included, excluded, or required.
+         *   +  To include bare metal instance types, specify ``included``.
+         *   +  To require only bare metal instance types, specify ``required``.
+         *   +  To exclude bare metal instance types, specify ``excluded``.
+         *   
+         *  Default: ``excluded``
          */
         bareMetal?: string;
+        /**
+         * The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
+         *  Default: No minimum or maximum limits
+         */
         baselineEbsBandwidthMbps?: outputs.ec2.LaunchTemplateBaselineEbsBandwidthMbps;
+        /**
+         * Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
+         *   +  To include burstable performance instance types, specify ``included``.
+         *   +  To require only burstable performance instance types, specify ``required``.
+         *   +  To exclude burstable performance instance types, specify ``excluded``.
+         *   
+         *  Default: ``excluded``
+         */
         burstablePerformance?: string;
         /**
          * The CPU manufacturers to include.
+         *   +  For instance types with Intel CPUs, specify ``intel``.
+         *   +  For instance types with AMD CPUs, specify ``amd``.
+         *   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+         *   
+         *   Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+         *   Default: Any manufacturer
          */
         cpuManufacturers?: string[];
         /**
          * The instance types to exclude.
+         *  You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+         *  For example, if you specify ``c5*``,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
+         *   If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+         *   Default: No excluded instance types
          */
         excludedInstanceTypes?: string[];
         /**
-         * Indicates whether current or previous generation instance types are included.
+         * Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
+         *  For current generation instance types, specify ``current``.
+         *  For previous generation instance types, specify ``previous``.
+         *  Default: Current and previous generation instance types
          */
         instanceGenerations?: string[];
         /**
-         * The user data to make available to the instance.
+         * Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.
+         *   +  To include instance types with instance store volumes, specify ``included``.
+         *   +  To require only instance types with instance store volumes, specify ``required``.
+         *   +  To exclude instance types with instance store volumes, specify ``excluded``.
+         *   
+         *  Default: ``included``
          */
         localStorage?: string;
         /**
          * The type of local storage that is required.
+         *   +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
+         *   +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
+         *   
+         *  Default: ``hdd`` and ``ssd``
          */
         localStorageTypes?: string[];
         /**
-         * The price protection threshold for Spot Instances.
+         * [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+         *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+         *  To indicate no price protection threshold, specify a high value, such as ``999999``.
+         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
          */
         maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
+        /**
+         * The minimum and maximum amount of memory per vCPU, in GiB.
+         *  Default: No minimum or maximum limits
+         */
         memoryGiBPerVCpu?: outputs.ec2.LaunchTemplateMemoryGiBPerVCpu;
+        /**
+         * The minimum and maximum amount of memory, in MiB.
+         */
         memoryMiB?: outputs.ec2.LaunchTemplateMemoryMiB;
+        /**
+         * The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+         *  Default: No minimum or maximum limits
+         */
         networkBandwidthGbps?: outputs.ec2.LaunchTemplateNetworkBandwidthGbps;
+        /**
+         * The minimum and maximum number of network interfaces.
+         *  Default: No minimum or maximum limits
+         */
         networkInterfaceCount?: outputs.ec2.LaunchTemplateNetworkInterfaceCount;
         /**
-         * The price protection threshold for On-Demand Instances.
+         * [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+         *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+         *  To turn off price protection, specify a high value, such as ``999999``.
+         *  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+         *   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
          */
         onDemandMaxPricePercentageOverLowestPrice?: number;
         /**
          * Indicates whether instance types must support hibernation for On-Demand Instances.
+         *  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).
+         *  Default: ``false``
          */
         requireHibernateSupport?: boolean;
         /**
-         * The price protection threshold for Spot Instances.
+         * [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
+         *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
+         *  To indicate no price protection threshold, specify a high value, such as ``999999``.
+         *  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
          */
         spotMaxPricePercentageOverLowestPrice?: number;
+        /**
+         * The minimum and maximum amount of total local storage, in GB.
+         *  Default: No minimum or maximum limits
+         */
         totalLocalStorageGb?: outputs.ec2.LaunchTemplateTotalLocalStorageGb;
+        /**
+         * The minimum and maximum number of vCPUs.
+         */
         vCpuCount?: outputs.ec2.LaunchTemplateVCpuCount;
     }
 
     /**
      * Specifies an IPv4 prefix for a network interface.
+     *  ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
      */
     export interface LaunchTemplateIpv4PrefixSpecification {
         /**
-         * The IPv4 prefix.
+         * The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.
          */
         ipv4Prefix?: string;
     }
 
     /**
-     * Specifies an IPv6 address.
+     * Specifies an IPv6 address in an Amazon EC2 launch template.
+     *  ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
      */
     export interface LaunchTemplateIpv6Add {
+        /**
+         * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
+         */
         ipv6Address?: string;
     }
 
     /**
      * Specifies an IPv6 prefix for a network interface.
+     *  ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
      */
     export interface LaunchTemplateIpv6PrefixSpecification {
+        /**
+         * The IPv6 prefix.
+         */
         ipv6Prefix?: string;
     }
 
     /**
      * Specifies a license configuration for an instance.
+     *  ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateLicenseSpecification {
         /**
@@ -12175,9 +13433,6 @@ export namespace ec2 {
          * Disables the automatic recovery behavior of your instance or sets it to default.
          */
         autoRecovery?: string;
-        /**
-         * Disables the automatic reboot-migration behavior of your instance or sets it to default.
-         */
         rebootMigration?: string;
     }
 
@@ -12186,11 +13441,11 @@ export namespace ec2 {
      */
     export interface LaunchTemplateMemoryGiBPerVCpu {
         /**
-         * The maximum amount of memory per vCPU, in GiB.
+         * The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * TThe minimum amount of memory per vCPU, in GiB.
+         * The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
          */
         min?: number;
     }
@@ -12200,77 +13455,95 @@ export namespace ec2 {
      */
     export interface LaunchTemplateMemoryMiB {
         /**
-         * The maximum amount of memory, in MiB.
+         * The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum amount of memory, in MiB.
+         * The minimum amount of memory, in MiB. To specify no minimum limit, specify ``0``.
          */
         min?: number;
     }
 
     /**
-     * The metadata options for the instance.
+     * The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+     *  ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateMetadataOptions {
         /**
-         * Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled.
+         * Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.
+         *   If you specify a value of ``disabled``, you will not be able to access your instance metadata.
          */
         httpEndpoint?: string;
         /**
          * Enables or disables the IPv6 endpoint for the instance metadata service.
+         *  Default: ``disabled``
          */
         httpProtocolIpv6?: string;
         /**
          * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.
+         *  Default: ``1`` 
+         *  Possible values: Integers from 1 to 64
          */
         httpPutResponseHopLimit?: number;
         /**
-         * IMDSv2 uses token-backed sessions.
+         * Indicates whether IMDSv2 is required.
+         *   +   ``optional`` - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.
+         *   +   ``required`` - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
+         *   
+         *  Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
          */
         httpTokens?: string;
         /**
-         * Set to enabled to allow access to instance tags from the instance metadata.
+         * Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+         *  Default: ``disabled``
          */
         instanceMetadataTags?: string;
     }
 
     /**
-     * Specifies whether detailed monitoring is enabled for an instance.
+     * Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
+     *  ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateMonitoring {
         /**
-         * Specify true to enable detailed monitoring.
+         * Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.
          */
         enabled?: boolean;
     }
 
     /**
      * The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+     *   Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide*.
      */
     export interface LaunchTemplateNetworkBandwidthGbps {
         /**
-         * The maximum amount of network bandwidth, in Gbps.
+         * The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum amount of network bandwidth, in Gbps.
+         * The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum limit.
          */
         min?: number;
     }
 
     /**
      * Specifies the parameters for a network interface.
+     *  ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateNetworkInterface {
         /**
-         * Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+         * Associates a Carrier IP address with eth0 for a new network interface.
+         *  Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
          */
         associateCarrierIpAddress?: boolean;
         /**
          * Associates a public IPv4 address with eth0 for a new network interface.
+         *   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
          */
         associatePublicIpAddress?: boolean;
+        /**
+         * A connection tracking specification for the network interface.
+         */
         connectionTrackingSpecification?: outputs.ec2.LaunchTemplateConnectionTrackingSpecification;
         /**
          * Indicates whether the network interface is deleted when the instance is terminated.
@@ -12284,41 +13557,46 @@ export namespace ec2 {
          * The device index for the network interface attachment.
          */
         deviceIndex?: number;
+        /**
+         * The ENA Express configuration for the network interface.
+         */
         enaSrdSpecification?: outputs.ec2.LaunchTemplateEnaSrdSpecification;
         /**
          * The IDs of one or more security groups.
          */
         groups?: string[];
         /**
-         * The type of network interface.
+         * The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         *  If you are not creating an EFA, specify ``interface`` or omit this parameter.
+         *  Valid values: ``interface`` | ``efa``
          */
         interfaceType?: string;
         /**
-         * The number of IPv4 prefixes to be automatically assigned to the network interface.
+         * The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv4Prefix`` option.
          */
         ipv4PrefixCount?: number;
         /**
-         * One or more IPv4 prefixes to be assigned to the network interface.
+         * One or more IPv4 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv4PrefixCount`` option.
          */
         ipv4Prefixes?: outputs.ec2.LaunchTemplateIpv4PrefixSpecification[];
         /**
-         * The number of IPv6 addresses to assign to a network interface.
+         * The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
          */
         ipv6AddressCount?: number;
         /**
-         * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+         * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
          */
         ipv6Addresses?: outputs.ec2.LaunchTemplateIpv6Add[];
         /**
-         * The number of IPv6 prefixes to be automatically assigned to the network interface.
+         * The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv6Prefix`` option.
          */
         ipv6PrefixCount?: number;
         /**
-         * One or more IPv6 prefixes to be assigned to the network interface.
+         * One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv6PrefixCount`` option.
          */
         ipv6Prefixes?: outputs.ec2.LaunchTemplateIpv6PrefixSpecification[];
         /**
-         * The index of the network card.
+         * The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
          */
         networkCardIndex?: number;
         /**
@@ -12326,7 +13604,7 @@ export namespace ec2 {
          */
         networkInterfaceId?: string;
         /**
-         * Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+         * The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html).
          */
         primaryIpv6?: boolean;
         /**
@@ -12348,15 +13626,22 @@ export namespace ec2 {
     }
 
     /**
-     * TThe minimum and maximum number of network interfaces.
+     * The minimum and maximum number of network interfaces.
      */
     export interface LaunchTemplateNetworkInterfaceCount {
+        /**
+         * The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
+         */
         max?: number;
+        /**
+         * The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
+         */
         min?: number;
     }
 
     /**
      * Specifies the placement of an instance.
+     *  ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplatePlacement {
         /**
@@ -12368,7 +13653,7 @@ export namespace ec2 {
          */
         availabilityZone?: string;
         /**
-         * The Group Id of a placement group. You must specify the Placement Group Group Id to launch an instance in a shared placement group.
+         * The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.
          */
         groupId?: string;
         /**
@@ -12380,11 +13665,11 @@ export namespace ec2 {
          */
         hostId?: string;
         /**
-         * The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+         * The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the *Tenancy* parameter or set it to ``host``.
          */
         hostResourceGroupArn?: string;
         /**
-         * The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+         * The number of the partition the instance should launch in. Valid only if the placement group strategy is set to ``partition``.
          */
         partitionNumber?: number;
         /**
@@ -12392,13 +13677,13 @@ export namespace ec2 {
          */
         spreadDomain?: string;
         /**
-         * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+         * The tenancy of the instance. An instance with a tenancy of dedicated runs on single-tenant hardware.
          */
         tenancy?: string;
     }
 
     /**
-     * Describes the options for instance hostnames.
+     * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
      */
     export interface LaunchTemplatePrivateDnsNameOptions {
         /**
@@ -12410,13 +13695,14 @@ export namespace ec2 {
          */
         enableResourceNameDnsAaaaRecord?: boolean;
         /**
-         * The type of hostname for EC2 instances.
+         * The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
          */
         hostnameType?: string;
     }
 
     /**
      * Specifies a secondary private IPv4 address for a network interface.
+     *  ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
      */
     export interface LaunchTemplatePrivateIpAdd {
         /**
@@ -12431,44 +13717,58 @@ export namespace ec2 {
 
     /**
      * Specifies options for Spot Instances.
+     *  ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
      */
     export interface LaunchTemplateSpotOptions {
         /**
-         * Deprecated
+         * Deprecated.
          */
         blockDurationMinutes?: number;
         /**
-         * The behavior when a Spot Instance is interrupted. The default is terminate.
+         * The behavior when a Spot Instance is interrupted. The default is ``terminate``.
          */
         instanceInterruptionBehavior?: string;
         /**
-         * The maximum hourly price you're willing to pay for the Spot Instances.
+         * The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+         *   If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
          */
         maxPrice?: string;
         /**
          * The Spot Instance request type.
+         *  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
          */
         spotInstanceType?: string;
         /**
-         * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+         * The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
+         *   +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
+         *   +  For a one-time request, ``ValidUntil`` is not supported. The request remains active until all instances launch or you cancel the request.
+         *   
+         *  Default: 7 days from the current date
          */
         validUntil?: string;
     }
 
     /**
-     * The user data to make available to the instance.
+     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
      */
     export interface LaunchTemplateTag {
+        /**
+         * The tag key.
+         */
         key: string;
+        /**
+         * The tag value.
+         */
         value: string;
     }
 
     /**
      * Specifies the tags to apply to the launch template during creation.
+     *  ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
      */
     export interface LaunchTemplateTagSpecification {
         /**
-         * The type of resource to tag.
+         * The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.
          */
         resourceType?: string;
         /**
@@ -12481,7 +13781,13 @@ export namespace ec2 {
      * The minimum and maximum amount of total local storage, in GB.
      */
     export interface LaunchTemplateTotalLocalStorageGb {
+        /**
+         * The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
+         */
         max?: number;
+        /**
+         * The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
+         */
         min?: number;
     }
 
@@ -12490,11 +13796,11 @@ export namespace ec2 {
      */
     export interface LaunchTemplateVCpuCount {
         /**
-         * The maximum number of vCPUs.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * The minimum number of vCPUs.
+         * The minimum number of vCPUs. To specify no minimum limit, specify ``0``.
          */
         min?: number;
     }
@@ -12709,6 +14015,15 @@ export namespace ec2 {
         sourcePortRange?: outputs.ec2.NetworkInsightsPathFilterPortRange;
     }
 
+    export interface NetworkInterfaceAttachmentEnaSrdSpecification {
+        enaSrdEnabled?: boolean;
+        enaSrdUdpSpecification?: outputs.ec2.NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties;
+    }
+
+    export interface NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties {
+        enaSrdUdpEnabled?: boolean;
+    }
+
     export interface NetworkInterfaceConnectionTrackingSpecification {
         tcpEstablishedTimeout?: number;
         udpStreamTimeout?: number;
@@ -12755,6 +14070,13 @@ export namespace ec2 {
         description?: string;
     }
 
+    /**
+     * The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
+     *  Available options:
+     *   + EnableResourceNameDnsAAAARecord (true | false)
+     *  + EnableResourceNameDnsARecord (true | false)
+     *  + HostnameType (ip-name | resource-name)
+     */
     export interface PrivateDnsNameOptionsOnLaunchProperties {
         enableResourceNameDnsARecord?: boolean;
         enableResourceNameDnsAaaaRecord?: boolean;
@@ -12871,6 +14193,7 @@ export namespace ec2 {
         instanceGenerations?: enums.ec2.SpotFleetInstanceRequirementsRequestInstanceGenerationsItem[];
         localStorage?: enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorage;
         localStorageTypes?: enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorageTypesItem[];
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
         memoryGiBPerVCpu?: outputs.ec2.SpotFleetMemoryGiBPerVCpuRequest;
         memoryMiB?: outputs.ec2.SpotFleetMemoryMiBRequest;
         networkBandwidthGbps?: outputs.ec2.SpotFleetNetworkBandwidthGbpsRequest;
@@ -13037,14 +14360,17 @@ export namespace ec2 {
 
     /**
      * Specifies the tags to apply to a resource when the resource is created for the launch template.
+     *  ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface TagSpecification {
         /**
          * The type of resource to tag.
+         *  Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.
+         *  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
          */
         resourceType?: string;
         /**
-         * The tags for the resource.
+         * The tags to apply to the resource.
          */
         tags?: outputs.ec2.LaunchTemplateTag[];
     }
@@ -13595,122 +14921,396 @@ export namespace ecs {
         name: string;
     }
 
+    /**
+     * The authorization configuration details for the Amazon EFS file system.
+     */
     export interface TaskDefinitionAuthorizationConfig {
+        /**
+         * The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the ``EFSVolumeConfiguration`` must either be omitted or set to ``/`` which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be on in the ``EFSVolumeConfiguration``. For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide*.
+         */
         accessPointId?: string;
+        /**
+         * Determines whether to use the Amazon ECS task role defined in a task definition when mounting the Amazon EFS file system. If it is turned on, transit encryption must be turned on in the ``EFSVolumeConfiguration``. If this parameter is omitted, the default value of ``DISABLED`` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints) in the *Amazon Elastic Container Service Developer Guide*.
+         */
         iam?: enums.ecs.TaskDefinitionAuthorizationConfigIam;
     }
 
     /**
-     * List of container definitions that are passed to the Docker daemon on a container instance
+     * The ``ContainerDefinition`` property specifies a container definition. Container definitions are used in task definitions to describe the different containers that are launched as part of a task.
      */
     export interface TaskDefinitionContainerDefinition {
+        /**
+         * The command that's passed to the container. This parameter maps to ``Cmd`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``COMMAND`` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd). If there are multiple arguments, each argument is a separated string in the array.
+         */
         command?: string[];
+        /**
+         * The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cpu-shares`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *  This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
+         *   You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
+         *   Linux containers share unallocated CPU units with other containers on the cont
+         */
         cpu?: number;
+        /**
+         * A list of ARNs in SSM or Amazon S3 to a credential spec (``CredSpec``) file that configures the container for Active Directory authentication. We recommend that you use this parameter instead of the ``dockerSecurityOptions``. The maximum number of ARNs is 1.
+         *  There are two formats for each ARN.
+         *   + credentialspecdomainless:MyARN You use credentialspecdomainless:MyARN to provide a CredSpec with an additional section for a secret in . You provide the login credentials to the domain in the secret. Each task that runs on any container instance can join different domains. You can use this format without joining the container instance to a domain. + credentialspec:MyARN You use credentialspec:MyARN to provide a CredSpec for a single domain. You must join the container instance to the domain before you start any tasks that use this task definition. 
+         *  In both formats, replace ``MyARN`` with the ARN in SSM or Amazon S3.
+         *  If you provide a ``credentialspecdomainless:MyARN``, the ``credspec`` must
+         */
         credentialSpecs?: string[];
+        /**
+         * The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+         *  For tasks using the EC2 launch type, the container instances require at least version 1.26.0 of the container agent to turn on container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [
+         */
         dependsOn?: outputs.ecs.TaskDefinitionContainerDependency[];
+        /**
+         * When this parameter is true, networking is off within the container. This parameter maps to ``NetworkDisabled`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/).
+         *   This parameter is not supported for Windows containers.
+         */
         disableNetworking?: boolean;
+        /**
+         * A list of DNS search domains that are presented to the container. This parameter maps to ``DnsSearch`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--dns-search`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   This parameter is not supported for Windows containers.
+         */
         dnsSearchDomains?: string[];
+        /**
+         * A list of DNS servers that are presented to the container. This parameter maps to ``Dns`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--dns`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   This parameter is not supported for Windows containers.
+         */
         dnsServers?: string[];
+        /**
+         * A key/value map of labels to add to the container. This parameter maps to ``Labels`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--label`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+         */
         dockerLabels?: {[key: string]: string};
+        /**
+         * A list of strings to provide custom configuration for multiple security systems. For more information about valid values, see [Docker Run Security Configuration](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This field isn't valid for containers in tasks using the Fargate launch type.
+         *  For Linux tasks on EC2, this parameter can be used to reference custom labels for SELinux and AppArmor multi-level security systems.
+         *  For any tasks on EC2, this parameter can be used to reference a credential spec file that configures a container for Active Directory authentication. For more information, see [Using gMSAs for Windows Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html) and [Using gMSAs for Linux Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html) in the *Amazon Elastic Container Service Developer Guide*.
+         *  This parameter maps to ``SecurityOpt`` in the [Create a co
+         */
         dockerSecurityOptions?: string[];
+        /**
+         * Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.
+         *   The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--entrypoint`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For more information, see [https://docs.docker.com/engine/reference/builder/#entrypoint](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#entrypoint).
+         */
         entryPoint?: string[];
         /**
-         * The environment variables to pass to a container
+         * The environment variables to pass to a container. This parameter maps to ``Env`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--env`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   We don't recommend that you use plaintext environment variables for sensitive information, such as credential data.
          */
         environment?: outputs.ecs.TaskDefinitionKeyValuePair[];
         /**
-         * The list of one or more files that contain the environment variables to pass to a container
+         * A list of files containing the environment variables to pass to a container. This parameter maps to the ``--env-file`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *  You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file contains an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/).
+         *  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend t
          */
         environmentFiles?: outputs.ecs.TaskDefinitionEnvironmentFile[];
+        /**
+         * If the ``essential`` parameter of a container is marked as ``true``, and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the ``essential`` parameter of a container is marked as ``false``, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
+         *  All tasks must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide*.
+         */
         essential?: boolean;
+        /**
+         * A list of hostnames and IP address mappings to append to the ``/etc/hosts`` file on the container. This parameter maps to ``ExtraHosts`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--add-host`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   This parameter isn't supported for Windows containers or tasks that use the ``awsvpc`` network mode.
+         */
         extraHosts?: outputs.ecs.TaskDefinitionHostEntry[];
+        /**
+         * The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom Log Routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+         */
         firelensConfiguration?: outputs.ecs.TaskDefinitionFirelensConfiguration;
+        /**
+         * The container health check command and associated configuration parameters for the container. This parameter maps to ``HealthCheck`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``HEALTHCHECK`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         */
         healthCheck?: outputs.ecs.TaskDefinitionHealthCheck;
+        /**
+         * The hostname to use for your container. This parameter maps to ``Hostname`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--hostname`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
+         */
         hostname?: string;
         /**
-         * The image used to start a container. This string is passed directly to the Docker daemon.
+         * The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either ``repository-url/image:tag`` or ``repository-url/image@digest``. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to ``Image`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``IMAGE`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   +  When a new task starts, the Amazon ECS container agent pulls the latest version of the specified image and tag for the container to use. However, subsequent updates to a repository image 
          */
         image: string;
+        /**
+         * When this parameter is ``true``, you can deploy containerized applications that require ``stdin`` or a ``tty`` to be allocated. This parameter maps to ``OpenStdin`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--interactive`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         */
         interactive?: boolean;
+        /**
+         * The ``links`` parameter allows containers to communicate with each other without the need for port mappings. This parameter is only supported if the network mode of a task definition is ``bridge``. The ``name:internalName`` construct is analogous to ``name:alias`` in Docker links. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to [Legacy container links](https://docs.aws.amazon.com/https://docs.docker.com/network/links/) in the Docker documentation. This parameter maps to ``Links`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--link`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   This parameter is not supported for W
+         */
         links?: string[];
+        /**
+         * Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
+         *   This parameter is not supported for Windows containers.
+         */
         linuxParameters?: outputs.ecs.TaskDefinitionLinuxParameters;
+        /**
+         * The log configuration specification for the container.
+         *  This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). By default, containers use the same logging driver that the Docker daemon uses. However, the container may use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/htt
+         */
         logConfiguration?: outputs.ecs.TaskDefinitionLogConfiguration;
         /**
-         * The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed.
+         * The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. The total amount of memory reserved for all containers within a task must be lower than the task ``memory`` value, if one is specified. This parameter maps to ``Memory`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *  If using the Fargate launch type, this parameter is optional.
+         *  If using the EC2 launch type, you must specify either a task-level memory value or a container-level memory value. If you specify both a container-level ``memory`` and ``memoryReservation`` value, ``memory`` must be greater than ``memoryReserva
          */
         memory?: number;
+        /**
+         * The soft limit (in MiB) of memory to reserve for the container. When system memory is under heavy contention, Docker attempts to keep the container memory to this soft limit. However, your container can consume more memory when it needs to, up to either the hard limit specified with the ``memory`` parameter (if applicable), or all of the available memory on the container instance, whichever comes first. This parameter maps to ``MemoryReservation`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--memory-reservation`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *  If a task-level memory value is not specified, you must specify a non-zero integer for one or both of ``memory`` or ``memoryReservation`` in a container definiti
+         */
         memoryReservation?: number;
+        /**
+         * The mount points for data volumes in your container.
+         *  This parameter maps to ``Volumes`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--volume`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives.
+         */
         mountPoints?: outputs.ecs.TaskDefinitionMountPoint[];
         /**
-         * The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
+         * The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--name`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
          */
         name: string;
         /**
-         * Port mappings allow containers to access ports on the host container instance to send or receive traffic.
+         * The list of port mappings for the container. Port mappings allow containers to access ports on the host container instance to send or receive traffic.
+         *  For task definitions that use the ``awsvpc`` network mode, you should only specify the ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``.
+         *  Port mappings on Windows use the ``NetNAT`` gateway address rather than ``localhost``. There is no loopback for port mappings on Windows, so you cannot access a container's mapped port from the host itself. 
+         *  This parameter maps to ``PortBindings`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--publish`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). If the network mode of a task definition is set to
          */
         portMappings?: outputs.ecs.TaskDefinitionPortMapping[];
+        /**
+         * When this parameter is true, the container is given elevated privileges on the host container instance (similar to the ``root`` user). This parameter maps to ``Privileged`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--privileged`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   This parameter is not supported for Windows containers or tasks run on FARGATElong.
+         */
         privileged?: boolean;
+        /**
+         * When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--tty`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         */
         pseudoTerminal?: boolean;
+        /**
+         * When this parameter is true, the container is given read-only access to its root file system. This parameter maps to ``ReadonlyRootfs`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--read-only`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   This parameter is not supported for Windows containers.
+         */
         readonlyRootFilesystem?: boolean;
+        /**
+         * The private repository authentication credentials to use.
+         */
         repositoryCredentials?: outputs.ecs.TaskDefinitionRepositoryCredentials;
+        /**
+         * The type and amount of a resource to assign to a container. The only supported resource is a GPU.
+         */
         resourceRequirements?: outputs.ecs.TaskDefinitionResourceRequirement[];
+        /**
+         * The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+         */
         secrets?: outputs.ecs.TaskDefinitionSecret[];
+        /**
+         * Time duration (in seconds) to wait before giving up on resolving dependencies for a container. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a ``COMPLETE``, ``SUCCESS``, or ``HEALTHY`` status. If a ``startTimeout`` value is specified for containerB and it doesn't reach the desired status within that time then containerA gives up and not start. This results in the task transitioning to a ``STOPPED`` state.
+         *   When the ``ECS_CONTAINER_START_TIMEOUT`` container agent configuration variable is used, it's enforced independently from this start timeout value.
+         *   For tasks using the Fargate launch type, the task or service requires the following platforms:
+         *   +  Linux platform version ``1.3.0`` or later.
+         *   +  Windows platform version ``1.0.0`` or later.
+         *   
+         *  For tasks using the EC2 launch type, your container instances require at least version ``1.26.0`` of the container agent to use a container start timeout value. However
+         */
         startTimeout?: number;
+        /**
+         * Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+         *  For tasks using the Fargate launch type, the task or service requires the following platforms:
+         *   +  Linux platform version ``1.3.0`` or later.
+         *   +  Windows platform version ``1.0.0`` or later.
+         *   
+         *  The max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
+         *  For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recomm
+         */
         stopTimeout?: number;
+        /**
+         * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--sysctl`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+         */
         systemControls?: outputs.ecs.TaskDefinitionSystemControl[];
+        /**
+         * A list of ``ulimits`` to set in the container. This parameter maps to ``Ulimits`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--ulimit`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/). Valid naming values are displayed in the [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'`` 
+         *   This parameter is not supported for Windows containers.
+         */
         ulimits?: outputs.ecs.TaskDefinitionUlimit[];
+        /**
+         * The user to use inside the container. This parameter maps to ``User`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--user`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   When running tasks using the ``host`` network mode, don't run containers using the root user (UID 0). We recommend using a non-root user for better security.
+         *   You can specify the ``user`` using the following formats. If specifying a UID or GID, you must specify it as a positive integer.
+         *   +   ``user`` 
+         *   +   ``user:group`` 
+         *   +   ``uid`` 
+         *   +   ``uid:gid`` 
+         *   +   ``user:gid`` 
+         *   +   ``uid:group`` 
+         *   
+         *   This parameter is not supported for Windows containers.
+         */
         user?: string;
+        /**
+         * Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--volumes-from`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         */
         volumesFrom?: outputs.ecs.TaskDefinitionVolumeFrom[];
+        /**
+         * The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--workdir`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         */
         workingDirectory?: string;
     }
 
+    /**
+     * The ``ContainerDependency`` property specifies the dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
+     *  Your Amazon ECS container instances require at least version 1.26.0 of the container agent to enable container dependencies. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you are using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For m
+     */
     export interface TaskDefinitionContainerDependency {
+        /**
+         * The dependency condition of the container. The following are the available conditions and their behavior:
+         *   +   ``START`` - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
+         *   +   ``COMPLETE`` - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition can't be set on an essential container.
+         *   +   ``SUCCESS`` - This condition is the same as ``COMPLETE``, but it also requires that the container exits with a ``zero`` status. This condition can't be set on an essential container.
+         *   +   ``HEALTHY`` - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confi
+         */
         condition?: string;
+        /**
+         * The name of a container.
+         */
         containerName?: string;
     }
 
+    /**
+     * The ``Device`` property specifies an object representing a container instance host device.
+     */
     export interface TaskDefinitionDevice {
+        /**
+         * The path inside the container at which to expose the host device.
+         */
         containerPath?: string;
+        /**
+         * The path for the device on the host container instance.
+         */
         hostPath?: string;
+        /**
+         * The explicit permissions to provide to the container for the device. By default, the container has permissions for ``read``, ``write``, and ``mknod`` for the device.
+         */
         permissions?: string[];
     }
 
+    /**
+     * The ``DockerVolumeConfiguration`` property specifies a Docker volume configuration and is used when you use Docker volumes. Docker volumes are only supported when you are using the EC2 launch type. Windows containers only support the use of the ``local`` driver. To use bind mounts, specify a ``host`` instead.
+     */
     export interface TaskDefinitionDockerVolumeConfiguration {
+        /**
+         * If this value is ``true``, the Docker volume is created if it doesn't already exist.
+         *   This field is only used if the ``scope`` is ``shared``.
+         */
         autoprovision?: boolean;
+        /**
+         * The Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement. If the driver was installed using the Docker plugin CLI, use ``docker plugin ls`` to retrieve the driver name from your container instance. If the driver was installed using another method, use Docker plugin discovery to retrieve the driver name. For more information, see [Docker plugin discovery](https://docs.aws.amazon.com/https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery). This parameter maps to ``Driver`` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``xxdriver`` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/).
+         */
         driver?: string;
+        /**
+         * A map of Docker driver-specific options passed through. This parameter maps to ``DriverOpts`` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``xxopt`` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/).
+         */
         driverOpts?: {[key: string]: string};
+        /**
+         * Custom metadata to add to your Docker volume. This parameter maps to ``Labels`` in the [Create a volume](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``xxlabel`` option to [docker volume create](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/volume_create/).
+         */
         labels?: {[key: string]: string};
+        /**
+         * The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a ``task`` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as ``shared`` persist after the task stops.
+         */
         scope?: string;
     }
 
+    /**
+     * This parameter is specified when you're using an Amazon Elastic File System file system for task storage. For more information, see [Amazon EFS volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface TaskDefinitionEfsVolumeConfiguration {
+        /**
+         * The authorization configuration details for the Amazon EFS file system.
+         */
         authorizationConfig?: outputs.ecs.TaskDefinitionAuthorizationConfig;
+        /**
+         * The Amazon EFS file system ID to use.
+         */
         filesystemId: string;
+        /**
+         * The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying ``/`` will have the same effect as omitting this parameter.
+         *   If an EFS access point is specified in the ``authorizationConfig``, the root directory parameter must either be omitted or set to ``/`` which will enforce the path set on the EFS access point.
+         */
         rootDirectory?: string;
+        /**
+         * Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be turned on if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of ``DISABLED`` is used. For more information, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide*.
+         */
         transitEncryption?: enums.ecs.TaskDefinitionEfsVolumeConfigurationTransitEncryption;
+        /**
+         * The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses. For more information, see [EFS mount helper](https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html) in the *Amazon Elastic File System User Guide*.
+         */
         transitEncryptionPort?: number;
     }
 
+    /**
+     * A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a ``.env`` file extension. Each line in an environment file should contain an environment variable in ``VARIABLE=VALUE`` format. Lines beginning with ``#`` are treated as comments and are ignored.
+     *  If there are environment variables specified using the ``environment`` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*.
+     *  You must use the following platforms for the Fargate launch type:
+     *   +  Linux platform version ``1.4.0`` or la
+     */
     export interface TaskDefinitionEnvironmentFile {
+        /**
+         * The file type to use. The only supported value is ``s3``.
+         */
         type?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+         */
         value?: string;
     }
 
+    /**
+     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on FARGATElong. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon ECS Developer Guide;*.
+     *   For tasks using the Fargate launch type, the task requires the following platforms:
+     *   +  Linux platform version ``1.4.0`` or later.
+     *   +  Windows platform version ``1.0.0`` or later.
+     */
     export interface TaskDefinitionEphemeralStorage {
+        /**
+         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
+         */
         sizeInGiB?: number;
     }
 
+    /**
+     * The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface TaskDefinitionFirelensConfiguration {
+        /**
+         * The options to use when configuring the log router. This field is optional and can be used to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event.
+         *   If specified, valid option keys are:
+         *   +  ``enable-ecs-log-metadata``, which can be ``true`` or ``false``
+         *   +  ``config-file-type``, which can be ``s3`` or ``file``
+         *   +  ``config-file-value``, which is either an S3 ARN or a file path
+         */
         options?: {[key: string]: string};
+        /**
+         * The log router to use. The valid values are ``fluentd`` or ``fluentbit``.
+         */
         type?: string;
     }
 
     /**
-     * The health check command and associated configuration parameters for the container.
+     * The ``HealthCheck`` property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/).
+     *   The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.
+     *   If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a servi
      */
     export interface TaskDefinitionHealthCheck {
         /**
-         * A string array representing the command that the container runs to determine if it is healthy.
+         * A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. 
+         *   When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.
+         *   ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]`` 
+         *  You don't include the double quotes and brackets when you use the AWS Management Console.
+         *   ``CMD-SHELL, curl -f http://localhost/ || exit 1`` 
+         *  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/).
          */
         command?: string[];
         /**
@@ -13718,131 +15318,431 @@ export namespace ecs {
          */
         interval?: number;
         /**
-         * The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.
+         * The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
          */
         retries?: number;
         /**
-         * The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.
+         * The optional grace period to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You can specify between 0 and 300 seconds. By default, the ``startPeriod`` is off.
+         *   If a health check succeeds within the ``startPeriod``, then the container is considered healthy and any subsequent failures count toward the maximum number of retries.
          */
         startPeriod?: number;
         /**
-         * The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.
+         * The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
          */
         timeout?: number;
     }
 
+    /**
+     * The ``HostEntry`` property specifies a hostname and an IP address that are added to the ``/etc/hosts`` file of a container through the ``extraHosts`` parameter of its ``ContainerDefinition`` resource.
+     */
     export interface TaskDefinitionHostEntry {
+        /**
+         * The hostname to use in the ``/etc/hosts`` entry.
+         */
         hostname?: string;
+        /**
+         * The IP address to use in the ``/etc/hosts`` entry.
+         */
         ipAddress?: string;
     }
 
+    /**
+     * The ``HostVolumeProperties`` property specifies details on a container instance bind mount host volume.
+     */
     export interface TaskDefinitionHostVolumeProperties {
+        /**
+         * When the ``host`` parameter is used, specify a ``sourcePath`` to declare the path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the ``host`` parameter contains a ``sourcePath`` file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the ``sourcePath`` value doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+         *  If you're using the Fargate launch type, the ``sourcePath`` parameter is not supported.
+         */
         sourcePath?: string;
     }
 
+    /**
+     * Details on an Elastic Inference accelerator. For more information, see [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface TaskDefinitionInferenceAccelerator {
+        /**
+         * The Elastic Inference accelerator device name. The ``deviceName`` must also be referenced in a container definition as a [ResourceRequirement](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html).
+         */
         deviceName?: string;
+        /**
+         * The Elastic Inference accelerator type to use.
+         */
         deviceType?: string;
     }
 
+    /**
+     * The ``KernelCapabilities`` property specifies the Linux capabilities for the container that are added to or dropped from the default configuration that is provided by Docker. For more information on the default capabilities and the non-default available capabilities, see [Runtime privilege and Linux capabilities](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities) in the *Docker run reference*. For more detailed information on these Linux capabilities, see the [capabilities(7)](https://docs.aws.amazon.com/http://man7.org/linux/man-pages/man7/capabilities.7.html) Linux manual page.
+     */
     export interface TaskDefinitionKernelCapabilities {
+        /**
+         * The Linux capabilities for the container that have been added to the default configuration provided by Docker. This parameter maps to ``CapAdd`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-add`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   Tasks launched on FARGATElong only support adding the ``SYS_PTRACE`` kernel capability.
+         *   Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" 
+         */
         add?: string[];
+        /**
+         * The Linux capabilities for the container that have been removed from the default configuration provided by Docker. This parameter maps to ``CapDrop`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--cap-drop`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *  Valid values: ``"ALL" | "AUDIT_CONTROL" | "AUDIT_WRITE" | "BLOCK_SUSPEND" | "CHOWN" | "DAC_OVERRIDE" | "DAC_READ_SEARCH" | "FOWNER" | "FSETID" | "IPC_LOCK" | "IPC_OWNER" | "KILL" | "LEASE" | "LINUX_IMMUTABLE" | "MAC_ADMIN" | "MAC_OVERRIDE" | "MKNOD" | "NET_ADMIN" | "NET_BIND_SERVICE" | "NET_BROADCAST" | "NET_RAW" | "SETFCAP" | "SETGID" | "SETPCAP" | "SETUID" | "SYS_ADMIN" | "SYS_BOOT" | "SYS_CHROOT" | "SYS_MODULE" | "SYS_NICE" | "SYS_PACCT" | "SYS_PTRACE" | "SYS_RAWIO"
+         */
         drop?: string[];
     }
 
+    /**
+     * A key-value pair object.
+     */
     export interface TaskDefinitionKeyValuePair {
+        /**
+         * The name of the key-value pair. For environment variables, this is the name of the environment variable.
+         */
         name?: string;
+        /**
+         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         */
         value?: string;
     }
 
+    /**
+     * The Linux-specific options that are applied to the container, such as Linux [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html).
+     */
     export interface TaskDefinitionLinuxParameters {
+        /**
+         * The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.
+         *   For tasks that use the Fargate launch type, ``capabilities`` is supported for all platform versions but the ``add`` parameter is only supported if using platform version 1.4.0 or later.
+         */
         capabilities?: outputs.ecs.TaskDefinitionKernelCapabilities;
+        /**
+         * Any host devices to expose to the container. This parameter maps to ``Devices`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--device`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
+         */
         devices?: outputs.ecs.TaskDefinitionDevice[];
+        /**
+         * Run an ``init`` process inside the container that forwards signals and reaps processes. This parameter maps to the ``--init`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+         */
         initProcessEnabled?: boolean;
+        /**
+         * The total amount of swap memory (in MiB) a container can use. This parameter will be translated to the ``--memory-swap`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) where the value would be the sum of the container memory plus the ``maxSwap`` value.
+         *  If a ``maxSwap`` value of ``0`` is specified, the container will not use swap. Accepted values are ``0`` or any positive integer. If the ``maxSwap`` parameter is omitted, the container will use the swap configuration for the container instance it is running on. A ``maxSwap`` value must be set for the ``swappiness`` parameter to be used.
+         *   If you're using tasks that use the Fargate launch type, the ``maxSwap`` parameter isn't supported.
+         *  If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
+         */
         maxSwap?: number;
+        /**
+         * The value for the size (in MiB) of the ``/dev/shm`` volume. This parameter maps to the ``--shm-size`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   If you are using tasks that use the Fargate launch type, the ``sharedMemorySize`` parameter is not supported.
+         */
         sharedMemorySize?: number;
+        /**
+         * This allows you to tune a container's memory swappiness behavior. A ``swappiness`` value of ``0`` will cause swapping to not happen unless absolutely necessary. A ``swappiness`` value of ``100`` will cause pages to be swapped very aggressively. Accepted values are whole numbers between ``0`` and ``100``. If the ``swappiness`` parameter is not specified, a default value of ``60`` is used. If a value is not specified for ``maxSwap`` then this parameter is ignored. This parameter maps to the ``--memory-swappiness`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   If you're using tasks that use the Fargate launch type, the ``swappiness`` parameter isn't supported.
+         *  If you're using tasks on Amazon Linux 2023 the ``swappiness`` parameter isn't supported.
+         */
         swappiness?: number;
+        /**
+         * The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter maps to the ``--tmpfs`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration).
+         *   If you're using tasks that use the Fargate launch type, the ``tmpfs`` parameter isn't supported.
+         */
         tmpfs?: outputs.ecs.TaskDefinitionTmpfs[];
     }
 
+    /**
+     * The ``LogConfiguration`` property specifies log configuration options to send to a custom log driver for the container.
+     */
     export interface TaskDefinitionLogConfiguration {
+        /**
+         * The log driver to use for the container.
+         *  For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+         *  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+         *  For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+         *  For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+         *   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs
+         */
         logDriver: string;
+        /**
+         * The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+         */
         options?: {[key: string]: string};
+        /**
+         * The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+         */
         secretOptions?: outputs.ecs.TaskDefinitionSecret[];
     }
 
+    /**
+     * The details for a volume mount point that's used in a container definition.
+     */
     export interface TaskDefinitionMountPoint {
+        /**
+         * The path on the container to mount the host volume at.
+         */
         containerPath?: string;
+        /**
+         * If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
+         */
         readOnly?: boolean;
+        /**
+         * The name of the volume to mount. Must be a volume name referenced in the ``name`` parameter of task definition ``volume``.
+         */
         sourceVolume?: string;
     }
 
+    /**
+     * The constraint on task placement in the task definition. For more information, see [Task placement constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
+     *   Task placement constraints aren't supported for tasks run on FARGATElong.
+     */
     export interface TaskDefinitionPlacementConstraint {
+        /**
+         * A cluster query language expression to apply to the constraint. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
+         */
         expression?: string;
+        /**
+         * The type of constraint. The ``MemberOf`` constraint restricts selection to be from a group of valid candidates.
+         */
         type: string;
     }
 
+    /**
+     * The ``PortMapping`` property specifies a port mapping. Port mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of the container definition.
+     *  If you are using containers in a task with the ``awsvpc`` or ``host`` network mode, exposed ports should be specified using ``containerPort``. The ``hostPort`` can be left blank or it must be the same value as the ``containerPort``.
+     *  After a task reaches the ``RUNNING`` status, manual and automatic host and container port assignments are visible in the ``networkBindings`` section of [DescribeTasks](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) API responses.
+     */
     export interface TaskDefinitionPortMapping {
+        /**
+         * The application protocol that's used for the port mapping. This parameter only applies to Service Connect. We recommend that you set this parameter to be consistent with the protocol that your application uses. If you set this parameter, Amazon ECS adds protocol-specific connection handling to the Service Connect proxy. If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.
+         *  If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.
+         *   ``appProtocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
+         *  Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS se
+         */
         appProtocol?: enums.ecs.TaskDefinitionPortMappingAppProtocol;
+        /**
+         * The port number on the container that's bound to the user-specified or automatically assigned host port.
+         *  If you use containers in a task with the ``awsvpc`` or ``host`` network mode, specify the exposed ports using ``containerPort``.
+         *  If you use containers in a task with the ``bridge`` network mode and you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range. For more information, see ``hostPort``. Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
+         */
         containerPort?: number;
+        /**
+         * The port number range on the container that's bound to the dynamically mapped host port range. 
+         *  The following rules apply when you specify a ``containerPortRange``:
+         *   +  You must use either the ``bridge`` network mode or the ``awsvpc`` network mode.
+         *   +  This parameter is available for both the EC2 and FARGATElong launch types.
+         *   +  This parameter is available for both the Linux and Windows operating systems.
+         *   +  The container instance must have at least version 1.67.0 of the container agent and at least version 1.67.0-1 of the ``ecs-init`` package 
+         *   +  You can specify a maximum of 100 port ranges per container.
+         *   +  You do not specify a ``hostPortRange``. The value of the ``hostPortRange`` is set as follows:
+         *   +  For containers in a task with the ``awsvpc`` network mode, the ``hostPortRange`` is set to the same value as the ``containerPortRange``. This is a static mapping strategy.
+         *   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open host 
+         */
         containerPortRange?: string;
+        /**
+         * The port number on the container instance to reserve for your container.
+         *  If you specify a ``containerPortRange``, leave this field empty and the value of the ``hostPort`` is set as follows:
+         *   +  For containers in a task with the ``awsvpc`` network mode, the ``hostPort`` is set to the same value as the ``containerPort``. This is a static mapping strategy.
+         *   +  For containers in a task with the ``bridge`` network mode, the Amazon ECS agent finds open ports on the host and automatically binds them to the container ports. This is a dynamic mapping strategy.
+         *   
+         *  If you use containers in a task with the ``awsvpc`` or ``host`` network mode, the ``hostPort`` can either be left blank or set to the same value as the ``containerPort``.
+         *  If you use containers in a task with the ``bridge`` network mode, you can specify a non-reserved host port for your container port mapping, or you can omit the ``hostPort`` (or set it to ``0``) while specifying a ``containerPort`` and your container automatically
+         */
         hostPort?: number;
+        /**
+         * The name that's used for the port mapping. This parameter only applies to Service Connect. This parameter is the name that you use in the ``serviceConnectConfiguration`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
+         *  For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+         */
         name?: string;
+        /**
+         * The protocol used for the port mapping. Valid values are ``tcp`` and ``udp``. The default is ``tcp``. ``protocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
+         */
         protocol?: string;
     }
 
+    /**
+     * The configuration details for the App Mesh proxy.
+     *  For tasks that use the EC2 launch type, the container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html)
+     */
     export interface TaskDefinitionProxyConfiguration {
+        /**
+         * The name of the container that will serve as the App Mesh proxy.
+         */
         containerName: string;
+        /**
+         * The set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified as key-value pairs.
+         *   +   ``IgnoredUID`` - (Required) The user ID (UID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredGID`` is specified, this field can be empty.
+         *   +   ``IgnoredGID`` - (Required) The group ID (GID) of the proxy container as defined by the ``user`` parameter in a container definition. This is used to ensure the proxy ignores its own traffic. If ``IgnoredUID`` is specified, this field can be empty.
+         *   +   ``AppPorts`` - (Required) The list of ports that the application uses. Network traffic to these ports is forwarded to the ``ProxyIngressPort`` and ``ProxyEgressPort``.
+         *   +   ``ProxyIngressPort`` - (Required) Specifies the port that incoming traffic to the ``AppPorts`` is directed to.
+         *   +   ``ProxyEgressPort`` - (Required) Specifies the port that outgoi
+         */
         proxyConfigurationProperties?: outputs.ecs.TaskDefinitionKeyValuePair[];
+        /**
+         * The proxy type. The only supported value is ``APPMESH``.
+         */
         type?: string;
     }
 
+    /**
+     * The repository credentials for private registry authentication.
+     */
     export interface TaskDefinitionRepositoryCredentials {
+        /**
+         * The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+         *   When you use the Amazon ECS API, CLI, or AWS SDK, if the secret exists in the same Region as the task that you're launching then you can use either the full ARN or the name of the secret. When you use the AWS Management Console, you must specify the full ARN of the secret.
+         */
         credentialsParameter?: string;
     }
 
+    /**
+     * The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
+     */
     export interface TaskDefinitionResourceRequirement {
+        /**
+         * The type of resource to assign to a container. The supported values are ``GPU`` or ``InferenceAccelerator``.
+         */
         type: string;
+        /**
+         * The value for the specified resource type.
+         *  If the ``GPU`` type is used, the value is the number of physical ``GPUs`` the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+         *  If the ``InferenceAccelerator`` type is used, the ``value`` matches the ``deviceName`` for an [InferenceAccelerator](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html) specified in a task definition.
+         */
         value: string;
     }
 
+    /**
+     * Information about the platform for the Amazon ECS service or task.
+     *  For more information about ``RuntimePlatform``, see [RuntimePlatform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface TaskDefinitionRuntimePlatform {
+        /**
+         * The CPU architecture.
+         *  You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
+         */
         cpuArchitecture?: string;
+        /**
+         * The operating system.
+         */
         operatingSystemFamily?: string;
     }
 
+    /**
+     * An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+     *   +  To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter.
+     *   +  To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter.
+     *   
+     *  For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
     export interface TaskDefinitionSecret {
+        /**
+         * The name of the secret.
+         */
         name: string;
+        /**
+         * The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store.
+         *  For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.
+         *   If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+         */
         valueFrom: string;
     }
 
+    /**
+     * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--sysctl`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration). For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+     *  We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
+     *   +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``sy
+     */
     export interface TaskDefinitionSystemControl {
+        /**
+         * The namespaced kernel parameter to set a ``value`` for.
+         */
         namespace?: string;
+        /**
+         * The namespaced kernel parameter to set a ``value`` for.
+         *  Valid IPC namespace values: ``"kernel.msgmax" | "kernel.msgmnb" | "kernel.msgmni" | "kernel.sem" | "kernel.shmall" | "kernel.shmmax" | "kernel.shmmni" | "kernel.shm_rmid_forced"``, and ``Sysctls`` that start with ``"fs.mqueue.*"`` 
+         *  Valid network namespace values: ``Sysctls`` that start with ``"net.*"`` 
+         *  All of these values are supported by Fargate.
+         */
         value?: string;
     }
 
+    /**
+     * The container path, mount options, and size of the tmpfs mount.
+     */
     export interface TaskDefinitionTmpfs {
+        /**
+         * The absolute file path where the tmpfs volume is to be mounted.
+         */
         containerPath?: string;
+        /**
+         * The list of tmpfs volume mount options.
+         *  Valid values: ``"defaults" | "ro" | "rw" | "suid" | "nosuid" | "dev" | "nodev" | "exec" | "noexec" | "sync" | "async" | "dirsync" | "remount" | "mand" | "nomand" | "atime" | "noatime" | "diratime" | "nodiratime" | "bind" | "rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime" | "norelatime" | "strictatime" | "nostrictatime" | "mode" | "uid" | "gid" | "nr_inodes" | "nr_blocks" | "mpol"``
+         */
         mountOptions?: string[];
+        /**
+         * The maximum size (in MiB) of the tmpfs volume.
+         */
         size: number;
     }
 
+    /**
+     * The ``ulimit`` settings to pass to the container.
+     *  Amazon ECS tasks hosted on FARGATElong use the default resource limit values set by the operating system with the exception of the ``nofile`` resource limit parameter which FARGATElong overrides. The ``nofile`` resource limit sets a restriction on the number of open files that a container can use. The default ``nofile`` soft limit is ``1024`` and the default hard limit is ``65535``.
+     *  You can specify the ``ulimit`` settings for a container in a task definition.
+     */
     export interface TaskDefinitionUlimit {
+        /**
+         * The hard limit for the ``ulimit`` type.
+         */
         hardLimit: number;
+        /**
+         * The ``type`` of the ``ulimit``.
+         */
         name: string;
+        /**
+         * The soft limit for the ``ulimit`` type.
+         */
         softLimit: number;
     }
 
+    /**
+     * The data volume configuration for tasks launched using this task definition. Specifying a volume configuration in a task definition is optional. The volume configuration may contain multiple volumes but only one volume configured at launch is supported. Each volume defined in the volume configuration may only specify a ``name`` and one of either ``configuredAtLaunch``, ``dockerVolumeConfiguration``, ``efsVolumeConfiguration``, ``fsxWindowsFileServerVolumeConfiguration``, or ``host``. If an empty volume configuration is specified, by default Amazon ECS uses a host volume. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html).
+     */
     export interface TaskDefinitionVolume {
+        /**
+         * Indicates whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+         *  To configure a volume at launch time, use this task definition revision and specify a ``volumeConfigurations`` object when calling the ``CreateService``, ``UpdateService``, ``RunTask`` or ``StartTask`` APIs.
+         */
         configuredAtLaunch?: boolean;
+        /**
+         * This parameter is specified when you use Docker volumes.
+         *  Windows containers only support the use of the ``local`` driver. To use bind mounts, specify the ``host`` parameter instead.
+         *   Docker volumes aren't supported by tasks run on FARGATElong.
+         */
         dockerVolumeConfiguration?: outputs.ecs.TaskDefinitionDockerVolumeConfiguration;
+        /**
+         * This parameter is specified when you use an Amazon Elastic File System file system for task storage.
+         */
         efsVolumeConfiguration?: outputs.ecs.TaskDefinitionEfsVolumeConfiguration;
+        /**
+         * This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+         *  Windows containers can mount whole directories on the same drive as ``$env:ProgramData``. Windows containers can't mount directories on a different drive, and mount point can't be across drives. For example, you can mount ``C:\my\path:C:\my\path`` and ``D:\:D:\``, but not ``D:\my\path:C:\my\path`` or ``D:\:C:\my\path``.
+         */
         host?: outputs.ecs.TaskDefinitionHostVolumeProperties;
+        /**
+         * The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.
+         *  When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.
+         *  For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.
+         *  When a volume is using the ``efsVolumeConfiguration``, the name is required.
+         */
         name?: string;
     }
 
+    /**
+     * Details on a data volume from another container in the same task definition.
+     */
     export interface TaskDefinitionVolumeFrom {
+        /**
+         * If this value is ``true``, the container has read-only access to the volume. If this value is ``false``, then the container can write to the volume. The default value is ``false``.
+         */
         readOnly?: boolean;
+        /**
+         * The name of another container within the same task definition to mount volumes from.
+         */
         sourceContainer?: string;
     }
 
@@ -13975,28 +15875,85 @@ export namespace efs {
         path?: string;
     }
 
+    /**
+     * The backup policy turns automatic backups for the file system on or off.
+     */
     export interface FileSystemBackupPolicy {
+        /**
+         * Set the backup policy status for the file system.
+         *   +   *ENABLED* - Turns automatic backups on for the file system. 
+         *   +   *DISABLED* - Turns automatic backups off for the file system.
+         */
         status: string;
     }
 
+    /**
+     * Describes a policy used by Lifecycle management that specifies when to transition files into and out of the EFS storage classes. For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
+     *   + Each ``LifecyclePolicy`` object can have only a single transition. This means that in a request body, ``LifecyclePolicies`` must be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive``, ``TransitionToPrimaryStorageClass``.
+     *  + See the AWS::EFS::FileSystem examples for the correct ``LifecyclePolicy`` structure. Do not use the syntax shown on this page.
+     */
     export interface FileSystemLifecyclePolicy {
+        /**
+         * The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+         */
         transitionToArchive?: string;
+        /**
+         * The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+         */
         transitionToIa?: string;
+        /**
+         * Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
+         */
         transitionToPrimaryStorageClass?: string;
     }
 
+    /**
+     * Describes the protection on the file system.
+     */
     export interface FileSystemProtection {
+        /**
+         * The status of the file system's replication overwrite protection.
+         *   +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
+         *   +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+         *   +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is only modified only by EFS replication.
+         *   
+         *  If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
+         */
         replicationOverwriteProtection?: enums.efs.FileSystemProtectionReplicationOverwriteProtection;
     }
 
+    /**
+     * Describes the replication configuration for a specific file system.
+     */
     export interface FileSystemReplicationConfiguration {
+        /**
+         * An array of destination objects. Only one destination object is supported.
+         */
         destinations?: outputs.efs.FileSystemReplicationDestination[];
     }
 
+    /**
+     * Describes the destination file system in the replication configuration.
+     */
     export interface FileSystemReplicationDestination {
+        /**
+         * The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
+         *  Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
+         *   One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
+         */
         availabilityZoneName?: string;
+        /**
+         * The ID of the destination Amazon EFS file system.
+         */
         fileSystemId?: string;
+        /**
+         * The ID of an kms-key-long used to protect the encrypted file system.
+         */
         kmsKeyId?: string;
+        /**
+         * The AWS-Region in which the destination file system is located.
+         *   For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
+         */
         region?: string;
     }
 
@@ -14611,44 +16568,151 @@ export namespace elasticloadbalancing {
 }
 
 export namespace elasticloadbalancingv2 {
+    /**
+     * Specifies an action for a listener rule.
+     */
     export interface ListenerAction {
+        /**
+         * [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
+         */
         authenticateCognitoConfig?: outputs.elasticloadbalancingv2.ListenerAuthenticateCognitoConfig;
+        /**
+         * [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
+         */
         authenticateOidcConfig?: outputs.elasticloadbalancingv2.ListenerAuthenticateOidcConfig;
+        /**
+         * [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
+         */
         fixedResponseConfig?: outputs.elasticloadbalancingv2.ListenerFixedResponseConfig;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+         */
         forwardConfig?: outputs.elasticloadbalancingv2.ListenerForwardConfig;
+        /**
+         * The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+         */
         order?: number;
+        /**
+         * [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
+         */
         redirectConfig?: outputs.elasticloadbalancingv2.ListenerRedirectConfig;
+        /**
+         * The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+         */
         targetGroupArn?: string;
+        /**
+         * The type of action.
+         */
         type: string;
     }
 
+    /**
+     * Specifies information required when integrating with Amazon Cognito to authenticate users.
+     */
     export interface ListenerAuthenticateCognitoConfig {
+        /**
+         * The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+         */
         authenticationRequestExtraParams?: {[key: string]: string};
+        /**
+         * The behavior if the user is not authenticated. The following are possible values:
+         *   +  deny```` - Return an HTTP 401 Unauthorized error.
+         *   +  allow```` - Allow the request to be forwarded to the target.
+         *   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+         */
         onUnauthenticatedRequest?: string;
+        /**
+         * The set of user claims to be requested from the IdP. The default is ``openid``.
+         *  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+         */
         scope?: string;
+        /**
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+         */
         sessionCookieName?: string;
+        /**
+         * The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+         */
         sessionTimeout?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+         */
         userPoolArn: string;
+        /**
+         * The ID of the Amazon Cognito user pool client.
+         */
         userPoolClientId: string;
+        /**
+         * The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+         */
         userPoolDomain: string;
     }
 
+    /**
+     * Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
+     */
     export interface ListenerAuthenticateOidcConfig {
+        /**
+         * The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+         */
         authenticationRequestExtraParams?: {[key: string]: string};
+        /**
+         * The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         authorizationEndpoint: string;
+        /**
+         * The OAuth 2.0 client identifier.
+         */
         clientId: string;
+        /**
+         * The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
+         */
         clientSecret?: string;
+        /**
+         * The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         issuer: string;
+        /**
+         * The behavior if the user is not authenticated. The following are possible values:
+         *   +  deny```` - Return an HTTP 401 Unauthorized error.
+         *   +  allow```` - Allow the request to be forwarded to the target.
+         *   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+         */
         onUnauthenticatedRequest?: string;
+        /**
+         * The set of user claims to be requested from the IdP. The default is ``openid``.
+         *  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+         */
         scope?: string;
+        /**
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+         */
         sessionCookieName?: string;
+        /**
+         * The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+         */
         sessionTimeout?: string;
+        /**
+         * The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         tokenEndpoint: string;
+        /**
+         * Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+         */
         useExistingClientSecret?: boolean;
+        /**
+         * The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         userInfoEndpoint: string;
     }
 
+    /**
+     * Specifies an SSL server certificate to use as the default certificate for a secure listener.
+     */
     export interface ListenerCertificate {
+        /**
+         * The Amazon Resource Name (ARN) of the certificate.
+         */
         certificateArn?: string;
     }
 
@@ -14656,29 +16720,93 @@ export namespace elasticloadbalancingv2 {
         certificateArn?: string;
     }
 
+    /**
+     * Specifies information required when returning a custom HTTP response.
+     */
     export interface ListenerFixedResponseConfig {
+        /**
+         * The content type.
+         *  Valid Values: text/plain | text/css | text/html | application/javascript | application/json
+         */
         contentType?: string;
+        /**
+         * The message.
+         */
         messageBody?: string;
+        /**
+         * The HTTP response code (2XX, 4XX, or 5XX).
+         */
         statusCode: string;
     }
 
+    /**
+     * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+     */
     export interface ListenerForwardConfig {
+        /**
+         * Information about the target group stickiness for a rule.
+         */
         targetGroupStickinessConfig?: outputs.elasticloadbalancingv2.ListenerTargetGroupStickinessConfig;
+        /**
+         * Information about how traffic will be distributed between multiple target groups in a forward rule.
+         */
         targetGroups?: outputs.elasticloadbalancingv2.ListenerTargetGroupTuple[];
     }
 
+    /**
+     * Specifies the configuration information for mutual authentication.
+     */
     export interface ListenerMutualAuthentication {
+        /**
+         * Indicates whether expired client certificates are ignored.
+         */
         ignoreClientCertificateExpiry?: boolean;
+        /**
+         * The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+         */
         mode?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the trust store.
+         */
         trustStoreArn?: string;
     }
 
+    /**
+     * Information about a redirect action.
+     *  A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+     *  You can reuse URI components using the following reserved keywords:
+     *   +  #{protocol}
+     *   +  #{host}
+     *   +  #{port}
+     *   +  #{path} (the leading "/" is removed)
+     *   +  #{query}
+     *   
+     *  For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
+     */
     export interface ListenerRedirectConfig {
+        /**
+         * The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+         */
         host?: string;
+        /**
+         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+         */
         path?: string;
+        /**
+         * The port. You can specify a value from 1 to 65535 or #{port}.
+         */
         port?: string;
+        /**
+         * The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+         */
         protocol?: string;
+        /**
+         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+         */
         query?: string;
+        /**
+         * The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+         */
         statusCode: string;
     }
 
@@ -14790,25 +16918,74 @@ export namespace elasticloadbalancingv2 {
         weight?: number;
     }
 
+    /**
+     * Information about the target group stickiness for a rule.
+     */
     export interface ListenerTargetGroupStickinessConfig {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
         durationSeconds?: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
         enabled?: boolean;
     }
 
+    /**
+     * Information about how traffic will be distributed between multiple target groups in a forward rule.
+     */
     export interface ListenerTargetGroupTuple {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
         targetGroupArn?: string;
+        /**
+         * The weight. The range is 0 to 999.
+         */
         weight?: number;
     }
 
+    /**
+     * Specifies an attribute for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
+     */
     export interface LoadBalancerAttribute {
+        /**
+         * The name of the attribute.
+         *  The following attributes are supported by all load balancers:
+         *   +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
+         *   +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+         *   
+         *  The following attributes are supported by both Application Load Balancers and Network Load Balancers:
+         *   +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+         *   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and h
+         */
         key?: string;
+        /**
+         * The value of the attribute.
+         */
         value?: string;
     }
 
+    /**
+     * Specifies a subnet for a load balancer.
+     */
     export interface LoadBalancerSubnetMapping {
+        /**
+         * [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
+         */
         allocationId?: string;
+        /**
+         * [Network Load Balancers] The IPv6 address.
+         */
         iPv6Address?: string;
+        /**
+         * [Network Load Balancers] The private IPv4 address for an internal load balancer.
+         */
         privateIPv4Address?: string;
+        /**
+         * The ID of the subnet.
+         */
         subnetId: string;
     }
 
@@ -15067,6 +17244,7 @@ export namespace emr {
         taskInstanceFleets?: outputs.emr.ClusterInstanceFleetConfig[];
         taskInstanceGroups?: outputs.emr.ClusterInstanceGroupConfig[];
         terminationProtected?: boolean;
+        unhealthyNodeReplacement?: boolean;
     }
 
     export interface ClusterKerberosAttributes {
@@ -18354,11 +20532,13 @@ export namespace iam {
     }
 
     /**
-     * The inline policy document that is embedded in the specified IAM role.
+     * Contains information about an attached policy.
+     *  An attached policy is a managed policy that has been attached to a user, group, or role.
+     *  For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
      */
     export interface RolePolicy {
         /**
-         * The policy document.
+         * The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
          */
         policyDocument: string;
         /**
@@ -18368,7 +20548,7 @@ export namespace iam {
     }
 
     /**
-     * Contains the user name and password create date for a user.
+     * Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
      */
     export interface UserLoginProfile {
         /**
@@ -18383,10 +20563,12 @@ export namespace iam {
 
     /**
      * Contains information about an attached policy.
+     *  An attached policy is a managed policy that has been attached to a user, group, or role.
+     *  For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
      */
     export interface UserPolicy {
         /**
-         * The policy document.
+         * The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
          */
         policyDocument: any;
         /**
@@ -21885,23 +24067,12 @@ export namespace iottwinmaker {
         targetEntityId?: string;
     }
 
-    export interface EntityProperty {
-        /**
-         * An object that specifies information about a property.
-         */
-        definition?: outputs.iottwinmaker.EntityPropertyDefinitionProperties;
-        /**
-         * The value of the property.
-         */
-        value?: outputs.iottwinmaker.EntityDataValue;
-    }
-
     /**
-     * An object that specifies information about a property.
+     * An object that specifies information about a property definition.
      */
-    export interface EntityPropertyDefinitionProperties {
+    export interface EntityDefinition {
         /**
-         * An object that specifies information about a property.
+         * An object that specifies information about a property configuration.
          */
         configuration?: {[key: string]: string};
         /**
@@ -21940,6 +24111,20 @@ export namespace iottwinmaker {
          * A Boolean value that specifies whether the property consists of time series data.
          */
         isTimeSeries?: boolean;
+    }
+
+    /**
+     * An object that specifies information about a property.
+     */
+    export interface EntityProperty {
+        /**
+         * The definition of the property.
+         */
+        definition?: outputs.iottwinmaker.EntityDefinition;
+        /**
+         * The value of the property.
+         */
+        value?: outputs.iottwinmaker.EntityDataValue;
     }
 
     /**
@@ -23826,10 +26011,12 @@ export namespace kinesisfirehose {
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamBufferingHints;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         compressionFormat?: enums.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat;
+        customTimeZone?: string;
         dataFormatConversionConfiguration?: outputs.kinesisfirehose.DeliveryStreamDataFormatConversionConfiguration;
         dynamicPartitioningConfiguration?: outputs.kinesisfirehose.DeliveryStreamDynamicPartitioningConfiguration;
         encryptionConfiguration?: outputs.kinesisfirehose.DeliveryStreamEncryptionConfiguration;
         errorOutputPrefix?: string;
+        fileExtension?: string;
         prefix?: string;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         roleArn: string;
@@ -24430,13 +26617,17 @@ export namespace lambda {
         uri?: string;
     }
 
+    /**
+     * The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
+     *  Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
+     */
     export interface FunctionCode {
         /**
-         * ImageUri.
+         * URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
          */
         imageUri?: string;
         /**
-         * An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+         * An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
          */
         s3Bucket?: string;
         /**
@@ -24448,13 +26639,15 @@ export namespace lambda {
          */
         s3ObjectVersion?: string;
         /**
-         * The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
+         * (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
+         *   For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
+         *  If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs
          */
         zipFile?: string;
     }
 
     /**
-     * The dead-letter queue for failed asynchronous invocations.
+     * The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.
      */
     export interface FunctionDeadLetterConfig {
         /**
@@ -24464,110 +26657,123 @@ export namespace lambda {
     }
 
     /**
-     * A function's environment variable settings.
+     * A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
      */
     export interface FunctionEnvironment {
         /**
-         * Environment variable key-value pairs.
+         * Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
          */
         variables?: {[key: string]: string};
     }
 
     /**
-     * A function's ephemeral storage settings.
+     * The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
      */
     export interface FunctionEphemeralStorage {
         /**
-         * The amount of ephemeral storage that your function has access to.
+         * The size of the function's ``/tmp`` directory.
          */
         size: number;
     }
 
+    /**
+     * Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+     */
     export interface FunctionFileSystemConfig {
         /**
          * The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
          */
         arn: string;
         /**
-         * The path where the function can access the file system, starting with /mnt/.
+         * The path where the function can access the file system, starting with ``/mnt/``.
          */
         localMountPath: string;
     }
 
+    /**
+     * Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+     */
     export interface FunctionImageConfig {
         /**
-         * Command.
+         * Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
          */
         command?: string[];
         /**
-         * EntryPoint.
+         * Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
          */
         entryPoint?: string[];
         /**
-         * WorkingDirectory.
+         * Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
          */
         workingDirectory?: string;
     }
 
     /**
-     * The function's logging configuration.
+     * The function's Amazon CloudWatch Logs configuration settings.
      */
     export interface FunctionLoggingConfig {
         /**
-         * Application log granularity level, can only be used when LogFormat is set to JSON
+         * Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
          */
         applicationLogLevel?: enums.lambda.FunctionLoggingConfigApplicationLogLevel;
         /**
-         * Log delivery format for the lambda function
+         * The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
          */
         logFormat?: enums.lambda.FunctionLoggingConfigLogFormat;
         /**
-         * The log group name.
+         * The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
          */
         logGroup?: string;
         /**
-         * System log granularity level, can only be used when LogFormat is set to JSON
+         * Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
          */
         systemLogLevel?: enums.lambda.FunctionLoggingConfigSystemLogLevel;
     }
 
+    /**
+     * Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+     */
     export interface FunctionRuntimeManagementConfig {
         /**
-         * Unique identifier for a runtime version arn
+         * The ARN of the runtime version you want the function to use.
+         *   This is only required if you're using the *Manual* runtime update mode.
          */
         runtimeVersionArn?: string;
         /**
-         * Trigger for runtime update
+         * Specify the runtime update mode.
+         *   + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+         *  + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+         *  + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
          */
         updateRuntimeOn: enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn;
     }
 
     /**
-     * The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+     * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
      */
     export interface FunctionSnapStart {
         /**
-         * Applying SnapStart setting on function resource type.
+         * Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
          */
         applyOn: enums.lambda.FunctionSnapStartApplyOn;
     }
 
     /**
-     * The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+     * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
      */
     export interface FunctionSnapStartResponse {
         /**
-         * Applying SnapStart setting on function resource type.
+         * When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
          */
         applyOn?: enums.lambda.FunctionSnapStartResponseApplyOn;
         /**
-         * Indicates whether SnapStart is activated for the specified function version.
+         * When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
          */
         optimizationStatus?: enums.lambda.FunctionSnapStartResponseOptimizationStatus;
     }
 
     /**
-     * The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
+     * The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set ``Mode`` to ``Active``.
      */
     export interface FunctionTracingConfig {
         /**
@@ -24577,15 +26783,17 @@ export namespace lambda {
     }
 
     /**
-     * The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
+     * The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+     *   When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
+     *  To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
      */
     export interface FunctionVpcConfig {
         /**
-         * A boolean indicating whether IPv6 protocols will be allowed for dual stack subnets
+         * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
          */
         ipv6AllowedForDualStack?: boolean;
         /**
-         * A list of VPC security groups IDs.
+         * A list of VPC security group IDs.
          */
         securityGroupIds?: string[];
         /**
@@ -29408,8 +31616,17 @@ export namespace mediapackage {
 }
 
 export namespace mediapackagev2 {
+    /**
+     * <p>The ingest domain URL where the source stream should be sent.</p>
+     */
     export interface ChannelIngestEndpoint {
+        /**
+         * <p>The system-generated unique identifier for the IngestEndpoint.</p>
+         */
         id?: string;
+        /**
+         * <p>The ingest domain URL where the source stream should be sent.</p>
+         */
         url?: string;
     }
 
@@ -43497,6 +45714,10 @@ export namespace rds {
         minCapacity?: number;
     }
 
+    /**
+     * Returns the details of the DB instance’s server certificate.
+     *  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
+     */
     export interface DbInstanceCertificateDetails {
         /**
          * The CA identifier of the CA certificate used for the DB instance's server certificate.
@@ -43508,9 +45729,12 @@ export namespace rds {
         validTill?: string;
     }
 
+    /**
+     * Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
+     */
     export interface DbInstanceDbInstanceRole {
         /**
-         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+         * The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
          */
         featureName: string;
         /**
@@ -43519,6 +45743,14 @@ export namespace rds {
         roleArn: string;
     }
 
+    /**
+     * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+     *   +   ``CreateDBInstance`` 
+     *   +   ``DescribeDBInstances`` 
+     *   +   ``DeleteDBInstance`` 
+     *   
+     *  For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
+     */
     export interface DbInstanceEndpoint {
         /**
          * Specifies the DNS address of the DB instance.
@@ -43534,6 +45766,10 @@ export namespace rds {
         port?: string;
     }
 
+    /**
+     * The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+     *  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+     */
     export interface DbInstanceMasterUserSecret {
         /**
          * The AWS KMS key identifier that is used to encrypt the secret.
@@ -43545,9 +45781,12 @@ export namespace rds {
         secretArn?: string;
     }
 
+    /**
+     * The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+     */
     export interface DbInstanceProcessorFeature {
         /**
-         * The name of the processor feature. Valid names are coreCount and threadsPerCore.
+         * The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
          */
         name?: enums.rds.DbInstanceProcessorFeatureName;
         /**
@@ -44767,26 +47006,32 @@ export namespace s3 {
     }
 
     /**
-     * Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+     * Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see [Stopping Incomplete Multipart Uploads Using a Bucket Lifecycle Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config) in the *Amazon S3 User Guide*.
      */
     export interface BucketAbortIncompleteMultipartUpload {
         /**
-         * Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+         * Specifies the number of days after which Amazon S3 stops an incomplete multipart upload.
          */
         daysAfterInitiation: number;
     }
 
+    /**
+     * Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
+     */
     export interface BucketAccelerateConfiguration {
         /**
-         * Configures the transfer acceleration state for an Amazon S3 bucket.
+         * Specifies the transfer acceleration status of the bucket.
          */
         accelerationStatus: enums.s3.BucketAccelerateConfigurationAccelerationStatus;
     }
 
     /**
-     * Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
+     * Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
      */
     export interface BucketAccessControlTranslation {
+        /**
+         * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the *Amazon S3 API Reference*.
+         */
         owner: string;
     }
 
@@ -44802,24 +47047,38 @@ export namespace s3 {
          * The prefix that an object must have to be included in the analytics results.
          */
         prefix?: string;
+        /**
+         * Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
+         */
         storageClassAnalysis: outputs.s3.BucketStorageClassAnalysis;
+        /**
+         * The tags to use when evaluating an analytics filter.
+         *  The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
+         */
         tagFilters?: outputs.s3.BucketTagFilter[];
     }
 
+    /**
+     * Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
+     */
     export interface BucketCorsConfiguration {
+        /**
+         * A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+         */
         corsRules: outputs.s3.BucketCorsRule[];
     }
 
     /**
-     * A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+     * Specifies a cross-origin access rule for an Amazon S3 bucket.
      */
     export interface BucketCorsRule {
         /**
-         * Headers that are specified in the Access-Control-Request-Headers header.
+         * Headers that are specified in the ``Access-Control-Request-Headers`` header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.
          */
         allowedHeaders?: string[];
         /**
-         * An HTTP method that you allow the origin to execute.
+         * An HTTP method that you allow the origin to run.
+         *  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``
          */
         allowedMethods: enums.s3.BucketCorsRuleAllowedMethodsItem[];
         /**
@@ -44827,11 +47086,11 @@ export namespace s3 {
          */
         allowedOrigins: string[];
         /**
-         * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
+         * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript ``XMLHttpRequest`` object).
          */
         exposedHeaders?: string[];
         /**
-         * A unique identifier for this rule.
+         * A unique identifier for this rule. The value must be no more than 255 characters.
          */
         id?: string;
         /**
@@ -44844,32 +47103,55 @@ export namespace s3 {
      * Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
      */
     export interface BucketDataExport {
+        /**
+         * The place to store the data for an analysis.
+         */
         destination: outputs.s3.BucketDestination;
         /**
-         * The version of the output schema to use when exporting data.
+         * The version of the output schema to use when exporting data. Must be ``V_1``.
          */
         outputSchemaVersion: string;
     }
 
     /**
-     * The default retention period that you want to apply to new objects placed in the specified bucket.
+     * The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+     *    +  The ``DefaultRetention`` settings require both a mode and a period.
+     *   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
      */
     export interface BucketDefaultRetention {
+        /**
+         * The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+         */
         days?: number;
+        /**
+         * The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+         */
         mode?: enums.s3.BucketDefaultRetentionMode;
+        /**
+         * The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+         */
         years?: number;
     }
 
+    /**
+     * Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+     *  For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+     *   If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
+     */
     export interface BucketDeleteMarkerReplication {
+        /**
+         * Indicates whether to replicate delete markers. Disabled by default.
+         */
         status?: enums.s3.BucketDeleteMarkerReplicationStatus;
     }
 
     /**
-     * Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
+     * Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket.
      */
     export interface BucketDestination {
         /**
-         * The account ID that owns the destination S3 bucket. 
+         * The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+         *    Although this value is optional, we strongly recommend that you set it to help prevent problems if the destination bucket ownership changes.
          */
         bucketAccountId?: string;
         /**
@@ -44878,6 +47160,7 @@ export namespace s3 {
         bucketArn: string;
         /**
          * Specifies the file format used when exporting data to Amazon S3.
+         *  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``
          */
         format: enums.s3.BucketDestinationFormat;
         /**
@@ -44887,7 +47170,7 @@ export namespace s3 {
     }
 
     /**
-     * Specifies default encryption for a bucket using server-side encryption with either Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS).
+     * Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
      */
     export interface BucketEncryption {
         /**
@@ -44901,29 +47184,40 @@ export namespace s3 {
      */
     export interface BucketEncryptionConfiguration {
         /**
-         * Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
+         * Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
          */
         replicaKmsKeyId: string;
     }
 
     /**
-     * Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+     * Amazon S3 can send events to Amazon EventBridge whenever certain events happen in your bucket, see [Using EventBridge](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventBridge.html) in the *Amazon S3 User Guide*.
+     *  Unlike other destinations, delivery of events to EventBridge can be either enabled or disabled for a bucket. If enabled, all events will be sent to EventBridge and you can use EventBridge rules to route events to additional targets. For more information, see [What Is Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*
      */
     export interface BucketEventBridgeConfiguration {
         /**
-         * Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+         * Enables delivery of events to Amazon EventBridge.
          */
         eventBridgeEnabled: boolean;
     }
 
     /**
-     * Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
+     * Specifies the Amazon S3 object key name to filter on. An object key name is the name assigned to an object in your Amazon S3 bucket. You specify whether to filter on the suffix or prefix of the object key name. A prefix is a specific string of characters at the beginning of an object key name, which you can use to organize objects. For example, you can start the key names of related objects with a prefix, such as ``2023-`` or ``engineering/``. Then, you can use ``FilterRule`` to find objects in a bucket with key names that have the same prefix. A suffix is similar to a prefix, but it is at the end of the object key name instead of at the beginning.
      */
     export interface BucketFilterRule {
+        /**
+         * The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see [Configuring Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
+         */
         name: string;
+        /**
+         * The value that the filter searches for in object key names.
+         */
         value: string;
     }
 
+    /**
+     * Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+     *  For information about the S3 Intelligent-Tiering storage class, see [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).
+     */
     export interface BucketIntelligentTieringConfiguration {
         /**
          * The ID used to identify the S3 Intelligent-Tiering configuration.
@@ -44942,15 +47236,22 @@ export namespace s3 {
          */
         tagFilters?: outputs.s3.BucketTagFilter[];
         /**
-         * Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ARCHIVE_ACCESS and DEEP_ARCHIVE_ACCESS.
+         * Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ``ARCHIVE_ACCESS`` and ``DEEP_ARCHIVE_ACCESS``.
+         *   You only need Intelligent Tiering Configuration enabled on a bucket if you want to automatically move objects stored in the Intelligent-Tiering storage class to Archive Access or Deep Archive Access tiers.
          */
         tierings: outputs.s3.BucketTiering[];
     }
 
+    /**
+     * Specifies the inventory configuration for an Amazon S3 bucket. For more information, see [GET Bucket inventory](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html) in the *Amazon S3 API Reference*.
+     */
     export interface BucketInventoryConfiguration {
+        /**
+         * Contains information about where to publish the inventory results.
+         */
         destination: outputs.s3.BucketDestination;
         /**
-         * Specifies whether the inventory is enabled or disabled.
+         * Specifies whether the inventory is enabled or disabled. If set to ``True``, an inventory list is generated. If set to ``False``, no inventory list is generated.
          */
         enabled: boolean;
         /**
@@ -44958,7 +47259,7 @@ export namespace s3 {
          */
         id: string;
         /**
-         * Object versions to include in the inventory list.
+         * Object versions to include in the inventory list. If set to ``All``, the list includes all the object versions, which adds the version-related fields ``VersionId``, ``IsLatest``, and ``DeleteMarker`` to the list. If set to ``Current``, the list does not contain these version-related fields.
          */
         includedObjectVersions: enums.s3.BucketInventoryConfigurationIncludedObjectVersions;
         /**
@@ -44966,7 +47267,7 @@ export namespace s3 {
          */
         optionalFields?: enums.s3.BucketInventoryConfigurationOptionalFieldsItem[];
         /**
-         * The prefix that is prepended to all inventory results.
+         * Specifies the inventory filter prefix.
          */
         prefix?: string;
         /**
@@ -44976,23 +47277,26 @@ export namespace s3 {
     }
 
     /**
-     * Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+     * Describes the LAMlong functions to invoke and the events for which to invoke them.
      */
     export interface BucketLambdaConfiguration {
         /**
-         * The Amazon S3 bucket event for which to invoke the AWS Lambda function.
+         * The Amazon S3 bucket event for which to invoke the LAMlong function. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
          */
         event: string;
         /**
-         * The filtering rules that determine which objects invoke the AWS Lambda function.
+         * The filtering rules that determine which objects invoke the AWS Lambda function. For example, you can create a filter so that only image files with a ``.jpg`` extension invoke the function when they are added to the Amazon S3 bucket.
          */
         filter?: outputs.s3.BucketNotificationFilter;
         /**
-         * The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
+         * The Amazon Resource Name (ARN) of the LAMlong function that Amazon S3 invokes when the specified event type occurs.
          */
         function: string;
     }
 
+    /**
+     * Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
+     */
     export interface BucketLifecycleConfiguration {
         /**
          * A lifecycle rule for individual objects in an Amazon S3 bucket.
@@ -45000,47 +47304,81 @@ export namespace s3 {
         rules: outputs.s3.BucketRule[];
     }
 
+    /**
+     * Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket. For examples and more information, see [PUT Bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlogging.html) in the *Amazon S3 API Reference*.
+     *   To successfully complete the ``AWS::S3::Bucket LoggingConfiguration`` request, you must have ``s3:PutObject`` and ``s3:PutObjectAcl`` in your IAM permissions.
+     */
     export interface BucketLoggingConfiguration {
         /**
-         * The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
+         * The name of the bucket where Amazon S3 should store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the ``LoggingConfiguration`` property is defined.
          */
         destinationBucketName?: string;
+        /**
+         * A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
+         */
         logFilePrefix?: string;
+        /**
+         * Amazon S3 key format for log objects. Only one format, either PartitionedPrefix or SimplePrefix, is allowed.
+         */
         targetObjectKeyFormat?: outputs.s3.BucketTargetObjectKeyFormat;
     }
 
+    /**
+     * A container specifying replication metrics-related settings enabling replication metrics and events.
+     */
     export interface BucketMetrics {
+        /**
+         * A container specifying the time threshold for emitting the ``s3:Replication:OperationMissedThreshold`` event.
+         */
         eventThreshold?: outputs.s3.BucketReplicationTimeValue;
+        /**
+         * Specifies whether the replication metrics are enabled.
+         */
         status: enums.s3.BucketMetricsStatus;
     }
 
+    /**
+     * Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For examples, see [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#aws-properties-s3-bucket--examples). For more information, see [PUT Bucket metrics](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html) in the *Amazon S3 API Reference*.
+     */
     export interface BucketMetricsConfiguration {
+        /**
+         * The access point that was used while performing operations on the object. The metrics configuration only includes objects that meet the filter's criteria.
+         */
         accessPointArn?: string;
+        /**
+         * The ID used to identify the metrics configuration. This can be any value you choose that helps you identify your metrics configuration.
+         */
         id: string;
+        /**
+         * The prefix that an object must have to be included in the metrics results.
+         */
         prefix?: string;
+        /**
+         * Specifies a list of tag filters to use as a metrics configuration filter. The metrics configuration includes only objects that meet the filter's criteria.
+         */
         tagFilters?: outputs.s3.BucketTagFilter[];
     }
 
     /**
-     * Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+     * Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime. For more information about setting a lifecycle rule configuration, see [AWS::S3::Bucket Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html).
      */
     export interface BucketNoncurrentVersionExpiration {
         /**
-         * Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+         * Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
          */
         newerNoncurrentVersions?: number;
         /**
-         * Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+         * Specifies the number of days an object is noncurrent before S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates When an Object Became Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
          */
         noncurrentDays: number;
     }
 
     /**
-     * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+     * Container for the transition rule that describes when noncurrent objects transition to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the ``STANDARD_IA``, ``ONEZONE_IA``, ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE`` storage class at a specific period in the object's lifetime. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
      */
     export interface BucketNoncurrentVersionTransition {
         /**
-         * Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+         * Specifies how many noncurrent versions S3 will retain. If there are this many more recent noncurrent versions, S3 will take the associated action. For more information about noncurrent versions, see [Lifecycle configuration elements](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html) in the *Amazon S3 User Guide*.
          */
         newerNoncurrentVersions?: number;
         /**
@@ -45048,44 +47386,86 @@ export namespace s3 {
          */
         storageClass: enums.s3.BucketNoncurrentVersionTransitionStorageClass;
         /**
-         * Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
+         * Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see [How Amazon S3 Calculates How Long an Object Has Been Noncurrent](https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations) in the *Amazon S3 User Guide*.
          */
         transitionInDays: number;
     }
 
     /**
      * Describes the notification configuration for an Amazon S3 bucket.
+     *   If you create the target resource and related permissions in the same template, you might have a circular dependency.
+     *  For example, you might use the ``AWS::Lambda::Permission`` resource to grant the bucket permission to invoke an AWS Lambda function. However, AWS CloudFormation can't create the bucket until the bucket has permission to invoke the function (AWS CloudFormation checks whether the bucket can invoke the function). If you're using Refs to pass the bucket name, this leads to a circular dependency.
+     *  To avoid this dependency, you can create all resources without specifying the notification configuration. Then, update the stack with a notification configuration.
+     *  For more information on permissions, see [AWS::Lambda::Permission](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html) and [Granting Permissions to Publish Event Notification Messages to a Destination](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#grant-destinations-permissions-to-s3).
      */
     export interface BucketNotificationConfiguration {
+        /**
+         * Enables delivery of events to Amazon EventBridge.
+         */
         eventBridgeConfiguration?: outputs.s3.BucketEventBridgeConfiguration;
+        /**
+         * Describes the LAMlong functions to invoke and the events for which to invoke them.
+         */
         lambdaConfigurations?: outputs.s3.BucketLambdaConfiguration[];
+        /**
+         * The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+         */
         queueConfigurations?: outputs.s3.BucketQueueConfiguration[];
+        /**
+         * The topic to which notifications are sent and the events for which notifications are generated.
+         */
         topicConfigurations?: outputs.s3.BucketTopicConfiguration[];
     }
 
     /**
-     * Specifies object key name filtering rules.
+     * Specifies object key name filtering rules. For information about key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
      */
     export interface BucketNotificationFilter {
+        /**
+         * A container for object key name prefix and suffix filtering rules.
+         */
         s3Key: outputs.s3.BucketS3KeyFilter;
     }
 
+    /**
+     * Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
+     */
     export interface BucketObjectLockConfiguration {
+        /**
+         * Indicates whether this bucket has an Object Lock configuration enabled. Enable ``ObjectLockEnabled`` when you apply ``ObjectLockConfiguration`` to a bucket.
+         */
         objectLockEnabled?: string;
+        /**
+         * Specifies the Object Lock rule for the specified object. Enable this rule when you apply ``ObjectLockConfiguration`` to a bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information, see [ObjectLockRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html) and [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
+         */
         rule?: outputs.s3.BucketObjectLockRule;
     }
 
     /**
-     * The Object Lock rule in place for the specified object.
+     * Specifies the Object Lock rule for the specified object. Enable the this rule when you apply ``ObjectLockConfiguration`` to a bucket.
      */
     export interface BucketObjectLockRule {
+        /**
+         * The default Object Lock retention mode and period that you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, bucket settings require both ``Mode`` and a period of either ``Days`` or ``Years``. You cannot specify ``Days`` and ``Years`` at the same time. For more information about allowable values for mode and period, see [DefaultRetention](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html).
+         */
         defaultRetention?: outputs.s3.BucketDefaultRetention;
     }
 
+    /**
+     * Specifies the container element for Object Ownership rules.
+     *  S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+     */
     export interface BucketOwnershipControls {
+        /**
+         * Specifies the container element for Object Ownership rules.
+         */
         rules: outputs.s3.BucketOwnershipControlsRule[];
     }
 
+    /**
+     * Specifies an Object Ownership rule.
+     *  S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable access control lists (ACLs) and take ownership of every object in your bucket, simplifying access management for data stored in Amazon S3. For more information, see [Controlling ownership of objects and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+     */
     export interface BucketOwnershipControlsRule {
         /**
          * Specifies an object ownership rule.
@@ -45094,47 +47474,49 @@ export namespace s3 {
     }
 
     /**
-     * Configuration that defines how Amazon S3 handles public access.
+     * The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
      */
     export interface BucketPublicAccessBlockConfiguration {
         /**
-         * Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:
-         * - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         *  - PUT Object calls fail if the request includes a public ACL.
-         * Enabling this setting doesn't affect existing policies or ACLs.
+         * Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
+         *   +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
+         *   +  PUT Object calls fail if the request includes a public ACL.
+         *   +  PUT Bucket calls fail if the request includes a public ACL.
+         *   
+         *  Enabling this setting doesn't affect existing policies or ACLs.
          */
         blockPublicAcls?: boolean;
         /**
-         * Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-         * Enabling this setting doesn't affect existing bucket policies.
+         * Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. 
+         *  Enabling this setting doesn't affect existing bucket policies.
          */
         blockPublicPolicy?: boolean;
         /**
-         * Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
-         * Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+         * Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
+         *  Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
          */
         ignorePublicAcls?: boolean;
         /**
-         * Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
-         * Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+         * Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to ``TRUE`` restricts access to this bucket to only AWS-service principals and authorized users within this account if the bucket has a public policy.
+         *  Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
          */
         restrictPublicBuckets?: boolean;
     }
 
     /**
-     * The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+     * Specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.
      */
     export interface BucketQueueConfiguration {
         /**
-         * The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
+         * The Amazon S3 bucket event about which you want to publish messages to Amazon SQS. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
          */
         event: string;
         /**
-         * The filtering rules that determine which objects trigger notifications.
+         * The filtering rules that determine which objects trigger notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket. For more information, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
          */
         filter?: outputs.s3.BucketNotificationFilter;
         /**
-         * The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
+         * The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type. FIFO queues are not allowed when enabling an SQS queue as the event notification destination.
          */
         queue: string;
     }
@@ -45170,48 +47552,74 @@ export namespace s3 {
          */
         protocol?: enums.s3.BucketRedirectRuleProtocol;
         /**
-         * The object key prefix to use in the redirect request.
+         * The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix ``docs/`` (objects in the ``docs/`` folder) to ``documents/``, you can set a condition block with ``KeyPrefixEquals`` set to ``docs/`` and in the Redirect set ``ReplaceKeyPrefixWith`` to ``/documents``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyWith`` is not provided.
+         *   Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
          */
         replaceKeyPrefixWith?: string;
         /**
-         * The specific object key to use in the redirect request.d
+         * The specific object key to use in the redirect request. For example, redirect request to ``error.html``. Not required if one of the siblings is present. Can be present only if ``ReplaceKeyPrefixWith`` is not provided.
+         *   Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
          */
         replaceKeyWith?: string;
     }
 
+    /**
+     * A filter that you can specify for selection for modifications on replicas.
+     */
     export interface BucketReplicaModifications {
         /**
          * Specifies whether Amazon S3 replicates modifications on replicas.
+         *  *Allowed values*: ``Enabled`` | ``Disabled``
          */
         status: enums.s3.BucketReplicaModificationsStatus;
     }
 
     /**
-     * A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
+     * A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
      */
     export interface BucketReplicationConfiguration {
         /**
-         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects.
+         * The Amazon Resource Name (ARN) of the IAMlong (IAM) role that Amazon S3 assumes when replicating objects. For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide*.
          */
         role: string;
         /**
-         * A container for one or more replication rules.
+         * A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
          */
         rules: outputs.s3.BucketReplicationRule[];
     }
 
     /**
-     * Specifies which Amazon S3 bucket to store replicated objects in and their storage class.
+     * A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
      */
     export interface BucketReplicationDestination {
+        /**
+         * Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
+         */
         accessControlTranslation?: outputs.s3.BucketAccessControlTranslation;
+        /**
+         * Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS-account that owns the destination bucket by specifying the ``AccessControlTranslation`` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*.
+         *  If you specify the ``AccessControlTranslation`` property, the ``Account`` property is required.
+         */
         account?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+         */
         bucket: string;
+        /**
+         * Specifies encryption-related information.
+         */
         encryptionConfiguration?: outputs.s3.BucketEncryptionConfiguration;
+        /**
+         * A container specifying replication metrics-related settings enabling replication metrics and events.
+         */
         metrics?: outputs.s3.BucketMetrics;
+        /**
+         * A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
+         */
         replicationTime?: outputs.s3.BucketReplicationTime;
         /**
-         * The storage class to use when replicating objects, such as S3 Standard or reduced redundancy.
+         * The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
+         *  For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
          */
         storageClass?: enums.s3.BucketReplicationDestinationStorageClass;
     }
@@ -45220,18 +47628,38 @@ export namespace s3 {
      * Specifies which Amazon S3 objects to replicate and where to store the replicas.
      */
     export interface BucketReplicationRule {
+        /**
+         * Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
+         *  For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+         *   If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
+         */
         deleteMarkerReplication?: outputs.s3.BucketDeleteMarkerReplication;
+        /**
+         * A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
+         */
         destination: outputs.s3.BucketReplicationDestination;
+        /**
+         * A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.
+         *   V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
+         */
         filter?: outputs.s3.BucketReplicationRuleFilter;
         /**
-         * A unique identifier for the rule.
+         * A unique identifier for the rule. The maximum value is 255 characters. If you don't specify a value, AWS CloudFormation generates a random ID. When using a V2 replication configuration this property is capitalized as "ID".
          */
         id?: string;
         /**
-         * An object key name prefix that identifies the object or objects to which the rule applies.
+         * An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
+         *   Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
          */
         prefix?: string;
+        /**
+         * The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority. 
+         *  For more information, see [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
+         */
         priority?: number;
+        /**
+         * A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
+         */
         sourceSelectionCriteria?: outputs.s3.BucketSourceSelectionCriteria;
         /**
          * Specifies whether the rule is enabled.
@@ -45239,88 +47667,202 @@ export namespace s3 {
         status: enums.s3.BucketReplicationRuleStatus;
     }
 
+    /**
+     * A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. 
+     *  For example:
+     *   +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag. 
+     *   +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag
+     */
     export interface BucketReplicationRuleAndOperator {
+        /**
+         * An object key name prefix that identifies the subset of objects to which the rule applies.
+         */
         prefix?: string;
+        /**
+         * An array of tags containing key and value pairs.
+         */
         tagFilters?: outputs.s3.BucketTagFilter[];
     }
 
+    /**
+     * A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
+     */
     export interface BucketReplicationRuleFilter {
+        /**
+         * A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example: 
+         *   +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
+         *   +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag.
+         */
         and?: outputs.s3.BucketReplicationRuleAndOperator;
+        /**
+         * An object key name prefix that identifies the subset of objects to which the rule applies.
+         *   Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+         */
         prefix?: string;
+        /**
+         * A container for specifying a tag key and value. 
+         *  The rule applies only to objects that have the tag in their tag set.
+         */
         tagFilter?: outputs.s3.BucketTagFilter;
     }
 
+    /**
+     * A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
+     */
     export interface BucketReplicationTime {
+        /**
+         * Specifies whether the replication time is enabled.
+         */
         status: enums.s3.BucketReplicationTimeStatus;
+        /**
+         * A container specifying the time by which replication should be complete for all objects and operations on objects.
+         */
         time: outputs.s3.BucketReplicationTimeValue;
     }
 
+    /**
+     * A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics ``EventThreshold``.
+     */
     export interface BucketReplicationTimeValue {
+        /**
+         * Contains an integer specifying time in minutes. 
+         *   Valid value: 15
+         */
         minutes: number;
     }
 
     /**
-     * Specifies the redirect behavior and when a redirect is applied.
+     * Specifies the redirect behavior and when a redirect is applied. For more information about routing rules, see [Configuring advanced conditional redirects](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects) in the *Amazon S3 User Guide*.
      */
     export interface BucketRoutingRule {
         /**
          * Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
          */
         redirectRule: outputs.s3.BucketRedirectRule;
+        /**
+         * A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
+         */
         routingRuleCondition?: outputs.s3.BucketRoutingRuleCondition;
     }
 
     /**
-     * A container for describing a condition that must be met for the specified redirect to apply.You must specify at least one of HttpErrorCodeReturnedEquals and KeyPrefixEquals
+     * A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the ``/docs`` folder, redirect to the ``/documents`` folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
      */
     export interface BucketRoutingRuleCondition {
         /**
-         * The HTTP error code when the redirect is applied. 
+         * The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied.
+         *  Required when parent element ``Condition`` is specified and sibling ``KeyPrefixEquals`` is not specified. If both are specified, then both must be true for the redirect to be applied.
          */
         httpErrorCodeReturnedEquals?: string;
         /**
-         * The object key name prefix when the redirect is applied.
+         * The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html``, the key prefix will be ``ExamplePage.html``. To redirect request for all pages with the prefix ``docs/``, the key prefix will be ``/docs``, which identifies all objects in the docs/ folder.
+         *  Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.
          */
         keyPrefixEquals?: string;
     }
 
     /**
-     * You must specify at least one of the following properties: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays, NoncurrentVersionExpirationInDays, NoncurrentVersionTransition, NoncurrentVersionTransitions, Transition, or Transitions.
+     * Specifies lifecycle rules for an Amazon S3 bucket. For more information, see [Put Bucket Lifecycle Configuration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTlifecycle.html) in the *Amazon S3 API Reference*.
+     *  You must specify at least one of the following properties: ``AbortIncompleteMultipartUpload``, ``ExpirationDate``, ``ExpirationInDays``, ``NoncurrentVersionExpirationInDays``, ``NoncurrentVersionTransition``, ``NoncurrentVersionTransitions``, ``Transition``, or ``Transitions``.
      */
     export interface BucketRule {
+        /**
+         * Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3 bucket.
+         */
         abortIncompleteMultipartUpload?: outputs.s3.BucketAbortIncompleteMultipartUpload;
+        /**
+         * Indicates when objects are deleted from Amazon S3 and Amazon S3 Glacier. The date value must be in ISO 8601 format. The time is always midnight UTC. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+         */
         expirationDate?: string;
+        /**
+         * Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+         */
         expirationInDays?: number;
+        /**
+         * Indicates whether Amazon S3 will remove a delete marker without any noncurrent versions. If set to true, the delete marker will be removed if there are no noncurrent versions. This cannot be specified with ``ExpirationInDays``, ``ExpirationDate``, or ``TagFilters``.
+         */
         expiredObjectDeleteMarker?: boolean;
+        /**
+         * Unique identifier for the rule. The value can't be longer than 255 characters.
+         */
         id?: string;
+        /**
+         * Specifies when noncurrent object versions expire. Upon expiration, S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that S3 delete noncurrent object versions at a specific period in the object's lifetime.
+         */
         noncurrentVersionExpiration?: outputs.s3.BucketNoncurrentVersionExpiration;
+        /**
+         * (Deprecated.) For buckets with versioning enabled (or suspended), specifies the time, in days, between when a new version of the object is uploaded to the bucket and when old versions of the object expire. When object versions expire, Amazon S3 permanently deletes them. If you specify a transition and expiration time, the expiration time must be later than the transition time.
+         */
         noncurrentVersionExpirationInDays?: number;
+        /**
+         * (Deprecated.) For buckets with versioning enabled (or suspended), specifies when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransitions`` property.
+         */
         noncurrentVersionTransition?: outputs.s3.BucketNoncurrentVersionTransition;
+        /**
+         * For buckets with versioning enabled (or suspended), one or more transition rules that specify when non-current objects transition to a specified storage class. If you specify a transition and expiration time, the expiration time must be later than the transition time. If you specify this property, don't specify the ``NoncurrentVersionTransition`` property.
+         */
         noncurrentVersionTransitions?: outputs.s3.BucketNoncurrentVersionTransition[];
+        /**
+         * Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
+         */
         objectSizeGreaterThan?: string;
+        /**
+         * Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide*.
+         */
         objectSizeLessThan?: string;
+        /**
+         * Object key prefix that identifies one or more objects to which this rule applies.
+         *   Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
+         */
         prefix?: string;
+        /**
+         * If ``Enabled``, the rule is currently being applied. If ``Disabled``, the rule is not currently being applied.
+         */
         status: enums.s3.BucketRuleStatus;
+        /**
+         * Tags to use to identify a subset of objects to which the lifecycle rule applies.
+         */
         tagFilters?: outputs.s3.BucketTagFilter[];
+        /**
+         * (Deprecated.) Specifies when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transitions`` property.
+         */
         transition?: outputs.s3.BucketTransition;
+        /**
+         * One or more transition rules that specify when an object transitions to a specified storage class. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time. If you specify this property, don't specify the ``Transition`` property.
+         */
         transitions?: outputs.s3.BucketTransition[];
     }
 
     /**
-     * A container for object key name prefix and suffix filtering rules.
+     * A container for object key name prefix and suffix filtering rules. For more information about object key name filtering, see [Configuring event notifications using object key name filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html) in the *Amazon S3 User Guide*.
+     *   The same type of filter rule cannot be used more than once. For example, you cannot specify two prefix rules.
      */
     export interface BucketS3KeyFilter {
+        /**
+         * A list of containers for the key-value pair that defines the criteria for the filter rule.
+         */
         rules: outputs.s3.BucketFilterRule[];
     }
 
     /**
-     * Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+     * Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more information, see [PUT Bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html) in the *Amazon S3 API Reference*.
      */
     export interface BucketServerSideEncryptionByDefault {
         /**
-         * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
+         * AWS Key Management Service (KMS) customer AWS KMS key ID to use for the default encryption. This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
+         *  You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
+         *   +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` 
+         *   +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` 
+         *   +  Key Alias: ``alias/alias-name`` 
+         *   
+         *  If you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
+         *  If you are using encryption with cross-account or AWS service operations you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
+         *   Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
          */
         kmsMasterKeyId?: string;
+        /**
+         * Server-side encryption algorithm to use for the default encryption.
+         */
         sseAlgorithm: enums.s3.BucketServerSideEncryptionByDefaultSseAlgorithm;
     }
 
@@ -45329,14 +47871,18 @@ export namespace s3 {
      */
     export interface BucketServerSideEncryptionRule {
         /**
-         * Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the BucketKeyEnabled element to true causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+         * Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+         *  For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
          */
         bucketKeyEnabled?: boolean;
+        /**
+         * Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+         */
         serverSideEncryptionByDefault?: outputs.s3.BucketServerSideEncryptionByDefault;
     }
 
     /**
-     * A container that describes additional filters for identifying the source objects that you want to replicate.
+     * A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
      */
     export interface BucketSourceSelectionCriteria {
         /**
@@ -45354,7 +47900,7 @@ export namespace s3 {
      */
     export interface BucketSseKmsEncryptedObjects {
         /**
-         * Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
+         * Specifies whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
          */
         status: enums.s3.BucketSseKmsEncryptedObjectsStatus;
     }
@@ -45363,14 +47909,23 @@ export namespace s3 {
      * Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
      */
     export interface BucketStorageClassAnalysis {
+        /**
+         * Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+         */
         dataExport?: outputs.s3.BucketDataExport;
     }
 
     /**
-     * Tags to use to identify a subset of objects for an Amazon S3 bucket.
+     * Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
      */
     export interface BucketTagFilter {
+        /**
+         * The tag key.
+         */
         key: string;
+        /**
+         * The tag value.
+         */
         value: string;
     }
 
@@ -45380,9 +47935,12 @@ export namespace s3 {
     export interface BucketTargetObjectKeyFormat {
     }
 
+    /**
+     * The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead.
+     */
     export interface BucketTiering {
         /**
-         * S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class.
+         * S3 Intelligent-Tiering access tier. See [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access) for a list of access tiers in the S3 Intelligent-Tiering storage class.
          */
         accessTier: enums.s3.BucketTieringAccessTier;
         /**
@@ -45392,15 +47950,15 @@ export namespace s3 {
     }
 
     /**
-     * The topic to which notifications are sent and the events for which notifications are generated.
+     * A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.
      */
     export interface BucketTopicConfiguration {
         /**
-         * The Amazon S3 bucket event about which to send notifications.
+         * The Amazon S3 bucket event about which to send notifications. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
          */
         event: string;
         /**
-         * The filtering rules that determine for which objects to send notifications.
+         * The filtering rules that determine for which objects to send notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket.
          */
         filter?: outputs.s3.BucketNotificationFilter;
         /**
@@ -45410,16 +47968,25 @@ export namespace s3 {
     }
 
     /**
-     * You must specify at least one of "TransitionDate" and "TransitionInDays"
+     * Specifies when an object transitions to a specified storage class. For more information about Amazon S3 lifecycle configuration rules, see [Transitioning Objects Using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html) in the *Amazon S3 User Guide*.
      */
     export interface BucketTransition {
+        /**
+         * The storage class to which you want the object to transition.
+         */
         storageClass: enums.s3.BucketTransitionStorageClass;
+        /**
+         * Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
+         */
         transitionDate?: string;
+        /**
+         * Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+         */
         transitionInDays?: number;
     }
 
     /**
-     * Describes the versioning state of an Amazon S3 bucket.
+     * Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
      */
     export interface BucketVersioningConfiguration {
         /**
@@ -45440,7 +48007,14 @@ export namespace s3 {
          * The name of the index document for the website.
          */
         indexDocument?: string;
+        /**
+         * The redirect behavior for every request to this bucket's website endpoint.
+         *   If you specify this property, you can't specify any other property.
+         */
         redirectAllRequestsTo?: outputs.s3.BucketRedirectAllRequestsTo;
+        /**
+         * Rules that define when a redirect is applied and the redirect behavior.
+         */
         routingRules?: outputs.s3.BucketRoutingRule[];
     }
 
@@ -45977,7 +48551,7 @@ export namespace sagemaker {
     }
 
     /**
-     * The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+     * The configuration for the kernels in a SageMaker image running as a JupyterLab app.
      */
     export interface AppImageConfigJupyterLabAppImageConfig {
         /**
@@ -46800,6 +49374,14 @@ export namespace sagemaker {
          */
         provisionedWriteCapacityUnits?: number;
         throughputMode: enums.sagemaker.FeatureGroupThroughputMode;
+    }
+
+    /**
+     * TTL configuration of the feature group
+     */
+    export interface FeatureGroupTtlDuration {
+        unit?: enums.sagemaker.FeatureGroupUnit;
+        value?: number;
     }
 
     export interface InferenceComponentComputeResourceRequirements {
@@ -48984,6 +51566,7 @@ export namespace sagemaker {
         enableOnlineStore?: boolean;
         securityConfig?: outputs.sagemaker.FeatureGroupOnlineStoreSecurityConfig;
         storageType?: enums.sagemaker.FeatureGroupStorageType;
+        ttlDuration?: outputs.sagemaker.FeatureGroupTtlDuration;
     }
 
     export interface ParallelismConfigurationProperties {
@@ -49677,59 +52260,63 @@ export namespace secretsmanager {
         scheduleExpression?: string;
     }
 
+    /**
+     * Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
+     *   *Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
+     */
     export interface SecretGenerateSecretString {
         /**
-         * A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
+         * A string of the characters that you don't want in the password.
          */
         excludeCharacters?: string;
         /**
-         * Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
+         * Specifies whether to exclude lowercase letters from the password. If you don't include this switch, the password can contain lowercase letters.
          */
         excludeLowercase?: boolean;
         /**
-         * Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
+         * Specifies whether to exclude numbers from the password. If you don't include this switch, the password can contain numbers.
          */
         excludeNumbers?: boolean;
         /**
-         * Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
+         * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~``. If you don't include this switch, the password can contain punctuation.
          */
         excludePunctuation?: boolean;
         /**
-         * Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
+         * Specifies whether to exclude uppercase letters from the password. If you don't include this switch, the password can contain uppercase letters.
          */
         excludeUppercase?: boolean;
         /**
-         * The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
+         * The JSON key name for the key/value pair, where the value is the generated password. This pair is added to the JSON structure specified by the ``SecretStringTemplate`` parameter. If you specify this parameter, then you must also specify ``SecretStringTemplate``.
          */
         generateStringKey?: string;
         /**
-         * Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
+         * Specifies whether to include the space character. If you include this switch, the password can contain space characters.
          */
         includeSpace?: boolean;
         /**
-         * The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
+         * The length of the password. If you don't include this parameter, the default length is 32 characters.
          */
         passwordLength?: number;
         /**
-         * Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
+         * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation. If you don't include this switch, the password contains at least one of every character type.
          */
         requireEachIncludedType?: boolean;
         /**
-         * A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
+         * A template that the generated string must match. When you make a change to this property, a new secret version is created.
          */
         secretStringTemplate?: string;
     }
 
     /**
-     * A custom type that specifies a Region and the KmsKeyId for a replica secret.
+     * Specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
      */
     export interface SecretReplicaRegion {
         /**
-         * The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses aws/secretsmanager.
+         * The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses ``aws/secretsmanager``.
          */
         kmsKeyId?: string;
         /**
-         * (Optional) A string that represents a Region, for example "us-east-1".
+         * A string that represents a ``Region``, for example "us-east-1".
          */
         region: string;
     }

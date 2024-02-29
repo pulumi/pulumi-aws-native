@@ -183,7 +183,7 @@ func (in *dataProviderDmsSslModeValuePtr) ToDataProviderDmsSslModeValuePtrOutput
 type DataProviderEngine string
 
 const (
-	DataProviderEnginePostgresql       = DataProviderEngine("postgresql")
+	DataProviderEnginePostgres         = DataProviderEngine("postgres")
 	DataProviderEngineMysql            = DataProviderEngine("mysql")
 	DataProviderEngineOracle           = DataProviderEngine("oracle")
 	DataProviderEngineSqlserver        = DataProviderEngine("sqlserver")
@@ -313,7 +313,7 @@ func (o DataProviderEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // DataProviderEngineInput is an input type that accepts values of the DataProviderEngine enum
 // A concrete instance of `DataProviderEngineInput` can be one of the following:
 //
-//	DataProviderEnginePostgresql
+//	DataProviderEnginePostgres
 //	DataProviderEngineMysql
 //	DataProviderEngineOracle
 //	DataProviderEngineSqlserver
@@ -692,8 +692,8 @@ func (in *replicationConfigReplicationTypePtr) ToReplicationConfigReplicationTyp
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValueInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValuePtrInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEngineInput)(nil)).Elem(), DataProviderEngine("postgresql"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEnginePtrInput)(nil)).Elem(), DataProviderEngine("postgresql"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEngineInput)(nil)).Elem(), DataProviderEngine("postgres"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEnginePtrInput)(nil)).Elem(), DataProviderEngine("postgres"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypeInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypePtrInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypeInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))

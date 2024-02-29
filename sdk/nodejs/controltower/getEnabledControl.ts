@@ -35,6 +35,10 @@ export interface GetEnabledControlResult {
      * Parameters to configure the enabled control behavior.
      */
     readonly parameters?: outputs.controltower.EnabledControlParameter[];
+    /**
+     * A set of tags to assign to the enabled control.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Enables a control on a specified target.

@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
     /// <summary>
-    /// Evaluation mode for the AWS Config rule
+    /// The configuration object for CC rule evaluation mode. The supported valid values are Detective or Proactive.
     /// </summary>
     [OutputType]
     public sealed class ConfigRuleEvaluationModeConfiguration
     {
         /// <summary>
-        /// Mode of evaluation of AWS Config rule
+        /// The mode of an evaluation. The valid values are Detective or Proactive.
         /// </summary>
         public readonly string? Mode;
 

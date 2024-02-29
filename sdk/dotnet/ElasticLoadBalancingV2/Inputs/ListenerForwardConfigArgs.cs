@@ -10,13 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
+    /// <summary>
+    /// Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+    /// </summary>
     public sealed class ListenerForwardConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information about the target group stickiness for a rule.
+        /// </summary>
         [Input("targetGroupStickinessConfig")]
         public Input<Inputs.ListenerTargetGroupStickinessConfigArgs>? TargetGroupStickinessConfig { get; set; }
 
         [Input("targetGroups")]
         private InputList<Inputs.ListenerTargetGroupTupleArgs>? _targetGroups;
+
+        /// <summary>
+        /// Information about how traffic will be distributed between multiple target groups in a forward rule.
+        /// </summary>
         public InputList<Inputs.ListenerTargetGroupTupleArgs> TargetGroups
         {
             get => _targetGroups ?? (_targetGroups = new InputList<Inputs.ListenerTargetGroupTupleArgs>());

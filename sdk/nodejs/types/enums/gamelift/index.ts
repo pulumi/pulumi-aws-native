@@ -31,7 +31,7 @@ export const FleetApplyCapacity = {
 } as const;
 
 /**
- * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+ * Determines whether to apply fleet or location capacities on fleet creation.
  */
 export type FleetApplyCapacity = (typeof FleetApplyCapacity)[keyof typeof FleetApplyCapacity];
 

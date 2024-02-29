@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+ * In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
  */
 export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**
@@ -38,12 +38,9 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
      * The name of an association between a Resolver rule and a VPC.
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * Primary Identifier for Resolver Rule Association
-     */
     public /*out*/ readonly resolverRuleAssociationId!: pulumi.Output<string>;
     /**
-     * The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+     * The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
      */
     public readonly resolverRuleId!: pulumi.Output<string>;
     /**
@@ -94,7 +91,7 @@ export interface ResolverRuleAssociationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+     * The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
      */
     resolverRuleId: pulumi.Input<string>;
     /**

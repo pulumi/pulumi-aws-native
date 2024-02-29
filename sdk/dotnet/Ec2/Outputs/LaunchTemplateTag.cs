@@ -11,12 +11,18 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
     /// <summary>
-    /// The user data to make available to the instance.
+    /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateTag
     {
+        /// <summary>
+        /// The tag key.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The tag value.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

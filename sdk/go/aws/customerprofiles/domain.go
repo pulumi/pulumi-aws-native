@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -23,7 +24,7 @@ type Domain struct {
 	// The default encryption key
 	DefaultEncryptionKey pulumi.StringPtrOutput `pulumi:"defaultEncryptionKey"`
 	// The default number of days until the data within the domain expires.
-	DefaultExpirationDays pulumi.IntPtrOutput `pulumi:"defaultExpirationDays"`
+	DefaultExpirationDays pulumi.IntOutput `pulumi:"defaultExpirationDays"`
 	// The unique name of the domain.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The time of this integration got last updated at
@@ -39,9 +40,12 @@ type Domain struct {
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
 	if args == nil {
-		args = &DomainArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DefaultExpirationDays == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultExpirationDays'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainName",
 	})
@@ -84,7 +88,7 @@ type domainArgs struct {
 	// The default encryption key
 	DefaultEncryptionKey *string `pulumi:"defaultEncryptionKey"`
 	// The default number of days until the data within the domain expires.
-	DefaultExpirationDays *int `pulumi:"defaultExpirationDays"`
+	DefaultExpirationDays int `pulumi:"defaultExpirationDays"`
 	// The unique name of the domain.
 	DomainName        *string                  `pulumi:"domainName"`
 	Matching          *DomainMatching          `pulumi:"matching"`
@@ -100,7 +104,7 @@ type DomainArgs struct {
 	// The default encryption key
 	DefaultEncryptionKey pulumi.StringPtrInput
 	// The default number of days until the data within the domain expires.
-	DefaultExpirationDays pulumi.IntPtrInput
+	DefaultExpirationDays pulumi.IntInput
 	// The unique name of the domain.
 	DomainName        pulumi.StringPtrInput
 	Matching          DomainMatchingPtrInput
@@ -162,8 +166,8 @@ func (o DomainOutput) DefaultEncryptionKey() pulumi.StringPtrOutput {
 }
 
 // The default number of days until the data within the domain expires.
-func (o DomainOutput) DefaultExpirationDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Domain) pulumi.IntPtrOutput { return v.DefaultExpirationDays }).(pulumi.IntPtrOutput)
+func (o DomainOutput) DefaultExpirationDays() pulumi.IntOutput {
+	return o.ApplyT(func(v *Domain) pulumi.IntOutput { return v.DefaultExpirationDays }).(pulumi.IntOutput)
 }
 
 // The unique name of the domain.

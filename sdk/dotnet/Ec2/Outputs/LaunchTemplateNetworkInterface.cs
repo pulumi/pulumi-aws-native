@@ -12,18 +12,24 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
     /// <summary>
     /// Specifies the parameters for a network interface.
+    ///  ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
     /// </summary>
     [OutputType]
     public sealed class LaunchTemplateNetworkInterface
     {
         /// <summary>
-        /// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+        /// Associates a Carrier IP address with eth0 for a new network interface.
+        ///  Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.
         /// </summary>
         public readonly bool? AssociateCarrierIpAddress;
         /// <summary>
         /// Associates a public IPv4 address with eth0 for a new network interface.
+        ///   AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [Amazon VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
         /// </summary>
         public readonly bool? AssociatePublicIpAddress;
+        /// <summary>
+        /// A connection tracking specification for the network interface.
+        /// </summary>
         public readonly Outputs.LaunchTemplateConnectionTrackingSpecification? ConnectionTrackingSpecification;
         /// <summary>
         /// Indicates whether the network interface is deleted when the instance is terminated.
@@ -37,41 +43,46 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The device index for the network interface attachment.
         /// </summary>
         public readonly int? DeviceIndex;
+        /// <summary>
+        /// The ENA Express configuration for the network interface.
+        /// </summary>
         public readonly Outputs.LaunchTemplateEnaSrdSpecification? EnaSrdSpecification;
         /// <summary>
         /// The IDs of one or more security groups.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// The type of network interface.
+        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon Elastic Compute Cloud User Guide*.
+        ///  If you are not creating an EFA, specify ``interface`` or omit this parameter.
+        ///  Valid values: ``interface`` | ``efa``
         /// </summary>
         public readonly string? InterfaceType;
         /// <summary>
-        /// The number of IPv4 prefixes to be automatically assigned to the network interface.
+        /// The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv4Prefix`` option.
         /// </summary>
         public readonly int? Ipv4PrefixCount;
         /// <summary>
-        /// One or more IPv4 prefixes to be assigned to the network interface.
+        /// One or more IPv4 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv4PrefixCount`` option.
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateIpv4PrefixSpecification> Ipv4Prefixes;
         /// <summary>
-        /// The number of IPv6 addresses to assign to a network interface.
+        /// The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.
         /// </summary>
         public readonly int? Ipv6AddressCount;
         /// <summary>
-        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateIpv6Add> Ipv6Addresses;
         /// <summary>
-        /// The number of IPv6 prefixes to be automatically assigned to the network interface.
+        /// The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv6Prefix`` option.
         /// </summary>
         public readonly int? Ipv6PrefixCount;
         /// <summary>
-        /// One or more IPv6 prefixes to be assigned to the network interface.
+        /// One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the ``Ipv6PrefixCount`` option.
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateIpv6PrefixSpecification> Ipv6Prefixes;
         /// <summary>
-        /// The index of the network card.
+        /// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
         /// </summary>
         public readonly int? NetworkCardIndex;
         /// <summary>
@@ -79,7 +90,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? NetworkInterfaceId;
         /// <summary>
-        /// Enables the first IPv6 global unique address (GUA) on a dual stack or IPv6-only ENI immutable.
+        /// The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html).
         /// </summary>
         public readonly bool? PrimaryIpv6;
         /// <summary>

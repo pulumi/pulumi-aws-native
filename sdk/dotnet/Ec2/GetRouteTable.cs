@@ -12,13 +12,15 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetRouteTable
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::RouteTable
+        /// Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+        ///  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws-native:ec2:getRouteTable", args ?? new GetRouteTableArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::RouteTable
+        /// Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+        ///  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
         /// </summary>
         public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("aws-native:ec2:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());
@@ -27,9 +29,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetRouteTableArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The route table ID.
-        /// </summary>
         [Input("routeTableId", required: true)]
         public string RouteTableId { get; set; } = null!;
 
@@ -41,9 +40,6 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetRouteTableInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The route table ID.
-        /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
@@ -57,9 +53,6 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetRouteTableResult
     {
-        /// <summary>
-        /// The route table ID.
-        /// </summary>
         public readonly string? RouteTableId;
         /// <summary>
         /// Any tags assigned to the route table.

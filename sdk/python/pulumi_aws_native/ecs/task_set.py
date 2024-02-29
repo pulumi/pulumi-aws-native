@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,8 @@ class TaskSetArgs:
                  network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
                  scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]] = None):
+                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TaskSet resource.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -55,6 +58,8 @@ class TaskSetArgs:
             pulumi.set(__self__, "scale", scale)
         if service_registries is not None:
             pulumi.set(__self__, "service_registries", service_registries)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -170,6 +175,15 @@ class TaskSetArgs:
     def service_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]]):
         pulumi.set(self, "service_registries", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class TaskSet(pulumi.CustomResource):
     @overload
@@ -185,6 +199,7 @@ class TaskSet(pulumi.CustomResource):
                  scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArgs']]] = None,
                  service: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -234,6 +249,7 @@ class TaskSet(pulumi.CustomResource):
                  scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArgs']]] = None,
                  service: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -257,6 +273,7 @@ class TaskSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service'")
             __props__.__dict__["service"] = service
             __props__.__dict__["service_registries"] = service_registries
+            __props__.__dict__["tags"] = tags
             if task_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'task_definition'")
             __props__.__dict__["task_definition"] = task_definition
@@ -293,6 +310,7 @@ class TaskSet(pulumi.CustomResource):
         __props__.__dict__["scale"] = None
         __props__.__dict__["service"] = None
         __props__.__dict__["service_registries"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["task_definition"] = None
         return TaskSet(resource_name, opts=opts, __props__=__props__)
 
@@ -361,6 +379,11 @@ class TaskSet(pulumi.CustomResource):
         The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
         """
         return pulumi.get(self, "service_registries")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="taskDefinition")

@@ -107,7 +107,6 @@ namespace Pulumi.AwsNative.SageMaker
                     "eventTimeFeatureName",
                     "featureGroupName",
                     "offlineStoreConfig",
-                    "onlineStoreConfig",
                     "recordIdentifierFeatureName",
                     "roleArn",
                     "tags[*]",

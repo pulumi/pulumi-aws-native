@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EFS::FileSystem
+ * The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
  */
 export function getFileSystem(args: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
 
@@ -24,21 +24,50 @@ export interface GetFileSystemArgs {
 
 export interface GetFileSystemResult {
     readonly arn?: string;
+    /**
+     * Use the ``BackupPolicy`` to turn automatic backups on or off for the file system.
+     */
     readonly backupPolicy?: outputs.efs.FileSystemBackupPolicy;
     readonly fileSystemId?: string;
     /**
+     * The ``FileSystemPolicy`` for the EFS file system. A file system policy is an IAM resource policy used to control NFS access to an EFS file system. For more information, see [Using to control NFS access to Amazon EFS](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html) in the *Amazon EFS User Guide*.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EFS::FileSystem` for more information about the expected schema for this property.
      */
     readonly fileSystemPolicy?: any;
+    /**
+     * Describes the protection on the file system.
+     */
     readonly fileSystemProtection?: outputs.efs.FileSystemProtection;
+    /**
+     * Use to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a ``"Key":"Name","Value":"{value}"`` key-value pair. Each key must be unique. For more information, see [Tagging resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *General Reference Guide*.
+     */
     readonly fileSystemTags?: outputs.Tag[];
+    /**
+     * An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
+     *   +  When to move files in the file system from primary storage to IA storage.
+     *   + When to move files in the file system from primary storage or IA storage to Archive storage.
+     *  +  When to move files that are in IA or Archive storage to primary storage.
+     *   
+     *   EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+     */
     readonly lifecyclePolicies?: outputs.efs.FileSystemLifecyclePolicy[];
+    /**
+     * The throughput, measured in mebibytes per second (MiBps), that you want to provision for a file system that you're creating. Required if ``ThroughputMode`` is set to ``provisioned``. Valid values are 1-3414 MiBps, with the upper limit depending on Region. To increase this limit, contact SUP. For more information, see [Amazon EFS quotas that you can increase](https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits) in the *Amazon EFS User Guide*.
+     */
     readonly provisionedThroughputInMibps?: number;
+    /**
+     * Describes the replication configuration for a specific file system.
+     */
     readonly replicationConfiguration?: outputs.efs.FileSystemReplicationConfiguration;
+    /**
+     * Specifies the throughput mode for the file system. The mode can be ``bursting``, ``provisioned``, or ``elastic``. If you set ``ThroughputMode`` to ``provisioned``, you must also set a value for ``ProvisionedThroughputInMibps``. After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide*. 
+     *  Default is ``bursting``.
+     */
     readonly throughputMode?: string;
 }
 /**
- * Resource Type definition for AWS::EFS::FileSystem
+ * The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
  */
 export function getFileSystemOutput(args: GetFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileSystemResult> {
     return pulumi.output(args).apply((a: any) => getFileSystem(a, opts))

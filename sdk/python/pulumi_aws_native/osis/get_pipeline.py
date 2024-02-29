@@ -79,7 +79,7 @@ class GetPipelineResult:
     @pulumi.getter(name="maxUnits")
     def max_units(self) -> Optional[int]:
         """
-        The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+        The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         """
         return pulumi.get(self, "max_units")
 
@@ -87,7 +87,7 @@ class GetPipelineResult:
     @pulumi.getter(name="minUnits")
     def min_units(self) -> Optional[int]:
         """
-        The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+        The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         """
         return pulumi.get(self, "min_units")
 

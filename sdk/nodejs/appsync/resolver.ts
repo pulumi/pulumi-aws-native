@@ -73,6 +73,7 @@ export class Resolver extends pulumi.CustomResource {
      * The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
      */
     public readonly maxBatchSize!: pulumi.Output<number | undefined>;
+    public readonly metricsConfig!: pulumi.Output<enums.appsync.ResolverMetricsConfig | undefined>;
     /**
      * Functions linked with the pipeline resolver.
      */
@@ -136,6 +137,7 @@ export class Resolver extends pulumi.CustomResource {
             resourceInputs["fieldName"] = args ? args.fieldName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
+            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
             resourceInputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
             resourceInputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
             resourceInputs["requestMappingTemplateS3Location"] = args ? args.requestMappingTemplateS3Location : undefined;
@@ -154,6 +156,7 @@ export class Resolver extends pulumi.CustomResource {
             resourceInputs["fieldName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["maxBatchSize"] = undefined /*out*/;
+            resourceInputs["metricsConfig"] = undefined /*out*/;
             resourceInputs["pipelineConfig"] = undefined /*out*/;
             resourceInputs["requestMappingTemplate"] = undefined /*out*/;
             resourceInputs["requestMappingTemplateS3Location"] = undefined /*out*/;
@@ -209,6 +212,7 @@ export interface ResolverArgs {
      * The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
      */
     maxBatchSize?: pulumi.Input<number>;
+    metricsConfig?: pulumi.Input<enums.appsync.ResolverMetricsConfig>;
     /**
      * Functions linked with the pipeline resolver.
      */

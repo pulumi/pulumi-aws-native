@@ -7,18 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DynamoDb.Outputs
+namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
     [OutputType]
-    public sealed class TableResourcePolicy
+    public sealed class NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties
     {
-        public readonly object PolicyDocument;
+        public readonly bool? EnaSrdUdpEnabled;
 
         [OutputConstructor]
-        private TableResourcePolicy(object policyDocument)
+        private NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties(bool? enaSrdUdpEnabled)
         {
-            PolicyDocument = policyDocument;
+            EnaSrdUdpEnabled = enaSrdUdpEnabled;
         }
     }
 }

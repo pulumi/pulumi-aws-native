@@ -8,7 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+ * The ``AWS::RDS::DBParameterGroup`` resource creates a custom parameter group for an RDS database family.
+ *  This type can be declared in a template and referenced in the ``DBParameterGroupName`` property of an ``AWS::RDS::DBInstance`` resource.
+ *  For information about configuring parameters for Amazon RDS DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.
+ *  For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+ *   Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
  */
 export function getDbParameterGroup(args: GetDbParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDbParameterGroupResult> {
 
@@ -20,25 +24,41 @@ export function getDbParameterGroup(args: GetDbParameterGroupArgs, opts?: pulumi
 
 export interface GetDbParameterGroupArgs {
     /**
-     * Specifies the name of the DB parameter group
+     * The name of the DB parameter group.
+     *  Constraints:
+     *   +  Must be 1 to 255 letters, numbers, or hyphens.
+     *   +  First character must be a letter
+     *   +  Can't end with a hyphen or contain two consecutive hyphens
+     *   
+     *  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
+     *   This value is stored as a lowercase string.
      */
     dbParameterGroupName: string;
 }
 
 export interface GetDbParameterGroupResult {
     /**
-     * An array of parameter names and values for the parameter update.
+     * An array of parameter names and values for the parameter update. At least one parameter name and value must be supplied. Subsequent arguments are optional.
+     *  RDS for Db2 requires you to bring your own Db2 license. You must enter your IBM customer ID (``rds.ibm_customer_id``) and site number (``rds.ibm_site_id``) before starting a Db2 instance.
+     *  For more information about DB parameters and DB parameter groups for Amazon RDS DB engines, see [Working with DB Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.
+     *  For more information about DB cluster and DB instance parameters and parameter groups for Amazon Aurora DB engines, see [Working with DB Parameter Groups and DB Cluster Parameter Groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+     *   AWS CloudFormation doesn't support specifying an apply method for each individual 
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */
     readonly parameters?: any;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * An optional array of key-value pairs to apply to this DB parameter group.
+     *   Currently, this is the only property that supports drift detection.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+ * The ``AWS::RDS::DBParameterGroup`` resource creates a custom parameter group for an RDS database family.
+ *  This type can be declared in a template and referenced in the ``DBParameterGroupName`` property of an ``AWS::RDS::DBInstance`` resource.
+ *  For information about configuring parameters for Amazon RDS DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*.
+ *  For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
+ *   Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
  */
 export function getDbParameterGroupOutput(args: GetDbParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbParameterGroupResult> {
     return pulumi.output(args).apply((a: any) => getDbParameterGroup(a, opts))
@@ -46,7 +66,14 @@ export function getDbParameterGroupOutput(args: GetDbParameterGroupOutputArgs, o
 
 export interface GetDbParameterGroupOutputArgs {
     /**
-     * Specifies the name of the DB parameter group
+     * The name of the DB parameter group.
+     *  Constraints:
+     *   +  Must be 1 to 255 letters, numbers, or hyphens.
+     *   +  First character must be a letter
+     *   +  Can't end with a hyphen or contain two consecutive hyphens
+     *   
+     *  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
+     *   This value is stored as a lowercase string.
      */
     dbParameterGroupName: pulumi.Input<string>;
 }

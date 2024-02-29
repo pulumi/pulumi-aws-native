@@ -952,6 +952,9 @@ type DbClusterTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// Returns the details of the DB instance’s server certificate.
+//
+//	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 type DbInstanceCertificateDetails struct {
 	// The CA identifier of the CA certificate used for the DB instance's server certificate.
 	CaIdentifier *string `pulumi:"caIdentifier"`
@@ -970,6 +973,9 @@ type DbInstanceCertificateDetailsInput interface {
 	ToDbInstanceCertificateDetailsOutputWithContext(context.Context) DbInstanceCertificateDetailsOutput
 }
 
+// Returns the details of the DB instance’s server certificate.
+//
+//	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 type DbInstanceCertificateDetailsArgs struct {
 	// The CA identifier of the CA certificate used for the DB instance's server certificate.
 	CaIdentifier pulumi.StringPtrInput `pulumi:"caIdentifier"`
@@ -1030,6 +1036,9 @@ func (i *dbInstanceCertificateDetailsPtrType) ToDbInstanceCertificateDetailsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceCertificateDetailsPtrOutput)
 }
 
+// Returns the details of the DB instance’s server certificate.
+//
+//	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 type DbInstanceCertificateDetailsOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceCertificateDetailsOutput) ElementType() reflect.Type {
@@ -1108,8 +1117,9 @@ func (o DbInstanceCertificateDetailsPtrOutput) ValidTill() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
 type DbInstanceDbInstanceRole struct {
-	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
 	FeatureName string `pulumi:"featureName"`
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
 	RoleArn string `pulumi:"roleArn"`
@@ -1126,8 +1136,9 @@ type DbInstanceDbInstanceRoleInput interface {
 	ToDbInstanceDbInstanceRoleOutputWithContext(context.Context) DbInstanceDbInstanceRoleOutput
 }
 
+// Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
 type DbInstanceDbInstanceRoleArgs struct {
-	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+	// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
 	FeatureName pulumi.StringInput `pulumi:"featureName"`
 	// The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -1170,6 +1181,7 @@ func (i DbInstanceDbInstanceRoleArray) ToDbInstanceDbInstanceRoleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceDbInstanceRoleArrayOutput)
 }
 
+// Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
 type DbInstanceDbInstanceRoleOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceDbInstanceRoleOutput) ElementType() reflect.Type {
@@ -1184,7 +1196,7 @@ func (o DbInstanceDbInstanceRoleOutput) ToDbInstanceDbInstanceRoleOutputWithCont
 	return o
 }
 
-// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+// The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the “SupportedFeatureNames“ description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
 func (o DbInstanceDbInstanceRoleOutput) FeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v DbInstanceDbInstanceRole) string { return v.FeatureName }).(pulumi.StringOutput)
 }
@@ -1214,6 +1226,15 @@ func (o DbInstanceDbInstanceRoleArrayOutput) Index(i pulumi.IntInput) DbInstance
 	}).(DbInstanceDbInstanceRoleOutput)
 }
 
+// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+//
+//   - “CreateDBInstance“
+//
+//   - “DescribeDBInstances“
+//
+//   - “DeleteDBInstance“
+//
+//     For the data structure that represents Amazon Aurora DB cluster endpoints, see “DBClusterEndpoint“.
 type DbInstanceEndpoint struct {
 	// Specifies the DNS address of the DB instance.
 	Address *string `pulumi:"address"`
@@ -1234,6 +1255,15 @@ type DbInstanceEndpointInput interface {
 	ToDbInstanceEndpointOutputWithContext(context.Context) DbInstanceEndpointOutput
 }
 
+// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+//
+//   - “CreateDBInstance“
+//
+//   - “DescribeDBInstances“
+//
+//   - “DeleteDBInstance“
+//
+//     For the data structure that represents Amazon Aurora DB cluster endpoints, see “DBClusterEndpoint“.
 type DbInstanceEndpointArgs struct {
 	// Specifies the DNS address of the DB instance.
 	Address pulumi.StringPtrInput `pulumi:"address"`
@@ -1296,6 +1326,15 @@ func (i *dbInstanceEndpointPtrType) ToDbInstanceEndpointPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceEndpointPtrOutput)
 }
 
+// This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+//
+//   - “CreateDBInstance“
+//
+//   - “DescribeDBInstances“
+//
+//   - “DeleteDBInstance“
+//
+//     For the data structure that represents Amazon Aurora DB cluster endpoints, see “DBClusterEndpoint“.
 type DbInstanceEndpointOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceEndpointOutput) ElementType() reflect.Type {
@@ -1389,6 +1428,9 @@ func (o DbInstanceEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The “MasterUserSecret“ return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+//
+//	For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
 type DbInstanceMasterUserSecret struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -1407,6 +1449,9 @@ type DbInstanceMasterUserSecretInput interface {
 	ToDbInstanceMasterUserSecretOutputWithContext(context.Context) DbInstanceMasterUserSecretOutput
 }
 
+// The “MasterUserSecret“ return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+//
+//	For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
 type DbInstanceMasterUserSecretArgs struct {
 	// The AWS KMS key identifier that is used to encrypt the secret.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -1467,6 +1512,9 @@ func (i *dbInstanceMasterUserSecretPtrType) ToDbInstanceMasterUserSecretPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceMasterUserSecretPtrOutput)
 }
 
+// The “MasterUserSecret“ return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+//
+//	For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
 type DbInstanceMasterUserSecretOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceMasterUserSecretOutput) ElementType() reflect.Type {
@@ -1545,8 +1593,9 @@ func (o DbInstanceMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The “ProcessorFeature“ property type specifies the processor features of a DB instance class status.
 type DbInstanceProcessorFeature struct {
-	// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+	// The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
 	Name *DbInstanceProcessorFeatureName `pulumi:"name"`
 	// The value of a processor feature name.
 	Value *string `pulumi:"value"`
@@ -1563,8 +1612,9 @@ type DbInstanceProcessorFeatureInput interface {
 	ToDbInstanceProcessorFeatureOutputWithContext(context.Context) DbInstanceProcessorFeatureOutput
 }
 
+// The “ProcessorFeature“ property type specifies the processor features of a DB instance class status.
 type DbInstanceProcessorFeatureArgs struct {
-	// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+	// The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
 	Name DbInstanceProcessorFeatureNamePtrInput `pulumi:"name"`
 	// The value of a processor feature name.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -1607,6 +1657,7 @@ func (i DbInstanceProcessorFeatureArray) ToDbInstanceProcessorFeatureArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DbInstanceProcessorFeatureArrayOutput)
 }
 
+// The “ProcessorFeature“ property type specifies the processor features of a DB instance class status.
 type DbInstanceProcessorFeatureOutput struct{ *pulumi.OutputState }
 
 func (DbInstanceProcessorFeatureOutput) ElementType() reflect.Type {
@@ -1621,7 +1672,7 @@ func (o DbInstanceProcessorFeatureOutput) ToDbInstanceProcessorFeatureOutputWith
 	return o
 }
 
-// The name of the processor feature. Valid names are coreCount and threadsPerCore.
+// The name of the processor feature. Valid names are “coreCount“ and “threadsPerCore“.
 func (o DbInstanceProcessorFeatureOutput) Name() DbInstanceProcessorFeatureNamePtrOutput {
 	return o.ApplyT(func(v DbInstanceProcessorFeature) *DbInstanceProcessorFeatureName { return v.Name }).(DbInstanceProcessorFeatureNamePtrOutput)
 }
@@ -1651,19 +1702,23 @@ func (o DbInstanceProcessorFeatureArrayOutput) Index(i pulumi.IntInput) DbInstan
 	}).(DbInstanceProcessorFeatureOutput)
 }
 
-// A key-value pair to associate with a resource.
+// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+//
+//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
 type DbInstanceTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Value *string `pulumi:"value"`
 }
 
-// A key-value pair to associate with a resource.
+// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+//
+//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
 type DbParameterGroupTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Value *string `pulumi:"value"`
 }
 
@@ -2144,11 +2199,13 @@ type DbSecurityGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
-// A key-value pair to associate with a resource.
+// Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+//
+//	For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
 type DbSubnetGroupTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
 	Value *string `pulumi:"value"`
 }
 

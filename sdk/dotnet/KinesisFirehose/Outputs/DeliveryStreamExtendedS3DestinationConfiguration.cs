@@ -17,10 +17,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly Outputs.DeliveryStreamBufferingHints? BufferingHints;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat? CompressionFormat;
+        public readonly string? CustomTimeZone;
         public readonly Outputs.DeliveryStreamDataFormatConversionConfiguration? DataFormatConversionConfiguration;
         public readonly Outputs.DeliveryStreamDynamicPartitioningConfiguration? DynamicPartitioningConfiguration;
         public readonly Outputs.DeliveryStreamEncryptionConfiguration? EncryptionConfiguration;
         public readonly string? ErrorOutputPrefix;
+        public readonly string? FileExtension;
         public readonly string? Prefix;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly string RoleArn;
@@ -37,6 +39,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat? compressionFormat,
 
+            string? customTimeZone,
+
             Outputs.DeliveryStreamDataFormatConversionConfiguration? dataFormatConversionConfiguration,
 
             Outputs.DeliveryStreamDynamicPartitioningConfiguration? dynamicPartitioningConfiguration,
@@ -44,6 +48,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             Outputs.DeliveryStreamEncryptionConfiguration? encryptionConfiguration,
 
             string? errorOutputPrefix,
+
+            string? fileExtension,
 
             string? prefix,
 
@@ -59,10 +65,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             BufferingHints = bufferingHints;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
             CompressionFormat = compressionFormat;
+            CustomTimeZone = customTimeZone;
             DataFormatConversionConfiguration = dataFormatConversionConfiguration;
             DynamicPartitioningConfiguration = dynamicPartitioningConfiguration;
             EncryptionConfiguration = encryptionConfiguration;
             ErrorOutputPrefix = errorOutputPrefix;
+            FileExtension = fileExtension;
             Prefix = prefix;
             ProcessingConfiguration = processingConfiguration;
             RoleArn = roleArn;

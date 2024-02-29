@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A complex type that identifies ways in which you want to restrict distribution of your content.
+    /// </summary>
     public sealed class DistributionRestrictionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A complex type that controls the countries in which your content is distributed. CF determines the location of your users using ``MaxMind`` GeoIP databases. To disable geo restriction, remove the [Restrictions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions) property from your stack template.
+        /// </summary>
         [Input("geoRestriction", required: true)]
         public Input<Inputs.DistributionGeoRestrictionArgs> GeoRestriction { get; set; } = null!;
 

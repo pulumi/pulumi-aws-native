@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
+    /// </summary>
     public sealed class BucketCorsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("corsRules", required: true)]
         private InputList<Inputs.BucketCorsRuleArgs>? _corsRules;
+
+        /// <summary>
+        /// A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+        /// </summary>
         public InputList<Inputs.BucketCorsRuleArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<Inputs.BucketCorsRuleArgs>());

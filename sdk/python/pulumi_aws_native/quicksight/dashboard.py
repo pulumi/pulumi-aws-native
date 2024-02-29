@@ -23,6 +23,7 @@ class DashboardArgs:
                  dashboard_id: pulumi.Input[str],
                  dashboard_publish_options: Optional[pulumi.Input['DashboardPublishOptionsArgs']] = None,
                  definition: Optional[pulumi.Input['DashboardVersionDefinitionArgs']] = None,
+                 link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  link_sharing_configuration: Optional[pulumi.Input['DashboardLinkSharingConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
@@ -41,6 +42,8 @@ class DashboardArgs:
             pulumi.set(__self__, "dashboard_publish_options", dashboard_publish_options)
         if definition is not None:
             pulumi.set(__self__, "definition", definition)
+        if link_entities is not None:
+            pulumi.set(__self__, "link_entities", link_entities)
         if link_sharing_configuration is not None:
             pulumi.set(__self__, "link_sharing_configuration", link_sharing_configuration)
         if name is not None:
@@ -95,6 +98,15 @@ class DashboardArgs:
     @definition.setter
     def definition(self, value: Optional[pulumi.Input['DashboardVersionDefinitionArgs']]):
         pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="linkEntities")
+    def link_entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "link_entities")
+
+    @link_entities.setter
+    def link_entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "link_entities", value)
 
     @property
     @pulumi.getter(name="linkSharingConfiguration")
@@ -187,6 +199,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardPublishOptionsArgs']]] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['DashboardVersionDefinitionArgs']]] = None,
+                 link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  link_sharing_configuration: Optional[pulumi.Input[pulumi.InputType['DashboardLinkSharingConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
@@ -231,6 +244,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardPublishOptionsArgs']]] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['DashboardVersionDefinitionArgs']]] = None,
+                 link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  link_sharing_configuration: Optional[pulumi.Input[pulumi.InputType['DashboardLinkSharingConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
@@ -257,6 +271,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["dashboard_id"] = dashboard_id
             __props__.__dict__["dashboard_publish_options"] = dashboard_publish_options
             __props__.__dict__["definition"] = definition
+            __props__.__dict__["link_entities"] = link_entities
             __props__.__dict__["link_sharing_configuration"] = link_sharing_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
@@ -303,6 +318,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["definition"] = None
         __props__.__dict__["last_published_time"] = None
         __props__.__dict__["last_updated_time"] = None
+        __props__.__dict__["link_entities"] = None
         __props__.__dict__["link_sharing_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parameters"] = None
@@ -354,6 +370,11 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="linkEntities")
+    def link_entities(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "link_entities")
 
     @property
     @pulumi.getter(name="linkSharingConfiguration")

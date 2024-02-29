@@ -12,7 +12,7 @@ export const DataProviderDmsSslModeValue = {
 export type DataProviderDmsSslModeValue = (typeof DataProviderDmsSslModeValue)[keyof typeof DataProviderDmsSslModeValue];
 
 export const DataProviderEngine = {
-    Postgresql: "postgresql",
+    Postgres: "postgres",
     Mysql: "mysql",
     Oracle: "oracle",
     Sqlserver: "sqlserver",

@@ -1370,6 +1370,7 @@ _utilities.register(
   "mod": "controltower",
   "fqn": "pulumi_aws_native.controltower",
   "classes": {
+   "aws-native:controltower:EnabledBaseline": "EnabledBaseline",
    "aws-native:controltower:EnabledControl": "EnabledControl",
    "aws-native:controltower:LandingZone": "LandingZone"
   }

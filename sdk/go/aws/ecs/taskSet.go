@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,7 @@ type TaskSet struct {
 	Service pulumi.StringOutput `pulumi:"service"`
 	// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 	ServiceRegistries TaskSetServiceRegistryArrayOutput `pulumi:"serviceRegistries"`
+	Tags              aws.TagArrayOutput                `pulumi:"tags"`
 	// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
 	TaskDefinition pulumi.StringOutput `pulumi:"taskDefinition"`
 }
@@ -113,6 +115,7 @@ type taskSetArgs struct {
 	Service string `pulumi:"service"`
 	// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 	ServiceRegistries []TaskSetServiceRegistry `pulumi:"serviceRegistries"`
+	Tags              []aws.Tag                `pulumi:"tags"`
 	// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
@@ -135,6 +138,7 @@ type TaskSetArgs struct {
 	Service pulumi.StringInput
 	// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 	ServiceRegistries TaskSetServiceRegistryArrayInput
+	Tags              aws.TagArrayInput
 	// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
 	TaskDefinition pulumi.StringInput
 }
@@ -217,6 +221,10 @@ func (o TaskSetOutput) Service() pulumi.StringOutput {
 // The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 func (o TaskSetOutput) ServiceRegistries() TaskSetServiceRegistryArrayOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetServiceRegistryArrayOutput { return v.ServiceRegistries }).(TaskSetServiceRegistryArrayOutput)
+}
+
+func (o TaskSetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *TaskSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.

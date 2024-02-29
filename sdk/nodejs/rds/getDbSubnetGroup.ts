@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+ * The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+ *  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
  */
 export function getDbSubnetGroup(args: GetDbSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDbSubnetGroupResult> {
 
@@ -19,23 +20,37 @@ export function getDbSubnetGroup(args: GetDbSubnetGroupArgs, opts?: pulumi.Invok
 }
 
 export interface GetDbSubnetGroupArgs {
+    /**
+     * The name for the DB subnet group. This value is stored as a lowercase string.
+     *  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+     *  Example: ``mysubnetgroup``
+     */
     dbSubnetGroupName: string;
 }
 
 export interface GetDbSubnetGroupResult {
+    /**
+     * The description for the DB subnet group.
+     */
     readonly dbSubnetGroupDescription?: string;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * An optional array of key-value pairs to apply to this DB subnet group.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+ * The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+ *  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
  */
 export function getDbSubnetGroupOutput(args: GetDbSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbSubnetGroupResult> {
     return pulumi.output(args).apply((a: any) => getDbSubnetGroup(a, opts))
 }
 
 export interface GetDbSubnetGroupOutputArgs {
+    /**
+     * The name for the DB subnet group. This value is stored as a lowercase string.
+     *  Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
+     *  Example: ``mysubnetgroup``
+     */
     dbSubnetGroupName: pulumi.Input<string>;
 }

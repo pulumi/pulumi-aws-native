@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::MediaPackageV2::Channel Resource Type
+// <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
 func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.InvokeOption) (*LookupChannelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupChannelResult
@@ -24,16 +24,22 @@ func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.
 }
 
 type LookupChannelArgs struct {
+	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 	Arn string `pulumi:"arn"`
 }
 
 type LookupChannelResult struct {
-	Arn             *string                 `pulumi:"arn"`
-	CreatedAt       *string                 `pulumi:"createdAt"`
-	Description     *string                 `pulumi:"description"`
+	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The date and time the channel was created.</p>
+	CreatedAt *string `pulumi:"createdAt"`
+	// <p>Enter any descriptive text that helps you to identify the channel.</p>
+	Description *string `pulumi:"description"`
+	// <p>The list of ingest endpoints.</p>
 	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
-	ModifiedAt      *string                 `pulumi:"modifiedAt"`
-	Tags            []aws.Tag               `pulumi:"tags"`
+	// <p>The date and time the channel was modified.</p>
+	ModifiedAt *string   `pulumi:"modifiedAt"`
+	Tags       []aws.Tag `pulumi:"tags"`
 }
 
 func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts ...pulumi.InvokeOption) LookupChannelResultOutput {
@@ -50,6 +56,7 @@ func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts
 }
 
 type LookupChannelOutputArgs struct {
+	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -71,22 +78,27 @@ func (o LookupChannelResultOutput) ToLookupChannelResultOutputWithContext(ctx co
 	return o
 }
 
+// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 func (o LookupChannelResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// <p>The date and time the channel was created.</p>
 func (o LookupChannelResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// <p>Enter any descriptive text that helps you to identify the channel.</p>
 func (o LookupChannelResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// <p>The list of ingest endpoints.</p>
 func (o LookupChannelResultOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
 	return o.ApplyT(func(v LookupChannelResult) []ChannelIngestEndpoint { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
 }
 
+// <p>The date and time the channel was modified.</p>
 func (o LookupChannelResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }

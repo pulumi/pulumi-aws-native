@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.AppSync
         /// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
         /// </summary>
         public readonly int? MaxBatchSize;
+        public readonly Pulumi.AwsNative.AppSync.ResolverMetricsConfig? MetricsConfig;
         /// <summary>
         /// Functions linked with the pipeline resolver.
         /// </summary>
@@ -112,6 +113,8 @@ namespace Pulumi.AwsNative.AppSync
 
             int? maxBatchSize,
 
+            Pulumi.AwsNative.AppSync.ResolverMetricsConfig? metricsConfig,
+
             Outputs.ResolverPipelineConfig? pipelineConfig,
 
             string? requestMappingTemplate,
@@ -129,6 +132,7 @@ namespace Pulumi.AwsNative.AppSync
             DataSourceName = dataSourceName;
             Kind = kind;
             MaxBatchSize = maxBatchSize;
+            MetricsConfig = metricsConfig;
             PipelineConfig = pipelineConfig;
             RequestMappingTemplate = requestMappingTemplate;
             ResolverArn = resolverArn;

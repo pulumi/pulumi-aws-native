@@ -24,7 +24,14 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// The name of the index document for the website.
         /// </summary>
         public readonly string? IndexDocument;
+        /// <summary>
+        /// The redirect behavior for every request to this bucket's website endpoint.
+        ///   If you specify this property, you can't specify any other property.
+        /// </summary>
         public readonly Outputs.BucketRedirectAllRequestsTo? RedirectAllRequestsTo;
+        /// <summary>
+        /// Rules that define when a redirect is applied and the redirect behavior.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BucketRoutingRule> RoutingRules;
 
         [OutputConstructor]

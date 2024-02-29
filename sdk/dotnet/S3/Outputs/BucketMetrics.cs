@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// A container specifying replication metrics-related settings enabling replication metrics and events.
+    /// </summary>
     [OutputType]
     public sealed class BucketMetrics
     {
+        /// <summary>
+        /// A container specifying the time threshold for emitting the ``s3:Replication:OperationMissedThreshold`` event.
+        /// </summary>
         public readonly Outputs.BucketReplicationTimeValue? EventThreshold;
+        /// <summary>
+        /// Specifies whether the replication metrics are enabled.
+        /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketMetricsStatus Status;
 
         [OutputConstructor]

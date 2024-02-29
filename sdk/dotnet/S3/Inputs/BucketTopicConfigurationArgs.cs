@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// The topic to which notifications are sent and the events for which notifications are generated.
+    /// A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.
     /// </summary>
     public sealed class BucketTopicConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon S3 bucket event about which to send notifications.
+        /// The Amazon S3 bucket event about which to send notifications. For more information, see [Supported Event Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html) in the *Amazon S3 User Guide*.
         /// </summary>
         [Input("event", required: true)]
         public Input<string> Event { get; set; } = null!;
 
         /// <summary>
-        /// The filtering rules that determine for which objects to send notifications.
+        /// The filtering rules that determine for which objects to send notifications. For example, you can create a filter so that Amazon S3 sends notifications only when image files with a ``.jpg`` extension are added to the bucket.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketNotificationFilterArgs>? Filter { get; set; }

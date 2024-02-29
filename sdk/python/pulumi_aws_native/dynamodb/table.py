@@ -30,7 +30,6 @@ class TableArgs:
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
-                 resource_policy: Optional[pulumi.Input['TableResourcePolicyArgs']] = None,
                  sse_specification: Optional[pulumi.Input['TableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['TableStreamSpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
@@ -39,6 +38,39 @@ class TableArgs:
                  time_to_live_specification: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
+        :param pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
+        :param pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]] attribute_definitions: A list of attributes that describe the key schema for the table and indexes.
+                This property is required to create a DDB table.
+                Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+        :param pulumi.Input[str] billing_mode: Specify how you are charged for read and write throughput and how you manage capacity.
+                Valid values include:
+                 +   ``PROVISIONED`` - We recommend using ``PROVISIONED`` for predictable workloads. ``PROVISIONED`` sets the billing mode to [Provisioned Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual).
+                 +   ``PAY_PER_REQUEST`` - We recommend using ``PAY_PER_REQUEST`` for unpredictable workloads. ``PAY_PER_REQUEST`` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand).
+                 
+                If not specified, the default is ``PROVISIONED``.
+        :param pulumi.Input['TableContributorInsightsSpecificationArgs'] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        :param pulumi.Input[bool] deletion_protection_enabled: Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
+                 If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
+                If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index. 
+                Updates are not supported. The following are exceptions:
+                 +  If you update either the contributor insights specification or the provisioned throughput value
+        :param pulumi.Input['TableImportSourceSpecificationArgs'] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the table.
+                 If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        :param pulumi.Input['TableKinesisStreamSpecificationArgs'] kinesis_stream_specification: The Kinesis Data Streams configuration for the specified table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
+        :param pulumi.Input['TablePointInTimeRecoverySpecificationArgs'] point_in_time_recovery_specification: The settings used to enable point in time recovery.
+        :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
+                If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
+        :param pulumi.Input['TableSseSpecificationArgs'] sse_specification: Specifies the settings to enable server-side encryption.
+        :param pulumi.Input['TableStreamSpecificationArgs'] stream_specification: The settings for the DDB table stream, which capture changes to items stored in the table.
+        :param pulumi.Input[str] table_class: The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
+        :param pulumi.Input[str] table_name: A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        :param pulumi.Input['TableTimeToLiveSpecificationArgs'] time_to_live_specification: Specifies the Time to Live (TTL) settings for the table.
+                 For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
         """
         pulumi.set(__self__, "key_schema", key_schema)
         if attribute_definitions is not None:
@@ -61,8 +93,6 @@ class TableArgs:
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if provisioned_throughput is not None:
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
-        if resource_policy is not None:
-            pulumi.set(__self__, "resource_policy", resource_policy)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_specification is not None:
@@ -79,6 +109,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]]:
+        """
+        Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
+        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -88,6 +121,11 @@ class TableArgs:
     @property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]]:
+        """
+        A list of attributes that describe the key schema for the table and indexes.
+         This property is required to create a DDB table.
+         Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+        """
         return pulumi.get(self, "attribute_definitions")
 
     @attribute_definitions.setter
@@ -97,6 +135,14 @@ class TableArgs:
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify how you are charged for read and write throughput and how you manage capacity.
+         Valid values include:
+          +   ``PROVISIONED`` - We recommend using ``PROVISIONED`` for predictable workloads. ``PROVISIONED`` sets the billing mode to [Provisioned Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual).
+          +   ``PAY_PER_REQUEST`` - We recommend using ``PAY_PER_REQUEST`` for unpredictable workloads. ``PAY_PER_REQUEST`` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand).
+          
+         If not specified, the default is ``PROVISIONED``.
+        """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
@@ -106,6 +152,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]:
+        """
+        The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
@@ -115,6 +164,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="deletionProtectionEnabled")
     def deletion_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
+        """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
@@ -124,6 +176,13 @@ class TableArgs:
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]:
+        """
+        Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
+          If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
+         If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index. 
+         Updates are not supported. The following are exceptions:
+          +  If you update either the contributor insights specification or the provisioned throughput value
+        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @global_secondary_indexes.setter
@@ -133,6 +192,10 @@ class TableArgs:
     @property
     @pulumi.getter(name="importSourceSpecification")
     def import_source_specification(self) -> Optional[pulumi.Input['TableImportSourceSpecificationArgs']]:
+        """
+        Specifies the properties of data being imported from the S3 bucket source to the table.
+          If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        """
         return pulumi.get(self, "import_source_specification")
 
     @import_source_specification.setter
@@ -142,6 +205,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="kinesisStreamSpecification")
     def kinesis_stream_specification(self) -> Optional[pulumi.Input['TableKinesisStreamSpecificationArgs']]:
+        """
+        The Kinesis Data Streams configuration for the specified table.
+        """
         return pulumi.get(self, "kinesis_stream_specification")
 
     @kinesis_stream_specification.setter
@@ -151,6 +217,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]:
+        """
+        Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
+        """
         return pulumi.get(self, "local_secondary_indexes")
 
     @local_secondary_indexes.setter
@@ -160,6 +229,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
     def point_in_time_recovery_specification(self) -> Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']]:
+        """
+        The settings used to enable point in time recovery.
+        """
         return pulumi.get(self, "point_in_time_recovery_specification")
 
     @point_in_time_recovery_specification.setter
@@ -169,6 +241,10 @@ class TableArgs:
     @property
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional[pulumi.Input['TableProvisionedThroughputArgs']]:
+        """
+        Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
+         If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
+        """
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
@@ -176,17 +252,11 @@ class TableArgs:
         pulumi.set(self, "provisioned_throughput", value)
 
     @property
-    @pulumi.getter(name="resourcePolicy")
-    def resource_policy(self) -> Optional[pulumi.Input['TableResourcePolicyArgs']]:
-        return pulumi.get(self, "resource_policy")
-
-    @resource_policy.setter
-    def resource_policy(self, value: Optional[pulumi.Input['TableResourcePolicyArgs']]):
-        pulumi.set(self, "resource_policy", value)
-
-    @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['TableSseSpecificationArgs']]:
+        """
+        Specifies the settings to enable server-side encryption.
+        """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
@@ -196,6 +266,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> Optional[pulumi.Input['TableStreamSpecificationArgs']]:
+        """
+        The settings for the DDB table stream, which capture changes to items stored in the table.
+        """
         return pulumi.get(self, "stream_specification")
 
     @stream_specification.setter
@@ -205,6 +278,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="tableClass")
     def table_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
+        """
         return pulumi.get(self, "table_class")
 
     @table_class.setter
@@ -214,6 +290,10 @@ class TableArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+          If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -223,6 +303,10 @@ class TableArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+         For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -232,6 +316,10 @@ class TableArgs:
     @property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']]:
+        """
+        Specifies the Time to Live (TTL) settings for the table.
+          For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
+        """
         return pulumi.get(self, "time_to_live_specification")
 
     @time_to_live_specification.setter
@@ -255,7 +343,6 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
-                 resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
@@ -264,10 +351,47 @@ class Table(pulumi.CustomResource):
                  time_to_live_specification: Optional[pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']]] = None,
                  __props__=None):
         """
-        Version: None. Resource Type definition for AWS::DynamoDB::Table
+        The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
+         You should be aware of the following behaviors when working with DDB tables:
+          +  CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
+
+           Our guidance is to use the latest schema documented here for y
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeDefinitionArgs']]]] attribute_definitions: A list of attributes that describe the key schema for the table and indexes.
+                This property is required to create a DDB table.
+                Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+        :param pulumi.Input[str] billing_mode: Specify how you are charged for read and write throughput and how you manage capacity.
+                Valid values include:
+                 +   ``PROVISIONED`` - We recommend using ``PROVISIONED`` for predictable workloads. ``PROVISIONED`` sets the billing mode to [Provisioned Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual).
+                 +   ``PAY_PER_REQUEST`` - We recommend using ``PAY_PER_REQUEST`` for unpredictable workloads. ``PAY_PER_REQUEST`` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand).
+                 
+                If not specified, the default is ``PROVISIONED``.
+        :param pulumi.Input[pulumi.InputType['TableContributorInsightsSpecificationArgs']] contributor_insights_specification: The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        :param pulumi.Input[bool] deletion_protection_enabled: Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
+                 If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
+                If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index. 
+                Updates are not supported. The following are exceptions:
+                 +  If you update either the contributor insights specification or the provisioned throughput value
+        :param pulumi.Input[pulumi.InputType['TableImportSourceSpecificationArgs']] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the table.
+                 If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        :param pulumi.Input[Union[Sequence[pulumi.Input[pulumi.InputType['TableKeySchemaArgs']]], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
+        :param pulumi.Input[pulumi.InputType['TableKinesisStreamSpecificationArgs']] kinesis_stream_specification: The Kinesis Data Streams configuration for the specified table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
+        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']] point_in_time_recovery_specification: The settings used to enable point in time recovery.
+        :param pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']] provisioned_throughput: Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
+                If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
+        :param pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']] sse_specification: Specifies the settings to enable server-side encryption.
+        :param pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']] stream_specification: The settings for the DDB table stream, which capture changes to items stored in the table.
+        :param pulumi.Input[str] table_class: The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
+        :param pulumi.Input[str] table_name: A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        :param pulumi.Input[pulumi.InputType['TableTimeToLiveSpecificationArgs']] time_to_live_specification: Specifies the Time to Live (TTL) settings for the table.
+                 For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
         """
         ...
     @overload
@@ -276,7 +400,11 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Version: None. Resource Type definition for AWS::DynamoDB::Table
+        The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
+         You should be aware of the following behaviors when working with DDB tables:
+          +  CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
+
+           Our guidance is to use the latest schema documented here for y
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
@@ -304,7 +432,6 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
-                 resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
@@ -333,7 +460,6 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
             __props__.__dict__["point_in_time_recovery_specification"] = point_in_time_recovery_specification
             __props__.__dict__["provisioned_throughput"] = provisioned_throughput
-            __props__.__dict__["resource_policy"] = resource_policy
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["stream_specification"] = stream_specification
             __props__.__dict__["table_class"] = table_class
@@ -378,7 +504,6 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["local_secondary_indexes"] = None
         __props__.__dict__["point_in_time_recovery_specification"] = None
         __props__.__dict__["provisioned_throughput"] = None
-        __props__.__dict__["resource_policy"] = None
         __props__.__dict__["sse_specification"] = None
         __props__.__dict__["stream_arn"] = None
         __props__.__dict__["stream_specification"] = None
@@ -396,66 +521,110 @@ class Table(pulumi.CustomResource):
     @property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> pulumi.Output[Optional[Sequence['outputs.TableAttributeDefinition']]]:
+        """
+        A list of attributes that describe the key schema for the table and indexes.
+         This property is required to create a DDB table.
+         Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+        """
         return pulumi.get(self, "attribute_definitions")
 
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify how you are charged for read and write throughput and how you manage capacity.
+         Valid values include:
+          +   ``PROVISIONED`` - We recommend using ``PROVISIONED`` for predictable workloads. ``PROVISIONED`` sets the billing mode to [Provisioned Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual).
+          +   ``PAY_PER_REQUEST`` - We recommend using ``PAY_PER_REQUEST`` for unpredictable workloads. ``PAY_PER_REQUEST`` sets the billing mode to [On-Demand Mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand).
+          
+         If not specified, the default is ``PROVISIONED``.
+        """
         return pulumi.get(self, "billing_mode")
 
     @property
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> pulumi.Output[Optional['outputs.TableContributorInsightsSpecification']]:
+        """
+        The settings used to enable or disable CloudWatch Contributor Insights for the specified table.
+        """
         return pulumi.get(self, "contributor_insights_specification")
 
     @property
     @pulumi.getter(name="deletionProtectionEnabled")
     def deletion_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.
+        """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.TableGlobalSecondaryIndex']]]:
+        """
+        Global secondary indexes to be created on the table. You can create up to 20 global secondary indexes.
+          If you update a table to include a new global secondary index, CFNlong initiates the index creation and then proceeds with the stack update. CFNlong doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table. You can't use the index or update the table until the index's status is ``ACTIVE``. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command.
+         If you add or delete an index during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new index, you must manually delete the index. 
+         Updates are not supported. The following are exceptions:
+          +  If you update either the contributor insights specification or the provisioned throughput value
+        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
     @pulumi.getter(name="importSourceSpecification")
     def import_source_specification(self) -> pulumi.Output[Optional['outputs.TableImportSourceSpecification']]:
+        """
+        Specifies the properties of data being imported from the S3 bucket source to the table.
+          If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        """
         return pulumi.get(self, "import_source_specification")
 
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Output[Any]:
+        """
+        Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
+        """
         return pulumi.get(self, "key_schema")
 
     @property
     @pulumi.getter(name="kinesisStreamSpecification")
     def kinesis_stream_specification(self) -> pulumi.Output[Optional['outputs.TableKinesisStreamSpecification']]:
+        """
+        The Kinesis Data Streams configuration for the specified table.
+        """
         return pulumi.get(self, "kinesis_stream_specification")
 
     @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.TableLocalSecondaryIndex']]]:
+        """
+        Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
+        """
         return pulumi.get(self, "local_secondary_indexes")
 
     @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
     def point_in_time_recovery_specification(self) -> pulumi.Output[Optional['outputs.TablePointInTimeRecoverySpecification']]:
+        """
+        The settings used to enable point in time recovery.
+        """
         return pulumi.get(self, "point_in_time_recovery_specification")
 
     @property
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> pulumi.Output[Optional['outputs.TableProvisionedThroughput']]:
+        """
+        Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html). 
+         If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
+        """
         return pulumi.get(self, "provisioned_throughput")
-
-    @property
-    @pulumi.getter(name="resourcePolicy")
-    def resource_policy(self) -> pulumi.Output[Optional['outputs.TableResourcePolicy']]:
-        return pulumi.get(self, "resource_policy")
 
     @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> pulumi.Output[Optional['outputs.TableSseSpecification']]:
+        """
+        Specifies the settings to enable server-side encryption.
+        """
         return pulumi.get(self, "sse_specification")
 
     @property
@@ -466,25 +635,43 @@ class Table(pulumi.CustomResource):
     @property
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> pulumi.Output[Optional['outputs.TableStreamSpecification']]:
+        """
+        The settings for the DDB table stream, which capture changes to items stored in the table.
+        """
         return pulumi.get(self, "stream_specification")
 
     @property
     @pulumi.getter(name="tableClass")
     def table_class(self) -> pulumi.Output[Optional[str]]:
+        """
+        The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.
+        """
         return pulumi.get(self, "table_class")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the table. If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the table name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+          If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+         For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> pulumi.Output[Optional['outputs.TableTimeToLiveSpecification']]:
+        """
+        Specifies the Time to Live (TTL) settings for the table.
+          For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
+        """
         return pulumi.get(self, "time_to_live_specification")
 

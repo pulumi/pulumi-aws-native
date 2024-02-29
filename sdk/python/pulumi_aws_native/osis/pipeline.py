@@ -29,8 +29,8 @@ class PipelineArgs:
                  vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Pipeline resource.
-        :param pulumi.Input[int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+        :param pulumi.Input[int] max_units: The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
+        :param pulumi.Input[int] min_units: The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[str] pipeline_configuration_body: The Data Prepper pipeline configuration in YAML format.
         :param pulumi.Input[str] pipeline_name: Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -55,7 +55,7 @@ class PipelineArgs:
     @pulumi.getter(name="maxUnits")
     def max_units(self) -> pulumi.Input[int]:
         """
-        The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+        The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         """
         return pulumi.get(self, "max_units")
 
@@ -67,7 +67,7 @@ class PipelineArgs:
     @pulumi.getter(name="minUnits")
     def min_units(self) -> pulumi.Input[int]:
         """
-        The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+        The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         """
         return pulumi.get(self, "min_units")
 
@@ -168,8 +168,8 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+        :param pulumi.Input[int] max_units: The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
+        :param pulumi.Input[int] min_units: The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[str] pipeline_configuration_body: The Data Prepper pipeline configuration in YAML format.
         :param pulumi.Input[str] pipeline_name: Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -299,7 +299,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="maxUnits")
     def max_units(self) -> pulumi.Output[int]:
         """
-        The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+        The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         """
         return pulumi.get(self, "max_units")
 
@@ -307,7 +307,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="minUnits")
     def min_units(self) -> pulumi.Output[int]:
         """
-        The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+        The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         """
         return pulumi.get(self, "min_units")
 

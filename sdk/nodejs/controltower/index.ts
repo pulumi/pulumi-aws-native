@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { EnabledBaselineArgs } from "./enabledBaseline";
+export type EnabledBaseline = import("./enabledBaseline").EnabledBaseline;
+export const EnabledBaseline: typeof import("./enabledBaseline").EnabledBaseline = null as any;
+utilities.lazyLoad(exports, ["EnabledBaseline"], () => require("./enabledBaseline"));
+
 export { EnabledControlArgs } from "./enabledControl";
 export type EnabledControl = import("./enabledControl").EnabledControl;
 export const EnabledControl: typeof import("./enabledControl").EnabledControl = null as any;
 utilities.lazyLoad(exports, ["EnabledControl"], () => require("./enabledControl"));
+
+export { GetEnabledBaselineArgs, GetEnabledBaselineResult, GetEnabledBaselineOutputArgs } from "./getEnabledBaseline";
+export const getEnabledBaseline: typeof import("./getEnabledBaseline").getEnabledBaseline = null as any;
+export const getEnabledBaselineOutput: typeof import("./getEnabledBaseline").getEnabledBaselineOutput = null as any;
+utilities.lazyLoad(exports, ["getEnabledBaseline","getEnabledBaselineOutput"], () => require("./getEnabledBaseline"));
 
 export { GetEnabledControlArgs, GetEnabledControlResult, GetEnabledControlOutputArgs } from "./getEnabledControl";
 export const getEnabledControl: typeof import("./getEnabledControl").getEnabledControl = null as any;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:controltower:EnabledBaseline":
+                return new EnabledBaseline(name, <any>undefined, { urn })
             case "aws-native:controltower:EnabledControl":
                 return new EnabledControl(name, <any>undefined, { urn })
             case "aws-native:controltower:LandingZone":

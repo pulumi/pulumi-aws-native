@@ -37,6 +37,9 @@ class GetDistributionResult:
     @property
     @pulumi.getter(name="distributionConfig")
     def distribution_config(self) -> Optional['outputs.DistributionConfig']:
+        """
+        The distribution's configuration.
+        """
         return pulumi.get(self, "distribution_config")
 
     @property
@@ -52,6 +55,9 @@ class GetDistributionResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A complex type that contains zero or more ``Tag`` elements.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -70,7 +76,7 @@ class AwaitableGetDistributionResult(GetDistributionResult):
 def get_distribution(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionResult:
     """
-    Resource Type definition for AWS::CloudFront::Distribution
+    A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -88,6 +94,6 @@ def get_distribution(id: Optional[str] = None,
 def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionResult]:
     """
-    Resource Type definition for AWS::CloudFront::Distribution
+    A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
     """
     ...

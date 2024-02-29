@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Inputs
 {
 
+    /// <summary>
+    /// The S3 bucket that is being imported from.
+    /// </summary>
     public sealed class TableS3BucketSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 bucket that is being imported from.
+        /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.
+        /// </summary>
         [Input("s3BucketOwner")]
         public Input<string>? S3BucketOwner { get; set; }
 
+        /// <summary>
+        /// The key prefix shared by all S3 Objects that are being imported.
+        /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
 

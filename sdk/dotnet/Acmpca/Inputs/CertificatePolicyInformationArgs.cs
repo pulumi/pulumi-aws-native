@@ -10,13 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
+    /// <summary>
+    /// Defines the X.509 ``CertificatePolicies`` extension.
+    /// </summary>
     public sealed class CertificatePolicyInformationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+        /// </summary>
         [Input("certPolicyId", required: true)]
         public Input<string> CertPolicyId { get; set; } = null!;
 
         [Input("policyQualifiers")]
         private InputList<Inputs.CertificatePolicyQualifierInfoArgs>? _policyQualifiers;
+
+        /// <summary>
+        /// Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+        /// </summary>
         public InputList<Inputs.CertificatePolicyQualifierInfoArgs> PolicyQualifiers
         {
             get => _policyQualifiers ?? (_policyQualifiers = new InputList<Inputs.CertificatePolicyQualifierInfoArgs>());

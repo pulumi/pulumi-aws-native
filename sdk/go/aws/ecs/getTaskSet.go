@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,7 @@ type LookupTaskSetResult struct {
 	Id *string `pulumi:"id"`
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set.
 	Scale *TaskSetScale `pulumi:"scale"`
+	Tags  []aws.Tag     `pulumi:"tags"`
 }
 
 func LookupTaskSetOutput(ctx *pulumi.Context, args LookupTaskSetOutputArgs, opts ...pulumi.InvokeOption) LookupTaskSetResultOutput {
@@ -86,6 +88,10 @@ func (o LookupTaskSetResultOutput) Id() pulumi.StringPtrOutput {
 // A floating-point percentage of the desired number of tasks to place and keep running in the task set.
 func (o LookupTaskSetResultOutput) Scale() TaskSetScalePtrOutput {
 	return o.ApplyT(func(v LookupTaskSetResult) *TaskSetScale { return v.Scale }).(TaskSetScalePtrOutput)
+}
+
+func (o LookupTaskSetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTaskSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

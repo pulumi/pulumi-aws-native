@@ -94,6 +94,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
             set => _localStorageTypes = value;
         }
 
+        [Input("maxSpotPriceAsPercentageOfOptimalOnDemandPrice")]
+        public Input<int>? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice { get; set; }
+
         [Input("memoryGiBPerVCpu")]
         public Input<Inputs.Ec2FleetMemoryGiBPerVCpuRequestArgs>? MemoryGiBPerVCpu { get; set; }
 

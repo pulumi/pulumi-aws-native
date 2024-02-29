@@ -301,6 +301,8 @@ class DbInstanceCertificateDetailsArgs:
                  ca_identifier: Optional[pulumi.Input[str]] = None,
                  valid_till: Optional[pulumi.Input[str]] = None):
         """
+        Returns the details of the DB instance’s server certificate.
+         For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
         :param pulumi.Input[str] ca_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
         :param pulumi.Input[str] valid_till: The expiration date of the DB instance’s server certificate.
         """
@@ -340,7 +342,8 @@ class DbInstanceDbInstanceRoleArgs:
                  feature_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        Information about an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
+        :param pulumi.Input[str] feature_name: The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
         """
         pulumi.set(__self__, "feature_name", feature_name)
@@ -350,7 +353,7 @@ class DbInstanceDbInstanceRoleArgs:
     @pulumi.getter(name="featureName")
     def feature_name(self) -> pulumi.Input[str]:
         """
-        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
+        The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf. For the list of supported feature names, see the ``SupportedFeatureNames`` description in [DBEngineVersion](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html) in the *Amazon RDS API Reference*.
         """
         return pulumi.get(self, "feature_name")
 
@@ -378,6 +381,12 @@ class DbInstanceEndpointArgs:
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None):
         """
+        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+          +   ``CreateDBInstance`` 
+          +   ``DescribeDBInstances`` 
+          +   ``DeleteDBInstance`` 
+          
+         For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
         :param pulumi.Input[str] address: Specifies the DNS address of the DB instance.
         :param pulumi.Input[str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param pulumi.Input[str] port: Specifies the port that the database engine is listening on.
@@ -432,6 +441,8 @@ class DbInstanceMasterUserSecretArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None):
         """
+        The ``MasterUserSecret`` return value specifies the secret managed by RDS in AWS Secrets Manager for the master user password.
+         For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
         """
@@ -471,7 +482,8 @@ class DbInstanceProcessorFeatureArgs:
                  name: Optional[pulumi.Input['DbInstanceProcessorFeatureName']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['DbInstanceProcessorFeatureName'] name: The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+        :param pulumi.Input['DbInstanceProcessorFeatureName'] name: The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         :param pulumi.Input[str] value: The value of a processor feature name.
         """
         if name is not None:
@@ -483,7 +495,7 @@ class DbInstanceProcessorFeatureArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input['DbInstanceProcessorFeatureName']]:
         """
-        The name of the processor feature. Valid names are coreCount and threadsPerCore.
+        The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.
         """
         return pulumi.get(self, "name")
 

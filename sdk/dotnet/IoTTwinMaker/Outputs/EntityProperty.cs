@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
 {
 
+    /// <summary>
+    /// An object that specifies information about a property.
+    /// </summary>
     [OutputType]
     public sealed class EntityProperty
     {
         /// <summary>
-        /// An object that specifies information about a property.
+        /// The definition of the property.
         /// </summary>
-        public readonly Outputs.EntityPropertyDefinitionProperties? Definition;
+        public readonly Outputs.EntityDefinition? Definition;
         /// <summary>
         /// The value of the property.
         /// </summary>
@@ -24,7 +27,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
 
         [OutputConstructor]
         private EntityProperty(
-            Outputs.EntityPropertyDefinitionProperties? definition,
+            Outputs.EntityDefinition? definition,
 
             Outputs.EntityDataValue? value)
         {

@@ -26,9 +26,6 @@ class GetPermissionResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        A statement identifier that differentiates the statement from others in the same policy.
-        """
         return pulumi.get(self, "id")
 
 
@@ -45,11 +42,18 @@ def get_permission(function_name: Optional[str] = None,
                    id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionResult:
     """
-    Resource Type definition for AWS::Lambda::Permission
+    The ``AWS::Lambda::Permission`` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
+     To grant permission to another account, specify the account ID as the ``Principal``. To grant permission to an organization defined in AOlong, specify the organization ID as the ``PrincipalOrgID``. For AWS services, the principal is a domain-style identifier defined by the service, like ``s3.amazonaws.com`` or ``sns.amazonaws.com``. For AWS services, you can also specify the ARN of the associated resource as the ``SourceArn``. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
+     If your function has a fu
 
 
     :param str function_name: The name of the Lambda function, version, or alias.
-    :param str id: A statement identifier that differentiates the statement from others in the same policy.
+             **Name formats**
+            +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+             +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+             +   *Partial ARN* – ``123456789012:function:my-function``.
+             
+            You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -66,10 +70,17 @@ def get_permission_output(function_name: Optional[pulumi.Input[str]] = None,
                           id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionResult]:
     """
-    Resource Type definition for AWS::Lambda::Permission
+    The ``AWS::Lambda::Permission`` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
+     To grant permission to another account, specify the account ID as the ``Principal``. To grant permission to an organization defined in AOlong, specify the organization ID as the ``PrincipalOrgID``. For AWS services, the principal is a domain-style identifier defined by the service, like ``s3.amazonaws.com`` or ``sns.amazonaws.com``. For AWS services, you can also specify the ARN of the associated resource as the ``SourceArn``. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
+     If your function has a fu
 
 
     :param str function_name: The name of the Lambda function, version, or alias.
-    :param str id: A statement identifier that differentiates the statement from others in the same policy.
+             **Name formats**
+            +   *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
+             +   *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
+             +   *Partial ARN* – ``123456789012:function:my-function``.
+             
+            You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
     """
     ...

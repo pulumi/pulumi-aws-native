@@ -67,6 +67,7 @@ export class TaskSet extends pulumi.CustomResource {
      * The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
      */
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.TaskSetServiceRegistry[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
      */
@@ -101,6 +102,7 @@ export class TaskSet extends pulumi.CustomResource {
             resourceInputs["scale"] = args ? args.scale : undefined;
             resourceInputs["service"] = args ? args.service : undefined;
             resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
         } else {
             resourceInputs["cluster"] = undefined /*out*/;
@@ -112,6 +114,7 @@ export class TaskSet extends pulumi.CustomResource {
             resourceInputs["scale"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;
             resourceInputs["serviceRegistries"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["taskDefinition"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -155,6 +158,7 @@ export interface TaskSetArgs {
      * The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
      */
     serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetServiceRegistryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
      */

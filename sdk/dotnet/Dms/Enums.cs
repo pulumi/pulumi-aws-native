@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.Dms
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DataProviderEngine Postgresql { get; } = new DataProviderEngine("postgresql");
+        public static DataProviderEngine Postgres { get; } = new DataProviderEngine("postgres");
         public static DataProviderEngine Mysql { get; } = new DataProviderEngine("mysql");
         public static DataProviderEngine Oracle { get; } = new DataProviderEngine("oracle");
         public static DataProviderEngine Sqlserver { get; } = new DataProviderEngine("sqlserver");

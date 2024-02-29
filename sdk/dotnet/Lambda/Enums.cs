@@ -162,7 +162,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// Application log granularity level, can only be used when LogFormat is set to JSON
+    /// Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
     /// </summary>
     [EnumType]
     public readonly struct FunctionLoggingConfigApplicationLogLevel : IEquatable<FunctionLoggingConfigApplicationLogLevel>
@@ -197,7 +197,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// Log delivery format for the lambda function
+    /// The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
     /// </summary>
     [EnumType]
     public readonly struct FunctionLoggingConfigLogFormat : IEquatable<FunctionLoggingConfigLogFormat>
@@ -228,7 +228,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// System log granularity level, can only be used when LogFormat is set to JSON
+    /// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
     /// </summary>
     [EnumType]
     public readonly struct FunctionLoggingConfigSystemLogLevel : IEquatable<FunctionLoggingConfigSystemLogLevel>
@@ -260,7 +260,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// PackageType.
+    /// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
     /// </summary>
     [EnumType]
     public readonly struct FunctionPackageType : IEquatable<FunctionPackageType>
@@ -291,7 +291,10 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// Trigger for runtime update
+    /// Specify the runtime update mode.
+    ///   + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+    ///  + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+    ///  + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
     /// </summary>
     [EnumType]
     public readonly struct FunctionRuntimeManagementConfigUpdateRuntimeOn : IEquatable<FunctionRuntimeManagementConfigUpdateRuntimeOn>
@@ -323,7 +326,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// Applying SnapStart setting on function resource type.
+    /// Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
     /// </summary>
     [EnumType]
     public readonly struct FunctionSnapStartApplyOn : IEquatable<FunctionSnapStartApplyOn>
@@ -354,7 +357,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// Applying SnapStart setting on function resource type.
+    /// When set to ``PublishedVersions``, Lambda creates a snapshot of the execution environment when you publish a function version.
     /// </summary>
     [EnumType]
     public readonly struct FunctionSnapStartResponseApplyOn : IEquatable<FunctionSnapStartResponseApplyOn>
@@ -385,7 +388,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// Indicates whether SnapStart is activated for the specified function version.
+    /// When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
     /// </summary>
     [EnumType]
     public readonly struct FunctionSnapStartResponseOptimizationStatus : IEquatable<FunctionSnapStartResponseOptimizationStatus>
@@ -447,7 +450,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// The type of authentication that your function URL uses. Set to AWS_IAM if you want to restrict access to authenticated users only. Set to NONE if you want to bypass IAM authentication to create a public endpoint.
+    /// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
     /// </summary>
     [EnumType]
     public readonly struct PermissionFunctionUrlAuthType : IEquatable<PermissionFunctionUrlAuthType>

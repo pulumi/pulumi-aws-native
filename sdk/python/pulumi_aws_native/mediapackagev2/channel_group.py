@@ -21,6 +21,7 @@ class ChannelGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ChannelGroup resource.
+        :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the channel group.</p>
         """
         if channel_group_name is not None:
             pulumi.set(__self__, "channel_group_name", channel_group_name)
@@ -41,6 +42,9 @@ class ChannelGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>Enter any descriptive text that helps you to identify the channel group.</p>
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -67,10 +71,11 @@ class ChannelGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+        <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the channel group.</p>
         """
         ...
     @overload
@@ -79,7 +84,7 @@ class ChannelGroup(pulumi.CustomResource):
                  args: Optional[ChannelGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
+        <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
 
         :param str resource_name: The name of the resource.
         :param ChannelGroupArgs args: The arguments to use to populate this resource's properties.
@@ -151,31 +156,46 @@ class ChannelGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="channelGroupName")
-    def channel_group_name(self) -> pulumi.Output[Optional[str]]:
+    def channel_group_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "channel_group_name")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        <p>The date and time the channel group was created.</p>
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        <p>Enter any descriptive text that helps you to identify the channel group.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="egressDomain")
     def egress_domain(self) -> pulumi.Output[str]:
+        """
+        <p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>
+        """
         return pulumi.get(self, "egress_domain")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        <p>The date and time the channel group was modified.</p>
+        """
         return pulumi.get(self, "modified_at")
 
     @property

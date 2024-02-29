@@ -18,23 +18,22 @@ import (
 type ClientVpnEndpoint struct {
 	pulumi.CustomResourceState
 
-	AuthenticationOptions        ClientVpnEndpointClientAuthenticationRequestArrayOutput `pulumi:"authenticationOptions"`
-	ClientCidrBlock              pulumi.StringOutput                                     `pulumi:"clientCidrBlock"`
-	ClientConnectOptions         ClientVpnEndpointClientConnectOptionsPtrOutput          `pulumi:"clientConnectOptions"`
-	ClientLoginBannerOptions     ClientVpnEndpointClientLoginBannerOptionsPtrOutput      `pulumi:"clientLoginBannerOptions"`
-	ClientRouteMonitoringOptions ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput  `pulumi:"clientRouteMonitoringOptions"`
-	ConnectionLogOptions         ClientVpnEndpointConnectionLogOptionsOutput             `pulumi:"connectionLogOptions"`
-	Description                  pulumi.StringPtrOutput                                  `pulumi:"description"`
-	DnsServers                   pulumi.StringArrayOutput                                `pulumi:"dnsServers"`
-	SecurityGroupIds             pulumi.StringArrayOutput                                `pulumi:"securityGroupIds"`
-	SelfServicePortal            pulumi.StringPtrOutput                                  `pulumi:"selfServicePortal"`
-	ServerCertificateArn         pulumi.StringOutput                                     `pulumi:"serverCertificateArn"`
-	SessionTimeoutHours          pulumi.IntPtrOutput                                     `pulumi:"sessionTimeoutHours"`
-	SplitTunnel                  pulumi.BoolPtrOutput                                    `pulumi:"splitTunnel"`
-	TagSpecifications            ClientVpnEndpointTagSpecificationArrayOutput            `pulumi:"tagSpecifications"`
-	TransportProtocol            pulumi.StringPtrOutput                                  `pulumi:"transportProtocol"`
-	VpcId                        pulumi.StringPtrOutput                                  `pulumi:"vpcId"`
-	VpnPort                      pulumi.IntPtrOutput                                     `pulumi:"vpnPort"`
+	AuthenticationOptions    ClientVpnEndpointClientAuthenticationRequestArrayOutput `pulumi:"authenticationOptions"`
+	ClientCidrBlock          pulumi.StringOutput                                     `pulumi:"clientCidrBlock"`
+	ClientConnectOptions     ClientVpnEndpointClientConnectOptionsPtrOutput          `pulumi:"clientConnectOptions"`
+	ClientLoginBannerOptions ClientVpnEndpointClientLoginBannerOptionsPtrOutput      `pulumi:"clientLoginBannerOptions"`
+	ConnectionLogOptions     ClientVpnEndpointConnectionLogOptionsOutput             `pulumi:"connectionLogOptions"`
+	Description              pulumi.StringPtrOutput                                  `pulumi:"description"`
+	DnsServers               pulumi.StringArrayOutput                                `pulumi:"dnsServers"`
+	SecurityGroupIds         pulumi.StringArrayOutput                                `pulumi:"securityGroupIds"`
+	SelfServicePortal        pulumi.StringPtrOutput                                  `pulumi:"selfServicePortal"`
+	ServerCertificateArn     pulumi.StringOutput                                     `pulumi:"serverCertificateArn"`
+	SessionTimeoutHours      pulumi.IntPtrOutput                                     `pulumi:"sessionTimeoutHours"`
+	SplitTunnel              pulumi.BoolPtrOutput                                    `pulumi:"splitTunnel"`
+	TagSpecifications        ClientVpnEndpointTagSpecificationArrayOutput            `pulumi:"tagSpecifications"`
+	TransportProtocol        pulumi.StringPtrOutput                                  `pulumi:"transportProtocol"`
+	VpcId                    pulumi.StringPtrOutput                                  `pulumi:"vpcId"`
+	VpnPort                  pulumi.IntPtrOutput                                     `pulumi:"vpnPort"`
 }
 
 // NewClientVpnEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -96,44 +95,42 @@ func (ClientVpnEndpointState) ElementType() reflect.Type {
 }
 
 type clientVpnEndpointArgs struct {
-	AuthenticationOptions        []ClientVpnEndpointClientAuthenticationRequest `pulumi:"authenticationOptions"`
-	ClientCidrBlock              string                                         `pulumi:"clientCidrBlock"`
-	ClientConnectOptions         *ClientVpnEndpointClientConnectOptions         `pulumi:"clientConnectOptions"`
-	ClientLoginBannerOptions     *ClientVpnEndpointClientLoginBannerOptions     `pulumi:"clientLoginBannerOptions"`
-	ClientRouteMonitoringOptions *ClientVpnEndpointClientRouteMonitoringOptions `pulumi:"clientRouteMonitoringOptions"`
-	ConnectionLogOptions         ClientVpnEndpointConnectionLogOptions          `pulumi:"connectionLogOptions"`
-	Description                  *string                                        `pulumi:"description"`
-	DnsServers                   []string                                       `pulumi:"dnsServers"`
-	SecurityGroupIds             []string                                       `pulumi:"securityGroupIds"`
-	SelfServicePortal            *string                                        `pulumi:"selfServicePortal"`
-	ServerCertificateArn         string                                         `pulumi:"serverCertificateArn"`
-	SessionTimeoutHours          *int                                           `pulumi:"sessionTimeoutHours"`
-	SplitTunnel                  *bool                                          `pulumi:"splitTunnel"`
-	TagSpecifications            []ClientVpnEndpointTagSpecification            `pulumi:"tagSpecifications"`
-	TransportProtocol            *string                                        `pulumi:"transportProtocol"`
-	VpcId                        *string                                        `pulumi:"vpcId"`
-	VpnPort                      *int                                           `pulumi:"vpnPort"`
+	AuthenticationOptions    []ClientVpnEndpointClientAuthenticationRequest `pulumi:"authenticationOptions"`
+	ClientCidrBlock          string                                         `pulumi:"clientCidrBlock"`
+	ClientConnectOptions     *ClientVpnEndpointClientConnectOptions         `pulumi:"clientConnectOptions"`
+	ClientLoginBannerOptions *ClientVpnEndpointClientLoginBannerOptions     `pulumi:"clientLoginBannerOptions"`
+	ConnectionLogOptions     ClientVpnEndpointConnectionLogOptions          `pulumi:"connectionLogOptions"`
+	Description              *string                                        `pulumi:"description"`
+	DnsServers               []string                                       `pulumi:"dnsServers"`
+	SecurityGroupIds         []string                                       `pulumi:"securityGroupIds"`
+	SelfServicePortal        *string                                        `pulumi:"selfServicePortal"`
+	ServerCertificateArn     string                                         `pulumi:"serverCertificateArn"`
+	SessionTimeoutHours      *int                                           `pulumi:"sessionTimeoutHours"`
+	SplitTunnel              *bool                                          `pulumi:"splitTunnel"`
+	TagSpecifications        []ClientVpnEndpointTagSpecification            `pulumi:"tagSpecifications"`
+	TransportProtocol        *string                                        `pulumi:"transportProtocol"`
+	VpcId                    *string                                        `pulumi:"vpcId"`
+	VpnPort                  *int                                           `pulumi:"vpnPort"`
 }
 
 // The set of arguments for constructing a ClientVpnEndpoint resource.
 type ClientVpnEndpointArgs struct {
-	AuthenticationOptions        ClientVpnEndpointClientAuthenticationRequestArrayInput
-	ClientCidrBlock              pulumi.StringInput
-	ClientConnectOptions         ClientVpnEndpointClientConnectOptionsPtrInput
-	ClientLoginBannerOptions     ClientVpnEndpointClientLoginBannerOptionsPtrInput
-	ClientRouteMonitoringOptions ClientVpnEndpointClientRouteMonitoringOptionsPtrInput
-	ConnectionLogOptions         ClientVpnEndpointConnectionLogOptionsInput
-	Description                  pulumi.StringPtrInput
-	DnsServers                   pulumi.StringArrayInput
-	SecurityGroupIds             pulumi.StringArrayInput
-	SelfServicePortal            pulumi.StringPtrInput
-	ServerCertificateArn         pulumi.StringInput
-	SessionTimeoutHours          pulumi.IntPtrInput
-	SplitTunnel                  pulumi.BoolPtrInput
-	TagSpecifications            ClientVpnEndpointTagSpecificationArrayInput
-	TransportProtocol            pulumi.StringPtrInput
-	VpcId                        pulumi.StringPtrInput
-	VpnPort                      pulumi.IntPtrInput
+	AuthenticationOptions    ClientVpnEndpointClientAuthenticationRequestArrayInput
+	ClientCidrBlock          pulumi.StringInput
+	ClientConnectOptions     ClientVpnEndpointClientConnectOptionsPtrInput
+	ClientLoginBannerOptions ClientVpnEndpointClientLoginBannerOptionsPtrInput
+	ConnectionLogOptions     ClientVpnEndpointConnectionLogOptionsInput
+	Description              pulumi.StringPtrInput
+	DnsServers               pulumi.StringArrayInput
+	SecurityGroupIds         pulumi.StringArrayInput
+	SelfServicePortal        pulumi.StringPtrInput
+	ServerCertificateArn     pulumi.StringInput
+	SessionTimeoutHours      pulumi.IntPtrInput
+	SplitTunnel              pulumi.BoolPtrInput
+	TagSpecifications        ClientVpnEndpointTagSpecificationArrayInput
+	TransportProtocol        pulumi.StringPtrInput
+	VpcId                    pulumi.StringPtrInput
+	VpnPort                  pulumi.IntPtrInput
 }
 
 func (ClientVpnEndpointArgs) ElementType() reflect.Type {
@@ -193,12 +190,6 @@ func (o ClientVpnEndpointOutput) ClientLoginBannerOptions() ClientVpnEndpointCli
 	return o.ApplyT(func(v *ClientVpnEndpoint) ClientVpnEndpointClientLoginBannerOptionsPtrOutput {
 		return v.ClientLoginBannerOptions
 	}).(ClientVpnEndpointClientLoginBannerOptionsPtrOutput)
-}
-
-func (o ClientVpnEndpointOutput) ClientRouteMonitoringOptions() ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-	return o.ApplyT(func(v *ClientVpnEndpoint) ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput {
-		return v.ClientRouteMonitoringOptions
-	}).(ClientVpnEndpointClientRouteMonitoringOptionsPtrOutput)
 }
 
 func (o ClientVpnEndpointOutput) ConnectionLogOptions() ClientVpnEndpointConnectionLogOptionsOutput {

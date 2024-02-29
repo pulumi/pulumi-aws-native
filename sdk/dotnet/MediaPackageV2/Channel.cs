@@ -10,29 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackageV2
 {
     /// <summary>
-    /// Definition of AWS::MediaPackageV2::Channel Resource Type
+    /// &lt;p&gt;Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.&lt;/p&gt;
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackagev2:Channel")]
     public partial class Channel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) associated with the resource.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("channelGroupName")]
-        public Output<string?> ChannelGroupName { get; private set; } = null!;
+        public Output<string> ChannelGroupName { get; private set; } = null!;
 
         [Output("channelName")]
-        public Output<string?> ChannelName { get; private set; } = null!;
+        public Output<string> ChannelName { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The date and time the channel was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Enter any descriptive text that helps you to identify the channel.&lt;/p&gt;
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The list of ingest endpoints.&lt;/p&gt;
+        /// </summary>
         [Output("ingestEndpoints")]
         public Output<ImmutableArray<Outputs.ChannelIngestEndpoint>> IngestEndpoints { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The date and time the channel was modified.&lt;/p&gt;
+        /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
 
@@ -47,7 +62,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Channel(string name, ChannelArgs? args = null, CustomResourceOptions? options = null)
+        public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
             : base("aws-native:mediapackagev2:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -89,12 +104,15 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
     public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
-        [Input("channelGroupName")]
-        public Input<string>? ChannelGroupName { get; set; }
+        [Input("channelGroupName", required: true)]
+        public Input<string> ChannelGroupName { get; set; } = null!;
 
         [Input("channelName")]
         public Input<string>? ChannelName { get; set; }
 
+        /// <summary>
+        /// &lt;p&gt;Enter any descriptive text that helps you to identify the channel.&lt;/p&gt;
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

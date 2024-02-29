@@ -99,6 +99,18 @@
         }
       },
       "additionalProperties" : false
+    },
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -147,6 +159,12 @@
         "$ref" : "#/definitions/ServiceRegistry"
       }
     },
+    "Tags" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
+    },
     "TaskDefinition" : {
       "description" : "The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.",
       "type" : "string"
@@ -154,9 +172,9 @@
   },
   "required" : [ "Cluster", "Service", "TaskDefinition" ],
   "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : false
   },
   "createOnlyProperties" : [ "/properties/Cluster", "/properties/ExternalId", "/properties/LaunchType", "/properties/LoadBalancers", "/properties/NetworkConfiguration", "/properties/PlatformVersion", "/properties/Service", "/properties/ServiceRegistries", "/properties/TaskDefinition" ],
@@ -164,13 +182,13 @@
   "primaryIdentifier" : [ "/properties/Cluster", "/properties/Service", "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ecs:CreateTaskSet", "ecs:DescribeTaskSets" ]
+      "permissions" : [ "ecs:CreateTaskSet", "ecs:DescribeTaskSets", "ecs:TagResource" ]
     },
     "read" : {
       "permissions" : [ "ecs:DescribeTaskSets" ]
     },
     "update" : {
-      "permissions" : [ "ecs:UpdateTaskSet", "ecs:DescribeTaskSets" ]
+      "permissions" : [ "ecs:DescribeTaskSets", "ecs:TagResource", "ecs:UntagResource", "ecs:UpdateTaskSet" ]
     },
     "delete" : {
       "permissions" : [ "ecs:DeleteTaskSet", "ecs:DescribeTaskSets" ]

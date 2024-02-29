@@ -24,7 +24,14 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// The prefix that an object must have to be included in the analytics results.
         /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
+        /// </summary>
         public readonly Outputs.BucketStorageClassAnalysis StorageClassAnalysis;
+        /// <summary>
+        /// The tags to use when evaluating an analytics filter.
+        ///  The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BucketTagFilter> TagFilters;
 
         [OutputConstructor]

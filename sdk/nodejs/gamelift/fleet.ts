@@ -42,7 +42,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly anywhereConfiguration!: pulumi.Output<outputs.gamelift.FleetAnywhereConfiguration | undefined>;
     /**
-     * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+     * Determines whether to apply fleet or location capacities on fleet creation.
      */
     public readonly applyCapacity!: pulumi.Output<enums.gamelift.FleetApplyCapacity | undefined>;
     /**
@@ -236,7 +236,7 @@ export interface FleetArgs {
      */
     anywhereConfiguration?: pulumi.Input<inputs.gamelift.FleetAnywhereConfigurationArgs>;
     /**
-     * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+     * Determines whether to apply fleet or location capacities on fleet creation.
      */
     applyCapacity?: pulumi.Input<enums.gamelift.FleetApplyCapacity>;
     /**

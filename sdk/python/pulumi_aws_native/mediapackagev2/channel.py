@@ -17,15 +17,15 @@ __all__ = ['ChannelArgs', 'Channel']
 @pulumi.input_type
 class ChannelArgs:
     def __init__(__self__, *,
-                 channel_group_name: Optional[pulumi.Input[str]] = None,
+                 channel_group_name: pulumi.Input[str],
                  channel_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
+        :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the channel.</p>
         """
-        if channel_group_name is not None:
-            pulumi.set(__self__, "channel_group_name", channel_group_name)
+        pulumi.set(__self__, "channel_group_name", channel_group_name)
         if channel_name is not None:
             pulumi.set(__self__, "channel_name", channel_name)
         if description is not None:
@@ -35,11 +35,11 @@ class ChannelArgs:
 
     @property
     @pulumi.getter(name="channelGroupName")
-    def channel_group_name(self) -> Optional[pulumi.Input[str]]:
+    def channel_group_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "channel_group_name")
 
     @channel_group_name.setter
-    def channel_group_name(self, value: Optional[pulumi.Input[str]]):
+    def channel_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_group_name", value)
 
     @property
@@ -54,6 +54,9 @@ class ChannelArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>Enter any descriptive text that helps you to identify the channel.</p>
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -81,19 +84,20 @@ class Channel(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        Definition of AWS::MediaPackageV2::Channel Resource Type
+        <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: <p>Enter any descriptive text that helps you to identify the channel.</p>
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ChannelArgs] = None,
+                 args: ChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::MediaPackageV2::Channel Resource Type
+        <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.
@@ -123,6 +127,8 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
+            if channel_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'channel_group_name'")
             __props__.__dict__["channel_group_name"] = channel_group_name
             __props__.__dict__["channel_name"] = channel_name
             __props__.__dict__["description"] = description
@@ -168,36 +174,51 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) associated with the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="channelGroupName")
-    def channel_group_name(self) -> pulumi.Output[Optional[str]]:
+    def channel_group_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "channel_group_name")
 
     @property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Output[Optional[str]]:
+    def channel_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "channel_name")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        <p>The date and time the channel was created.</p>
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        <p>Enter any descriptive text that helps you to identify the channel.</p>
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ingestEndpoints")
     def ingest_endpoints(self) -> pulumi.Output[Sequence['outputs.ChannelIngestEndpoint']]:
+        """
+        <p>The list of ingest endpoints.</p>
+        """
         return pulumi.get(self, "ingest_endpoints")
 
     @property
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> pulumi.Output[str]:
+        """
+        <p>The date and time the channel was modified.</p>
+        """
         return pulumi.get(self, "modified_at")
 
     @property
