@@ -992,6 +992,8 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 
 // propertyTypeSpec converts a JSON type definition to a Pulumi type definition.
 func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
+	propSchema = NormaliseTypes(propSchema)
+
 	// References to other type definitions.
 	if propSchema.Reference != "" {
 		schemaName := strings.TrimPrefix(propSchema.Reference, "#/definitions/")
@@ -1205,35 +1207,53 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		}, nil
 	}
 
-	// All other types.
-	if len(propSchema.Type) > 0 {
-		switch propSchema.Type[0] {
-		case jsschema.IntegerType:
-			return &pschema.TypeSpec{Type: "integer"}, nil
-		case jsschema.StringType:
-			return &pschema.TypeSpec{Type: "string"}, nil
-		case jsschema.BooleanType:
-			return &pschema.TypeSpec{Type: "boolean"}, nil
-		case jsschema.NumberType:
-			return &pschema.TypeSpec{Type: "number"}, nil
-		case jsschema.ObjectType:
-			return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
-		case jsschema.ArrayType:
-			elementType, err := ctx.propertyTypeSpec(parentName+"Item", propSchema.Items.Schemas[0])
-			if err != nil {
-				return nil, err
-			}
-			return &pschema.TypeSpec{
-				Type:  "array",
-				Items: elementType,
-			}, nil
-		default:
-			return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
+	if propSchema.Items != nil {
+		elementType, err := ctx.propertyTypeSpec(parentName+"Item", propSchema.Items.Schemas[0])
+		if err != nil {
+			return nil, err
 		}
+		return &pschema.TypeSpec{
+			Type:  "array",
+			Items: elementType,
+		}, nil
+	}
+
+	// All other types.
+	if len(propSchema.Type) == 1 {
+		typeSpec := parseJsonType(propSchema.Type[0])
+		return &typeSpec, nil
+	}
+
+	if len(propSchema.Type) > 1 {
+		specs := make([]pschema.TypeSpec, len(propSchema.Type))
+		for i, t := range propSchema.Type {
+			specs[i] = parseJsonType(t)
+		}
+		return &pschema.TypeSpec{OneOf: specs}, nil
 	}
 
 	fmt.Printf("failed to generate property types for %+v\n", propSchema)
 	return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
+}
+
+// parseJsonType converts a JSON type with no additional information to a Pulumi type.
+func parseJsonType(t jsschema.PrimitiveType) pschema.TypeSpec {
+	switch t {
+	case jsschema.StringType:
+		return pschema.TypeSpec{Type: "string"}
+	case jsschema.IntegerType:
+		return pschema.TypeSpec{Type: "integer"}
+	case jsschema.NumberType:
+		return pschema.TypeSpec{Type: "number"}
+	case jsschema.BooleanType:
+		return pschema.TypeSpec{Type: "boolean"}
+	case jsschema.ArrayType:
+		return pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Ref: "pulumi.json#/Any"}}
+	case jsschema.ObjectType:
+		return pschema.TypeSpec{Ref: "pulumi.json#/Any"}
+	default:
+		return pschema.TypeSpec{Ref: "pulumi.json#/Any"}
+	}
 }
 
 func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
