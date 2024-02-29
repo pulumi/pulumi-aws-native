@@ -314,6 +314,8 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		}
 	}
 
+	// Environment variables are checked by the AWS SDK by default as a fallback after explicitly defined config.
+	// See https://github.com/pulumi/pulumi-aws-native/pull/1378
 	var accessKey, secretKey, token string
 
 	if v, ok := varsOrEnv(vars, "aws-native:config:accessKey"); ok {
