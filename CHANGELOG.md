@@ -2,12 +2,51 @@
 
 ## Unreleased
 
+## 0.98.0 (2024-02-29)
+
 - **BREAKING CHANGE**: [De-duplicate types for simple arrays of tags](https://github.com/pulumi/pulumi-aws-native/pull/1348)
   - See PR for a complete list of resources affected (512)
 - [Add types for 9 untyped properties](https://github.com/pulumi/pulumi-aws-native/pull/1365)
 - [Fix generating types for refs to map types](https://github.com/pulumi/pulumi-aws-native/pull/1363)
 - [Implement defaultTags configuration](https://github.com/pulumi/pulumi-aws-native/issues/1369)
 - [Fix handling of write-only properties](https://github.com/pulumi/pulumi-aws-native/pull/1377)
+
+#### Resources
+- `🟢` "aws-native:customerprofiles:Domain": required inputs: "defaultExpirationDays" input has changed to Required
+- `🟢` "aws-native:customerprofiles:ObjectType": required inputs: "description" input has changed to Required
+- "aws-native:dynamodb:Table":
+    - `🟡` inputs: "resourcePolicy" missing
+    - `🟡` properties: "resourcePolicy" missing output "resourcePolicy"
+- `🟢` "aws-native:mediapackagev2:Channel": required inputs: "channelGroupName" input has changed to Required
+- "aws-native:mediapackagev2:ChannelPolicy": required inputs:
+    - `🟢` "channelGroupName" input has changed to Required
+    - `🟢` "channelName" input has changed to Required
+- "aws-native:mediapackagev2:OriginEndpoint":
+    - `🟢` required: "containerType" property is no longer Required
+    - required inputs:
+        - `🟢` "channelGroupName" input has changed to Required
+        - `🟢` "channelName" input has changed to Required
+- "aws-native:mediapackagev2:OriginEndpointPolicy": required inputs:
+    - `🟢` "channelGroupName" input has changed to Required
+    - `🟢` "channelName" input has changed to Required
+    - `🟢` "originEndpointName" input has changed to Required
+#### Types
+- `🔴` "aws-native:dynamodb:TableResourcePolicy" missing
+- `🟡` "aws-native:dynamodb:TableStreamSpecification": properties: "resourcePolicy" missing
+- `🟡` "aws-native:iottwinmaker:EntityProperty": properties: "definition" type changed from "#/types/aws-native:iottwinmaker:EntityPropertyDefinitionProperties" to "#/types/aws-native:iottwinmaker:EntityDefinition"
+- `🔴` "aws-native:iottwinmaker:EntityPropertyDefinitionProperties" missing
+
+#### New resources:
+
+- `controltower.EnabledBaseline`
+- `guardduty.Master`
+- `guardduty.Member`
+
+#### New functions:
+
+- `controltower.getEnabledBaseline`
+- `guardduty.getMember`
+<!-- thollander/actions-comment-pull-request "schemaCheck" -->
 
 ## 0.97.0 (2024-02-21)
 
