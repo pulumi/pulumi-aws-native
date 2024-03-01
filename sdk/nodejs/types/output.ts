@@ -14729,7 +14729,7 @@ export namespace ecs {
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategy {
         base?: number;
-        capacityProvider: enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string | string;
+        capacityProvider: enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string;
         weight?: number;
     }
 

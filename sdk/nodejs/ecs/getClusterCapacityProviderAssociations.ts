@@ -23,7 +23,7 @@ export interface GetClusterCapacityProviderAssociationsArgs {
 }
 
 export interface GetClusterCapacityProviderAssociationsResult {
-    readonly capacityProviders?: (enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string | string)[];
+    readonly capacityProviders?: (enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string)[];
     readonly defaultCapacityProviderStrategy?: outputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategy[];
 }
 /**

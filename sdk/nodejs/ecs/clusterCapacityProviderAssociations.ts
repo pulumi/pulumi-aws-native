@@ -37,7 +37,7 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterCapacityProviderAssociations.__pulumiType;
     }
 
-    public readonly capacityProviders!: pulumi.Output<(enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string | string)[]>;
+    public readonly capacityProviders!: pulumi.Output<(enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string)[]>;
     public readonly cluster!: pulumi.Output<string>;
     public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategy[]>;
 
@@ -80,7 +80,7 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
  * The set of arguments for constructing a ClusterCapacityProviderAssociations resource.
  */
 export interface ClusterCapacityProviderAssociationsArgs {
-    capacityProviders: pulumi.Input<pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | pulumi.Input<string> | pulumi.Input<string>>[]>;
+    capacityProviders: pulumi.Input<pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>[]>;
     cluster: pulumi.Input<string>;
     defaultCapacityProviderStrategy: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs>[]>;
 }

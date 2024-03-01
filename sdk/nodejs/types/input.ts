@@ -14479,7 +14479,7 @@ export namespace ecs {
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs {
         base?: pulumi.Input<number>;
-        capacityProvider: pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | pulumi.Input<string> | pulumi.Input<string>>;
+        capacityProvider: pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>;
         weight?: pulumi.Input<number>;
     }
 

@@ -17,7 +17,7 @@ __all__ = ['ClusterCapacityProviderAssociationsArgs', 'ClusterCapacityProviderAs
 @pulumi.input_type
 class ClusterCapacityProviderAssociationsArgs:
     def __init__(__self__, *,
-                 capacity_providers: pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', pulumi.Input[str]]]]],
+                 capacity_providers: pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]],
                  cluster: pulumi.Input[str],
                  default_capacity_provider_strategy: pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]):
         """
@@ -29,11 +29,11 @@ class ClusterCapacityProviderAssociationsArgs:
 
     @property
     @pulumi.getter(name="capacityProviders")
-    def capacity_providers(self) -> pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', pulumi.Input[str]]]]]:
+    def capacity_providers(self) -> pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]]:
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
-    def capacity_providers(self, value: pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', pulumi.Input[str]]]]]):
+    def capacity_providers(self, value: pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]]):
         pulumi.set(self, "capacity_providers", value)
 
     @property
@@ -60,7 +60,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', pulumi.Input[str]]]]]] = None,
+                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]]] = None,
                  __props__=None):
@@ -94,7 +94,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', pulumi.Input[str]]]]]] = None,
+                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]]] = None,
                  __props__=None):
