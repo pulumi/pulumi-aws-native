@@ -7,8 +7,21 @@
       "description" : "The asset property's definition, alias, unit, and notification state.",
       "type" : "object",
       "additionalProperties" : false,
-      "required" : [ "LogicalId" ],
       "properties" : {
+        "Id" : {
+          "description" : "Customer provided actual UUID for property",
+          "type" : "string",
+          "minLength" : 36,
+          "maxLength" : 36,
+          "pattern" : "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "ExternalId" : {
+          "description" : "String-friendly customer provided external ID",
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 128,
+          "pattern" : "[a-zA-Z0-9_][a-zA-Z_\\-0-9.:]*[a-zA-Z0-9_]+"
+        },
         "LogicalId" : {
           "description" : "Customer provided ID for property.",
           "type" : "string",
@@ -35,8 +48,22 @@
       "description" : "A hierarchy specifies allowed parent/child asset relationships.",
       "type" : "object",
       "additionalProperties" : false,
-      "required" : [ "LogicalId", "ChildAssetId" ],
+      "required" : [ "ChildAssetId" ],
       "properties" : {
+        "Id" : {
+          "description" : "Customer provided actual UUID for property",
+          "type" : "string",
+          "minLength" : 36,
+          "maxLength" : 36,
+          "pattern" : "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "ExternalId" : {
+          "description" : "String-friendly customer provided external ID",
+          "type" : "string",
+          "minLength" : 2,
+          "maxLength" : 128,
+          "pattern" : "[a-zA-Z0-9_][a-zA-Z_\\-0-9.:]*[a-zA-Z0-9_]+"
+        },
         "LogicalId" : {
           "description" : "The LogicalID of a hierarchy in the parent asset's model.",
           "type" : "string",
@@ -67,7 +94,17 @@
   "properties" : {
     "AssetId" : {
       "description" : "The ID of the asset",
-      "type" : "string"
+      "type" : "string",
+      "minLength" : 36,
+      "maxLength" : 36,
+      "pattern" : "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "AssetExternalId" : {
+      "description" : "The External ID of the asset",
+      "type" : "string",
+      "minLength" : 2,
+      "maxLength" : 128,
+      "pattern" : "[a-zA-Z0-9_][a-zA-Z_\\-0-9.:]*[a-zA-Z0-9_]+"
     },
     "AssetModelId" : {
       "description" : "The ID of the asset model from which to create the asset.",
@@ -112,20 +149,21 @@
   "additionalProperties" : false,
   "taggable" : true,
   "required" : [ "AssetName", "AssetModelId" ],
-  "readOnlyProperties" : [ "/properties/AssetArn", "/properties/AssetId" ],
+  "readOnlyProperties" : [ "/properties/AssetArn", "/properties/AssetId", "/properties/AssetProperties/*/Id", "/properties/AssetHierarchies/*/Id" ],
+  "writeOnlyProperties" : [ "/properties/AssetProperties/*/ExternalId", "/properties/AssetHierarchies/*/ExternalId" ],
   "primaryIdentifier" : [ "/properties/AssetId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotsitewise:AssociateAssets", "iotsitewise:CreateAsset", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:UpdateAssetProperty" ]
+      "permissions" : [ "iotsitewise:AssociateAssets", "iotsitewise:CreateAsset", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:ListAssetModelProperties", "iotsitewise:ListAssetProperties", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:UpdateAssetProperty" ]
     },
     "read" : {
-      "permissions" : [ "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListTagsForResource" ]
+      "permissions" : [ "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListAssetModelProperties", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:ListAssetProperties", "iotsitewise:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotsitewise:AssociateAssets", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:DisassociateAssets", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:UpdateAsset", "iotsitewise:UpdateAssetProperty", "iotsitewise:UntagResource" ]
+      "permissions" : [ "iotsitewise:AssociateAssets", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:DisassociateAssets", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:UpdateAsset", "iotsitewise:UpdateAssetProperty", "iotsitewise:ListAssetModelProperties", "iotsitewise:ListAssetProperties", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "iotsitewise:DeleteAsset", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:DisassociateAssets", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListTagsForResource" ]
+      "permissions" : [ "iotsitewise:DeleteAsset", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel", "iotsitewise:DisassociateAssets", "iotsitewise:ListAssociatedAssets", "iotsitewise:ListAssetProperties", "iotsitewise:ListTagsForResource", "iotsitewise:ListAssetModelCompositeModels", "iotsitewise:ListAssetModelProperties", "iotsitewise:ListAssetProperties" ]
     },
     "list" : {
       "permissions" : [ "iotsitewise:ListAssetModels", "iotsitewise:ListAssets" ]
