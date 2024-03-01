@@ -37,8 +37,10 @@ export class ChannelPolicy extends pulumi.CustomResource {
     public readonly channelName!: pulumi.Output<string>;
     /**
      * <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any | string>;
+    public readonly policy!: pulumi.Output<any>;
 
     /**
      * Create a ChannelPolicy resource with the given unique name, arguments, and options.
@@ -77,6 +79,8 @@ export interface ChannelPolicyArgs {
     channelName: pulumi.Input<string>;
     /**
      * <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
      */
-    policy: pulumi.Input<any | string>;
+    policy: any;
 }

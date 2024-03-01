@@ -44,7 +44,10 @@ export class ModelPackageGroup extends pulumi.CustomResource {
     public /*out*/ readonly modelPackageGroupArn!: pulumi.Output<string>;
     public readonly modelPackageGroupDescription!: pulumi.Output<string | undefined>;
     public readonly modelPackageGroupName!: pulumi.Output<string>;
-    public readonly modelPackageGroupPolicy!: pulumi.Output<any | string | undefined>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+     */
+    public readonly modelPackageGroupPolicy!: pulumi.Output<any | undefined>;
     /**
      * The status of a modelpackage group job.
      */
@@ -94,7 +97,10 @@ export class ModelPackageGroup extends pulumi.CustomResource {
 export interface ModelPackageGroupArgs {
     modelPackageGroupDescription?: pulumi.Input<string>;
     modelPackageGroupName?: pulumi.Input<string>;
-    modelPackageGroupPolicy?: pulumi.Input<any | string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+     */
+    modelPackageGroupPolicy?: any;
     /**
      * An array of key-value pairs to apply to this resource.
      */

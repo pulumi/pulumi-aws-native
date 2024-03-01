@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Inputs
     public sealed class EntityStatusArgs : global::Pulumi.ResourceArgs
     {
         [Input("error")]
-        public InputUnion<Input<object>, Inputs.EntityStatusErrorPropertiesArgs>? Error { get; set; }
+        public InputUnion<object, Inputs.EntityStatusErrorPropertiesArgs>? Error { get; set; }
 
         [Input("state")]
         public Input<Pulumi.AwsNative.IoTTwinMaker.EntityStatusState>? State { get; set; }

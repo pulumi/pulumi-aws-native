@@ -73,6 +73,8 @@ class GetVpcEndpointResult:
         """
         An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
          For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. CFNlong converts YAML policies to JSON format before calling the API to create or modify the VPC endpoint.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EC2::VPCEndpoint` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

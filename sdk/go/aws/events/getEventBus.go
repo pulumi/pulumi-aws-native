@@ -32,6 +32,8 @@ type LookupEventBusResult struct {
 	// The Amazon Resource Name (ARN) for the event bus.
 	Arn *string `pulumi:"arn"`
 	// A JSON string that describes the permission policy statement for the event bus.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// Any tags assigned to the event bus.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -79,6 +81,8 @@ func (o LookupEventBusResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // A JSON string that describes the permission policy statement for the event bus.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 func (o LookupEventBusResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupEventBusResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }

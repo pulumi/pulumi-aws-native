@@ -19,7 +19,8 @@ type OriginEndpointPolicy struct {
 	ChannelGroupName   pulumi.StringOutput `pulumi:"channelGroupName"`
 	ChannelName        pulumi.StringOutput `pulumi:"channelName"`
 	OriginEndpointName pulumi.StringOutput `pulumi:"originEndpointName"`
-	Policy             pulumi.AnyOutput    `pulumi:"policy"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+	Policy pulumi.AnyOutput `pulumi:"policy"`
 }
 
 // NewOriginEndpointPolicy registers a new resource with the given unique name, arguments, and options.
@@ -80,10 +81,11 @@ func (OriginEndpointPolicyState) ElementType() reflect.Type {
 }
 
 type originEndpointPolicyArgs struct {
-	ChannelGroupName   string      `pulumi:"channelGroupName"`
-	ChannelName        string      `pulumi:"channelName"`
-	OriginEndpointName string      `pulumi:"originEndpointName"`
-	Policy             interface{} `pulumi:"policy"`
+	ChannelGroupName   string `pulumi:"channelGroupName"`
+	ChannelName        string `pulumi:"channelName"`
+	OriginEndpointName string `pulumi:"originEndpointName"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+	Policy interface{} `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a OriginEndpointPolicy resource.
@@ -91,7 +93,8 @@ type OriginEndpointPolicyArgs struct {
 	ChannelGroupName   pulumi.StringInput
 	ChannelName        pulumi.StringInput
 	OriginEndpointName pulumi.StringInput
-	Policy             pulumi.Input
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+	Policy pulumi.Input
 }
 
 func (OriginEndpointPolicyArgs) ElementType() reflect.Type {
@@ -143,6 +146,7 @@ func (o OriginEndpointPolicyOutput) OriginEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicy) pulumi.StringOutput { return v.OriginEndpointName }).(pulumi.StringOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
 func (o OriginEndpointPolicyOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicy) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

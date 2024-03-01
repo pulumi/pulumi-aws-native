@@ -24,7 +24,10 @@ export interface GetOriginEndpointPolicyArgs {
 }
 
 export interface GetOriginEndpointPolicyResult {
-    readonly policy?: any | string;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+     */
+    readonly policy?: any;
 }
 /**
  * <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>

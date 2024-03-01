@@ -56,7 +56,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly string? CreationTime;
         public readonly string? ModelPackageGroupArn;
-        public readonly Union<object, string>? ModelPackageGroupPolicy;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? ModelPackageGroupPolicy;
         /// <summary>
         /// The status of a modelpackage group job.
         /// </summary>
@@ -72,7 +75,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? modelPackageGroupArn,
 
-            Union<object, string>? modelPackageGroupPolicy,
+            object? modelPackageGroupPolicy,
 
             Pulumi.AwsNative.SageMaker.ModelPackageGroupStatus? modelPackageGroupStatus,
 

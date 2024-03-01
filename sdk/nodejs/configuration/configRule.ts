@@ -60,8 +60,10 @@ export class ConfigRule extends pulumi.CustomResource {
     public readonly evaluationModes!: pulumi.Output<outputs.configuration.ConfigRuleEvaluationModeConfiguration[] | undefined>;
     /**
      * A string, in JSON format, that is passed to the CC rule Lambda function.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
      */
-    public readonly inputParameters!: pulumi.Output<string | any | undefined>;
+    public readonly inputParameters!: pulumi.Output<any | undefined>;
     /**
      * The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
      *   +  You are using an AWS managed rule that is triggered at a periodic frequency.
@@ -145,8 +147,10 @@ export interface ConfigRuleArgs {
     evaluationModes?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigRuleEvaluationModeConfigurationArgs>[]>;
     /**
      * A string, in JSON format, that is passed to the CC rule Lambda function.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
      */
-    inputParameters?: pulumi.Input<string | any>;
+    inputParameters?: any;
     /**
      * The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
      *   +  You are using an AWS managed rule that is triggered at a periodic frequency.

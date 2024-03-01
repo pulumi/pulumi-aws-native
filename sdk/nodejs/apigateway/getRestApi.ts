@@ -54,8 +54,10 @@ export interface GetRestApiResult {
     readonly name?: string;
     /**
      * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
-    readonly policy?: any | string;
+    readonly policy?: any;
     readonly restApiId?: string;
     readonly rootResourceId?: string;
     /**

@@ -14,7 +14,7 @@ __all__ = ['ManagedPolicyArgs', 'ManagedPolicy']
 @pulumi.input_type
 class ManagedPolicyArgs:
     def __init__(__self__, *,
-                 policy_document: pulumi.Input[Union[Any, str]],
+                 policy_document: Any,
                  description: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  managed_policy_name: Optional[pulumi.Input[str]] = None,
@@ -23,7 +23,9 @@ class ManagedPolicyArgs:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ManagedPolicy resource.
-        :param pulumi.Input[Union[Any, str]] policy_document: The JSON policy document that you want to use as the content for the new policy.
+        :param Any policy_document: The JSON policy document that you want to use as the content for the new policy.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: A friendly description of the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The name (friendly name, not ARN) of the group to attach the policy to.
         :param pulumi.Input[str] managed_policy_name: The friendly name of the policy.
@@ -47,14 +49,16 @@ class ManagedPolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[Union[Any, str]]:
+    def policy_document(self) -> Any:
         """
         The JSON policy document that you want to use as the content for the new policy.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[Union[Any, str]]):
+    def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
 
     @property
@@ -139,7 +143,7 @@ class ManagedPolicy(pulumi.CustomResource):
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  managed_policy_name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -152,7 +156,9 @@ class ManagedPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The name (friendly name, not ARN) of the group to attach the policy to.
         :param pulumi.Input[str] managed_policy_name: The friendly name of the policy.
         :param pulumi.Input[str] path: The path for the policy.
-        :param pulumi.Input[Union[Any, str]] policy_document: The JSON policy document that you want to use as the content for the new policy.
+        :param Any policy_document: The JSON policy document that you want to use as the content for the new policy.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The name (friendly name, not ARN) of the role to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The name (friendly name, not ARN) of the IAM user to attach the policy to.
         """
@@ -184,7 +190,7 @@ class ManagedPolicy(pulumi.CustomResource):
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  managed_policy_name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -339,6 +345,8 @@ class ManagedPolicy(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[Any]:
         """
         The JSON policy document that you want to use as the content for the new policy.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

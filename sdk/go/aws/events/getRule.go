@@ -35,6 +35,8 @@ type LookupRuleResult struct {
 	// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
 	// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
 	EventPattern interface{} `pulumi:"eventPattern"`
 	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
@@ -99,6 +101,8 @@ func (o LookupRuleResultOutput) EventBusName() pulumi.StringPtrOutput {
 }
 
 // The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
 func (o LookupRuleResultOutput) EventPattern() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRuleResult) interface{} { return v.EventPattern }).(pulumi.AnyOutput)
 }

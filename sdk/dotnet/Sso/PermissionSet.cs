@@ -26,9 +26,11 @@ namespace Pulumi.AwsNative.Sso
 
         /// <summary>
         /// The inline policy to put in permission set.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
         /// </summary>
         [Output("inlinePolicy")]
-        public Output<Union<object, string>?> InlinePolicy { get; private set; } = null!;
+        public Output<object?> InlinePolicy { get; private set; } = null!;
 
         /// <summary>
         /// The sso instance arn that the permission set is owned.
@@ -135,9 +137,11 @@ namespace Pulumi.AwsNative.Sso
 
         /// <summary>
         /// The inline policy to put in permission set.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
         /// </summary>
         [Input("inlinePolicy")]
-        public InputUnion<object, string>? InlinePolicy { get; set; }
+        public Input<object>? InlinePolicy { get; set; }
 
         /// <summary>
         /// The sso instance arn that the permission set is owned.

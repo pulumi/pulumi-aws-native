@@ -20245,7 +20245,7 @@ export namespace iam {
         /**
          * The policy document.
          */
-        policyDocument: pulumi.Input<string | any>;
+        policyDocument: any;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -20261,7 +20261,7 @@ export namespace iam {
         /**
          * The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
          */
-        policyDocument: pulumi.Input<string | any>;
+        policyDocument: any;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -20291,7 +20291,7 @@ export namespace iam {
         /**
          * The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
          */
-        policyDocument: pulumi.Input<any | string>;
+        policyDocument: any;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -23851,7 +23851,7 @@ export namespace iottwinmaker {
     }
 
     export interface EntityStatusArgs {
-        error?: pulumi.Input<any | any | inputs.iottwinmaker.EntityStatusErrorPropertiesArgs>;
+        error?: pulumi.Input<any | inputs.iottwinmaker.EntityStatusErrorPropertiesArgs>;
         state?: pulumi.Input<enums.iottwinmaker.EntityStatusState>;
     }
 

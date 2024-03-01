@@ -18,7 +18,7 @@ __all__ = ['RoleArgs', 'Role']
 @pulumi.input_type
 class RoleArgs:
     def __init__(__self__, *,
-                 assume_role_policy_document: pulumi.Input[Union[Any, str]],
+                 assume_role_policy_document: Any,
                  description: Optional[pulumi.Input[str]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_session_duration: Optional[pulumi.Input[int]] = None,
@@ -29,7 +29,9 @@ class RoleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Role resource.
-        :param pulumi.Input[Union[Any, str]] assume_role_policy_document: The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
+        :param Any assume_role_policy_document: The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: A description of the role that you provide.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
                 For more information about ARNs, see [Amazon Resource Names (ARNs) and Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
@@ -71,14 +73,16 @@ class RoleArgs:
 
     @property
     @pulumi.getter(name="assumeRolePolicyDocument")
-    def assume_role_policy_document(self) -> pulumi.Input[Union[Any, str]]:
+    def assume_role_policy_document(self) -> Any:
         """
         The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "assume_role_policy_document")
 
     @assume_role_policy_document.setter
-    def assume_role_policy_document(self, value: pulumi.Input[Union[Any, str]]):
+    def assume_role_policy_document(self, value: Any):
         pulumi.set(self, "assume_role_policy_document", value)
 
     @property
@@ -195,7 +199,7 @@ class Role(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assume_role_policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 assume_role_policy_document: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_session_duration: Optional[pulumi.Input[int]] = None,
@@ -211,7 +215,9 @@ class Role(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] assume_role_policy_document: The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
+        :param Any assume_role_policy_document: The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: A description of the role that you provide.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
                 For more information about ARNs, see [Amazon Resource Names (ARNs) and Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
@@ -258,7 +264,7 @@ class Role(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assume_role_policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 assume_role_policy_document: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_session_duration: Optional[pulumi.Input[int]] = None,
@@ -336,6 +342,8 @@ class Role(pulumi.CustomResource):
     def assume_role_policy_document(self) -> pulumi.Output[Any]:
         """
         The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "assume_role_policy_document")
 

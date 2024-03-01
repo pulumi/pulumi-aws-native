@@ -39,8 +39,10 @@ export class QueuePolicy extends pulumi.CustomResource {
 
     /**
      * A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueuePolicy` for more information about the expected schema for this property.
      */
-    public readonly policyDocument!: pulumi.Output<any | string>;
+    public readonly policyDocument!: pulumi.Output<any>;
     /**
      * The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
      */
@@ -82,8 +84,10 @@ export class QueuePolicy extends pulumi.CustomResource {
 export interface QueuePolicyArgs {
     /**
      * A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueuePolicy` for more information about the expected schema for this property.
      */
-    policyDocument: pulumi.Input<any | string>;
+    policyDocument: any;
     /**
      * The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.
      */

@@ -38,8 +38,10 @@ export interface GetPermissionSetResult {
     readonly description?: string;
     /**
      * The inline policy to put in permission set.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
      */
-    readonly inlinePolicy?: any | string;
+    readonly inlinePolicy?: any;
     readonly managedPolicies?: string[];
     /**
      * The permission set that the policy will be attached to

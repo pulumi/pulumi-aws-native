@@ -23,9 +23,11 @@ namespace Pulumi.AwsNative.Emr
 
         /// <summary>
         /// The security configuration details in JSON format.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         /// </summary>
         [Output("securityConfiguration")]
-        public Output<Union<object, string>> SecurityConfigurationValue { get; private set; } = null!;
+        public Output<object> SecurityConfigurationValue { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,9 +87,11 @@ namespace Pulumi.AwsNative.Emr
 
         /// <summary>
         /// The security configuration details in JSON format.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         /// </summary>
         [Input("securityConfiguration", required: true)]
-        public InputUnion<object, string> SecurityConfigurationValue { get; set; } = null!;
+        public Input<object> SecurityConfigurationValue { get; set; } = null!;
 
         public SecurityConfigurationArgs()
         {

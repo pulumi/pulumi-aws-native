@@ -35,9 +35,11 @@ namespace Pulumi.AwsNative.Iam
         ///   +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
         ///   +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
         ///   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policyDocument")]
-        public Output<Union<object, string>> PolicyDocument { get; private set; } = null!;
+        public Output<object> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
         /// The name of the policy document.
@@ -126,9 +128,11 @@ namespace Pulumi.AwsNative.Iam
         ///   +  Any printable ASCII character ranging from the space character (``\u0020``) through the end of the ASCII character range
         ///   +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\u00FF``)
         ///   +  The special characters tab (``\u0009``), line feed (``\u000A``), and carriage return (``\u000D``)
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policyDocument", required: true)]
-        public InputUnion<object, string> PolicyDocument { get; set; } = null!;
+        public Input<object> PolicyDocument { get; set; } = null!;
 
         /// <summary>
         /// The name of the policy document.

@@ -52,6 +52,8 @@ class GetPublicRepositoryResult:
     def repository_policy_text(self) -> Optional[Any]:
         """
         The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::PublicRepository` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "repository_policy_text")
 

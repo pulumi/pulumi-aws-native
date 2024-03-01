@@ -103,12 +103,16 @@ namespace Pulumi.AwsNative.Sqs
         public readonly int? ReceiveMessageWaitTimeSeconds;
         /// <summary>
         /// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         /// </summary>
-        public readonly Union<object, string>? RedriveAllowPolicy;
+        public readonly object? RedriveAllowPolicy;
         /// <summary>
         /// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         /// </summary>
-        public readonly Union<object, string>? RedrivePolicy;
+        public readonly object? RedrivePolicy;
         /// <summary>
         /// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
         /// </summary>
@@ -146,9 +150,9 @@ namespace Pulumi.AwsNative.Sqs
 
             int? receiveMessageWaitTimeSeconds,
 
-            Union<object, string>? redriveAllowPolicy,
+            object? redriveAllowPolicy,
 
-            Union<object, string>? redrivePolicy,
+            object? redrivePolicy,
 
             bool? sqsManagedSseEnabled,
 

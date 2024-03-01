@@ -35,6 +35,8 @@ type LookupReplicaKeyResult struct {
 	Enabled *bool   `pulumi:"enabled"`
 	KeyId   *string `pulumi:"keyId"`
 	// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
 	KeyPolicy interface{} `pulumi:"keyPolicy"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -94,6 +96,8 @@ func (o LookupReplicaKeyResultOutput) KeyId() pulumi.StringPtrOutput {
 }
 
 // The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
 func (o LookupReplicaKeyResultOutput) KeyPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupReplicaKeyResult) interface{} { return v.KeyPolicy }).(pulumi.AnyOutput)
 }

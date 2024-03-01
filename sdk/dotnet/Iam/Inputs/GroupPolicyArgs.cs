@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Iam.Inputs
         /// The policy document.
         /// </summary>
         [Input("policyDocument", required: true)]
-        public InputUnion<string, object> PolicyDocument { get; set; } = null!;
+        public Input<object> PolicyDocument { get; set; } = null!;
 
         /// <summary>
         /// The friendly name (not ARN) identifying the policy.

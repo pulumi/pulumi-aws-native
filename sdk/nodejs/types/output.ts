@@ -20528,7 +20528,7 @@ export namespace iam {
         /**
          * The policy document.
          */
-        policyDocument: string | any;
+        policyDocument: any;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -20544,7 +20544,7 @@ export namespace iam {
         /**
          * The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
          */
-        policyDocument: string | any;
+        policyDocument: any;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -20574,7 +20574,7 @@ export namespace iam {
         /**
          * The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
          */
-        policyDocument: any | string;
+        policyDocument: any;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -23921,7 +23921,7 @@ export namespace iottwinmaker {
     }
 
     export interface ComponentTypeStatus {
-        error?: any | any | outputs.iottwinmaker.ComponentTypeStatusErrorProperties;
+        error?: any | outputs.iottwinmaker.ComponentTypeStatusErrorProperties;
         state?: enums.iottwinmaker.ComponentTypeStatusState;
     }
 
@@ -24160,7 +24160,7 @@ export namespace iottwinmaker {
     }
 
     export interface EntityStatus {
-        error?: any | any | outputs.iottwinmaker.EntityStatusErrorProperties;
+        error?: any | outputs.iottwinmaker.EntityStatusErrorProperties;
         state?: enums.iottwinmaker.EntityStatusState;
     }
 

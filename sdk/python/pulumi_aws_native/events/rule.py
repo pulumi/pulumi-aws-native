@@ -19,7 +19,7 @@ class RuleArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
-                 event_pattern: Optional[pulumi.Input[Union[str, Any]]] = None,
+                 event_pattern: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,9 @@ class RuleArgs:
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input[str] description: The description of the rule.
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-        :param pulumi.Input[Union[str, Any]] event_pattern: The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        :param Any event_pattern: The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
@@ -80,14 +82,16 @@ class RuleArgs:
 
     @property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[pulumi.Input[Union[str, Any]]]:
+    def event_pattern(self) -> Optional[Any]:
         """
         The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
-    def event_pattern(self, value: Optional[pulumi.Input[Union[str, Any]]]):
+    def event_pattern(self, value: Optional[Any]):
         pulumi.set(self, "event_pattern", value)
 
     @property
@@ -159,7 +163,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
-                 event_pattern: Optional[pulumi.Input[Union[str, Any]]] = None,
+                 event_pattern: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
@@ -173,7 +177,9 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the rule.
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-        :param pulumi.Input[Union[str, Any]] event_pattern: The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        :param Any event_pattern: The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role that is used for target invocation.
         :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
@@ -207,7 +213,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
-                 event_pattern: Optional[pulumi.Input[Union[str, Any]]] = None,
+                 event_pattern: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
@@ -295,6 +301,8 @@ class Rule(pulumi.CustomResource):
     def event_pattern(self) -> pulumi.Output[Optional[Any]]:
         """
         The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "event_pattern")
 

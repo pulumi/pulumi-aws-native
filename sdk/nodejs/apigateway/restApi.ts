@@ -48,8 +48,10 @@ export class RestApi extends pulumi.CustomResource {
     public readonly binaryMediaTypes!: pulumi.Output<string[] | undefined>;
     /**
      * An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
-    public readonly body!: pulumi.Output<any | string | undefined>;
+    public readonly body!: pulumi.Output<any | undefined>;
     /**
      * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
      */
@@ -97,8 +99,10 @@ export class RestApi extends pulumi.CustomResource {
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
-    public readonly policy!: pulumi.Output<any | string | undefined>;
+    public readonly policy!: pulumi.Output<any | undefined>;
     public /*out*/ readonly restApiId!: pulumi.Output<string>;
     public /*out*/ readonly rootResourceId!: pulumi.Output<string>;
     /**
@@ -172,8 +176,10 @@ export interface RestApiArgs {
     binaryMediaTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
-    body?: pulumi.Input<any | string>;
+    body?: any;
     /**
      * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
      */
@@ -221,8 +227,10 @@ export interface RestApiArgs {
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
-    policy?: pulumi.Input<any | string>;
+    policy?: any;
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
      */

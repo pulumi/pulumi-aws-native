@@ -20,6 +20,8 @@ type Document struct {
 	// A list of key and value pairs that describe attachments to a version of a document.
 	Attachments DocumentAttachmentsSourceArrayOutput `pulumi:"attachments"`
 	// The content for the Systems Manager document in JSON, YAML or String format.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
 	Content pulumi.AnyOutput `pulumi:"content"`
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
 	DocumentFormat DocumentFormatPtrOutput `pulumi:"documentFormat"`
@@ -90,6 +92,8 @@ type documentArgs struct {
 	// A list of key and value pairs that describe attachments to a version of a document.
 	Attachments []DocumentAttachmentsSource `pulumi:"attachments"`
 	// The content for the Systems Manager document in JSON, YAML or String format.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
 	Content interface{} `pulumi:"content"`
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
 	DocumentFormat *DocumentFormat `pulumi:"documentFormat"`
@@ -114,6 +118,8 @@ type DocumentArgs struct {
 	// A list of key and value pairs that describe attachments to a version of a document.
 	Attachments DocumentAttachmentsSourceArrayInput
 	// The content for the Systems Manager document in JSON, YAML or String format.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
 	Content pulumi.Input
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
 	DocumentFormat DocumentFormatPtrInput
@@ -176,6 +182,8 @@ func (o DocumentOutput) Attachments() DocumentAttachmentsSourceArrayOutput {
 }
 
 // The content for the Systems Manager document in JSON, YAML or String format.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
 func (o DocumentOutput) Content() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Document) pulumi.AnyOutput { return v.Content }).(pulumi.AnyOutput)
 }

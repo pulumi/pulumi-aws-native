@@ -35,9 +35,11 @@ namespace Pulumi.AwsNative.Events
 
         /// <summary>
         /// A JSON string that describes the permission policy statement for the event bus.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
-        public Output<Union<object, string>?> Policy { get; private set; } = null!;
+        public Output<object?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// Any tags assigned to the event bus.
@@ -108,9 +110,11 @@ namespace Pulumi.AwsNative.Events
 
         /// <summary>
         /// A JSON string that describes the permission policy statement for the event bus.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy")]
-        public InputUnion<object, string>? Policy { get; set; }
+        public Input<object>? Policy { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

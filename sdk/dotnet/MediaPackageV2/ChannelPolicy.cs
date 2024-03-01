@@ -21,8 +21,11 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("channelName")]
         public Output<string> ChannelName { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Output("policy")]
-        public Output<Union<object, string>> Policy { get; private set; } = null!;
+        public Output<object> Policy { get; private set; } = null!;
 
 
         /// <summary>
@@ -80,8 +83,11 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+        /// </summary>
         [Input("policy", required: true)]
-        public InputUnion<object, string> Policy { get; set; } = null!;
+        public Input<object> Policy { get; set; } = null!;
 
         public ChannelPolicyArgs()
         {

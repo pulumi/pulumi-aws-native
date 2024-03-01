@@ -14,19 +14,21 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
-                 policy_document: pulumi.Input[Union[Any, str]],
+                 policy_document: Any,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[Union[Any, str]] policy_document: The policy document.
+        :param Any policy_document: The policy document.
                 You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
                 The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
                  +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range
                  +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)
                  +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The name of the group to associate the policy with.
                 This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
         :param pulumi.Input[str] policy_name: The name of the policy document.
@@ -49,7 +51,7 @@ class PolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[Union[Any, str]]:
+    def policy_document(self) -> Any:
         """
         The policy document.
          You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
@@ -57,11 +59,13 @@ class PolicyArgs:
           +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range
           +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)
           +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[Union[Any, str]]):
+    def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
 
     @property
@@ -129,7 +133,7 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -146,12 +150,14 @@ class Policy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The name of the group to associate the policy with.
                 This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
-        :param pulumi.Input[Union[Any, str]] policy_document: The policy document.
+        :param Any policy_document: The policy document.
                 You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
                 The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
                  +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range
                  +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)
                  +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
         :param pulumi.Input[str] policy_name: The name of the policy document.
                 This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The name of the role to associate the policy with.
@@ -190,7 +196,7 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -259,6 +265,8 @@ class Policy(pulumi.CustomResource):
           +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range
           +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)
           +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Policy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

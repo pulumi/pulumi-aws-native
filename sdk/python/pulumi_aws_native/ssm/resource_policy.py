@@ -14,11 +14,13 @@ __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
 @pulumi.input_type
 class ResourcePolicyArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input[Union[Any, str]],
+                 policy: Any,
                  resource_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
-        :param pulumi.Input[Union[Any, str]] policy: Actual policy statement.
+        :param Any policy: Actual policy statement.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] resource_arn: Arn of OpsItemGroup etc.
         """
         pulumi.set(__self__, "policy", policy)
@@ -26,14 +28,16 @@ class ResourcePolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[Union[Any, str]]:
+    def policy(self) -> Any:
         """
         Actual policy statement.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[Union[Any, str]]):
+    def policy(self, value: Any):
         pulumi.set(self, "policy", value)
 
     @property
@@ -54,7 +58,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -62,7 +66,9 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] policy: Actual policy statement.
+        :param Any policy: Actual policy statement.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         :param pulumi.Input[str] resource_arn: Arn of OpsItemGroup etc.
         """
         ...
@@ -89,7 +95,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -143,6 +149,8 @@ class ResourcePolicy(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[Any]:
         """
         Actual policy statement.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
 

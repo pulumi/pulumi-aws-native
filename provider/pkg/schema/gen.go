@@ -1225,6 +1225,10 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 	}
 
 	if len(propSchema.Type) > 1 {
+		// Avoid creating a union containing an "Any" type - as it can always collapse back to "Any".
+		if propSchema.Type.Contains(jsschema.ObjectType) || propSchema.Type.Contains(jsschema.UnspecifiedType) {
+			return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
+		}
 		specs := make([]pschema.TypeSpec, len(propSchema.Type))
 		for i, t := range propSchema.Type {
 			specs[i] = parseJsonType(t)

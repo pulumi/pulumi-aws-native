@@ -39,6 +39,9 @@ class GetBackupVaultResult:
     @property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "access_policy")
 
     @property

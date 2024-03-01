@@ -28,8 +28,10 @@ export interface GetDocumentArgs {
 export interface GetDocumentResult {
     /**
      * The content for the Systems Manager document in JSON, YAML or String format.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
      */
-    readonly content?: any | string;
+    readonly content?: any;
     /**
      * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
      */

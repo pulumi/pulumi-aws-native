@@ -17,7 +17,7 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
-                 content: pulumi.Input[Union[Any, str]],
+                 content: Any,
                  type: pulumi.Input['PolicyType'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,9 @@ class PolicyArgs:
                  target_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[Union[Any, str]] content: The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+        :param Any content: The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::Policy` for more information about the expected schema for this property.
         :param pulumi.Input['PolicyType'] type: The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY
         :param pulumi.Input[str] description: Human readable description of the policy
         :param pulumi.Input[str] name: Name of the Policy
@@ -45,14 +47,16 @@ class PolicyArgs:
 
     @property
     @pulumi.getter
-    def content(self) -> pulumi.Input[Union[Any, str]]:
+    def content(self) -> Any:
         """
         The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::Policy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: pulumi.Input[Union[Any, str]]):
+    def content(self, value: Any):
         pulumi.set(self, "content", value)
 
     @property
@@ -121,7 +125,7 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 content: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -133,7 +137,9 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] content: The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+        :param Any content: The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::Policy` for more information about the expected schema for this property.
         :param pulumi.Input[str] description: Human readable description of the policy
         :param pulumi.Input[str] name: Name of the Policy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null.
@@ -164,7 +170,7 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 content: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -246,6 +252,8 @@ class Policy(pulumi.CustomResource):
     def content(self) -> pulumi.Output[Any]:
         """
         The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::Policy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "content")
 

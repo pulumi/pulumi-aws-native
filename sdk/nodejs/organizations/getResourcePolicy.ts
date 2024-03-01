@@ -32,8 +32,10 @@ export interface GetResourcePolicyResult {
     readonly arn?: string;
     /**
      * The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
      */
-    readonly content?: any | string;
+    readonly content?: any;
     /**
      * The unique identifier (ID) associated with this resource policy.
      */

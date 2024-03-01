@@ -14,11 +14,13 @@ __all__ = ['SecurityConfigurationArgs', 'SecurityConfiguration']
 @pulumi.input_type
 class SecurityConfigurationArgs:
     def __init__(__self__, *,
-                 security_configuration: pulumi.Input[Union[Any, str]],
+                 security_configuration: Any,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityConfiguration resource.
-        :param pulumi.Input[Union[Any, str]] security_configuration: The security configuration details in JSON format.
+        :param Any security_configuration: The security configuration details in JSON format.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         :param pulumi.Input[str] name: The name of the security configuration.
         """
         pulumi.set(__self__, "security_configuration", security_configuration)
@@ -27,14 +29,16 @@ class SecurityConfigurationArgs:
 
     @property
     @pulumi.getter(name="securityConfiguration")
-    def security_configuration(self) -> pulumi.Input[Union[Any, str]]:
+    def security_configuration(self) -> Any:
         """
         The security configuration details in JSON format.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
-    def security_configuration(self, value: pulumi.Input[Union[Any, str]]):
+    def security_configuration(self, value: Any):
         pulumi.set(self, "security_configuration", value)
 
     @property
@@ -56,7 +60,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 security_configuration: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 security_configuration: Optional[Any] = None,
                  __props__=None):
         """
         Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
@@ -64,7 +68,9 @@ class SecurityConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the security configuration.
-        :param pulumi.Input[Union[Any, str]] security_configuration: The security configuration details in JSON format.
+        :param Any security_configuration: The security configuration details in JSON format.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -91,7 +97,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 security_configuration: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 security_configuration: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -146,6 +152,8 @@ class SecurityConfiguration(pulumi.CustomResource):
     def security_configuration(self) -> pulumi.Output[Any]:
         """
         The security configuration details in JSON format.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "security_configuration")
 

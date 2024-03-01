@@ -87,6 +87,8 @@ class GetConfigRuleResult:
     def input_parameters(self) -> Optional[Any]:
         """
         A string, in JSON format, that is passed to the CC rule Lambda function.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "input_parameters")
 

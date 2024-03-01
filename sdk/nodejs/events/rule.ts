@@ -51,8 +51,10 @@ export class Rule extends pulumi.CustomResource {
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     /**
      * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
      */
-    public readonly eventPattern!: pulumi.Output<string | any | undefined>;
+    public readonly eventPattern!: pulumi.Output<any | undefined>;
     /**
      * The name of the rule.
      */
@@ -127,8 +129,10 @@ export interface RuleArgs {
     eventBusName?: pulumi.Input<string>;
     /**
      * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
      */
-    eventPattern?: pulumi.Input<string | any>;
+    eventPattern?: any;
     /**
      * The name of the rule.
      */

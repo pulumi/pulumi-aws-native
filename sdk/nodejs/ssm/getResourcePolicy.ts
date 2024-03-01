@@ -30,8 +30,10 @@ export interface GetResourcePolicyArgs {
 export interface GetResourcePolicyResult {
     /**
      * Actual policy statement.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::ResourcePolicy` for more information about the expected schema for this property.
      */
-    readonly policy?: any | string;
+    readonly policy?: any;
     /**
      * A snapshot identifier for the policy over time.
      */

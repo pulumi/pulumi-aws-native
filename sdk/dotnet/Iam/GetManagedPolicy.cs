@@ -87,8 +87,10 @@ namespace Pulumi.AwsNative.Iam
         public readonly string? PolicyArn;
         /// <summary>
         /// The JSON policy document that you want to use as the content for the new policy.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
         /// </summary>
-        public readonly Union<object, string>? PolicyDocument;
+        public readonly object? PolicyDocument;
         /// <summary>
         /// The stable and unique string identifying the policy.
         /// </summary>
@@ -122,7 +124,7 @@ namespace Pulumi.AwsNative.Iam
 
             string? policyArn,
 
-            Union<object, string>? policyDocument,
+            object? policyDocument,
 
             string? policyId,
 

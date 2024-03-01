@@ -43,8 +43,10 @@ export class Document extends pulumi.CustomResource {
     public readonly attachments!: pulumi.Output<outputs.ssm.DocumentAttachmentsSource[] | undefined>;
     /**
      * The content for the Systems Manager document in JSON, YAML or String format.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
      */
-    public readonly content!: pulumi.Output<any | string>;
+    public readonly content!: pulumi.Output<any>;
     /**
      * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
      */
@@ -131,8 +133,10 @@ export interface DocumentArgs {
     attachments?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSourceArgs>[]>;
     /**
      * The content for the Systems Manager document in JSON, YAML or String format.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
      */
-    content: pulumi.Input<any | string>;
+    content: any;
     /**
      * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
      */

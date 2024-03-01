@@ -63,8 +63,10 @@ namespace Pulumi.AwsNative.Kms
         public readonly string? KeyId;
         /// <summary>
         /// The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
         /// </summary>
-        public readonly Union<object, string>? KeyPolicy;
+        public readonly object? KeyPolicy;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -80,7 +82,7 @@ namespace Pulumi.AwsNative.Kms
 
             string? keyId,
 
-            Union<object, string>? keyPolicy,
+            object? keyPolicy,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {

@@ -57,10 +57,13 @@ namespace Pulumi.AwsNative.MediaPackageV2
     [OutputType]
     public sealed class GetChannelPolicyResult
     {
-        public readonly Union<object, string>? Policy;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? Policy;
 
         [OutputConstructor]
-        private GetChannelPolicyResult(Union<object, string>? policy)
+        private GetChannelPolicyResult(object? policy)
         {
             Policy = policy;
         }

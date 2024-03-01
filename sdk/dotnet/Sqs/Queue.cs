@@ -95,15 +95,19 @@ namespace Pulumi.AwsNative.Sqs
 
         /// <summary>
         /// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         /// </summary>
         [Output("redriveAllowPolicy")]
-        public Output<Union<object, string>?> RedriveAllowPolicy { get; private set; } = null!;
+        public Output<object?> RedriveAllowPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         /// </summary>
         [Output("redrivePolicy")]
-        public Output<Union<object, string>?> RedrivePolicy { get; private set; } = null!;
+        public Output<object?> RedrivePolicy { get; private set; } = null!;
 
         /// <summary>
         /// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).
@@ -241,15 +245,19 @@ namespace Pulumi.AwsNative.Sqs
 
         /// <summary>
         /// The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         /// </summary>
         [Input("redriveAllowPolicy")]
-        public InputUnion<object, string>? RedriveAllowPolicy { get; set; }
+        public Input<object>? RedriveAllowPolicy { get; set; }
 
         /// <summary>
         /// A string that includes the parameters for the dead-letter queue functionality (redrive policy) of the source queue.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         /// </summary>
         [Input("redrivePolicy")]
-        public InputUnion<object, string>? RedrivePolicy { get; set; }
+        public Input<object>? RedrivePolicy { get; set; }
 
         /// <summary>
         /// Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (e.g. SSE-KMS or SSE-SQS ).

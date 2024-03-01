@@ -16,11 +16,12 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
-                 policy_document: pulumi.Input[Union[Any, str]],
+                 policy_document: Any,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Policy resource.
+        :param Any policy_document: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         if policy_name is not None:
@@ -30,11 +31,14 @@ class PolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[Union[Any, str]]:
+    def policy_document(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[Union[Any, str]]):
+    def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
 
     @property
@@ -61,7 +65,7 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -70,6 +74,7 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any policy_document: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -95,7 +100,7 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
@@ -151,6 +156,9 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy_document")
 
     @property

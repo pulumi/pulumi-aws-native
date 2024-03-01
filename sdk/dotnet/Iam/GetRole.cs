@@ -68,8 +68,10 @@ namespace Pulumi.AwsNative.Iam
         public readonly string? Arn;
         /// <summary>
         /// The trust policy that is associated with this role. Trust policies define which entities can assume the role. You can associate only one trust policy with a role. For an example of a policy that can be used to assume a role, see [Template Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#aws-resource-iam-role--examples). For more information about the elements that you can use in an IAM policy, see [Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *User Guide*.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::Role` for more information about the expected schema for this property.
         /// </summary>
-        public readonly Union<object, string>? AssumeRolePolicyDocument;
+        public readonly object? AssumeRolePolicyDocument;
         /// <summary>
         /// A description of the role that you provide.
         /// </summary>
@@ -107,7 +109,7 @@ namespace Pulumi.AwsNative.Iam
         private GetRoleResult(
             string? arn,
 
-            Union<object, string>? assumeRolePolicyDocument,
+            object? assumeRolePolicyDocument,
 
             string? description,
 

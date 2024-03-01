@@ -77,9 +77,11 @@ namespace Pulumi.AwsNative.Iam
 
         /// <summary>
         /// The JSON policy document that you want to use as the content for the new policy.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Output("policyDocument")]
-        public Output<Union<object, string>> PolicyDocument { get; private set; } = null!;
+        public Output<object> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
         /// The stable and unique string identifying the policy.
@@ -188,9 +190,11 @@ namespace Pulumi.AwsNative.Iam
 
         /// <summary>
         /// The JSON policy document that you want to use as the content for the new policy.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
         /// </summary>
         [Input("policyDocument", required: true)]
-        public InputUnion<object, string> PolicyDocument { get; set; } = null!;
+        public Input<object> PolicyDocument { get; set; } = null!;
 
         [Input("roles")]
         private InputList<string>? _roles;

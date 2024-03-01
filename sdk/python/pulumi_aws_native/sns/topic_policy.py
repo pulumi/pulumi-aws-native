@@ -14,11 +14,13 @@ __all__ = ['TopicPolicyArgs', 'TopicPolicy']
 @pulumi.input_type
 class TopicPolicyArgs:
     def __init__(__self__, *,
-                 policy_document: pulumi.Input[Union[Any, str]],
+                 policy_document: Any,
                  topics: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a TopicPolicy resource.
-        :param pulumi.Input[Union[Any, str]] policy_document: A policy document that contains permissions to add to the specified SNS topics.
+        :param Any policy_document: A policy document that contains permissions to add to the specified SNS topics.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
         """
         pulumi.set(__self__, "policy_document", policy_document)
@@ -26,14 +28,16 @@ class TopicPolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[Union[Any, str]]:
+    def policy_document(self) -> Any:
         """
         A policy document that contains permissions to add to the specified SNS topics.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[Union[Any, str]]):
+    def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
 
     @property
@@ -54,7 +58,7 @@ class TopicPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -62,7 +66,9 @@ class TopicPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] policy_document: A policy document that contains permissions to add to the specified SNS topics.
+        :param Any policy_document: A policy document that contains permissions to add to the specified SNS topics.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
         """
         ...
@@ -89,7 +95,7 @@ class TopicPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -137,6 +143,8 @@ class TopicPolicy(pulumi.CustomResource):
     def policy_document(self) -> pulumi.Output[Any]:
         """
         A policy document that contains permissions to add to the specified SNS topics.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy_document")
 

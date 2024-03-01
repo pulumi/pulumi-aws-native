@@ -16,9 +16,10 @@ class ChannelPolicyArgs:
     def __init__(__self__, *,
                  channel_group_name: pulumi.Input[str],
                  channel_name: pulumi.Input[str],
-                 policy: pulumi.Input[Union[Any, str]]):
+                 policy: Any):
         """
         The set of arguments for constructing a ChannelPolicy resource.
+        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
         """
         pulumi.set(__self__, "channel_group_name", channel_group_name)
         pulumi.set(__self__, "channel_name", channel_name)
@@ -44,11 +45,14 @@ class ChannelPolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[Union[Any, str]]:
+    def policy(self) -> Any:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[Union[Any, str]]):
+    def policy(self, value: Any):
         pulumi.set(self, "policy", value)
 
 
@@ -59,13 +63,14 @@ class ChannelPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  __props__=None):
         """
         <p>Represents a resource-based policy that allows or denies access to a channel.</p>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
         """
         ...
     @overload
@@ -93,7 +98,7 @@ class ChannelPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_group_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -154,5 +159,8 @@ class ChannelPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[Any]:
+        """
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::ChannelPolicy` for more information about the expected schema for this property.
+        """
         return pulumi.get(self, "policy")
 

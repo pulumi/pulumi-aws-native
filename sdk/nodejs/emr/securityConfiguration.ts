@@ -40,8 +40,10 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The security configuration details in JSON format.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
      */
-    public readonly securityConfiguration!: pulumi.Output<any | string>;
+    public readonly securityConfiguration!: pulumi.Output<any>;
 
     /**
      * Create a SecurityConfiguration resource with the given unique name, arguments, and options.
@@ -80,6 +82,8 @@ export interface SecurityConfigurationArgs {
     name?: pulumi.Input<string>;
     /**
      * The security configuration details in JSON format.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EMR::SecurityConfiguration` for more information about the expected schema for this property.
      */
-    securityConfiguration: pulumi.Input<any | string>;
+    securityConfiguration: any;
 }

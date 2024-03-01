@@ -44,8 +44,10 @@ export class PermissionSet extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The inline policy to put in permission set.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
      */
-    public readonly inlinePolicy!: pulumi.Output<any | string | undefined>;
+    public readonly inlinePolicy!: pulumi.Output<any | undefined>;
     /**
      * The sso instance arn that the permission set is owned.
      */
@@ -126,8 +128,10 @@ export interface PermissionSetArgs {
     description?: pulumi.Input<string>;
     /**
      * The inline policy to put in permission set.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
      */
-    inlinePolicy?: pulumi.Input<any | string>;
+    inlinePolicy?: any;
     /**
      * The sso instance arn that the permission set is owned.
      */

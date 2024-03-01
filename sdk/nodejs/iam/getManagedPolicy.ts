@@ -53,8 +53,10 @@ export interface GetManagedPolicyResult {
     readonly policyArn?: string;
     /**
      * The JSON policy document that you want to use as the content for the new policy.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::ManagedPolicy` for more information about the expected schema for this property.
      */
-    readonly policyDocument?: any | string;
+    readonly policyDocument?: any;
     /**
      * The stable and unique string identifying the policy.
      */

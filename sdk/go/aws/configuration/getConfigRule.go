@@ -41,6 +41,8 @@ type LookupConfigRuleResult struct {
 	// The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
 	EvaluationModes []ConfigRuleEvaluationModeConfiguration `pulumi:"evaluationModes"`
 	// A string, in JSON format, that is passed to the CC rule Lambda function.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
 	InputParameters interface{} `pulumi:"inputParameters"`
 	// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
 	//   +  You are using an AWS managed rule that is triggered at a periodic frequency.
@@ -115,6 +117,8 @@ func (o LookupConfigRuleResultOutput) EvaluationModes() ConfigRuleEvaluationMode
 }
 
 // A string, in JSON format, that is passed to the CC rule Lambda function.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
 func (o LookupConfigRuleResultOutput) InputParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupConfigRuleResult) interface{} { return v.InputParameters }).(pulumi.AnyOutput)
 }

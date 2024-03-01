@@ -22,8 +22,10 @@ export interface GetChannelPolicyArgs {
 export interface GetChannelPolicyResult {
     /**
      * <p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property.
      */
-    readonly policy?: any | string;
+    readonly policy?: any;
 }
 /**
  * Definition of AWS::MediaTailor::ChannelPolicy Resource Type

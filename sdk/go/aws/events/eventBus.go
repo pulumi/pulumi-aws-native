@@ -23,6 +23,8 @@ type EventBus struct {
 	// The name of the event bus.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A JSON string that describes the permission policy statement for the event bus.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// Any tags assigned to the event bus.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -77,6 +79,8 @@ type eventBusArgs struct {
 	// The name of the event bus.
 	Name *string `pulumi:"name"`
 	// A JSON string that describes the permission policy statement for the event bus.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
 	// Any tags assigned to the event bus.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -89,6 +93,8 @@ type EventBusArgs struct {
 	// The name of the event bus.
 	Name pulumi.StringPtrInput
 	// A JSON string that describes the permission policy statement for the event bus.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 	Policy pulumi.Input
 	// Any tags assigned to the event bus.
 	Tags aws.TagArrayInput
@@ -147,6 +153,8 @@ func (o EventBusOutput) Name() pulumi.StringOutput {
 }
 
 // A JSON string that describes the permission policy statement for the event bus.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
 func (o EventBusOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }

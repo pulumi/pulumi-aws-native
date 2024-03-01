@@ -16,7 +16,7 @@ __all__ = ['ReplicaKeyArgs', 'ReplicaKey']
 @pulumi.input_type
 class ReplicaKeyArgs:
     def __init__(__self__, *,
-                 key_policy: pulumi.Input[Union[Any, str]],
+                 key_policy: Any,
                  primary_key_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -24,7 +24,9 @@ class ReplicaKeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicaKey resource.
-        :param pulumi.Input[Union[Any, str]] key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+        :param Any key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
         :param pulumi.Input[str] primary_key_arn: Identifies the primary AWS KMS key to create a replica of. Specify the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
         :param pulumi.Input[str] description: A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         :param pulumi.Input[bool] enabled: Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
@@ -44,14 +46,16 @@ class ReplicaKeyArgs:
 
     @property
     @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> pulumi.Input[Union[Any, str]]:
+    def key_policy(self) -> Any:
         """
         The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "key_policy")
 
     @key_policy.setter
-    def key_policy(self, value: pulumi.Input[Union[Any, str]]):
+    def key_policy(self, value: Any):
         pulumi.set(self, "key_policy", value)
 
     @property
@@ -122,7 +126,7 @@ class ReplicaKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 key_policy: Optional[Any] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  primary_key_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -134,7 +138,9 @@ class ReplicaKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
         :param pulumi.Input[bool] enabled: Specifies whether the AWS KMS key is enabled. Disabled AWS KMS keys cannot be used in cryptographic operations.
-        :param pulumi.Input[Union[Any, str]] key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+        :param Any key_policy: The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
         :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[str] primary_key_arn: Identifies the primary AWS KMS key to create a replica of. Specify the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -165,7 +171,7 @@ class ReplicaKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 key_policy: Optional[Any] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  primary_key_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -255,6 +261,8 @@ class ReplicaKey(pulumi.CustomResource):
     def key_policy(self) -> pulumi.Output[Any]:
         """
         The key policy that authorizes use of the AWS KMS key. The key policy must observe the following rules.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::ReplicaKey` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "key_policy")
 

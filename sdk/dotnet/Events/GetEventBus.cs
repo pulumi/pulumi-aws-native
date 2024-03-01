@@ -63,8 +63,10 @@ namespace Pulumi.AwsNative.Events
         public readonly string? Arn;
         /// <summary>
         /// A JSON string that describes the permission policy statement for the event bus.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::EventBus` for more information about the expected schema for this property.
         /// </summary>
-        public readonly Union<object, string>? Policy;
+        public readonly object? Policy;
         /// <summary>
         /// Any tags assigned to the event bus.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Pulumi.AwsNative.Events
         private GetEventBusResult(
             string? arn,
 
-            Union<object, string>? policy,
+            object? policy,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {

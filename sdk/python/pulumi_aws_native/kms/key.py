@@ -21,7 +21,7 @@ class KeyArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 key_policy: Optional[Any] = None,
                  key_spec: Optional[pulumi.Input['KeySpec']] = None,
                  key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
@@ -43,10 +43,12 @@ class KeyArgs:
                 When ``Enabled`` is ``true``, the *key state* of the KMS key is ``Enabled``. When ``Enabled`` is ``false``, the key state of the KMS key is ``Disabled``. The default value is ``true``.
                 The actual key state of the KMS key might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html), [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html), or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations.
                 For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Developer Guide*.
-        :param pulumi.Input[Union[Any, str]] key_policy: The key policy to attach to the KMS key.
+        :param Any key_policy: The key policy to attach to the KMS key.
                 If you provide a key policy, it must meet the following criteria:
                  +  The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) in the *Developer Guide*. (To omit this condition, set ``BypassPolicyLockoutSafetyCheck`` to true.)
                  +  Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see [
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
         :param pulumi.Input['KeySpec'] key_spec: Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.
                 The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.
                  If you change the value of the ``KeySpec`` property on an existing KMS key, the u
@@ -154,17 +156,19 @@ class KeyArgs:
 
     @property
     @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def key_policy(self) -> Optional[Any]:
         """
         The key policy to attach to the KMS key.
          If you provide a key policy, it must meet the following criteria:
           +  The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) in the *Developer Guide*. (To omit this condition, set ``BypassPolicyLockoutSafetyCheck`` to true.)
           +  Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see [
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "key_policy")
 
     @key_policy.setter
-    def key_policy(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def key_policy(self, value: Optional[Any]):
         pulumi.set(self, "key_policy", value)
 
     @property
@@ -267,7 +271,7 @@ class Key(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 key_policy: Optional[Any] = None,
                  key_spec: Optional[pulumi.Input['KeySpec']] = None,
                  key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
@@ -295,10 +299,12 @@ class Key(pulumi.CustomResource):
                 When ``Enabled`` is ``true``, the *key state* of the KMS key is ``Enabled``. When ``Enabled`` is ``false``, the key state of the KMS key is ``Disabled``. The default value is ``true``.
                 The actual key state of the KMS key might be affected by actions taken outside of CloudFormation, such as running the [EnableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html), [DisableKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html), or [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operations.
                 For information about the key states of a KMS key, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Developer Guide*.
-        :param pulumi.Input[Union[Any, str]] key_policy: The key policy to attach to the KMS key.
+        :param Any key_policy: The key policy to attach to the KMS key.
                 If you provide a key policy, it must meet the following criteria:
                  +  The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) in the *Developer Guide*. (To omit this condition, set ``BypassPolicyLockoutSafetyCheck`` to true.)
                  +  Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see [
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
         :param pulumi.Input['KeySpec'] key_spec: Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.
                 The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.
                  If you change the value of the ``KeySpec`` property on an existing KMS key, the u
@@ -354,7 +360,7 @@ class Key(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 key_policy: Optional[Any] = None,
                  key_spec: Optional[pulumi.Input['KeySpec']] = None,
                  key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
@@ -479,6 +485,8 @@ class Key(pulumi.CustomResource):
          If you provide a key policy, it must meet the following criteria:
           +  The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) in the *Developer Guide*. (To omit this condition, set ``BypassPolicyLockoutSafetyCheck`` to true.)
           +  Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see [
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::KMS::Key` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "key_policy")
 

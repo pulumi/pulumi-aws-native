@@ -28,8 +28,9 @@ type LookupPolicyArgs struct {
 }
 
 type LookupPolicyResult struct {
-	Arn            *string     `pulumi:"arn"`
-	Id             *string     `pulumi:"id"`
+	Arn *string `pulumi:"arn"`
+	Id  *string `pulumi:"id"`
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	Tags           []aws.Tag   `pulumi:"tags"`
 }
@@ -77,6 +78,7 @@ func (o LookupPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 func (o LookupPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }

@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Iam.Inputs
         /// The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         /// </summary>
         [Input("policyDocument", required: true)]
-        public InputUnion<object, string> PolicyDocument { get; set; } = null!;
+        public Input<object> PolicyDocument { get; set; } = null!;
 
         /// <summary>
         /// The friendly name (not ARN) identifying the policy.

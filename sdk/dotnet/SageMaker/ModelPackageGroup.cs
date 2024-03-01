@@ -30,8 +30,11 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("modelPackageGroupName")]
         public Output<string> ModelPackageGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Output("modelPackageGroupPolicy")]
-        public Output<Union<object, string>?> ModelPackageGroupPolicy { get; private set; } = null!;
+        public Output<object?> ModelPackageGroupPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The status of a modelpackage group job.
@@ -101,8 +104,11 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("modelPackageGroupName")]
         public Input<string>? ModelPackageGroupName { get; set; }
 
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
+        /// </summary>
         [Input("modelPackageGroupPolicy")]
-        public InputUnion<object, string>? ModelPackageGroupPolicy { get; set; }
+        public Input<object>? ModelPackageGroupPolicy { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

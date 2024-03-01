@@ -21,7 +21,7 @@ class ConfigRuleArgs:
                  config_rule_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleEvaluationModeConfigurationArgs']]]] = None,
-                 input_parameters: Optional[pulumi.Input[Union[str, Any]]] = None,
+                 input_parameters: Optional[Any] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['ConfigRuleScopeArgs']] = None):
         """
@@ -31,7 +31,9 @@ class ConfigRuleArgs:
         :param pulumi.Input[str] config_rule_name: A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
         :param pulumi.Input[str] description: The description that you provide for the CC rule.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigRuleEvaluationModeConfigurationArgs']]] evaluation_modes: The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
-        :param pulumi.Input[Union[str, Any]] input_parameters: A string, in JSON format, that is passed to the CC rule Lambda function.
+        :param Any input_parameters: A string, in JSON format, that is passed to the CC rule Lambda function.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
                  +  You are using an AWS managed rule that is triggered at a periodic frequency.
                  +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
@@ -118,14 +120,16 @@ class ConfigRuleArgs:
 
     @property
     @pulumi.getter(name="inputParameters")
-    def input_parameters(self) -> Optional[pulumi.Input[Union[str, Any]]]:
+    def input_parameters(self) -> Optional[Any]:
         """
         A string, in JSON format, that is passed to the CC rule Lambda function.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "input_parameters")
 
     @input_parameters.setter
-    def input_parameters(self, value: Optional[pulumi.Input[Union[str, Any]]]):
+    def input_parameters(self, value: Optional[Any]):
         pulumi.set(self, "input_parameters", value)
 
     @property
@@ -167,7 +171,7 @@ class ConfigRule(pulumi.CustomResource):
                  config_rule_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigRuleEvaluationModeConfigurationArgs']]]]] = None,
-                 input_parameters: Optional[pulumi.Input[Union[str, Any]]] = None,
+                 input_parameters: Optional[Any] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[pulumi.InputType['ConfigRuleScopeArgs']]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ConfigRuleSourceArgs']]] = None,
@@ -184,7 +188,9 @@ class ConfigRule(pulumi.CustomResource):
         :param pulumi.Input[str] config_rule_name: A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
         :param pulumi.Input[str] description: The description that you provide for the CC rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigRuleEvaluationModeConfigurationArgs']]]] evaluation_modes: The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.
-        :param pulumi.Input[Union[str, Any]] input_parameters: A string, in JSON format, that is passed to the CC rule Lambda function.
+        :param Any input_parameters: A string, in JSON format, that is passed to the CC rule Lambda function.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
                  +  You are using an AWS managed rule that is triggered at a periodic frequency.
                  +  Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).
@@ -225,7 +231,7 @@ class ConfigRule(pulumi.CustomResource):
                  config_rule_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigRuleEvaluationModeConfigurationArgs']]]]] = None,
-                 input_parameters: Optional[pulumi.Input[Union[str, Any]]] = None,
+                 input_parameters: Optional[Any] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[pulumi.InputType['ConfigRuleScopeArgs']]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ConfigRuleSourceArgs']]] = None,
@@ -333,6 +339,8 @@ class ConfigRule(pulumi.CustomResource):
     def input_parameters(self) -> pulumi.Output[Optional[Any]]:
         """
         A string, in JSON format, that is passed to the CC rule Lambda function.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "input_parameters")
 

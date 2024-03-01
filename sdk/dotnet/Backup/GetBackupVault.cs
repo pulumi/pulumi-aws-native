@@ -51,7 +51,10 @@ namespace Pulumi.AwsNative.Backup
     [OutputType]
     public sealed class GetBackupVaultResult
     {
-        public readonly Union<object, string>? AccessPolicy;
+        /// <summary>
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::BackupVault` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? AccessPolicy;
         public readonly string? BackupVaultArn;
         public readonly ImmutableDictionary<string, string>? BackupVaultTags;
         public readonly Outputs.BackupVaultLockConfigurationType? LockConfiguration;
@@ -59,7 +62,7 @@ namespace Pulumi.AwsNative.Backup
 
         [OutputConstructor]
         private GetBackupVaultResult(
-            Union<object, string>? accessPolicy,
+            object? accessPolicy,
 
             string? backupVaultArn,
 

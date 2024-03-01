@@ -37,7 +37,10 @@ export class OriginEndpointPolicy extends pulumi.CustomResource {
     public readonly channelGroupName!: pulumi.Output<string>;
     public readonly channelName!: pulumi.Output<string>;
     public readonly originEndpointName!: pulumi.Output<string>;
-    public readonly policy!: pulumi.Output<any | string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+     */
+    public readonly policy!: pulumi.Output<any>;
 
     /**
      * Create a OriginEndpointPolicy resource with the given unique name, arguments, and options.
@@ -86,5 +89,8 @@ export interface OriginEndpointPolicyArgs {
     channelGroupName: pulumi.Input<string>;
     channelName: pulumi.Input<string>;
     originEndpointName: pulumi.Input<string>;
-    policy: pulumi.Input<any | string>;
+    /**
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaPackageV2::OriginEndpointPolicy` for more information about the expected schema for this property.
+     */
+    policy: any;
 }
