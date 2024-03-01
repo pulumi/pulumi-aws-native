@@ -28,7 +28,7 @@ To learn how to configure credentials refer to the [AWS configuration options](h
 - Yarn 1.22 or later
 - Python 3.6 or later
 - .NET 6 or greater
-- Gradel 7
+- Gradle 7
 - Pulumi CLI and language plugins
 - pulumictl
 
