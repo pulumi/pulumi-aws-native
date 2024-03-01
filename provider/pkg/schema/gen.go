@@ -419,23 +419,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			"github.com/pulumi/pulumi-aws-native/sdk/go/aws/aws-native": "aws",
 		},
 	})
-	p.Language["nodejs"] = rawMessage(map[string]interface{}{
-		"dependencies": map[string]string{
-			"@pulumi/pulumi":    "^3.0.0",
-			"shell-quote":       "^1.6.1",
-			"tmp":               "^0.0.33",
-			"@types/tmp":        "^0.0.33",
-			"glob":              "^7.1.2",
-			"@types/glob":       "^5.0.35",
-			"node-fetch":        "^2.3.0",
-			"@types/node-fetch": "^2.1.4",
-		},
-		"devDependencies": map[string]string{
-			"mocha":              "^5.2.0",
-			"@types/mocha":       "^5.2.5",
-			"@types/shell-quote": "^1.6.0",
-		},
-	})
+	p.Language["nodejs"] = rawMessage(map[string]interface{}{})
 	p.Language["python"] = rawMessage(map[string]interface{}{
 		"requires": map[string]string{
 			"pulumi": ">=3.0.0,<4.0.0",
