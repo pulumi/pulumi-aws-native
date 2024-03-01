@@ -25,6 +25,16 @@ func TestSimpleCs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestRoleCs(t *testing.T) {
+	test := getCsharpBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:         filepath.Join(getCwd(t), "role-cs"),
+			SkipRefresh: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getCsharpBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	if os.Getenv("PULUMI_LOCAL_NUGET") == "" {
 		localNugetDir, err := filepath.Abs("../nuget")
