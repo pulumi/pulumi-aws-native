@@ -72,7 +72,11 @@ func MergeJSSchema(dest *jsschema.Schema, src *jsschema.Schema) {
 	}
 
 	if len(src.Type) != 0 {
-		dest.Type = append(src.Type, dest.Type...)
+		for _, srcType := range src.Type {
+			if !dest.Type.Contains(srcType) {
+				dest.Type = append(dest.Type, srcType)
+			}
+		}
 	}
 
 	if src.SchemaRef != "" {
