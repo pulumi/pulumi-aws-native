@@ -1196,18 +1196,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		}, nil
 	}
 
-	if propSchema.Items != nil && len(propSchema.Items.Schemas) > 0 {
-		elementType, err := ctx.propertyTypeSpec(parentName+"Item", propSchema.Items.Schemas[0])
-		if err != nil {
-			return nil, err
-		}
-		return &pschema.TypeSpec{
-			Type:  "array",
-			Items: elementType,
-		}, nil
-	}
-
-	if propSchema.Items != nil {
+	if propSchema.Type.Contains(jsschema.ArrayType) {
 		elementType, err := ctx.propertyTypeSpec(parentName+"Item", propSchema.Items.Schemas[0])
 		if err != nil {
 			return nil, err

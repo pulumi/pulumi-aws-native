@@ -38,7 +38,7 @@ func FlattenJSSchema(sch *jsschema.Schema) jsschema.SchemaList {
 
 func NormaliseTypes(sch *jsschema.Schema) *jsschema.Schema {
 	// Infer type from type-specific fields
-	if sch.Items != nil && !sch.Type.Contains(jsschema.ArrayType) {
+	if sch.Items != nil && len(sch.Items.Schemas) > 0 && !sch.Type.Contains(jsschema.ArrayType) {
 		sch.Type = append(sch.Type, jsschema.ArrayType)
 	}
 	if len(sch.Properties) > 0 ||

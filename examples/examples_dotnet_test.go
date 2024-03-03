@@ -18,8 +18,7 @@ import (
 func TestSimpleCs(t *testing.T) {
 	test := getCsharpBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:         filepath.Join(getCwd(t), "simple-cs"),
-			SkipRefresh: true,
+			Dir: filepath.Join(getCwd(t), "simple-cs"),
 		})
 
 	integration.ProgramTest(t, &test)
@@ -28,8 +27,7 @@ func TestSimpleCs(t *testing.T) {
 func TestRoleCs(t *testing.T) {
 	test := getCsharpBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:         filepath.Join(getCwd(t), "role-cs"),
-			SkipRefresh: true,
+			Dir: filepath.Join(getCwd(t), "role-cs"),
 		})
 
 	integration.ProgramTest(t, &test)
