@@ -64,7 +64,7 @@
       "permissions" : [ "glue:GetRegistry", "glue:GetTags" ]
     },
     "delete" : {
-      "permissions" : [ "glue:DeleteRegistry" ]
+      "permissions" : [ "glue:GetRegistry", "glue:DeleteRegistry" ]
     },
     "update" : {
       "permissions" : [ "glue:UpdateRegistry", "glue:GetRegistry", "glue:TagResource", "glue:UntagResource", "glue:GetTags" ]

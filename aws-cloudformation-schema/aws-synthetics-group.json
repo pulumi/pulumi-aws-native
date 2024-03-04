@@ -59,6 +59,9 @@
     }
   },
   "required" : [ "Name" ],
+  "tagging" : {
+    "taggable" : true
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "synthetics:CreateGroup", "synthetics:AssociateResource", "synthetics:TagResource", "synthetics:GetGroup" ]
