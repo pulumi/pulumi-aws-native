@@ -4,6 +4,7 @@ AWS::Cognito::UserPoolIdentityProvider
 AWS::Cognito::UserPoolResourceServer
 AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::EC2::Instance
+AWS::EC2::SecurityGroup
 AWS::EC2::TransitGatewayRouteTableAssociation
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup

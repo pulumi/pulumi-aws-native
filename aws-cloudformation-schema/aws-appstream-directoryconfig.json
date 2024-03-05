@@ -51,22 +51,24 @@
   "writeOnlyProperties" : [ "/properties/ServiceAccountCredentials/AccountPassword" ],
   "createOnlyProperties" : [ "/properties/DirectoryName" ],
   "primaryIdentifier" : [ "/properties/DirectoryName" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfig", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
+      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfigs", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     },
     "update" : {
-      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfig", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
+      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfigs", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     },
     "read" : {
-      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfig", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
+      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfigs", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     },
     "delete" : {
-      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfig", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
+      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfigs", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     },
     "list" : {
-      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfig", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
+      "permissions" : [ "appstream:CreateDirectoryConfig", "appstream:DeleteDirectoryConfig", "appstream:DescribeDirectoryConfigs", "appstream:UpdateDirectoryConfig", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     }
   }
 }
