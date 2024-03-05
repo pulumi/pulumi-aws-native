@@ -28,7 +28,7 @@ class MethodArgs:
                  method_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]] = None,
                  request_validator_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Method resource.
@@ -44,7 +44,7 @@ class MethodArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MethodResponseArgs']]] method_responses: Gets a method response associated with a given HTTP status code.
         :param pulumi.Input[str] operation_name: A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         :param pulumi.Input[str] request_validator_id: The identifier of a RequestValidator for request validation.
         """
         pulumi.set(__self__, "http_method", http_method)
@@ -206,14 +206,14 @@ class MethodArgs:
 
     @property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
+    def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]]:
         """
         A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
-    def request_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]):
+    def request_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]]):
         pulumi.set(self, "request_parameters", value)
 
     @property
@@ -243,7 +243,7 @@ class Method(pulumi.CustomResource):
                  method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodResponseArgs']]]]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]] = None,
                  request_validator_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
@@ -263,7 +263,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodResponseArgs']]]] method_responses: Gets a method response associated with a given HTTP status code.
         :param pulumi.Input[str] operation_name: A human-friendly operation identifier for the method. For example, you can assign the ``operationName`` of ``ListPets`` for the ``GET /pets`` method in the ``PetStore`` example.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
-        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         :param pulumi.Input[str] request_validator_id: The identifier of a RequestValidator for request validation.
         :param pulumi.Input[str] resource_id: The Resource identifier for the MethodResponse resource.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
@@ -301,7 +301,7 @@ class Method(pulumi.CustomResource):
                  method_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MethodResponseArgs']]]]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[bool, str]]]]] = None,
                  request_validator_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
@@ -447,7 +447,7 @@ class Method(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> pulumi.Output[Optional[Mapping[str, bool]]]:
+    def request_parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         """

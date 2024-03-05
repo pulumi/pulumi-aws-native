@@ -13,29 +13,29 @@ namespace Pulumi.AwsNative.IoTFleetWise.Outputs
     [OutputType]
     public sealed class DecoderManifestObdInterface
     {
-        public readonly int? DtcRequestIntervalSeconds;
-        public readonly bool? HasTransmissionEcu;
+        public readonly Union<int, string>? DtcRequestIntervalSeconds;
+        public readonly Union<bool, string>? HasTransmissionEcu;
         public readonly string Name;
         public readonly string? ObdStandard;
-        public readonly int? PidRequestIntervalSeconds;
-        public readonly int RequestMessageId;
-        public readonly bool? UseExtendedIds;
+        public readonly Union<int, string>? PidRequestIntervalSeconds;
+        public readonly Union<int, string> RequestMessageId;
+        public readonly Union<bool, string>? UseExtendedIds;
 
         [OutputConstructor]
         private DecoderManifestObdInterface(
-            int? dtcRequestIntervalSeconds,
+            Union<int, string>? dtcRequestIntervalSeconds,
 
-            bool? hasTransmissionEcu,
+            Union<bool, string>? hasTransmissionEcu,
 
             string name,
 
             string? obdStandard,
 
-            int? pidRequestIntervalSeconds,
+            Union<int, string>? pidRequestIntervalSeconds,
 
-            int requestMessageId,
+            Union<int, string> requestMessageId,
 
-            bool? useExtendedIds)
+            Union<bool, string>? useExtendedIds)
         {
             DtcRequestIntervalSeconds = dtcRequestIntervalSeconds;
             HasTransmissionEcu = hasTransmissionEcu;

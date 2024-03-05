@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.IoTFleetWise.Inputs
     public sealed class DecoderManifestObdInterfaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("dtcRequestIntervalSeconds")]
-        public Input<int>? DtcRequestIntervalSeconds { get; set; }
+        public InputUnion<int, string>? DtcRequestIntervalSeconds { get; set; }
 
         [Input("hasTransmissionEcu")]
-        public Input<bool>? HasTransmissionEcu { get; set; }
+        public InputUnion<bool, string>? HasTransmissionEcu { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.IoTFleetWise.Inputs
         public Input<string>? ObdStandard { get; set; }
 
         [Input("pidRequestIntervalSeconds")]
-        public Input<int>? PidRequestIntervalSeconds { get; set; }
+        public InputUnion<int, string>? PidRequestIntervalSeconds { get; set; }
 
         [Input("requestMessageId", required: true)]
-        public Input<int> RequestMessageId { get; set; } = null!;
+        public InputUnion<int, string> RequestMessageId { get; set; } = null!;
 
         [Input("useExtendedIds")]
-        public Input<bool>? UseExtendedIds { get; set; }
+        public InputUnion<bool, string>? UseExtendedIds { get; set; }
 
         public DecoderManifestObdInterfaceArgs()
         {

@@ -71,8 +71,10 @@ namespace Pulumi.AwsNative.Events
         public readonly string? EventBusName;
         /// <summary>
         /// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
         /// </summary>
-        public readonly string? EventPattern;
+        public readonly object? EventPattern;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role that is used for target invocation.
         /// </summary>
@@ -99,7 +101,7 @@ namespace Pulumi.AwsNative.Events
 
             string? eventBusName,
 
-            string? eventPattern,
+            object? eventPattern,
 
             string? roleArn,
 

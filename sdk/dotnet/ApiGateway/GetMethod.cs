@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         /// </summary>
-        public readonly ImmutableDictionary<string, bool>? RequestParameters;
+        public readonly ImmutableDictionary<string, Union<bool, string>>? RequestParameters;
         /// <summary>
         /// The identifier of a RequestValidator for request validation.
         /// </summary>
@@ -141,7 +141,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             ImmutableDictionary<string, string>? requestModels,
 
-            ImmutableDictionary<string, bool>? requestParameters,
+            ImmutableDictionary<string, Union<bool, string>>? requestParameters,
 
             string? requestValidatorId)
         {

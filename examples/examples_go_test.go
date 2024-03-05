@@ -25,7 +25,6 @@ func TestSimpleGo(t *testing.T) {
 func TestWriteOnlyGo(t *testing.T) {
 	test := getGoBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			SkipRefresh:          false,
 			ExpectRefreshChanges: false,
 			Dir:                  filepath.Join(getCwd(t), "write-only-go"),
 			Config: map[string]string{

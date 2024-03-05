@@ -22,7 +22,9 @@ type Rule struct {
 	// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
-	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
+	EventPattern pulumi.AnyOutput `pulumi:"eventPattern"`
 	// The name of the rule.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
@@ -85,7 +87,9 @@ type ruleArgs struct {
 	// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 	EventBusName *string `pulumi:"eventBusName"`
 	// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
-	EventPattern *string `pulumi:"eventPattern"`
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
+	EventPattern interface{} `pulumi:"eventPattern"`
 	// The name of the rule.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
@@ -106,7 +110,9 @@ type RuleArgs struct {
 	// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 	EventBusName pulumi.StringPtrInput
 	// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
-	EventPattern pulumi.StringPtrInput
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
+	EventPattern pulumi.Input
 	// The name of the rule.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
@@ -173,8 +179,10 @@ func (o RuleOutput) EventBusName() pulumi.StringPtrOutput {
 }
 
 // The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
-func (o RuleOutput) EventPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.EventPattern }).(pulumi.StringPtrOutput)
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
+func (o RuleOutput) EventPattern() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Rule) pulumi.AnyOutput { return v.EventPattern }).(pulumi.AnyOutput)
 }
 
 // The name of the rule.

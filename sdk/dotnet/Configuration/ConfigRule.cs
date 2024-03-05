@@ -50,9 +50,11 @@ namespace Pulumi.AwsNative.Configuration
 
         /// <summary>
         /// A string, in JSON format, that is passed to the CC rule Lambda function.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
         /// </summary>
         [Output("inputParameters")]
-        public Output<string?> InputParameters { get; private set; } = null!;
+        public Output<object?> InputParameters { get; private set; } = null!;
 
         /// <summary>
         /// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
@@ -158,9 +160,11 @@ namespace Pulumi.AwsNative.Configuration
 
         /// <summary>
         /// A string, in JSON format, that is passed to the CC rule Lambda function.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
         /// </summary>
         [Input("inputParameters")]
-        public Input<string>? InputParameters { get; set; }
+        public Input<object>? InputParameters { get; set; }
 
         /// <summary>
         /// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:

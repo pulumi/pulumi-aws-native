@@ -11,9 +11,47 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DeliveryDestinationDestinationPolicyArgs',
     'MetricFilterDimensionArgs',
     'MetricFilterMetricTransformationArgs',
 ]
+
+@pulumi.input_type
+class DeliveryDestinationDestinationPolicyArgs:
+    def __init__(__self__, *,
+                 delivery_destination_name: pulumi.Input[str],
+                 delivery_destination_policy: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] delivery_destination_name: The name of the delivery destination to assign this policy to
+        :param pulumi.Input[str] delivery_destination_policy: The contents of the policy attached to the delivery destination
+        """
+        pulumi.set(__self__, "delivery_destination_name", delivery_destination_name)
+        pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
+
+    @property
+    @pulumi.getter(name="deliveryDestinationName")
+    def delivery_destination_name(self) -> pulumi.Input[str]:
+        """
+        The name of the delivery destination to assign this policy to
+        """
+        return pulumi.get(self, "delivery_destination_name")
+
+    @delivery_destination_name.setter
+    def delivery_destination_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "delivery_destination_name", value)
+
+    @property
+    @pulumi.getter(name="deliveryDestinationPolicy")
+    def delivery_destination_policy(self) -> pulumi.Input[str]:
+        """
+        The contents of the policy attached to the delivery destination
+        """
+        return pulumi.get(self, "delivery_destination_policy")
+
+    @delivery_destination_policy.setter
+    def delivery_destination_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "delivery_destination_policy", value)
+
 
 @pulumi.input_type
 class MetricFilterDimensionArgs:

@@ -13,32 +13,32 @@ namespace Pulumi.AwsNative.IoTFleetWise.Outputs
     [OutputType]
     public sealed class DecoderManifestCanSignal
     {
-        public readonly double Factor;
-        public readonly bool IsBigEndian;
-        public readonly bool IsSigned;
-        public readonly int Length;
-        public readonly int MessageId;
+        public readonly Union<double, string> Factor;
+        public readonly Union<bool, string> IsBigEndian;
+        public readonly Union<bool, string> IsSigned;
+        public readonly Union<int, string> Length;
+        public readonly Union<int, string> MessageId;
         public readonly string? Name;
-        public readonly double Offset;
-        public readonly int StartBit;
+        public readonly Union<double, string> Offset;
+        public readonly Union<int, string> StartBit;
 
         [OutputConstructor]
         private DecoderManifestCanSignal(
-            double factor,
+            Union<double, string> factor,
 
-            bool isBigEndian,
+            Union<bool, string> isBigEndian,
 
-            bool isSigned,
+            Union<bool, string> isSigned,
 
-            int length,
+            Union<int, string> length,
 
-            int messageId,
+            Union<int, string> messageId,
 
             string? name,
 
-            double offset,
+            Union<double, string> offset,
 
-            int startBit)
+            Union<int, string> startBit)
         {
             Factor = factor;
             IsBigEndian = isBigEndian;

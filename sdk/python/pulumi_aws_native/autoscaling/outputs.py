@@ -891,7 +891,7 @@ class AutoScalingGroupNotificationConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 topic_arn: str,
+                 topic_arn: Sequence[str],
                  notification_types: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "topic_arn", topic_arn)
         if notification_types is not None:
@@ -899,7 +899,7 @@ class AutoScalingGroupNotificationConfiguration(dict):
 
     @property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> str:
+    def topic_arn(self) -> Sequence[str]:
         return pulumi.get(self, "topic_arn")
 
     @property

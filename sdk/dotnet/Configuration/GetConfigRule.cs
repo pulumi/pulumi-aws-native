@@ -79,8 +79,10 @@ namespace Pulumi.AwsNative.Configuration
         public readonly ImmutableArray<Outputs.ConfigRuleEvaluationModeConfiguration> EvaluationModes;
         /// <summary>
         /// A string, in JSON format, that is passed to the CC rule Lambda function.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
         /// </summary>
-        public readonly string? InputParameters;
+        public readonly object? InputParameters;
         /// <summary>
         /// The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
         ///   +  You are using an AWS managed rule that is triggered at a periodic frequency.
@@ -111,7 +113,7 @@ namespace Pulumi.AwsNative.Configuration
 
             ImmutableArray<Outputs.ConfigRuleEvaluationModeConfiguration> evaluationModes,
 
-            string? inputParameters,
+            object? inputParameters,
 
             string? maximumExecutionFrequency,
 

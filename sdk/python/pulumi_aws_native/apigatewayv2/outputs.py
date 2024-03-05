@@ -22,6 +22,7 @@ __all__ = [
     'DomainNameConfiguration',
     'DomainNameMutualTlsAuthentication',
     'IntegrationTlsConfig',
+    'RouteParameterConstraints',
     'RouteResponseParameterConstraints',
     'StageAccessLogSettings',
     'StageRouteSettings',
@@ -709,6 +710,18 @@ class IntegrationTlsConfig(dict):
     @pulumi.getter(name="serverNameToVerify")
     def server_name_to_verify(self) -> Optional[str]:
         return pulumi.get(self, "server_name_to_verify")
+
+
+@pulumi.output_type
+class RouteParameterConstraints(dict):
+    def __init__(__self__, *,
+                 required: bool):
+        pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter
+    def required(self) -> bool:
+        return pulumi.get(self, "required")
 
 
 @pulumi.output_type

@@ -35,9 +35,11 @@ namespace Pulumi.AwsNative.Events
 
         /// <summary>
         /// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
         /// </summary>
         [Output("eventPattern")]
-        public Output<string?> EventPattern { get; private set; } = null!;
+        public Output<object?> EventPattern { get; private set; } = null!;
 
         /// <summary>
         /// The name of the rule.
@@ -133,9 +135,11 @@ namespace Pulumi.AwsNative.Events
 
         /// <summary>
         /// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
         /// </summary>
         [Input("eventPattern")]
-        public Input<string>? EventPattern { get; set; }
+        public Input<object>? EventPattern { get; set; }
 
         /// <summary>
         /// The name of the rule.

@@ -36,7 +36,7 @@ type Method struct {
 	// A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
 	RequestModels pulumi.StringMapOutput `pulumi:"requestModels"`
 	// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
-	RequestParameters pulumi.BoolMapOutput `pulumi:"requestParameters"`
+	RequestParameters pulumi.MapOutput `pulumi:"requestParameters"`
 	// The identifier of a RequestValidator for request validation.
 	RequestValidatorId pulumi.StringPtrOutput `pulumi:"requestValidatorId"`
 	// The Resource identifier for the MethodResponse resource.
@@ -120,7 +120,7 @@ type methodArgs struct {
 	// A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
 	RequestModels map[string]string `pulumi:"requestModels"`
 	// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
-	RequestParameters map[string]bool `pulumi:"requestParameters"`
+	RequestParameters map[string]interface{} `pulumi:"requestParameters"`
 	// The identifier of a RequestValidator for request validation.
 	RequestValidatorId *string `pulumi:"requestValidatorId"`
 	// The Resource identifier for the MethodResponse resource.
@@ -151,7 +151,7 @@ type MethodArgs struct {
 	// A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
 	RequestModels pulumi.StringMapInput
 	// A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
-	RequestParameters pulumi.BoolMapInput
+	RequestParameters pulumi.MapInput
 	// The identifier of a RequestValidator for request validation.
 	RequestValidatorId pulumi.StringPtrInput
 	// The Resource identifier for the MethodResponse resource.
@@ -245,8 +245,8 @@ func (o MethodOutput) RequestModels() pulumi.StringMapOutput {
 }
 
 // A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of “method.request.{location}.{name}“, where “location“ is “querystring“, “path“, or “header“ and “name“ is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (“true“) or optional (“false“). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
-func (o MethodOutput) RequestParameters() pulumi.BoolMapOutput {
-	return o.ApplyT(func(v *Method) pulumi.BoolMapOutput { return v.RequestParameters }).(pulumi.BoolMapOutput)
+func (o MethodOutput) RequestParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *Method) pulumi.MapOutput { return v.RequestParameters }).(pulumi.MapOutput)
 }
 
 // The identifier of a RequestValidator for request validation.

@@ -77,7 +77,7 @@ export class Method extends pulumi.CustomResource {
     /**
      * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
      */
-    public readonly requestParameters!: pulumi.Output<{[key: string]: boolean} | undefined>;
+    public readonly requestParameters!: pulumi.Output<{[key: string]: boolean | string} | undefined>;
     /**
      * The identifier of a RequestValidator for request validation.
      */
@@ -190,7 +190,7 @@ export interface MethodArgs {
     /**
      * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of ``method.request.{location}.{name}``, where ``location`` is ``querystring``, ``path``, or ``header`` and ``name`` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (``true``) or optional (``false``). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
      */
-    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean | string>}>;
     /**
      * The identifier of a RequestValidator for request validation.
      */

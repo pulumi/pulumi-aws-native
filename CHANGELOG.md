@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- [Fix multi-type resolutions](https://github.com/pulumi/pulumi-aws-native/pull/1383) includes fixes for inline role policies
+
 ## 0.98.0 (2024-02-29)
 
 - **BREAKING CHANGE**: [De-duplicate types for simple arrays of tags](https://github.com/pulumi/pulumi-aws-native/pull/1348)

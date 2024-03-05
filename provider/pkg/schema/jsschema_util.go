@@ -34,7 +34,22 @@ func FlattenJSSchema(sch *jsschema.Schema) jsschema.SchemaList {
 		schemas[i] = merged
 	}
 	return schemas
+}
 
+func NormaliseTypes(sch *jsschema.Schema) *jsschema.Schema {
+	// Infer type from type-specific fields
+	if sch.Items != nil && len(sch.Items.Schemas) > 0 && !sch.Type.Contains(jsschema.ArrayType) {
+		sch.Type = append(sch.Type, jsschema.ArrayType)
+	}
+	if len(sch.Properties) > 0 ||
+		(sch.AdditionalItems != nil && sch.AdditionalItems.Schema != nil) ||
+		len(sch.PatternProperties) > 0 {
+		if !sch.Type.Contains(jsschema.ObjectType) {
+			sch.Type = append(sch.Type, jsschema.ObjectType)
+		}
+	}
+
+	return sch
 }
 
 // MergeJSSchema overlays the contents of src into dest to merge the values of the fields
@@ -57,7 +72,11 @@ func MergeJSSchema(dest *jsschema.Schema, src *jsschema.Schema) {
 	}
 
 	if len(src.Type) != 0 {
-		dest.Type = append(src.Type, dest.Type...)
+		for _, srcType := range src.Type {
+			if !dest.Type.Contains(srcType) {
+				dest.Type = append(dest.Type, srcType)
+			}
+		}
 	}
 
 	if src.SchemaRef != "" {

@@ -1243,7 +1243,7 @@ export namespace apigateway {
         /**
          * A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern ``method.response.header.{name}``, where ``name`` is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in ``integration.response.header.{name}``, a static value enclosed within a pair of single quotes (e.g., ``'application/json'``), or a JSON expression from the back-end response payload in the form of ``integration.response.body.{JSON-expression}``, where ``JSON-expression`` is a valid JSON expression without the ``$`` prefix.)
          */
-        responseParameters?: {[key: string]: boolean};
+        responseParameters?: {[key: string]: boolean | string};
         /**
          * The method response's status code.
          */
@@ -1563,6 +1563,10 @@ export namespace apigatewayv2 {
 
     export interface IntegrationTlsConfig {
         serverNameToVerify?: string;
+    }
+
+    export interface RouteParameterConstraints {
+        required: boolean;
     }
 
     /**
@@ -4923,7 +4927,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfiguration {
         notificationTypes?: string[];
-        topicArn: string;
+        topicArn: string[];
     }
 
     export interface AutoScalingGroupTagProperty {
@@ -20524,7 +20528,7 @@ export namespace iam {
         /**
          * The policy document.
          */
-        policyDocument: string;
+        policyDocument: any;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -20540,7 +20544,7 @@ export namespace iam {
         /**
          * The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
          */
-        policyDocument: string;
+        policyDocument: any;
         /**
          * The friendly name (not ARN) identifying the policy.
          */
@@ -23304,14 +23308,14 @@ export namespace iotfleetwise {
     }
 
     export interface DecoderManifestCanSignal {
-        factor: number;
-        isBigEndian: boolean;
-        isSigned: boolean;
-        length: number;
-        messageId: number;
+        factor: number | string;
+        isBigEndian: boolean | string;
+        isSigned: boolean | string;
+        length: number | string;
+        messageId: number | string;
         name?: string;
-        offset: number;
-        startBit: number;
+        offset: number | string;
+        startBit: number | string;
     }
 
     export interface DecoderManifestCanSignalDecoder {
@@ -23322,13 +23326,13 @@ export namespace iotfleetwise {
     }
 
     export interface DecoderManifestObdInterface {
-        dtcRequestIntervalSeconds?: number;
-        hasTransmissionEcu?: boolean;
+        dtcRequestIntervalSeconds?: number | string;
+        hasTransmissionEcu?: boolean | string;
         name: string;
         obdStandard?: string;
-        pidRequestIntervalSeconds?: number;
-        requestMessageId: number;
-        useExtendedIds?: boolean;
+        pidRequestIntervalSeconds?: number | string;
+        requestMessageId: number | string;
+        useExtendedIds?: boolean | string;
     }
 
     export interface DecoderManifestObdNetworkInterface {
@@ -23338,15 +23342,15 @@ export namespace iotfleetwise {
     }
 
     export interface DecoderManifestObdSignal {
-        bitMaskLength?: number;
-        bitRightShift?: number;
-        byteLength: number;
-        offset: number;
-        pid: number;
-        pidResponseLength: number;
-        scaling: number;
-        serviceMode: number;
-        startByte: number;
+        bitMaskLength?: number | string;
+        bitRightShift?: number | string;
+        byteLength: number | string;
+        offset: number | string;
+        pid: number | string;
+        pidResponseLength: number | string;
+        scaling: number | string;
+        serviceMode: number | string;
+        startByte: number | string;
     }
 
     export interface DecoderManifestObdSignalDecoder {
@@ -28759,6 +28763,17 @@ export namespace location {
 }
 
 export namespace logs {
+    export interface DeliveryDestinationDestinationPolicy {
+        /**
+         * The name of the delivery destination to assign this policy to
+         */
+        deliveryDestinationName: string;
+        /**
+         * The contents of the policy attached to the delivery destination
+         */
+        deliveryDestinationPolicy: string;
+    }
+
     /**
      * the key-value pairs that further define a metric.
      */

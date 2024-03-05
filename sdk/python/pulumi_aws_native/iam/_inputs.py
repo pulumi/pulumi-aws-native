@@ -19,10 +19,10 @@ __all__ = [
 @pulumi.input_type
 class GroupPolicyArgs:
     def __init__(__self__, *,
-                 policy_document: pulumi.Input[str],
+                 policy_document: Any,
                  policy_name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] policy_document: The policy document.
+        :param Any policy_document: The policy document.
         :param pulumi.Input[str] policy_name: The friendly name (not ARN) identifying the policy.
         """
         pulumi.set(__self__, "policy_document", policy_document)
@@ -30,14 +30,14 @@ class GroupPolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[str]:
+    def policy_document(self) -> Any:
         """
         The policy document.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[str]):
+    def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
 
     @property
@@ -56,13 +56,13 @@ class GroupPolicyArgs:
 @pulumi.input_type
 class RolePolicyArgs:
     def __init__(__self__, *,
-                 policy_document: pulumi.Input[str],
+                 policy_document: Any,
                  policy_name: pulumi.Input[str]):
         """
         Contains information about an attached policy.
          An attached policy is a managed policy that has been attached to a user, group, or role.
          For more information about managed policies, refer to [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
-        :param pulumi.Input[str] policy_document: The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
+        :param Any policy_document: The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         :param pulumi.Input[str] policy_name: The friendly name (not ARN) identifying the policy.
         """
         pulumi.set(__self__, "policy_document", policy_document)
@@ -70,14 +70,14 @@ class RolePolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[str]:
+    def policy_document(self) -> Any:
         """
         The entire contents of the policy that defines permissions. For more information, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[str]):
+    def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
 
     @property

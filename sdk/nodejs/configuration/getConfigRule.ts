@@ -45,8 +45,10 @@ export interface GetConfigRuleResult {
     readonly evaluationModes?: outputs.configuration.ConfigRuleEvaluationModeConfiguration[];
     /**
      * A string, in JSON format, that is passed to the CC rule Lambda function.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::ConfigRule` for more information about the expected schema for this property.
      */
-    readonly inputParameters?: string;
+    readonly inputParameters?: any;
     /**
      * The maximum frequency with which CC runs evaluations for a rule. You can specify a value for ``MaximumExecutionFrequency`` when:
      *   +  You are using an AWS managed rule that is triggered at a periodic frequency.
