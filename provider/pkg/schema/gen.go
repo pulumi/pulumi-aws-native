@@ -828,6 +828,7 @@ func (ctx *context) gatherResourceType() error {
 	createOnlyProperties := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
 	readOnlyProperties := codegen.NewStringSet(readPropNames(ctx.resourceSpec, "readOnlyProperties")...)
 	tagsProp, hasTags := GetTagsProperty(ctx.resourceSpec)
+	requiredProperties := codegen.NewStringSet(ctx.resourceSpec.Required...)
 	var tagsStyle TagsStyle
 
 	irreversibleNames := map[string]string{}
@@ -835,8 +836,9 @@ func (ctx *context) gatherResourceType() error {
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	for prop, spec := range ctx.resourceSpec.Properties {
 		sdkName := ToSdkName(prop)
+		originalSdkName := sdkName
 		if sdkName == "id" {
-			continue
+			sdkName = "awsId"
 		}
 		propertySpec, err := ctx.propertySpec(prop, resourceTypeName, spec)
 		if err != nil {
@@ -847,21 +849,17 @@ func (ctx *context) gatherResourceType() error {
 		}
 		addUntypedPropDocs(propertySpec, ctx.cfTypeName)
 		properties[sdkName] = *propertySpec
-		if createOnlyProperties.Has(sdkName) || !readOnlyProperties.Has(prop) {
-			inputProperties[sdkName] = *propertySpec
-		}
-		if HasUppercaseAcronym(prop) {
-			irreversibleNames[sdkName] = prop
-		}
-	}
-
-	for _, prop := range ctx.resourceSpec.Required {
-		sdkName := ToSdkName(prop)
-		if _, has := properties[sdkName]; has {
+		if requiredProperties.Has(prop) || readOnlyProperties.Has(prop) {
 			required.Add(sdkName)
 		}
-		if _, has := inputProperties[sdkName]; has {
-			requiredInputs.Add(sdkName)
+		if createOnlyProperties.Has(originalSdkName) || !readOnlyProperties.Has(prop) {
+			inputProperties[sdkName] = *propertySpec
+			if requiredProperties.Has(prop) {
+				requiredInputs.Add(sdkName)
+			}
+		}
+		if HasUppercaseAcronym(prop) || ToCfnName(sdkName, nil) != prop {
+			irreversibleNames[sdkName] = prop
 		}
 	}
 
@@ -869,13 +867,6 @@ func (ctx *context) gatherResourceType() error {
 	// If a field can be auto-named, its no longer required.
 	if autoNamingSpec != nil {
 		delete(requiredInputs, autoNamingSpec.SdkName)
-	}
-
-	for prop := range readOnlyProperties {
-		sdkName := ToSdkName(prop)
-		if _, has := properties[sdkName]; has {
-			required.Add(sdkName)
-		}
 	}
 
 	var deprecationMessage string
