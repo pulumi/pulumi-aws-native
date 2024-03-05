@@ -174,6 +174,36 @@ func TestPropertyTypeSpec(t *testing.T) {
 				},
 			},
 		},
+		{
+			name: "string-and-number",
+			json: `{
+				"type": ["string","number"]
+			}`,
+			expected: pschema.TypeSpec{
+				OneOf: []pschema.TypeSpec{{Type: "string"}, {Type: "number"}},
+			},
+		},
+		{
+			name: "inferred-array",
+			json: `{
+				"items": { "type": "string" }
+			}`,
+			expected: pschema.TypeSpec{
+				Type: "array",
+				Items: &pschema.TypeSpec{
+					Type: "string",
+				},
+			},
+		},
+		{
+			name: "collapse-oneOf-any",
+			json: `{
+				"type": ["string","object"]
+			}`,
+			expected: pschema.TypeSpec{
+				Ref: "pulumi.json#/Any",
+			},
+		},
 	}
 
 	ctx := context{
@@ -186,19 +216,19 @@ func TestPropertyTypeSpec(t *testing.T) {
 		},
 		resourceSpec: &jsschema.Schema{
 			Definitions: map[string]*jsschema.Schema{
-				"Obj": &jsschema.Schema{Type: jsschema.PrimitiveTypes{jsschema.ObjectType}},
-				"OneOf": &jsschema.Schema{
+				"Obj": {Type: jsschema.PrimitiveTypes{jsschema.ObjectType}},
+				"OneOf": {
 					OneOf: jsschema.SchemaList{
 						&jsschema.Schema{Type: jsschema.PrimitiveTypes{jsschema.NumberType}},
 						&jsschema.Schema{Type: jsschema.PrimitiveTypes{jsschema.StringType}},
 					},
 				},
-				"ObjLike1": &jsschema.Schema{
+				"ObjLike1": {
 					Properties: map[string]*jsschema.Schema{
 						"foo": jsschema.New(),
 					},
 				},
-				"ObjLike2": &jsschema.Schema{
+				"ObjLike2": {
 					PatternProperties: map[string]*jsschema.Schema{
 						".+": jsschema.New(),
 					},
@@ -256,7 +286,7 @@ func TestEnumType(t *testing.T) {
 		assert.NoError(t, err)
 		assert.Equal(t, "#/types/"+tt.expectedType, out.Ref)
 		if assert.Contains(t, ctx.pkg.Types, tt.expectedType) {
-			v, _ := ctx.pkg.Types[tt.expectedType]
+			v := ctx.pkg.Types[tt.expectedType]
 			actualValues := map[string]string{}
 			for _, v := range v.Enum {
 				actualValues[v.Name] = v.Value.(string)
@@ -301,27 +331,27 @@ func TestMarkCreateOnlyProperties(t *testing.T) {
 	baseResourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Properties: map[string]pschema.PropertySpec{
-				"foo": pschema.PropertySpec{},
-				"obj": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{Ref: "#/types/obj"}},
-				"arr": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{
+				"foo": {},
+				"obj": {TypeSpec: pschema.TypeSpec{Ref: "#/types/obj"}},
+				"arr": {TypeSpec: pschema.TypeSpec{
 					Items: &pschema.TypeSpec{Ref: "#/types/obj"},
 				}},
 			},
 		},
 	}
 	baseTypes := map[string]pschema.ComplexTypeSpec{
-		"obj": pschema.ComplexTypeSpec{
+		"obj": {
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
 				Properties: map[string]pschema.PropertySpec{
-					"bar": pschema.PropertySpec{},
-					"baz": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{Ref: "#/types/obj2"}},
+					"bar": {},
+					"baz": {TypeSpec: pschema.TypeSpec{Ref: "#/types/obj2"}},
 				},
 			},
 		},
-		"obj2": pschema.ComplexTypeSpec{
+		"obj2": {
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
 				Properties: map[string]pschema.PropertySpec{
-					"zz": pschema.PropertySpec{},
+					"zz": {},
 				},
 			},
 		},
