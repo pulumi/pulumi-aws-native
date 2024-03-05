@@ -18,6 +18,7 @@ type Service struct {
 
 	Arn              pulumi.StringOutput      `pulumi:"arn"`
 	AuthType         ServiceAuthTypePtrOutput `pulumi:"authType"`
+	AwsId            pulumi.StringOutput      `pulumi:"awsId"`
 	CertificateArn   pulumi.StringPtrOutput   `pulumi:"certificateArn"`
 	CreatedAt        pulumi.StringOutput      `pulumi:"createdAt"`
 	CustomDomainName pulumi.StringPtrOutput   `pulumi:"customDomainName"`
@@ -134,6 +135,10 @@ func (o ServiceOutput) Arn() pulumi.StringOutput {
 
 func (o ServiceOutput) AuthType() ServiceAuthTypePtrOutput {
 	return o.ApplyT(func(v *Service) ServiceAuthTypePtrOutput { return v.AuthType }).(ServiceAuthTypePtrOutput)
+}
+
+func (o ServiceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ServiceOutput) CertificateArn() pulumi.StringPtrOutput {

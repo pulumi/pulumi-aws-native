@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Macie
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// AllowList ID.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// AllowList criteria.
         /// </summary>
         [Output("criteria")]

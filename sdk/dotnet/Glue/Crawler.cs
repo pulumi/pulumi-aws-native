@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:Crawler")]
     public partial class Crawler : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("classifiers")]
         public Output<ImmutableArray<string>> Classifiers { get; private set; } = null!;
 

@@ -133,6 +133,7 @@ class BaiduChannel(pulumi.CustomResource):
             if secret_key is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_key'")
             __props__.__dict__["secret_key"] = secret_key
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BaiduChannel, __self__).__init__(
@@ -159,6 +160,7 @@ class BaiduChannel(pulumi.CustomResource):
 
         __props__.__dict__["api_key"] = None
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["secret_key"] = None
         return BaiduChannel(resource_name, opts=opts, __props__=__props__)
@@ -172,6 +174,11 @@ class BaiduChannel(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

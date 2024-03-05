@@ -38,6 +38,7 @@ export class ThingGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly parentGroupName!: pulumi.Output<string | undefined>;
     public readonly queryString!: pulumi.Output<string | undefined>;
     /**
@@ -64,8 +65,10 @@ export class ThingGroup extends pulumi.CustomResource {
             resourceInputs["thingGroupName"] = args ? args.thingGroupName : undefined;
             resourceInputs["thingGroupProperties"] = args ? args.thingGroupProperties : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["parentGroupName"] = undefined /*out*/;
             resourceInputs["queryString"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

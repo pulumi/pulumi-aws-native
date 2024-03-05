@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:Model")]
     public partial class Model : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("containers")]
         public Output<ImmutableArray<Outputs.ModelContainerDefinition>> Containers { get; private set; } = null!;
 

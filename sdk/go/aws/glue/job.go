@@ -19,6 +19,7 @@ type Job struct {
 	pulumi.CustomResourceState
 
 	AllocatedCapacity pulumi.Float64PtrOutput     `pulumi:"allocatedCapacity"`
+	AwsId             pulumi.StringOutput         `pulumi:"awsId"`
 	Command           JobCommandOutput            `pulumi:"command"`
 	Connections       JobConnectionsListPtrOutput `pulumi:"connections"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Job` for more information about the expected schema for this property.
@@ -184,6 +185,10 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 
 func (o JobOutput) AllocatedCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.Float64PtrOutput { return v.AllocatedCapacity }).(pulumi.Float64PtrOutput)
+}
+
+func (o JobOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o JobOutput) Command() JobCommandOutput {

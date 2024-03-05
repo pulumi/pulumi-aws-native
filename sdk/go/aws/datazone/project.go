@@ -16,6 +16,8 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
+	// The ID of the Amazon DataZone project.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The timestamp of when the project was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Amazon DataZone user who created the project.
@@ -138,6 +140,11 @@ func (o ProjectOutput) ToProjectOutput() ProjectOutput {
 
 func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOutput {
 	return o
+}
+
+// The ID of the Amazon DataZone project.
+func (o ProjectOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The timestamp of when the project was created.

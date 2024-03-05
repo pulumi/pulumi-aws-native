@@ -196,6 +196,7 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["aws_managed"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -222,6 +223,7 @@ class Policy(pulumi.CustomResource):
         __props__ = PolicyArgs.__new__(PolicyArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["aws_managed"] = None
         __props__.__dict__["content"] = None
         __props__.__dict__["description"] = None
@@ -238,6 +240,14 @@ class Policy(pulumi.CustomResource):
         ARN of the Policy
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id of the Policy
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="awsManaged")

@@ -19,6 +19,8 @@ type Workspace struct {
 	AccountAccessType WorkspaceAccountAccessTypeOutput `pulumi:"accountAccessType"`
 	// List of authentication providers to enable.
 	AuthenticationProviders WorkspaceAuthenticationProviderTypesArrayOutput `pulumi:"authenticationProviders"`
+	// The id that uniquely identifies a Grafana workspace.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
 	// Timestamp when the workspace was created.
@@ -218,6 +220,11 @@ func (o WorkspaceOutput) AccountAccessType() WorkspaceAccountAccessTypeOutput {
 // List of authentication providers to enable.
 func (o WorkspaceOutput) AuthenticationProviders() WorkspaceAuthenticationProviderTypesArrayOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceAuthenticationProviderTypesArrayOutput { return v.AuthenticationProviders }).(WorkspaceAuthenticationProviderTypesArrayOutput)
+}
+
+// The id that uniquely identifies a Grafana workspace.
+func (o WorkspaceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.

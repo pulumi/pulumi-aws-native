@@ -42,6 +42,10 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Custom data identifier ID.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Description of custom data identifier.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -92,8 +96,10 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
             resourceInputs["regex"] = args ? args.regex : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["ignoreWords"] = undefined /*out*/;
             resourceInputs["keywords"] = undefined /*out*/;

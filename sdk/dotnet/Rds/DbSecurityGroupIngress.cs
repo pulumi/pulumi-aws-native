@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Rds
     [AwsNativeResourceType("aws-native:rds:DbSecurityGroupIngress")]
     public partial class DbSecurityGroupIngress : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cidrip")]
         public Output<string?> Cidrip { get; private set; } = null!;
 

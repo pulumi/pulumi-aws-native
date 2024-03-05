@@ -41,6 +41,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     public readonly apiId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly dataSourceArn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly dynamoDbConfig!: pulumi.Output<outputs.appsync.DataSourceDynamoDbConfig | undefined>;
@@ -87,9 +88,11 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataSourceArn"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataSourceArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["dynamoDbConfig"] = undefined /*out*/;

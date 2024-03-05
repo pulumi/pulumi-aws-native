@@ -21,6 +21,7 @@ type StackSetConstraint struct {
 	AcceptLanguage       pulumi.StringPtrOutput   `pulumi:"acceptLanguage"`
 	AccountList          pulumi.StringArrayOutput `pulumi:"accountList"`
 	AdminRole            pulumi.StringOutput      `pulumi:"adminRole"`
+	AwsId                pulumi.StringOutput      `pulumi:"awsId"`
 	Description          pulumi.StringOutput      `pulumi:"description"`
 	ExecutionRole        pulumi.StringOutput      `pulumi:"executionRole"`
 	PortfolioId          pulumi.StringOutput      `pulumi:"portfolioId"`
@@ -169,6 +170,10 @@ func (o StackSetConstraintOutput) AccountList() pulumi.StringArrayOutput {
 
 func (o StackSetConstraintOutput) AdminRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringOutput { return v.AdminRole }).(pulumi.StringOutput)
+}
+
+func (o StackSetConstraintOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSetConstraint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o StackSetConstraintOutput) Description() pulumi.StringOutput {

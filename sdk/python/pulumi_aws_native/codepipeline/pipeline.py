@@ -256,6 +256,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["variables"] = variables
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -283,6 +284,7 @@ class Pipeline(pulumi.CustomResource):
 
         __props__.__dict__["artifact_store"] = None
         __props__.__dict__["artifact_stores"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["disable_inbound_stage_transitions"] = None
         __props__.__dict__["execution_mode"] = None
         __props__.__dict__["name"] = None
@@ -305,6 +307,11 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="artifactStores")
     def artifact_stores(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineArtifactStoreMap']]]:
         return pulumi.get(self, "artifact_stores")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="disableInboundStageTransitions")

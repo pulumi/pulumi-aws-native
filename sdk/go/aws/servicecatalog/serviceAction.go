@@ -17,6 +17,7 @@ type ServiceAction struct {
 	pulumi.CustomResourceState
 
 	AcceptLanguage ServiceActionAcceptLanguagePtrOutput        `pulumi:"acceptLanguage"`
+	AwsId          pulumi.StringOutput                         `pulumi:"awsId"`
 	Definition     ServiceActionDefinitionParameterArrayOutput `pulumi:"definition"`
 	DefinitionType ServiceActionDefinitionTypeOutput           `pulumi:"definitionType"`
 	Description    pulumi.StringPtrOutput                      `pulumi:"description"`
@@ -124,6 +125,10 @@ func (o ServiceActionOutput) ToServiceActionOutputWithContext(ctx context.Contex
 
 func (o ServiceActionOutput) AcceptLanguage() ServiceActionAcceptLanguagePtrOutput {
 	return o.ApplyT(func(v *ServiceAction) ServiceActionAcceptLanguagePtrOutput { return v.AcceptLanguage }).(ServiceActionAcceptLanguagePtrOutput)
+}
+
+func (o ServiceActionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ServiceActionOutput) Definition() ServiceActionDefinitionParameterArrayOutput {

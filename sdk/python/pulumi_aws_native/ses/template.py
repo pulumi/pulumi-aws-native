@@ -81,6 +81,7 @@ class Template(pulumi.CustomResource):
             __props__ = TemplateInitArgs.__new__(TemplateInitArgs)
 
             __props__.__dict__["template"] = template
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["template.template_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Template, __self__).__init__(
@@ -105,8 +106,14 @@ class Template(pulumi.CustomResource):
 
         __props__ = TemplateInitArgs.__new__(TemplateInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["template"] = None
         return Template(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

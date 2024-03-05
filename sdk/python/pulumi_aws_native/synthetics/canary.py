@@ -368,6 +368,7 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visual_reference"] = visual_reference
             __props__.__dict__["vpc_config"] = vpc_config
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["state"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -395,6 +396,7 @@ class Canary(pulumi.CustomResource):
 
         __props__.__dict__["artifact_config"] = None
         __props__.__dict__["artifact_s3_location"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["code"] = None
         __props__.__dict__["delete_lambda_resources_on_canary_deletion"] = None
         __props__.__dict__["execution_role_arn"] = None
@@ -426,6 +428,14 @@ class Canary(pulumi.CustomResource):
         Provide the s3 bucket output location for test results
         """
         return pulumi.get(self, "artifact_s3_location")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id of the canary
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

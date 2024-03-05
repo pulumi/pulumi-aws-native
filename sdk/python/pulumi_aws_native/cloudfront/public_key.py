@@ -82,6 +82,7 @@ class PublicKey(pulumi.CustomResource):
             if public_key_config is None and not opts.urn:
                 raise TypeError("Missing required property 'public_key_config'")
             __props__.__dict__["public_key_config"] = public_key_config
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_time"] = None
         super(PublicKey, __self__).__init__(
             'aws-native:cloudfront:PublicKey',
@@ -105,9 +106,15 @@ class PublicKey(pulumi.CustomResource):
 
         __props__ = PublicKeyArgs.__new__(PublicKeyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["public_key_config"] = None
         return PublicKey(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdTime")

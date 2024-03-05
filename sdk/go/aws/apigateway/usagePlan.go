@@ -20,6 +20,7 @@ type UsagePlan struct {
 
 	// The associated API stages of a usage plan.
 	ApiStages UsagePlanApiStageArrayOutput `pulumi:"apiStages"`
+	AwsId     pulumi.StringOutput          `pulumi:"awsId"`
 	// The description of a usage plan.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The target maximum number of permitted requests per a given unit time interval.
@@ -142,6 +143,10 @@ func (o UsagePlanOutput) ToUsagePlanOutputWithContext(ctx context.Context) Usage
 // The associated API stages of a usage plan.
 func (o UsagePlanOutput) ApiStages() UsagePlanApiStageArrayOutput {
 	return o.ApplyT(func(v *UsagePlan) UsagePlanApiStageArrayOutput { return v.ApiStages }).(UsagePlanApiStageArrayOutput)
+}
+
+func (o UsagePlanOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UsagePlan) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The description of a usage plan.

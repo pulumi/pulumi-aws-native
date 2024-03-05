@@ -16,6 +16,7 @@ import (
 type UsagePlanKey struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The Id of the UsagePlanKey resource.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// The type of a UsagePlanKey resource for a plan customer.
@@ -132,6 +133,10 @@ func (o UsagePlanKeyOutput) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
 
 func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
 	return o
+}
+
+func (o UsagePlanKeyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The Id of the UsagePlanKey resource.

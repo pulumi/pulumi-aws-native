@@ -17,6 +17,8 @@ type CidrCollection struct {
 
 	// The Amazon resource name (ARN) to uniquely identify the AWS resource.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// UUID of the CIDR collection.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A complex type that contains information about the list of CIDR locations.
 	Locations CidrCollectionLocationArrayOutput `pulumi:"locations"`
 	// A unique name for the CIDR collection.
@@ -121,6 +123,11 @@ func (o CidrCollectionOutput) ToCidrCollectionOutputWithContext(ctx context.Cont
 // The Amazon resource name (ARN) to uniquely identify the AWS resource.
 func (o CidrCollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CidrCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// UUID of the CIDR collection.
+func (o CidrCollectionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CidrCollection) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A complex type that contains information about the list of CIDR locations.

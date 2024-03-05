@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ec2
     public partial class SecurityGroupIngress : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Security Group Rule Id
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The IPv4 ranges
         /// </summary>
         [Output("cidrIp")]

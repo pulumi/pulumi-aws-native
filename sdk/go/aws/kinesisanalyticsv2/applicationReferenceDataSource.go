@@ -19,6 +19,7 @@ type ApplicationReferenceDataSource struct {
 	pulumi.CustomResourceState
 
 	ApplicationName     pulumi.StringOutput                                     `pulumi:"applicationName"`
+	AwsId               pulumi.StringOutput                                     `pulumi:"awsId"`
 	ReferenceDataSource ApplicationReferenceDataSourceReferenceDataSourceOutput `pulumi:"referenceDataSource"`
 }
 
@@ -121,6 +122,10 @@ func (o ApplicationReferenceDataSourceOutput) ToApplicationReferenceDataSourceOu
 
 func (o ApplicationReferenceDataSourceOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationReferenceDataSource) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationReferenceDataSourceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationReferenceDataSource) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApplicationReferenceDataSourceOutput) ReferenceDataSource() ApplicationReferenceDataSourceReferenceDataSourceOutput {

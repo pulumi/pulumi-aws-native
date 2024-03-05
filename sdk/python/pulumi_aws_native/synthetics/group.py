@@ -116,6 +116,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["resource_arns"] = resource_arns
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Group, __self__).__init__(
@@ -140,10 +141,19 @@ class Group(pulumi.CustomResource):
 
         __props__ = GroupArgs.__new__(GroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["resource_arns"] = None
         __props__.__dict__["tags"] = None
         return Group(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id of the group.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

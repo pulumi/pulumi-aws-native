@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("authType")]
         public Output<Pulumi.AwsNative.VpcLattice.ServiceNetworkAuthType?> AuthType { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 

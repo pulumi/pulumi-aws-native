@@ -175,6 +175,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["version_number"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -202,6 +203,7 @@ class Extension(pulumi.CustomResource):
 
         __props__.__dict__["actions"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["latest_version_number"] = None
         __props__.__dict__["name"] = None
@@ -219,6 +221,11 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

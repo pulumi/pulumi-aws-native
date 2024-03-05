@@ -18,6 +18,7 @@ import (
 type Permissions struct {
 	pulumi.CustomResourceState
 
+	AwsId                      pulumi.StringOutput                `pulumi:"awsId"`
 	DataLakePrincipal          PermissionsDataLakePrincipalOutput `pulumi:"dataLakePrincipal"`
 	Permissions                pulumi.StringArrayOutput           `pulumi:"permissions"`
 	PermissionsWithGrantOption pulumi.StringArrayOutput           `pulumi:"permissionsWithGrantOption"`
@@ -124,6 +125,10 @@ func (o PermissionsOutput) ToPermissionsOutput() PermissionsOutput {
 
 func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) PermissionsOutput {
 	return o
+}
+
+func (o PermissionsOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Permissions) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PermissionsOutput) DataLakePrincipal() PermissionsDataLakePrincipalOutput {

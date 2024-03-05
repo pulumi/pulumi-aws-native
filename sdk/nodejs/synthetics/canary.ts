@@ -46,6 +46,10 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly artifactS3Location!: pulumi.Output<string>;
     /**
+     * Id of the canary
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Provide the canary script source
      */
     public readonly code!: pulumi.Output<outputs.synthetics.CanaryCode>;
@@ -140,10 +144,12 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visualReference"] = args ? args.visualReference : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["artifactConfig"] = undefined /*out*/;
             resourceInputs["artifactS3Location"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["code"] = undefined /*out*/;
             resourceInputs["deleteLambdaResourcesOnCanaryDeletion"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;

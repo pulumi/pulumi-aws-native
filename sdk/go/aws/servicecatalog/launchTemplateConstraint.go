@@ -19,6 +19,7 @@ type LaunchTemplateConstraint struct {
 	pulumi.CustomResourceState
 
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	AwsId          pulumi.StringOutput    `pulumi:"awsId"`
 	Description    pulumi.StringPtrOutput `pulumi:"description"`
 	PortfolioId    pulumi.StringOutput    `pulumi:"portfolioId"`
 	ProductId      pulumi.StringOutput    `pulumi:"productId"`
@@ -134,6 +135,10 @@ func (o LaunchTemplateConstraintOutput) ToLaunchTemplateConstraintOutputWithCont
 
 func (o LaunchTemplateConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateConstraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateConstraintOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchTemplateConstraint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LaunchTemplateConstraintOutput) Description() pulumi.StringPtrOutput {

@@ -40,6 +40,7 @@ export class FlowTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === FlowTemplate.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly compatibleNamespaceVersion!: pulumi.Output<number | undefined>;
     public readonly definition!: pulumi.Output<outputs.iotthingsgraph.FlowTemplateDefinitionDocument>;
 
@@ -61,7 +62,9 @@ export class FlowTemplate extends pulumi.CustomResource {
             }
             resourceInputs["compatibleNamespaceVersion"] = args ? args.compatibleNamespaceVersion : undefined;
             resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["compatibleNamespaceVersion"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
         }

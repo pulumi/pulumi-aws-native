@@ -17,7 +17,8 @@ import (
 type MissionProfile struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn   pulumi.StringOutput `pulumi:"arn"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Post-pass time needed after the contact.
 	ContactPostPassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPostPassDurationSeconds"`
 	// Pre-pass time needed before the contact.
@@ -160,6 +161,10 @@ func (o MissionProfileOutput) ToMissionProfileOutputWithContext(ctx context.Cont
 
 func (o MissionProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o MissionProfileOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MissionProfile) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Post-pass time needed after the contact.

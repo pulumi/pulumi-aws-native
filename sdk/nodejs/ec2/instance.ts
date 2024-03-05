@@ -40,6 +40,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly additionalInfo!: pulumi.Output<string | undefined>;
     public readonly affinity!: pulumi.Output<string | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly blockDeviceMappings!: pulumi.Output<outputs.ec2.InstanceBlockDeviceMapping[] | undefined>;
     public readonly cpuOptions!: pulumi.Output<outputs.ec2.InstanceCpuOptions | undefined>;
     public readonly creditSpecification!: pulumi.Output<outputs.ec2.InstanceCreditSpecification | undefined>;
@@ -133,6 +134,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tenancy"] = args ? args.tenancy : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["privateDnsName"] = undefined /*out*/;
             resourceInputs["privateIp"] = undefined /*out*/;
             resourceInputs["publicDnsName"] = undefined /*out*/;
@@ -141,6 +143,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["additionalInfo"] = undefined /*out*/;
             resourceInputs["affinity"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["blockDeviceMappings"] = undefined /*out*/;
             resourceInputs["cpuOptions"] = undefined /*out*/;
             resourceInputs["creditSpecification"] = undefined /*out*/;

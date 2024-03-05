@@ -18,6 +18,7 @@ import (
 type Database struct {
 	pulumi.CustomResourceState
 
+	AwsId         pulumi.StringOutput     `pulumi:"awsId"`
 	CatalogId     pulumi.StringOutput     `pulumi:"catalogId"`
 	DatabaseInput DatabaseInputTypeOutput `pulumi:"databaseInput"`
 }
@@ -117,6 +118,10 @@ func (o DatabaseOutput) ToDatabaseOutput() DatabaseOutput {
 
 func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
 	return o
+}
+
+func (o DatabaseOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DatabaseOutput) CatalogId() pulumi.StringOutput {

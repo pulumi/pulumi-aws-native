@@ -102,6 +102,7 @@ class ClientVpnTargetNetworkAssociation(pulumi.CustomResource):
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_vpn_endpoint_id", "subnet_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClientVpnTargetNetworkAssociation, __self__).__init__(
@@ -126,9 +127,15 @@ class ClientVpnTargetNetworkAssociation(pulumi.CustomResource):
 
         __props__ = ClientVpnTargetNetworkAssociationArgs.__new__(ClientVpnTargetNetworkAssociationArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_vpn_endpoint_id"] = None
         __props__.__dict__["subnet_id"] = None
         return ClientVpnTargetNetworkAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")

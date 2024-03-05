@@ -128,6 +128,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["channel_storage"] = channel_storage
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Channel, __self__).__init__(
@@ -152,11 +153,17 @@ class Channel(pulumi.CustomResource):
 
         __props__ = ChannelArgs.__new__(ChannelArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["channel_name"] = None
         __props__.__dict__["channel_storage"] = None
         __props__.__dict__["retention_period"] = None
         __props__.__dict__["tags"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="channelName")

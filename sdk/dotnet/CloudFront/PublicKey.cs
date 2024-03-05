@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:PublicKey")]
     public partial class PublicKey : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 

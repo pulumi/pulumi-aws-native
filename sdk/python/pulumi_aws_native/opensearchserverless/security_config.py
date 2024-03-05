@@ -137,6 +137,7 @@ class SecurityConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["saml_options"] = saml_options
             __props__.__dict__["type"] = type
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityConfig, __self__).__init__(
@@ -161,11 +162,20 @@ class SecurityConfig(pulumi.CustomResource):
 
         __props__ = SecurityConfigArgs.__new__(SecurityConfigArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["saml_options"] = None
         __props__.__dict__["type"] = None
         return SecurityConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the security config
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

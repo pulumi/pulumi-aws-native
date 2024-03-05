@@ -41,6 +41,10 @@ export class LoggingConfiguration extends pulumi.CustomResource {
      * LoggingConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The system-generated ID of the logging configuration.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly destinationConfiguration!: pulumi.Output<outputs.ivschat.LoggingConfigurationDestinationConfiguration>;
     /**
      * The name of the logging configuration. The value does not need to be unique.
@@ -73,9 +77,11 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["destinationConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

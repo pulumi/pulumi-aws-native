@@ -212,6 +212,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["user_parameters"] = user_parameters
             __props__.__dict__["aws_account_id"] = None
             __props__.__dict__["aws_account_region"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["domain_id"] = None
@@ -247,6 +248,7 @@ class Environment(pulumi.CustomResource):
 
         __props__.__dict__["aws_account_id"] = None
         __props__.__dict__["aws_account_region"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["description"] = None
@@ -280,6 +282,14 @@ class Environment(pulumi.CustomResource):
         The AWS region in which the Amazon DataZone environment is created.
         """
         return pulumi.get(self, "aws_account_region")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon DataZone environment.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

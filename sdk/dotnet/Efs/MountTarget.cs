@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Efs
     [AwsNativeResourceType("aws-native:efs:MountTarget")]
     public partial class MountTarget : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the file system for which to create the mount target.
         /// </summary>

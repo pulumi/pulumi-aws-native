@@ -18,6 +18,7 @@ import (
 type SubscriptionDefinitionVersion struct {
 	pulumi.CustomResourceState
 
+	AwsId                    pulumi.StringOutput                                  `pulumi:"awsId"`
 	SubscriptionDefinitionId pulumi.StringOutput                                  `pulumi:"subscriptionDefinitionId"`
 	Subscriptions            SubscriptionDefinitionVersionSubscriptionArrayOutput `pulumi:"subscriptions"`
 }
@@ -118,6 +119,10 @@ func (o SubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionVersionOutp
 
 func (o SubscriptionDefinitionVersionOutput) ToSubscriptionDefinitionVersionOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionOutput {
 	return o
+}
+
+func (o SubscriptionDefinitionVersionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionDefinitionVersion) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SubscriptionDefinitionVersionOutput) SubscriptionDefinitionId() pulumi.StringOutput {

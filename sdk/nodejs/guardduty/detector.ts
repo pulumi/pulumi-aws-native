@@ -37,6 +37,7 @@ export class Detector extends pulumi.CustomResource {
         return obj['__pulumiType'] === Detector.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly dataSources!: pulumi.Output<outputs.guardduty.DetectorCfnDataSourceConfigurations | undefined>;
     public readonly enable!: pulumi.Output<boolean>;
     public readonly features!: pulumi.Output<outputs.guardduty.DetectorCfnFeatureConfiguration[] | undefined>;
@@ -62,7 +63,9 @@ export class Detector extends pulumi.CustomResource {
             resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataSources"] = undefined /*out*/;
             resourceInputs["enable"] = undefined /*out*/;
             resourceInputs["features"] = undefined /*out*/;

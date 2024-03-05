@@ -41,6 +41,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly copyTags!: pulumi.Output<boolean | undefined>;
     public readonly createInterval!: pulumi.Output<number | undefined>;
     public readonly crossRegionCopyTargets!: pulumi.Output<outputs.dlm.LifecyclePolicyCrossRegionCopyTargets | undefined>;
@@ -80,8 +81,10 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["copyTags"] = undefined /*out*/;
             resourceInputs["createInterval"] = undefined /*out*/;
             resourceInputs["crossRegionCopyTargets"] = undefined /*out*/;

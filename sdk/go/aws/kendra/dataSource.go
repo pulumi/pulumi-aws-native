@@ -18,6 +18,7 @@ type DataSource struct {
 	pulumi.CustomResourceState
 
 	Arn                                   pulumi.StringOutput                                      `pulumi:"arn"`
+	AwsId                                 pulumi.StringOutput                                      `pulumi:"awsId"`
 	CustomDocumentEnrichmentConfiguration DataSourceCustomDocumentEnrichmentConfigurationPtrOutput `pulumi:"customDocumentEnrichmentConfiguration"`
 	DataSourceConfiguration               DataSourceConfigurationPtrOutput                         `pulumi:"dataSourceConfiguration"`
 	Description                           pulumi.StringPtrOutput                                   `pulumi:"description"`
@@ -148,6 +149,10 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 
 func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DataSourceOutput) CustomDocumentEnrichmentConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {

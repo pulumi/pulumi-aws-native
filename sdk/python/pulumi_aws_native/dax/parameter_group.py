@@ -120,6 +120,7 @@ class ParameterGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["parameter_group_name"] = parameter_group_name
             __props__.__dict__["parameter_name_values"] = parameter_name_values
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["parameter_group_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ParameterGroup, __self__).__init__(
@@ -144,10 +145,16 @@ class ParameterGroup(pulumi.CustomResource):
 
         __props__ = ParameterGroupArgs.__new__(ParameterGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["parameter_group_name"] = None
         __props__.__dict__["parameter_name_values"] = None
         return ParameterGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -17,7 +17,8 @@ import (
 type Index struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn   pulumi.StringOutput `pulumi:"arn"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Capacity units
 	CapacityUnits IndexCapacityUnitsConfigurationPtrOutput `pulumi:"capacityUnits"`
 	// A description for the index
@@ -161,6 +162,10 @@ func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 
 func (o IndexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o IndexOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Capacity units

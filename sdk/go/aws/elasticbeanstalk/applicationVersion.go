@@ -18,6 +18,7 @@ type ApplicationVersion struct {
 
 	// The name of the Elastic Beanstalk application that is associated with this application version.
 	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
+	AwsId           pulumi.StringOutput `pulumi:"awsId"`
 	// A description of this application version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
@@ -133,6 +134,10 @@ func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx cont
 // The name of the Elastic Beanstalk application that is associated with this application version.
 func (o ApplicationVersionOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationVersionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A description of this application version.

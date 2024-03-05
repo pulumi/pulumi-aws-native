@@ -45,6 +45,7 @@ export class Placement extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
      */
     public readonly attributes!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly placementName!: pulumi.Output<string | undefined>;
     public readonly projectName!: pulumi.Output<string>;
 
@@ -68,9 +69,11 @@ export class Placement extends pulumi.CustomResource {
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["placementName"] = args ? args.placementName : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["associatedDevices"] = undefined /*out*/;
             resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["placementName"] = undefined /*out*/;
             resourceInputs["projectName"] = undefined /*out*/;
         }

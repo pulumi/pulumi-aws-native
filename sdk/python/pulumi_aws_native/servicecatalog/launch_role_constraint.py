@@ -162,6 +162,7 @@ class LaunchRoleConstraint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'product_id'")
             __props__.__dict__["product_id"] = product_id
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portfolio_id", "product_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LaunchRoleConstraint, __self__).__init__(
@@ -187,6 +188,7 @@ class LaunchRoleConstraint(pulumi.CustomResource):
         __props__ = LaunchRoleConstraintArgs.__new__(LaunchRoleConstraintArgs)
 
         __props__.__dict__["accept_language"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["local_role_name"] = None
         __props__.__dict__["portfolio_id"] = None
@@ -198,6 +200,11 @@ class LaunchRoleConstraint(pulumi.CustomResource):
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "accept_language")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -42,6 +42,10 @@ export class OrganizationalUnit extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The unique identifier (ID) associated with this OU.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The friendly name of this OU.
      */
     public readonly name!: pulumi.Output<string>;
@@ -72,8 +76,10 @@ export class OrganizationalUnit extends pulumi.CustomResource {
             resourceInputs["parentId"] = args ? args.parentId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parentId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

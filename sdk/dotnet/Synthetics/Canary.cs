@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<string> ArtifactS3Location { get; private set; } = null!;
 
         /// <summary>
+        /// Id of the canary
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Provide the canary script source
         /// </summary>
         [Output("code")]

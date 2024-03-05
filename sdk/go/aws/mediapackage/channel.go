@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -18,6 +19,8 @@ type Channel struct {
 
 	// The Amazon Resource Name (ARN) assigned to the Channel.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the Channel.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A short text description of the Channel.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The configuration parameters for egress access logging.
@@ -34,9 +37,12 @@ type Channel struct {
 func NewChannel(ctx *pulumi.Context,
 	name string, args *ChannelArgs, opts ...pulumi.ResourceOption) (*Channel, error) {
 	if args == nil {
-		args = &ChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AwsId == nil {
+		return nil, errors.New("invalid value for required argument 'AwsId'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"tags[*]",
 	})
@@ -74,6 +80,8 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
+	// The ID of the Channel.
+	AwsId string `pulumi:"awsId"`
 	// A short text description of the Channel.
 	Description *string `pulumi:"description"`
 	// The configuration parameters for egress access logging.
@@ -88,6 +96,8 @@ type channelArgs struct {
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
+	// The ID of the Channel.
+	AwsId pulumi.StringInput
 	// A short text description of the Channel.
 	Description pulumi.StringPtrInput
 	// The configuration parameters for egress access logging.
@@ -140,6 +150,11 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 // The Amazon Resource Name (ARN) assigned to the Channel.
 func (o ChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the Channel.
+func (o ChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A short text description of the Channel.

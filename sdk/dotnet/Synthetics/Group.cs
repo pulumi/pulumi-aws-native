@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Synthetics
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Id of the group.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the group.
         /// </summary>
         [Output("name")]

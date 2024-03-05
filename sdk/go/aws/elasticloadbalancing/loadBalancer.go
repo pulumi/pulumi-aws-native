@@ -22,6 +22,7 @@ type LoadBalancer struct {
 	AccessLoggingPolicy           LoadBalancerAccessLoggingPolicyPtrOutput         `pulumi:"accessLoggingPolicy"`
 	AppCookieStickinessPolicy     LoadBalancerAppCookieStickinessPolicyArrayOutput `pulumi:"appCookieStickinessPolicy"`
 	AvailabilityZones             pulumi.StringArrayOutput                         `pulumi:"availabilityZones"`
+	AwsId                         pulumi.StringOutput                              `pulumi:"awsId"`
 	CanonicalHostedZoneName       pulumi.StringOutput                              `pulumi:"canonicalHostedZoneName"`
 	CanonicalHostedZoneNameId     pulumi.StringOutput                              `pulumi:"canonicalHostedZoneNameId"`
 	ConnectionDrainingPolicy      LoadBalancerConnectionDrainingPolicyPtrOutput    `pulumi:"connectionDrainingPolicy"`
@@ -181,6 +182,10 @@ func (o LoadBalancerOutput) AppCookieStickinessPolicy() LoadBalancerAppCookieSti
 
 func (o LoadBalancerOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o LoadBalancerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LoadBalancerOutput) CanonicalHostedZoneName() pulumi.StringOutput {

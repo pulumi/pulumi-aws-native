@@ -40,6 +40,7 @@ export class Identity extends pulumi.CustomResource {
         return obj['__pulumiType'] === Identity.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly dkimSigningEnabled!: pulumi.Output<boolean | undefined>;
     public readonly feedbackForwardingEnabled!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly identityDnsRecordName1!: pulumi.Output<string>;
@@ -70,6 +71,7 @@ export class Identity extends pulumi.CustomResource {
             resourceInputs["mailFromAttributes"] = args ? args.mailFromAttributes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["identityDnsRecordName1"] = undefined /*out*/;
             resourceInputs["identityDnsRecordName2"] = undefined /*out*/;
             resourceInputs["identityDnsRecordName3"] = undefined /*out*/;
@@ -77,6 +79,7 @@ export class Identity extends pulumi.CustomResource {
             resourceInputs["identityDnsRecordValue2"] = undefined /*out*/;
             resourceInputs["identityDnsRecordValue3"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dkimSigningEnabled"] = undefined /*out*/;
             resourceInputs["feedbackForwardingEnabled"] = undefined /*out*/;
             resourceInputs["identityDnsRecordName1"] = undefined /*out*/;

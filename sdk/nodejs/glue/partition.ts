@@ -40,6 +40,7 @@ export class Partition extends pulumi.CustomResource {
         return obj['__pulumiType'] === Partition.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly catalogId!: pulumi.Output<string>;
     public readonly databaseName!: pulumi.Output<string>;
     public readonly partitionInput!: pulumi.Output<outputs.glue.PartitionInput>;
@@ -74,7 +75,9 @@ export class Partition extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["partitionInput"] = args ? args.partitionInput : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["catalogId"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["partitionInput"] = undefined /*out*/;

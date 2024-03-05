@@ -42,6 +42,7 @@ export class NotebookInstance extends pulumi.CustomResource {
 
     public readonly acceleratorTypes!: pulumi.Output<string[] | undefined>;
     public readonly additionalCodeRepositories!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly defaultCodeRepository!: pulumi.Output<string | undefined>;
     public readonly directInternetAccess!: pulumi.Output<string | undefined>;
     public readonly instanceMetadataServiceConfiguration!: pulumi.Output<outputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration | undefined>;
@@ -92,9 +93,11 @@ export class NotebookInstance extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeSizeInGb"] = args ? args.volumeSizeInGb : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["acceleratorTypes"] = undefined /*out*/;
             resourceInputs["additionalCodeRepositories"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultCodeRepository"] = undefined /*out*/;
             resourceInputs["directInternetAccess"] = undefined /*out*/;
             resourceInputs["instanceMetadataServiceConfiguration"] = undefined /*out*/;

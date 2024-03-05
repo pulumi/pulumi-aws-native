@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Route53
     [AwsNativeResourceType("aws-native:route53:RecordSetGroup")]
     public partial class RecordSetGroup : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 

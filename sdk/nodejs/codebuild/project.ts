@@ -42,6 +42,7 @@ export class Project extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly artifacts!: pulumi.Output<outputs.codebuild.ProjectArtifacts>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly badgeEnabled!: pulumi.Output<boolean | undefined>;
     public readonly buildBatchConfig!: pulumi.Output<outputs.codebuild.ProjectBuildBatchConfig | undefined>;
     public readonly cache!: pulumi.Output<outputs.codebuild.ProjectCache | undefined>;
@@ -116,9 +117,11 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["visibility"] = args ? args.visibility : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["artifacts"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["badgeEnabled"] = undefined /*out*/;
             resourceInputs["buildBatchConfig"] = undefined /*out*/;
             resourceInputs["cache"] = undefined /*out*/;

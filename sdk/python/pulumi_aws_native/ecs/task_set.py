@@ -277,6 +277,7 @@ class TaskSet(pulumi.CustomResource):
             if task_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'task_definition'")
             __props__.__dict__["task_definition"] = task_definition
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "external_id", "launch_type", "load_balancers[*]", "network_configuration", "platform_version", "service", "service_registries[*]", "task_definition"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TaskSet, __self__).__init__(
@@ -301,6 +302,7 @@ class TaskSet(pulumi.CustomResource):
 
         __props__ = TaskSetArgs.__new__(TaskSetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cluster"] = None
         __props__.__dict__["external_id"] = None
         __props__.__dict__["launch_type"] = None
@@ -313,6 +315,14 @@ class TaskSet(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["task_definition"] = None
         return TaskSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the task set.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

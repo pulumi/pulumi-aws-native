@@ -19,6 +19,8 @@ type CustomDataIdentifier struct {
 
 	// Custom data identifier ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Custom data identifier ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Description of custom data identifier.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Words to be ignored.
@@ -161,6 +163,11 @@ func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutputWithContext(ctx 
 // Custom data identifier ARN.
 func (o CustomDataIdentifierOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Custom data identifier ID.
+func (o CustomDataIdentifierOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Description of custom data identifier.

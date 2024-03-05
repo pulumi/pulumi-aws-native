@@ -117,6 +117,7 @@ class SecurityGroupIngress(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ec2_security_group_name'")
             __props__.__dict__["ec2_security_group_name"] = ec2_security_group_name
             __props__.__dict__["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+            __props__.__dict__["aws_id"] = None
         super(SecurityGroupIngress, __self__).__init__(
             'aws-native:elasticache:SecurityGroupIngress',
             resource_name,
@@ -139,10 +140,16 @@ class SecurityGroupIngress(pulumi.CustomResource):
 
         __props__ = SecurityGroupIngressArgs.__new__(SecurityGroupIngressArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cache_security_group_name"] = None
         __props__.__dict__["ec2_security_group_name"] = None
         __props__.__dict__["ec2_security_group_owner_id"] = None
         return SecurityGroupIngress(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cacheSecurityGroupName")

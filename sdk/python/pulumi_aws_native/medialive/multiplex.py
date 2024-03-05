@@ -172,6 +172,7 @@ class Multiplex(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["pipelines_running_count"] = None
             __props__.__dict__["program_count"] = None
             __props__.__dict__["state"] = None
@@ -201,6 +202,7 @@ class Multiplex(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["destinations"] = None
         __props__.__dict__["multiplex_settings"] = None
         __props__.__dict__["name"] = None
@@ -225,6 +227,14 @@ class Multiplex(pulumi.CustomResource):
         A list of availability zones for the multiplex.
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique id of the multiplex.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

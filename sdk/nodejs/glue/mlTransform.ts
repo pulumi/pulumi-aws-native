@@ -40,6 +40,7 @@ export class MlTransform extends pulumi.CustomResource {
         return obj['__pulumiType'] === MlTransform.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly glueVersion!: pulumi.Output<string | undefined>;
     public readonly inputRecordTables!: pulumi.Output<outputs.glue.MlTransformInputRecordTables>;
@@ -92,7 +93,9 @@ export class MlTransform extends pulumi.CustomResource {
             resourceInputs["transformEncryption"] = args ? args.transformEncryption : undefined;
             resourceInputs["transformParameters"] = args ? args.transformParameters : undefined;
             resourceInputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["glueVersion"] = undefined /*out*/;
             resourceInputs["inputRecordTables"] = undefined /*out*/;

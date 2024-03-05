@@ -37,6 +37,7 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly pipelineActivities!: pulumi.Output<outputs.iotanalytics.PipelineActivity[]>;
     public readonly pipelineName!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -58,7 +59,9 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineActivities"] = args ? args.pipelineActivities : undefined;
             resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["pipelineActivities"] = undefined /*out*/;
             resourceInputs["pipelineName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

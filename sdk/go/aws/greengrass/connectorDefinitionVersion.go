@@ -18,6 +18,7 @@ import (
 type ConnectorDefinitionVersion struct {
 	pulumi.CustomResourceState
 
+	AwsId                 pulumi.StringOutput                            `pulumi:"awsId"`
 	ConnectorDefinitionId pulumi.StringOutput                            `pulumi:"connectorDefinitionId"`
 	Connectors            ConnectorDefinitionVersionConnectorArrayOutput `pulumi:"connectors"`
 }
@@ -118,6 +119,10 @@ func (o ConnectorDefinitionVersionOutput) ToConnectorDefinitionVersionOutput() C
 
 func (o ConnectorDefinitionVersionOutput) ToConnectorDefinitionVersionOutputWithContext(ctx context.Context) ConnectorDefinitionVersionOutput {
 	return o
+}
+
+func (o ConnectorDefinitionVersionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorDefinitionVersion) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ConnectorDefinitionVersionOutput) ConnectorDefinitionId() pulumi.StringOutput {

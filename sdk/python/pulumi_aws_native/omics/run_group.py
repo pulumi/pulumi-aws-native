@@ -155,6 +155,7 @@ class RunGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
         super(RunGroup, __self__).__init__(
             'aws-native:omics:RunGroup',
@@ -179,6 +180,7 @@ class RunGroup(pulumi.CustomResource):
         __props__ = RunGroupArgs.__new__(RunGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["max_cpus"] = None
         __props__.__dict__["max_duration"] = None
@@ -192,6 +194,11 @@ class RunGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

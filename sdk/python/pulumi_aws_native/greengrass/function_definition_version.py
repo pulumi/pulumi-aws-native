@@ -119,6 +119,7 @@ class FunctionDefinitionVersion(pulumi.CustomResource):
             if functions is None and not opts.urn:
                 raise TypeError("Missing required property 'functions'")
             __props__.__dict__["functions"] = functions
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["default_config", "function_definition_id", "functions[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FunctionDefinitionVersion, __self__).__init__(
@@ -143,10 +144,16 @@ class FunctionDefinitionVersion(pulumi.CustomResource):
 
         __props__ = FunctionDefinitionVersionInitArgs.__new__(FunctionDefinitionVersionInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["default_config"] = None
         __props__.__dict__["function_definition_id"] = None
         __props__.__dict__["functions"] = None
         return FunctionDefinitionVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="defaultConfig")

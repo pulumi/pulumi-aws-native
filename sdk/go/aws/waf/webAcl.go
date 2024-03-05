@@ -18,6 +18,7 @@ import (
 type WebAcl struct {
 	pulumi.CustomResourceState
 
+	AwsId         pulumi.StringOutput            `pulumi:"awsId"`
 	DefaultAction WebAclWafActionOutput          `pulumi:"defaultAction"`
 	MetricName    pulumi.StringOutput            `pulumi:"metricName"`
 	Name          pulumi.StringOutput            `pulumi:"name"`
@@ -124,6 +125,10 @@ func (o WebAclOutput) ToWebAclOutput() WebAclOutput {
 
 func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
 	return o
+}
+
+func (o WebAclOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o WebAclOutput) DefaultAction() WebAclWafActionOutput {

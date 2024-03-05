@@ -40,6 +40,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === MaintenanceWindowTarget.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly ownerInformation!: pulumi.Output<string | undefined>;
@@ -75,7 +76,9 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["windowId"] = args ? args.windowId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["ownerInformation"] = undefined /*out*/;

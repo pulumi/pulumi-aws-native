@@ -19,6 +19,7 @@ __all__ = ['PackagingConfigurationArgs', 'PackagingConfiguration']
 @pulumi.input_type
 class PackagingConfigurationArgs:
     def __init__(__self__, *,
+                 aws_id: pulumi.Input[str],
                  packaging_group_id: pulumi.Input[str],
                  cmaf_package: Optional[pulumi.Input['PackagingConfigurationCmafPackageArgs']] = None,
                  dash_package: Optional[pulumi.Input['PackagingConfigurationDashPackageArgs']] = None,
@@ -27,6 +28,7 @@ class PackagingConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PackagingConfiguration resource.
+        :param pulumi.Input[str] aws_id: The ID of the PackagingConfiguration.
         :param pulumi.Input[str] packaging_group_id: The ID of a PackagingGroup.
         :param pulumi.Input['PackagingConfigurationCmafPackageArgs'] cmaf_package: A CMAF packaging configuration.
         :param pulumi.Input['PackagingConfigurationDashPackageArgs'] dash_package: A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -34,6 +36,7 @@ class PackagingConfigurationArgs:
         :param pulumi.Input['PackagingConfigurationMssPackageArgs'] mss_package: A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
         """
+        pulumi.set(__self__, "aws_id", aws_id)
         pulumi.set(__self__, "packaging_group_id", packaging_group_id)
         if cmaf_package is not None:
             pulumi.set(__self__, "cmaf_package", cmaf_package)
@@ -45,6 +48,18 @@ class PackagingConfigurationArgs:
             pulumi.set(__self__, "mss_package", mss_package)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the PackagingConfiguration.
+        """
+        return pulumi.get(self, "aws_id")
+
+    @aws_id.setter
+    def aws_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_id", value)
 
     @property
     @pulumi.getter(name="packagingGroupId")
@@ -124,6 +139,7 @@ class PackagingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  cmaf_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationCmafPackageArgs']]] = None,
                  dash_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationDashPackageArgs']]] = None,
                  hls_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationHlsPackageArgs']]] = None,
@@ -136,6 +152,7 @@ class PackagingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_id: The ID of the PackagingConfiguration.
         :param pulumi.Input[pulumi.InputType['PackagingConfigurationCmafPackageArgs']] cmaf_package: A CMAF packaging configuration.
         :param pulumi.Input[pulumi.InputType['PackagingConfigurationDashPackageArgs']] dash_package: A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         :param pulumi.Input[pulumi.InputType['PackagingConfigurationHlsPackageArgs']] hls_package: An HTTP Live Streaming (HLS) packaging configuration.
@@ -167,6 +184,7 @@ class PackagingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  cmaf_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationCmafPackageArgs']]] = None,
                  dash_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationDashPackageArgs']]] = None,
                  hls_package: Optional[pulumi.Input[pulumi.InputType['PackagingConfigurationHlsPackageArgs']]] = None,
@@ -182,6 +200,9 @@ class PackagingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PackagingConfigurationArgs.__new__(PackagingConfigurationArgs)
 
+            if aws_id is None and not opts.urn:
+                raise TypeError("Missing required property 'aws_id'")
+            __props__.__dict__["aws_id"] = aws_id
             __props__.__dict__["cmaf_package"] = cmaf_package
             __props__.__dict__["dash_package"] = dash_package
             __props__.__dict__["hls_package"] = hls_package
@@ -214,6 +235,7 @@ class PackagingConfiguration(pulumi.CustomResource):
         __props__ = PackagingConfigurationArgs.__new__(PackagingConfigurationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cmaf_package"] = None
         __props__.__dict__["dash_package"] = None
         __props__.__dict__["hls_package"] = None
@@ -229,6 +251,14 @@ class PackagingConfiguration(pulumi.CustomResource):
         The ARN of the PackagingConfiguration.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the PackagingConfiguration.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cmafPackage")

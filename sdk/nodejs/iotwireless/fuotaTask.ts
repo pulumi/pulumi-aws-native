@@ -50,6 +50,10 @@ export class FuotaTask extends pulumi.CustomResource {
      */
     public readonly associateWirelessDevice!: pulumi.Output<string | undefined>;
     /**
+     * FUOTA task id. Returned after successful create.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * FUOTA task description
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -117,11 +121,13 @@ export class FuotaTask extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["fuotaTaskStatus"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associateMulticastGroup"] = undefined /*out*/;
             resourceInputs["associateWirelessDevice"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disassociateMulticastGroup"] = undefined /*out*/;
             resourceInputs["disassociateWirelessDevice"] = undefined /*out*/;

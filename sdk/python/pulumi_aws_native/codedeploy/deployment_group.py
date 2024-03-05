@@ -376,6 +376,7 @@ class DeploymentGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["termination_hook_enabled"] = termination_hook_enabled
             __props__.__dict__["trigger_configurations"] = trigger_configurations
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name", "deployment_group_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeploymentGroup, __self__).__init__(
@@ -404,6 +405,7 @@ class DeploymentGroup(pulumi.CustomResource):
         __props__.__dict__["application_name"] = None
         __props__.__dict__["auto_rollback_configuration"] = None
         __props__.__dict__["auto_scaling_groups"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["blue_green_deployment_configuration"] = None
         __props__.__dict__["deployment"] = None
         __props__.__dict__["deployment_config_name"] = None
@@ -441,6 +443,11 @@ class DeploymentGroup(pulumi.CustomResource):
     @pulumi.getter(name="autoScalingGroups")
     def auto_scaling_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "auto_scaling_groups")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="blueGreenDeploymentConfiguration")

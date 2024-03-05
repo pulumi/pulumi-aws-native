@@ -41,6 +41,7 @@ export class ApplicationSettings extends pulumi.CustomResource {
     }
 
     public readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly campaignHook!: pulumi.Output<outputs.pinpoint.ApplicationSettingsCampaignHook | undefined>;
     public readonly cloudWatchMetricsEnabled!: pulumi.Output<boolean | undefined>;
     public readonly limits!: pulumi.Output<outputs.pinpoint.ApplicationSettingsLimits | undefined>;
@@ -67,8 +68,10 @@ export class ApplicationSettings extends pulumi.CustomResource {
             resourceInputs["cloudWatchMetricsEnabled"] = args ? args.cloudWatchMetricsEnabled : undefined;
             resourceInputs["limits"] = args ? args.limits : undefined;
             resourceInputs["quietTime"] = args ? args.quietTime : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["campaignHook"] = undefined /*out*/;
             resourceInputs["cloudWatchMetricsEnabled"] = undefined /*out*/;
             resourceInputs["limits"] = undefined /*out*/;

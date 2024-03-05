@@ -17,6 +17,7 @@ type ThingType struct {
 	pulumi.CustomResourceState
 
 	Arn                pulumi.StringOutput  `pulumi:"arn"`
+	AwsId              pulumi.StringOutput  `pulumi:"awsId"`
 	DeprecateThingType pulumi.BoolPtrOutput `pulumi:"deprecateThingType"`
 	// An array of key-value pairs to apply to this resource.
 	Tags                aws.TagArrayOutput                     `pulumi:"tags"`
@@ -124,6 +125,10 @@ func (o ThingTypeOutput) ToThingTypeOutputWithContext(ctx context.Context) Thing
 
 func (o ThingTypeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ThingTypeOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ThingTypeOutput) DeprecateThingType() pulumi.BoolPtrOutput {

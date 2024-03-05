@@ -19,6 +19,7 @@ type TransitGateway struct {
 	AmazonSideAsn                  pulumi.IntPtrOutput      `pulumi:"amazonSideAsn"`
 	AssociationDefaultRouteTableId pulumi.StringPtrOutput   `pulumi:"associationDefaultRouteTableId"`
 	AutoAcceptSharedAttachments    pulumi.StringPtrOutput   `pulumi:"autoAcceptSharedAttachments"`
+	AwsId                          pulumi.StringOutput      `pulumi:"awsId"`
 	DefaultRouteTableAssociation   pulumi.StringPtrOutput   `pulumi:"defaultRouteTableAssociation"`
 	DefaultRouteTablePropagation   pulumi.StringPtrOutput   `pulumi:"defaultRouteTablePropagation"`
 	Description                    pulumi.StringPtrOutput   `pulumi:"description"`
@@ -153,6 +154,10 @@ func (o TransitGatewayOutput) AssociationDefaultRouteTableId() pulumi.StringPtrO
 
 func (o TransitGatewayOutput) AutoAcceptSharedAttachments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.AutoAcceptSharedAttachments }).(pulumi.StringPtrOutput)
+}
+
+func (o TransitGatewayOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TransitGatewayOutput) DefaultRouteTableAssociation() pulumi.StringPtrOutput {

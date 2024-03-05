@@ -37,6 +37,7 @@ export class Volume extends pulumi.CustomResource {
         return obj['__pulumiType'] === Volume.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly ec2VolumeId!: pulumi.Output<string>;
     public readonly mountPoint!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -65,7 +66,9 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["mountPoint"] = args ? args.mountPoint : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ec2VolumeId"] = undefined /*out*/;
             resourceInputs["mountPoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

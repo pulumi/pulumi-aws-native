@@ -82,6 +82,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
             if origin_request_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_request_policy_config'")
             __props__.__dict__["origin_request_policy_config"] = origin_request_policy_config
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(OriginRequestPolicy, __self__).__init__(
             'aws-native:cloudfront:OriginRequestPolicy',
@@ -105,9 +106,15 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         __props__ = OriginRequestPolicyArgs.__new__(OriginRequestPolicyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["origin_request_policy_config"] = None
         return OriginRequestPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")

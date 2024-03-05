@@ -97,6 +97,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["user_pool_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LogDeliveryConfiguration, __self__).__init__(
@@ -121,9 +122,15 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
 
         __props__ = LogDeliveryConfigurationArgs.__new__(LogDeliveryConfigurationArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["log_configurations"] = None
         __props__.__dict__["user_pool_id"] = None
         return LogDeliveryConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="logConfigurations")

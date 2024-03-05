@@ -133,6 +133,7 @@ class ClientVpnRoute(pulumi.CustomResource):
             if target_vpc_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_vpc_subnet_id'")
             __props__.__dict__["target_vpc_subnet_id"] = target_vpc_subnet_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_vpn_endpoint_id", "description", "destination_cidr_block", "target_vpc_subnet_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClientVpnRoute, __self__).__init__(
@@ -157,11 +158,17 @@ class ClientVpnRoute(pulumi.CustomResource):
 
         __props__ = ClientVpnRouteArgs.__new__(ClientVpnRouteArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_vpn_endpoint_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["destination_cidr_block"] = None
         __props__.__dict__["target_vpc_subnet_id"] = None
         return ClientVpnRoute(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")

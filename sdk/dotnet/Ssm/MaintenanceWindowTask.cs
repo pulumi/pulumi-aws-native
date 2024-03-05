@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ssm
     [AwsNativeResourceType("aws-native:ssm:MaintenanceWindowTask")]
     public partial class MaintenanceWindowTask : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cutoffBehavior")]
         public Output<string?> CutoffBehavior { get; private set; } = null!;
 

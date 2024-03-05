@@ -21,6 +21,8 @@ type Environment struct {
 	ActivationCode pulumi.StringOutput `pulumi:"activationCode"`
 	// The environment ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Unique identifier of the environment.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The timestamp in unix epoch format when environment was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The ID of the software set to apply.
@@ -190,6 +192,11 @@ func (o EnvironmentOutput) ActivationCode() pulumi.StringOutput {
 // The environment ARN.
 func (o EnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Unique identifier of the environment.
+func (o EnvironmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The timestamp in unix epoch format when environment was created.

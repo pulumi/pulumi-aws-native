@@ -19,6 +19,7 @@ import (
 type DbParameterGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput    `pulumi:"awsId"`
 	Description pulumi.StringOutput    `pulumi:"description"`
 	Family      pulumi.StringOutput    `pulumi:"family"`
 	Name        pulumi.StringPtrOutput `pulumi:"name"`
@@ -135,6 +136,10 @@ func (o DbParameterGroupOutput) ToDbParameterGroupOutput() DbParameterGroupOutpu
 
 func (o DbParameterGroupOutput) ToDbParameterGroupOutputWithContext(ctx context.Context) DbParameterGroupOutput {
 	return o
+}
+
+func (o DbParameterGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbParameterGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DbParameterGroupOutput) Description() pulumi.StringOutput {

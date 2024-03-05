@@ -44,6 +44,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
     public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly multiAz!: pulumi.Output<boolean | undefined>;
@@ -89,6 +90,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["replicationInstancePrivateIpAddresses"] = undefined /*out*/;
             resourceInputs["replicationInstancePublicIpAddresses"] = undefined /*out*/;
         } else {
@@ -96,6 +98,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["multiAz"] = undefined /*out*/;

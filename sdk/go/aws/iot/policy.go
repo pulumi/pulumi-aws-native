@@ -17,7 +17,8 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn   pulumi.StringOutput `pulumi:"arn"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput       `pulumi:"policyDocument"`
 	PolicyName     pulumi.StringPtrOutput `pulumi:"policyName"`
@@ -124,6 +125,10 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 
 func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.

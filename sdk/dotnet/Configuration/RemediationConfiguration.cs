@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Configuration
         [Output("automatic")]
         public Output<bool?> Automatic { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("configRuleName")]
         public Output<string> ConfigRuleName { get; private set; } = null!;
 

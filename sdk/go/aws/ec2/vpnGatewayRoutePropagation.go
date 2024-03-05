@@ -18,6 +18,7 @@ import (
 type VpnGatewayRoutePropagation struct {
 	pulumi.CustomResourceState
 
+	AwsId         pulumi.StringOutput      `pulumi:"awsId"`
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
 	VpnGatewayId  pulumi.StringOutput      `pulumi:"vpnGatewayId"`
 }
@@ -113,6 +114,10 @@ func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutput() V
 
 func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationOutput {
 	return o
+}
+
+func (o VpnGatewayRoutePropagationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnGatewayRoutePropagation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o VpnGatewayRoutePropagationOutput) RouteTableIds() pulumi.StringArrayOutput {

@@ -18,6 +18,7 @@ import (
 type TrafficMirrorFilterRule struct {
 	pulumi.CustomResourceState
 
+	AwsId                 pulumi.StringOutput                                    `pulumi:"awsId"`
 	Description           pulumi.StringPtrOutput                                 `pulumi:"description"`
 	DestinationCidrBlock  pulumi.StringOutput                                    `pulumi:"destinationCidrBlock"`
 	DestinationPortRange  TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput `pulumi:"destinationPortRange"`
@@ -153,6 +154,10 @@ func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutput() Traffic
 
 func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleOutput {
 	return o
+}
+
+func (o TrafficMirrorFilterRuleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TrafficMirrorFilterRuleOutput) Description() pulumi.StringPtrOutput {

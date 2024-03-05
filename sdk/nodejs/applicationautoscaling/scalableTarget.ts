@@ -38,6 +38,10 @@ export class ScalableTarget extends pulumi.CustomResource {
     }
 
     /**
+     * This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
      */
     public readonly maxCapacity!: pulumi.Output<number>;
@@ -104,7 +108,9 @@ export class ScalableTarget extends pulumi.CustomResource {
             resourceInputs["scheduledActions"] = args ? args.scheduledActions : undefined;
             resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
             resourceInputs["suspendedState"] = args ? args.suspendedState : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["maxCapacity"] = undefined /*out*/;
             resourceInputs["minCapacity"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;

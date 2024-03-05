@@ -37,6 +37,7 @@ export class CustomResource extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomResource.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly serviceToken!: pulumi.Output<string>;
 
     /**
@@ -56,7 +57,9 @@ export class CustomResource extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceToken'");
             }
             resourceInputs["serviceToken"] = args ? args.serviceToken : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["serviceToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

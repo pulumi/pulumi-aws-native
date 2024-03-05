@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Network interface id.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("connectionTrackingSpecification")]
         public Output<Outputs.NetworkInterfaceConnectionTrackingSpecification?> ConnectionTrackingSpecification { get; private set; } = null!;
 

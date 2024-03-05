@@ -19,6 +19,7 @@ type Extension struct {
 
 	Actions ExtensionActionArrayMapOutput `pulumi:"actions"`
 	Arn     pulumi.StringOutput           `pulumi:"arn"`
+	AwsId   pulumi.StringOutput           `pulumi:"awsId"`
 	// Description of the extension.
 	Description         pulumi.StringPtrOutput `pulumi:"description"`
 	LatestVersionNumber pulumi.IntPtrOutput    `pulumi:"latestVersionNumber"`
@@ -145,6 +146,10 @@ func (o ExtensionOutput) Actions() ExtensionActionArrayMapOutput {
 
 func (o ExtensionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ExtensionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Description of the extension.

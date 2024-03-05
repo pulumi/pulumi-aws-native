@@ -38,6 +38,7 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
     }
 
     public readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly bundleId!: pulumi.Output<string | undefined>;
     public readonly certificate!: pulumi.Output<string | undefined>;
     public readonly defaultAuthenticationMethod!: pulumi.Output<string | undefined>;
@@ -72,8 +73,10 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
             resourceInputs["teamId"] = args ? args.teamId : undefined;
             resourceInputs["tokenKey"] = args ? args.tokenKey : undefined;
             resourceInputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["bundleId"] = undefined /*out*/;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["defaultAuthenticationMethod"] = undefined /*out*/;

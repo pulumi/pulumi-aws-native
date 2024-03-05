@@ -20,6 +20,7 @@ type Cluster struct {
 
 	Arn                           pulumi.StringOutput              `pulumi:"arn"`
 	AvailabilityZones             pulumi.StringArrayOutput         `pulumi:"availabilityZones"`
+	AwsId                         pulumi.StringOutput              `pulumi:"awsId"`
 	ClusterDiscoveryEndpoint      pulumi.StringOutput              `pulumi:"clusterDiscoveryEndpoint"`
 	ClusterDiscoveryEndpointUrl   pulumi.StringOutput              `pulumi:"clusterDiscoveryEndpointUrl"`
 	ClusterEndpointEncryptionType pulumi.StringPtrOutput           `pulumi:"clusterEndpointEncryptionType"`
@@ -175,6 +176,10 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 
 func (o ClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ClusterOutput) ClusterDiscoveryEndpoint() pulumi.StringOutput {

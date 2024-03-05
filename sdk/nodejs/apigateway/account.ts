@@ -34,6 +34,7 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The ARN of an Amazon CloudWatch role for the current Account.
      */
@@ -51,7 +52,9 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["cloudWatchRoleArn"] = args ? args.cloudWatchRoleArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloudWatchRoleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

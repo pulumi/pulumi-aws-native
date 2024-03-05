@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.DocDb
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("backupRetentionPeriod")]
         public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
 

@@ -132,6 +132,7 @@ class Volume(pulumi.CustomResource):
             if stack_id is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_id'")
             __props__.__dict__["stack_id"] = stack_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_volume_id", "stack_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Volume, __self__).__init__(
@@ -156,11 +157,17 @@ class Volume(pulumi.CustomResource):
 
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["ec2_volume_id"] = None
         __props__.__dict__["mount_point"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["stack_id"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="ec2VolumeId")

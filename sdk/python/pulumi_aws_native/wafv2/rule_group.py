@@ -238,6 +238,7 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["label_namespace"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "scope"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -265,6 +266,7 @@ class RuleGroup(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["available_labels"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["capacity"] = None
         __props__.__dict__["consumed_labels"] = None
         __props__.__dict__["custom_response_bodies"] = None
@@ -289,6 +291,11 @@ class RuleGroup(pulumi.CustomResource):
         Collection of Available Labels.
         """
         return pulumi.get(self, "available_labels")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

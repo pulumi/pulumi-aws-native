@@ -16,7 +16,8 @@ import (
 type ExecutionPlan struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn   pulumi.StringOutput `pulumi:"arn"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Capacity units
 	CapacityUnits ExecutionPlanCapacityUnitsConfigurationPtrOutput `pulumi:"capacityUnits"`
 	// A description for the execution plan
@@ -125,6 +126,10 @@ func (o ExecutionPlanOutput) ToExecutionPlanOutputWithContext(ctx context.Contex
 
 func (o ExecutionPlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExecutionPlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ExecutionPlanOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExecutionPlan) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Capacity units

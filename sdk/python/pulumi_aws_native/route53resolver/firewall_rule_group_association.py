@@ -191,6 +191,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["creator_request_id"] = None
             __props__.__dict__["managed_owner_name"] = None
@@ -222,6 +223,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
         __props__ = FirewallRuleGroupAssociationArgs.__new__(FirewallRuleGroupAssociationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["creator_request_id"] = None
         __props__.__dict__["firewall_rule_group_id"] = None
@@ -243,6 +245,14 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
         Arn
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

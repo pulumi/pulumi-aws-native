@@ -43,6 +43,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly authenticationProviders!: pulumi.Output<enums.grafana.WorkspaceAuthenticationProviderTypes[]>;
     /**
+     * The id that uniquely identifies a Grafana workspace.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
      */
     public readonly clientToken!: pulumi.Output<string | undefined>;
@@ -146,6 +150,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["samlConfiguration"] = args ? args.samlConfiguration : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["modificationTimestamp"] = undefined /*out*/;
@@ -155,6 +160,7 @@ export class Workspace extends pulumi.CustomResource {
         } else {
             resourceInputs["accountAccessType"] = undefined /*out*/;
             resourceInputs["authenticationProviders"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientToken"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["dataSources"] = undefined /*out*/;

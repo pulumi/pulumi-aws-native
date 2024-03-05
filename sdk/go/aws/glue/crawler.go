@@ -18,6 +18,7 @@ import (
 type Crawler struct {
 	pulumi.CustomResourceState
 
+	AwsId                        pulumi.StringOutput                `pulumi:"awsId"`
 	Classifiers                  pulumi.StringArrayOutput           `pulumi:"classifiers"`
 	Configuration                pulumi.StringPtrOutput             `pulumi:"configuration"`
 	CrawlerSecurityConfiguration pulumi.StringPtrOutput             `pulumi:"crawlerSecurityConfiguration"`
@@ -153,6 +154,10 @@ func (o CrawlerOutput) ToCrawlerOutput() CrawlerOutput {
 
 func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
 	return o
+}
+
+func (o CrawlerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CrawlerOutput) Classifiers() pulumi.StringArrayOutput {

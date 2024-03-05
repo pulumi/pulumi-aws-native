@@ -20,6 +20,7 @@ type GatewayRoute struct {
 	pulumi.CustomResourceState
 
 	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	AwsId              pulumi.StringOutput    `pulumi:"awsId"`
 	GatewayRouteName   pulumi.StringPtrOutput `pulumi:"gatewayRouteName"`
 	MeshName           pulumi.StringOutput    `pulumi:"meshName"`
 	MeshOwner          pulumi.StringPtrOutput `pulumi:"meshOwner"`
@@ -143,6 +144,10 @@ func (o GatewayRouteOutput) ToGatewayRouteOutputWithContext(ctx context.Context)
 
 func (o GatewayRouteOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GatewayRouteOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRoute) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o GatewayRouteOutput) GatewayRouteName() pulumi.StringPtrOutput {

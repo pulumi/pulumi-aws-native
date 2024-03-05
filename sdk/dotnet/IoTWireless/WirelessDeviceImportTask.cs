@@ -23,6 +23,12 @@ namespace Pulumi.AwsNative.IoTWireless
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Id for Wireless Device Import Task, Returned upon successful start.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// CreationDate for import task
         /// </summary>
         [Output("creationDate")]

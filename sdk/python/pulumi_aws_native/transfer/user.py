@@ -227,6 +227,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["server_id", "user_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(User, __self__).__init__(
@@ -252,6 +253,7 @@ class User(pulumi.CustomResource):
         __props__ = UserArgs.__new__(UserArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["home_directory"] = None
         __props__.__dict__["home_directory_mappings"] = None
         __props__.__dict__["home_directory_type"] = None
@@ -268,6 +270,11 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="homeDirectory")

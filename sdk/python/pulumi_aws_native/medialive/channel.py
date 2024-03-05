@@ -258,6 +258,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["inputs"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["vpc"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -284,6 +285,7 @@ class Channel(pulumi.CustomResource):
         __props__ = ChannelArgs.__new__(ChannelArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cdi_input_specification"] = None
         __props__.__dict__["channel_class"] = None
         __props__.__dict__["destinations"] = None
@@ -303,6 +305,11 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cdiInputSpecification")

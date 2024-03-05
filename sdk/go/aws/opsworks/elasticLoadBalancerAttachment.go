@@ -18,6 +18,7 @@ import (
 type ElasticLoadBalancerAttachment struct {
 	pulumi.CustomResourceState
 
+	AwsId                   pulumi.StringOutput `pulumi:"awsId"`
 	ElasticLoadBalancerName pulumi.StringOutput `pulumi:"elasticLoadBalancerName"`
 	LayerId                 pulumi.StringOutput `pulumi:"layerId"`
 }
@@ -113,6 +114,10 @@ func (o ElasticLoadBalancerAttachmentOutput) ToElasticLoadBalancerAttachmentOutp
 
 func (o ElasticLoadBalancerAttachmentOutput) ToElasticLoadBalancerAttachmentOutputWithContext(ctx context.Context) ElasticLoadBalancerAttachmentOutput {
 	return o
+}
+
+func (o ElasticLoadBalancerAttachmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticLoadBalancerAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ElasticLoadBalancerAttachmentOutput) ElasticLoadBalancerName() pulumi.StringOutput {

@@ -126,6 +126,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["state"] = None
         super(LoggingConfiguration, __self__).__init__(
             'aws-native:ivschat:LoggingConfiguration',
@@ -150,6 +151,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         __props__ = LoggingConfigurationArgs.__new__(LoggingConfigurationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["destination_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["state"] = None
@@ -163,6 +165,14 @@ class LoggingConfiguration(pulumi.CustomResource):
         LoggingConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The system-generated ID of the logging configuration.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="destinationConfiguration")

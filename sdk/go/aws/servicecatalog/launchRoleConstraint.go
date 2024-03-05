@@ -19,6 +19,7 @@ type LaunchRoleConstraint struct {
 	pulumi.CustomResourceState
 
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	AwsId          pulumi.StringOutput    `pulumi:"awsId"`
 	Description    pulumi.StringPtrOutput `pulumi:"description"`
 	LocalRoleName  pulumi.StringPtrOutput `pulumi:"localRoleName"`
 	PortfolioId    pulumi.StringOutput    `pulumi:"portfolioId"`
@@ -134,6 +135,10 @@ func (o LaunchRoleConstraintOutput) ToLaunchRoleConstraintOutputWithContext(ctx 
 
 func (o LaunchRoleConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchRoleConstraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchRoleConstraintOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchRoleConstraint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LaunchRoleConstraintOutput) Description() pulumi.StringPtrOutput {

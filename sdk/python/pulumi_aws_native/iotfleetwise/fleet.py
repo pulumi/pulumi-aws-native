@@ -16,17 +16,28 @@ __all__ = ['FleetArgs', 'Fleet']
 @pulumi.input_type
 class FleetArgs:
     def __init__(__self__, *,
+                 aws_id: pulumi.Input[str],
                  signal_catalog_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
         """
+        pulumi.set(__self__, "aws_id", aws_id)
         pulumi.set(__self__, "signal_catalog_arn", signal_catalog_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aws_id")
+
+    @aws_id.setter
+    def aws_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_id", value)
 
     @property
     @pulumi.getter(name="signalCatalogArn")
@@ -66,6 +77,7 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  signal_catalog_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -100,6 +112,7 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  signal_catalog_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -113,6 +126,9 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetArgs.__new__(FleetArgs)
 
+            if aws_id is None and not opts.urn:
+                raise TypeError("Missing required property 'aws_id'")
+            __props__.__dict__["aws_id"] = aws_id
             __props__.__dict__["description"] = description
             if signal_catalog_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'signal_catalog_arn'")
@@ -146,6 +162,7 @@ class Fleet(pulumi.CustomResource):
         __props__ = FleetArgs.__new__(FleetArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["last_modification_time"] = None
@@ -157,6 +174,11 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

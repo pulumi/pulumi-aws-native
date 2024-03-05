@@ -98,6 +98,7 @@ class BackupSelection(pulumi.CustomResource):
             if backup_selection is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_selection'")
             __props__.__dict__["backup_selection"] = backup_selection
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["selection_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backup_plan_id", "backup_selection"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -123,10 +124,16 @@ class BackupSelection(pulumi.CustomResource):
 
         __props__ = BackupSelectionArgs.__new__(BackupSelectionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["backup_plan_id"] = None
         __props__.__dict__["backup_selection"] = None
         __props__.__dict__["selection_id"] = None
         return BackupSelection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="backupPlanId")

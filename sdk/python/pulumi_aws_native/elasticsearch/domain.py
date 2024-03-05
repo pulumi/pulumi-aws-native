@@ -305,6 +305,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["domain_arn"] = None
             __props__.__dict__["domain_endpoint"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name"])
@@ -335,6 +336,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["advanced_options"] = None
         __props__.__dict__["advanced_security_options"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cognito_options"] = None
         __props__.__dict__["domain_arn"] = None
         __props__.__dict__["domain_endpoint"] = None
@@ -373,6 +375,11 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cognitoOptions")

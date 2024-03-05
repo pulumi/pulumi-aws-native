@@ -16,6 +16,8 @@ import (
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 
+	// The ID of a notification channel.
+	AwsId  pulumi.StringOutput             `pulumi:"awsId"`
 	Config NotificationChannelConfigOutput `pulumi:"config"`
 }
 
@@ -109,6 +111,11 @@ func (o NotificationChannelOutput) ToNotificationChannelOutput() NotificationCha
 
 func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx context.Context) NotificationChannelOutput {
 	return o
+}
+
+// The ID of a notification channel.
+func (o NotificationChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o NotificationChannelOutput) Config() NotificationChannelConfigOutput {

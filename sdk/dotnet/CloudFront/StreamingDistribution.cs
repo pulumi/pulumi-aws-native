@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:StreamingDistribution")]
     public partial class StreamingDistribution : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 

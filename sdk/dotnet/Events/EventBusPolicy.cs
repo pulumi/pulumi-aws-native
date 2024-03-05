@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Events
         [Output("action")]
         public Output<string?> Action { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("condition")]
         public Output<Outputs.EventBusPolicyCondition?> Condition { get; private set; } = null!;
 

@@ -37,6 +37,7 @@ export class AccessKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessKey.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly secretAccessKey!: pulumi.Output<string>;
     public readonly serial!: pulumi.Output<number | undefined>;
     public readonly status!: pulumi.Output<string | undefined>;
@@ -61,8 +62,10 @@ export class AccessKey extends pulumi.CustomResource {
             resourceInputs["serial"] = args ? args.serial : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["secretAccessKey"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["secretAccessKey"] = undefined /*out*/;
             resourceInputs["serial"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

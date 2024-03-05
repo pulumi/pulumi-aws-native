@@ -144,6 +144,7 @@ class ServiceAction(pulumi.CustomResource):
             __props__.__dict__["definition_type"] = definition_type
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["aws_id"] = None
         super(ServiceAction, __self__).__init__(
             'aws-native:servicecatalog:ServiceAction',
             resource_name,
@@ -167,6 +168,7 @@ class ServiceAction(pulumi.CustomResource):
         __props__ = ServiceActionArgs.__new__(ServiceActionArgs)
 
         __props__.__dict__["accept_language"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["definition"] = None
         __props__.__dict__["definition_type"] = None
         __props__.__dict__["description"] = None
@@ -177,6 +179,11 @@ class ServiceAction(pulumi.CustomResource):
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional['ServiceActionAcceptLanguage']]:
         return pulumi.get(self, "accept_language")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

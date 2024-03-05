@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Batch
     [AwsNativeResourceType("aws-native:batch:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("containerProperties")]
         public Output<Outputs.JobDefinitionContainerProperties?> ContainerProperties { get; private set; } = null!;
 

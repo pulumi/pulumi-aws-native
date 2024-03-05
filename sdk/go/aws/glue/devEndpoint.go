@@ -20,6 +20,7 @@ type DevEndpoint struct {
 
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 	Arguments             pulumi.AnyOutput         `pulumi:"arguments"`
+	AwsId                 pulumi.StringOutput      `pulumi:"awsId"`
 	EndpointName          pulumi.StringPtrOutput   `pulumi:"endpointName"`
 	ExtraJarsS3Path       pulumi.StringPtrOutput   `pulumi:"extraJarsS3Path"`
 	ExtraPythonLibsS3Path pulumi.StringPtrOutput   `pulumi:"extraPythonLibsS3Path"`
@@ -164,6 +165,10 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
 func (o DevEndpointOutput) Arguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.AnyOutput { return v.Arguments }).(pulumi.AnyOutput)
+}
+
+func (o DevEndpointOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DevEndpointOutput) EndpointName() pulumi.StringPtrOutput {

@@ -38,6 +38,7 @@ export class TargetGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly config!: pulumi.Output<outputs.vpclattice.TargetGroupConfig | undefined>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
@@ -67,11 +68,13 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["config"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;

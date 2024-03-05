@@ -39,6 +39,7 @@ export class Thing extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly attributePayload!: pulumi.Output<outputs.iot.ThingAttributePayload | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly thingName!: pulumi.Output<string | undefined>;
 
     /**
@@ -55,9 +56,11 @@ export class Thing extends pulumi.CustomResource {
             resourceInputs["attributePayload"] = args ? args.attributePayload : undefined;
             resourceInputs["thingName"] = args ? args.thingName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attributePayload"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["thingName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

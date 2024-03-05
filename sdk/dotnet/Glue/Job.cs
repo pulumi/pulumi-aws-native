@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("allocatedCapacity")]
         public Output<double?> AllocatedCapacity { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("command")]
         public Output<Outputs.JobCommand> Command { get; private set; } = null!;
 

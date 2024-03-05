@@ -41,6 +41,7 @@ export class Project extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly placementTemplate!: pulumi.Output<outputs.iot1click.ProjectPlacementTemplate>;
     public readonly projectName!: pulumi.Output<string | undefined>;
@@ -65,8 +66,10 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["placementTemplate"] = args ? args.placementTemplate : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["placementTemplate"] = undefined /*out*/;
             resourceInputs["projectName"] = undefined /*out*/;

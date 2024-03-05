@@ -17,6 +17,7 @@ import (
 type Distribution struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The distribution's configuration.
 	DistributionConfig DistributionConfigOutput `pulumi:"distributionConfig"`
 	DomainName         pulumi.StringOutput      `pulumi:"domainName"`
@@ -116,6 +117,10 @@ func (o DistributionOutput) ToDistributionOutput() DistributionOutput {
 
 func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
 	return o
+}
+
+func (o DistributionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The distribution's configuration.

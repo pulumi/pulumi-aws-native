@@ -18,6 +18,7 @@ type Input struct {
 	pulumi.CustomResourceState
 
 	Arn                 pulumi.StringOutput                     `pulumi:"arn"`
+	AwsId               pulumi.StringOutput                     `pulumi:"awsId"`
 	Destinations        InputDestinationRequestArrayOutput      `pulumi:"destinations"`
 	InputDevices        InputDeviceSettingsArrayOutput          `pulumi:"inputDevices"`
 	InputSecurityGroups pulumi.StringArrayOutput                `pulumi:"inputSecurityGroups"`
@@ -143,6 +144,10 @@ func (o InputOutput) ToInputOutputWithContext(ctx context.Context) InputOutput {
 
 func (o InputOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o InputOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o InputOutput) Destinations() InputDestinationRequestArrayOutput {

@@ -40,6 +40,7 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationRecorder.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly recordingGroup!: pulumi.Output<outputs.configuration.ConfigurationRecorderRecordingGroup | undefined>;
     public readonly recordingMode!: pulumi.Output<outputs.configuration.ConfigurationRecorderRecordingMode | undefined>;
@@ -65,7 +66,9 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
             resourceInputs["recordingGroup"] = args ? args.recordingGroup : undefined;
             resourceInputs["recordingMode"] = args ? args.recordingMode : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["recordingGroup"] = undefined /*out*/;
             resourceInputs["recordingMode"] = undefined /*out*/;

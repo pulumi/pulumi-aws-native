@@ -20,6 +20,8 @@ type OriginEndpoint struct {
 	// The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
 	Arn           pulumi.StringOutput                  `pulumi:"arn"`
 	Authorization OriginEndpointAuthorizationPtrOutput `pulumi:"authorization"`
+	// The ID of the OriginEndpoint.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ID of the Channel the OriginEndpoint is associated with.
 	ChannelId   pulumi.StringOutput                `pulumi:"channelId"`
 	CmafPackage OriginEndpointCmafPackagePtrOutput `pulumi:"cmafPackage"`
@@ -51,6 +53,9 @@ func NewOriginEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AwsId == nil {
+		return nil, errors.New("invalid value for required argument 'AwsId'")
+	}
 	if args.ChannelId == nil {
 		return nil, errors.New("invalid value for required argument 'ChannelId'")
 	}
@@ -88,6 +93,8 @@ func (OriginEndpointState) ElementType() reflect.Type {
 
 type originEndpointArgs struct {
 	Authorization *OriginEndpointAuthorization `pulumi:"authorization"`
+	// The ID of the OriginEndpoint.
+	AwsId string `pulumi:"awsId"`
 	// The ID of the Channel the OriginEndpoint is associated with.
 	ChannelId   string                     `pulumi:"channelId"`
 	CmafPackage *OriginEndpointCmafPackage `pulumi:"cmafPackage"`
@@ -113,6 +120,8 @@ type originEndpointArgs struct {
 // The set of arguments for constructing a OriginEndpoint resource.
 type OriginEndpointArgs struct {
 	Authorization OriginEndpointAuthorizationPtrInput
+	// The ID of the OriginEndpoint.
+	AwsId pulumi.StringInput
 	// The ID of the Channel the OriginEndpoint is associated with.
 	ChannelId   pulumi.StringInput
 	CmafPackage OriginEndpointCmafPackagePtrInput
@@ -179,6 +188,11 @@ func (o OriginEndpointOutput) Arn() pulumi.StringOutput {
 
 func (o OriginEndpointOutput) Authorization() OriginEndpointAuthorizationPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointAuthorizationPtrOutput { return v.Authorization }).(OriginEndpointAuthorizationPtrOutput)
+}
+
+// The ID of the OriginEndpoint.
+func (o OriginEndpointOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The ID of the Channel the OriginEndpoint is associated with.

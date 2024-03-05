@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ElastiCache
     [AwsNativeResourceType("aws-native:elasticache:ParameterGroup")]
     public partial class ParameterGroup : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cacheParameterGroupFamily")]
         public Output<string> CacheParameterGroupFamily { get; private set; } = null!;
 

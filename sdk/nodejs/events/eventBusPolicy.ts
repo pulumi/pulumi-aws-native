@@ -41,6 +41,7 @@ export class EventBusPolicy extends pulumi.CustomResource {
     }
 
     public readonly action!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly condition!: pulumi.Output<outputs.events.EventBusPolicyCondition | undefined>;
     public readonly eventBusName!: pulumi.Output<string | undefined>;
     public readonly principal!: pulumi.Output<string | undefined>;
@@ -72,8 +73,10 @@ export class EventBusPolicy extends pulumi.CustomResource {
             resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["statement"] = args ? args.statement : undefined;
             resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["condition"] = undefined /*out*/;
             resourceInputs["eventBusName"] = undefined /*out*/;
             resourceInputs["principal"] = undefined /*out*/;

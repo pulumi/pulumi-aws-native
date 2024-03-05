@@ -43,6 +43,7 @@ export class Application extends pulumi.CustomResource {
     public readonly applicationCode!: pulumi.Output<string | undefined>;
     public readonly applicationDescription!: pulumi.Output<string | undefined>;
     public readonly applicationName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly inputs!: pulumi.Output<outputs.kinesisanalytics.ApplicationInput[]>;
 
     /**
@@ -65,10 +66,12 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationDescription"] = args ? args.applicationDescription : undefined;
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["inputs"] = args ? args.inputs : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationCode"] = undefined /*out*/;
             resourceInputs["applicationDescription"] = undefined /*out*/;
             resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["inputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

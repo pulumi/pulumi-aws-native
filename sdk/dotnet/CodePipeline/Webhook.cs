@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.CodePipeline
         [Output("authenticationConfiguration")]
         public Output<Outputs.WebhookAuthConfiguration> AuthenticationConfiguration { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("filters")]
         public Output<ImmutableArray<Outputs.WebhookFilterRule>> Filters { get; private set; } = null!;
 

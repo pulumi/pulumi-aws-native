@@ -86,6 +86,7 @@ class CustomResource(pulumi.CustomResource):
             if service_token is None and not opts.urn:
                 raise TypeError("Missing required property 'service_token'")
             __props__.__dict__["service_token"] = service_token
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["service_token"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomResource, __self__).__init__(
@@ -110,8 +111,14 @@ class CustomResource(pulumi.CustomResource):
 
         __props__ = CustomResourceArgs.__new__(CustomResourceArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["service_token"] = None
         return CustomResource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="serviceToken")

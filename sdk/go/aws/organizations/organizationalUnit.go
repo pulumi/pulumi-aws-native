@@ -19,6 +19,8 @@ type OrganizationalUnit struct {
 
 	// The Amazon Resource Name (ARN) of this OU.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The unique identifier (ID) associated with this OU.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The friendly name of this OU.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The unique identifier (ID) of the parent root or OU that you want to create the new OU in.
@@ -132,6 +134,11 @@ func (o OrganizationalUnitOutput) ToOrganizationalUnitOutputWithContext(ctx cont
 // The Amazon Resource Name (ARN) of this OU.
 func (o OrganizationalUnitOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The unique identifier (ID) associated with this OU.
+func (o OrganizationalUnitOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationalUnit) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The friendly name of this OU.

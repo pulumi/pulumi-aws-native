@@ -158,6 +158,7 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["file_format_configuration"] = file_format_configuration
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastore_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Datastore, __self__).__init__(
@@ -182,6 +183,7 @@ class Datastore(pulumi.CustomResource):
 
         __props__ = DatastoreArgs.__new__(DatastoreArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["datastore_name"] = None
         __props__.__dict__["datastore_partitions"] = None
         __props__.__dict__["datastore_storage"] = None
@@ -189,6 +191,11 @@ class Datastore(pulumi.CustomResource):
         __props__.__dict__["retention_period"] = None
         __props__.__dict__["tags"] = None
         return Datastore(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="datastoreName")

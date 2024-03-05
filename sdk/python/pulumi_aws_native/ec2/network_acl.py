@@ -107,6 +107,7 @@ class NetworkAcl(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["vpc_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkAcl, __self__).__init__(
@@ -131,9 +132,15 @@ class NetworkAcl(pulumi.CustomResource):
 
         __props__ = NetworkAclArgs.__new__(NetworkAclArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
         return NetworkAcl(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -271,6 +271,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["windows_configuration"] = windows_configuration
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["lustre_mount_name"] = None
             __props__.__dict__["resource_arn"] = None
@@ -299,6 +300,7 @@ class FileSystem(pulumi.CustomResource):
 
         __props__ = FileSystemArgs.__new__(FileSystemArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["backup_id"] = None
         __props__.__dict__["dns_name"] = None
         __props__.__dict__["file_system_type"] = None
@@ -317,6 +319,11 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["windows_configuration"] = None
         return FileSystem(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="backupId")

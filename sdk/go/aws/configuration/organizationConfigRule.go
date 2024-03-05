@@ -17,6 +17,7 @@ import (
 type OrganizationConfigRule struct {
 	pulumi.CustomResourceState
 
+	AwsId                                pulumi.StringOutput                                                 `pulumi:"awsId"`
 	ExcludedAccounts                     pulumi.StringArrayOutput                                            `pulumi:"excludedAccounts"`
 	OrganizationConfigRuleName           pulumi.StringOutput                                                 `pulumi:"organizationConfigRuleName"`
 	OrganizationCustomPolicyRuleMetadata OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput `pulumi:"organizationCustomPolicyRuleMetadata"`
@@ -119,6 +120,10 @@ func (o OrganizationConfigRuleOutput) ToOrganizationConfigRuleOutput() Organizat
 
 func (o OrganizationConfigRuleOutput) ToOrganizationConfigRuleOutputWithContext(ctx context.Context) OrganizationConfigRuleOutput {
 	return o
+}
+
+func (o OrganizationConfigRuleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationConfigRule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o OrganizationConfigRuleOutput) ExcludedAccounts() pulumi.StringArrayOutput {

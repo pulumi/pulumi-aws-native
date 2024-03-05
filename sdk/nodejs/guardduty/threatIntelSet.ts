@@ -38,6 +38,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
     }
 
     public readonly activate!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly detectorId!: pulumi.Output<string | undefined>;
     public readonly format!: pulumi.Output<string>;
     public readonly location!: pulumi.Output<string>;
@@ -67,8 +68,10 @@ export class ThreatIntelSet extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["activate"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["detectorId"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

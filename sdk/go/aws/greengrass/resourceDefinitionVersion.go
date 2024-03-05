@@ -18,6 +18,7 @@ import (
 type ResourceDefinitionVersion struct {
 	pulumi.CustomResourceState
 
+	AwsId                pulumi.StringOutput                                  `pulumi:"awsId"`
 	ResourceDefinitionId pulumi.StringOutput                                  `pulumi:"resourceDefinitionId"`
 	Resources            ResourceDefinitionVersionResourceInstanceArrayOutput `pulumi:"resources"`
 }
@@ -118,6 +119,10 @@ func (o ResourceDefinitionVersionOutput) ToResourceDefinitionVersionOutput() Res
 
 func (o ResourceDefinitionVersionOutput) ToResourceDefinitionVersionOutputWithContext(ctx context.Context) ResourceDefinitionVersionOutput {
 	return o
+}
+
+func (o ResourceDefinitionVersionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceDefinitionVersion) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ResourceDefinitionVersionOutput) ResourceDefinitionId() pulumi.StringOutput {

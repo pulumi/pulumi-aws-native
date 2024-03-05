@@ -175,6 +175,7 @@ class AppMonitor(pulumi.CustomResource):
             __props__.__dict__["domain"] = domain
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AppMonitor, __self__).__init__(
@@ -200,6 +201,7 @@ class AppMonitor(pulumi.CustomResource):
         __props__ = AppMonitorArgs.__new__(AppMonitorArgs)
 
         __props__.__dict__["app_monitor_configuration"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["custom_events"] = None
         __props__.__dict__["cw_log_enabled"] = None
         __props__.__dict__["domain"] = None
@@ -211,6 +213,14 @@ class AppMonitor(pulumi.CustomResource):
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> pulumi.Output[Optional['outputs.AppMonitorConfiguration']]:
         return pulumi.get(self, "app_monitor_configuration")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the new app monitor.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="customEvents")

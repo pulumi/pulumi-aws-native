@@ -37,6 +37,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegexPatternSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly regexPatternStrings!: pulumi.Output<string[]>;
 
@@ -58,7 +59,9 @@ export class RegexPatternSet extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["regexPatternStrings"] = args ? args.regexPatternStrings : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["regexPatternStrings"] = undefined /*out*/;
         }

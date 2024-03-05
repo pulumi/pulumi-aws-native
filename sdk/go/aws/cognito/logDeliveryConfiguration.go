@@ -16,6 +16,7 @@ import (
 type LogDeliveryConfiguration struct {
 	pulumi.CustomResourceState
 
+	AwsId             pulumi.StringOutput                                 `pulumi:"awsId"`
 	LogConfigurations LogDeliveryConfigurationLogConfigurationArrayOutput `pulumi:"logConfigurations"`
 	UserPoolId        pulumi.StringOutput                                 `pulumi:"userPoolId"`
 }
@@ -112,6 +113,10 @@ func (o LogDeliveryConfigurationOutput) ToLogDeliveryConfigurationOutput() LogDe
 
 func (o LogDeliveryConfigurationOutput) ToLogDeliveryConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationOutput {
 	return o
+}
+
+func (o LogDeliveryConfigurationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDeliveryConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LogDeliveryConfigurationOutput) LogConfigurations() LogDeliveryConfigurationLogConfigurationArrayOutput {

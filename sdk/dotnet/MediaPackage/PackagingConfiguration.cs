@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackage
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the PackagingConfiguration.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// A CMAF packaging configuration.
         /// </summary>
         [Output("cmafPackage")]
@@ -102,6 +108,12 @@ namespace Pulumi.AwsNative.MediaPackage
 
     public sealed class PackagingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the PackagingConfiguration.
+        /// </summary>
+        [Input("awsId", required: true)]
+        public Input<string> AwsId { get; set; } = null!;
+
         /// <summary>
         /// A CMAF packaging configuration.
         /// </summary>

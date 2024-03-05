@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.IoTWireless
         public Output<bool> AutoCreateTasks { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the new wireless gateway task definition
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The list of task definitions.
         /// </summary>
         [Output("loRaWanUpdateGatewayTaskEntry")]

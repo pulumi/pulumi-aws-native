@@ -16,6 +16,7 @@ import (
 type ResponseHeadersPolicy struct {
 	pulumi.CustomResourceState
 
+	AwsId                       pulumi.StringOutput               `pulumi:"awsId"`
 	LastModifiedTime            pulumi.StringOutput               `pulumi:"lastModifiedTime"`
 	ResponseHeadersPolicyConfig ResponseHeadersPolicyConfigOutput `pulumi:"responseHeadersPolicyConfig"`
 }
@@ -106,6 +107,10 @@ func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutput() ResponseHea
 
 func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutputWithContext(ctx context.Context) ResponseHeadersPolicyOutput {
 	return o
+}
+
+func (o ResponseHeadersPolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ResponseHeadersPolicyOutput) LastModifiedTime() pulumi.StringOutput {

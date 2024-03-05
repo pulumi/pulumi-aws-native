@@ -38,6 +38,7 @@ export class EmailTemplate extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly defaultSubstitutions!: pulumi.Output<string | undefined>;
     public readonly htmlPart!: pulumi.Output<string | undefined>;
     public readonly subject!: pulumi.Output<string>;
@@ -76,8 +77,10 @@ export class EmailTemplate extends pulumi.CustomResource {
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["textPart"] = args ? args.textPart : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultSubstitutions"] = undefined /*out*/;
             resourceInputs["htmlPart"] = undefined /*out*/;
             resourceInputs["subject"] = undefined /*out*/;

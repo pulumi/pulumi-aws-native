@@ -18,6 +18,7 @@ import (
 type AccessKey struct {
 	pulumi.CustomResourceState
 
+	AwsId           pulumi.StringOutput    `pulumi:"awsId"`
 	SecretAccessKey pulumi.StringOutput    `pulumi:"secretAccessKey"`
 	Serial          pulumi.IntPtrOutput    `pulumi:"serial"`
 	Status          pulumi.StringPtrOutput `pulumi:"status"`
@@ -119,6 +120,10 @@ func (o AccessKeyOutput) ToAccessKeyOutput() AccessKeyOutput {
 
 func (o AccessKeyOutput) ToAccessKeyOutputWithContext(ctx context.Context) AccessKeyOutput {
 	return o
+}
+
+func (o AccessKeyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessKey) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AccessKeyOutput) SecretAccessKey() pulumi.StringOutput {

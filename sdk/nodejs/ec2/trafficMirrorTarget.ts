@@ -40,6 +40,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficMirrorTarget.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly gatewayLoadBalancerEndpointId!: pulumi.Output<string | undefined>;
     public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
@@ -64,7 +65,9 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["networkLoadBalancerArn"] = args ? args.networkLoadBalancerArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["gatewayLoadBalancerEndpointId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;

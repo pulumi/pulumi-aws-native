@@ -35,6 +35,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The identifier of the VPC Endpoint
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The name of the VPC Endpoint
      */
     public readonly name!: pulumi.Output<string>;
@@ -72,7 +76,9 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;

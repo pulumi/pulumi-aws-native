@@ -18,21 +18,36 @@ __all__ = ['PackagingGroupArgs', 'PackagingGroup']
 @pulumi.input_type
 class PackagingGroupArgs:
     def __init__(__self__, *,
+                 aws_id: pulumi.Input[str],
                  authorization: Optional[pulumi.Input['PackagingGroupAuthorizationArgs']] = None,
                  egress_access_logs: Optional[pulumi.Input['PackagingGroupLogConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a PackagingGroup resource.
+        :param pulumi.Input[str] aws_id: The ID of the PackagingGroup.
         :param pulumi.Input['PackagingGroupAuthorizationArgs'] authorization: CDN Authorization
         :param pulumi.Input['PackagingGroupLogConfigurationArgs'] egress_access_logs: The configuration parameters for egress access logging.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
         """
+        pulumi.set(__self__, "aws_id", aws_id)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
         if egress_access_logs is not None:
             pulumi.set(__self__, "egress_access_logs", egress_access_logs)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the PackagingGroup.
+        """
+        return pulumi.get(self, "aws_id")
+
+    @aws_id.setter
+    def aws_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_id", value)
 
     @property
     @pulumi.getter
@@ -77,6 +92,7 @@ class PackagingGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']]] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
@@ -86,6 +102,7 @@ class PackagingGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']] authorization: CDN Authorization
+        :param pulumi.Input[str] aws_id: The ID of the PackagingGroup.
         :param pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']] egress_access_logs: The configuration parameters for egress access logging.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A collection of tags associated with a resource
         """
@@ -93,7 +110,7 @@ class PackagingGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[PackagingGroupArgs] = None,
+                 args: PackagingGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaPackage::PackagingGroup
@@ -114,6 +131,7 @@ class PackagingGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']]] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
@@ -126,6 +144,9 @@ class PackagingGroup(pulumi.CustomResource):
             __props__ = PackagingGroupArgs.__new__(PackagingGroupArgs)
 
             __props__.__dict__["authorization"] = authorization
+            if aws_id is None and not opts.urn:
+                raise TypeError("Missing required property 'aws_id'")
+            __props__.__dict__["aws_id"] = aws_id
             __props__.__dict__["egress_access_logs"] = egress_access_logs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -156,6 +177,7 @@ class PackagingGroup(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["authorization"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["egress_access_logs"] = None
         __props__.__dict__["tags"] = None
@@ -176,6 +198,14 @@ class PackagingGroup(pulumi.CustomResource):
         CDN Authorization
         """
         return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the PackagingGroup.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="domainName")

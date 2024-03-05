@@ -37,6 +37,7 @@ export class GroupVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupVersion.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly connectorDefinitionVersionArn!: pulumi.Output<string | undefined>;
     public readonly coreDefinitionVersionArn!: pulumi.Output<string | undefined>;
     public readonly deviceDefinitionVersionArn!: pulumi.Output<string | undefined>;
@@ -70,7 +71,9 @@ export class GroupVersion extends pulumi.CustomResource {
             resourceInputs["loggerDefinitionVersionArn"] = args ? args.loggerDefinitionVersionArn : undefined;
             resourceInputs["resourceDefinitionVersionArn"] = args ? args.resourceDefinitionVersionArn : undefined;
             resourceInputs["subscriptionDefinitionVersionArn"] = args ? args.subscriptionDefinitionVersionArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["connectorDefinitionVersionArn"] = undefined /*out*/;
             resourceInputs["coreDefinitionVersionArn"] = undefined /*out*/;
             resourceInputs["deviceDefinitionVersionArn"] = undefined /*out*/;

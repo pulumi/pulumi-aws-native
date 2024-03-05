@@ -39,6 +39,10 @@ export class EipAssociation extends pulumi.CustomResource {
      */
     public readonly allocationId!: pulumi.Output<string | undefined>;
     /**
+     * Composite ID of non-empty properties, to determine the identification.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The Elastic IP address to associate with the instance.
      */
     public readonly eip!: pulumi.Output<string | undefined>;
@@ -71,8 +75,10 @@ export class EipAssociation extends pulumi.CustomResource {
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["allocationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["eip"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;

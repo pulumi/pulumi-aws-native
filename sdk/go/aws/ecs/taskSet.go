@@ -17,6 +17,8 @@ import (
 type TaskSet struct {
 	pulumi.CustomResourceState
 
+	// The ID of the task set.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
@@ -178,6 +180,11 @@ func (o TaskSetOutput) ToTaskSetOutput() TaskSetOutput {
 
 func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput {
 	return o
+}
+
+// The ID of the task set.
+func (o TaskSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.

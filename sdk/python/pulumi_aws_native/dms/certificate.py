@@ -115,6 +115,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_identifier"] = certificate_identifier
             __props__.__dict__["certificate_pem"] = certificate_pem
             __props__.__dict__["certificate_wallet"] = certificate_wallet
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_identifier", "certificate_pem", "certificate_wallet"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Certificate, __self__).__init__(
@@ -139,10 +140,16 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = CertificateArgs.__new__(CertificateArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["certificate_identifier"] = None
         __props__.__dict__["certificate_pem"] = None
         __props__.__dict__["certificate_wallet"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="certificateIdentifier")

@@ -19,6 +19,7 @@ type Preset struct {
 	pulumi.CustomResourceState
 
 	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	AwsId       pulumi.StringOutput    `pulumi:"awsId"`
 	Category    pulumi.StringPtrOutput `pulumi:"category"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Name        pulumi.StringPtrOutput `pulumi:"name"`
@@ -134,6 +135,10 @@ func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutpu
 
 func (o PresetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PresetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PresetOutput) Category() pulumi.StringPtrOutput {

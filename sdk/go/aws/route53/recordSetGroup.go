@@ -17,6 +17,7 @@ import (
 type RecordSetGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId          pulumi.StringOutput                `pulumi:"awsId"`
 	Comment        pulumi.StringPtrOutput             `pulumi:"comment"`
 	HostedZoneId   pulumi.StringPtrOutput             `pulumi:"hostedZoneId"`
 	HostedZoneName pulumi.StringPtrOutput             `pulumi:"hostedZoneName"`
@@ -117,6 +118,10 @@ func (o RecordSetGroupOutput) ToRecordSetGroupOutput() RecordSetGroupOutput {
 
 func (o RecordSetGroupOutput) ToRecordSetGroupOutputWithContext(ctx context.Context) RecordSetGroupOutput {
 	return o
+}
+
+func (o RecordSetGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecordSetGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RecordSetGroupOutput) Comment() pulumi.StringPtrOutput {

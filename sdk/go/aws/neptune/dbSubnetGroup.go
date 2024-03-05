@@ -19,6 +19,7 @@ import (
 type DbSubnetGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId                    pulumi.StringOutput      `pulumi:"awsId"`
 	DbSubnetGroupDescription pulumi.StringOutput      `pulumi:"dbSubnetGroupDescription"`
 	DbSubnetGroupName        pulumi.StringPtrOutput   `pulumi:"dbSubnetGroupName"`
 	SubnetIds                pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -124,6 +125,10 @@ func (o DbSubnetGroupOutput) ToDbSubnetGroupOutput() DbSubnetGroupOutput {
 
 func (o DbSubnetGroupOutput) ToDbSubnetGroupOutputWithContext(ctx context.Context) DbSubnetGroupOutput {
 	return o
+}
+
+func (o DbSubnetGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbSubnetGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DbSubnetGroupOutput) DbSubnetGroupDescription() pulumi.StringOutput {

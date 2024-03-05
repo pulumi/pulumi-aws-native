@@ -18,6 +18,7 @@ import (
 type MlTransform struct {
 	pulumi.CustomResourceState
 
+	AwsId             pulumi.StringOutput                `pulumi:"awsId"`
 	Description       pulumi.StringPtrOutput             `pulumi:"description"`
 	GlueVersion       pulumi.StringPtrOutput             `pulumi:"glueVersion"`
 	InputRecordTables MlTransformInputRecordTablesOutput `pulumi:"inputRecordTables"`
@@ -156,6 +157,10 @@ func (o MlTransformOutput) ToMlTransformOutput() MlTransformOutput {
 
 func (o MlTransformOutput) ToMlTransformOutputWithContext(ctx context.Context) MlTransformOutput {
 	return o
+}
+
+func (o MlTransformOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MlTransform) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o MlTransformOutput) Description() pulumi.StringPtrOutput {

@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.DevOpsGuru
     [AwsNativeResourceType("aws-native:devopsguru:NotificationChannel")]
     public partial class NotificationChannel : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of a notification channel.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("config")]
         public Output<Outputs.NotificationChannelConfig> Config { get; private set; } = null!;
 

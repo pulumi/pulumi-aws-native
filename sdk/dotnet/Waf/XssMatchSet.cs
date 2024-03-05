@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Waf
     [AwsNativeResourceType("aws-native:waf:XssMatchSet")]
     public partial class XssMatchSet : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

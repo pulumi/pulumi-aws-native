@@ -15,6 +15,8 @@ import (
 type ResolverDnssecConfig struct {
 	pulumi.CustomResourceState
 
+	// Id
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// AccountId
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// ResourceId
@@ -112,6 +114,11 @@ func (o ResolverDnssecConfigOutput) ToResolverDnssecConfigOutput() ResolverDnsse
 
 func (o ResolverDnssecConfigOutput) ToResolverDnssecConfigOutputWithContext(ctx context.Context) ResolverDnssecConfigOutput {
 	return o
+}
+
+// Id
+func (o ResolverDnssecConfigOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverDnssecConfig) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // AccountId

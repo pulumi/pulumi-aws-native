@@ -37,6 +37,7 @@ export class GatewayResponse extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayResponse.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
      */
@@ -82,7 +83,9 @@ export class GatewayResponse extends pulumi.CustomResource {
             resourceInputs["responseType"] = args ? args.responseType : undefined;
             resourceInputs["restApiId"] = args ? args.restApiId : undefined;
             resourceInputs["statusCode"] = args ? args.statusCode : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["responseParameters"] = undefined /*out*/;
             resourceInputs["responseTemplates"] = undefined /*out*/;
             resourceInputs["responseType"] = undefined /*out*/;

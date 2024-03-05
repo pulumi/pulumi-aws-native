@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.AmazonMq
     [AwsNativeResourceType("aws-native:amazonmq:ConfigurationAssociation")]
     public partial class ConfigurationAssociation : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("broker")]
         public Output<string> Broker { get; private set; } = null!;
 

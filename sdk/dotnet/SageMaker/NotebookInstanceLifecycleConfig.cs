@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:NotebookInstanceLifecycleConfig")]
     public partial class NotebookInstanceLifecycleConfig : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("notebookInstanceLifecycleConfigName")]
         public Output<string?> NotebookInstanceLifecycleConfigName { get; private set; } = null!;
 

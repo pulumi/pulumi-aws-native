@@ -38,6 +38,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly caCertificatePem!: pulumi.Output<string | undefined>;
     public readonly certificateMode!: pulumi.Output<enums.iot.CertificateMode | undefined>;
     public readonly certificatePem!: pulumi.Output<string | undefined>;
@@ -64,8 +65,10 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["caCertificatePem"] = undefined /*out*/;
             resourceInputs["certificateMode"] = undefined /*out*/;
             resourceInputs["certificatePem"] = undefined /*out*/;

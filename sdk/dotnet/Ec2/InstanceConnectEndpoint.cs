@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ec2
     public partial class InstanceConnectEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The id of the instance connect endpoint
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The client token of the instance connect endpoint.
         /// </summary>
         [Output("clientToken")]

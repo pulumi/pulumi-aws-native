@@ -40,6 +40,7 @@ export class ConnectorDefinitionVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectorDefinitionVersion.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly connectorDefinitionId!: pulumi.Output<string>;
     public readonly connectors!: pulumi.Output<outputs.greengrass.ConnectorDefinitionVersionConnector[]>;
 
@@ -64,7 +65,9 @@ export class ConnectorDefinitionVersion extends pulumi.CustomResource {
             }
             resourceInputs["connectorDefinitionId"] = args ? args.connectorDefinitionId : undefined;
             resourceInputs["connectors"] = args ? args.connectors : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["connectorDefinitionId"] = undefined /*out*/;
             resourceInputs["connectors"] = undefined /*out*/;
         }

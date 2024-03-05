@@ -17,8 +17,9 @@ import (
 type App struct {
 	pulumi.CustomResourceState
 
-	Arn  pulumi.StringOutput `pulumi:"arn"`
-	Name pulumi.StringOutput `pulumi:"name"`
+	Arn   pulumi.StringOutput `pulumi:"arn"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	Name  pulumi.StringOutput `pulumi:"name"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::App` for more information about the expected schema for this property.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
@@ -118,6 +119,10 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 
 func (o AppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AppOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AppOutput) Name() pulumi.StringOutput {

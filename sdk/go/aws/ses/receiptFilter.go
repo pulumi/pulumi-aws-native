@@ -18,6 +18,7 @@ import (
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
 
+	AwsId  pulumi.StringOutput       `pulumi:"awsId"`
 	Filter ReceiptFilterFilterOutput `pulumi:"filter"`
 }
 
@@ -111,6 +112,10 @@ func (o ReceiptFilterOutput) ToReceiptFilterOutput() ReceiptFilterOutput {
 
 func (o ReceiptFilterOutput) ToReceiptFilterOutputWithContext(ctx context.Context) ReceiptFilterOutput {
 	return o
+}
+
+func (o ReceiptFilterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ReceiptFilterOutput) Filter() ReceiptFilterFilterOutput {

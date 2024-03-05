@@ -38,6 +38,7 @@ export class TagOption extends pulumi.CustomResource {
     }
 
     public readonly active!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly key!: pulumi.Output<string>;
     public readonly value!: pulumi.Output<string>;
 
@@ -63,8 +64,10 @@ export class TagOption extends pulumi.CustomResource {
             resourceInputs["active"] = args ? args.active : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["active"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }

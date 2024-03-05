@@ -103,6 +103,7 @@ class XssMatchSet(pulumi.CustomResource):
             if xss_match_tuples is None and not opts.urn:
                 raise TypeError("Missing required property 'xss_match_tuples'")
             __props__.__dict__["xss_match_tuples"] = xss_match_tuples
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(XssMatchSet, __self__).__init__(
@@ -127,9 +128,15 @@ class XssMatchSet(pulumi.CustomResource):
 
         __props__ = XssMatchSetArgs.__new__(XssMatchSetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["xss_match_tuples"] = None
         return XssMatchSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

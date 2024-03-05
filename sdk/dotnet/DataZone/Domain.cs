@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The id of the Amazon DataZone domain.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp of when the Amazon DataZone domain was last updated.
         /// </summary>
         [Output("createdAt")]

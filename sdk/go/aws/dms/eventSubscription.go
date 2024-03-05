@@ -19,6 +19,7 @@ import (
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
+	AwsId            pulumi.StringOutput      `pulumi:"awsId"`
 	Enabled          pulumi.BoolPtrOutput     `pulumi:"enabled"`
 	EventCategories  pulumi.StringArrayOutput `pulumi:"eventCategories"`
 	SnsTopicArn      pulumi.StringOutput      `pulumi:"snsTopicArn"`
@@ -131,6 +132,10 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOu
 
 func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
 	return o
+}
+
+func (o EventSubscriptionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o EventSubscriptionOutput) Enabled() pulumi.BoolPtrOutput {

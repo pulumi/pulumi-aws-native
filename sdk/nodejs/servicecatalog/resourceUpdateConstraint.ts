@@ -38,6 +38,7 @@ export class ResourceUpdateConstraint extends pulumi.CustomResource {
     }
 
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly portfolioId!: pulumi.Output<string>;
     public readonly productId!: pulumi.Output<string>;
@@ -70,8 +71,10 @@ export class ResourceUpdateConstraint extends pulumi.CustomResource {
             resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
             resourceInputs["productId"] = args ? args.productId : undefined;
             resourceInputs["tagUpdateOnProvisionedProduct"] = args ? args.tagUpdateOnProvisionedProduct : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["portfolioId"] = undefined /*out*/;
             resourceInputs["productId"] = undefined /*out*/;

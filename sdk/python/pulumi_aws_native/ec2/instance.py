@@ -668,6 +668,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["volumes"] = volumes
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["private_dns_name"] = None
             __props__.__dict__["private_ip"] = None
             __props__.__dict__["public_dns_name"] = None
@@ -699,6 +700,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["additional_info"] = None
         __props__.__dict__["affinity"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["block_device_mappings"] = None
         __props__.__dict__["cpu_options"] = None
         __props__.__dict__["credit_specification"] = None
@@ -756,6 +758,11 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="blockDeviceMappings")

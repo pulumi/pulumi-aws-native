@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CloudWatch
     [AwsNativeResourceType("aws-native:cloudwatch:AnomalyDetector")]
     public partial class AnomalyDetector : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("configuration")]
         public Output<Outputs.AnomalyDetectorConfiguration?> Configuration { get; private set; } = null!;
 

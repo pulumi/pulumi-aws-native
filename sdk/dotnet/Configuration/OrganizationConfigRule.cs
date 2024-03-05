@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Configuration
     [AwsNativeResourceType("aws-native:configuration:OrganizationConfigRule")]
     public partial class OrganizationConfigRule : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("excludedAccounts")]
         public Output<ImmutableArray<string>> ExcludedAccounts { get; private set; } = null!;
 

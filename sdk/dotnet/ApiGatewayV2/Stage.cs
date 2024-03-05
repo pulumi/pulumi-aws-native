@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("autoDeploy")]
         public Output<bool?> AutoDeploy { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("clientCertificateId")]
         public Output<string?> ClientCertificateId { get; private set; } = null!;
 

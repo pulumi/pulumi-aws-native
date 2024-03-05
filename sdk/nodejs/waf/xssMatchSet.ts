@@ -40,6 +40,7 @@ export class XssMatchSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === XssMatchSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly xssMatchTuples!: pulumi.Output<outputs.waf.XssMatchSetXssMatchTuple[]>;
 
@@ -61,7 +62,9 @@ export class XssMatchSet extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["xssMatchTuples"] = undefined /*out*/;
         }

@@ -43,6 +43,7 @@ export class Permission extends pulumi.CustomResource {
      * The action that the principal can use on the function. For example, ``lambda:InvokeFunction`` or ``lambda:GetFunction``.
      */
     public readonly action!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * For Alexa Smart Home functions, a token that the invoker must supply.
      */
@@ -107,8 +108,10 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["principalOrgId"] = args ? args.principalOrgId : undefined;
             resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["eventSourceToken"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["functionUrlAuthType"] = undefined /*out*/;

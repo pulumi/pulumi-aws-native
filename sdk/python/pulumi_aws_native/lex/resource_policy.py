@@ -98,6 +98,7 @@ class ResourcePolicy(pulumi.CustomResource):
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__.__dict__["resource_arn"] = resource_arn
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["revision_id"] = None
         super(ResourcePolicy, __self__).__init__(
             'aws-native:lex:ResourcePolicy',
@@ -121,10 +122,16 @@ class ResourcePolicy(pulumi.CustomResource):
 
         __props__ = ResourcePolicyArgs.__new__(ResourcePolicyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["policy"] = None
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["revision_id"] = None
         return ResourcePolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

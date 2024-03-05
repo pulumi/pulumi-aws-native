@@ -102,6 +102,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             if thing_name is None and not opts.urn:
                 raise TypeError("Missing required property 'thing_name'")
             __props__.__dict__["thing_name"] = thing_name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["principal", "thing_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ThingPrincipalAttachment, __self__).__init__(
@@ -126,9 +127,15 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
         __props__ = ThingPrincipalAttachmentArgs.__new__(ThingPrincipalAttachmentArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["principal"] = None
         __props__.__dict__["thing_name"] = None
         return ThingPrincipalAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

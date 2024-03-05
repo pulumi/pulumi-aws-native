@@ -136,6 +136,7 @@ class Partition(pulumi.CustomResource):
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id", "database_name", "table_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Partition, __self__).__init__(
@@ -160,11 +161,17 @@ class Partition(pulumi.CustomResource):
 
         __props__ = PartitionArgs.__new__(PartitionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["catalog_id"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["partition_input"] = None
         __props__.__dict__["table_name"] = None
         return Partition(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="catalogId")

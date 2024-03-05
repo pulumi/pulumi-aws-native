@@ -541,6 +541,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["sybase_settings"] = sybase_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["username"] = username
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["external_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key_id", "resource_identifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -566,6 +567,7 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = EndpointArgs.__new__(EndpointArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["certificate_arn"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["doc_db_settings"] = None
@@ -599,6 +601,11 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["username"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="certificateArn")

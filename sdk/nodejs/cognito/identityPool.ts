@@ -39,6 +39,7 @@ export class IdentityPool extends pulumi.CustomResource {
 
     public readonly allowClassicFlow!: pulumi.Output<boolean | undefined>;
     public readonly allowUnauthenticatedIdentities!: pulumi.Output<boolean>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
      */
@@ -81,10 +82,12 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["pushSync"] = args ? args.pushSync : undefined;
             resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
             resourceInputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
             resourceInputs["allowClassicFlow"] = undefined /*out*/;
             resourceInputs["allowUnauthenticatedIdentities"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cognitoEvents"] = undefined /*out*/;
             resourceInputs["cognitoIdentityProviders"] = undefined /*out*/;
             resourceInputs["cognitoStreams"] = undefined /*out*/;

@@ -104,6 +104,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             if data_catalog_encryption_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'data_catalog_encryption_settings'")
             __props__.__dict__["data_catalog_encryption_settings"] = data_catalog_encryption_settings
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataCatalogEncryptionSettings, __self__).__init__(
@@ -128,9 +129,15 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
 
         __props__ = DataCatalogEncryptionSettingsInitArgs.__new__(DataCatalogEncryptionSettingsInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["catalog_id"] = None
         __props__.__dict__["data_catalog_encryption_settings"] = None
         return DataCatalogEncryptionSettings(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="catalogId")

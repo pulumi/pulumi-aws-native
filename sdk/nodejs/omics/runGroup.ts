@@ -35,6 +35,7 @@ export class RunGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly maxCpus!: pulumi.Output<number | undefined>;
     public readonly maxDuration!: pulumi.Output<number | undefined>;
@@ -61,9 +62,11 @@ export class RunGroup extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["maxCpus"] = undefined /*out*/;
             resourceInputs["maxDuration"] = undefined /*out*/;

@@ -40,6 +40,7 @@ export class DbSecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DbSecurityGroup.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly dbSecurityGroupIngress!: pulumi.Output<outputs.rds.DbSecurityGroupIngress[]>;
     public readonly ec2VpcId!: pulumi.Output<string | undefined>;
     public readonly groupDescription!: pulumi.Output<string>;
@@ -68,7 +69,9 @@ export class DbSecurityGroup extends pulumi.CustomResource {
             resourceInputs["ec2VpcId"] = args ? args.ec2VpcId : undefined;
             resourceInputs["groupDescription"] = args ? args.groupDescription : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dbSecurityGroupIngress"] = undefined /*out*/;
             resourceInputs["ec2VpcId"] = undefined /*out*/;
             resourceInputs["groupDescription"] = undefined /*out*/;

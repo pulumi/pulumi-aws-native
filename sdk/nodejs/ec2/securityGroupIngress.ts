@@ -35,6 +35,10 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
     }
 
     /**
+     * The Security Group Rule Id
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The IPv4 ranges
      */
     public readonly cidrIp!: pulumi.Output<string | undefined>;
@@ -121,7 +125,9 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
             resourceInputs["sourceSecurityGroupName"] = args ? args.sourceSecurityGroupName : undefined;
             resourceInputs["sourceSecurityGroupOwnerId"] = args ? args.sourceSecurityGroupOwnerId : undefined;
             resourceInputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrIp"] = undefined /*out*/;
             resourceInputs["cidrIpv6"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

@@ -21,6 +21,7 @@ type Configuration struct {
 
 	Arn                    pulumi.StringOutput    `pulumi:"arn"`
 	AuthenticationStrategy pulumi.StringPtrOutput `pulumi:"authenticationStrategy"`
+	AwsId                  pulumi.StringOutput    `pulumi:"awsId"`
 	Data                   pulumi.StringOutput    `pulumi:"data"`
 	Description            pulumi.StringPtrOutput `pulumi:"description"`
 	EngineType             pulumi.StringOutput    `pulumi:"engineType"`
@@ -149,6 +150,10 @@ func (o ConfigurationOutput) Arn() pulumi.StringOutput {
 
 func (o ConfigurationOutput) AuthenticationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.AuthenticationStrategy }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ConfigurationOutput) Data() pulumi.StringOutput {

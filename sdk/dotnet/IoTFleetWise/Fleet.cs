@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.IoTFleetWise
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
@@ -83,6 +86,9 @@ namespace Pulumi.AwsNative.IoTFleetWise
 
     public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("awsId", required: true)]
+        public Input<string> AwsId { get; set; } = null!;
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 

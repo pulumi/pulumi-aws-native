@@ -38,6 +38,7 @@ export class SourceCredential extends pulumi.CustomResource {
     }
 
     public readonly authType!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly serverType!: pulumi.Output<string>;
     public readonly token!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
@@ -68,8 +69,10 @@ export class SourceCredential extends pulumi.CustomResource {
             resourceInputs["serverType"] = args ? args.serverType : undefined;
             resourceInputs["token"] = args ? args.token : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["authType"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["serverType"] = undefined /*out*/;
             resourceInputs["token"] = undefined /*out*/;
             resourceInputs["username"] = undefined /*out*/;

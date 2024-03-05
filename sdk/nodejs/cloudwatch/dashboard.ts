@@ -37,6 +37,7 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly dashboardBody!: pulumi.Output<string>;
     public readonly dashboardName!: pulumi.Output<string | undefined>;
 
@@ -58,7 +59,9 @@ export class Dashboard extends pulumi.CustomResource {
             }
             resourceInputs["dashboardBody"] = args ? args.dashboardBody : undefined;
             resourceInputs["dashboardName"] = args ? args.dashboardName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dashboardBody"] = undefined /*out*/;
             resourceInputs["dashboardName"] = undefined /*out*/;
         }

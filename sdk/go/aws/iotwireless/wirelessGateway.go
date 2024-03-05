@@ -19,6 +19,8 @@ type WirelessGateway struct {
 
 	// Arn for Wireless Gateway. Returned upon successful create.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Id for Wireless Gateway. Returned upon successful create.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Description of Wireless Gateway.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The date and time when the most recent uplink was received.
@@ -152,6 +154,11 @@ func (o WirelessGatewayOutput) ToWirelessGatewayOutputWithContext(ctx context.Co
 // Arn for Wireless Gateway. Returned upon successful create.
 func (o WirelessGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WirelessGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Id for Wireless Gateway. Returned upon successful create.
+func (o WirelessGatewayOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WirelessGateway) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Description of Wireless Gateway.

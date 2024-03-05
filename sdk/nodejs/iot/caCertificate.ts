@@ -39,6 +39,7 @@ export class CaCertificate extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly autoRegistrationStatus!: pulumi.Output<enums.iot.CaCertificateAutoRegistrationStatus | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly caCertificatePem!: pulumi.Output<string>;
     public readonly certificateMode!: pulumi.Output<enums.iot.CaCertificateCertificateMode | undefined>;
     public readonly registrationConfig!: pulumi.Output<outputs.iot.CaCertificateRegistrationConfig | undefined>;
@@ -79,9 +80,11 @@ export class CaCertificate extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["verificationCertificatePem"] = args ? args.verificationCertificatePem : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoRegistrationStatus"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["caCertificatePem"] = undefined /*out*/;
             resourceInputs["certificateMode"] = undefined /*out*/;
             resourceInputs["registrationConfig"] = undefined /*out*/;

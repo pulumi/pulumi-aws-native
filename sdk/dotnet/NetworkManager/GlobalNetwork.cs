@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the global network.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The date and time that the global network was created.
         /// </summary>
         [Output("createdAt")]

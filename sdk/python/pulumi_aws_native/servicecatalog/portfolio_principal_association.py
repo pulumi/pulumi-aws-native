@@ -133,6 +133,7 @@ class PortfolioPrincipalAssociation(pulumi.CustomResource):
             if principal_type is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_type'")
             __props__.__dict__["principal_type"] = principal_type
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accept_language", "portfolio_id", "principal_arn", "principal_type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PortfolioPrincipalAssociation, __self__).__init__(
@@ -158,6 +159,7 @@ class PortfolioPrincipalAssociation(pulumi.CustomResource):
         __props__ = PortfolioPrincipalAssociationArgs.__new__(PortfolioPrincipalAssociationArgs)
 
         __props__.__dict__["accept_language"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["portfolio_id"] = None
         __props__.__dict__["principal_arn"] = None
         __props__.__dict__["principal_type"] = None
@@ -167,6 +169,11 @@ class PortfolioPrincipalAssociation(pulumi.CustomResource):
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "accept_language")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="portfolioId")

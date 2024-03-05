@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:Partition")]
     public partial class Partition : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 

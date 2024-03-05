@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Greengrass
     [AwsNativeResourceType("aws-native:greengrass:DeviceDefinitionVersion")]
     public partial class DeviceDefinitionVersion : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("deviceDefinitionId")]
         public Output<string> DeviceDefinitionId { get; private set; } = null!;
 

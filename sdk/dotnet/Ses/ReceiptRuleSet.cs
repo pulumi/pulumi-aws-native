@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ses
     [AwsNativeResourceType("aws-native:ses:ReceiptRuleSet")]
     public partial class ReceiptRuleSet : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("ruleSetName")]
         public Output<string?> RuleSetName { get; private set; } = null!;
 

@@ -18,6 +18,7 @@ import (
 type GatewayResponse struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseParameters pulumi.StringMapOutput `pulumi:"responseParameters"`
 	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
@@ -142,6 +143,10 @@ func (o GatewayResponseOutput) ToGatewayResponseOutput() GatewayResponseOutput {
 
 func (o GatewayResponseOutput) ToGatewayResponseOutputWithContext(ctx context.Context) GatewayResponseOutput {
 	return o
+}
+
+func (o GatewayResponseOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayResponse) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.

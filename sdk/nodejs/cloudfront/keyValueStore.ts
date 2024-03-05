@@ -38,6 +38,7 @@ export class KeyValueStore extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly importSource!: pulumi.Output<outputs.cloudfront.KeyValueStoreImportSource | undefined>;
     public readonly name!: pulumi.Output<string>;
@@ -58,9 +59,11 @@ export class KeyValueStore extends pulumi.CustomResource {
             resourceInputs["importSource"] = args ? args.importSource : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["comment"] = undefined /*out*/;
             resourceInputs["importSource"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

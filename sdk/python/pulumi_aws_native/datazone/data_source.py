@@ -311,6 +311,7 @@ class DataSource(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["environment_id"] = None
@@ -345,6 +346,7 @@ class DataSource(pulumi.CustomResource):
         __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
         __props__.__dict__["asset_forms_input"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
@@ -374,6 +376,14 @@ class DataSource(pulumi.CustomResource):
         The metadata forms that are to be attached to the assets that this data source works with.
         """
         return pulumi.get(self, "asset_forms_input")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the data source.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

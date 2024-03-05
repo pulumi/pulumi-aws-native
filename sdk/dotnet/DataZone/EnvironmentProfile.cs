@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string> AwsAccountRegion { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of this Amazon DataZone environment profile.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp of when this environment profile was created.
         /// </summary>
         [Output("createdAt")]

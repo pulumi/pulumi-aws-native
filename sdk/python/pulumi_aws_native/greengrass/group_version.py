@@ -191,6 +191,7 @@ class GroupVersion(pulumi.CustomResource):
             __props__.__dict__["logger_definition_version_arn"] = logger_definition_version_arn
             __props__.__dict__["resource_definition_version_arn"] = resource_definition_version_arn
             __props__.__dict__["subscription_definition_version_arn"] = subscription_definition_version_arn
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_definition_version_arn", "core_definition_version_arn", "device_definition_version_arn", "function_definition_version_arn", "group_id", "logger_definition_version_arn", "resource_definition_version_arn", "subscription_definition_version_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GroupVersion, __self__).__init__(
@@ -215,6 +216,7 @@ class GroupVersion(pulumi.CustomResource):
 
         __props__ = GroupVersionInitArgs.__new__(GroupVersionInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["connector_definition_version_arn"] = None
         __props__.__dict__["core_definition_version_arn"] = None
         __props__.__dict__["device_definition_version_arn"] = None
@@ -224,6 +226,11 @@ class GroupVersion(pulumi.CustomResource):
         __props__.__dict__["resource_definition_version_arn"] = None
         __props__.__dict__["subscription_definition_version_arn"] = None
         return GroupVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="connectorDefinitionVersionArn")

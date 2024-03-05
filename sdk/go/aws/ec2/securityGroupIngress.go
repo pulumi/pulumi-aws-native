@@ -16,6 +16,8 @@ import (
 type SecurityGroupIngress struct {
 	pulumi.CustomResourceState
 
+	// The Security Group Rule Id
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The IPv4 ranges
 	CidrIp pulumi.StringPtrOutput `pulumi:"cidrIp"`
 	// [VPC only] The IPv6 ranges
@@ -224,6 +226,11 @@ func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutput() SecurityGroup
 
 func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
 	return o
+}
+
+// The Security Group Rule Id
+func (o SecurityGroupIngressOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The IPv4 ranges

@@ -42,6 +42,10 @@ export class Collection extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The identifier of the collection
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The endpoint for the collection.
      */
     public /*out*/ readonly collectionEndpoint!: pulumi.Output<string>;
@@ -87,10 +91,12 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

@@ -148,6 +148,7 @@ class Ledger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'permissions_mode'")
             __props__.__dict__["permissions_mode"] = permissions_mode
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Ledger, __self__).__init__(
@@ -172,12 +173,18 @@ class Ledger(pulumi.CustomResource):
 
         __props__ = LedgerArgs.__new__(LedgerArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["kms_key"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["permissions_mode"] = None
         __props__.__dict__["tags"] = None
         return Ledger(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deletionProtection")

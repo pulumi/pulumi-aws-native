@@ -37,6 +37,7 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly certificateIdentifier!: pulumi.Output<string | undefined>;
     public readonly certificatePem!: pulumi.Output<string | undefined>;
     public readonly certificateWallet!: pulumi.Output<string | undefined>;
@@ -57,7 +58,9 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateIdentifier"] = args ? args.certificateIdentifier : undefined;
             resourceInputs["certificatePem"] = args ? args.certificatePem : undefined;
             resourceInputs["certificateWallet"] = args ? args.certificateWallet : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateIdentifier"] = undefined /*out*/;
             resourceInputs["certificatePem"] = undefined /*out*/;
             resourceInputs["certificateWallet"] = undefined /*out*/;

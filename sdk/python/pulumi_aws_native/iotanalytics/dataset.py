@@ -190,6 +190,7 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["versioning_configuration"] = versioning_configuration
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dataset, __self__).__init__(
@@ -215,6 +216,7 @@ class Dataset(pulumi.CustomResource):
         __props__ = DatasetArgs.__new__(DatasetArgs)
 
         __props__.__dict__["actions"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["content_delivery_rules"] = None
         __props__.__dict__["dataset_name"] = None
         __props__.__dict__["late_data_rules"] = None
@@ -228,6 +230,11 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.DatasetAction']]:
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="contentDeliveryRules")

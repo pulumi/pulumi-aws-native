@@ -143,6 +143,7 @@ class VariantStore(pulumi.CustomResource):
             __props__.__dict__["reference"] = reference
             __props__.__dict__["sse_config"] = sse_config
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
@@ -173,6 +174,7 @@ class VariantStore(pulumi.CustomResource):
 
         __props__ = VariantStoreArgs.__new__(VariantStoreArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -185,6 +187,11 @@ class VariantStore(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["update_time"] = None
         return VariantStore(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

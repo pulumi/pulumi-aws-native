@@ -82,6 +82,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             if response_headers_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'response_headers_policy_config'")
             __props__.__dict__["response_headers_policy_config"] = response_headers_policy_config
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(ResponseHeadersPolicy, __self__).__init__(
             'aws-native:cloudfront:ResponseHeadersPolicy',
@@ -105,9 +106,15 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
 
         __props__ = ResponseHeadersPolicyArgs.__new__(ResponseHeadersPolicyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["response_headers_policy_config"] = None
         return ResponseHeadersPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")

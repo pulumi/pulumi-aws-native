@@ -17,6 +17,7 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
 	DefaultRunProperties pulumi.AnyOutput       `pulumi:"defaultRunProperties"`
 	Description          pulumi.StringPtrOutput `pulumi:"description"`
@@ -125,6 +126,10 @@ func (o WorkflowOutput) ToWorkflowOutput() WorkflowOutput {
 
 func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
 	return o
+}
+
+func (o WorkflowOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.

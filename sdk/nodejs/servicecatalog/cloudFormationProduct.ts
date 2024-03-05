@@ -41,6 +41,7 @@ export class CloudFormationProduct extends pulumi.CustomResource {
     }
 
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly distributor!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
@@ -86,11 +87,13 @@ export class CloudFormationProduct extends pulumi.CustomResource {
             resourceInputs["supportEmail"] = args ? args.supportEmail : undefined;
             resourceInputs["supportUrl"] = args ? args.supportUrl : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["productName"] = undefined /*out*/;
             resourceInputs["provisioningArtifactIds"] = undefined /*out*/;
             resourceInputs["provisioningArtifactNames"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["distributor"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

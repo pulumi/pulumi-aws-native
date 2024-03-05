@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Dms
     [AwsNativeResourceType("aws-native:dms:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 

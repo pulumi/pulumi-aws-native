@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<ImmutableArray<string>> AuthorizedPrincipals { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the subscription target.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp of when the subscription target was created.
         /// </summary>
         [Output("createdAt")]

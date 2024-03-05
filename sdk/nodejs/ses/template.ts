@@ -37,6 +37,7 @@ export class Template extends pulumi.CustomResource {
         return obj['__pulumiType'] === Template.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly template!: pulumi.Output<outputs.ses.Template | undefined>;
 
     /**
@@ -51,7 +52,9 @@ export class Template extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["template"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

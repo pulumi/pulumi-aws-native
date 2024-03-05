@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("referenceDataSource")]
         public Output<Outputs.ApplicationReferenceDataSourceReferenceDataSource> ReferenceDataSource { get; private set; } = null!;
 

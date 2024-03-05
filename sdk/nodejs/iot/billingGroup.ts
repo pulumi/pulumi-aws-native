@@ -38,6 +38,7 @@ export class BillingGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly billingGroupName!: pulumi.Output<string | undefined>;
     public readonly billingGroupProperties!: pulumi.Output<outputs.iot.BillingGroupPropertiesProperties | undefined>;
     /**
@@ -60,8 +61,10 @@ export class BillingGroup extends pulumi.CustomResource {
             resourceInputs["billingGroupProperties"] = args ? args.billingGroupProperties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["billingGroupName"] = undefined /*out*/;
             resourceInputs["billingGroupProperties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

@@ -38,6 +38,7 @@ export class EmailChannel extends pulumi.CustomResource {
     }
 
     public readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly configurationSet!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly fromAddress!: pulumi.Output<string>;
@@ -72,8 +73,10 @@ export class EmailChannel extends pulumi.CustomResource {
             resourceInputs["fromAddress"] = args ? args.fromAddress : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configurationSet"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["fromAddress"] = undefined /*out*/;

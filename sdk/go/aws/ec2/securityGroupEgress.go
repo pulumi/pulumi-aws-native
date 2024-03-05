@@ -21,6 +21,7 @@ import (
 type SecurityGroupEgress struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The IPv4 address range, in CIDR format.
 	//  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
 	//  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *User Guide*.
@@ -199,6 +200,10 @@ func (o SecurityGroupEgressOutput) ToSecurityGroupEgressOutput() SecurityGroupEg
 
 func (o SecurityGroupEgressOutput) ToSecurityGroupEgressOutputWithContext(ctx context.Context) SecurityGroupEgressOutput {
 	return o
+}
+
+func (o SecurityGroupEgressOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The IPv4 address range, in CIDR format.

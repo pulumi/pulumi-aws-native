@@ -37,6 +37,7 @@ export class Subscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === Subscription.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
      */
@@ -91,7 +92,9 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["replayPolicy"] = args ? args.replayPolicy : undefined;
             resourceInputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
             resourceInputs["topicArn"] = args ? args.topicArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deliveryPolicy"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["filterPolicy"] = undefined /*out*/;

@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.Rum
         [Output("appMonitorConfiguration")]
         public Output<Outputs.AppMonitorConfiguration?> AppMonitorConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID of the new app monitor.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("customEvents")]
         public Output<Outputs.AppMonitorCustomEvents?> CustomEvents { get; private set; } = null!;
 

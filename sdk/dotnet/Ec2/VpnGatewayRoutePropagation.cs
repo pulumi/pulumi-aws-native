@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:VpnGatewayRoutePropagation")]
     public partial class VpnGatewayRoutePropagation : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("routeTableIds")]
         public Output<ImmutableArray<string>> RouteTableIds { get; private set; } = null!;
 

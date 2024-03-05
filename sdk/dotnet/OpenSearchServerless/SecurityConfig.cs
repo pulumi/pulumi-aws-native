@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public partial class SecurityConfig : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The identifier of the security config
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Security config description
         /// </summary>
         [Output("description")]

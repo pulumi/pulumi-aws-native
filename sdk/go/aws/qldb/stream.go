@@ -18,6 +18,7 @@ type Stream struct {
 	pulumi.CustomResourceState
 
 	Arn                  pulumi.StringOutput              `pulumi:"arn"`
+	AwsId                pulumi.StringOutput              `pulumi:"awsId"`
 	ExclusiveEndTime     pulumi.StringPtrOutput           `pulumi:"exclusiveEndTime"`
 	InclusiveStartTime   pulumi.StringOutput              `pulumi:"inclusiveStartTime"`
 	KinesisConfiguration StreamKinesisConfigurationOutput `pulumi:"kinesisConfiguration"`
@@ -150,6 +151,10 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 
 func (o StreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o StreamOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o StreamOutput) ExclusiveEndTime() pulumi.StringPtrOutput {

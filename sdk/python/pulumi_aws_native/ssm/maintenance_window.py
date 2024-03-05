@@ -241,6 +241,7 @@ class MaintenanceWindow(pulumi.CustomResource):
             __props__.__dict__["schedule_timezone"] = schedule_timezone
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         super(MaintenanceWindow, __self__).__init__(
             'aws-native:ssm:MaintenanceWindow',
             resource_name,
@@ -264,6 +265,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         __props__ = MaintenanceWindowArgs.__new__(MaintenanceWindowArgs)
 
         __props__.__dict__["allow_unassociated_targets"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cutoff"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["duration"] = None
@@ -280,6 +282,11 @@ class MaintenanceWindow(pulumi.CustomResource):
     @pulumi.getter(name="allowUnassociatedTargets")
     def allow_unassociated_targets(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "allow_unassociated_targets")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CertificateManager
     [AwsNativeResourceType("aws-native:certificatemanager:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("certificateAuthorityArn")]
         public Output<string?> CertificateAuthorityArn { get; private set; } = null!;
 

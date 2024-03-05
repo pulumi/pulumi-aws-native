@@ -257,6 +257,7 @@ class Subscription(pulumi.CustomResource):
             if topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_arn'")
             __props__.__dict__["topic_arn"] = topic_arn
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint", "protocol", "topic_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Subscription, __self__).__init__(
@@ -281,6 +282,7 @@ class Subscription(pulumi.CustomResource):
 
         __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["delivery_policy"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["filter_policy"] = None
@@ -293,6 +295,11 @@ class Subscription(pulumi.CustomResource):
         __props__.__dict__["subscription_role_arn"] = None
         __props__.__dict__["topic_arn"] = None
         return Subscription(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deliveryPolicy")

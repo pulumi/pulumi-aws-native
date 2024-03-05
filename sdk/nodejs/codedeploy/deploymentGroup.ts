@@ -44,6 +44,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     public readonly applicationName!: pulumi.Output<string>;
     public readonly autoRollbackConfiguration!: pulumi.Output<outputs.codedeploy.DeploymentGroupAutoRollbackConfiguration | undefined>;
     public readonly autoScalingGroups!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly blueGreenDeploymentConfiguration!: pulumi.Output<outputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfiguration | undefined>;
     public readonly deployment!: pulumi.Output<outputs.codedeploy.DeploymentGroupDeployment | undefined>;
     public readonly deploymentConfigName!: pulumi.Output<string | undefined>;
@@ -100,11 +101,13 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminationHookEnabled"] = args ? args.terminationHookEnabled : undefined;
             resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["alarmConfiguration"] = undefined /*out*/;
             resourceInputs["applicationName"] = undefined /*out*/;
             resourceInputs["autoRollbackConfiguration"] = undefined /*out*/;
             resourceInputs["autoScalingGroups"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["blueGreenDeploymentConfiguration"] = undefined /*out*/;
             resourceInputs["deployment"] = undefined /*out*/;
             resourceInputs["deploymentConfigName"] = undefined /*out*/;

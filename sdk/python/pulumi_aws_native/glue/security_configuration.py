@@ -103,6 +103,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'encryption_configuration'")
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityConfiguration, __self__).__init__(
@@ -127,9 +128,15 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         __props__ = SecurityConfigurationArgs.__new__(SecurityConfigurationArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["name"] = None
         return SecurityConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="encryptionConfiguration")

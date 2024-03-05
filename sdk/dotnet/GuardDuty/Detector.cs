@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.GuardDuty
     [AwsNativeResourceType("aws-native:guardduty:Detector")]
     public partial class Detector : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("dataSources")]
         public Output<Outputs.DetectorCfnDataSourceConfigurations?> DataSources { get; private set; } = null!;
 

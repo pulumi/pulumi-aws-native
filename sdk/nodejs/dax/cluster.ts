@@ -42,6 +42,7 @@ export class Cluster extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly clusterDiscoveryEndpoint!: pulumi.Output<string>;
     public /*out*/ readonly clusterDiscoveryEndpointUrl!: pulumi.Output<string>;
     public readonly clusterEndpointEncryptionType!: pulumi.Output<string | undefined>;
@@ -98,11 +99,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clusterDiscoveryEndpoint"] = undefined /*out*/;
             resourceInputs["clusterDiscoveryEndpointUrl"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clusterDiscoveryEndpoint"] = undefined /*out*/;
             resourceInputs["clusterDiscoveryEndpointUrl"] = undefined /*out*/;
             resourceInputs["clusterEndpointEncryptionType"] = undefined /*out*/;

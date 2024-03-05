@@ -41,6 +41,7 @@ export class Portfolio extends pulumi.CustomResource {
     }
 
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly displayName!: pulumi.Output<string>;
     public /*out*/ readonly portfolioName!: pulumi.Output<string>;
@@ -71,9 +72,11 @@ export class Portfolio extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["providerName"] = args ? args.providerName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["portfolioName"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["portfolioName"] = undefined /*out*/;

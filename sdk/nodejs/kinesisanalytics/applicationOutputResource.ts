@@ -41,6 +41,7 @@ export class ApplicationOutputResource extends pulumi.CustomResource {
     }
 
     public readonly applicationName!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly output!: pulumi.Output<outputs.kinesisanalytics.ApplicationOutputResourceOutput>;
 
     /**
@@ -64,8 +65,10 @@ export class ApplicationOutputResource extends pulumi.CustomResource {
             }
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["output"] = args ? args.output : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["output"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

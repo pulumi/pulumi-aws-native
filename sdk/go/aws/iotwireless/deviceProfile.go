@@ -18,6 +18,8 @@ type DeviceProfile struct {
 
 	// Service profile Arn. Returned after successful create.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Service profile Id. Returned after successful create.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
 	LoRaWan DeviceProfileLoRaWanDeviceProfilePtrOutput `pulumi:"loRaWan"`
 	// Name of service profile
@@ -124,6 +126,11 @@ func (o DeviceProfileOutput) ToDeviceProfileOutputWithContext(ctx context.Contex
 // Service profile Arn. Returned after successful create.
 func (o DeviceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Service profile Id. Returned after successful create.
+func (o DeviceProfileOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceProfile) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation

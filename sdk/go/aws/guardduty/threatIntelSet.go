@@ -18,6 +18,7 @@ type ThreatIntelSet struct {
 	pulumi.CustomResourceState
 
 	Activate   pulumi.BoolPtrOutput   `pulumi:"activate"`
+	AwsId      pulumi.StringOutput    `pulumi:"awsId"`
 	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
 	Format     pulumi.StringOutput    `pulumi:"format"`
 	Location   pulumi.StringOutput    `pulumi:"location"`
@@ -133,6 +134,10 @@ func (o ThreatIntelSetOutput) ToThreatIntelSetOutputWithContext(ctx context.Cont
 
 func (o ThreatIntelSetOutput) Activate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.BoolPtrOutput { return v.Activate }).(pulumi.BoolPtrOutput)
+}
+
+func (o ThreatIntelSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ThreatIntelSetOutput) DetectorId() pulumi.StringPtrOutput {

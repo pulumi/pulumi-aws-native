@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("attributes")]
         public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("chefConfiguration")]
         public Output<Outputs.StackChefConfiguration?> ChefConfiguration { get; private set; } = null!;
 

@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.AppStream
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("firstName")]
         public Output<string?> FirstName { get; private set; } = null!;
 

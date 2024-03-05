@@ -253,6 +253,7 @@ class Permission(pulumi.CustomResource):
             __props__.__dict__["principal_org_id"] = principal_org_id
             __props__.__dict__["source_account"] = source_account
             __props__.__dict__["source_arn"] = source_arn
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action", "event_source_token", "function_name", "function_url_auth_type", "principal", "principal_org_id", "source_account", "source_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Permission, __self__).__init__(
@@ -278,6 +279,7 @@ class Permission(pulumi.CustomResource):
         __props__ = PermissionArgs.__new__(PermissionArgs)
 
         __props__.__dict__["action"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["event_source_token"] = None
         __props__.__dict__["function_name"] = None
         __props__.__dict__["function_url_auth_type"] = None
@@ -294,6 +296,11 @@ class Permission(pulumi.CustomResource):
         The action that the principal can use on the function. For example, ``lambda:InvokeFunction`` or ``lambda:GetFunction``.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="eventSourceToken")

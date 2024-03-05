@@ -16,6 +16,7 @@ type RunGroup struct {
 	pulumi.CustomResourceState
 
 	Arn          pulumi.StringOutput     `pulumi:"arn"`
+	AwsId        pulumi.StringOutput     `pulumi:"awsId"`
 	CreationTime pulumi.StringOutput     `pulumi:"creationTime"`
 	MaxCpus      pulumi.Float64PtrOutput `pulumi:"maxCpus"`
 	MaxDuration  pulumi.Float64PtrOutput `pulumi:"maxDuration"`
@@ -122,6 +123,10 @@ func (o RunGroupOutput) ToRunGroupOutputWithContext(ctx context.Context) RunGrou
 
 func (o RunGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RunGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RunGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RunGroupOutput) CreationTime() pulumi.StringOutput {

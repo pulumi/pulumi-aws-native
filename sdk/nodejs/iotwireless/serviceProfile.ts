@@ -42,6 +42,10 @@ export class ServiceProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Service profile Id. Returned after successful create.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
      */
     public readonly loRaWan!: pulumi.Output<outputs.iotwireless.ServiceProfileLoRaWanServiceProfile | undefined>;
@@ -69,8 +73,10 @@ export class ServiceProfile extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["loRaWan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

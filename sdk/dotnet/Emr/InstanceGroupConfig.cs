@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Emr
         [Output("autoScalingPolicy")]
         public Output<Outputs.InstanceGroupConfigAutoScalingPolicy?> AutoScalingPolicy { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("bidPrice")]
         public Output<string?> BidPrice { get; private set; } = null!;
 

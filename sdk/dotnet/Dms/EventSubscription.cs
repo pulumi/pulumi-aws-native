@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Dms
     [AwsNativeResourceType("aws-native:dms:EventSubscription")]
     public partial class EventSubscription : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 

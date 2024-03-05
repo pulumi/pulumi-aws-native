@@ -16,6 +16,7 @@ import (
 type CloudFrontOriginAccessIdentity struct {
 	pulumi.CustomResourceState
 
+	AwsId                                pulumi.StringOutput                        `pulumi:"awsId"`
 	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityConfigOutput `pulumi:"cloudFrontOriginAccessIdentityConfig"`
 	S3CanonicalUserId                    pulumi.StringOutput                        `pulumi:"s3CanonicalUserId"`
 }
@@ -106,6 +107,10 @@ func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOu
 
 func (o CloudFrontOriginAccessIdentityOutput) ToCloudFrontOriginAccessIdentityOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityOutput {
 	return o
+}
+
+func (o CloudFrontOriginAccessIdentityOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFrontOriginAccessIdentity) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CloudFrontOriginAccessIdentityOutput) CloudFrontOriginAccessIdentityConfig() CloudFrontOriginAccessIdentityConfigOutput {

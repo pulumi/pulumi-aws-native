@@ -227,6 +227,7 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataSource, __self__).__init__(
@@ -252,6 +253,7 @@ class DataSource(pulumi.CustomResource):
         __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["custom_document_enrichment_configuration"] = None
         __props__.__dict__["data_source_configuration"] = None
         __props__.__dict__["description"] = None
@@ -268,6 +270,11 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")

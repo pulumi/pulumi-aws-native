@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("canonicalHostedZoneName")]
         public Output<string> CanonicalHostedZoneName { get; private set; } = null!;
 

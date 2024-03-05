@@ -116,6 +116,7 @@ class GraphQlSchema(pulumi.CustomResource):
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["definition"] = definition
             __props__.__dict__["definition_s3_location"] = definition_s3_location
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GraphQlSchema, __self__).__init__(
@@ -141,6 +142,7 @@ class GraphQlSchema(pulumi.CustomResource):
         __props__ = GraphQlSchemaArgs.__new__(GraphQlSchemaArgs)
 
         __props__.__dict__["api_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["definition"] = None
         __props__.__dict__["definition_s3_location"] = None
         return GraphQlSchema(resource_name, opts=opts, __props__=__props__)
@@ -149,6 +151,11 @@ class GraphQlSchema(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

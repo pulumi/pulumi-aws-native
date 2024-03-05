@@ -97,6 +97,7 @@ class Thing(pulumi.CustomResource):
             __props__.__dict__["attribute_payload"] = attribute_payload
             __props__.__dict__["thing_name"] = thing_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["thing_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Thing, __self__).__init__(
@@ -123,6 +124,7 @@ class Thing(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["attribute_payload"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["thing_name"] = None
         return Thing(resource_name, opts=opts, __props__=__props__)
 
@@ -135,6 +137,11 @@ class Thing(pulumi.CustomResource):
     @pulumi.getter(name="attributePayload")
     def attribute_payload(self) -> pulumi.Output[Optional['outputs.ThingAttributePayload']]:
         return pulumi.get(self, "attribute_payload")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="thingName")

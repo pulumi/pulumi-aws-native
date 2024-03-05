@@ -18,6 +18,7 @@ import (
 type Volume struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput    `pulumi:"awsId"`
 	Ec2VolumeId pulumi.StringOutput    `pulumi:"ec2VolumeId"`
 	MountPoint  pulumi.StringPtrOutput `pulumi:"mountPoint"`
 	Name        pulumi.StringPtrOutput `pulumi:"name"`
@@ -124,6 +125,10 @@ func (o VolumeOutput) ToVolumeOutput() VolumeOutput {
 
 func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return o
+}
+
+func (o VolumeOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o VolumeOutput) Ec2VolumeId() pulumi.StringOutput {

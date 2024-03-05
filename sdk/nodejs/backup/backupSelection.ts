@@ -37,6 +37,7 @@ export class BackupSelection extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupSelection.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly backupPlanId!: pulumi.Output<string>;
     public readonly backupSelection!: pulumi.Output<outputs.backup.BackupSelectionResourceType>;
     public /*out*/ readonly selectionId!: pulumi.Output<string>;
@@ -60,8 +61,10 @@ export class BackupSelection extends pulumi.CustomResource {
             }
             resourceInputs["backupPlanId"] = args ? args.backupPlanId : undefined;
             resourceInputs["backupSelection"] = args ? args.backupSelection : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["selectionId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["backupPlanId"] = undefined /*out*/;
             resourceInputs["backupSelection"] = undefined /*out*/;
             resourceInputs["selectionId"] = undefined /*out*/;

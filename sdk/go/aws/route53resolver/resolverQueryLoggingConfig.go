@@ -19,6 +19,8 @@ type ResolverQueryLoggingConfig struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Count
 	AssociationCount pulumi.IntOutput `pulumi:"associationCount"`
+	// ResourceId
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Rfc3339TimeString
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The id of the creator request.
@@ -139,6 +141,11 @@ func (o ResolverQueryLoggingConfigOutput) Arn() pulumi.StringOutput {
 // Count
 func (o ResolverQueryLoggingConfigOutput) AssociationCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ResolverQueryLoggingConfig) pulumi.IntOutput { return v.AssociationCount }).(pulumi.IntOutput)
+}
+
+// ResourceId
+func (o ResolverQueryLoggingConfigOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfig) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Rfc3339TimeString

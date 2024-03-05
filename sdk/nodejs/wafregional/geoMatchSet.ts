@@ -40,6 +40,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === GeoMatchSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly geoMatchConstraints!: pulumi.Output<outputs.wafregional.GeoMatchSetGeoMatchConstraint[] | undefined>;
     public readonly name!: pulumi.Output<string>;
 
@@ -58,7 +59,9 @@ export class GeoMatchSet extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["geoMatchConstraints"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

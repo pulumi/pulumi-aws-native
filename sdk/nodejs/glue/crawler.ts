@@ -40,6 +40,7 @@ export class Crawler extends pulumi.CustomResource {
         return obj['__pulumiType'] === Crawler.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly classifiers!: pulumi.Output<string[] | undefined>;
     public readonly configuration!: pulumi.Output<string | undefined>;
     public readonly crawlerSecurityConfiguration!: pulumi.Output<string | undefined>;
@@ -89,7 +90,9 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["tablePrefix"] = args ? args.tablePrefix : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["classifiers"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["crawlerSecurityConfiguration"] = undefined /*out*/;

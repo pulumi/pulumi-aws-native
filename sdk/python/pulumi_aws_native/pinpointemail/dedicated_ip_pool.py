@@ -102,6 +102,7 @@ class DedicatedIpPool(pulumi.CustomResource):
 
             __props__.__dict__["pool_name"] = pool_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["pool_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DedicatedIpPool, __self__).__init__(
@@ -126,9 +127,15 @@ class DedicatedIpPool(pulumi.CustomResource):
 
         __props__ = DedicatedIpPoolArgs.__new__(DedicatedIpPoolArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["pool_name"] = None
         __props__.__dict__["tags"] = None
         return DedicatedIpPool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="poolName")

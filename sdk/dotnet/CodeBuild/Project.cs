@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("artifacts")]
         public Output<Outputs.ProjectArtifacts> Artifacts { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("badgeEnabled")]
         public Output<bool?> BadgeEnabled { get; private set; } = null!;
 

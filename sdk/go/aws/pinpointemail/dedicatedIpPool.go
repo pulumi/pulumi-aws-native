@@ -18,6 +18,7 @@ import (
 type DedicatedIpPool struct {
 	pulumi.CustomResourceState
 
+	AwsId    pulumi.StringOutput    `pulumi:"awsId"`
 	PoolName pulumi.StringPtrOutput `pulumi:"poolName"`
 	Tags     aws.TagArrayOutput     `pulumi:"tags"`
 }
@@ -111,6 +112,10 @@ func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutput() DedicatedIpPoolOutput {
 
 func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutputWithContext(ctx context.Context) DedicatedIpPoolOutput {
 	return o
+}
+
+func (o DedicatedIpPoolOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DedicatedIpPoolOutput) PoolName() pulumi.StringPtrOutput {

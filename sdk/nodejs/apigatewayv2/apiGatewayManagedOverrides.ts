@@ -41,6 +41,7 @@ export class ApiGatewayManagedOverrides extends pulumi.CustomResource {
     }
 
     public readonly apiId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly integration!: pulumi.Output<outputs.apigatewayv2.ApiGatewayManagedOverridesIntegrationOverrides | undefined>;
     public readonly route!: pulumi.Output<outputs.apigatewayv2.ApiGatewayManagedOverridesRouteOverrides | undefined>;
     public readonly stage!: pulumi.Output<outputs.apigatewayv2.ApiGatewayManagedOverridesStageOverrides | undefined>;
@@ -65,8 +66,10 @@ export class ApiGatewayManagedOverrides extends pulumi.CustomResource {
             resourceInputs["integration"] = args ? args.integration : undefined;
             resourceInputs["route"] = args ? args.route : undefined;
             resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["integration"] = undefined /*out*/;
             resourceInputs["route"] = undefined /*out*/;
             resourceInputs["stage"] = undefined /*out*/;

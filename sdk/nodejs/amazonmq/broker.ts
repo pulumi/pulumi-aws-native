@@ -44,6 +44,7 @@ export class Broker extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authenticationStrategy!: pulumi.Output<string | undefined>;
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly brokerName!: pulumi.Output<string>;
     public readonly configuration!: pulumi.Output<outputs.amazonmq.BrokerConfigurationId | undefined>;
     public /*out*/ readonly configurationId!: pulumi.Output<string>;
@@ -126,6 +127,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["users"] = args ? args.users : undefined;
             resourceInputs["amqpEndpoints"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configurationId"] = undefined /*out*/;
             resourceInputs["configurationRevision"] = undefined /*out*/;
             resourceInputs["ipAddresses"] = undefined /*out*/;
@@ -138,6 +140,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authenticationStrategy"] = undefined /*out*/;
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["brokerName"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["configurationId"] = undefined /*out*/;

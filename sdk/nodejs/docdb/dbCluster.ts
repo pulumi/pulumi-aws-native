@@ -41,6 +41,7 @@ export class DbCluster extends pulumi.CustomResource {
     }
 
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
@@ -105,11 +106,13 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["readEndpoint"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;

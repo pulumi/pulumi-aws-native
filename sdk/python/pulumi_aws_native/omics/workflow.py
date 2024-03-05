@@ -203,6 +203,7 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["storage_capacity"] = storage_capacity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
@@ -232,6 +233,7 @@ class Workflow(pulumi.CustomResource):
 
         __props__.__dict__["accelerators"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["definition_uri"] = None
         __props__.__dict__["description"] = None
@@ -254,6 +256,11 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

@@ -20,6 +20,7 @@ type Webhook struct {
 
 	Authentication              pulumi.StringOutput            `pulumi:"authentication"`
 	AuthenticationConfiguration WebhookAuthConfigurationOutput `pulumi:"authenticationConfiguration"`
+	AwsId                       pulumi.StringOutput            `pulumi:"awsId"`
 	Filters                     WebhookFilterRuleArrayOutput   `pulumi:"filters"`
 	Name                        pulumi.StringPtrOutput         `pulumi:"name"`
 	RegisterWithThirdParty      pulumi.BoolPtrOutput           `pulumi:"registerWithThirdParty"`
@@ -156,6 +157,10 @@ func (o WebhookOutput) Authentication() pulumi.StringOutput {
 
 func (o WebhookOutput) AuthenticationConfiguration() WebhookAuthConfigurationOutput {
 	return o.ApplyT(func(v *Webhook) WebhookAuthConfigurationOutput { return v.AuthenticationConfiguration }).(WebhookAuthConfigurationOutput)
+}
+
+func (o WebhookOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o WebhookOutput) Filters() WebhookFilterRuleArrayOutput {

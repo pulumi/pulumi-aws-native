@@ -17,7 +17,8 @@ import (
 type Faq struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn   pulumi.StringOutput `pulumi:"arn"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// FAQ description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// FAQ file format
@@ -168,6 +169,10 @@ func (o FaqOutput) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 
 func (o FaqOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o FaqOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // FAQ description

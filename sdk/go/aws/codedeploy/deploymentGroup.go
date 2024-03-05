@@ -23,6 +23,7 @@ type DeploymentGroup struct {
 	ApplicationName                  pulumi.StringOutput                                      `pulumi:"applicationName"`
 	AutoRollbackConfiguration        DeploymentGroupAutoRollbackConfigurationPtrOutput        `pulumi:"autoRollbackConfiguration"`
 	AutoScalingGroups                pulumi.StringArrayOutput                                 `pulumi:"autoScalingGroups"`
+	AwsId                            pulumi.StringOutput                                      `pulumi:"awsId"`
 	BlueGreenDeploymentConfiguration DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput `pulumi:"blueGreenDeploymentConfiguration"`
 	Deployment                       DeploymentGroupDeploymentPtrOutput                       `pulumi:"deployment"`
 	DeploymentConfigName             pulumi.StringPtrOutput                                   `pulumi:"deploymentConfigName"`
@@ -191,6 +192,10 @@ func (o DeploymentGroupOutput) AutoRollbackConfiguration() DeploymentGroupAutoRo
 
 func (o DeploymentGroupOutput) AutoScalingGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringArrayOutput { return v.AutoScalingGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o DeploymentGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DeploymentGroupOutput) BlueGreenDeploymentConfiguration() DeploymentGroupBlueGreenDeploymentConfigurationPtrOutput {

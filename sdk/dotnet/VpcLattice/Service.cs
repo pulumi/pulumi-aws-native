@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("authType")]
         public Output<Pulumi.AwsNative.VpcLattice.ServiceAuthType?> AuthType { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 

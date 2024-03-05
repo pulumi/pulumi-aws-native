@@ -86,6 +86,7 @@ class Organization(pulumi.CustomResource):
 
             __props__.__dict__["feature_set"] = feature_set
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["management_account_arn"] = None
             __props__.__dict__["management_account_email"] = None
             __props__.__dict__["management_account_id"] = None
@@ -113,6 +114,7 @@ class Organization(pulumi.CustomResource):
         __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["feature_set"] = None
         __props__.__dict__["management_account_arn"] = None
         __props__.__dict__["management_account_email"] = None
@@ -127,6 +129,14 @@ class Organization(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of an organization.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier (ID) of an organization.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="featureSet")

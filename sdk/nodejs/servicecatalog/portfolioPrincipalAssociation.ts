@@ -38,6 +38,7 @@ export class PortfolioPrincipalAssociation extends pulumi.CustomResource {
     }
 
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly portfolioId!: pulumi.Output<string>;
     public readonly principalArn!: pulumi.Output<string>;
     public readonly principalType!: pulumi.Output<string>;
@@ -68,8 +69,10 @@ export class PortfolioPrincipalAssociation extends pulumi.CustomResource {
             resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
             resourceInputs["principalArn"] = args ? args.principalArn : undefined;
             resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["portfolioId"] = undefined /*out*/;
             resourceInputs["principalArn"] = undefined /*out*/;
             resourceInputs["principalType"] = undefined /*out*/;

@@ -156,6 +156,7 @@ class Theme(pulumi.CustomResource):
             __props__.__dict__["overrides"] = overrides
             __props__.__dict__["tags"] = tags
             __props__.__dict__["values"] = values
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_id", "environment_name"])
@@ -183,6 +184,7 @@ class Theme(pulumi.CustomResource):
         __props__ = ThemeArgs.__new__(ThemeArgs)
 
         __props__.__dict__["app_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["environment_name"] = None
         __props__.__dict__["modified_at"] = None
@@ -196,6 +198,11 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

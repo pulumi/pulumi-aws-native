@@ -38,6 +38,7 @@ export class EventStream extends pulumi.CustomResource {
     }
 
     public readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly destinationStreamArn!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string>;
 
@@ -66,8 +67,10 @@ export class EventStream extends pulumi.CustomResource {
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["destinationStreamArn"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
         }

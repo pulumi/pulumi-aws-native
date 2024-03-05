@@ -232,6 +232,7 @@ class WirelessDevice(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["thing_name"] = None
         super(WirelessDevice, __self__).__init__(
             'aws-native:iotwireless:WirelessDevice',
@@ -256,6 +257,7 @@ class WirelessDevice(pulumi.CustomResource):
         __props__ = WirelessDeviceArgs.__new__(WirelessDeviceArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["destination_name"] = None
         __props__.__dict__["last_uplink_received_at"] = None
@@ -274,6 +276,14 @@ class WirelessDevice(pulumi.CustomResource):
         Wireless device arn. Returned after successful create.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Wireless device Id. Returned after successful create.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

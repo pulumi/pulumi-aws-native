@@ -43,6 +43,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly accessLoggingPolicy!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerAccessLoggingPolicy | undefined>;
     public readonly appCookieStickinessPolicy!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerAppCookieStickinessPolicy[] | undefined>;
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly canonicalHostedZoneName!: pulumi.Output<string>;
     public /*out*/ readonly canonicalHostedZoneNameId!: pulumi.Output<string>;
     public readonly connectionDrainingPolicy!: pulumi.Output<outputs.elasticloadbalancing.LoadBalancerConnectionDrainingPolicy | undefined>;
@@ -96,6 +97,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["sourceSecurityGroupOwnerAlias"] = args ? args.sourceSecurityGroupOwnerAlias : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["canonicalHostedZoneName"] = undefined /*out*/;
             resourceInputs["canonicalHostedZoneNameId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
@@ -103,6 +105,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["accessLoggingPolicy"] = undefined /*out*/;
             resourceInputs["appCookieStickinessPolicy"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["canonicalHostedZoneName"] = undefined /*out*/;
             resourceInputs["canonicalHostedZoneNameId"] = undefined /*out*/;
             resourceInputs["connectionDrainingPolicy"] = undefined /*out*/;

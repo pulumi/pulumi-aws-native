@@ -20,6 +20,7 @@ type User struct {
 	pulumi.CustomResourceState
 
 	Arn                   pulumi.StringOutput                  `pulumi:"arn"`
+	AwsId                 pulumi.StringOutput                  `pulumi:"awsId"`
 	HomeDirectory         pulumi.StringPtrOutput               `pulumi:"homeDirectory"`
 	HomeDirectoryMappings UserHomeDirectoryMapEntryArrayOutput `pulumi:"homeDirectoryMappings"`
 	HomeDirectoryType     pulumi.StringPtrOutput               `pulumi:"homeDirectoryType"`
@@ -148,6 +149,10 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o UserOutput) HomeDirectory() pulumi.StringPtrOutput {

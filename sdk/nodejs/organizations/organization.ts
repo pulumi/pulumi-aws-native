@@ -42,6 +42,10 @@ export class Organization extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The unique identifier (ID) of an organization.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
      */
     public readonly featureSet!: pulumi.Output<enums.organizations.OrganizationFeatureSet | undefined>;
@@ -75,12 +79,14 @@ export class Organization extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["featureSet"] = args ? args.featureSet : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["managementAccountArn"] = undefined /*out*/;
             resourceInputs["managementAccountEmail"] = undefined /*out*/;
             resourceInputs["managementAccountId"] = undefined /*out*/;
             resourceInputs["rootId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["featureSet"] = undefined /*out*/;
             resourceInputs["managementAccountArn"] = undefined /*out*/;
             resourceInputs["managementAccountEmail"] = undefined /*out*/;

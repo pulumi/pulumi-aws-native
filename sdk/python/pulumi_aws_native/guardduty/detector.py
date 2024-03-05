@@ -145,6 +145,7 @@ class Detector(pulumi.CustomResource):
             __props__.__dict__["features"] = features
             __props__.__dict__["finding_publishing_frequency"] = finding_publishing_frequency
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         super(Detector, __self__).__init__(
             'aws-native:guardduty:Detector',
             resource_name,
@@ -167,12 +168,18 @@ class Detector(pulumi.CustomResource):
 
         __props__ = DetectorArgs.__new__(DetectorArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["data_sources"] = None
         __props__.__dict__["enable"] = None
         __props__.__dict__["features"] = None
         __props__.__dict__["finding_publishing_frequency"] = None
         __props__.__dict__["tags"] = None
         return Detector(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="dataSources")

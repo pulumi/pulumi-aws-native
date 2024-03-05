@@ -19,6 +19,8 @@ type Policy struct {
 
 	// ARN of the Policy
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Id of the Policy
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
 	AwsManaged pulumi.BoolOutput `pulumi:"awsManaged"`
 	// The Policy text content. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
@@ -161,6 +163,11 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 // ARN of the Policy
 func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Id of the Policy
+func (o PolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.

@@ -40,6 +40,7 @@ export class Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Fleet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly computeCapacity!: pulumi.Output<outputs.appstream.FleetComputeCapacity | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly disconnectTimeoutInSeconds!: pulumi.Output<number | undefined>;
@@ -101,7 +102,9 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["usbDeviceFilterStrings"] = args ? args.usbDeviceFilterStrings : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["computeCapacity"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disconnectTimeoutInSeconds"] = undefined /*out*/;

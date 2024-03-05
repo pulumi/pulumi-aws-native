@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.AppConfig
     [AwsNativeResourceType("aws-native:appconfig:DeploymentStrategy")]
     public partial class DeploymentStrategy : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("deploymentDurationInMinutes")]
         public Output<double> DeploymentDurationInMinutes { get; private set; } = null!;
 

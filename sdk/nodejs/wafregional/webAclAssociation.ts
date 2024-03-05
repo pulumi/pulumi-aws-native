@@ -37,6 +37,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAclAssociation.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly resourceArn!: pulumi.Output<string>;
     public readonly webAclId!: pulumi.Output<string>;
 
@@ -61,7 +62,9 @@ export class WebAclAssociation extends pulumi.CustomResource {
             }
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["webAclId"] = args ? args.webAclId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["webAclId"] = undefined /*out*/;
         }

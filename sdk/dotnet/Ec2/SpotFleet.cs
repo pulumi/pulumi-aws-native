@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:SpotFleet")]
     public partial class SpotFleet : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("spotFleetRequestConfigData")]
         public Output<Outputs.SpotFleetRequestConfigData> SpotFleetRequestConfigData { get; private set; } = null!;
 

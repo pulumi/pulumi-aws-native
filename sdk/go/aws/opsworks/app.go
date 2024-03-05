@@ -20,6 +20,7 @@ type App struct {
 
 	AppSource        AppSourcePtrOutput                `pulumi:"appSource"`
 	Attributes       pulumi.StringMapOutput            `pulumi:"attributes"`
+	AwsId            pulumi.StringOutput               `pulumi:"awsId"`
 	DataSources      AppDataSourceArrayOutput          `pulumi:"dataSources"`
 	Description      pulumi.StringPtrOutput            `pulumi:"description"`
 	Domains          pulumi.StringArrayOutput          `pulumi:"domains"`
@@ -156,6 +157,10 @@ func (o AppOutput) AppSource() AppSourcePtrOutput {
 
 func (o AppOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
+}
+
+func (o AppOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AppOutput) DataSources() AppDataSourceArrayOutput {

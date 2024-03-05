@@ -37,6 +37,7 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContinuousDeploymentPolicy.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly continuousDeploymentPolicyConfig!: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyConfig>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
@@ -55,8 +56,10 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'continuousDeploymentPolicyConfig'");
             }
             resourceInputs["continuousDeploymentPolicyConfig"] = args ? args.continuousDeploymentPolicyConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["continuousDeploymentPolicyConfig"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         }

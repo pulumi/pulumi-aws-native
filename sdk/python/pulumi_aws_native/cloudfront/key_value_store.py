@@ -112,6 +112,7 @@ class KeyValueStore(pulumi.CustomResource):
             __props__.__dict__["import_source"] = import_source
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -138,6 +139,7 @@ class KeyValueStore(pulumi.CustomResource):
         __props__ = KeyValueStoreArgs.__new__(KeyValueStoreArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["comment"] = None
         __props__.__dict__["import_source"] = None
         __props__.__dict__["name"] = None
@@ -148,6 +150,11 @@ class KeyValueStore(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

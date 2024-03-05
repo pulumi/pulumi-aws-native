@@ -20,6 +20,8 @@ type ResolverConfig struct {
 	AutodefinedReverse ResolverConfigAutodefinedReverseOutput `pulumi:"autodefinedReverse"`
 	// Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
 	AutodefinedReverseFlag ResolverConfigAutodefinedReverseFlagOutput `pulumi:"autodefinedReverseFlag"`
+	// Id
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// AccountId
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// ResourceId
@@ -136,6 +138,11 @@ func (o ResolverConfigOutput) AutodefinedReverse() ResolverConfigAutodefinedReve
 // Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
 func (o ResolverConfigOutput) AutodefinedReverseFlag() ResolverConfigAutodefinedReverseFlagOutput {
 	return o.ApplyT(func(v *ResolverConfig) ResolverConfigAutodefinedReverseFlagOutput { return v.AutodefinedReverseFlag }).(ResolverConfigAutodefinedReverseFlagOutput)
+}
+
+// Id
+func (o ResolverConfigOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverConfig) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // AccountId

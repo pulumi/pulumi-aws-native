@@ -487,6 +487,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["steps"] = steps
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visible_to_all_users"] = visible_to_all_users
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["master_public_dns"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_info", "applications[*]", "auto_scaling_role", "bootstrap_actions[*]", "configurations[*]", "custom_ami_id", "ebs_root_volume_iops", "ebs_root_volume_size", "ebs_root_volume_throughput", "job_flow_role", "kerberos_attributes", "log_encryption_kms_key_id", "log_uri", "name", "os_release_label", "placement_group_configs[*]", "release_label", "scale_down_behavior", "security_configuration", "service_role", "steps[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -516,6 +517,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["applications"] = None
         __props__.__dict__["auto_scaling_role"] = None
         __props__.__dict__["auto_termination_policy"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["bootstrap_actions"] = None
         __props__.__dict__["configurations"] = None
         __props__.__dict__["custom_ami_id"] = None
@@ -564,6 +566,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="autoTerminationPolicy")
     def auto_termination_policy(self) -> pulumi.Output[Optional['outputs.ClusterAutoTerminationPolicy']]:
         return pulumi.get(self, "auto_termination_policy")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="bootstrapActions")

@@ -39,6 +39,7 @@ export class WebAcl extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly associationConfig!: pulumi.Output<outputs.wafv2.WebAclAssociationConfig | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
     public readonly challengeConfig!: pulumi.Output<outputs.wafv2.WebAclChallengeConfig | undefined>;
@@ -89,11 +90,13 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
             resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationConfig"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["captchaConfig"] = undefined /*out*/;
             resourceInputs["challengeConfig"] = undefined /*out*/;

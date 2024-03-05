@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTWireless
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Wireless device Id. Returned after successful create.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Wireless device description
         /// </summary>
         [Output("description")]

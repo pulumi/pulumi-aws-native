@@ -147,6 +147,7 @@ class OrganizationConfigRule(pulumi.CustomResource):
             __props__.__dict__["organization_custom_policy_rule_metadata"] = organization_custom_policy_rule_metadata
             __props__.__dict__["organization_custom_rule_metadata"] = organization_custom_rule_metadata
             __props__.__dict__["organization_managed_rule_metadata"] = organization_managed_rule_metadata
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["organization_config_rule_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OrganizationConfigRule, __self__).__init__(
@@ -171,12 +172,18 @@ class OrganizationConfigRule(pulumi.CustomResource):
 
         __props__ = OrganizationConfigRuleArgs.__new__(OrganizationConfigRuleArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["excluded_accounts"] = None
         __props__.__dict__["organization_config_rule_name"] = None
         __props__.__dict__["organization_custom_policy_rule_metadata"] = None
         __props__.__dict__["organization_custom_rule_metadata"] = None
         __props__.__dict__["organization_managed_rule_metadata"] = None
         return OrganizationConfigRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="excludedAccounts")

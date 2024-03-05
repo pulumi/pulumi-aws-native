@@ -130,6 +130,7 @@ class VirtualCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["container_provider", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VirtualCluster, __self__).__init__(
@@ -155,6 +156,7 @@ class VirtualCluster(pulumi.CustomResource):
         __props__ = VirtualClusterArgs.__new__(VirtualClusterArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["container_provider"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -164,6 +166,14 @@ class VirtualCluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id of the virtual cluster.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="containerProvider")

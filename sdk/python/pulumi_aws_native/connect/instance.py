@@ -172,6 +172,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["instance_alias"] = instance_alias
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["instance_status"] = None
             __props__.__dict__["service_role"] = None
@@ -201,6 +202,7 @@ class Instance(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["attributes"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["directory_id"] = None
         __props__.__dict__["identity_management_type"] = None
@@ -225,6 +227,14 @@ class Instance(pulumi.CustomResource):
         The attributes for the instance.
         """
         return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        An instanceId is automatically generated on creation and assigned as the unique identifier.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdTime")

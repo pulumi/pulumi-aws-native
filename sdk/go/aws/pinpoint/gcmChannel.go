@@ -20,6 +20,7 @@ type GcmChannel struct {
 
 	ApiKey                      pulumi.StringPtrOutput `pulumi:"apiKey"`
 	ApplicationId               pulumi.StringOutput    `pulumi:"applicationId"`
+	AwsId                       pulumi.StringOutput    `pulumi:"awsId"`
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
 	Enabled                     pulumi.BoolPtrOutput   `pulumi:"enabled"`
 	ServiceJson                 pulumi.StringPtrOutput `pulumi:"serviceJson"`
@@ -131,6 +132,10 @@ func (o GcmChannelOutput) ApiKey() pulumi.StringPtrOutput {
 
 func (o GcmChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o GcmChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GcmChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o GcmChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {

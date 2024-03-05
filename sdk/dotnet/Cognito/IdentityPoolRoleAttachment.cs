@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:IdentityPoolRoleAttachment")]
     public partial class IdentityPoolRoleAttachment : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("identityPoolId")]
         public Output<string> IdentityPoolId { get; private set; } = null!;
 

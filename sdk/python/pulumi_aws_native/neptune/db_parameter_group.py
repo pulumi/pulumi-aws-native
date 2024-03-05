@@ -155,6 +155,7 @@ class DbParameterGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'parameters'")
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "family", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbParameterGroup, __self__).__init__(
@@ -179,12 +180,18 @@ class DbParameterGroup(pulumi.CustomResource):
 
         __props__ = DbParameterGroupArgs.__new__(DbParameterGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["family"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["tags"] = None
         return DbParameterGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -18,6 +18,7 @@ import (
 type ConfigurationRecorder struct {
 	pulumi.CustomResourceState
 
+	AwsId          pulumi.StringOutput                          `pulumi:"awsId"`
 	Name           pulumi.StringPtrOutput                       `pulumi:"name"`
 	RecordingGroup ConfigurationRecorderRecordingGroupPtrOutput `pulumi:"recordingGroup"`
 	RecordingMode  ConfigurationRecorderRecordingModePtrOutput  `pulumi:"recordingMode"`
@@ -120,6 +121,10 @@ func (o ConfigurationRecorderOutput) ToConfigurationRecorderOutput() Configurati
 
 func (o ConfigurationRecorderOutput) ToConfigurationRecorderOutputWithContext(ctx context.Context) ConfigurationRecorderOutput {
 	return o
+}
+
+func (o ConfigurationRecorderOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationRecorder) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ConfigurationRecorderOutput) Name() pulumi.StringPtrOutput {

@@ -242,6 +242,7 @@ class IdentityPool(pulumi.CustomResource):
             __props__.__dict__["push_sync"] = push_sync
             __props__.__dict__["saml_provider_arns"] = saml_provider_arns
             __props__.__dict__["supported_login_providers"] = supported_login_providers
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["name"] = None
         super(IdentityPool, __self__).__init__(
             'aws-native:cognito:IdentityPool',
@@ -267,6 +268,7 @@ class IdentityPool(pulumi.CustomResource):
 
         __props__.__dict__["allow_classic_flow"] = None
         __props__.__dict__["allow_unauthenticated_identities"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cognito_events"] = None
         __props__.__dict__["cognito_identity_providers"] = None
         __props__.__dict__["cognito_streams"] = None
@@ -288,6 +290,11 @@ class IdentityPool(pulumi.CustomResource):
     @pulumi.getter(name="allowUnauthenticatedIdentities")
     def allow_unauthenticated_identities(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "allow_unauthenticated_identities")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cognitoEvents")

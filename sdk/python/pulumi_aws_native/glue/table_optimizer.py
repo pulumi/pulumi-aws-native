@@ -152,6 +152,7 @@ class TableOptimizer(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id", "database_name", "table_name", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TableOptimizer, __self__).__init__(
@@ -176,12 +177,18 @@ class TableOptimizer(pulumi.CustomResource):
 
         __props__ = TableOptimizerArgs.__new__(TableOptimizerArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["catalog_id"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["table_optimizer_configuration"] = None
         __props__.__dict__["type"] = None
         return TableOptimizer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="catalogId")

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Redshift
     [AwsNativeResourceType("aws-native:redshift:ClusterSecurityGroupIngress")]
     public partial class ClusterSecurityGroupIngress : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cidrip")]
         public Output<string?> Cidrip { get; private set; } = null!;
 

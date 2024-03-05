@@ -383,6 +383,7 @@ class Broker(pulumi.CustomResource):
             __props__.__dict__["users"] = users
             __props__.__dict__["amqp_endpoints"] = None
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["configuration_id"] = None
             __props__.__dict__["configuration_revision"] = None
             __props__.__dict__["ip_addresses"] = None
@@ -418,6 +419,7 @@ class Broker(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["authentication_strategy"] = None
         __props__.__dict__["auto_minor_version_upgrade"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["broker_name"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["configuration_id"] = None
@@ -464,6 +466,11 @@ class Broker(pulumi.CustomResource):
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="brokerName")

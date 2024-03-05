@@ -37,6 +37,7 @@ export class TagOptionAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === TagOptionAssociation.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly resourceId!: pulumi.Output<string>;
     public readonly tagOptionId!: pulumi.Output<string>;
 
@@ -61,7 +62,9 @@ export class TagOptionAssociation extends pulumi.CustomResource {
             }
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["tagOptionId"] = args ? args.tagOptionId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["tagOptionId"] = undefined /*out*/;
         }

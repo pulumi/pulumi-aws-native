@@ -18,6 +18,7 @@ type ServiceNetwork struct {
 
 	Arn           pulumi.StringOutput             `pulumi:"arn"`
 	AuthType      ServiceNetworkAuthTypePtrOutput `pulumi:"authType"`
+	AwsId         pulumi.StringOutput             `pulumi:"awsId"`
 	CreatedAt     pulumi.StringOutput             `pulumi:"createdAt"`
 	LastUpdatedAt pulumi.StringOutput             `pulumi:"lastUpdatedAt"`
 	Name          pulumi.StringPtrOutput          `pulumi:"name"`
@@ -123,6 +124,10 @@ func (o ServiceNetworkOutput) Arn() pulumi.StringOutput {
 
 func (o ServiceNetworkOutput) AuthType() ServiceNetworkAuthTypePtrOutput {
 	return o.ApplyT(func(v *ServiceNetwork) ServiceNetworkAuthTypePtrOutput { return v.AuthType }).(ServiceNetworkAuthTypePtrOutput)
+}
+
+func (o ServiceNetworkOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ServiceNetworkOutput) CreatedAt() pulumi.StringOutput {

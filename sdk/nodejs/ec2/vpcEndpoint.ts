@@ -39,6 +39,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcEndpoint.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly creationTimestamp!: pulumi.Output<string>;
     public /*out*/ readonly dnsEntries!: pulumi.Output<string[]>;
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
@@ -107,10 +108,12 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["dnsEntries"] = undefined /*out*/;
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["dnsEntries"] = undefined /*out*/;
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;

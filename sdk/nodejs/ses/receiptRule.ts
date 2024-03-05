@@ -41,6 +41,7 @@ export class ReceiptRule extends pulumi.CustomResource {
     }
 
     public readonly after!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly rule!: pulumi.Output<outputs.ses.ReceiptRuleRule>;
     public readonly ruleSetName!: pulumi.Output<string>;
 
@@ -66,8 +67,10 @@ export class ReceiptRule extends pulumi.CustomResource {
             resourceInputs["after"] = args ? args.after : undefined;
             resourceInputs["rule"] = args ? args.rule : undefined;
             resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["after"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["rule"] = undefined /*out*/;
             resourceInputs["ruleSetName"] = undefined /*out*/;
         }

@@ -40,6 +40,7 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly deploymentConfig!: pulumi.Output<outputs.sagemaker.EndpointDeploymentConfig | undefined>;
     public readonly endpointConfigName!: pulumi.Output<string>;
     public readonly endpointName!: pulumi.Output<string | undefined>;
@@ -71,7 +72,9 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["retainAllVariantProperties"] = args ? args.retainAllVariantProperties : undefined;
             resourceInputs["retainDeploymentConfig"] = args ? args.retainDeploymentConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deploymentConfig"] = undefined /*out*/;
             resourceInputs["endpointConfigName"] = undefined /*out*/;
             resourceInputs["endpointName"] = undefined /*out*/;

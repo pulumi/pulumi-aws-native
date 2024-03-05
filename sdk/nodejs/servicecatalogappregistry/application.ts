@@ -47,6 +47,7 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly applicationTagValue!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The description of the application. 
      */
@@ -75,11 +76,13 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationTagKey"] = undefined /*out*/;
             resourceInputs["applicationTagValue"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
             resourceInputs["applicationTagKey"] = undefined /*out*/;
             resourceInputs["applicationTagValue"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

@@ -18,6 +18,8 @@ type DataSource struct {
 
 	// The metadata forms that are to be attached to the assets that this data source works with.
 	AssetFormsInput DataSourceFormInputArrayOutput `pulumi:"assetFormsInput"`
+	// The unique identifier of the data source.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
 	Configuration pulumi.AnyOutput `pulumi:"configuration"`
 	// The timestamp of when the data source was created.
@@ -213,6 +215,11 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 // The metadata forms that are to be attached to the assets that this data source works with.
 func (o DataSourceOutput) AssetFormsInput() DataSourceFormInputArrayOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceFormInputArrayOutput { return v.AssetFormsInput }).(DataSourceFormInputArrayOutput)
+}
+
+// The unique identifier of the data source.
+func (o DataSourceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.

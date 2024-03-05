@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.DocDb
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("caCertificateIdentifier")]
         public Output<string?> CaCertificateIdentifier { get; private set; } = null!;
 

@@ -19,6 +19,7 @@ type DataSource struct {
 	pulumi.CustomResourceState
 
 	ApiId                    pulumi.StringOutput                         `pulumi:"apiId"`
+	AwsId                    pulumi.StringOutput                         `pulumi:"awsId"`
 	DataSourceArn            pulumi.StringOutput                         `pulumi:"dataSourceArn"`
 	Description              pulumi.StringPtrOutput                      `pulumi:"description"`
 	DynamoDbConfig           DataSourceDynamoDbConfigPtrOutput           `pulumi:"dynamoDbConfig"`
@@ -156,6 +157,10 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 
 func (o DataSourceOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DataSourceOutput) DataSourceArn() pulumi.StringOutput {

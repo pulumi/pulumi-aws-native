@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// A unique identifier for the Realtime script
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
         /// </summary>
         [Output("creationTime")]

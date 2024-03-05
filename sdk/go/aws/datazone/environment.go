@@ -20,6 +20,8 @@ type Environment struct {
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The AWS region in which the Amazon DataZone environment is created.
 	AwsAccountRegion pulumi.StringOutput `pulumi:"awsAccountRegion"`
+	// The ID of the Amazon DataZone environment.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The timestamp of when the environment was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Amazon DataZone user who created the environment.
@@ -189,6 +191,11 @@ func (o EnvironmentOutput) AwsAccountId() pulumi.StringOutput {
 // The AWS region in which the Amazon DataZone environment is created.
 func (o EnvironmentOutput) AwsAccountRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.AwsAccountRegion }).(pulumi.StringOutput)
+}
+
+// The ID of the Amazon DataZone environment.
+func (o EnvironmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The timestamp of when the environment was created.

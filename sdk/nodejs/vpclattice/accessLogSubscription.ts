@@ -38,6 +38,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly destinationArn!: pulumi.Output<string>;
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
@@ -62,10 +63,12 @@ export class AccessLogSubscription extends pulumi.CustomResource {
             resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["destinationArn"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;

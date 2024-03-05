@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:ClientVpnRoute")]
     public partial class ClientVpnRoute : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("clientVpnEndpointId")]
         public Output<string> ClientVpnEndpointId { get; private set; } = null!;
 

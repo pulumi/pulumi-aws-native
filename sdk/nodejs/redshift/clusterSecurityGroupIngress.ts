@@ -37,6 +37,7 @@ export class ClusterSecurityGroupIngress extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterSecurityGroupIngress.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cidrip!: pulumi.Output<string | undefined>;
     public readonly clusterSecurityGroupName!: pulumi.Output<string>;
     public readonly ec2SecurityGroupName!: pulumi.Output<string | undefined>;
@@ -62,7 +63,9 @@ export class ClusterSecurityGroupIngress extends pulumi.CustomResource {
             resourceInputs["clusterSecurityGroupName"] = args ? args.clusterSecurityGroupName : undefined;
             resourceInputs["ec2SecurityGroupName"] = args ? args.ec2SecurityGroupName : undefined;
             resourceInputs["ec2SecurityGroupOwnerId"] = args ? args.ec2SecurityGroupOwnerId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrip"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroupName"] = undefined /*out*/;
             resourceInputs["ec2SecurityGroupName"] = undefined /*out*/;

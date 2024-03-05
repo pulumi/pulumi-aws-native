@@ -40,6 +40,7 @@ export class TableOptimizer extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableOptimizer.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly catalogId!: pulumi.Output<string>;
     public readonly databaseName!: pulumi.Output<string>;
     public readonly tableName!: pulumi.Output<string>;
@@ -79,7 +80,9 @@ export class TableOptimizer extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["tableOptimizerConfiguration"] = args ? args.tableOptimizerConfiguration : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["catalogId"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;

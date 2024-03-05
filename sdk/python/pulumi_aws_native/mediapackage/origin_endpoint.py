@@ -19,6 +19,7 @@ __all__ = ['OriginEndpointArgs', 'OriginEndpoint']
 @pulumi.input_type
 class OriginEndpointArgs:
     def __init__(__self__, *,
+                 aws_id: pulumi.Input[str],
                  channel_id: pulumi.Input[str],
                  authorization: Optional[pulumi.Input['OriginEndpointAuthorizationArgs']] = None,
                  cmaf_package: Optional[pulumi.Input['OriginEndpointCmafPackageArgs']] = None,
@@ -34,6 +35,7 @@ class OriginEndpointArgs:
                  whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OriginEndpoint resource.
+        :param pulumi.Input[str] aws_id: The ID of the OriginEndpoint.
         :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
         :param pulumi.Input[str] description: A short text description of the OriginEndpoint.
         :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
@@ -43,6 +45,7 @@ class OriginEndpointArgs:
         :param pulumi.Input[int] time_delay_seconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
         """
+        pulumi.set(__self__, "aws_id", aws_id)
         pulumi.set(__self__, "channel_id", channel_id)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
@@ -68,6 +71,18 @@ class OriginEndpointArgs:
             pulumi.set(__self__, "time_delay_seconds", time_delay_seconds)
         if whitelist is not None:
             pulumi.set(__self__, "whitelist", whitelist)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the OriginEndpoint.
+        """
+        return pulumi.get(self, "aws_id")
+
+    @aws_id.setter
+    def aws_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_id", value)
 
     @property
     @pulumi.getter(name="channelId")
@@ -217,6 +232,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[pulumi.InputType['OriginEndpointAuthorizationArgs']]] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  channel_id: Optional[pulumi.Input[str]] = None,
                  cmaf_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointCmafPackageArgs']]] = None,
                  dash_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointDashPackageArgs']]] = None,
@@ -235,6 +251,7 @@ class OriginEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_id: The ID of the OriginEndpoint.
         :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
         :param pulumi.Input[str] description: A short text description of the OriginEndpoint.
         :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
@@ -269,6 +286,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[pulumi.InputType['OriginEndpointAuthorizationArgs']]] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  channel_id: Optional[pulumi.Input[str]] = None,
                  cmaf_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointCmafPackageArgs']]] = None,
                  dash_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointDashPackageArgs']]] = None,
@@ -291,6 +309,9 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__ = OriginEndpointArgs.__new__(OriginEndpointArgs)
 
             __props__.__dict__["authorization"] = authorization
+            if aws_id is None and not opts.urn:
+                raise TypeError("Missing required property 'aws_id'")
+            __props__.__dict__["aws_id"] = aws_id
             if channel_id is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_id'")
             __props__.__dict__["channel_id"] = channel_id
@@ -331,6 +352,7 @@ class OriginEndpoint(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["authorization"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["channel_id"] = None
         __props__.__dict__["cmaf_package"] = None
         __props__.__dict__["dash_package"] = None
@@ -358,6 +380,14 @@ class OriginEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Optional['outputs.OriginEndpointAuthorization']]:
         return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the OriginEndpoint.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="channelId")

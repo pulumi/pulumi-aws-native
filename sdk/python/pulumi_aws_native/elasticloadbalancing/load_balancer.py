@@ -345,6 +345,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["source_security_group_owner_alias"] = source_security_group_owner_alias
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["canonical_hosted_zone_name"] = None
             __props__.__dict__["canonical_hosted_zone_name_id"] = None
             __props__.__dict__["dns_name"] = None
@@ -375,6 +376,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["access_logging_policy"] = None
         __props__.__dict__["app_cookie_stickiness_policy"] = None
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["canonical_hosted_zone_name"] = None
         __props__.__dict__["canonical_hosted_zone_name_id"] = None
         __props__.__dict__["connection_draining_policy"] = None
@@ -409,6 +411,11 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="canonicalHostedZoneName")

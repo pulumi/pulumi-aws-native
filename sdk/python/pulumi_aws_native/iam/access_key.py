@@ -116,6 +116,7 @@ class AccessKey(pulumi.CustomResource):
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["secret_access_key"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["serial", "user_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -141,11 +142,17 @@ class AccessKey(pulumi.CustomResource):
 
         __props__ = AccessKeyArgs.__new__(AccessKeyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["secret_access_key"] = None
         __props__.__dict__["serial"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["user_name"] = None
         return AccessKey(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="secretAccessKey")

@@ -51,6 +51,10 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     public readonly approvedPatchesEnableNonSecurity!: pulumi.Output<boolean | undefined>;
     /**
+     * The ID of the patch baseline.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Set the baseline as default baseline. Only registering to default patch baseline is allowed.
      */
     public readonly defaultBaseline!: pulumi.Output<boolean | undefined>;
@@ -116,11 +120,13 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["rejectedPatchesAction"] = args ? args.rejectedPatchesAction : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["approvalRules"] = undefined /*out*/;
             resourceInputs["approvedPatches"] = undefined /*out*/;
             resourceInputs["approvedPatchesComplianceLevel"] = undefined /*out*/;
             resourceInputs["approvedPatchesEnableNonSecurity"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultBaseline"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["globalFilters"] = undefined /*out*/;

@@ -181,6 +181,7 @@ class TransitGatewayVpcAttachment(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subnet_ids[*]", "transit_gateway_id", "vpc_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayVpcAttachment, __self__).__init__(
@@ -206,6 +207,7 @@ class TransitGatewayVpcAttachment(pulumi.CustomResource):
         __props__ = TransitGatewayVpcAttachmentArgs.__new__(TransitGatewayVpcAttachmentArgs)
 
         __props__.__dict__["add_subnet_ids"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["options"] = None
         __props__.__dict__["remove_subnet_ids"] = None
         __props__.__dict__["subnet_ids"] = None
@@ -218,6 +220,11 @@ class TransitGatewayVpcAttachment(pulumi.CustomResource):
     @pulumi.getter(name="addSubnetIds")
     def add_subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "add_subnet_ids")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

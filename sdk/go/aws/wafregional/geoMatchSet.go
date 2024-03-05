@@ -17,6 +17,7 @@ import (
 type GeoMatchSet struct {
 	pulumi.CustomResourceState
 
+	AwsId               pulumi.StringOutput                      `pulumi:"awsId"`
 	GeoMatchConstraints GeoMatchSetGeoMatchConstraintArrayOutput `pulumi:"geoMatchConstraints"`
 	Name                pulumi.StringOutput                      `pulumi:"name"`
 }
@@ -110,6 +111,10 @@ func (o GeoMatchSetOutput) ToGeoMatchSetOutput() GeoMatchSetOutput {
 
 func (o GeoMatchSetOutput) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMatchSetOutput {
 	return o
+}
+
+func (o GeoMatchSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GeoMatchSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o GeoMatchSetOutput) GeoMatchConstraints() GeoMatchSetGeoMatchConstraintArrayOutput {

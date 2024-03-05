@@ -19,6 +19,8 @@ type Script struct {
 
 	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A unique identifier for the Realtime script
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A descriptive label that is associated with a script. Script names do not need to be unique.
@@ -138,6 +140,11 @@ func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutpu
 // The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.
 func (o ScriptOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A unique identifier for the Realtime script
+func (o ScriptOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").

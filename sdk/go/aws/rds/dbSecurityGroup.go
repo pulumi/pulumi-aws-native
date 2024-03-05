@@ -19,6 +19,7 @@ import (
 type DbSecurityGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId                  pulumi.StringOutput                   `pulumi:"awsId"`
 	DbSecurityGroupIngress DbSecurityGroupIngressTypeArrayOutput `pulumi:"dbSecurityGroupIngress"`
 	Ec2VpcId               pulumi.StringPtrOutput                `pulumi:"ec2VpcId"`
 	GroupDescription       pulumi.StringOutput                   `pulumi:"groupDescription"`
@@ -125,6 +126,10 @@ func (o DbSecurityGroupOutput) ToDbSecurityGroupOutput() DbSecurityGroupOutput {
 
 func (o DbSecurityGroupOutput) ToDbSecurityGroupOutputWithContext(ctx context.Context) DbSecurityGroupOutput {
 	return o
+}
+
+func (o DbSecurityGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbSecurityGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DbSecurityGroupOutput) DbSecurityGroupIngress() DbSecurityGroupIngressTypeArrayOutput {

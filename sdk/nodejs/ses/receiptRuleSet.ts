@@ -37,6 +37,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReceiptRuleSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly ruleSetName!: pulumi.Output<string | undefined>;
 
     /**
@@ -53,7 +54,9 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ruleSetName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

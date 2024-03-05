@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("atRestEncryptionEnabled")]
         public Output<bool?> AtRestEncryptionEnabled { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("healthMetricsConfig")]
         public Output<string?> HealthMetricsConfig { get; private set; } = null!;
 

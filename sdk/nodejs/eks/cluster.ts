@@ -43,6 +43,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The unique ID given to your cluster.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The certificate-authority-data for your cluster.
      */
     public /*out*/ readonly certificateAuthorityData!: pulumi.Output<string>;
@@ -112,6 +116,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroupId"] = undefined /*out*/;
             resourceInputs["encryptionConfigKeyArn"] = undefined /*out*/;
@@ -120,6 +125,7 @@ export class Cluster extends pulumi.CustomResource {
         } else {
             resourceInputs["accessConfig"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroupId"] = undefined /*out*/;
             resourceInputs["encryptionConfig"] = undefined /*out*/;

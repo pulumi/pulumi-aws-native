@@ -17,6 +17,7 @@ type ServiceNetworkVpcAssociation struct {
 	pulumi.CustomResourceState
 
 	Arn                      pulumi.StringOutput                      `pulumi:"arn"`
+	AwsId                    pulumi.StringOutput                      `pulumi:"awsId"`
 	CreatedAt                pulumi.StringOutput                      `pulumi:"createdAt"`
 	SecurityGroupIds         pulumi.StringArrayOutput                 `pulumi:"securityGroupIds"`
 	ServiceNetworkArn        pulumi.StringOutput                      `pulumi:"serviceNetworkArn"`
@@ -127,6 +128,10 @@ func (o ServiceNetworkVpcAssociationOutput) ToServiceNetworkVpcAssociationOutput
 
 func (o ServiceNetworkVpcAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ServiceNetworkVpcAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ServiceNetworkVpcAssociationOutput) CreatedAt() pulumi.StringOutput {

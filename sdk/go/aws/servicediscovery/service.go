@@ -19,6 +19,7 @@ type Service struct {
 	pulumi.CustomResourceState
 
 	Arn                     pulumi.StringOutput                     `pulumi:"arn"`
+	AwsId                   pulumi.StringOutput                     `pulumi:"awsId"`
 	Description             pulumi.StringPtrOutput                  `pulumi:"description"`
 	DnsConfig               ServiceDnsConfigPtrOutput               `pulumi:"dnsConfig"`
 	HealthCheckConfig       ServiceHealthCheckConfigPtrOutput       `pulumi:"healthCheckConfig"`
@@ -137,6 +138,10 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 
 func (o ServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ServiceOutput) Description() pulumi.StringPtrOutput {

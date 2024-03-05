@@ -20,6 +20,7 @@ type EndpointConfig struct {
 	pulumi.CustomResourceState
 
 	AsyncInferenceConfig     EndpointConfigAsyncInferenceConfigPtrOutput `pulumi:"asyncInferenceConfig"`
+	AwsId                    pulumi.StringOutput                         `pulumi:"awsId"`
 	DataCaptureConfig        EndpointConfigDataCaptureConfigPtrOutput    `pulumi:"dataCaptureConfig"`
 	EnableNetworkIsolation   pulumi.BoolPtrOutput                        `pulumi:"enableNetworkIsolation"`
 	EndpointConfigName       pulumi.StringPtrOutput                      `pulumi:"endpointConfigName"`
@@ -155,6 +156,10 @@ func (o EndpointConfigOutput) ToEndpointConfigOutputWithContext(ctx context.Cont
 
 func (o EndpointConfigOutput) AsyncInferenceConfig() EndpointConfigAsyncInferenceConfigPtrOutput {
 	return o.ApplyT(func(v *EndpointConfig) EndpointConfigAsyncInferenceConfigPtrOutput { return v.AsyncInferenceConfig }).(EndpointConfigAsyncInferenceConfigPtrOutput)
+}
+
+func (o EndpointConfigOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointConfig) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o EndpointConfigOutput) DataCaptureConfig() EndpointConfigDataCaptureConfigPtrOutput {

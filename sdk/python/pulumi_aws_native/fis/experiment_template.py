@@ -192,6 +192,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ExperimentTemplate, __self__).__init__(
@@ -217,6 +218,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         __props__ = ExperimentTemplateArgs.__new__(ExperimentTemplateArgs)
 
         __props__.__dict__["actions"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["experiment_options"] = None
         __props__.__dict__["log_configuration"] = None
@@ -230,6 +232,11 @@ class ExperimentTemplate(pulumi.CustomResource):
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ExperimentTemplateAction']]]:
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Greengrass
     [AwsNativeResourceType("aws-native:greengrass:FunctionDefinitionVersion")]
     public partial class FunctionDefinitionVersion : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("defaultConfig")]
         public Output<Outputs.FunctionDefinitionVersionDefaultConfig?> DefaultConfig { get; private set; } = null!;
 

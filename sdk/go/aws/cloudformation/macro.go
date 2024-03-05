@@ -18,6 +18,7 @@ import (
 type Macro struct {
 	pulumi.CustomResourceState
 
+	AwsId        pulumi.StringOutput    `pulumi:"awsId"`
 	Description  pulumi.StringPtrOutput `pulumi:"description"`
 	FunctionName pulumi.StringOutput    `pulumi:"functionName"`
 	LogGroupName pulumi.StringPtrOutput `pulumi:"logGroupName"`
@@ -123,6 +124,10 @@ func (o MacroOutput) ToMacroOutput() MacroOutput {
 
 func (o MacroOutput) ToMacroOutputWithContext(ctx context.Context) MacroOutput {
 	return o
+}
+
+func (o MacroOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Macro) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o MacroOutput) Description() pulumi.StringPtrOutput {

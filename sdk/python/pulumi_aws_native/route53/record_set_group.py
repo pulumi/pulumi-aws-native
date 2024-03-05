@@ -132,6 +132,7 @@ class RecordSetGroup(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id
             __props__.__dict__["hosted_zone_name"] = hosted_zone_name
             __props__.__dict__["record_sets"] = record_sets
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["hosted_zone_id", "hosted_zone_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RecordSetGroup, __self__).__init__(
@@ -156,11 +157,17 @@ class RecordSetGroup(pulumi.CustomResource):
 
         __props__ = RecordSetGroupArgs.__new__(RecordSetGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["comment"] = None
         __props__.__dict__["hosted_zone_id"] = None
         __props__.__dict__["hosted_zone_name"] = None
         __props__.__dict__["record_sets"] = None
         return RecordSetGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

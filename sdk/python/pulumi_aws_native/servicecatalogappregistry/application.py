@@ -123,6 +123,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["application_tag_key"] = None
             __props__.__dict__["application_tag_value"] = None
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(Application, __self__).__init__(
             'aws-native:servicecatalogappregistry:Application',
             resource_name,
@@ -149,6 +150,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["application_tag_key"] = None
         __props__.__dict__["application_tag_value"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -182,6 +184,11 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

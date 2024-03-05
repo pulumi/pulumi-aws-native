@@ -144,6 +144,7 @@ class ExecutionPlan(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(ExecutionPlan, __self__).__init__(
             'aws-native:kendraranking:ExecutionPlan',
             resource_name,
@@ -167,6 +168,7 @@ class ExecutionPlan(pulumi.CustomResource):
         __props__ = ExecutionPlanArgs.__new__(ExecutionPlanArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["capacity_units"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -177,6 +179,11 @@ class ExecutionPlan(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="capacityUnits")

@@ -37,6 +37,7 @@ export class Workflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workflow.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Workflow` for more information about the expected schema for this property.
      */
@@ -67,7 +68,9 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["maxConcurrentRuns"] = args ? args.maxConcurrentRuns : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultRunProperties"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["maxConcurrentRuns"] = undefined /*out*/;

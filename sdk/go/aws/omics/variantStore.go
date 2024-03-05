@@ -16,6 +16,7 @@ import (
 type VariantStore struct {
 	pulumi.CustomResourceState
 
+	AwsId          pulumi.StringOutput             `pulumi:"awsId"`
 	CreationTime   pulumi.StringOutput             `pulumi:"creationTime"`
 	Description    pulumi.StringPtrOutput          `pulumi:"description"`
 	Name           pulumi.StringOutput             `pulumi:"name"`
@@ -130,6 +131,10 @@ func (o VariantStoreOutput) ToVariantStoreOutput() VariantStoreOutput {
 
 func (o VariantStoreOutput) ToVariantStoreOutputWithContext(ctx context.Context) VariantStoreOutput {
 	return o
+}
+
+func (o VariantStoreOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VariantStore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o VariantStoreOutput) CreationTime() pulumi.StringOutput {

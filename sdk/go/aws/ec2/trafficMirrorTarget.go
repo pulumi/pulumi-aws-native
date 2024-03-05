@@ -18,6 +18,7 @@ import (
 type TrafficMirrorTarget struct {
 	pulumi.CustomResourceState
 
+	AwsId                         pulumi.StringOutput    `pulumi:"awsId"`
 	Description                   pulumi.StringPtrOutput `pulumi:"description"`
 	GatewayLoadBalancerEndpointId pulumi.StringPtrOutput `pulumi:"gatewayLoadBalancerEndpointId"`
 	NetworkInterfaceId            pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
@@ -123,6 +124,10 @@ func (o TrafficMirrorTargetOutput) ToTrafficMirrorTargetOutput() TrafficMirrorTa
 
 func (o TrafficMirrorTargetOutput) ToTrafficMirrorTargetOutputWithContext(ctx context.Context) TrafficMirrorTargetOutput {
 	return o
+}
+
+func (o TrafficMirrorTargetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorTarget) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TrafficMirrorTargetOutput) Description() pulumi.StringPtrOutput {

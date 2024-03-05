@@ -142,6 +142,7 @@ class ResourceSet(pulumi.CustomResource):
             __props__.__dict__["resource_type_list"] = resource_type_list
             __props__.__dict__["resources"] = resources
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         super(ResourceSet, __self__).__init__(
             'aws-native:fms:ResourceSet',
             resource_name,
@@ -164,12 +165,18 @@ class ResourceSet(pulumi.CustomResource):
 
         __props__ = ResourceSetArgs.__new__(ResourceSetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["resource_type_list"] = None
         __props__.__dict__["resources"] = None
         __props__.__dict__["tags"] = None
         return ResourceSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

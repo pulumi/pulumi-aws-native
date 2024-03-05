@@ -18,6 +18,7 @@ type Dataset struct {
 	pulumi.CustomResourceState
 
 	Actions                 DatasetActionArrayOutput                `pulumi:"actions"`
+	AwsId                   pulumi.StringOutput                     `pulumi:"awsId"`
 	ContentDeliveryRules    DatasetContentDeliveryRuleArrayOutput   `pulumi:"contentDeliveryRules"`
 	DatasetName             pulumi.StringPtrOutput                  `pulumi:"datasetName"`
 	LateDataRules           DatasetLateDataRuleArrayOutput          `pulumi:"lateDataRules"`
@@ -135,6 +136,10 @@ func (o DatasetOutput) ToDatasetOutputWithContext(ctx context.Context) DatasetOu
 
 func (o DatasetOutput) Actions() DatasetActionArrayOutput {
 	return o.ApplyT(func(v *Dataset) DatasetActionArrayOutput { return v.Actions }).(DatasetActionArrayOutput)
+}
+
+func (o DatasetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DatasetOutput) ContentDeliveryRules() DatasetContentDeliveryRuleArrayOutput {

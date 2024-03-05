@@ -34,6 +34,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryPolicy.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
      */
@@ -61,7 +62,9 @@ export class RegistryPolicy extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["revisionId"] = args ? args.revisionId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["registryName"] = undefined /*out*/;
             resourceInputs["revisionId"] = undefined /*out*/;

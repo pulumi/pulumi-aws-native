@@ -191,6 +191,7 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["cidr_block"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["network_interfaces"] = None
@@ -221,6 +222,7 @@ class Endpoint(pulumi.CustomResource):
 
         __props__.__dict__["access_type"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cidr_block"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["customer_owned_ipv4_pool"] = None
@@ -247,6 +249,14 @@ class Endpoint(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the endpoint.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the endpoint.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cidrBlock")

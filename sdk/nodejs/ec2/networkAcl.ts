@@ -37,6 +37,7 @@ export class NetworkAcl extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkAcl.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The tags to assign to the network ACL.
      */
@@ -62,7 +63,9 @@ export class NetworkAcl extends pulumi.CustomResource {
             }
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }

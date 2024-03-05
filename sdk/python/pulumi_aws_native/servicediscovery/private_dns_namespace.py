@@ -151,6 +151,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc'")
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["hosted_zone_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "vpc"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -177,6 +178,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         __props__ = PrivateDnsNamespaceArgs.__new__(PrivateDnsNamespaceArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["hosted_zone_id"] = None
         __props__.__dict__["name"] = None
@@ -189,6 +191,11 @@ class PrivateDnsNamespace(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

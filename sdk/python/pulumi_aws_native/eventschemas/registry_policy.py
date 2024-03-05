@@ -116,6 +116,7 @@ class RegistryPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
             __props__.__dict__["revision_id"] = revision_id
+            __props__.__dict__["aws_id"] = None
         super(RegistryPolicy, __self__).__init__(
             'aws-native:eventschemas:RegistryPolicy',
             resource_name,
@@ -138,10 +139,16 @@ class RegistryPolicy(pulumi.CustomResource):
 
         __props__ = RegistryPolicyArgs.__new__(RegistryPolicyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["policy"] = None
         __props__.__dict__["registry_name"] = None
         __props__.__dict__["revision_id"] = None
         return RegistryPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

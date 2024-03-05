@@ -108,6 +108,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             if event_destination is None and not opts.urn:
                 raise TypeError("Missing required property 'event_destination'")
             __props__.__dict__["event_destination"] = event_destination
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration_set_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationSetEventDestination, __self__).__init__(
@@ -132,9 +133,15 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
 
         __props__ = ConfigurationSetEventDestinationArgs.__new__(ConfigurationSetEventDestinationArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["configuration_set_name"] = None
         __props__.__dict__["event_destination"] = None
         return ConfigurationSetEventDestination(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="configurationSetName")

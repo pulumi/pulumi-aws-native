@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Organizations
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The unique identifier (ID) associated with this resource policy.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Omics
     [AwsNativeResourceType("aws-native:omics:AnnotationStore")]
     public partial class AnnotationStore : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 

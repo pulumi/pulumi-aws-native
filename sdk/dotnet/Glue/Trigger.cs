@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("actions")]
         public Output<ImmutableArray<Outputs.TriggerAction>> Actions { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 

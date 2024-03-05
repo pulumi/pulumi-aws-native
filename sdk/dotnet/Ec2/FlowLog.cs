@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ec2
     public partial class FlowLog : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Flow Log ID
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         /// </summary>
         [Output("deliverCrossAccountRole")]

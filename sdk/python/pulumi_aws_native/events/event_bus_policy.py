@@ -168,6 +168,7 @@ class EventBusPolicy(pulumi.CustomResource):
             if statement_id is None and not opts.urn:
                 raise TypeError("Missing required property 'statement_id'")
             __props__.__dict__["statement_id"] = statement_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["event_bus_name", "statement_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventBusPolicy, __self__).__init__(
@@ -193,6 +194,7 @@ class EventBusPolicy(pulumi.CustomResource):
         __props__ = EventBusPolicyArgs.__new__(EventBusPolicyArgs)
 
         __props__.__dict__["action"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["condition"] = None
         __props__.__dict__["event_bus_name"] = None
         __props__.__dict__["principal"] = None
@@ -204,6 +206,11 @@ class EventBusPolicy(pulumi.CustomResource):
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

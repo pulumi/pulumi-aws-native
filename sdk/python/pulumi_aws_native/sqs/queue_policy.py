@@ -118,6 +118,7 @@ class QueuePolicy(pulumi.CustomResource):
             if queues is None and not opts.urn:
                 raise TypeError("Missing required property 'queues'")
             __props__.__dict__["queues"] = queues
+            __props__.__dict__["aws_id"] = None
         super(QueuePolicy, __self__).__init__(
             'aws-native:sqs:QueuePolicy',
             resource_name,
@@ -140,9 +141,15 @@ class QueuePolicy(pulumi.CustomResource):
 
         __props__ = QueuePolicyArgs.__new__(QueuePolicyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["policy_document"] = None
         __props__.__dict__["queues"] = None
         return QueuePolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="policyDocument")

@@ -291,6 +291,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["cluster_discovery_endpoint"] = None
             __props__.__dict__["cluster_discovery_endpoint_url"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_endpoint_encryption_type", "cluster_name", "iam_role_arn", "node_type", "sse_specification", "subnet_group_name"])
@@ -319,6 +320,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cluster_discovery_endpoint"] = None
         __props__.__dict__["cluster_discovery_endpoint_url"] = None
         __props__.__dict__["cluster_endpoint_encryption_type"] = None
@@ -345,6 +347,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clusterDiscoveryEndpoint")

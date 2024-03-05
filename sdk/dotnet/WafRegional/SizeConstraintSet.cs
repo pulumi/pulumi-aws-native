@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.WafRegional
     [AwsNativeResourceType("aws-native:wafregional:SizeConstraintSet")]
     public partial class SizeConstraintSet : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

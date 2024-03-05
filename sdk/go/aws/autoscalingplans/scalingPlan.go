@@ -19,6 +19,7 @@ type ScalingPlan struct {
 	pulumi.CustomResourceState
 
 	ApplicationSource   ScalingPlanApplicationSourceOutput       `pulumi:"applicationSource"`
+	AwsId               pulumi.StringOutput                      `pulumi:"awsId"`
 	ScalingInstructions ScalingPlanScalingInstructionArrayOutput `pulumi:"scalingInstructions"`
 	ScalingPlanName     pulumi.StringOutput                      `pulumi:"scalingPlanName"`
 	ScalingPlanVersion  pulumi.StringOutput                      `pulumi:"scalingPlanVersion"`
@@ -119,6 +120,10 @@ func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) S
 
 func (o ScalingPlanOutput) ApplicationSource() ScalingPlanApplicationSourceOutput {
 	return o.ApplyT(func(v *ScalingPlan) ScalingPlanApplicationSourceOutput { return v.ApplicationSource }).(ScalingPlanApplicationSourceOutput)
+}
+
+func (o ScalingPlanOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ScalingPlanOutput) ScalingInstructions() ScalingPlanScalingInstructionArrayOutput {

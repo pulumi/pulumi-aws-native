@@ -19,6 +19,7 @@ type VoiceChannel struct {
 	pulumi.CustomResourceState
 
 	ApplicationId pulumi.StringOutput  `pulumi:"applicationId"`
+	AwsId         pulumi.StringOutput  `pulumi:"awsId"`
 	Enabled       pulumi.BoolPtrOutput `pulumi:"enabled"`
 }
 
@@ -118,6 +119,10 @@ func (o VoiceChannelOutput) ToVoiceChannelOutputWithContext(ctx context.Context)
 
 func (o VoiceChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o VoiceChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VoiceChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o VoiceChannelOutput) Enabled() pulumi.BoolPtrOutput {

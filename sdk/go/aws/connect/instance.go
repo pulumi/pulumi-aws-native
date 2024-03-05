@@ -21,6 +21,8 @@ type Instance struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The attributes for the instance.
 	Attributes InstanceAttributesOutput `pulumi:"attributes"`
+	// An instanceId is automatically generated on creation and assigned as the unique identifier.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Timestamp of instance creation logged as part of instance creation.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// Existing directoryId user wants to map to the new Connect instance.
@@ -160,6 +162,11 @@ func (o InstanceOutput) Arn() pulumi.StringOutput {
 // The attributes for the instance.
 func (o InstanceOutput) Attributes() InstanceAttributesOutput {
 	return o.ApplyT(func(v *Instance) InstanceAttributesOutput { return v.Attributes }).(InstanceAttributesOutput)
+}
+
+// An instanceId is automatically generated on creation and assigned as the unique identifier.
+func (o InstanceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Timestamp of instance creation logged as part of instance creation.

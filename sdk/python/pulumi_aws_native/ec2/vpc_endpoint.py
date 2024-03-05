@@ -252,6 +252,7 @@ class VpcEndpoint(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_timestamp"] = None
             __props__.__dict__["dns_entries"] = None
             __props__.__dict__["network_interface_ids"] = None
@@ -279,6 +280,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         __props__ = VpcEndpointArgs.__new__(VpcEndpointArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_timestamp"] = None
         __props__.__dict__["dns_entries"] = None
         __props__.__dict__["network_interface_ids"] = None
@@ -291,6 +293,11 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__.__dict__["vpc_endpoint_type"] = None
         __props__.__dict__["vpc_id"] = None
         return VpcEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTimestamp")

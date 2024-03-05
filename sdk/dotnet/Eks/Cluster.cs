@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The unique ID given to your cluster.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The certificate-authority-data for your cluster.
         /// </summary>
         [Output("certificateAuthorityData")]

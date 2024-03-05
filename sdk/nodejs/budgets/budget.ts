@@ -40,6 +40,7 @@ export class Budget extends pulumi.CustomResource {
         return obj['__pulumiType'] === Budget.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly budget!: pulumi.Output<outputs.budgets.BudgetData>;
     public readonly notificationsWithSubscribers!: pulumi.Output<outputs.budgets.BudgetNotificationWithSubscribers[] | undefined>;
 
@@ -61,7 +62,9 @@ export class Budget extends pulumi.CustomResource {
             }
             resourceInputs["budget"] = args ? args.budget : undefined;
             resourceInputs["notificationsWithSubscribers"] = args ? args.notificationsWithSubscribers : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["budget"] = undefined /*out*/;
             resourceInputs["notificationsWithSubscribers"] = undefined /*out*/;
         }

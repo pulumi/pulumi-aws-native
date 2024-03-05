@@ -38,6 +38,10 @@ export class SecurityConfig extends pulumi.CustomResource {
     }
 
     /**
+     * The identifier of the security config
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Security config description
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -63,7 +67,9 @@ export class SecurityConfig extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["samlOptions"] = undefined /*out*/;

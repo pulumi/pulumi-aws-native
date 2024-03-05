@@ -258,6 +258,7 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["capacity"] = None
             __props__.__dict__["label_namespace"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "scope"])
@@ -286,6 +287,7 @@ class WebAcl(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["association_config"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["capacity"] = None
         __props__.__dict__["captcha_config"] = None
         __props__.__dict__["challenge_config"] = None
@@ -310,6 +312,11 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter(name="associationConfig")
     def association_config(self) -> pulumi.Output[Optional['outputs.WebAclAssociationConfig']]:
         return pulumi.get(self, "association_config")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

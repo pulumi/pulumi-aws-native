@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<Outputs.InstanceAttributes> Attributes { get; private set; } = null!;
 
         /// <summary>
+        /// An instanceId is automatically generated on creation and assigned as the unique identifier.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Timestamp of instance creation logged as part of instance creation.
         /// </summary>
         [Output("createdTime")]

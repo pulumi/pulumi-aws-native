@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:CustomEntityType")]
     public partial class CustomEntityType : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("contextWords")]
         public Output<ImmutableArray<string>> ContextWords { get; private set; } = null!;
 

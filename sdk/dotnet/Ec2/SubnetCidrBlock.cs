@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ec2
     public partial class SubnetCidrBlock : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Information about the IPv6 association.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
         /// </summary>
         [Output("ipv6CidrBlock")]

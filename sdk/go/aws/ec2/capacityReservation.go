@@ -18,6 +18,7 @@ type CapacityReservation struct {
 
 	AvailabilityZone       pulumi.StringOutput                            `pulumi:"availabilityZone"`
 	AvailableInstanceCount pulumi.IntOutput                               `pulumi:"availableInstanceCount"`
+	AwsId                  pulumi.StringOutput                            `pulumi:"awsId"`
 	EbsOptimized           pulumi.BoolPtrOutput                           `pulumi:"ebsOptimized"`
 	EndDate                pulumi.StringPtrOutput                         `pulumi:"endDate"`
 	EndDateType            pulumi.StringPtrOutput                         `pulumi:"endDateType"`
@@ -173,6 +174,10 @@ func (o CapacityReservationOutput) AvailabilityZone() pulumi.StringOutput {
 
 func (o CapacityReservationOutput) AvailableInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.AvailableInstanceCount }).(pulumi.IntOutput)
+}
+
+func (o CapacityReservationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CapacityReservationOutput) EbsOptimized() pulumi.BoolPtrOutput {

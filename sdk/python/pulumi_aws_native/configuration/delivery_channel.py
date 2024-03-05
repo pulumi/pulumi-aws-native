@@ -163,6 +163,7 @@ class DeliveryChannel(pulumi.CustomResource):
             __props__.__dict__["s3_key_prefix"] = s3_key_prefix
             __props__.__dict__["s3_kms_key_arn"] = s3_kms_key_arn
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryChannel, __self__).__init__(
@@ -187,6 +188,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
         __props__ = DeliveryChannelArgs.__new__(DeliveryChannelArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["config_snapshot_delivery_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["s3_bucket_name"] = None
@@ -194,6 +196,11 @@ class DeliveryChannel(pulumi.CustomResource):
         __props__.__dict__["s3_kms_key_arn"] = None
         __props__.__dict__["sns_topic_arn"] = None
         return DeliveryChannel(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="configSnapshotDeliveryProperties")

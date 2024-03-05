@@ -40,6 +40,7 @@ export class AnomalyDetector extends pulumi.CustomResource {
         return obj['__pulumiType'] === AnomalyDetector.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly configuration!: pulumi.Output<outputs.cloudwatch.AnomalyDetectorConfiguration | undefined>;
     public readonly dimensions!: pulumi.Output<outputs.cloudwatch.AnomalyDetectorDimension[] | undefined>;
     public readonly metricMathAnomalyDetector!: pulumi.Output<outputs.cloudwatch.AnomalyDetectorMetricMathAnomalyDetector | undefined>;
@@ -68,7 +69,9 @@ export class AnomalyDetector extends pulumi.CustomResource {
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["singleMetricAnomalyDetector"] = args ? args.singleMetricAnomalyDetector : undefined;
             resourceInputs["stat"] = args ? args.stat : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["dimensions"] = undefined /*out*/;
             resourceInputs["metricMathAnomalyDetector"] = undefined /*out*/;

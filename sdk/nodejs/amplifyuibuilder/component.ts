@@ -38,6 +38,7 @@ export class Component extends pulumi.CustomResource {
     }
 
     public readonly appId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly bindingProperties!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentBindingPropertiesValue} | undefined>;
     public readonly children!: pulumi.Output<outputs.amplifyuibuilder.ComponentChild[] | undefined>;
     public readonly collectionProperties!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentDataConfiguration} | undefined>;
@@ -79,10 +80,12 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["sourceId"] = args ? args.sourceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["variants"] = args ? args.variants : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["bindingProperties"] = undefined /*out*/;
             resourceInputs["children"] = undefined /*out*/;
             resourceInputs["collectionProperties"] = undefined /*out*/;

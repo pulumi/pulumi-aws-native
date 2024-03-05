@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Output("acceptLanguage")]
         public Output<Pulumi.AwsNative.ServiceCatalog.ServiceActionAcceptLanguage?> AcceptLanguage { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("definition")]
         public Output<ImmutableArray<Outputs.ServiceActionDefinitionParameter>> Definition { get; private set; } = null!;
 

@@ -165,6 +165,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["clone_url_http"] = None
             __props__.__dict__["clone_url_ssh"] = None
             __props__.__dict__["name"] = None
@@ -191,6 +192,7 @@ class Repository(pulumi.CustomResource):
         __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["clone_url_http"] = None
         __props__.__dict__["clone_url_ssh"] = None
         __props__.__dict__["code"] = None
@@ -206,6 +208,11 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cloneUrlHttp")

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:KeyGroup")]
     public partial class KeyGroup : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("keyGroupConfig")]
         public Output<Outputs.KeyGroupConfig> KeyGroupConfig { get; private set; } = null!;
 

@@ -275,6 +275,7 @@ class MlTransform(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transform_parameters'")
             __props__.__dict__["transform_parameters"] = transform_parameters
             __props__.__dict__["worker_type"] = worker_type
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["input_record_tables"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MlTransform, __self__).__init__(
@@ -299,6 +300,7 @@ class MlTransform(pulumi.CustomResource):
 
         __props__ = MlTransformArgs.__new__(MlTransformArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["glue_version"] = None
         __props__.__dict__["input_record_tables"] = None
@@ -313,6 +315,11 @@ class MlTransform(pulumi.CustomResource):
         __props__.__dict__["transform_parameters"] = None
         __props__.__dict__["worker_type"] = None
         return MlTransform(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

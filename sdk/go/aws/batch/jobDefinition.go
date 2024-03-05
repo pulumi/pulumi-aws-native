@@ -16,6 +16,7 @@ import (
 type JobDefinition struct {
 	pulumi.CustomResourceState
 
+	AwsId               pulumi.StringOutput                       `pulumi:"awsId"`
 	ContainerProperties JobDefinitionContainerPropertiesPtrOutput `pulumi:"containerProperties"`
 	EksProperties       JobDefinitionEksPropertiesPtrOutput       `pulumi:"eksProperties"`
 	JobDefinitionName   pulumi.StringPtrOutput                    `pulumi:"jobDefinitionName"`
@@ -149,6 +150,10 @@ func (o JobDefinitionOutput) ToJobDefinitionOutput() JobDefinitionOutput {
 
 func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
 	return o
+}
+
+func (o JobDefinitionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o JobDefinitionOutput) ContainerProperties() JobDefinitionContainerPropertiesPtrOutput {

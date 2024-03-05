@@ -85,6 +85,7 @@ class Domain(pulumi.CustomResource):
             __props__ = DomainArgs.__new__(DomainArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["aws_id"] = None
         super(Domain, __self__).__init__(
             'aws-native:sdb:Domain',
             resource_name,
@@ -107,8 +108,14 @@ class Domain(pulumi.CustomResource):
 
         __props__ = DomainArgs.__new__(DomainArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

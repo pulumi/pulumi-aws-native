@@ -133,6 +133,7 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
             __props__.__dict__["integration"] = integration
             __props__.__dict__["route"] = route
             __props__.__dict__["stage"] = stage
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApiGatewayManagedOverrides, __self__).__init__(
@@ -158,6 +159,7 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
         __props__ = ApiGatewayManagedOverridesArgs.__new__(ApiGatewayManagedOverridesArgs)
 
         __props__.__dict__["api_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["integration"] = None
         __props__.__dict__["route"] = None
         __props__.__dict__["stage"] = None
@@ -167,6 +169,11 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

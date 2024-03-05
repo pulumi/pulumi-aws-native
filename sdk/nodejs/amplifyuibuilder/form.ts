@@ -38,6 +38,7 @@ export class Form extends pulumi.CustomResource {
     }
 
     public readonly appId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cta!: pulumi.Output<outputs.amplifyuibuilder.FormCta | undefined>;
     public readonly dataType!: pulumi.Output<outputs.amplifyuibuilder.FormDataTypeConfig | undefined>;
     public readonly environmentName!: pulumi.Output<string | undefined>;
@@ -73,8 +74,10 @@ export class Form extends pulumi.CustomResource {
             resourceInputs["sectionalElements"] = args ? args.sectionalElements : undefined;
             resourceInputs["style"] = args ? args.style : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cta"] = undefined /*out*/;
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["environmentName"] = undefined /*out*/;

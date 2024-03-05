@@ -247,6 +247,7 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["user_context_policy"] = user_context_policy
             __props__.__dict__["user_token_configurations"] = user_token_configurations
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["edition", "server_side_encryption_configuration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Index, __self__).__init__(
@@ -272,6 +273,7 @@ class Index(pulumi.CustomResource):
         __props__ = IndexArgs.__new__(IndexArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["capacity_units"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["document_metadata_configurations"] = None
@@ -288,6 +290,11 @@ class Index(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="capacityUnits")

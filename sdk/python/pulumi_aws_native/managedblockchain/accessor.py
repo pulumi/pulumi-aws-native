@@ -125,6 +125,7 @@ class Accessor(pulumi.CustomResource):
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["billing_token"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["status"] = None
@@ -154,6 +155,7 @@ class Accessor(pulumi.CustomResource):
 
         __props__.__dict__["accessor_type"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["billing_token"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["network_type"] = None
@@ -170,6 +172,11 @@ class Accessor(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="billingToken")

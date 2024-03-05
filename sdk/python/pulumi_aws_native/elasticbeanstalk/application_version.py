@@ -128,6 +128,7 @@ class ApplicationVersion(pulumi.CustomResource):
             if source_bundle is None and not opts.urn:
                 raise TypeError("Missing required property 'source_bundle'")
             __props__.__dict__["source_bundle"] = source_bundle
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name", "source_bundle"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationVersion, __self__).__init__(
@@ -153,6 +154,7 @@ class ApplicationVersion(pulumi.CustomResource):
         __props__ = ApplicationVersionArgs.__new__(ApplicationVersionArgs)
 
         __props__.__dict__["application_name"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["source_bundle"] = None
         return ApplicationVersion(resource_name, opts=opts, __props__=__props__)
@@ -164,6 +166,11 @@ class ApplicationVersion(pulumi.CustomResource):
         The name of the Elastic Beanstalk application that is associated with this application version. 
         """
         return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -40,6 +40,7 @@ export class ResourceDefinitionVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceDefinitionVersion.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly resourceDefinitionId!: pulumi.Output<string>;
     public readonly resources!: pulumi.Output<outputs.greengrass.ResourceDefinitionVersionResourceInstance[]>;
 
@@ -64,7 +65,9 @@ export class ResourceDefinitionVersion extends pulumi.CustomResource {
             }
             resourceInputs["resourceDefinitionId"] = args ? args.resourceDefinitionId : undefined;
             resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["resourceDefinitionId"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
         }

@@ -40,6 +40,7 @@ export class SubscriptionDefinitionVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubscriptionDefinitionVersion.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly subscriptionDefinitionId!: pulumi.Output<string>;
     public readonly subscriptions!: pulumi.Output<outputs.greengrass.SubscriptionDefinitionVersionSubscription[]>;
 
@@ -64,7 +65,9 @@ export class SubscriptionDefinitionVersion extends pulumi.CustomResource {
             }
             resourceInputs["subscriptionDefinitionId"] = args ? args.subscriptionDefinitionId : undefined;
             resourceInputs["subscriptions"] = args ? args.subscriptions : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["subscriptionDefinitionId"] = undefined /*out*/;
             resourceInputs["subscriptions"] = undefined /*out*/;
         }

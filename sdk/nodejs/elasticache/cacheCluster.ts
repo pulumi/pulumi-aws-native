@@ -41,6 +41,7 @@ export class CacheCluster extends pulumi.CustomResource {
     }
 
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly azMode!: pulumi.Output<string | undefined>;
     public readonly cacheNodeType!: pulumi.Output<string>;
     public readonly cacheParameterGroupName!: pulumi.Output<string | undefined>;
@@ -121,8 +122,10 @@ export class CacheCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["azMode"] = undefined /*out*/;
             resourceInputs["cacheNodeType"] = undefined /*out*/;
             resourceInputs["cacheParameterGroupName"] = undefined /*out*/;

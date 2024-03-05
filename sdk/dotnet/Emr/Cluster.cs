@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Emr
         [Output("autoTerminationPolicy")]
         public Output<Outputs.ClusterAutoTerminationPolicy?> AutoTerminationPolicy { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("bootstrapActions")]
         public Output<ImmutableArray<Outputs.ClusterBootstrapActionConfig>> BootstrapActions { get; private set; } = null!;
 

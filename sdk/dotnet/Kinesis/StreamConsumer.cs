@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Kinesis
     [AwsNativeResourceType("aws-native:kinesis:StreamConsumer")]
     public partial class StreamConsumer : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("consumerArn")]
         public Output<string> ConsumerArn { get; private set; } = null!;
 

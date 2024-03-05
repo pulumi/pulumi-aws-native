@@ -114,6 +114,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["pipeline_activities"] = pipeline_activities
             __props__.__dict__["pipeline_name"] = pipeline_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["pipeline_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Pipeline, __self__).__init__(
@@ -138,10 +139,16 @@ class Pipeline(pulumi.CustomResource):
 
         __props__ = PipelineArgs.__new__(PipelineArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["pipeline_activities"] = None
         __props__.__dict__["pipeline_name"] = None
         __props__.__dict__["tags"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="pipelineActivities")

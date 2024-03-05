@@ -18,6 +18,7 @@ type TransitGatewayVpcAttachment struct {
 	pulumi.CustomResourceState
 
 	AddSubnetIds pulumi.StringArrayOutput `pulumi:"addSubnetIds"`
+	AwsId        pulumi.StringOutput      `pulumi:"awsId"`
 	// The options for the transit gateway vpc attachment.
 	Options          OptionsPropertiesPtrOutput `pulumi:"options"`
 	RemoveSubnetIds  pulumi.StringArrayOutput   `pulumi:"removeSubnetIds"`
@@ -143,6 +144,10 @@ func (o TransitGatewayVpcAttachmentOutput) ToTransitGatewayVpcAttachmentOutputWi
 
 func (o TransitGatewayVpcAttachmentOutput) AddSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringArrayOutput { return v.AddSubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o TransitGatewayVpcAttachmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The options for the transit gateway vpc attachment.

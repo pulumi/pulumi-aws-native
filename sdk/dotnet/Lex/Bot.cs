@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Lex
         [Output("autoBuildBotLocales")]
         public Output<bool?> AutoBuildBotLocales { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("botFileS3Location")]
         public Output<Outputs.BotS3Location?> BotFileS3Location { get; private set; } = null!;
 

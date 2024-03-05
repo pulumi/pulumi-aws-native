@@ -42,6 +42,7 @@ export class DbInstance extends pulumi.CustomResource {
 
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly caCertificateIdentifier!: pulumi.Output<string | undefined>;
     public readonly certificateRotationRestart!: pulumi.Output<boolean | undefined>;
     public readonly dbClusterIdentifier!: pulumi.Output<string>;
@@ -82,11 +83,13 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["enablePerformanceInsights"] = args ? args.enablePerformanceInsights : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
         } else {
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["caCertificateIdentifier"] = undefined /*out*/;
             resourceInputs["certificateRotationRestart"] = undefined /*out*/;
             resourceInputs["dbClusterIdentifier"] = undefined /*out*/;

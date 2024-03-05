@@ -37,6 +37,7 @@ export class ClientVpnRoute extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClientVpnRoute.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly clientVpnEndpointId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly destinationCidrBlock!: pulumi.Output<string>;
@@ -68,7 +69,9 @@ export class ClientVpnRoute extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             resourceInputs["targetVpcSubnetId"] = args ? args.targetVpcSubnetId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientVpnEndpointId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinationCidrBlock"] = undefined /*out*/;

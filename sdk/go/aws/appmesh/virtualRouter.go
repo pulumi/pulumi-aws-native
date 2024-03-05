@@ -20,6 +20,7 @@ type VirtualRouter struct {
 	pulumi.CustomResourceState
 
 	Arn               pulumi.StringOutput     `pulumi:"arn"`
+	AwsId             pulumi.StringOutput     `pulumi:"awsId"`
 	MeshName          pulumi.StringOutput     `pulumi:"meshName"`
 	MeshOwner         pulumi.StringPtrOutput  `pulumi:"meshOwner"`
 	ResourceOwner     pulumi.StringOutput     `pulumi:"resourceOwner"`
@@ -136,6 +137,10 @@ func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Contex
 
 func (o VirtualRouterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VirtualRouterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o VirtualRouterOutput) MeshName() pulumi.StringOutput {

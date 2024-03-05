@@ -16,6 +16,7 @@ import (
 type CachePolicy struct {
 	pulumi.CustomResourceState
 
+	AwsId             pulumi.StringOutput     `pulumi:"awsId"`
 	CachePolicyConfig CachePolicyConfigOutput `pulumi:"cachePolicyConfig"`
 	LastModifiedTime  pulumi.StringOutput     `pulumi:"lastModifiedTime"`
 }
@@ -106,6 +107,10 @@ func (o CachePolicyOutput) ToCachePolicyOutput() CachePolicyOutput {
 
 func (o CachePolicyOutput) ToCachePolicyOutputWithContext(ctx context.Context) CachePolicyOutput {
 	return o
+}
+
+func (o CachePolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CachePolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CachePolicyOutput) CachePolicyConfig() CachePolicyConfigOutput {

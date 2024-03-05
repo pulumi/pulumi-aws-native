@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("computeCapacity")]
         public Output<Outputs.FleetComputeCapacity?> ComputeCapacity { get; private set; } = null!;
 

@@ -147,6 +147,7 @@ class ClientVpnAuthorizationRule(pulumi.CustomResource):
             if target_network_cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'target_network_cidr'")
             __props__.__dict__["target_network_cidr"] = target_network_cidr
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["access_group_id", "authorize_all_groups", "client_vpn_endpoint_id", "description", "target_network_cidr"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClientVpnAuthorizationRule, __self__).__init__(
@@ -173,6 +174,7 @@ class ClientVpnAuthorizationRule(pulumi.CustomResource):
 
         __props__.__dict__["access_group_id"] = None
         __props__.__dict__["authorize_all_groups"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_vpn_endpoint_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["target_network_cidr"] = None
@@ -187,6 +189,11 @@ class ClientVpnAuthorizationRule(pulumi.CustomResource):
     @pulumi.getter(name="authorizeAllGroups")
     def authorize_all_groups(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "authorize_all_groups")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")

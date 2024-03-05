@@ -16,6 +16,8 @@ import (
 // Deprecated: WaitConditionHandle is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type WaitConditionHandle struct {
 	pulumi.CustomResourceState
+
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 }
 
 // NewWaitConditionHandle registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +101,10 @@ func (o WaitConditionHandleOutput) ToWaitConditionHandleOutput() WaitConditionHa
 
 func (o WaitConditionHandleOutput) ToWaitConditionHandleOutputWithContext(ctx context.Context) WaitConditionHandleOutput {
 	return o
+}
+
+func (o WaitConditionHandleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WaitConditionHandle) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func init() {

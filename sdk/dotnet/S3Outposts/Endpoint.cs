@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.S3Outposts
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the endpoint.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The VPC CIDR committed by this endpoint.
         /// </summary>
         [Output("cidrBlock")]

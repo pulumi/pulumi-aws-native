@@ -16,6 +16,7 @@ import (
 type UserPoolDomain struct {
 	pulumi.CustomResourceState
 
+	AwsId                  pulumi.StringOutput                           `pulumi:"awsId"`
 	CloudFrontDistribution pulumi.StringOutput                           `pulumi:"cloudFrontDistribution"`
 	CustomDomainConfig     UserPoolDomainCustomDomainConfigTypePtrOutput `pulumi:"customDomainConfig"`
 	Domain                 pulumi.StringOutput                           `pulumi:"domain"`
@@ -120,6 +121,10 @@ func (o UserPoolDomainOutput) ToUserPoolDomainOutput() UserPoolDomainOutput {
 
 func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
 	return o
+}
+
+func (o UserPoolDomainOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o UserPoolDomainOutput) CloudFrontDistribution() pulumi.StringOutput {

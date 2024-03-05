@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CloudFormation
     [AwsNativeResourceType("aws-native:cloudformation:CustomResource")]
     public partial class CustomResource : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("serviceToken")]
         public Output<string> ServiceToken { get; private set; } = null!;
 

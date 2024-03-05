@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Waf
     [AwsNativeResourceType("aws-native:waf:Rule")]
     public partial class Rule : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("metricName")]
         public Output<string> MetricName { get; private set; } = null!;
 

@@ -19,6 +19,7 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
+	AwsId                      pulumi.StringOutput                         `pulumi:"awsId"`
 	CertificateArn             pulumi.StringPtrOutput                      `pulumi:"certificateArn"`
 	DatabaseName               pulumi.StringPtrOutput                      `pulumi:"databaseName"`
 	DocDbSettings              EndpointDocDbSettingsPtrOutput              `pulumi:"docDbSettings"`
@@ -207,6 +208,10 @@ func (o EndpointOutput) ToEndpointOutput() EndpointOutput {
 
 func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
 	return o
+}
+
+func (o EndpointOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o EndpointOutput) CertificateArn() pulumi.StringPtrOutput {

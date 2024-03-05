@@ -190,6 +190,7 @@ class UsagePlan(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throttle"] = throttle
             __props__.__dict__["usage_plan_name"] = usage_plan_name
+            __props__.__dict__["aws_id"] = None
         super(UsagePlan, __self__).__init__(
             'aws-native:apigateway:UsagePlan',
             resource_name,
@@ -213,6 +214,7 @@ class UsagePlan(pulumi.CustomResource):
         __props__ = UsagePlanArgs.__new__(UsagePlanArgs)
 
         __props__.__dict__["api_stages"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["quota"] = None
         __props__.__dict__["tags"] = None
@@ -227,6 +229,11 @@ class UsagePlan(pulumi.CustomResource):
         The associated API stages of a usage plan.
         """
         return pulumi.get(self, "api_stages")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

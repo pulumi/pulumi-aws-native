@@ -133,6 +133,7 @@ class StackUserAssociation(pulumi.CustomResource):
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authentication_type", "send_email_notification", "stack_name", "user_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StackUserAssociation, __self__).__init__(
@@ -158,6 +159,7 @@ class StackUserAssociation(pulumi.CustomResource):
         __props__ = StackUserAssociationArgs.__new__(StackUserAssociationArgs)
 
         __props__.__dict__["authentication_type"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["send_email_notification"] = None
         __props__.__dict__["stack_name"] = None
         __props__.__dict__["user_name"] = None
@@ -167,6 +169,11 @@ class StackUserAssociation(pulumi.CustomResource):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="sendEmailNotification")

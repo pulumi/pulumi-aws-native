@@ -40,6 +40,7 @@ export class Ledger extends pulumi.CustomResource {
         return obj['__pulumiType'] === Ledger.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     public readonly kmsKey!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -67,7 +68,9 @@ export class Ledger extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissionsMode"] = args ? args.permissionsMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["kmsKey"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

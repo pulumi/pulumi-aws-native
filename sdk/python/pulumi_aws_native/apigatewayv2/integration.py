@@ -359,6 +359,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["template_selection_expression"] = template_selection_expression
             __props__.__dict__["timeout_in_millis"] = timeout_in_millis
             __props__.__dict__["tls_config"] = tls_config
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Integration, __self__).__init__(
@@ -384,6 +385,7 @@ class Integration(pulumi.CustomResource):
         __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
         __props__.__dict__["api_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["connection_id"] = None
         __props__.__dict__["connection_type"] = None
         __props__.__dict__["content_handling_strategy"] = None
@@ -407,6 +409,11 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="connectionId")

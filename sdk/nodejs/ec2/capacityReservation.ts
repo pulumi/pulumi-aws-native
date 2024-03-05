@@ -39,6 +39,7 @@ export class CapacityReservation extends pulumi.CustomResource {
 
     public readonly availabilityZone!: pulumi.Output<string>;
     public /*out*/ readonly availableInstanceCount!: pulumi.Output<number>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     public readonly endDate!: pulumi.Output<string | undefined>;
     public readonly endDateType!: pulumi.Output<string | undefined>;
@@ -90,10 +91,12 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
             resourceInputs["tenancy"] = args ? args.tenancy : undefined;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["totalInstanceCount"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ebsOptimized"] = undefined /*out*/;
             resourceInputs["endDate"] = undefined /*out*/;
             resourceInputs["endDateType"] = undefined /*out*/;

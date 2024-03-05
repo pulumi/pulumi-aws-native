@@ -17,6 +17,8 @@ import (
 type FlowLog struct {
 	pulumi.CustomResourceState
 
+	// The Flow Log ID
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
 	DeliverCrossAccountRole pulumi.StringPtrOutput `pulumi:"deliverCrossAccountRole"`
 	// The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
@@ -189,6 +191,11 @@ func (o FlowLogOutput) ToFlowLogOutput() FlowLogOutput {
 
 func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
 	return o
+}
+
+// The Flow Log ID
+func (o FlowLogOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.

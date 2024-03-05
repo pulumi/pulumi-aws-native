@@ -41,6 +41,7 @@ export class ClientVpnEndpoint extends pulumi.CustomResource {
     }
 
     public readonly authenticationOptions!: pulumi.Output<outputs.ec2.ClientVpnEndpointClientAuthenticationRequest[]>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly clientCidrBlock!: pulumi.Output<string>;
     public readonly clientConnectOptions!: pulumi.Output<outputs.ec2.ClientVpnEndpointClientConnectOptions | undefined>;
     public readonly clientLoginBannerOptions!: pulumi.Output<outputs.ec2.ClientVpnEndpointClientLoginBannerOptions | undefined>;
@@ -98,8 +99,10 @@ export class ClientVpnEndpoint extends pulumi.CustomResource {
             resourceInputs["transportProtocol"] = args ? args.transportProtocol : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["vpnPort"] = args ? args.vpnPort : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["authenticationOptions"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientCidrBlock"] = undefined /*out*/;
             resourceInputs["clientConnectOptions"] = undefined /*out*/;
             resourceInputs["clientLoginBannerOptions"] = undefined /*out*/;

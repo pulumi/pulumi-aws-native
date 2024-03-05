@@ -45,6 +45,10 @@ export class WirelessDeviceImportTask extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Id for Wireless Device Import Task, Returned upon successful start.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * CreationDate for import task
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class WirelessDeviceImportTask extends pulumi.CustomResource {
             resourceInputs["sidewalk"] = args ? args.sidewalk : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["failedImportedDevicesCount"] = undefined /*out*/;
             resourceInputs["initializedImportedDevicesCount"] = undefined /*out*/;
@@ -117,6 +122,7 @@ export class WirelessDeviceImportTask extends pulumi.CustomResource {
             resourceInputs["statusReason"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["destinationName"] = undefined /*out*/;
             resourceInputs["failedImportedDevicesCount"] = undefined /*out*/;

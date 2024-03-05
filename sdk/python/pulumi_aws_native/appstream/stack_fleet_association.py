@@ -102,6 +102,7 @@ class StackFleetAssociation(pulumi.CustomResource):
             if stack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_name'")
             __props__.__dict__["stack_name"] = stack_name
+            __props__.__dict__["aws_id"] = None
         super(StackFleetAssociation, __self__).__init__(
             'aws-native:appstream:StackFleetAssociation',
             resource_name,
@@ -124,9 +125,15 @@ class StackFleetAssociation(pulumi.CustomResource):
 
         __props__ = StackFleetAssociationArgs.__new__(StackFleetAssociationArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["fleet_name"] = None
         __props__.__dict__["stack_name"] = None
         return StackFleetAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="fleetName")

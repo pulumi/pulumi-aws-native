@@ -21,6 +21,8 @@ type Multiplex struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A list of availability zones for the multiplex.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+	// The unique id of the multiplex.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A list of the multiplex output destinations.
 	Destinations MultiplexOutputDestinationArrayOutput `pulumi:"destinations"`
 	// Configuration for a multiplex event.
@@ -157,6 +159,11 @@ func (o MultiplexOutput) Arn() pulumi.StringOutput {
 // A list of availability zones for the multiplex.
 func (o MultiplexOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// The unique id of the multiplex.
+func (o MultiplexOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Multiplex) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A list of the multiplex output destinations.

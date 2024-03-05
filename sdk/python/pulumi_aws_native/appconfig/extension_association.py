@@ -147,6 +147,7 @@ class ExtensionAssociation(pulumi.CustomResource):
             __props__.__dict__["resource_identifier"] = resource_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["extension_arn"] = None
             __props__.__dict__["resource_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["extension_identifier", "extension_version_number", "resource_identifier", "tags[*]"])
@@ -174,6 +175,7 @@ class ExtensionAssociation(pulumi.CustomResource):
         __props__ = ExtensionAssociationArgs.__new__(ExtensionAssociationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["extension_arn"] = None
         __props__.__dict__["extension_identifier"] = None
         __props__.__dict__["extension_version_number"] = None
@@ -187,6 +189,11 @@ class ExtensionAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="extensionArn")

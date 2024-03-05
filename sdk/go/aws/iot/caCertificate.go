@@ -19,6 +19,7 @@ type CaCertificate struct {
 
 	Arn                    pulumi.StringOutput                          `pulumi:"arn"`
 	AutoRegistrationStatus CaCertificateAutoRegistrationStatusPtrOutput `pulumi:"autoRegistrationStatus"`
+	AwsId                  pulumi.StringOutput                          `pulumi:"awsId"`
 	CaCertificatePem       pulumi.StringOutput                          `pulumi:"caCertificatePem"`
 	CertificateMode        CaCertificateCertificateModePtrOutput        `pulumi:"certificateMode"`
 	RegistrationConfig     CaCertificateRegistrationConfigPtrOutput     `pulumi:"registrationConfig"`
@@ -151,6 +152,10 @@ func (o CaCertificateOutput) Arn() pulumi.StringOutput {
 
 func (o CaCertificateOutput) AutoRegistrationStatus() CaCertificateAutoRegistrationStatusPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) CaCertificateAutoRegistrationStatusPtrOutput { return v.AutoRegistrationStatus }).(CaCertificateAutoRegistrationStatusPtrOutput)
+}
+
+func (o CaCertificateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CaCertificateOutput) CaCertificatePem() pulumi.StringOutput {

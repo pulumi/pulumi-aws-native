@@ -42,6 +42,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig | undefined>;
     /**
+     * Event Source Mapping Identifier UUID.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The maximum number of items to retrieve in a single batch.
      */
     public readonly batchSize!: pulumi.Output<number | undefined>;
@@ -167,8 +171,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["amazonManagedKafkaEventSourceConfig"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["batchSize"] = undefined /*out*/;
             resourceInputs["bisectBatchOnFunctionError"] = undefined /*out*/;
             resourceInputs["destinationConfig"] = undefined /*out*/;

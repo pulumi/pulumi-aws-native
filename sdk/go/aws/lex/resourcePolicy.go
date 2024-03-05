@@ -16,6 +16,7 @@ import (
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput        `pulumi:"awsId"`
 	Policy      ResourcePolicyPolicyOutput `pulumi:"policy"`
 	ResourceArn pulumi.StringOutput        `pulumi:"resourceArn"`
 	RevisionId  pulumi.StringOutput        `pulumi:"revisionId"`
@@ -112,6 +113,10 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutput() ResourcePolicyOutput {
 
 func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput {
 	return o
+}
+
+func (o ResourcePolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ResourcePolicyOutput) Policy() ResourcePolicyPolicyOutput {

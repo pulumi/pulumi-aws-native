@@ -40,6 +40,7 @@ export class SizeConstraintSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SizeConstraintSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly sizeConstraints!: pulumi.Output<outputs.wafregional.SizeConstraintSetSizeConstraint[] | undefined>;
 
@@ -58,7 +59,9 @@ export class SizeConstraintSet extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sizeConstraints"] = undefined /*out*/;
         }

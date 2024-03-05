@@ -42,6 +42,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The id of the Amazon DataZone domain.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The timestamp of when the Amazon DataZone domain was last updated.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -107,6 +111,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["managedAccountId"] = undefined /*out*/;
@@ -114,6 +119,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domainExecutionRole"] = undefined /*out*/;

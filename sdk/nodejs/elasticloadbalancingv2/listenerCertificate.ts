@@ -40,6 +40,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ListenerCertificate.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly certificates!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerCertificateCertificate[]>;
     public readonly listenerArn!: pulumi.Output<string>;
 
@@ -64,7 +65,9 @@ export class ListenerCertificate extends pulumi.CustomResource {
             }
             resourceInputs["certificates"] = args ? args.certificates : undefined;
             resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificates"] = undefined /*out*/;
             resourceInputs["listenerArn"] = undefined /*out*/;
         }

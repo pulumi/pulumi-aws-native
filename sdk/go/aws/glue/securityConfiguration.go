@@ -18,6 +18,7 @@ import (
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState
 
+	AwsId                   pulumi.StringOutput                                `pulumi:"awsId"`
 	EncryptionConfiguration SecurityConfigurationEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	Name                    pulumi.StringOutput                                `pulumi:"name"`
 }
@@ -114,6 +115,10 @@ func (o SecurityConfigurationOutput) ToSecurityConfigurationOutput() SecurityCon
 
 func (o SecurityConfigurationOutput) ToSecurityConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationOutput {
 	return o
+}
+
+func (o SecurityConfigurationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SecurityConfigurationOutput) EncryptionConfiguration() SecurityConfigurationEncryptionConfigurationOutput {

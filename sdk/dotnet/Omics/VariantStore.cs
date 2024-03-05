@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Omics
     [AwsNativeResourceType("aws-native:omics:VariantStore")]
     public partial class VariantStore : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 

@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("configurationProfileId")]
         public Output<string> ConfigurationProfileId { get; private set; } = null!;
 

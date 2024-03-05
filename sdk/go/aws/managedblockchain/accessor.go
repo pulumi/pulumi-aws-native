@@ -21,6 +21,7 @@ type Accessor struct {
 
 	AccessorType AccessorTypeOutput                   `pulumi:"accessorType"`
 	Arn          pulumi.StringOutput                  `pulumi:"arn"`
+	AwsId        pulumi.StringOutput                  `pulumi:"awsId"`
 	BillingToken pulumi.StringOutput                  `pulumi:"billingToken"`
 	CreationDate pulumi.StringOutput                  `pulumi:"creationDate"`
 	NetworkType  AccessorNetworkAccessorTypePtrOutput `pulumi:"networkType"`
@@ -134,6 +135,10 @@ func (o AccessorOutput) AccessorType() AccessorTypeOutput {
 
 func (o AccessorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accessor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AccessorOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Accessor) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AccessorOutput) BillingToken() pulumi.StringOutput {

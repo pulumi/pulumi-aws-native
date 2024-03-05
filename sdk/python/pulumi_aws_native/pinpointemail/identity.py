@@ -149,6 +149,7 @@ class Identity(pulumi.CustomResource):
             __props__.__dict__["mail_from_attributes"] = mail_from_attributes
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["identity_dns_record_name1"] = None
             __props__.__dict__["identity_dns_record_name2"] = None
             __props__.__dict__["identity_dns_record_name3"] = None
@@ -179,6 +180,7 @@ class Identity(pulumi.CustomResource):
 
         __props__ = IdentityArgs.__new__(IdentityArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["dkim_signing_enabled"] = None
         __props__.__dict__["feedback_forwarding_enabled"] = None
         __props__.__dict__["identity_dns_record_name1"] = None
@@ -191,6 +193,11 @@ class Identity(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Identity(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="dkimSigningEnabled")

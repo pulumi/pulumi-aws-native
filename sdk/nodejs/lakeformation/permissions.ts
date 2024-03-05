@@ -40,6 +40,7 @@ export class Permissions extends pulumi.CustomResource {
         return obj['__pulumiType'] === Permissions.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly dataLakePrincipal!: pulumi.Output<outputs.lakeformation.PermissionsDataLakePrincipal>;
     public readonly permissions!: pulumi.Output<string[] | undefined>;
     public readonly permissionsWithGrantOption!: pulumi.Output<string[] | undefined>;
@@ -68,7 +69,9 @@ export class Permissions extends pulumi.CustomResource {
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["permissionsWithGrantOption"] = args ? args.permissionsWithGrantOption : undefined;
             resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataLakePrincipal"] = undefined /*out*/;
             resourceInputs["permissions"] = undefined /*out*/;
             resourceInputs["permissionsWithGrantOption"] = undefined /*out*/;

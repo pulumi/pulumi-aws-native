@@ -18,6 +18,7 @@ type Channel struct {
 	pulumi.CustomResourceState
 
 	Arn                   pulumi.StringOutput                       `pulumi:"arn"`
+	AwsId                 pulumi.StringOutput                       `pulumi:"awsId"`
 	CdiInputSpecification ChannelCdiInputSpecificationPtrOutput     `pulumi:"cdiInputSpecification"`
 	ChannelClass          pulumi.StringPtrOutput                    `pulumi:"channelClass"`
 	Destinations          ChannelOutputDestinationArrayOutput       `pulumi:"destinations"`
@@ -149,6 +150,10 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 
 func (o ChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ChannelOutput) CdiInputSpecification() ChannelCdiInputSpecificationPtrOutput {

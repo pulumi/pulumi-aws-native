@@ -41,6 +41,7 @@ export class User extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly homeDirectory!: pulumi.Output<string | undefined>;
     public readonly homeDirectoryMappings!: pulumi.Output<outputs.transfer.UserHomeDirectoryMapEntry[] | undefined>;
     public readonly homeDirectoryType!: pulumi.Output<string | undefined>;
@@ -82,8 +83,10 @@ export class User extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["homeDirectory"] = undefined /*out*/;
             resourceInputs["homeDirectoryMappings"] = undefined /*out*/;
             resourceInputs["homeDirectoryType"] = undefined /*out*/;

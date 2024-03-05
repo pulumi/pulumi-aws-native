@@ -16,6 +16,10 @@ namespace Pulumi.AwsNative.CloudFormation
     [AwsNativeResourceType("aws-native:cloudformation:WaitConditionHandle")]
     public partial class WaitConditionHandle : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+
         /// <summary>
         /// Create a WaitConditionHandle resource with the given unique name, arguments, and options.
         /// </summary>

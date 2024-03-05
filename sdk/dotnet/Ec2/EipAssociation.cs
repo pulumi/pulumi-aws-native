@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> AllocationId { get; private set; } = null!;
 
         /// <summary>
+        /// Composite ID of non-empty properties, to determine the identification.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The Elastic IP address to associate with the instance.
         /// </summary>
         [Output("eip")]

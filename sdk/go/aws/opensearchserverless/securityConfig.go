@@ -15,6 +15,8 @@ import (
 type SecurityConfig struct {
 	pulumi.CustomResourceState
 
+	// The identifier of the security config
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Security config description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The friendly name of the security config
@@ -121,6 +123,11 @@ func (o SecurityConfigOutput) ToSecurityConfigOutput() SecurityConfigOutput {
 
 func (o SecurityConfigOutput) ToSecurityConfigOutputWithContext(ctx context.Context) SecurityConfigOutput {
 	return o
+}
+
+// The identifier of the security config
+func (o SecurityConfigOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityConfig) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Security config description

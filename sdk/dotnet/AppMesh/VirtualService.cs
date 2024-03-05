@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.AppMesh
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("meshName")]
         public Output<string> MeshName { get; private set; } = null!;
 

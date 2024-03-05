@@ -41,6 +41,7 @@ export class Container extends pulumi.CustomResource {
     }
 
     public readonly accessLoggingEnabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly containerName!: pulumi.Output<string>;
     public readonly corsPolicy!: pulumi.Output<outputs.mediastore.ContainerCorsRule[] | undefined>;
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -69,9 +70,11 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["metricPolicy"] = args ? args.metricPolicy : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
         } else {
             resourceInputs["accessLoggingEnabled"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["containerName"] = undefined /*out*/;
             resourceInputs["corsPolicy"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

@@ -123,6 +123,7 @@ class LoggerDefinition(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["latest_version_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["initial_version"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -149,6 +150,7 @@ class LoggerDefinition(pulumi.CustomResource):
         __props__ = LoggerDefinitionArgs.__new__(LoggerDefinitionArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["initial_version"] = None
         __props__.__dict__["latest_version_arn"] = None
         __props__.__dict__["name"] = None
@@ -159,6 +161,11 @@ class LoggerDefinition(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="initialVersion")

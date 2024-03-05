@@ -18,6 +18,8 @@ type EventSourceMapping struct {
 
 	// Specific configuration settings for an MSK event source.
 	AmazonManagedKafkaEventSourceConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput `pulumi:"amazonManagedKafkaEventSourceConfig"`
+	// Event Source Mapping Identifier UUID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The maximum number of items to retrieve in a single batch.
 	BatchSize pulumi.IntPtrOutput `pulumi:"batchSize"`
 	// (Streams) If the function returns an error, split the batch in two and retry.
@@ -256,6 +258,11 @@ func (o EventSourceMappingOutput) AmazonManagedKafkaEventSourceConfig() EventSou
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
 		return v.AmazonManagedKafkaEventSourceConfig
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
+}
+
+// Event Source Mapping Identifier UUID.
+func (o EventSourceMappingOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The maximum number of items to retrieve in a single batch.

@@ -101,6 +101,7 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dashboard_body'")
             __props__.__dict__["dashboard_body"] = dashboard_body
             __props__.__dict__["dashboard_name"] = dashboard_name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dashboard_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dashboard, __self__).__init__(
@@ -125,9 +126,15 @@ class Dashboard(pulumi.CustomResource):
 
         __props__ = DashboardArgs.__new__(DashboardArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["dashboard_body"] = None
         __props__.__dict__["dashboard_name"] = None
         return Dashboard(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="dashboardBody")

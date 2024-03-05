@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ses
     [AwsNativeResourceType("aws-native:ses:ReceiptFilter")]
     public partial class ReceiptFilter : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("filter")]
         public Output<Outputs.ReceiptFilterFilter> Filter { get; private set; } = null!;
 

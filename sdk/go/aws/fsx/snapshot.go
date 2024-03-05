@@ -19,6 +19,7 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput `pulumi:"awsId"`
 	Name        pulumi.StringOutput `pulumi:"name"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	Tags        aws.TagArrayOutput  `pulumi:"tags"`
@@ -119,6 +120,10 @@ func (o SnapshotOutput) ToSnapshotOutput() SnapshotOutput {
 
 func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutput {
 	return o
+}
+
+func (o SnapshotOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SnapshotOutput) Name() pulumi.StringOutput {

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Organizations
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The unique identifier (ID) of an organization.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
         /// </summary>
         [Output("featureSet")]

@@ -40,6 +40,7 @@ export class ConfigurationAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationAssociation.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly broker!: pulumi.Output<string>;
     public readonly configuration!: pulumi.Output<outputs.amazonmq.ConfigurationAssociationConfigurationId>;
 
@@ -64,7 +65,9 @@ export class ConfigurationAssociation extends pulumi.CustomResource {
             }
             resourceInputs["broker"] = args ? args.broker : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["broker"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
         }

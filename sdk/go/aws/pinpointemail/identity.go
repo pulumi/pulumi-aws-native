@@ -18,6 +18,7 @@ import (
 type Identity struct {
 	pulumi.CustomResourceState
 
+	AwsId                     pulumi.StringOutput                 `pulumi:"awsId"`
 	DkimSigningEnabled        pulumi.BoolPtrOutput                `pulumi:"dkimSigningEnabled"`
 	FeedbackForwardingEnabled pulumi.BoolPtrOutput                `pulumi:"feedbackForwardingEnabled"`
 	IdentityDnsRecordName1    pulumi.StringOutput                 `pulumi:"identityDnsRecordName1"`
@@ -126,6 +127,10 @@ func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
 
 func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
 	return o
+}
+
+func (o IdentityOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o IdentityOutput) DkimSigningEnabled() pulumi.BoolPtrOutput {

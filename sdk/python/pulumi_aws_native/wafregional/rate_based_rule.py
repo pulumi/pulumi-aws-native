@@ -150,6 +150,7 @@ class RateBasedRule(pulumi.CustomResource):
             if rate_limit is None and not opts.urn:
                 raise TypeError("Missing required property 'rate_limit'")
             __props__.__dict__["rate_limit"] = rate_limit
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["metric_name", "name", "rate_key"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RateBasedRule, __self__).__init__(
@@ -174,12 +175,18 @@ class RateBasedRule(pulumi.CustomResource):
 
         __props__ = RateBasedRuleArgs.__new__(RateBasedRuleArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["match_predicates"] = None
         __props__.__dict__["metric_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rate_key"] = None
         __props__.__dict__["rate_limit"] = None
         return RateBasedRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="matchPredicates")

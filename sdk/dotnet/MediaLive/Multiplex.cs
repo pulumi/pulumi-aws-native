@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.MediaLive
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
+        /// The unique id of the multiplex.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// A list of the multiplex output destinations.
         /// </summary>
         [Output("destinations")]

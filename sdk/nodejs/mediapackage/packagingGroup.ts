@@ -46,6 +46,10 @@ export class PackagingGroup extends pulumi.CustomResource {
      */
     public readonly authorization!: pulumi.Output<outputs.mediapackage.PackagingGroupAuthorization | undefined>;
     /**
+     * The ID of the PackagingGroup.
+     */
+    public readonly awsId!: pulumi.Output<string>;
+    /**
      * The fully qualified domain name for Assets in the PackagingGroup.
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
@@ -65,11 +69,15 @@ export class PackagingGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PackagingGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PackagingGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.awsId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'awsId'");
+            }
             resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["awsId"] = args ? args.awsId : undefined;
             resourceInputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -77,6 +85,7 @@ export class PackagingGroup extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authorization"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["egressAccessLogs"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -96,6 +105,10 @@ export interface PackagingGroupArgs {
      * CDN Authorization
      */
     authorization?: pulumi.Input<inputs.mediapackage.PackagingGroupAuthorizationArgs>;
+    /**
+     * The ID of the PackagingGroup.
+     */
+    awsId: pulumi.Input<string>;
     /**
      * The configuration parameters for egress access logging.
      */

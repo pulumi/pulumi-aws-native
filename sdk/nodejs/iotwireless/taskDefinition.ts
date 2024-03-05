@@ -46,6 +46,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly autoCreateTasks!: pulumi.Output<boolean>;
     /**
+     * The ID of the new wireless gateway task definition
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The list of task definitions.
      */
     public readonly loRaWanUpdateGatewayTaskEntry!: pulumi.Output<outputs.iotwireless.TaskDefinitionLoRaWanUpdateGatewayTaskEntry | undefined>;
@@ -87,9 +91,11 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["taskDefinitionType"] = args ? args.taskDefinitionType : undefined;
             resourceInputs["update"] = args ? args.update : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoCreateTasks"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["loRaWanUpdateGatewayTaskEntry"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

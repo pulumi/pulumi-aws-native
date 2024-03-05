@@ -21,6 +21,7 @@ type Project struct {
 
 	Arn                     pulumi.StringOutput                  `pulumi:"arn"`
 	Artifacts               ProjectArtifactsOutput               `pulumi:"artifacts"`
+	AwsId                   pulumi.StringOutput                  `pulumi:"awsId"`
 	BadgeEnabled            pulumi.BoolPtrOutput                 `pulumi:"badgeEnabled"`
 	BuildBatchConfig        ProjectBuildBatchConfigPtrOutput     `pulumi:"buildBatchConfig"`
 	Cache                   ProjectCachePtrOutput                `pulumi:"cache"`
@@ -199,6 +200,10 @@ func (o ProjectOutput) Arn() pulumi.StringOutput {
 
 func (o ProjectOutput) Artifacts() ProjectArtifactsOutput {
 	return o.ApplyT(func(v *Project) ProjectArtifactsOutput { return v.Artifacts }).(ProjectArtifactsOutput)
+}
+
+func (o ProjectOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ProjectOutput) BadgeEnabled() pulumi.BoolPtrOutput {

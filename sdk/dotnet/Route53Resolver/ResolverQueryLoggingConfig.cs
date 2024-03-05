@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         public Output<int> AssociationCount { get; private set; } = null!;
 
         /// <summary>
+        /// ResourceId
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Rfc3339TimeString
         /// </summary>
         [Output("creationTime")]

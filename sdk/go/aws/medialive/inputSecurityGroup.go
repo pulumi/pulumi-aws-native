@@ -17,7 +17,8 @@ import (
 type InputSecurityGroup struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn   pulumi.StringOutput `pulumi:"arn"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
 	Tags           pulumi.AnyOutput                                    `pulumi:"tags"`
 	WhitelistRules InputSecurityGroupInputWhitelistRuleCidrArrayOutput `pulumi:"whitelistRules"`
@@ -114,6 +115,10 @@ func (o InputSecurityGroupOutput) ToInputSecurityGroupOutputWithContext(ctx cont
 
 func (o InputSecurityGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o InputSecurityGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InputSecurityGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.

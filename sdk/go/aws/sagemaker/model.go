@@ -18,6 +18,7 @@ import (
 type Model struct {
 	pulumi.CustomResourceState
 
+	AwsId                    pulumi.StringOutput                    `pulumi:"awsId"`
 	Containers               ModelContainerDefinitionArrayOutput    `pulumi:"containers"`
 	EnableNetworkIsolation   pulumi.BoolPtrOutput                   `pulumi:"enableNetworkIsolation"`
 	ExecutionRoleArn         pulumi.StringPtrOutput                 `pulumi:"executionRoleArn"`
@@ -135,6 +136,10 @@ func (o ModelOutput) ToModelOutput() ModelOutput {
 
 func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
+}
+
+func (o ModelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ModelOutput) Containers() ModelContainerDefinitionArrayOutput {

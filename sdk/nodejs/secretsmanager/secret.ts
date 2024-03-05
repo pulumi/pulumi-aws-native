@@ -41,6 +41,7 @@ export class Secret extends pulumi.CustomResource {
         return obj['__pulumiType'] === Secret.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The description of the secret.
      */
@@ -98,7 +99,9 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["replicaRegions"] = args ? args.replicaRegions : undefined;
             resourceInputs["secretString"] = args ? args.secretString : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["generateSecretString"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;

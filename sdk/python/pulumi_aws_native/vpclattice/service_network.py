@@ -113,6 +113,7 @@ class ServiceNetwork(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
@@ -141,6 +142,7 @@ class ServiceNetwork(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["auth_type"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["name"] = None
@@ -156,6 +158,11 @@ class ServiceNetwork(pulumi.CustomResource):
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Output[Optional['ServiceNetworkAuthType']]:
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

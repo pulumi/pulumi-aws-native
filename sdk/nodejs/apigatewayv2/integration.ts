@@ -41,6 +41,7 @@ export class Integration extends pulumi.CustomResource {
     }
 
     public readonly apiId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly connectionId!: pulumi.Output<string | undefined>;
     public readonly connectionType!: pulumi.Output<string | undefined>;
     public readonly contentHandlingStrategy!: pulumi.Output<string | undefined>;
@@ -105,8 +106,10 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
             resourceInputs["timeoutInMillis"] = args ? args.timeoutInMillis : undefined;
             resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["connectionId"] = undefined /*out*/;
             resourceInputs["connectionType"] = undefined /*out*/;
             resourceInputs["contentHandlingStrategy"] = undefined /*out*/;

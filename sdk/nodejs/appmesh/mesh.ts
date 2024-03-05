@@ -41,6 +41,7 @@ export class Mesh extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly meshName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly meshOwner!: pulumi.Output<string>;
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
@@ -65,11 +66,13 @@ export class Mesh extends pulumi.CustomResource {
             resourceInputs["spec"] = args ? args.spec : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["meshOwner"] = undefined /*out*/;
             resourceInputs["resourceOwner"] = undefined /*out*/;
             resourceInputs["uid"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["meshName"] = undefined /*out*/;
             resourceInputs["meshOwner"] = undefined /*out*/;
             resourceInputs["resourceOwner"] = undefined /*out*/;

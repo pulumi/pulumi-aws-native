@@ -42,6 +42,7 @@ export class ResourceShare extends pulumi.CustomResource {
 
     public readonly allowExternalPrincipals!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly permissionArns!: pulumi.Output<string[] | undefined>;
     public readonly principals!: pulumi.Output<string[] | undefined>;
@@ -70,9 +71,11 @@ export class ResourceShare extends pulumi.CustomResource {
             resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["allowExternalPrincipals"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["permissionArns"] = undefined /*out*/;
             resourceInputs["principals"] = undefined /*out*/;

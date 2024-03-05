@@ -16,6 +16,7 @@ import (
 type SpotFleet struct {
 	pulumi.CustomResourceState
 
+	AwsId                      pulumi.StringOutput              `pulumi:"awsId"`
 	SpotFleetRequestConfigData SpotFleetRequestConfigDataOutput `pulumi:"spotFleetRequestConfigData"`
 }
 
@@ -127,6 +128,10 @@ func (o SpotFleetOutput) ToSpotFleetOutput() SpotFleetOutput {
 
 func (o SpotFleetOutput) ToSpotFleetOutputWithContext(ctx context.Context) SpotFleetOutput {
 	return o
+}
+
+func (o SpotFleetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpotFleet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SpotFleetOutput) SpotFleetRequestConfigData() SpotFleetRequestConfigDataOutput {

@@ -18,6 +18,7 @@ type IdentityPool struct {
 
 	AllowClassicFlow               pulumi.BoolPtrOutput `pulumi:"allowClassicFlow"`
 	AllowUnauthenticatedIdentities pulumi.BoolOutput    `pulumi:"allowUnauthenticatedIdentities"`
+	AwsId                          pulumi.StringOutput  `pulumi:"awsId"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
 	CognitoEvents             pulumi.AnyOutput                               `pulumi:"cognitoEvents"`
 	CognitoIdentityProviders  IdentityPoolCognitoIdentityProviderArrayOutput `pulumi:"cognitoIdentityProviders"`
@@ -150,6 +151,10 @@ func (o IdentityPoolOutput) AllowClassicFlow() pulumi.BoolPtrOutput {
 
 func (o IdentityPoolOutput) AllowUnauthenticatedIdentities() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.BoolOutput { return v.AllowUnauthenticatedIdentities }).(pulumi.BoolOutput)
+}
+
+func (o IdentityPoolOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.

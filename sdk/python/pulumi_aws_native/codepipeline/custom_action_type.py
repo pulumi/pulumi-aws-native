@@ -233,6 +233,7 @@ class CustomActionType(pulumi.CustomResource):
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["category", "configuration_properties[*]", "input_artifact_details", "output_artifact_details", "provider", "settings", "version"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomActionType, __self__).__init__(
@@ -257,6 +258,7 @@ class CustomActionType(pulumi.CustomResource):
 
         __props__ = CustomActionTypeArgs.__new__(CustomActionTypeArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["category"] = None
         __props__.__dict__["configuration_properties"] = None
         __props__.__dict__["input_artifact_details"] = None
@@ -266,6 +268,11 @@ class CustomActionType(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["version"] = None
         return CustomActionType(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

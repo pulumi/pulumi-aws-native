@@ -22,6 +22,7 @@ type Stage struct {
 	AccessPolicyId       pulumi.StringPtrOutput          `pulumi:"accessPolicyId"`
 	ApiId                pulumi.StringOutput             `pulumi:"apiId"`
 	AutoDeploy           pulumi.BoolPtrOutput            `pulumi:"autoDeploy"`
+	AwsId                pulumi.StringOutput             `pulumi:"awsId"`
 	ClientCertificateId  pulumi.StringPtrOutput          `pulumi:"clientCertificateId"`
 	DefaultRouteSettings StageRouteSettingsPtrOutput     `pulumi:"defaultRouteSettings"`
 	DeploymentId         pulumi.StringPtrOutput          `pulumi:"deploymentId"`
@@ -170,6 +171,10 @@ func (o StageOutput) ApiId() pulumi.StringOutput {
 
 func (o StageOutput) AutoDeploy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.BoolPtrOutput { return v.AutoDeploy }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o StageOutput) ClientCertificateId() pulumi.StringPtrOutput {

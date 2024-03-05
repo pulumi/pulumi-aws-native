@@ -158,6 +158,7 @@ class IpSet(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_id", "format"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpSet, __self__).__init__(
@@ -183,6 +184,7 @@ class IpSet(pulumi.CustomResource):
         __props__ = IpSetArgs.__new__(IpSetArgs)
 
         __props__.__dict__["activate"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["detector_id"] = None
         __props__.__dict__["format"] = None
         __props__.__dict__["location"] = None
@@ -194,6 +196,11 @@ class IpSet(pulumi.CustomResource):
     @pulumi.getter
     def activate(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "activate")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="detectorId")

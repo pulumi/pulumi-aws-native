@@ -306,6 +306,7 @@ class DevEndpoint(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["worker_type"] = worker_type
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DevEndpoint, __self__).__init__(
@@ -331,6 +332,7 @@ class DevEndpoint(pulumi.CustomResource):
         __props__ = DevEndpointArgs.__new__(DevEndpointArgs)
 
         __props__.__dict__["arguments"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["endpoint_name"] = None
         __props__.__dict__["extra_jars_s3_path"] = None
         __props__.__dict__["extra_python_libs_s3_path"] = None
@@ -354,6 +356,11 @@ class DevEndpoint(pulumi.CustomResource):
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="endpointName")

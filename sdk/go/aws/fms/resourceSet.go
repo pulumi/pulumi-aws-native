@@ -17,6 +17,7 @@ import (
 type ResourceSet struct {
 	pulumi.CustomResourceState
 
+	AwsId            pulumi.StringOutput      `pulumi:"awsId"`
 	Description      pulumi.StringPtrOutput   `pulumi:"description"`
 	Name             pulumi.StringOutput      `pulumi:"name"`
 	ResourceTypeList pulumi.StringArrayOutput `pulumi:"resourceTypeList"`
@@ -118,6 +119,10 @@ func (o ResourceSetOutput) ToResourceSetOutput() ResourceSetOutput {
 
 func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) ResourceSetOutput {
 	return o
+}
+
+func (o ResourceSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ResourceSetOutput) Description() pulumi.StringPtrOutput {

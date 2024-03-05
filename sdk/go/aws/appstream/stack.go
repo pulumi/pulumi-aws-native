@@ -21,6 +21,7 @@ type Stack struct {
 	AccessEndpoints             StackAccessEndpointArrayOutput            `pulumi:"accessEndpoints"`
 	ApplicationSettings         StackApplicationSettingsPtrOutput         `pulumi:"applicationSettings"`
 	AttributesToDelete          pulumi.StringArrayOutput                  `pulumi:"attributesToDelete"`
+	AwsId                       pulumi.StringOutput                       `pulumi:"awsId"`
 	DeleteStorageConnectors     pulumi.BoolPtrOutput                      `pulumi:"deleteStorageConnectors"`
 	Description                 pulumi.StringPtrOutput                    `pulumi:"description"`
 	DisplayName                 pulumi.StringPtrOutput                    `pulumi:"displayName"`
@@ -159,6 +160,10 @@ func (o StackOutput) ApplicationSettings() StackApplicationSettingsPtrOutput {
 
 func (o StackOutput) AttributesToDelete() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.AttributesToDelete }).(pulumi.StringArrayOutput)
+}
+
+func (o StackOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o StackOutput) DeleteStorageConnectors() pulumi.BoolPtrOutput {

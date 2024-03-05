@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:ContinuousDeploymentPolicy")]
     public partial class ContinuousDeploymentPolicy : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("continuousDeploymentPolicyConfig")]
         public Output<Outputs.ContinuousDeploymentPolicyConfig> ContinuousDeploymentPolicyConfig { get; private set; } = null!;
 

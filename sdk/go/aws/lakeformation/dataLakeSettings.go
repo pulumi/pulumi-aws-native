@@ -21,6 +21,7 @@ type DataLakeSettings struct {
 	AllowExternalDataFiltering       pulumi.BoolPtrOutput                                      `pulumi:"allowExternalDataFiltering"`
 	AllowFullTableExternalDataAccess pulumi.BoolPtrOutput                                      `pulumi:"allowFullTableExternalDataAccess"`
 	AuthorizedSessionTagValueList    pulumi.StringArrayOutput                                  `pulumi:"authorizedSessionTagValueList"`
+	AwsId                            pulumi.StringOutput                                       `pulumi:"awsId"`
 	CreateDatabaseDefaultPermissions DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput `pulumi:"createDatabaseDefaultPermissions"`
 	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionsPtrOutput    `pulumi:"createTableDefaultPermissions"`
 	ExternalDataFilteringAllowList   DataLakeSettingsExternalDataFilteringAllowListPtrOutput   `pulumi:"externalDataFilteringAllowList"`
@@ -149,6 +150,10 @@ func (o DataLakeSettingsOutput) AllowFullTableExternalDataAccess() pulumi.BoolPt
 
 func (o DataLakeSettingsOutput) AuthorizedSessionTagValueList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.AuthorizedSessionTagValueList }).(pulumi.StringArrayOutput)
+}
+
+func (o DataLakeSettingsOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DataLakeSettingsOutput) CreateDatabaseDefaultPermissions() DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {

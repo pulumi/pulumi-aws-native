@@ -41,6 +41,7 @@ export class Trigger extends pulumi.CustomResource {
     }
 
     public readonly actions!: pulumi.Output<outputs.glue.TriggerAction[]>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly eventBatchingCondition!: pulumi.Output<outputs.glue.TriggerEventBatchingCondition | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -83,8 +84,10 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["eventBatchingCondition"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

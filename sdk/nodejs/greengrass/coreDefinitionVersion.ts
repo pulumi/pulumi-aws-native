@@ -40,6 +40,7 @@ export class CoreDefinitionVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === CoreDefinitionVersion.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly coreDefinitionId!: pulumi.Output<string>;
     public readonly cores!: pulumi.Output<outputs.greengrass.CoreDefinitionVersionCore[]>;
 
@@ -64,7 +65,9 @@ export class CoreDefinitionVersion extends pulumi.CustomResource {
             }
             resourceInputs["coreDefinitionId"] = args ? args.coreDefinitionId : undefined;
             resourceInputs["cores"] = args ? args.cores : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["coreDefinitionId"] = undefined /*out*/;
             resourceInputs["cores"] = undefined /*out*/;
         }

@@ -107,6 +107,7 @@ class CidrCollection(pulumi.CustomResource):
             __props__.__dict__["locations"] = locations
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CidrCollection, __self__).__init__(
@@ -132,6 +133,7 @@ class CidrCollection(pulumi.CustomResource):
         __props__ = CidrCollectionArgs.__new__(CidrCollectionArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["locations"] = None
         __props__.__dict__["name"] = None
         return CidrCollection(resource_name, opts=opts, __props__=__props__)
@@ -143,6 +145,14 @@ class CidrCollection(pulumi.CustomResource):
         The Amazon resource name (ARN) to uniquely identify the AWS resource.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        UUID of the CIDR collection.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

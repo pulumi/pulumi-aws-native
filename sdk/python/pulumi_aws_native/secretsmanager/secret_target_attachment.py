@@ -118,6 +118,7 @@ class SecretTargetAttachment(pulumi.CustomResource):
             if target_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
+            __props__.__dict__["aws_id"] = None
         super(SecretTargetAttachment, __self__).__init__(
             'aws-native:secretsmanager:SecretTargetAttachment',
             resource_name,
@@ -140,10 +141,16 @@ class SecretTargetAttachment(pulumi.CustomResource):
 
         __props__ = SecretTargetAttachmentArgs.__new__(SecretTargetAttachmentArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["secret_id"] = None
         __props__.__dict__["target_id"] = None
         __props__.__dict__["target_type"] = None
         return SecretTargetAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="secretId")

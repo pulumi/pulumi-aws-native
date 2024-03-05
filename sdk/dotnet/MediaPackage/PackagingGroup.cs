@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.MediaPackage
         public Output<Outputs.PackagingGroupAuthorization?> Authorization { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the PackagingGroup.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified domain name for Assets in the PackagingGroup.
         /// </summary>
         [Output("domainName")]
@@ -53,7 +59,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PackagingGroup(string name, PackagingGroupArgs? args = null, CustomResourceOptions? options = null)
+        public PackagingGroup(string name, PackagingGroupArgs args, CustomResourceOptions? options = null)
             : base("aws-native:mediapackage:PackagingGroup", name, args ?? new PackagingGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,6 +105,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// </summary>
         [Input("authorization")]
         public Input<Inputs.PackagingGroupAuthorizationArgs>? Authorization { get; set; }
+
+        /// <summary>
+        /// The ID of the PackagingGroup.
+        /// </summary>
+        [Input("awsId", required: true)]
+        public Input<string> AwsId { get; set; } = null!;
 
         /// <summary>
         /// The configuration parameters for egress access logging.

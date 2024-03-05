@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ses
     [AwsNativeResourceType("aws-native:ses:ConfigurationSetEventDestination")]
     public partial class ConfigurationSetEventDestination : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the configuration set that contains the event destination.
         /// </summary>

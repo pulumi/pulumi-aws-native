@@ -104,6 +104,7 @@ class LoggerDefinitionVersion(pulumi.CustomResource):
             if loggers is None and not opts.urn:
                 raise TypeError("Missing required property 'loggers'")
             __props__.__dict__["loggers"] = loggers
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["logger_definition_id", "loggers[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LoggerDefinitionVersion, __self__).__init__(
@@ -128,9 +129,15 @@ class LoggerDefinitionVersion(pulumi.CustomResource):
 
         __props__ = LoggerDefinitionVersionInitArgs.__new__(LoggerDefinitionVersionInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["logger_definition_id"] = None
         __props__.__dict__["loggers"] = None
         return LoggerDefinitionVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="loggerDefinitionId")

@@ -18,6 +18,7 @@ import (
 type Partition struct {
 	pulumi.CustomResourceState
 
+	AwsId          pulumi.StringOutput      `pulumi:"awsId"`
 	CatalogId      pulumi.StringOutput      `pulumi:"catalogId"`
 	DatabaseName   pulumi.StringOutput      `pulumi:"databaseName"`
 	PartitionInput PartitionInputTypeOutput `pulumi:"partitionInput"`
@@ -131,6 +132,10 @@ func (o PartitionOutput) ToPartitionOutput() PartitionOutput {
 
 func (o PartitionOutput) ToPartitionOutputWithContext(ctx context.Context) PartitionOutput {
 	return o
+}
+
+func (o PartitionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PartitionOutput) CatalogId() pulumi.StringOutput {

@@ -21,6 +21,8 @@ type TaskDefinition struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
 	AutoCreateTasks pulumi.BoolOutput `pulumi:"autoCreateTasks"`
+	// The ID of the new wireless gateway task definition
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The list of task definitions.
 	LoRaWanUpdateGatewayTaskEntry TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput `pulumi:"loRaWanUpdateGatewayTaskEntry"`
 	// The name of the new resource.
@@ -151,6 +153,11 @@ func (o TaskDefinitionOutput) Arn() pulumi.StringOutput {
 // Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
 func (o TaskDefinitionOutput) AutoCreateTasks() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolOutput { return v.AutoCreateTasks }).(pulumi.BoolOutput)
+}
+
+// The ID of the new wireless gateway task definition
+func (o TaskDefinitionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The list of task definitions.

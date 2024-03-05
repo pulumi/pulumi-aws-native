@@ -35,6 +35,10 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Service Generated ID of the EgressOnlyInternetGateway
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The ID of the VPC for which to create the egress-only internet gateway.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -54,7 +58,9 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

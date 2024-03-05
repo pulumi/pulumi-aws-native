@@ -231,6 +231,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project_identifier'")
             __props__.__dict__["project_identifier"] = project_identifier
             __props__.__dict__["user_parameters"] = user_parameters
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["domain_id"] = None
@@ -263,6 +264,7 @@ class EnvironmentProfile(pulumi.CustomResource):
 
         __props__.__dict__["aws_account_id"] = None
         __props__.__dict__["aws_account_region"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["description"] = None
@@ -292,6 +294,14 @@ class EnvironmentProfile(pulumi.CustomResource):
         The AWS region in which this environment profile is created.
         """
         return pulumi.get(self, "aws_account_region")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of this Amazon DataZone environment profile.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

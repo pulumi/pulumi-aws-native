@@ -46,6 +46,10 @@ export class Multiplex extends pulumi.CustomResource {
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
+     * The unique id of the multiplex.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * A list of the multiplex output destinations.
      */
     public readonly destinations!: pulumi.Output<outputs.medialive.MultiplexOutputDestination[] | undefined>;
@@ -94,12 +98,14 @@ export class Multiplex extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["pipelinesRunningCount"] = undefined /*out*/;
             resourceInputs["programCount"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
             resourceInputs["multiplexSettings"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

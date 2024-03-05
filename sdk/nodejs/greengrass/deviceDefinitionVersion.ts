@@ -40,6 +40,7 @@ export class DeviceDefinitionVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeviceDefinitionVersion.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly deviceDefinitionId!: pulumi.Output<string>;
     public readonly devices!: pulumi.Output<outputs.greengrass.DeviceDefinitionVersionDevice[]>;
 
@@ -64,7 +65,9 @@ export class DeviceDefinitionVersion extends pulumi.CustomResource {
             }
             resourceInputs["deviceDefinitionId"] = args ? args.deviceDefinitionId : undefined;
             resourceInputs["devices"] = args ? args.devices : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deviceDefinitionId"] = undefined /*out*/;
             resourceInputs["devices"] = undefined /*out*/;
         }

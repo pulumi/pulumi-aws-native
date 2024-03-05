@@ -38,6 +38,7 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
      */
     public readonly attributeMapping!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly idpIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
@@ -73,8 +74,10 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
             resourceInputs["providerName"] = args ? args.providerName : undefined;
             resourceInputs["providerType"] = args ? args.providerType : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["attributeMapping"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["idpIdentifiers"] = undefined /*out*/;
             resourceInputs["providerDetails"] = undefined /*out*/;
             resourceInputs["providerName"] = undefined /*out*/;

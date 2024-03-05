@@ -18,6 +18,7 @@ import (
 type Alias struct {
 	pulumi.CustomResourceState
 
+	AwsId                        pulumi.StringOutput                               `pulumi:"awsId"`
 	Description                  pulumi.StringPtrOutput                            `pulumi:"description"`
 	FunctionName                 pulumi.StringOutput                               `pulumi:"functionName"`
 	FunctionVersion              pulumi.StringOutput                               `pulumi:"functionVersion"`
@@ -130,6 +131,10 @@ func (o AliasOutput) ToAliasOutput() AliasOutput {
 
 func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
+}
+
+func (o AliasOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AliasOutput) Description() pulumi.StringPtrOutput {

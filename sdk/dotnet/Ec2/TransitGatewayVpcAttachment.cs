@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("addSubnetIds")]
         public Output<ImmutableArray<string>> AddSubnetIds { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// The options for the transit gateway vpc attachment.
         /// </summary>

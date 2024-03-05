@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Route53
     [AwsNativeResourceType("aws-native:route53:HostedZone")]
     public partial class HostedZone : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("hostedZoneConfig")]
         public Output<Outputs.HostedZoneConfig?> HostedZoneConfig { get; private set; } = null!;
 

@@ -21,6 +21,7 @@ type Pipeline struct {
 
 	ArtifactStore                  PipelineArtifactStorePtrOutput         `pulumi:"artifactStore"`
 	ArtifactStores                 PipelineArtifactStoreMapArrayOutput    `pulumi:"artifactStores"`
+	AwsId                          pulumi.StringOutput                    `pulumi:"awsId"`
 	DisableInboundStageTransitions PipelineStageTransitionArrayOutput     `pulumi:"disableInboundStageTransitions"`
 	ExecutionMode                  pulumi.StringPtrOutput                 `pulumi:"executionMode"`
 	Name                           pulumi.StringPtrOutput                 `pulumi:"name"`
@@ -157,6 +158,10 @@ func (o PipelineOutput) ArtifactStore() PipelineArtifactStorePtrOutput {
 
 func (o PipelineOutput) ArtifactStores() PipelineArtifactStoreMapArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineArtifactStoreMapArrayOutput { return v.ArtifactStores }).(PipelineArtifactStoreMapArrayOutput)
+}
+
+func (o PipelineOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PipelineOutput) DisableInboundStageTransitions() PipelineStageTransitionArrayOutput {

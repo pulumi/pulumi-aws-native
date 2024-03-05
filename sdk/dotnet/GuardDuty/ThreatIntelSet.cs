@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.GuardDuty
         [Output("activate")]
         public Output<bool?> Activate { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("detectorId")]
         public Output<string?> DetectorId { get; private set; } = null!;
 

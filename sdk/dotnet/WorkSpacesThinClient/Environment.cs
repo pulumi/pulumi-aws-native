@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.WorkSpacesThinClient
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Unique identifier of the environment.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp in unix epoch format when environment was created.
         /// </summary>
         [Output("createdAt")]

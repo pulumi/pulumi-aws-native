@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("amazonProvidedIpv6CidrBlock")]
         public Output<bool?> AmazonProvidedIpv6CidrBlock { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cidrBlock")]
         public Output<string?> CidrBlock { get; private set; } = null!;
 

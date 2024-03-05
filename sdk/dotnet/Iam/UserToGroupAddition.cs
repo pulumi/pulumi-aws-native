@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Iam
     [AwsNativeResourceType("aws-native:iam:UserToGroupAddition")]
     public partial class UserToGroupAddition : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 

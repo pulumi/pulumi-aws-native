@@ -40,6 +40,7 @@ export class GitHubRepository extends pulumi.CustomResource {
         return obj['__pulumiType'] === GitHubRepository.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly code!: pulumi.Output<outputs.codestar.GitHubRepositoryCode | undefined>;
     public readonly connectionArn!: pulumi.Output<string | undefined>;
     public readonly enableIssues!: pulumi.Output<boolean | undefined>;
@@ -76,7 +77,9 @@ export class GitHubRepository extends pulumi.CustomResource {
             resourceInputs["repositoryDescription"] = args ? args.repositoryDescription : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["repositoryOwner"] = args ? args.repositoryOwner : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["code"] = undefined /*out*/;
             resourceInputs["connectionArn"] = undefined /*out*/;
             resourceInputs["enableIssues"] = undefined /*out*/;

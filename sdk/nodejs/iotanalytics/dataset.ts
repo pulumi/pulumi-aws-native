@@ -38,6 +38,7 @@ export class Dataset extends pulumi.CustomResource {
     }
 
     public readonly actions!: pulumi.Output<outputs.iotanalytics.DatasetAction[]>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly contentDeliveryRules!: pulumi.Output<outputs.iotanalytics.DatasetContentDeliveryRule[] | undefined>;
     public readonly datasetName!: pulumi.Output<string | undefined>;
     public readonly lateDataRules!: pulumi.Output<outputs.iotanalytics.DatasetLateDataRule[] | undefined>;
@@ -68,8 +69,10 @@ export class Dataset extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["contentDeliveryRules"] = undefined /*out*/;
             resourceInputs["datasetName"] = undefined /*out*/;
             resourceInputs["lateDataRules"] = undefined /*out*/;

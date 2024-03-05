@@ -19,6 +19,7 @@ type InsightRule struct {
 	pulumi.CustomResourceState
 
 	Arn       pulumi.StringOutput      `pulumi:"arn"`
+	AwsId     pulumi.StringOutput      `pulumi:"awsId"`
 	RuleBody  pulumi.StringOutput      `pulumi:"ruleBody"`
 	RuleName  pulumi.StringOutput      `pulumi:"ruleName"`
 	RuleState pulumi.StringOutput      `pulumi:"ruleState"`
@@ -131,6 +132,10 @@ func (o InsightRuleOutput) ToInsightRuleOutputWithContext(ctx context.Context) I
 
 func (o InsightRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InsightRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o InsightRuleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InsightRule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o InsightRuleOutput) RuleBody() pulumi.StringOutput {

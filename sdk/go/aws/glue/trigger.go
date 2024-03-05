@@ -19,6 +19,7 @@ type Trigger struct {
 	pulumi.CustomResourceState
 
 	Actions                TriggerActionArrayOutput               `pulumi:"actions"`
+	AwsId                  pulumi.StringOutput                    `pulumi:"awsId"`
 	Description            pulumi.StringPtrOutput                 `pulumi:"description"`
 	EventBatchingCondition TriggerEventBatchingConditionPtrOutput `pulumi:"eventBatchingCondition"`
 	Name                   pulumi.StringPtrOutput                 `pulumi:"name"`
@@ -150,6 +151,10 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 
 func (o TriggerOutput) Actions() TriggerActionArrayOutput {
 	return o.ApplyT(func(v *Trigger) TriggerActionArrayOutput { return v.Actions }).(TriggerActionArrayOutput)
+}
+
+func (o TriggerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TriggerOutput) Description() pulumi.StringPtrOutput {

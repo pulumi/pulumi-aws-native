@@ -18,6 +18,7 @@ import (
 type XssMatchSet struct {
 	pulumi.CustomResourceState
 
+	AwsId          pulumi.StringOutput                 `pulumi:"awsId"`
 	Name           pulumi.StringOutput                 `pulumi:"name"`
 	XssMatchTuples XssMatchSetXssMatchTupleArrayOutput `pulumi:"xssMatchTuples"`
 }
@@ -114,6 +115,10 @@ func (o XssMatchSetOutput) ToXssMatchSetOutput() XssMatchSetOutput {
 
 func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) XssMatchSetOutput {
 	return o
+}
+
+func (o XssMatchSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o XssMatchSetOutput) Name() pulumi.StringOutput {

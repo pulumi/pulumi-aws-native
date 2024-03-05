@@ -19,6 +19,7 @@ type ReceiptRule struct {
 	pulumi.CustomResourceState
 
 	After       pulumi.StringPtrOutput `pulumi:"after"`
+	AwsId       pulumi.StringOutput    `pulumi:"awsId"`
 	Rule        ReceiptRuleRuleOutput  `pulumi:"rule"`
 	RuleSetName pulumi.StringOutput    `pulumi:"ruleSetName"`
 }
@@ -124,6 +125,10 @@ func (o ReceiptRuleOutput) ToReceiptRuleOutputWithContext(ctx context.Context) R
 
 func (o ReceiptRuleOutput) After() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringPtrOutput { return v.After }).(pulumi.StringPtrOutput)
+}
+
+func (o ReceiptRuleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ReceiptRuleOutput) Rule() ReceiptRuleRuleOutput {

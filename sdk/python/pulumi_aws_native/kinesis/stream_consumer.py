@@ -102,6 +102,7 @@ class StreamConsumer(pulumi.CustomResource):
             if stream_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_arn'")
             __props__.__dict__["stream_arn"] = stream_arn
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["consumer_arn"] = None
             __props__.__dict__["consumer_creation_timestamp"] = None
             __props__.__dict__["consumer_status"] = None
@@ -129,12 +130,18 @@ class StreamConsumer(pulumi.CustomResource):
 
         __props__ = StreamConsumerArgs.__new__(StreamConsumerArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["consumer_arn"] = None
         __props__.__dict__["consumer_creation_timestamp"] = None
         __props__.__dict__["consumer_name"] = None
         __props__.__dict__["consumer_status"] = None
         __props__.__dict__["stream_arn"] = None
         return StreamConsumer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="consumerArn")

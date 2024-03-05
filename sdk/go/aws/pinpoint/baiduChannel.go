@@ -20,6 +20,7 @@ type BaiduChannel struct {
 
 	ApiKey        pulumi.StringOutput  `pulumi:"apiKey"`
 	ApplicationId pulumi.StringOutput  `pulumi:"applicationId"`
+	AwsId         pulumi.StringOutput  `pulumi:"awsId"`
 	Enabled       pulumi.BoolPtrOutput `pulumi:"enabled"`
 	SecretKey     pulumi.StringOutput  `pulumi:"secretKey"`
 }
@@ -134,6 +135,10 @@ func (o BaiduChannelOutput) ApiKey() pulumi.StringOutput {
 
 func (o BaiduChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o BaiduChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o BaiduChannelOutput) Enabled() pulumi.BoolPtrOutput {

@@ -18,6 +18,7 @@ type ResourceDefinition struct {
 	pulumi.CustomResourceState
 
 	Arn              pulumi.StringOutput                    `pulumi:"arn"`
+	AwsId            pulumi.StringOutput                    `pulumi:"awsId"`
 	InitialVersion   ResourceDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                    `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                    `pulumi:"name"`
@@ -122,6 +123,10 @@ func (o ResourceDefinitionOutput) ToResourceDefinitionOutputWithContext(ctx cont
 
 func (o ResourceDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ResourceDefinitionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceDefinition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ResourceDefinitionOutput) InitialVersion() ResourceDefinitionVersionTypePtrOutput {

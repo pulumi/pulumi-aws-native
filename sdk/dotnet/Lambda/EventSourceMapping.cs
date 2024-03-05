@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig?> AmazonManagedKafkaEventSourceConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Event Source Mapping Identifier UUID.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum number of items to retrieve in a single batch.
         /// </summary>
         [Output("batchSize")]

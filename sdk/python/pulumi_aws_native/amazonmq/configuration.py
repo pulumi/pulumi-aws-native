@@ -181,6 +181,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["revision"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authentication_strategy", "engine_type", "engine_version", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -208,6 +209,7 @@ class Configuration(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["authentication_strategy"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["data"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["engine_type"] = None
@@ -226,6 +228,11 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="authenticationStrategy")
     def authentication_strategy(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "authentication_strategy")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

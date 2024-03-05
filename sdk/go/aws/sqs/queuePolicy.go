@@ -18,6 +18,7 @@ import (
 type QueuePolicy struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::QueuePolicy` for more information about the expected schema for this property.
@@ -125,6 +126,10 @@ func (o QueuePolicyOutput) ToQueuePolicyOutput() QueuePolicyOutput {
 
 func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) QueuePolicyOutput {
 	return o
+}
+
+func (o QueuePolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.

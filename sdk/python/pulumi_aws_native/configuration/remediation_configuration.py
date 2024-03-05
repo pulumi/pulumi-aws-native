@@ -230,6 +230,7 @@ class RemediationConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["target_version"] = target_version
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["config_rule_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RemediationConfiguration, __self__).__init__(
@@ -255,6 +256,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         __props__ = RemediationConfigurationArgs.__new__(RemediationConfigurationArgs)
 
         __props__.__dict__["automatic"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["config_rule_name"] = None
         __props__.__dict__["execution_controls"] = None
         __props__.__dict__["maximum_automatic_attempts"] = None
@@ -270,6 +272,11 @@ class RemediationConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def automatic(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "automatic")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="configRuleName")

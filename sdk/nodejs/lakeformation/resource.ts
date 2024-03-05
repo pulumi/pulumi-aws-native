@@ -37,6 +37,7 @@ export class Resource extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resource.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly hybridAccessEnabled!: pulumi.Output<boolean | undefined>;
     public readonly resourceArn!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -67,7 +68,9 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["useServiceLinkedRole"] = args ? args.useServiceLinkedRole : undefined;
             resourceInputs["withFederation"] = args ? args.withFederation : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["hybridAccessEnabled"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;

@@ -18,6 +18,7 @@ import (
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
+	AwsId             pulumi.StringOutput                        `pulumi:"awsId"`
 	DeliveryOptions   ConfigurationSetDeliveryOptionsPtrOutput   `pulumi:"deliveryOptions"`
 	Name              pulumi.StringOutput                        `pulumi:"name"`
 	ReputationOptions ConfigurationSetReputationOptionsPtrOutput `pulumi:"reputationOptions"`
@@ -123,6 +124,10 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutput() ConfigurationSetOutpu
 
 func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
 	return o
+}
+
+func (o ConfigurationSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOptionsPtrOutput {

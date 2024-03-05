@@ -149,6 +149,7 @@ class Portfolio(pulumi.CustomResource):
                 raise TypeError("Missing required property 'provider_name'")
             __props__.__dict__["provider_name"] = provider_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["portfolio_name"] = None
         super(Portfolio, __self__).__init__(
             'aws-native:servicecatalog:Portfolio',
@@ -173,6 +174,7 @@ class Portfolio(pulumi.CustomResource):
         __props__ = PortfolioArgs.__new__(PortfolioArgs)
 
         __props__.__dict__["accept_language"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["portfolio_name"] = None
@@ -184,6 +186,11 @@ class Portfolio(pulumi.CustomResource):
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "accept_language")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

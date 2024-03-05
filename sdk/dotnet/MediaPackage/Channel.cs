@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackage
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Channel.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// A short text description of the Channel.
         /// </summary>
         [Output("description")]
@@ -59,7 +65,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Channel(string name, ChannelArgs? args = null, CustomResourceOptions? options = null)
+        public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
             : base("aws-native:mediapackage:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -100,6 +106,12 @@ namespace Pulumi.AwsNative.MediaPackage
 
     public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Channel.
+        /// </summary>
+        [Input("awsId", required: true)]
+        public Input<string> AwsId { get; set; } = null!;
+
         /// <summary>
         /// A short text description of the Channel.
         /// </summary>

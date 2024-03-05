@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.FSx
     [AwsNativeResourceType("aws-native:fsx:FileSystem")]
     public partial class FileSystem : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("backupId")]
         public Output<string?> BackupId { get; private set; } = null!;
 

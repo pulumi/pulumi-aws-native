@@ -117,6 +117,7 @@ class NotebookInstanceLifecycleConfig(pulumi.CustomResource):
             __props__.__dict__["notebook_instance_lifecycle_config_name"] = notebook_instance_lifecycle_config_name
             __props__.__dict__["on_create"] = on_create
             __props__.__dict__["on_start"] = on_start
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["notebook_instance_lifecycle_config_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NotebookInstanceLifecycleConfig, __self__).__init__(
@@ -141,10 +142,16 @@ class NotebookInstanceLifecycleConfig(pulumi.CustomResource):
 
         __props__ = NotebookInstanceLifecycleConfigArgs.__new__(NotebookInstanceLifecycleConfigArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["notebook_instance_lifecycle_config_name"] = None
         __props__.__dict__["on_create"] = None
         __props__.__dict__["on_start"] = None
         return NotebookInstanceLifecycleConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="notebookInstanceLifecycleConfigName")

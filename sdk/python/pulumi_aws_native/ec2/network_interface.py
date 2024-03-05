@@ -404,6 +404,7 @@ class NetworkInterface(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["primary_ipv6_address"] = None
             __props__.__dict__["primary_private_ip_address"] = None
             __props__.__dict__["secondary_private_ip_addresses"] = None
@@ -431,6 +432,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__ = NetworkInterfaceArgs.__new__(NetworkInterfaceArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["connection_tracking_specification"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["enable_primary_ipv6"] = None
@@ -452,6 +454,14 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Network interface id.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="connectionTrackingSpecification")

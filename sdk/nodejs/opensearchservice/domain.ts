@@ -44,6 +44,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly advancedOptions!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly advancedSecurityOptions!: pulumi.Output<outputs.opensearchservice.DomainAdvancedSecurityOptionsInput | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly clusterConfig!: pulumi.Output<outputs.opensearchservice.DomainClusterConfig | undefined>;
     public readonly cognitoOptions!: pulumi.Output<outputs.opensearchservice.DomainCognitoOptions | undefined>;
     public /*out*/ readonly domainArn!: pulumi.Output<string>;
@@ -98,6 +99,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainEndpoint"] = undefined /*out*/;
             resourceInputs["domainEndpointV2"] = undefined /*out*/;
@@ -108,6 +110,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["advancedOptions"] = undefined /*out*/;
             resourceInputs["advancedSecurityOptions"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clusterConfig"] = undefined /*out*/;
             resourceInputs["cognitoOptions"] = undefined /*out*/;
             resourceInputs["domainArn"] = undefined /*out*/;

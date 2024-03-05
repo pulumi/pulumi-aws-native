@@ -19,6 +19,7 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	AwsId                                    pulumi.StringOutput                          `pulumi:"awsId"`
 	CertificateAuthorityArn                  pulumi.StringPtrOutput                       `pulumi:"certificateAuthorityArn"`
 	CertificateTransparencyLoggingPreference pulumi.StringPtrOutput                       `pulumi:"certificateTransparencyLoggingPreference"`
 	DomainName                               pulumi.StringOutput                          `pulumi:"domainName"`
@@ -138,6 +139,10 @@ func (o CertificateOutput) ToCertificateOutput() CertificateOutput {
 
 func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
 	return o
+}
+
+func (o CertificateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CertificateOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {

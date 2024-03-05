@@ -15,6 +15,7 @@ import (
 type Template struct {
 	pulumi.CustomResourceState
 
+	AwsId    pulumi.StringOutput   `pulumi:"awsId"`
 	Template TemplateTypePtrOutput `pulumi:"template"`
 }
 
@@ -105,6 +106,10 @@ func (o TemplateOutput) ToTemplateOutput() TemplateOutput {
 
 func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
 	return o
+}
+
+func (o TemplateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TemplateOutput) Template() TemplateTypePtrOutput {

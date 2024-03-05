@@ -18,6 +18,7 @@ import (
 type TrafficMirrorFilter struct {
 	pulumi.CustomResourceState
 
+	AwsId           pulumi.StringOutput      `pulumi:"awsId"`
 	Description     pulumi.StringPtrOutput   `pulumi:"description"`
 	NetworkServices pulumi.StringArrayOutput `pulumi:"networkServices"`
 	Tags            aws.TagArrayOutput       `pulumi:"tags"`
@@ -114,6 +115,10 @@ func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterOutput() TrafficMirrorFi
 
 func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterOutputWithContext(ctx context.Context) TrafficMirrorFilterOutput {
 	return o
+}
+
+func (o TrafficMirrorFilterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilter) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TrafficMirrorFilterOutput) Description() pulumi.StringPtrOutput {

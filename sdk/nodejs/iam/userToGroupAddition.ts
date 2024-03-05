@@ -37,6 +37,7 @@ export class UserToGroupAddition extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserToGroupAddition.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly groupName!: pulumi.Output<string>;
     public readonly users!: pulumi.Output<string[]>;
 
@@ -61,7 +62,9 @@ export class UserToGroupAddition extends pulumi.CustomResource {
             }
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;
             resourceInputs["users"] = undefined /*out*/;
         }

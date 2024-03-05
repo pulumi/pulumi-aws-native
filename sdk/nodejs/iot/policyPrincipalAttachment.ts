@@ -37,6 +37,7 @@ export class PolicyPrincipalAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyPrincipalAttachment.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly policyName!: pulumi.Output<string>;
     public readonly principal!: pulumi.Output<string>;
 
@@ -61,7 +62,9 @@ export class PolicyPrincipalAttachment extends pulumi.CustomResource {
             }
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["policyName"] = undefined /*out*/;
             resourceInputs["principal"] = undefined /*out*/;
         }

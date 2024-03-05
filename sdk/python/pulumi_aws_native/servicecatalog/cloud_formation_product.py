@@ -270,6 +270,7 @@ class CloudFormationProduct(pulumi.CustomResource):
             __props__.__dict__["support_email"] = support_email
             __props__.__dict__["support_url"] = support_url
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["product_name"] = None
             __props__.__dict__["provisioning_artifact_ids"] = None
             __props__.__dict__["provisioning_artifact_names"] = None
@@ -296,6 +297,7 @@ class CloudFormationProduct(pulumi.CustomResource):
         __props__ = CloudFormationProductArgs.__new__(CloudFormationProductArgs)
 
         __props__.__dict__["accept_language"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["distributor"] = None
         __props__.__dict__["name"] = None
@@ -317,6 +319,11 @@ class CloudFormationProduct(pulumi.CustomResource):
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "accept_language")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

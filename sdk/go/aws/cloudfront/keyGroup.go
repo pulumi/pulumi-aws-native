@@ -16,6 +16,7 @@ import (
 type KeyGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId            pulumi.StringOutput  `pulumi:"awsId"`
 	KeyGroupConfig   KeyGroupConfigOutput `pulumi:"keyGroupConfig"`
 	LastModifiedTime pulumi.StringOutput  `pulumi:"lastModifiedTime"`
 }
@@ -106,6 +107,10 @@ func (o KeyGroupOutput) ToKeyGroupOutput() KeyGroupOutput {
 
 func (o KeyGroupOutput) ToKeyGroupOutputWithContext(ctx context.Context) KeyGroupOutput {
 	return o
+}
+
+func (o KeyGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o KeyGroupOutput) KeyGroupConfig() KeyGroupConfigOutput {

@@ -23,6 +23,8 @@ type PatchBaseline struct {
 	ApprovedPatchesComplianceLevel PatchBaselineApprovedPatchesComplianceLevelPtrOutput `pulumi:"approvedPatchesComplianceLevel"`
 	// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
 	ApprovedPatchesEnableNonSecurity pulumi.BoolPtrOutput `pulumi:"approvedPatchesEnableNonSecurity"`
+	// The ID of the patch baseline.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Set the baseline as default baseline. Only registering to default patch baseline is allowed.
 	DefaultBaseline pulumi.BoolPtrOutput `pulumi:"defaultBaseline"`
 	// The description of the patch baseline.
@@ -205,6 +207,11 @@ func (o PatchBaselineOutput) ApprovedPatchesComplianceLevel() PatchBaselineAppro
 // Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
 func (o PatchBaselineOutput) ApprovedPatchesEnableNonSecurity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.BoolPtrOutput { return v.ApprovedPatchesEnableNonSecurity }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the patch baseline.
+func (o PatchBaselineOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PatchBaseline) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Set the baseline as default baseline. Only registering to default patch baseline is allowed.

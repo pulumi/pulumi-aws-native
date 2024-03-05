@@ -18,6 +18,7 @@ import (
 type ListenerCertificate struct {
 	pulumi.CustomResourceState
 
+	AwsId        pulumi.StringOutput                       `pulumi:"awsId"`
 	Certificates ListenerCertificateCertificateArrayOutput `pulumi:"certificates"`
 	ListenerArn  pulumi.StringOutput                       `pulumi:"listenerArn"`
 }
@@ -117,6 +118,10 @@ func (o ListenerCertificateOutput) ToListenerCertificateOutput() ListenerCertifi
 
 func (o ListenerCertificateOutput) ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput {
 	return o
+}
+
+func (o ListenerCertificateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ListenerCertificate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ListenerCertificateOutput) Certificates() ListenerCertificateCertificateArrayOutput {

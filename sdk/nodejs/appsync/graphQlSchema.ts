@@ -38,6 +38,7 @@ export class GraphQlSchema extends pulumi.CustomResource {
     }
 
     public readonly apiId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly definition!: pulumi.Output<string | undefined>;
     public readonly definitionS3Location!: pulumi.Output<string | undefined>;
 
@@ -60,8 +61,10 @@ export class GraphQlSchema extends pulumi.CustomResource {
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["definitionS3Location"] = args ? args.definitionS3Location : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["definitionS3Location"] = undefined /*out*/;
         }

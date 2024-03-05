@@ -148,6 +148,7 @@ class ApplicationSettings(pulumi.CustomResource):
             __props__.__dict__["cloud_watch_metrics_enabled"] = cloud_watch_metrics_enabled
             __props__.__dict__["limits"] = limits
             __props__.__dict__["quiet_time"] = quiet_time
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationSettings, __self__).__init__(
@@ -173,6 +174,7 @@ class ApplicationSettings(pulumi.CustomResource):
         __props__ = ApplicationSettingsArgs.__new__(ApplicationSettingsArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["campaign_hook"] = None
         __props__.__dict__["cloud_watch_metrics_enabled"] = None
         __props__.__dict__["limits"] = None
@@ -183,6 +185,11 @@ class ApplicationSettings(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="campaignHook")

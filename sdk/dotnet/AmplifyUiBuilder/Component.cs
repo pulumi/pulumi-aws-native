@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         [Output("appId")]
         public Output<string?> AppId { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("bindingProperties")]
         public Output<ImmutableDictionary<string, Outputs.ComponentBindingPropertiesValue>?> BindingProperties { get; private set; } = null!;
 

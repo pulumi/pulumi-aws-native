@@ -38,6 +38,10 @@ export class TaskSet extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the task set.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
     public readonly cluster!: pulumi.Output<string>;
@@ -104,7 +108,9 @@ export class TaskSet extends pulumi.CustomResource {
             resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cluster"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;
             resourceInputs["launchType"] = undefined /*out*/;

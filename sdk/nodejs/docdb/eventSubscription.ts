@@ -37,6 +37,7 @@ export class EventSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventSubscription.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly eventCategories!: pulumi.Output<string[] | undefined>;
     public readonly snsTopicArn!: pulumi.Output<string>;
@@ -66,7 +67,9 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
             resourceInputs["sourceType"] = args ? args.sourceType : undefined;
             resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["eventCategories"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;

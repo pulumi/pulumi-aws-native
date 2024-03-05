@@ -19,6 +19,7 @@ type InstanceGroupConfig struct {
 	pulumi.CustomResourceState
 
 	AutoScalingPolicy InstanceGroupConfigAutoScalingPolicyPtrOutput `pulumi:"autoScalingPolicy"`
+	AwsId             pulumi.StringOutput                           `pulumi:"awsId"`
 	BidPrice          pulumi.StringPtrOutput                        `pulumi:"bidPrice"`
 	Configurations    InstanceGroupConfigConfigurationArrayOutput   `pulumi:"configurations"`
 	CustomAmiId       pulumi.StringPtrOutput                        `pulumi:"customAmiId"`
@@ -162,6 +163,10 @@ func (o InstanceGroupConfigOutput) ToInstanceGroupConfigOutputWithContext(ctx co
 
 func (o InstanceGroupConfigOutput) AutoScalingPolicy() InstanceGroupConfigAutoScalingPolicyPtrOutput {
 	return o.ApplyT(func(v *InstanceGroupConfig) InstanceGroupConfigAutoScalingPolicyPtrOutput { return v.AutoScalingPolicy }).(InstanceGroupConfigAutoScalingPolicyPtrOutput)
+}
+
+func (o InstanceGroupConfigOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceGroupConfig) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o InstanceGroupConfigOutput) BidPrice() pulumi.StringPtrOutput {

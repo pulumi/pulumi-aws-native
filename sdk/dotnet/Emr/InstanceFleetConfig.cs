@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Emr
     [AwsNativeResourceType("aws-native:emr:InstanceFleetConfig")]
     public partial class InstanceFleetConfig : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
 

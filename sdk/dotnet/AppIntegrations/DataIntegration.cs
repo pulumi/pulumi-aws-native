@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.AppIntegrations
     public partial class DataIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The unique identifer of the data integration.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the data integration.
         /// </summary>
         [Output("dataIntegrationArn")]

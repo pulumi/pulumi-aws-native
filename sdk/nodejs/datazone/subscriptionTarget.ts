@@ -46,6 +46,10 @@ export class SubscriptionTarget extends pulumi.CustomResource {
      */
     public readonly authorizedPrincipals!: pulumi.Output<string[]>;
     /**
+     * The ID of the subscription target.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The timestamp of when the subscription target was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -143,6 +147,7 @@ export class SubscriptionTarget extends pulumi.CustomResource {
             resourceInputs["provider"] = args ? args.provider : undefined;
             resourceInputs["subscriptionTargetConfig"] = args ? args.subscriptionTargetConfig : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
@@ -153,6 +158,7 @@ export class SubscriptionTarget extends pulumi.CustomResource {
         } else {
             resourceInputs["applicableAssetTypes"] = undefined /*out*/;
             resourceInputs["authorizedPrincipals"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;

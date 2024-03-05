@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SecretsManager
     [AwsNativeResourceType("aws-native:secretsmanager:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("blockPublicPolicy")]
         public Output<bool?> BlockPublicPolicy { get; private set; } = null!;
 

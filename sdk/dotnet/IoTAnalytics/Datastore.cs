@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
     [AwsNativeResourceType("aws-native:iotanalytics:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("datastoreName")]
         public Output<string?> DatastoreName { get; private set; } = null!;
 

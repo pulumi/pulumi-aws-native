@@ -41,6 +41,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     public readonly allocatedCapacity!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly command!: pulumi.Output<outputs.glue.JobCommand>;
     public readonly connections!: pulumi.Output<outputs.glue.JobConnectionsList | undefined>;
     /**
@@ -109,8 +110,10 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedCapacity"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["command"] = undefined /*out*/;
             resourceInputs["connections"] = undefined /*out*/;
             resourceInputs["defaultArguments"] = undefined /*out*/;

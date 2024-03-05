@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.WorkSpaces
     [AwsNativeResourceType("aws-native:workspaces:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("bundleId")]
         public Output<string> BundleId { get; private set; } = null!;
 

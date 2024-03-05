@@ -40,6 +40,7 @@ export class Rule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rule.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly metricName!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly predicates!: pulumi.Output<outputs.waf.RulePredicate[] | undefined>;
@@ -63,7 +64,9 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["metricName"] = args ? args.metricName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["predicates"] = args ? args.predicates : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["metricName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["predicates"] = undefined /*out*/;

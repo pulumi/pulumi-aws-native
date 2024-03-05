@@ -42,6 +42,10 @@ export class CidrCollection extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * UUID of the CIDR collection.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * A complex type that contains information about the list of CIDR locations.
      */
     public readonly locations!: pulumi.Output<outputs.route53.CidrCollectionLocation[] | undefined>;
@@ -64,8 +68,10 @@ export class CidrCollection extends pulumi.CustomResource {
             resourceInputs["locations"] = args ? args.locations : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

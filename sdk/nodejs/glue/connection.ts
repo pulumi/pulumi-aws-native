@@ -40,6 +40,7 @@ export class Connection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connection.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly catalogId!: pulumi.Output<string>;
     public readonly connectionInput!: pulumi.Output<outputs.glue.ConnectionInput>;
 
@@ -64,7 +65,9 @@ export class Connection extends pulumi.CustomResource {
             }
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["connectionInput"] = args ? args.connectionInput : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["catalogId"] = undefined /*out*/;
             resourceInputs["connectionInput"] = undefined /*out*/;
         }

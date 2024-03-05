@@ -147,6 +147,7 @@ class Resource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'use_service_linked_role'")
             __props__.__dict__["use_service_linked_role"] = use_service_linked_role
             __props__.__dict__["with_federation"] = with_federation
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Resource, __self__).__init__(
@@ -171,12 +172,18 @@ class Resource(pulumi.CustomResource):
 
         __props__ = ResourceArgs.__new__(ResourceArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["hybrid_access_enabled"] = None
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["use_service_linked_role"] = None
         __props__.__dict__["with_federation"] = None
         return Resource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="hybridAccessEnabled")

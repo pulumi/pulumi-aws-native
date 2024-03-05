@@ -179,6 +179,7 @@ class ApiCache(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApiCache, __self__).__init__(
@@ -206,6 +207,7 @@ class ApiCache(pulumi.CustomResource):
         __props__.__dict__["api_caching_behavior"] = None
         __props__.__dict__["api_id"] = None
         __props__.__dict__["at_rest_encryption_enabled"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["health_metrics_config"] = None
         __props__.__dict__["transit_encryption_enabled"] = None
         __props__.__dict__["ttl"] = None
@@ -226,6 +228,11 @@ class ApiCache(pulumi.CustomResource):
     @pulumi.getter(name="atRestEncryptionEnabled")
     def at_rest_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "at_rest_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="healthMetricsConfig")

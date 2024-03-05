@@ -194,6 +194,7 @@ class Model(pulumi.CustomResource):
             __props__.__dict__["primary_container"] = primary_container
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_config"] = vpc_config
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containers[*]", "enable_network_isolation", "execution_role_arn", "inference_execution_config", "model_name", "primary_container", "vpc_config"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Model, __self__).__init__(
@@ -218,6 +219,7 @@ class Model(pulumi.CustomResource):
 
         __props__ = ModelArgs.__new__(ModelArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["containers"] = None
         __props__.__dict__["enable_network_isolation"] = None
         __props__.__dict__["execution_role_arn"] = None
@@ -227,6 +229,11 @@ class Model(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_config"] = None
         return Model(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

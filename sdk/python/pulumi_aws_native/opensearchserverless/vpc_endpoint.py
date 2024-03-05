@@ -146,6 +146,7 @@ class VpcEndpoint(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "vpc_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcEndpoint, __self__).__init__(
@@ -170,11 +171,20 @@ class VpcEndpoint(pulumi.CustomResource):
 
         __props__ = VpcEndpointArgs.__new__(VpcEndpointArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["vpc_id"] = None
         return VpcEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the VPC Endpoint
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

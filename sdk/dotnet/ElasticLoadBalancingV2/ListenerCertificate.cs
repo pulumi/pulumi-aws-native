@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:ListenerCertificate")]
     public partial class ListenerCertificate : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.ListenerCertificateCertificate>> Certificates { get; private set; } = null!;
 

@@ -129,6 +129,7 @@ class DeviceProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(DeviceProfile, __self__).__init__(
             'aws-native:iotwireless:DeviceProfile',
             resource_name,
@@ -152,6 +153,7 @@ class DeviceProfile(pulumi.CustomResource):
         __props__ = DeviceProfileArgs.__new__(DeviceProfileArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["lo_ra_wan"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -164,6 +166,14 @@ class DeviceProfile(pulumi.CustomResource):
         Service profile Arn. Returned after successful create.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Service profile Id. Returned after successful create.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="loRaWan")

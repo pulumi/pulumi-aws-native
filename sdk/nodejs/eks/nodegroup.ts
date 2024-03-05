@@ -42,6 +42,7 @@ export class Nodegroup extends pulumi.CustomResource {
      */
     public readonly amiType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The capacity type of your managed node group.
      */
@@ -150,9 +151,11 @@ export class Nodegroup extends pulumi.CustomResource {
             resourceInputs["updateConfig"] = args ? args.updateConfig : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["amiType"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacityType"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
             resourceInputs["diskSize"] = undefined /*out*/;

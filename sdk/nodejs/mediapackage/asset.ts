@@ -42,6 +42,10 @@ export class Asset extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The unique identifier for the Asset.
+     */
+    public readonly awsId!: pulumi.Output<string>;
+    /**
      * The time the Asset was initially submitted for Ingest.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -81,6 +85,9 @@ export class Asset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.awsId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'awsId'");
+            }
             if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
@@ -90,6 +97,7 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.sourceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRoleArn'");
             }
+            resourceInputs["awsId"] = args ? args.awsId : undefined;
             resourceInputs["egressEndpoints"] = args ? args.egressEndpoints : undefined;
             resourceInputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
@@ -100,6 +108,7 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["egressEndpoints"] = undefined /*out*/;
             resourceInputs["packagingGroupId"] = undefined /*out*/;
@@ -117,6 +126,10 @@ export class Asset extends pulumi.CustomResource {
  * The set of arguments for constructing a Asset resource.
  */
 export interface AssetArgs {
+    /**
+     * The unique identifier for the Asset.
+     */
+    awsId: pulumi.Input<string>;
     /**
      * The list of egress endpoints available for the Asset.
      */

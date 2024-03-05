@@ -37,6 +37,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginRequestPolicy.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     public readonly originRequestPolicyConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyConfig>;
 
@@ -55,8 +56,10 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'originRequestPolicyConfig'");
             }
             resourceInputs["originRequestPolicyConfig"] = args ? args.originRequestPolicyConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["originRequestPolicyConfig"] = undefined /*out*/;
         }

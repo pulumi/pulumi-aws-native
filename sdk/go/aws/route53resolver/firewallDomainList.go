@@ -18,6 +18,8 @@ type FirewallDomainList struct {
 
 	// Arn
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// ResourceId
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Rfc3339TimeString
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The id of the creator request.
@@ -145,6 +147,11 @@ func (o FirewallDomainListOutput) ToFirewallDomainListOutputWithContext(ctx cont
 // Arn
 func (o FirewallDomainListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// ResourceId
+func (o FirewallDomainListOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallDomainList) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Rfc3339TimeString

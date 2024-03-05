@@ -16,6 +16,7 @@ import (
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
 
+	AwsId                     pulumi.StringOutput             `pulumi:"awsId"`
 	LastModifiedTime          pulumi.StringOutput             `pulumi:"lastModifiedTime"`
 	OriginRequestPolicyConfig OriginRequestPolicyConfigOutput `pulumi:"originRequestPolicyConfig"`
 }
@@ -106,6 +107,10 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutput() OriginRequestPo
 
 func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutputWithContext(ctx context.Context) OriginRequestPolicyOutput {
 	return o
+}
+
+func (o OriginRequestPolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginRequestPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o OriginRequestPolicyOutput) LastModifiedTime() pulumi.StringOutput {

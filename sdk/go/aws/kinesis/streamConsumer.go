@@ -18,6 +18,7 @@ import (
 type StreamConsumer struct {
 	pulumi.CustomResourceState
 
+	AwsId                     pulumi.StringOutput `pulumi:"awsId"`
 	ConsumerArn               pulumi.StringOutput `pulumi:"consumerArn"`
 	ConsumerCreationTimestamp pulumi.StringOutput `pulumi:"consumerCreationTimestamp"`
 	ConsumerName              pulumi.StringOutput `pulumi:"consumerName"`
@@ -121,6 +122,10 @@ func (o StreamConsumerOutput) ToStreamConsumerOutput() StreamConsumerOutput {
 
 func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Context) StreamConsumerOutput {
 	return o
+}
+
+func (o StreamConsumerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o StreamConsumerOutput) ConsumerArn() pulumi.StringOutput {

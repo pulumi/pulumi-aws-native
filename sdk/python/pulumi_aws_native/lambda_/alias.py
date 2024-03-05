@@ -164,6 +164,7 @@ class Alias(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
             __props__.__dict__["routing_config"] = routing_config
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["function_name", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Alias, __self__).__init__(
@@ -188,6 +189,7 @@ class Alias(pulumi.CustomResource):
 
         __props__ = AliasArgs.__new__(AliasArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["function_name"] = None
         __props__.__dict__["function_version"] = None
@@ -195,6 +197,11 @@ class Alias(pulumi.CustomResource):
         __props__.__dict__["provisioned_concurrency_config"] = None
         __props__.__dict__["routing_config"] = None
         return Alias(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

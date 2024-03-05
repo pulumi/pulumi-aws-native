@@ -40,6 +40,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeliveryChannel.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly configSnapshotDeliveryProperties!: pulumi.Output<outputs.configuration.DeliveryChannelConfigSnapshotDeliveryProperties | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly s3BucketName!: pulumi.Output<string>;
@@ -69,7 +70,9 @@ export class DeliveryChannel extends pulumi.CustomResource {
             resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
             resourceInputs["s3KmsKeyArn"] = args ? args.s3KmsKeyArn : undefined;
             resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configSnapshotDeliveryProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["s3BucketName"] = undefined /*out*/;

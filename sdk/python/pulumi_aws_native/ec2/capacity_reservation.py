@@ -266,6 +266,7 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["tag_specifications"] = tag_specifications
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["available_instance_count"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["total_instance_count"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "ebs_optimized", "ephemeral_storage", "instance_match_criteria", "instance_platform", "instance_type", "out_post_arn", "placement_group_arn", "tag_specifications[*]", "tenancy"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -293,6 +294,7 @@ class CapacityReservation(pulumi.CustomResource):
 
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["available_instance_count"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["ebs_optimized"] = None
         __props__.__dict__["end_date"] = None
         __props__.__dict__["end_date_type"] = None
@@ -317,6 +319,11 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="availableInstanceCount")
     def available_instance_count(self) -> pulumi.Output[int]:
         return pulumi.get(self, "available_instance_count")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="ebsOptimized")

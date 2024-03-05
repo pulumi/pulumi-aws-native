@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Rds
     [AwsNativeResourceType("aws-native:rds:DbSecurityGroup")]
     public partial class DbSecurityGroup : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("dbSecurityGroupIngress")]
         public Output<ImmutableArray<Outputs.DbSecurityGroupIngress>> DbSecurityGroupIngress { get; private set; } = null!;
 

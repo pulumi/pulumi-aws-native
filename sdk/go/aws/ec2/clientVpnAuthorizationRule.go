@@ -20,6 +20,7 @@ type ClientVpnAuthorizationRule struct {
 
 	AccessGroupId       pulumi.StringPtrOutput `pulumi:"accessGroupId"`
 	AuthorizeAllGroups  pulumi.BoolPtrOutput   `pulumi:"authorizeAllGroups"`
+	AwsId               pulumi.StringOutput    `pulumi:"awsId"`
 	ClientVpnEndpointId pulumi.StringOutput    `pulumi:"clientVpnEndpointId"`
 	Description         pulumi.StringPtrOutput `pulumi:"description"`
 	TargetNetworkCidr   pulumi.StringOutput    `pulumi:"targetNetworkCidr"`
@@ -138,6 +139,10 @@ func (o ClientVpnAuthorizationRuleOutput) AccessGroupId() pulumi.StringPtrOutput
 
 func (o ClientVpnAuthorizationRuleOutput) AuthorizeAllGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClientVpnAuthorizationRule) pulumi.BoolPtrOutput { return v.AuthorizeAllGroups }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClientVpnAuthorizationRuleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnAuthorizationRule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ClientVpnAuthorizationRuleOutput) ClientVpnEndpointId() pulumi.StringOutput {

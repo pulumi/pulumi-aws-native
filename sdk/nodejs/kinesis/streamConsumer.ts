@@ -37,6 +37,7 @@ export class StreamConsumer extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamConsumer.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly consumerArn!: pulumi.Output<string>;
     public /*out*/ readonly consumerCreationTimestamp!: pulumi.Output<string>;
     public readonly consumerName!: pulumi.Output<string>;
@@ -64,10 +65,12 @@ export class StreamConsumer extends pulumi.CustomResource {
             }
             resourceInputs["consumerName"] = args ? args.consumerName : undefined;
             resourceInputs["streamArn"] = args ? args.streamArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["consumerArn"] = undefined /*out*/;
             resourceInputs["consumerCreationTimestamp"] = undefined /*out*/;
             resourceInputs["consumerStatus"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["consumerArn"] = undefined /*out*/;
             resourceInputs["consumerCreationTimestamp"] = undefined /*out*/;
             resourceInputs["consumerName"] = undefined /*out*/;

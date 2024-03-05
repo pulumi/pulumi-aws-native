@@ -37,6 +37,7 @@ export class Datastore extends pulumi.CustomResource {
         return obj['__pulumiType'] === Datastore.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly datastoreName!: pulumi.Output<string | undefined>;
     public readonly datastorePartitions!: pulumi.Output<outputs.iotanalytics.DatastorePartitions | undefined>;
     public readonly datastoreStorage!: pulumi.Output<outputs.iotanalytics.DatastoreStorage | undefined>;
@@ -61,7 +62,9 @@ export class Datastore extends pulumi.CustomResource {
             resourceInputs["fileFormatConfiguration"] = args ? args.fileFormatConfiguration : undefined;
             resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["datastoreName"] = undefined /*out*/;
             resourceInputs["datastorePartitions"] = undefined /*out*/;
             resourceInputs["datastoreStorage"] = undefined /*out*/;

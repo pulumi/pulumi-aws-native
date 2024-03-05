@@ -178,6 +178,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["service_identifier"] = service_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["listener_identifier", "name", "service_identifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Rule, __self__).__init__(
@@ -204,6 +205,7 @@ class Rule(pulumi.CustomResource):
 
         __props__.__dict__["action"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["listener_identifier"] = None
         __props__.__dict__["match"] = None
         __props__.__dict__["name"] = None
@@ -221,6 +223,11 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="listenerIdentifier")

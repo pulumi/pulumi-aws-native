@@ -40,6 +40,7 @@ export class StackSetConstraint extends pulumi.CustomResource {
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
     public readonly accountList!: pulumi.Output<string[]>;
     public readonly adminRole!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string>;
     public readonly executionRole!: pulumi.Output<string>;
     public readonly portfolioId!: pulumi.Output<string>;
@@ -93,10 +94,12 @@ export class StackSetConstraint extends pulumi.CustomResource {
             resourceInputs["productId"] = args ? args.productId : undefined;
             resourceInputs["regionList"] = args ? args.regionList : undefined;
             resourceInputs["stackInstanceControl"] = args ? args.stackInstanceControl : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
             resourceInputs["accountList"] = undefined /*out*/;
             resourceInputs["adminRole"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["executionRole"] = undefined /*out*/;
             resourceInputs["portfolioId"] = undefined /*out*/;

@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Ram
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

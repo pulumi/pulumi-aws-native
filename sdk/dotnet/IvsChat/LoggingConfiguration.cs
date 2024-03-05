@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.IvsChat
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The system-generated ID of the logging configuration.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("destinationConfiguration")]
         public Output<Outputs.LoggingConfigurationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
 

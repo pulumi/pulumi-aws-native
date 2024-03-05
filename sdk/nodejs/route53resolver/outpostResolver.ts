@@ -42,6 +42,10 @@ export class OutpostResolver extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Id
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The OutpostResolver creation time
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class OutpostResolver extends pulumi.CustomResource {
             resourceInputs["preferredInstanceType"] = args ? args.preferredInstanceType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["creatorRequestId"] = undefined /*out*/;
             resourceInputs["modificationTime"] = undefined /*out*/;
@@ -112,6 +117,7 @@ export class OutpostResolver extends pulumi.CustomResource {
             resourceInputs["statusMessage"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["creatorRequestId"] = undefined /*out*/;
             resourceInputs["instanceCount"] = undefined /*out*/;

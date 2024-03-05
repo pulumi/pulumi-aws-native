@@ -18,6 +18,7 @@ type Group struct {
 	pulumi.CustomResourceState
 
 	Arn              pulumi.StringOutput       `pulumi:"arn"`
+	AwsId            pulumi.StringOutput       `pulumi:"awsId"`
 	InitialVersion   GroupVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput       `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput       `pulumi:"name"`
@@ -126,6 +127,10 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o GroupOutput) InitialVersion() GroupVersionTypePtrOutput {

@@ -83,6 +83,7 @@ class NotificationChannel(pulumi.CustomResource):
             if config is None and not opts.urn:
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["config"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NotificationChannel, __self__).__init__(
@@ -107,8 +108,17 @@ class NotificationChannel(pulumi.CustomResource):
 
         __props__ = NotificationChannelArgs.__new__(NotificationChannelArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["config"] = None
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of a notification channel.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

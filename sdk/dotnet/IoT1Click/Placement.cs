@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.IoT1Click
         [Output("attributes")]
         public Output<object?> Attributes { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("placementName")]
         public Output<string?> PlacementName { get; private set; } = null!;
 

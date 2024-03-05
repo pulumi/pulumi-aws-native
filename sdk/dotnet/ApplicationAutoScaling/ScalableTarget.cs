@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
     public partial class ScalableTarget : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
         /// </summary>
         [Output("maxCapacity")]

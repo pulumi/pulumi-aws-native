@@ -19,6 +19,7 @@ type PortfolioProductAssociation struct {
 	pulumi.CustomResourceState
 
 	AcceptLanguage    pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	AwsId             pulumi.StringOutput    `pulumi:"awsId"`
 	PortfolioId       pulumi.StringOutput    `pulumi:"portfolioId"`
 	ProductId         pulumi.StringOutput    `pulumi:"productId"`
 	SourcePortfolioId pulumi.StringPtrOutput `pulumi:"sourcePortfolioId"`
@@ -130,6 +131,10 @@ func (o PortfolioProductAssociationOutput) ToPortfolioProductAssociationOutputWi
 
 func (o PortfolioProductAssociationOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PortfolioProductAssociation) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o PortfolioProductAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioProductAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PortfolioProductAssociationOutput) PortfolioId() pulumi.StringOutput {

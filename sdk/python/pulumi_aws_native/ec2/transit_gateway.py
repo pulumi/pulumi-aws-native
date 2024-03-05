@@ -246,6 +246,7 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_cidr_blocks"] = transit_gateway_cidr_blocks
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["transit_gateway_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_side_asn", "multicast_support"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -274,6 +275,7 @@ class TransitGateway(pulumi.CustomResource):
         __props__.__dict__["amazon_side_asn"] = None
         __props__.__dict__["association_default_route_table_id"] = None
         __props__.__dict__["auto_accept_shared_attachments"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["default_route_table_association"] = None
         __props__.__dict__["default_route_table_propagation"] = None
         __props__.__dict__["description"] = None
@@ -300,6 +302,11 @@ class TransitGateway(pulumi.CustomResource):
     @pulumi.getter(name="autoAcceptSharedAttachments")
     def auto_accept_shared_attachments(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "auto_accept_shared_attachments")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="defaultRouteTableAssociation")

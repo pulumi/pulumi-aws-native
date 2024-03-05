@@ -39,6 +39,7 @@ export class Service extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authType!: pulumi.Output<enums.vpclattice.ServiceAuthType | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly customDomainName!: pulumi.Output<string | undefined>;
@@ -66,12 +67,14 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authType"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["customDomainName"] = undefined /*out*/;

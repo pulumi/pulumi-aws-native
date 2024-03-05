@@ -104,6 +104,7 @@ class ListenerCertificate(pulumi.CustomResource):
             if listener_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_arn'")
             __props__.__dict__["listener_arn"] = listener_arn
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["listener_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ListenerCertificate, __self__).__init__(
@@ -128,9 +129,15 @@ class ListenerCertificate(pulumi.CustomResource):
 
         __props__ = ListenerCertificateInitArgs.__new__(ListenerCertificateInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["certificates"] = None
         __props__.__dict__["listener_arn"] = None
         return ListenerCertificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -37,6 +37,7 @@ export class CustomActionType extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomActionType.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The category of the custom action, such as a build action or a test action.
      */
@@ -104,7 +105,9 @@ export class CustomActionType extends pulumi.CustomResource {
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;
             resourceInputs["configurationProperties"] = undefined /*out*/;
             resourceInputs["inputArtifactDetails"] = undefined /*out*/;

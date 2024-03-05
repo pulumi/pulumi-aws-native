@@ -43,6 +43,10 @@ export class OriginEndpoint extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authorization!: pulumi.Output<outputs.mediapackage.OriginEndpointAuthorization | undefined>;
     /**
+     * The ID of the OriginEndpoint.
+     */
+    public readonly awsId!: pulumi.Output<string>;
+    /**
      * The ID of the Channel the OriginEndpoint is associated with.
      */
     public readonly channelId!: pulumi.Output<string>;
@@ -94,10 +98,14 @@ export class OriginEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.awsId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'awsId'");
+            }
             if ((!args || args.channelId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
             resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["awsId"] = args ? args.awsId : undefined;
             resourceInputs["channelId"] = args ? args.channelId : undefined;
             resourceInputs["cmafPackage"] = args ? args.cmafPackage : undefined;
             resourceInputs["dashPackage"] = args ? args.dashPackage : undefined;
@@ -115,6 +123,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authorization"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["channelId"] = undefined /*out*/;
             resourceInputs["cmafPackage"] = undefined /*out*/;
             resourceInputs["dashPackage"] = undefined /*out*/;
@@ -139,6 +148,10 @@ export class OriginEndpoint extends pulumi.CustomResource {
  */
 export interface OriginEndpointArgs {
     authorization?: pulumi.Input<inputs.mediapackage.OriginEndpointAuthorizationArgs>;
+    /**
+     * The ID of the OriginEndpoint.
+     */
+    awsId: pulumi.Input<string>;
     /**
      * The ID of the Channel the OriginEndpoint is associated with.
      */

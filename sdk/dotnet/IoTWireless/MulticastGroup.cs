@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.IoTWireless
         public Output<string?> AssociateWirelessDevice { get; private set; } = null!;
 
         /// <summary>
+        /// Multicast group id. Returned after successful create.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Multicast group description
         /// </summary>
         [Output("description")]

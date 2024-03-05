@@ -15,6 +15,7 @@ import (
 type HostedZone struct {
 	pulumi.CustomResourceState
 
+	AwsId            pulumi.StringOutput       `pulumi:"awsId"`
 	HostedZoneConfig HostedZoneConfigPtrOutput `pulumi:"hostedZoneConfig"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//
@@ -139,6 +140,10 @@ func (o HostedZoneOutput) ToHostedZoneOutput() HostedZoneOutput {
 
 func (o HostedZoneOutput) ToHostedZoneOutputWithContext(ctx context.Context) HostedZoneOutput {
 	return o
+}
+
+func (o HostedZoneOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedZone) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o HostedZoneOutput) HostedZoneConfig() HostedZoneConfigPtrOutput {

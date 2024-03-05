@@ -39,6 +39,7 @@ export class Rule extends pulumi.CustomResource {
 
     public readonly action!: pulumi.Output<outputs.vpclattice.RuleAction>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly listenerIdentifier!: pulumi.Output<string | undefined>;
     public readonly match!: pulumi.Output<outputs.vpclattice.RuleMatch>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -74,9 +75,11 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["listenerIdentifier"] = undefined /*out*/;
             resourceInputs["match"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

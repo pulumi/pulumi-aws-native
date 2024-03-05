@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoTThingsGraph
     [AwsNativeResourceType("aws-native:iotthingsgraph:FlowTemplate")]
     public partial class FlowTemplate : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("compatibleNamespaceVersion")]
         public Output<double?> CompatibleNamespaceVersion { get; private set; } = null!;
 

@@ -120,6 +120,7 @@ class Mesh(pulumi.CustomResource):
             __props__.__dict__["spec"] = spec
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["mesh_owner"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["uid"] = None
@@ -148,6 +149,7 @@ class Mesh(pulumi.CustomResource):
         __props__ = MeshArgs.__new__(MeshArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["mesh_name"] = None
         __props__.__dict__["mesh_owner"] = None
         __props__.__dict__["resource_owner"] = None
@@ -160,6 +162,11 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="meshName")

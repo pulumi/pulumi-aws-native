@@ -107,6 +107,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_count"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["creator_request_id"] = None
             __props__.__dict__["owner_id"] = None
@@ -138,6 +139,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["association_count"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["creator_request_id"] = None
         __props__.__dict__["destination_arn"] = None
@@ -162,6 +164,14 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
         Count
         """
         return pulumi.get(self, "association_count")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        ResourceId
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

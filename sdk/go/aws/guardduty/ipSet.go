@@ -18,6 +18,7 @@ type IpSet struct {
 	pulumi.CustomResourceState
 
 	Activate   pulumi.BoolPtrOutput   `pulumi:"activate"`
+	AwsId      pulumi.StringOutput    `pulumi:"awsId"`
 	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
 	Format     pulumi.StringOutput    `pulumi:"format"`
 	Location   pulumi.StringOutput    `pulumi:"location"`
@@ -133,6 +134,10 @@ func (o IpSetOutput) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 
 func (o IpSetOutput) Activate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.BoolPtrOutput { return v.Activate }).(pulumi.BoolPtrOutput)
+}
+
+func (o IpSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o IpSetOutput) DetectorId() pulumi.StringPtrOutput {

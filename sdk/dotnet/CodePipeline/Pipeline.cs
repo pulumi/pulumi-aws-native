@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.CodePipeline
         [Output("artifactStores")]
         public Output<ImmutableArray<Outputs.PipelineArtifactStoreMap>> ArtifactStores { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("disableInboundStageTransitions")]
         public Output<ImmutableArray<Outputs.PipelineStageTransition>> DisableInboundStageTransitions { get; private set; } = null!;
 

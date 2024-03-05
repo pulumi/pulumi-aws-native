@@ -19,6 +19,7 @@ import (
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId                             pulumi.StringOutput      `pulumi:"awsId"`
 	ReplicationSubnetGroupDescription pulumi.StringOutput      `pulumi:"replicationSubnetGroupDescription"`
 	ReplicationSubnetGroupIdentifier  pulumi.StringPtrOutput   `pulumi:"replicationSubnetGroupIdentifier"`
 	SubnetIds                         pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -124,6 +125,10 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutput() Replicati
 
 func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput {
 	return o
+}
+
+func (o ReplicationSubnetGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupDescription() pulumi.StringOutput {

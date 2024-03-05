@@ -42,6 +42,10 @@ export class WirelessDevice extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Wireless device Id. Returned after successful create.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Wireless device description
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -104,9 +108,11 @@ export class WirelessDevice extends pulumi.CustomResource {
             resourceInputs["thingArn"] = args ? args.thingArn : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["thingName"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinationName"] = undefined /*out*/;
             resourceInputs["lastUplinkReceivedAt"] = undefined /*out*/;

@@ -18,6 +18,7 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
+	AwsId         pulumi.StringOutput    `pulumi:"awsId"`
 	DashboardBody pulumi.StringOutput    `pulumi:"dashboardBody"`
 	DashboardName pulumi.StringPtrOutput `pulumi:"dashboardName"`
 }
@@ -114,6 +115,10 @@ func (o DashboardOutput) ToDashboardOutput() DashboardOutput {
 
 func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
 	return o
+}
+
+func (o DashboardOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DashboardOutput) DashboardBody() pulumi.StringOutput {

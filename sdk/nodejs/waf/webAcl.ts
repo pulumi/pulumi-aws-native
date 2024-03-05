@@ -40,6 +40,7 @@ export class WebAcl extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAcl.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly defaultAction!: pulumi.Output<outputs.waf.WebAclWafAction>;
     public readonly metricName!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
@@ -68,7 +69,9 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["metricName"] = args ? args.metricName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultAction"] = undefined /*out*/;
             resourceInputs["metricName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

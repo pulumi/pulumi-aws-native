@@ -19,6 +19,7 @@ import (
 type ReplicationTask struct {
 	pulumi.CustomResourceState
 
+	AwsId                     pulumi.StringOutput     `pulumi:"awsId"`
 	CdcStartPosition          pulumi.StringPtrOutput  `pulumi:"cdcStartPosition"`
 	CdcStartTime              pulumi.Float64PtrOutput `pulumi:"cdcStartTime"`
 	CdcStopPosition           pulumi.StringPtrOutput  `pulumi:"cdcStopPosition"`
@@ -163,6 +164,10 @@ func (o ReplicationTaskOutput) ToReplicationTaskOutput() ReplicationTaskOutput {
 
 func (o ReplicationTaskOutput) ToReplicationTaskOutputWithContext(ctx context.Context) ReplicationTaskOutput {
 	return o
+}
+
+func (o ReplicationTaskOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ReplicationTaskOutput) CdcStartPosition() pulumi.StringPtrOutput {

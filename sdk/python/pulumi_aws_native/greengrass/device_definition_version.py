@@ -104,6 +104,7 @@ class DeviceDefinitionVersion(pulumi.CustomResource):
             if devices is None and not opts.urn:
                 raise TypeError("Missing required property 'devices'")
             __props__.__dict__["devices"] = devices
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device_definition_id", "devices[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeviceDefinitionVersion, __self__).__init__(
@@ -128,9 +129,15 @@ class DeviceDefinitionVersion(pulumi.CustomResource):
 
         __props__ = DeviceDefinitionVersionInitArgs.__new__(DeviceDefinitionVersionInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["device_definition_id"] = None
         __props__.__dict__["devices"] = None
         return DeviceDefinitionVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deviceDefinitionId")

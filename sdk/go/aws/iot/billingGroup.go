@@ -17,6 +17,7 @@ type BillingGroup struct {
 	pulumi.CustomResourceState
 
 	Arn                    pulumi.StringOutput                       `pulumi:"arn"`
+	AwsId                  pulumi.StringOutput                       `pulumi:"awsId"`
 	BillingGroupName       pulumi.StringPtrOutput                    `pulumi:"billingGroupName"`
 	BillingGroupProperties BillingGroupPropertiesPropertiesPtrOutput `pulumi:"billingGroupProperties"`
 	// An array of key-value pairs to apply to this resource.
@@ -120,6 +121,10 @@ func (o BillingGroupOutput) ToBillingGroupOutputWithContext(ctx context.Context)
 
 func (o BillingGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o BillingGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o BillingGroupOutput) BillingGroupName() pulumi.StringPtrOutput {

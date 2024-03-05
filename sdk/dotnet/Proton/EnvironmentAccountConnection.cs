@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Proton
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the environment account connection.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
         /// </summary>
         [Output("codebuildRoleArn")]

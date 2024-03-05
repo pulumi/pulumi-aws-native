@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("deploymentConfig")]
         public Output<Outputs.EndpointDeploymentConfig?> DeploymentConfig { get; private set; } = null!;
 

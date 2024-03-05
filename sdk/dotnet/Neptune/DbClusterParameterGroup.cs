@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Neptune
     [AwsNativeResourceType("aws-native:neptune:DbClusterParameterGroup")]
     public partial class DbClusterParameterGroup : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 

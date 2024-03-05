@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Greengrass
     [AwsNativeResourceType("aws-native:greengrass:LoggerDefinitionVersion")]
     public partial class LoggerDefinitionVersion : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("loggerDefinitionId")]
         public Output<string> LoggerDefinitionId { get; private set; } = null!;
 

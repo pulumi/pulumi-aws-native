@@ -19,6 +19,7 @@ type Rule struct {
 
 	Action             RuleActionOutput       `pulumi:"action"`
 	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	AwsId              pulumi.StringOutput    `pulumi:"awsId"`
 	ListenerIdentifier pulumi.StringPtrOutput `pulumi:"listenerIdentifier"`
 	Match              RuleMatchOutput        `pulumi:"match"`
 	Name               pulumi.StringPtrOutput `pulumi:"name"`
@@ -145,6 +146,10 @@ func (o RuleOutput) Action() RuleActionOutput {
 
 func (o RuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RuleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RuleOutput) ListenerIdentifier() pulumi.StringPtrOutput {

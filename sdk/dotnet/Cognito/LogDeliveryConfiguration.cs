@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:LogDeliveryConfiguration")]
     public partial class LogDeliveryConfiguration : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("logConfigurations")]
         public Output<ImmutableArray<Outputs.LogDeliveryConfigurationLogConfiguration>> LogConfigurations { get; private set; } = null!;
 

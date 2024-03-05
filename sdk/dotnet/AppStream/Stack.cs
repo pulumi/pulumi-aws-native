@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.AppStream
         [Output("attributesToDelete")]
         public Output<ImmutableArray<string>> AttributesToDelete { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("deleteStorageConnectors")]
         public Output<bool?> DeleteStorageConnectors { get; private set; } = null!;
 

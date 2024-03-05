@@ -102,6 +102,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
             if vpn_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_gateway_id'")
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
+            __props__.__dict__["aws_id"] = None
         super(VpnGatewayRoutePropagation, __self__).__init__(
             'aws-native:ec2:VpnGatewayRoutePropagation',
             resource_name,
@@ -124,9 +125,15 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
 
         __props__ = VpnGatewayRoutePropagationArgs.__new__(VpnGatewayRoutePropagationArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["route_table_ids"] = None
         __props__.__dict__["vpn_gateway_id"] = None
         return VpnGatewayRoutePropagation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="routeTableIds")

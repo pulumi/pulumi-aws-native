@@ -43,6 +43,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly accessEndpoints!: pulumi.Output<outputs.appstream.StackAccessEndpoint[] | undefined>;
     public readonly applicationSettings!: pulumi.Output<outputs.appstream.StackApplicationSettings | undefined>;
     public readonly attributesToDelete!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly deleteStorageConnectors!: pulumi.Output<boolean | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly displayName!: pulumi.Output<string | undefined>;
@@ -82,10 +83,12 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["streamingExperienceSettings"] = args ? args.streamingExperienceSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userSettings"] = args ? args.userSettings : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["accessEndpoints"] = undefined /*out*/;
             resourceInputs["applicationSettings"] = undefined /*out*/;
             resourceInputs["attributesToDelete"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deleteStorageConnectors"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

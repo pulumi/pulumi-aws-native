@@ -16,6 +16,8 @@ import (
 type TopicPolicy struct {
 	pulumi.CustomResourceState
 
+	// The provider-assigned unique ID for this managed resource.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A policy document that contains permissions to add to the specified SNS topics.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
@@ -123,6 +125,11 @@ func (o TopicPolicyOutput) ToTopicPolicyOutput() TopicPolicyOutput {
 
 func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
 	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o TopicPolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A policy document that contains permissions to add to the specified SNS topics.

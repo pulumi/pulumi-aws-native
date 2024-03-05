@@ -21,6 +21,7 @@ type EnvironmentEc2 struct {
 
 	Arn                      pulumi.StringOutput                 `pulumi:"arn"`
 	AutomaticStopTimeMinutes pulumi.IntPtrOutput                 `pulumi:"automaticStopTimeMinutes"`
+	AwsId                    pulumi.StringOutput                 `pulumi:"awsId"`
 	ConnectionType           pulumi.StringPtrOutput              `pulumi:"connectionType"`
 	Description              pulumi.StringPtrOutput              `pulumi:"description"`
 	ImageId                  pulumi.StringOutput                 `pulumi:"imageId"`
@@ -157,6 +158,10 @@ func (o EnvironmentEc2Output) Arn() pulumi.StringOutput {
 
 func (o EnvironmentEc2Output) AutomaticStopTimeMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEc2) pulumi.IntPtrOutput { return v.AutomaticStopTimeMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o EnvironmentEc2Output) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentEc2) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o EnvironmentEc2Output) ConnectionType() pulumi.StringPtrOutput {

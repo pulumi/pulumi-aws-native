@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("attributeMapping")]
         public Output<object?> AttributeMapping { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("idpIdentifiers")]
         public Output<ImmutableArray<string>> IdpIdentifiers { get; private set; } = null!;
 

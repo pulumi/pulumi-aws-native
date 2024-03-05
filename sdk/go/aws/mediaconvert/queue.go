@@ -18,6 +18,7 @@ type Queue struct {
 	pulumi.CustomResourceState
 
 	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	AwsId       pulumi.StringOutput    `pulumi:"awsId"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Name        pulumi.StringPtrOutput `pulumi:"name"`
 	PricingPlan pulumi.StringPtrOutput `pulumi:"pricingPlan"`
@@ -127,6 +128,10 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 
 func (o QueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o QueueOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o QueueOutput) Description() pulumi.StringPtrOutput {

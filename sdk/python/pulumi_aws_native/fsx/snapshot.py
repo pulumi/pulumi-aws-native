@@ -118,6 +118,7 @@ class Snapshot(pulumi.CustomResource):
             if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
             __props__.__dict__["volume_id"] = volume_id
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["resource_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["volume_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -143,11 +144,17 @@ class Snapshot(pulumi.CustomResource):
 
         __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["volume_id"] = None
         return Snapshot(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

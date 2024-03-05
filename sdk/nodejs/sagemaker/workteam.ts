@@ -40,6 +40,7 @@ export class Workteam extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workteam.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly memberDefinitions!: pulumi.Output<outputs.sagemaker.WorkteamMemberDefinition[] | undefined>;
     public readonly notificationConfiguration!: pulumi.Output<outputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
@@ -66,7 +67,9 @@ export class Workteam extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workforceName"] = args ? args.workforceName : undefined;
             resourceInputs["workteamName"] = args ? args.workteamName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["memberDefinitions"] = undefined /*out*/;
             resourceInputs["notificationConfiguration"] = undefined /*out*/;

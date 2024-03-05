@@ -17,6 +17,7 @@ type Certificate struct {
 	pulumi.CustomResourceState
 
 	Arn                       pulumi.StringOutput      `pulumi:"arn"`
+	AwsId                     pulumi.StringOutput      `pulumi:"awsId"`
 	CaCertificatePem          pulumi.StringPtrOutput   `pulumi:"caCertificatePem"`
 	CertificateMode           CertificateModePtrOutput `pulumi:"certificateMode"`
 	CertificatePem            pulumi.StringPtrOutput   `pulumi:"certificatePem"`
@@ -129,6 +130,10 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 
 func (o CertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o CertificateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CertificateOutput) CaCertificatePem() pulumi.StringPtrOutput {

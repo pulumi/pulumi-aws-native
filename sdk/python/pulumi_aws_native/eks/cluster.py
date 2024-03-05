@@ -242,6 +242,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["certificate_authority_data"] = None
             __props__.__dict__["cluster_security_group_id"] = None
             __props__.__dict__["encryption_config_key_arn"] = None
@@ -273,6 +274,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__.__dict__["access_config"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["certificate_authority_data"] = None
         __props__.__dict__["cluster_security_group_id"] = None
         __props__.__dict__["encryption_config"] = None
@@ -301,6 +303,14 @@ class Cluster(pulumi.CustomResource):
         The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID given to your cluster.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="certificateAuthorityData")

@@ -16,6 +16,7 @@ import (
 type Channel struct {
 	pulumi.CustomResourceState
 
+	AwsId           pulumi.StringOutput             `pulumi:"awsId"`
 	ChannelName     pulumi.StringPtrOutput          `pulumi:"channelName"`
 	ChannelStorage  ChannelStoragePtrOutput         `pulumi:"channelStorage"`
 	RetentionPeriod ChannelRetentionPeriodPtrOutput `pulumi:"retentionPeriod"`
@@ -115,6 +116,10 @@ func (o ChannelOutput) ToChannelOutput() ChannelOutput {
 
 func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
 	return o
+}
+
+func (o ChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ChannelOutput) ChannelName() pulumi.StringPtrOutput {

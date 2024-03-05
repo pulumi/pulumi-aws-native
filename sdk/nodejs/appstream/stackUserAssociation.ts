@@ -38,6 +38,7 @@ export class StackUserAssociation extends pulumi.CustomResource {
     }
 
     public readonly authenticationType!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly sendEmailNotification!: pulumi.Output<boolean | undefined>;
     public readonly stackName!: pulumi.Output<string>;
     public readonly userName!: pulumi.Output<string>;
@@ -68,8 +69,10 @@ export class StackUserAssociation extends pulumi.CustomResource {
             resourceInputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
             resourceInputs["stackName"] = args ? args.stackName : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["sendEmailNotification"] = undefined /*out*/;
             resourceInputs["stackName"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;

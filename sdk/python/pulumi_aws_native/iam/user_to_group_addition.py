@@ -102,6 +102,7 @@ class UserToGroupAddition(pulumi.CustomResource):
             if users is None and not opts.urn:
                 raise TypeError("Missing required property 'users'")
             __props__.__dict__["users"] = users
+            __props__.__dict__["aws_id"] = None
         super(UserToGroupAddition, __self__).__init__(
             'aws-native:iam:UserToGroupAddition',
             resource_name,
@@ -124,9 +125,15 @@ class UserToGroupAddition(pulumi.CustomResource):
 
         __props__ = UserToGroupAdditionArgs.__new__(UserToGroupAdditionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["group_name"] = None
         __props__.__dict__["users"] = None
         return UserToGroupAddition(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="groupName")

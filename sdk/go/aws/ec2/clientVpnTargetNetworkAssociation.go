@@ -18,6 +18,7 @@ import (
 type ClientVpnTargetNetworkAssociation struct {
 	pulumi.CustomResourceState
 
+	AwsId               pulumi.StringOutput `pulumi:"awsId"`
 	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
 	SubnetId            pulumi.StringOutput `pulumi:"subnetId"`
 }
@@ -118,6 +119,10 @@ func (o ClientVpnTargetNetworkAssociationOutput) ToClientVpnTargetNetworkAssocia
 
 func (o ClientVpnTargetNetworkAssociationOutput) ToClientVpnTargetNetworkAssociationOutputWithContext(ctx context.Context) ClientVpnTargetNetworkAssociationOutput {
 	return o
+}
+
+func (o ClientVpnTargetNetworkAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnTargetNetworkAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ClientVpnTargetNetworkAssociationOutput) ClientVpnEndpointId() pulumi.StringOutput {

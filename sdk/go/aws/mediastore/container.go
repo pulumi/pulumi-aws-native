@@ -19,6 +19,7 @@ type Container struct {
 	pulumi.CustomResourceState
 
 	AccessLoggingEnabled pulumi.BoolPtrOutput           `pulumi:"accessLoggingEnabled"`
+	AwsId                pulumi.StringOutput            `pulumi:"awsId"`
 	ContainerName        pulumi.StringOutput            `pulumi:"containerName"`
 	CorsPolicy           ContainerCorsRuleArrayOutput   `pulumi:"corsPolicy"`
 	Endpoint             pulumi.StringOutput            `pulumi:"endpoint"`
@@ -131,6 +132,10 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 
 func (o ContainerOutput) AccessLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Container) pulumi.BoolPtrOutput { return v.AccessLoggingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ContainerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ContainerOutput) ContainerName() pulumi.StringOutput {

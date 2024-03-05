@@ -195,6 +195,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
             __props__.__dict__["tags"] = tags
             __props__.__dict__["validation_method"] = validation_method
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_authority_arn", "domain_name", "domain_validation_options[*]", "key_algorithm", "subject_alternative_names[*]", "validation_method"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Certificate, __self__).__init__(
@@ -219,6 +220,7 @@ class Certificate(pulumi.CustomResource):
 
         __props__ = CertificateArgs.__new__(CertificateArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["certificate_authority_arn"] = None
         __props__.__dict__["certificate_transparency_logging_preference"] = None
         __props__.__dict__["domain_name"] = None
@@ -228,6 +230,11 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["validation_method"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")

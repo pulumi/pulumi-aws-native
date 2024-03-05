@@ -145,6 +145,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["domain_identifier"] = domain_identifier
             __props__.__dict__["glossary_terms"] = glossary_terms
             __props__.__dict__["name"] = name
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["domain_id"] = None
@@ -173,6 +174,7 @@ class Project(pulumi.CustomResource):
 
         __props__ = ProjectArgs.__new__(ProjectArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["description"] = None
@@ -182,6 +184,14 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["name"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Amazon DataZone project.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

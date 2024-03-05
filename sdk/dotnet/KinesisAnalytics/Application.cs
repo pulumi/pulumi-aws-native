@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.KinesisAnalytics
         [Output("applicationName")]
         public Output<string?> ApplicationName { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("inputs")]
         public Output<ImmutableArray<Outputs.ApplicationInput>> Inputs { get; private set; } = null!;
 

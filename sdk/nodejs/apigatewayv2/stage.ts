@@ -44,6 +44,7 @@ export class Stage extends pulumi.CustomResource {
     public readonly accessPolicyId!: pulumi.Output<string | undefined>;
     public readonly apiId!: pulumi.Output<string>;
     public readonly autoDeploy!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly clientCertificateId!: pulumi.Output<string | undefined>;
     public readonly defaultRouteSettings!: pulumi.Output<outputs.apigatewayv2.StageRouteSettings | undefined>;
     public readonly deploymentId!: pulumi.Output<string | undefined>;
@@ -90,11 +91,13 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["stageName"] = args ? args.stageName : undefined;
             resourceInputs["stageVariables"] = args ? args.stageVariables : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["accessLogSettings"] = undefined /*out*/;
             resourceInputs["accessPolicyId"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["autoDeploy"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientCertificateId"] = undefined /*out*/;
             resourceInputs["defaultRouteSettings"] = undefined /*out*/;
             resourceInputs["deploymentId"] = undefined /*out*/;

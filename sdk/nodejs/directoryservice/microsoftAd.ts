@@ -41,6 +41,7 @@ export class MicrosoftAd extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly alias!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly createAlias!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
     public readonly edition!: pulumi.Output<string | undefined>;
@@ -77,9 +78,11 @@ export class MicrosoftAd extends pulumi.CustomResource {
             resourceInputs["shortName"] = args ? args.shortName : undefined;
             resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
             resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dnsIpAddresses"] = undefined /*out*/;
         } else {
             resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createAlias"] = undefined /*out*/;
             resourceInputs["dnsIpAddresses"] = undefined /*out*/;
             resourceInputs["edition"] = undefined /*out*/;

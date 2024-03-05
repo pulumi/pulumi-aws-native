@@ -17,6 +17,8 @@ import (
 type InstanceConnectEndpoint struct {
 	pulumi.CustomResourceState
 
+	// The id of the instance connect endpoint
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The client token of the instance connect endpoint.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
 	// If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
@@ -140,6 +142,11 @@ func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutput() Instanc
 
 func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutputWithContext(ctx context.Context) InstanceConnectEndpointOutput {
 	return o
+}
+
+// The id of the instance connect endpoint
+func (o InstanceConnectEndpointOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The client token of the instance connect endpoint.

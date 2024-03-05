@@ -20,6 +20,8 @@ type Endpoint struct {
 	AccessType EndpointAccessTypePtrOutput `pulumi:"accessType"`
 	// The Amazon Resource Name (ARN) of the endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the endpoint.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The VPC CIDR committed by this endpoint.
 	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
 	// The time the endpoint was created.
@@ -171,6 +173,11 @@ func (o EndpointOutput) AccessType() EndpointAccessTypePtrOutput {
 // The Amazon Resource Name (ARN) of the endpoint.
 func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the endpoint.
+func (o EndpointOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The VPC CIDR committed by this endpoint.

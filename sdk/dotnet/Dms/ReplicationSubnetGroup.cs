@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Dms
     [AwsNativeResourceType("aws-native:dms:ReplicationSubnetGroup")]
     public partial class ReplicationSubnetGroup : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("replicationSubnetGroupDescription")]
         public Output<string> ReplicationSubnetGroupDescription { get; private set; } = null!;
 

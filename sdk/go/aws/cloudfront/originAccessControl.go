@@ -16,6 +16,7 @@ import (
 type OriginAccessControl struct {
 	pulumi.CustomResourceState
 
+	AwsId                     pulumi.StringOutput             `pulumi:"awsId"`
 	OriginAccessControlConfig OriginAccessControlConfigOutput `pulumi:"originAccessControlConfig"`
 }
 
@@ -105,6 +106,10 @@ func (o OriginAccessControlOutput) ToOriginAccessControlOutput() OriginAccessCon
 
 func (o OriginAccessControlOutput) ToOriginAccessControlOutputWithContext(ctx context.Context) OriginAccessControlOutput {
 	return o
+}
+
+func (o OriginAccessControlOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o OriginAccessControlOutput) OriginAccessControlConfig() OriginAccessControlConfigOutput {

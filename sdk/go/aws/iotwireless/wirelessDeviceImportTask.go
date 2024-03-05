@@ -21,6 +21,8 @@ type WirelessDeviceImportTask struct {
 
 	// Arn for Wireless Device Import Task, Returned upon successful start.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Id for Wireless Device Import Task, Returned upon successful start.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// CreationDate for import task
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Destination Name for import task
@@ -147,6 +149,11 @@ func (o WirelessDeviceImportTaskOutput) ToWirelessDeviceImportTaskOutputWithCont
 // Arn for Wireless Device Import Task, Returned upon successful start.
 func (o WirelessDeviceImportTaskOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WirelessDeviceImportTask) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Id for Wireless Device Import Task, Returned upon successful start.
+func (o WirelessDeviceImportTaskOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WirelessDeviceImportTask) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // CreationDate for import task

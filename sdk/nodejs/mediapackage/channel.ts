@@ -42,6 +42,10 @@ export class Channel extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ID of the Channel.
+     */
+    public readonly awsId!: pulumi.Output<string>;
+    /**
      * A short text description of the Channel.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -69,10 +73,14 @@ export class Channel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.awsId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'awsId'");
+            }
+            resourceInputs["awsId"] = args ? args.awsId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
             resourceInputs["hlsIngest"] = args ? args.hlsIngest : undefined;
@@ -81,6 +89,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["egressAccessLogs"] = undefined /*out*/;
             resourceInputs["hlsIngest"] = undefined /*out*/;
@@ -98,6 +107,10 @@ export class Channel extends pulumi.CustomResource {
  * The set of arguments for constructing a Channel resource.
  */
 export interface ChannelArgs {
+    /**
+     * The ID of the Channel.
+     */
+    awsId: pulumi.Input<string>;
     /**
      * A short text description of the Channel.
      */

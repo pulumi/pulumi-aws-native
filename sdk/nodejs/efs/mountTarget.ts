@@ -34,6 +34,7 @@ export class MountTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === MountTarget.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The ID of the file system for which to create the mount target.
      */
@@ -75,7 +76,9 @@ export class MountTarget extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["securityGroups"] = undefined /*out*/;

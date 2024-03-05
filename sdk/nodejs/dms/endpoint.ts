@@ -40,6 +40,7 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     public readonly databaseName!: pulumi.Output<string | undefined>;
     public readonly docDbSettings!: pulumi.Output<outputs.dms.EndpointDocDbSettings | undefined>;
@@ -123,8 +124,10 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["sybaseSettings"] = args ? args.sybaseSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["docDbSettings"] = undefined /*out*/;

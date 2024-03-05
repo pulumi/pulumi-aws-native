@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ec2
     public partial class EgressOnlyInternetGateway : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Service Generated ID of the EgressOnlyInternetGateway
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the VPC for which to create the egress-only internet gateway.
         /// </summary>
         [Output("vpcId")]

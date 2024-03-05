@@ -163,6 +163,7 @@ class EmailChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EmailChannel, __self__).__init__(
@@ -188,6 +189,7 @@ class EmailChannel(pulumi.CustomResource):
         __props__ = EmailChannelArgs.__new__(EmailChannelArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["configuration_set"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["from_address"] = None
@@ -199,6 +201,11 @@ class EmailChannel(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="configurationSet")

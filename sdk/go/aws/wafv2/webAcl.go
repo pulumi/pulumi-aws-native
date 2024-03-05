@@ -19,6 +19,7 @@ type WebAcl struct {
 
 	Arn                  pulumi.StringOutput               `pulumi:"arn"`
 	AssociationConfig    WebAclAssociationConfigPtrOutput  `pulumi:"associationConfig"`
+	AwsId                pulumi.StringOutput               `pulumi:"awsId"`
 	Capacity             pulumi.IntOutput                  `pulumi:"capacity"`
 	CaptchaConfig        WebAclCaptchaConfigPtrOutput      `pulumi:"captchaConfig"`
 	ChallengeConfig      WebAclChallengeConfigPtrOutput    `pulumi:"challengeConfig"`
@@ -164,6 +165,10 @@ func (o WebAclOutput) Arn() pulumi.StringOutput {
 
 func (o WebAclOutput) AssociationConfig() WebAclAssociationConfigPtrOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclAssociationConfigPtrOutput { return v.AssociationConfig }).(WebAclAssociationConfigPtrOutput)
+}
+
+func (o WebAclOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o WebAclOutput) Capacity() pulumi.IntOutput {
