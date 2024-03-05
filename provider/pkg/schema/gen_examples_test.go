@@ -8,6 +8,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	jsschema "github.com/pulumi/jsschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -15,240 +16,245 @@ import (
 )
 
 type PropertyTypeSpecTestCase struct {
-	name     string
-	json     string
-	expected pschema.TypeSpec
+	json          string
+	expected      pschema.TypeSpec
+	expectedTypes map[string]pschema.ComplexTypeSpec
 }
 
 func TestPropertyTypeSpec(t *testing.T) {
-	cases := []PropertyTypeSpecTestCase{
-		{
-			name: "oneOf-strings-with-base-type",
-			json: `{
+	test := func(tt PropertyTypeSpecTestCase) func(t *testing.T) {
+		return func(t *testing.T) {
+			t.Helper()
+			ctx := context{
+				pkg: &pschema.PackageSpec{
+					Types: map[string]pschema.ComplexTypeSpec{},
+				},
+				visitedTypes: codegen.NewStringSet(),
+				metadata: &CloudAPIMetadata{
+					Types: map[string]CloudAPIType{},
+				},
+				resourceSpec: &jsschema.Schema{
+					Definitions: map[string]*jsschema.Schema{
+						"Obj": {Type: jsschema.PrimitiveTypes{jsschema.ObjectType}},
+						"OneOf": {
+							OneOf: jsschema.SchemaList{
+								&jsschema.Schema{Type: jsschema.PrimitiveTypes{jsschema.NumberType}},
+								&jsschema.Schema{Type: jsschema.PrimitiveTypes{jsschema.StringType}},
+							},
+						},
+						"ObjLike1": {
+							Properties: map[string]*jsschema.Schema{
+								"foo": jsschema.New(),
+							},
+						},
+						"ObjLike2": {
+							PatternProperties: map[string]*jsschema.Schema{
+								".+": jsschema.New(),
+							},
+						},
+					},
+				},
+			}
+
+			schema := jsschema.New()
+			err := schema.UnmarshalJSON([]byte(tt.json))
+			require.NoError(t, err)
+
+			actual, err := ctx.propertyTypeSpec("Foo", schema)
+			require.NoError(t, err)
+			assert.Equal(t, tt.expected, *actual)
+			if len(tt.expectedTypes) > 0 {
+				assert.Equal(t, tt.expectedTypes, ctx.pkg.Types)
+			}
+		}
+	}
+
+	t.Run("oneOf-strings-with-base-type", test(PropertyTypeSpecTestCase{
+		json: `{
 				"type": "string",
 				"oneOf": [
 					{"format": "date-time"},
 					{"format": "timestamp"}
 				]
 			}`,
-			expected: pschema.TypeSpec{Type: "string"},
-		},
-		{
-			name: "anyOf-strings-with-base-type",
-			json: `{
+		expected: pschema.TypeSpec{Type: "string"},
+	}))
+	t.Run("anyOf-strings-with-base-type", test(PropertyTypeSpecTestCase{
+		json: `{
 				"type": "string",
 				"anyOf": [
 					{"format": "date-time"},
 					{"format": "timestamp"}
 				]
 			}`,
-			expected: pschema.TypeSpec{Type: "string"},
-		},
-		{
-			name: "oneOf-strings-no-base-type",
-			json: `{
+		expected: pschema.TypeSpec{Type: "string"},
+	}))
+	t.Run("oneOf-strings-no-base-type", test(PropertyTypeSpecTestCase{
+		json: `{
 				"oneOf": [
 					{"type": "string", "format": "date-time"},
 					{"type": "string", "format": "timestamp"}
 				]
 			}`,
-			expected: pschema.TypeSpec{Type: "string"},
-		},
-		{
-			name: "anyOf-strings-no-base-type",
-			json: `{
+		expected: pschema.TypeSpec{Type: "string"},
+	}))
+	t.Run("anyOf-strings-no-base-type", test(PropertyTypeSpecTestCase{
+		json: `{
 				"anyOf": [
 					{"type": "string", "format": "date-time"},
 					{"type": "string", "format": "timestamp"}
 				]
 			}`,
-			expected: pschema.TypeSpec{Type: "string"},
-		},
-		{
-			name: "oneOf-primatives",
-			json: `{
+		expected: pschema.TypeSpec{Type: "string"},
+	}))
+	t.Run("oneOf-primatives", test(PropertyTypeSpecTestCase{
+		json: `{
 				"oneOf": [
 					{"type": "string"},
 					{"type": "number"}
 				]
 			}`,
-			expected: pschema.TypeSpec{
-				OneOf: []pschema.TypeSpec{{Type: "string"}, {Type: "number"}},
-			},
+		expected: pschema.TypeSpec{
+			OneOf: []pschema.TypeSpec{{Type: "string"}, {Type: "number"}},
 		},
-		{
-			name: "anyOf-primatives",
-			json: `{
+	}))
+	t.Run("anyOf-primatives", test(PropertyTypeSpecTestCase{
+		json: `{
 				"anyOf": [
 					{"type": "string"},
 					{"type": "number"}
 				]
 			}`,
-			expected: pschema.TypeSpec{
-				OneOf: []pschema.TypeSpec{{Type: "string"}, {Type: "number"}},
-			},
+		expected: pschema.TypeSpec{
+			OneOf: []pschema.TypeSpec{{Type: "string"}, {Type: "number"}},
 		},
-		{
-			name: "oneOf-objects",
-			json: `{
+	}))
+	t.Run("oneOf-objects", test(PropertyTypeSpecTestCase{
+		json: `{
 				"anyOf": [
 					{"type": "object", "properties": { "A": { "type": "number" } } },
 					{"type": "object", "properties": { "A": { "type": "string" } } }
 				]
 			}`,
-			expected: pschema.TypeSpec{
-				OneOf: []pschema.TypeSpec{
-					{Ref: "#/types/aws-native::Foo0Properties"},
-					{Ref: "#/types/aws-native::Foo1Properties"},
-				},
+		expected: pschema.TypeSpec{
+			OneOf: []pschema.TypeSpec{
+				{Ref: "#/types/aws-native::Foo0Properties"},
+				{Ref: "#/types/aws-native::Foo1Properties"},
 			},
 		},
-		{
-			name: "anyOf-mixed-types-no-base-type",
-			json: `{
+	}))
+	t.Run("anyOf-mixed-types-no-base-type", test(PropertyTypeSpecTestCase{
+		json: `{
 				"anyOf": [
 					{"type": "object", "properties": { "A": { "type": "number" } } },
 					{"type": "object" },
 					{"type": "string" }
 				]
 			}`,
-			expected: pschema.TypeSpec{
-				OneOf: []pschema.TypeSpec{
-					{Ref: "#/types/aws-native::FooProperties"},
-					{Ref: "pulumi.json#/Any"},
-					{Type: "string"},
-				},
+		expected: pschema.TypeSpec{
+			OneOf: []pschema.TypeSpec{
+				{Ref: "#/types/aws-native::FooProperties"},
+				{Ref: "pulumi.json#/Any"},
+				{Type: "string"},
 			},
 		},
-		{
-			name: "oneOf-object-properties",
-			json: `{
+	}))
+	t.Run("oneOf-object-properties", test(PropertyTypeSpecTestCase{
+		json: `{
 				"type": "object",
 				"oneOf": [
 					 {"properties": { "A": { "type": "number" } } },
 					 {"properties": { "B": { "type": "number" } } }
 				 ]
 			 }`,
-			expected: pschema.TypeSpec{
-				OneOf: []pschema.TypeSpec{
-					{Ref: "#/types/aws-native::Foo0Properties"},
-					{Ref: "#/types/aws-native::Foo1Properties"},
-				},
+		expected: pschema.TypeSpec{
+			OneOf: []pschema.TypeSpec{
+				{Ref: "#/types/aws-native::Foo0Properties"},
+				{Ref: "#/types/aws-native::Foo1Properties"},
 			},
 		},
-		{
-			name: "ref-to-untyped-object",
-			json: `{
+	}))
+	t.Run("ref-to-untyped-object", test(PropertyTypeSpecTestCase{
+		json: `{
 				"$ref": "#/definitions/Obj"
 			 }`,
-			expected: pschema.TypeSpec{Ref: "#/types/aws-native::Obj"},
-		},
-		{
-			name: "ref-to-object-with-named-properties",
-			json: `{
+		expected: pschema.TypeSpec{Ref: "#/types/aws-native::Obj"},
+	}))
+	t.Run("ref-to-object-with-named-properties", test(PropertyTypeSpecTestCase{
+		json: `{
 				"$ref": "#/definitions/ObjLike1"
 			 }`,
-			expected: pschema.TypeSpec{Ref: "#/types/aws-native::ObjLike1"},
-		},
-		{
-			name: "ref-to-object-with-patternProperties",
-			json: `{
+		expected: pschema.TypeSpec{Ref: "#/types/aws-native::ObjLike1"},
+	}))
+	t.Run("ref-to-object-with-patternProperties", test(PropertyTypeSpecTestCase{
+		json: `{
 				"$ref": "#/definitions/ObjLike2"
 			 }`,
-			expected: pschema.TypeSpec{
-				Type: "object",
-				AdditionalProperties: &pschema.TypeSpec{
-					Ref: "pulumi.json#/Any",
-				},
-			},
-		},
-		{
-			name: "ref-to-oneOf",
-			json: `{
-				"$ref": "#/definitions/OneOf"
-			 }`,
-			expected: pschema.TypeSpec{
-				OneOf: []pschema.TypeSpec{
-					{Type: "number"},
-					{Type: "string"},
-				},
-			},
-		},
-		{
-			name: "string-and-number",
-			json: `{
-				"type": ["string","number"]
-			}`,
-			expected: pschema.TypeSpec{
-				OneOf: []pschema.TypeSpec{{Type: "string"}, {Type: "number"}},
-			},
-		},
-		{
-			name: "inferred-array",
-			json: `{
-				"items": { "type": "string" }
-			}`,
-			expected: pschema.TypeSpec{
-				Type: "array",
-				Items: &pschema.TypeSpec{
-					Type: "string",
-				},
-			},
-		},
-		{
-			name: "collapse-oneOf-any",
-			json: `{
-				"type": ["string","object"]
-			}`,
-			expected: pschema.TypeSpec{
+		expected: pschema.TypeSpec{
+			Type: "object",
+			AdditionalProperties: &pschema.TypeSpec{
 				Ref: "pulumi.json#/Any",
 			},
 		},
-	}
-
-	ctx := context{
-		pkg: &pschema.PackageSpec{
-			Types: map[string]pschema.ComplexTypeSpec{},
+	}))
+	t.Run("ref-to-oneOf", test(PropertyTypeSpecTestCase{
+		json: `{
+				"$ref": "#/definitions/OneOf"
+			 }`,
+		expected: pschema.TypeSpec{
+			OneOf: []pschema.TypeSpec{
+				{Type: "number"},
+				{Type: "string"},
+			},
 		},
-		visitedTypes: codegen.NewStringSet(),
-		metadata: &CloudAPIMetadata{
-			Types: map[string]CloudAPIType{},
+	}))
+	t.Run("string-and-number", test(PropertyTypeSpecTestCase{
+		json: `{
+				"type": ["string","number"]
+			}`,
+		expected: pschema.TypeSpec{
+			OneOf: []pschema.TypeSpec{{Type: "string"}, {Type: "number"}},
 		},
-		resourceSpec: &jsschema.Schema{
-			Definitions: map[string]*jsschema.Schema{
-				"Obj": {Type: jsschema.PrimitiveTypes{jsschema.ObjectType}},
-				"OneOf": {
-					OneOf: jsschema.SchemaList{
-						&jsschema.Schema{Type: jsschema.PrimitiveTypes{jsschema.NumberType}},
-						&jsschema.Schema{Type: jsschema.PrimitiveTypes{jsschema.StringType}},
-					},
+	}))
+	t.Run("inferred-array", test(PropertyTypeSpecTestCase{
+		json: `{
+				"items": { "type": "string" }
+			}`,
+		expected: pschema.TypeSpec{
+			Type: "array",
+			Items: &pschema.TypeSpec{
+				Type: "string",
+			},
+		},
+	}))
+	t.Run("collapse-oneOf-any", test(PropertyTypeSpecTestCase{
+		json: `{
+				"type": ["string","object"]
+			}`,
+		expected: pschema.TypeSpec{
+			Ref: "pulumi.json#/Any",
+		},
+	}))
+	t.Run("string-enum", test(PropertyTypeSpecTestCase{
+		json: `{
+				"type": "string",
+				"enum": ["UseHTTP1Thing", "use_HTTP2_thing"]
+			}`,
+		expected: pschema.TypeSpec{
+			Ref: "#/types/aws-native::Foo",
+		},
+		expectedTypes: map[string]pschema.ComplexTypeSpec{
+			"aws-native::Foo": {
+				ObjectTypeSpec: pschema.ObjectTypeSpec{
+					Type: "string",
 				},
-				"ObjLike1": {
-					Properties: map[string]*jsschema.Schema{
-						"foo": jsschema.New(),
-					},
-				},
-				"ObjLike2": {
-					PatternProperties: map[string]*jsschema.Schema{
-						".+": jsschema.New(),
-					},
+				Enum: []pschema.EnumValueSpec{
+					{Name: "UseHttp1Thing", Value: "UseHTTP1Thing"},
+					{Name: "UseHttp2Thing", Value: "use_HTTP2_thing"},
 				},
 			},
 		},
-	}
-
-	for _, tt := range cases {
-		t.Run(tt.name, func(t *testing.T) {
-			schema := jsschema.New()
-			err := schema.UnmarshalJSON([]byte(tt.json))
-			assert.Nil(t, err)
-
-			actual, err := ctx.propertyTypeSpec("Foo", schema)
-			if assert.Nil(t, err) {
-				assert.Equal(t, tt.expected, *actual)
-			}
-		})
-	}
+	}))
 }
 
 func TestEnumType(t *testing.T) {
