@@ -2,7 +2,10 @@ module github.com/pulumi/pulumi-aws-native/examples
 
 go 1.21
 
-require github.com/pulumi/pulumi/pkg/v3 v3.107.0
+require (
+	github.com/pulumi/pulumi/pkg/v3 v3.107.0
+	github.com/stretchr/testify v1.8.4
+)
 
 require (
 	cloud.google.com/go v0.110.10 // indirect
@@ -147,7 +150,6 @@ require (
 	github.com/skeema/knownhosts v1.2.1 // indirect
 	github.com/spf13/cobra v1.7.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/stretchr/testify v1.8.4 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
