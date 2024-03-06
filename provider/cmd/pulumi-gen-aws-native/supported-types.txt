@@ -1051,6 +1051,8 @@ MongoDB::Atlas::ProjectIpAccessList
 MongoDB::Atlas::SearchIndex
 MongoDB::Atlas::ServerlessInstance
 MongoDB::Atlas::ServerlessPrivateEndpoint
+MongoDB::Atlas::StreamConnection
+MongoDB::Atlas::StreamInstance
 MongoDB::Atlas::Teams
 MongoDB::Atlas::ThirdPartyIntegration
 MongoDB::Atlas::Trigger
