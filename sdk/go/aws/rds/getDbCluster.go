@@ -105,6 +105,8 @@ type LookupDbClusterResult struct {
 	ScalingConfiguration *DbClusterScalingConfiguration `pulumi:"scalingConfiguration"`
 	// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
 	ServerlessV2ScalingConfiguration *DbClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
+	// Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+	StorageThroughput *int `pulumi:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB cluster.
 	StorageType *string `pulumi:"storageType"`
 	// An array of key-value pairs to apply to this resource.
@@ -339,6 +341,11 @@ func (o LookupDbClusterResultOutput) ServerlessV2ScalingConfiguration() DbCluste
 	return o.ApplyT(func(v LookupDbClusterResult) *DbClusterServerlessV2ScalingConfiguration {
 		return v.ServerlessV2ScalingConfiguration
 	}).(DbClusterServerlessV2ScalingConfigurationPtrOutput)
+}
+
+// Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+func (o LookupDbClusterResultOutput) StorageThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) *int { return v.StorageThroughput }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the storage type to be associated with the DB cluster.

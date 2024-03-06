@@ -255,6 +255,10 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+     */
+    public /*out*/ readonly storageThroughput!: pulumi.Output<number>;
+    /**
      * Specifies the storage type to be associated with the DB cluster.
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
@@ -340,6 +344,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["dbClusterArn"] = undefined /*out*/;
             resourceInputs["dbClusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["storageThroughput"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["associatedRoles"] = undefined /*out*/;
@@ -395,6 +400,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["sourceRegion"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["storageThroughput"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["useLatestRestorableTime"] = undefined /*out*/;

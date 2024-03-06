@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 {
 
     /// <summary>
-    /// Includes headers of a web request.
+    /// Includes cookies of a web request.
     /// </summary>
     [OutputType]
     public sealed class RuleGroupCookies

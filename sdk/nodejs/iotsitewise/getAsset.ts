@@ -34,6 +34,10 @@ export interface GetAssetResult {
      * A description for the asset
      */
     readonly assetDescription?: string;
+    /**
+     * The External ID of the asset
+     */
+    readonly assetExternalId?: string;
     readonly assetHierarchies?: outputs.iotsitewise.AssetHierarchy[];
     /**
      * The ID of the asset

@@ -19,6 +19,8 @@ __all__ = [
     'JobDefinitionAuthorizationConfigArgs',
     'JobDefinitionContainerPropertiesArgs',
     'JobDefinitionDeviceArgs',
+    'JobDefinitionEcsPropertiesArgs',
+    'JobDefinitionEcsTaskPropertiesArgs',
     'JobDefinitionEfsVolumeConfigurationArgs',
     'JobDefinitionEksContainerEnvironmentVariableArgs',
     'JobDefinitionEksContainerResourceRequirementsArgs',
@@ -47,6 +49,8 @@ __all__ = [
     'JobDefinitionRetryStrategyArgs',
     'JobDefinitionRuntimePlatformArgs',
     'JobDefinitionSecretArgs',
+    'JobDefinitionTaskContainerDependencyArgs',
+    'JobDefinitionTaskContainerPropertiesArgs',
     'JobDefinitionTimeoutArgs',
     'JobDefinitionTmpfsArgs',
     'JobDefinitionUlimitArgs',
@@ -766,6 +770,147 @@ class JobDefinitionDeviceArgs:
     @permissions.setter
     def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
+class JobDefinitionEcsPropertiesArgs:
+    def __init__(__self__, *,
+                 task_properties: pulumi.Input[Sequence[pulumi.Input['JobDefinitionEcsTaskPropertiesArgs']]]):
+        pulumi.set(__self__, "task_properties", task_properties)
+
+    @property
+    @pulumi.getter(name="taskProperties")
+    def task_properties(self) -> pulumi.Input[Sequence[pulumi.Input['JobDefinitionEcsTaskPropertiesArgs']]]:
+        return pulumi.get(self, "task_properties")
+
+    @task_properties.setter
+    def task_properties(self, value: pulumi.Input[Sequence[pulumi.Input['JobDefinitionEcsTaskPropertiesArgs']]]):
+        pulumi.set(self, "task_properties", value)
+
+
+@pulumi.input_type
+class JobDefinitionEcsTaskPropertiesArgs:
+    def __init__(__self__, *,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerPropertiesArgs']]]] = None,
+                 ephemeral_storage: Optional[pulumi.Input['JobDefinitionEphemeralStorageArgs']] = None,
+                 execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 ipc_mode: Optional[pulumi.Input[str]] = None,
+                 network_configuration: Optional[pulumi.Input['JobDefinitionNetworkConfigurationArgs']] = None,
+                 pid_mode: Optional[pulumi.Input[str]] = None,
+                 platform_version: Optional[pulumi.Input[str]] = None,
+                 runtime_platform: Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']] = None,
+                 task_role_arn: Optional[pulumi.Input[str]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]]] = None):
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if ipc_mode is not None:
+            pulumi.set(__self__, "ipc_mode", ipc_mode)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
+        if pid_mode is not None:
+            pulumi.set(__self__, "pid_mode", pid_mode)
+        if platform_version is not None:
+            pulumi.set(__self__, "platform_version", platform_version)
+        if runtime_platform is not None:
+            pulumi.set(__self__, "runtime_platform", runtime_platform)
+        if task_role_arn is not None:
+            pulumi.set(__self__, "task_role_arn", task_role_arn)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerPropertiesArgs']]]]:
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerPropertiesArgs']]]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input['JobDefinitionEphemeralStorageArgs']]:
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input['JobDefinitionEphemeralStorageArgs']]):
+        pulumi.set(self, "ephemeral_storage", value)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "execution_role_arn")
+
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role_arn", value)
+
+    @property
+    @pulumi.getter(name="ipcMode")
+    def ipc_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipc_mode")
+
+    @ipc_mode.setter
+    def ipc_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipc_mode", value)
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> Optional[pulumi.Input['JobDefinitionNetworkConfigurationArgs']]:
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: Optional[pulumi.Input['JobDefinitionNetworkConfigurationArgs']]):
+        pulumi.set(self, "network_configuration", value)
+
+    @property
+    @pulumi.getter(name="pidMode")
+    def pid_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pid_mode")
+
+    @pid_mode.setter
+    def pid_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pid_mode", value)
+
+    @property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "platform_version")
+
+    @platform_version.setter
+    def platform_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_version", value)
+
+    @property
+    @pulumi.getter(name="runtimePlatform")
+    def runtime_platform(self) -> Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']]:
+        return pulumi.get(self, "runtime_platform")
+
+    @runtime_platform.setter
+    def runtime_platform(self, value: Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']]):
+        pulumi.set(self, "runtime_platform", value)
+
+    @property
+    @pulumi.getter(name="taskRoleArn")
+    def task_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "task_role_arn")
+
+    @task_role_arn.setter
+    def task_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_role_arn", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]]]:
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]]]):
+        pulumi.set(self, "volumes", value)
 
 
 @pulumi.input_type
@@ -1598,10 +1743,16 @@ class JobDefinitionNodePropertiesArgs:
 class JobDefinitionNodeRangePropertyArgs:
     def __init__(__self__, *,
                  target_nodes: pulumi.Input[str],
-                 container: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']] = None):
+                 container: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']] = None,
+                 ecs_properties: Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']] = None,
+                 instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "target_nodes", target_nodes)
         if container is not None:
             pulumi.set(__self__, "container", container)
+        if ecs_properties is not None:
+            pulumi.set(__self__, "ecs_properties", ecs_properties)
+        if instance_types is not None:
+            pulumi.set(__self__, "instance_types", instance_types)
 
     @property
     @pulumi.getter(name="targetNodes")
@@ -1621,6 +1772,24 @@ class JobDefinitionNodeRangePropertyArgs:
     def container(self, value: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']]):
         pulumi.set(self, "container", value)
 
+    @property
+    @pulumi.getter(name="ecsProperties")
+    def ecs_properties(self) -> Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']]:
+        return pulumi.get(self, "ecs_properties")
+
+    @ecs_properties.setter
+    def ecs_properties(self, value: Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']]):
+        pulumi.set(self, "ecs_properties", value)
+
+    @property
+    @pulumi.getter(name="instanceTypes")
+    def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "instance_types")
+
+    @instance_types.setter
+    def instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "instance_types", value)
+
 
 @pulumi.input_type
 class JobDefinitionPodPropertiesArgs:
@@ -1628,8 +1797,10 @@ class JobDefinitionPodPropertiesArgs:
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]] = None,
                  dns_policy: Optional[pulumi.Input[str]] = None,
                  host_network: Optional[pulumi.Input[bool]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]] = None,
                  metadata: Optional[pulumi.Input['JobDefinitionMetadataArgs']] = None,
                  service_account_name: Optional[pulumi.Input[str]] = None,
+                 share_process_namespace: Optional[pulumi.Input[bool]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]]] = None):
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
@@ -1637,10 +1808,14 @@ class JobDefinitionPodPropertiesArgs:
             pulumi.set(__self__, "dns_policy", dns_policy)
         if host_network is not None:
             pulumi.set(__self__, "host_network", host_network)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if service_account_name is not None:
             pulumi.set(__self__, "service_account_name", service_account_name)
+        if share_process_namespace is not None:
+            pulumi.set(__self__, "share_process_namespace", share_process_namespace)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -1672,6 +1847,15 @@ class JobDefinitionPodPropertiesArgs:
         pulumi.set(self, "host_network", value)
 
     @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]:
+        return pulumi.get(self, "init_containers")
+
+    @init_containers.setter
+    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]):
+        pulumi.set(self, "init_containers", value)
+
+    @property
     @pulumi.getter
     def metadata(self) -> Optional[pulumi.Input['JobDefinitionMetadataArgs']]:
         return pulumi.get(self, "metadata")
@@ -1688,6 +1872,15 @@ class JobDefinitionPodPropertiesArgs:
     @service_account_name.setter
     def service_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_account_name", value)
+
+    @property
+    @pulumi.getter(name="shareProcessNamespace")
+    def share_process_namespace(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "share_process_namespace")
+
+    @share_process_namespace.setter
+    def share_process_namespace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "share_process_namespace", value)
 
     @property
     @pulumi.getter
@@ -1827,6 +2020,229 @@ class JobDefinitionSecretArgs:
     @value_from.setter
     def value_from(self, value: pulumi.Input[str]):
         pulumi.set(self, "value_from", value)
+
+
+@pulumi.input_type
+class JobDefinitionTaskContainerDependencyArgs:
+    def __init__(__self__, *,
+                 condition: pulumi.Input[str],
+                 container_name: pulumi.Input[str]):
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "container_name", container_name)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+
+@pulumi.input_type
+class JobDefinitionTaskContainerPropertiesArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerDependencyArgs']]]] = None,
+                 environment: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]]] = None,
+                 essential: Optional[pulumi.Input[bool]] = None,
+                 linux_parameters: Optional[pulumi.Input['JobDefinitionLinuxParametersArgs']] = None,
+                 log_configuration: Optional[pulumi.Input['JobDefinitionLogConfigurationArgs']] = None,
+                 mount_points: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 privileged: Optional[pulumi.Input[bool]] = None,
+                 readonly_root_filesystem: Optional[pulumi.Input[bool]] = None,
+                 repository_credentials: Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']] = None,
+                 resource_requirements: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]] = None,
+                 ulimits: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]] = None,
+                 user: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "image", image)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if essential is not None:
+            pulumi.set(__self__, "essential", essential)
+        if linux_parameters is not None:
+            pulumi.set(__self__, "linux_parameters", linux_parameters)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if mount_points is not None:
+            pulumi.set(__self__, "mount_points", mount_points)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if readonly_root_filesystem is not None:
+            pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
+        if repository_credentials is not None:
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
+        if resource_requirements is not None:
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if ulimits is not None:
+            pulumi.set(__self__, "ulimits", ulimits)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerDependencyArgs']]]]:
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]]]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]]]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def essential(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "essential")
+
+    @essential.setter
+    def essential(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "essential", value)
+
+    @property
+    @pulumi.getter(name="linuxParameters")
+    def linux_parameters(self) -> Optional[pulumi.Input['JobDefinitionLinuxParametersArgs']]:
+        return pulumi.get(self, "linux_parameters")
+
+    @linux_parameters.setter
+    def linux_parameters(self, value: Optional[pulumi.Input['JobDefinitionLinuxParametersArgs']]):
+        pulumi.set(self, "linux_parameters", value)
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['JobDefinitionLogConfigurationArgs']]:
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['JobDefinitionLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @property
+    @pulumi.getter(name="mountPoints")
+    def mount_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]]]:
+        return pulumi.get(self, "mount_points")
+
+    @mount_points.setter
+    def mount_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]]]):
+        pulumi.set(self, "mount_points", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "privileged")
+
+    @privileged.setter
+    def privileged(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "privileged", value)
+
+    @property
+    @pulumi.getter(name="readonlyRootFilesystem")
+    def readonly_root_filesystem(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "readonly_root_filesystem")
+
+    @readonly_root_filesystem.setter
+    def readonly_root_filesystem(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "readonly_root_filesystem", value)
+
+    @property
+    @pulumi.getter(name="repositoryCredentials")
+    def repository_credentials(self) -> Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']]:
+        return pulumi.get(self, "repository_credentials")
+
+    @repository_credentials.setter
+    def repository_credentials(self, value: Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']]):
+        pulumi.set(self, "repository_credentials", value)
+
+    @property
+    @pulumi.getter(name="resourceRequirements")
+    def resource_requirements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]]:
+        return pulumi.get(self, "resource_requirements")
+
+    @resource_requirements.setter
+    def resource_requirements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]]):
+        pulumi.set(self, "resource_requirements", value)
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]]:
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]]):
+        pulumi.set(self, "secrets", value)
+
+    @property
+    @pulumi.getter
+    def ulimits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]]:
+        return pulumi.get(self, "ulimits")
+
+    @ulimits.setter
+    def ulimits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]]):
+        pulumi.set(self, "ulimits", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
 
 
 @pulumi.input_type

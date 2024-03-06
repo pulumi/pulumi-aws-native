@@ -39,6 +39,10 @@ export interface GetAssetModelResult {
      */
     readonly assetModelDescription?: string;
     /**
+     * The external ID of the asset model.
+     */
+    readonly assetModelExternalId?: string;
+    /**
      * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
      */
     readonly assetModelHierarchies?: outputs.iotsitewise.AssetModelHierarchy[];

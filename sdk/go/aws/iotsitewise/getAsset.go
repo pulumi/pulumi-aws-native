@@ -32,7 +32,9 @@ type LookupAssetResult struct {
 	// The ARN of the asset
 	AssetArn *string `pulumi:"assetArn"`
 	// A description for the asset
-	AssetDescription *string          `pulumi:"assetDescription"`
+	AssetDescription *string `pulumi:"assetDescription"`
+	// The External ID of the asset
+	AssetExternalId  *string          `pulumi:"assetExternalId"`
 	AssetHierarchies []AssetHierarchy `pulumi:"assetHierarchies"`
 	// The ID of the asset
 	AssetId *string `pulumi:"assetId"`
@@ -89,6 +91,11 @@ func (o LookupAssetResultOutput) AssetArn() pulumi.StringPtrOutput {
 // A description for the asset
 func (o LookupAssetResultOutput) AssetDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssetResult) *string { return v.AssetDescription }).(pulumi.StringPtrOutput)
+}
+
+// The External ID of the asset
+func (o LookupAssetResultOutput) AssetExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAssetResult) *string { return v.AssetExternalId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAssetResultOutput) AssetHierarchies() AssetHierarchyArrayOutput {

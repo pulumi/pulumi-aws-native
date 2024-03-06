@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for AWS::SNS::TopicPolicy
+// The “AWS::SNS::TopicPolicy“ resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
 func LookupTopicPolicy(ctx *pulumi.Context, args *LookupTopicPolicyArgs, opts ...pulumi.InvokeOption) (*LookupTopicPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTopicPolicyResult
@@ -23,18 +23,16 @@ func LookupTopicPolicy(ctx *pulumi.Context, args *LookupTopicPolicyArgs, opts ..
 }
 
 type LookupTopicPolicyArgs struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
 
 type LookupTopicPolicyResult struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id *string `pulumi:"id"`
 	// A policy document that contains permissions to add to the specified SNS topics.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
 	Topics []string `pulumi:"topics"`
 }
 
@@ -52,7 +50,6 @@ func LookupTopicPolicyOutput(ctx *pulumi.Context, args LookupTopicPolicyOutputAr
 }
 
 type LookupTopicPolicyOutputArgs struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -74,7 +71,6 @@ func (o LookupTopicPolicyResultOutput) ToLookupTopicPolicyResultOutputWithContex
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o LookupTopicPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -86,7 +82,7 @@ func (o LookupTopicPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupTopicPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
-// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the “Ref“ function to specify an “AWS::SNS::Topic“ resource.
 func (o LookupTopicPolicyResultOutput) Topics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTopicPolicyResult) []string { return v.Topics }).(pulumi.StringArrayOutput)
 }

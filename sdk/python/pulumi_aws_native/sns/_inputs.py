@@ -22,12 +22,6 @@ class TopicLoggingConfigArgs:
                  failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  success_feedback_sample_rate: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input['TopicLoggingConfigProtocol'] protocol: Indicates one of the supported protocols for the SNS topic
-        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
-        :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
-        :param pulumi.Input[str] success_feedback_sample_rate: The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
-        """
         pulumi.set(__self__, "protocol", protocol)
         if failure_feedback_role_arn is not None:
             pulumi.set(__self__, "failure_feedback_role_arn", failure_feedback_role_arn)
@@ -39,9 +33,6 @@ class TopicLoggingConfigArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input['TopicLoggingConfigProtocol']:
-        """
-        Indicates one of the supported protocols for the SNS topic
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -51,9 +42,6 @@ class TopicLoggingConfigArgs:
     @property
     @pulumi.getter(name="failureFeedbackRoleArn")
     def failure_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
-        """
         return pulumi.get(self, "failure_feedback_role_arn")
 
     @failure_feedback_role_arn.setter
@@ -63,9 +51,6 @@ class TopicLoggingConfigArgs:
     @property
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
-        """
         return pulumi.get(self, "success_feedback_role_arn")
 
     @success_feedback_role_arn.setter
@@ -75,9 +60,6 @@ class TopicLoggingConfigArgs:
     @property
     @pulumi.getter(name="successFeedbackSampleRate")
     def success_feedback_sample_rate(self) -> Optional[pulumi.Input[str]]:
-        """
-        The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
-        """
         return pulumi.get(self, "success_feedback_sample_rate")
 
     @success_feedback_sample_rate.setter
@@ -90,12 +72,21 @@ class TopicSubscriptionArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  protocol: pulumi.Input[str]):
+        """
+        ``Subscription`` is an embedded property that describes the subscription endpoints of an SNS topic.
+          For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
+        :param pulumi.Input[str] endpoint: The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
+        :param pulumi.Input[str] protocol: The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
+        """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
+        """
+        The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
+        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -105,6 +96,9 @@ class TopicSubscriptionArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
+        """
+        The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter

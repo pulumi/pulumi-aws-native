@@ -10,13 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Sns
 {
     /// <summary>
-    /// Resource Type definition for AWS::SNS::Topic
+    /// The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.
+    ///   One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
+    ///    The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
     /// </summary>
     [AwsNativeResourceType("aws-native:sns:Topic")]
     public partial class Topic : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        /// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
@@ -24,37 +26,30 @@ namespace Pulumi.AwsNative.Sns
         public Output<object?> ArchivePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
-        /// 
-        /// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
-        /// 
-        /// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+        /// Enables content-based deduplication for FIFO topics.
+        ///   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+        ///   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
+        ///  (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         /// </summary>
         [Output("contentBasedDeduplication")]
         public Output<bool?> ContentBasedDeduplication { get; private set; } = null!;
 
         /// <summary>
         /// The body of the policy document you want to use for this topic.
-        /// 
-        /// You can only add one policy per topic.
-        /// 
-        /// The policy must be in JSON string format.
-        /// 
-        /// Length Constraints: Maximum length of 30720
+        ///  You can only add one policy per topic.
+        ///  The policy must be in JSON string format.
+        ///  Length Constraints: Maximum length of 30,720.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
         [Output("dataProtectionPolicy")]
         public Output<object?> DataProtectionPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
-        /// </summary>
         [Output("deliveryStatusLogging")]
         public Output<ImmutableArray<Outputs.TopicLoggingConfig>> DeliveryStatusLogging { get; private set; } = null!;
 
         /// <summary>
-        /// The display name to use for an Amazon SNS topic with SMS subscriptions.
+        /// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
@@ -66,25 +61,29 @@ namespace Pulumi.AwsNative.Sns
         public Output<bool?> FifoTopic { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
-        /// 
-        /// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+        /// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
+        ///  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
         /// </summary>
         [Output("kmsMasterKeyId")]
         public Output<string?> KmsMasterKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+        /// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
         /// </summary>
         [Output("signatureVersion")]
         public Output<string?> SignatureVersion { get; private set; } = null!;
 
         /// <summary>
         /// The SNS subscriptions (endpoints) for this topic.
+        ///   If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
         /// </summary>
         [Output("subscription")]
         public Output<ImmutableArray<Outputs.TopicSubscription>> Subscription { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of tags to add to a new topic.
+        ///   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -92,15 +91,15 @@ namespace Pulumi.AwsNative.Sns
         public Output<string> TopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
-        /// 
-        /// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+        /// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
+        ///  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+        ///   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         /// </summary>
         [Output("topicName")]
         public Output<string?> TopicName { get; private set; } = null!;
 
         /// <summary>
-        /// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+        /// Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
         /// </summary>
         [Output("tracingConfig")]
         public Output<string?> TracingConfig { get; private set; } = null!;
@@ -156,7 +155,7 @@ namespace Pulumi.AwsNative.Sns
     public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        /// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
@@ -164,23 +163,19 @@ namespace Pulumi.AwsNative.Sns
         public Input<object>? ArchivePolicy { get; set; }
 
         /// <summary>
-        /// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
-        /// 
-        /// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
-        /// 
-        /// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+        /// Enables content-based deduplication for FIFO topics.
+        ///   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+        ///   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
+        ///  (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         /// </summary>
         [Input("contentBasedDeduplication")]
         public Input<bool>? ContentBasedDeduplication { get; set; }
 
         /// <summary>
         /// The body of the policy document you want to use for this topic.
-        /// 
-        /// You can only add one policy per topic.
-        /// 
-        /// The policy must be in JSON string format.
-        /// 
-        /// Length Constraints: Maximum length of 30720
+        ///  You can only add one policy per topic.
+        ///  The policy must be in JSON string format.
+        ///  Length Constraints: Maximum length of 30,720.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         /// </summary>
@@ -189,10 +184,6 @@ namespace Pulumi.AwsNative.Sns
 
         [Input("deliveryStatusLogging")]
         private InputList<Inputs.TopicLoggingConfigArgs>? _deliveryStatusLogging;
-
-        /// <summary>
-        /// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
-        /// </summary>
         public InputList<Inputs.TopicLoggingConfigArgs> DeliveryStatusLogging
         {
             get => _deliveryStatusLogging ?? (_deliveryStatusLogging = new InputList<Inputs.TopicLoggingConfigArgs>());
@@ -200,7 +191,7 @@ namespace Pulumi.AwsNative.Sns
         }
 
         /// <summary>
-        /// The display name to use for an Amazon SNS topic with SMS subscriptions.
+        /// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -212,15 +203,14 @@ namespace Pulumi.AwsNative.Sns
         public Input<bool>? FifoTopic { get; set; }
 
         /// <summary>
-        /// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
-        /// 
-        /// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+        /// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
+        ///  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
         /// </summary>
         [Input("kmsMasterKeyId")]
         public Input<string>? KmsMasterKeyId { get; set; }
 
         /// <summary>
-        /// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+        /// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
         /// </summary>
         [Input("signatureVersion")]
         public Input<string>? SignatureVersion { get; set; }
@@ -230,6 +220,7 @@ namespace Pulumi.AwsNative.Sns
 
         /// <summary>
         /// The SNS subscriptions (endpoints) for this topic.
+        ///   If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
         /// </summary>
         public InputList<Inputs.TopicSubscriptionArgs> Subscription
         {
@@ -239,6 +230,11 @@ namespace Pulumi.AwsNative.Sns
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The list of tags to add to a new topic.
+        ///   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
@@ -246,15 +242,15 @@ namespace Pulumi.AwsNative.Sns
         }
 
         /// <summary>
-        /// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
-        /// 
-        /// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+        /// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
+        ///  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+        ///   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
 
         /// <summary>
-        /// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+        /// Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
         /// </summary>
         [Input("tracingConfig")]
         public Input<string>? TracingConfig { get; set; }

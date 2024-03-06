@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// Creates a zero-ETL integration with Amazon Redshift.
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:Integration")]
     public partial class Integration : global::Pulumi.CustomResource

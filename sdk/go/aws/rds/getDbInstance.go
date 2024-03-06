@@ -75,14 +75,14 @@ type LookupDbInstanceResult struct {
 	//   +  Can't be set to 0 if the DB instance is a source to read replicas
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
-	//  Specifying or updating this property triggers a reboot. For more information about CA certificate identifiers for RDS DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide*. For more information about CA certificate identifiers for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide*.
+	//  For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
 	// The details of the DB instance's server certificate.
 	CertificateDetails *DbInstanceCertificateDetails `pulumi:"certificateDetails"`
 	// Specifies whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 	//  This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
-	// The identifier for the Multi-AZ DB cluster snapshot to restore from.
+	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.
 	//  For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide*.
 	//  Constraints:
 	//   +  Must match the identifier of an existing Multi-AZ DB cluster snapshot.
@@ -90,6 +90,7 @@ type LookupDbInstanceResult struct {
 	//   +  Must be specified when ``DBSnapshotIdentifier`` isn't specified.
 	//   +  If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the ``DBClusterSnapshotIdentifier`` must be the ARN of the shared snapshot.
 	//   +  Can't be the identifier of an Aurora DB cluster snapshot.
+	//   +  Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
 	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
 	DbInstanceArn               *string `pulumi:"dbInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example, ``db.m4.large``. Not all DB instance classes are available in all AWS Regions, or for all database engines.
@@ -460,7 +461,7 @@ func (o LookupDbInstanceResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutpu
 
 // The identifier of the CA certificate for this DB instance.
 //
-//	Specifying or updating this property triggers a reboot. For more information about CA certificate identifiers for RDS DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide*. For more information about CA certificate identifiers for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide*.
+//	For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
 func (o LookupDbInstanceResultOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -477,7 +478,7 @@ func (o LookupDbInstanceResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
 }
 
-// The identifier for the Multi-AZ DB cluster snapshot to restore from.
+// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.
 //
 //	For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide*.
 //	Constraints:
@@ -486,6 +487,7 @@ func (o LookupDbInstanceResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput 
 //	 +  Must be specified when ``DBSnapshotIdentifier`` isn't specified.
 //	 +  If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the ``DBClusterSnapshotIdentifier`` must be the ARN of the shared snapshot.
 //	 +  Can't be the identifier of an Aurora DB cluster snapshot.
+//	 +  Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
 func (o LookupDbInstanceResultOutput) DbClusterSnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DbClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }

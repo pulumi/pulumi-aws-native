@@ -103,7 +103,7 @@
   "createOnlyProperties" : [ "/properties/Engine", "/properties/EngineVersion", "/properties/DatabaseInstallationFilesS3BucketName", "/properties/DatabaseInstallationFilesS3Prefix", "/properties/KMSKeyId", "/properties/Manifest" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "mediaimport:CreateDatabaseBinarySnapshot", "rds:AddTagsToResource", "rds:CreateCustomDBEngineVersion", "rds:DescribeDBEngineVersions", "rds:ModifyCustomDBEngineVersion", "s3:CreateBucket", "s3:GetObject", "s3:GetObjectAcl", "s3:GetObjectTagging", "s3:ListBucket", "s3:PutBucketObjectLockConfiguration", "s3:PutBucketPolicy", "s3:PutBucketVersioning" ],
+      "permissions" : [ "kms:CreateGrant", "kms:DescribeKey", "mediaimport:CreateDatabaseBinarySnapshot", "rds:AddTagsToResource", "rds:CreateCustomDBEngineVersion", "rds:DescribeDBEngineVersions", "rds:ModifyCustomDBEngineVersion", "s3:CreateBucket", "s3:GetObject", "s3:GetObjectAcl", "s3:GetObjectTagging", "s3:ListBucket", "s3:PutBucketObjectLockConfiguration", "s3:PutBucketPolicy", "s3:PutBucketVersioning" ],
       "timeoutInMinutes" : 600
     },
     "read" : {

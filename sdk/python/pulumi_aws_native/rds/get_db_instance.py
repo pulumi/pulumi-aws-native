@@ -264,7 +264,7 @@ class GetDbInstanceResult:
     def ca_certificate_identifier(self) -> Optional[str]:
         """
         The identifier of the CA certificate for this DB instance.
-         Specifying or updating this property triggers a reboot. For more information about CA certificate identifiers for RDS DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide*. For more information about CA certificate identifiers for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide*.
+         For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
         """
         return pulumi.get(self, "ca_certificate_identifier")
 
@@ -289,7 +289,7 @@ class GetDbInstanceResult:
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
     def db_cluster_snapshot_identifier(self) -> Optional[str]:
         """
-        The identifier for the Multi-AZ DB cluster snapshot to restore from.
+        The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.
          For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide*.
          Constraints:
           +  Must match the identifier of an existing Multi-AZ DB cluster snapshot.
@@ -297,6 +297,7 @@ class GetDbInstanceResult:
           +  Must be specified when ``DBSnapshotIdentifier`` isn't specified.
           +  If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the ``DBClusterSnapshotIdentifier`` must be the ARN of the shared snapshot.
           +  Can't be the identifier of an Aurora DB cluster snapshot.
+          +  Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_identifier")
 

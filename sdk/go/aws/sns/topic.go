@@ -12,51 +12,51 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::SNS::Topic
+// The “AWS::SNS::Topic“ resource creates a topic to which notifications can be published.
+//
+//	One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
+//	 The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
 type Topic struct {
 	pulumi.CustomResourceState
 
-	// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+	// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	ArchivePolicy pulumi.AnyOutput `pulumi:"archivePolicy"`
-	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
-	//
-	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
-	//
-	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+	// Enables content-based deduplication for FIFO topics.
+	//   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
+	//   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
+	//       (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
 	ContentBasedDeduplication pulumi.BoolPtrOutput `pulumi:"contentBasedDeduplication"`
 	// The body of the policy document you want to use for this topic.
-	//
-	// You can only add one policy per topic.
-	//
-	// The policy must be in JSON string format.
-	//
-	// Length Constraints: Maximum length of 30720
+	//  You can only add one policy per topic.
+	//  The policy must be in JSON string format.
+	//  Length Constraints: Maximum length of 30,720.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
-	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	DataProtectionPolicy  pulumi.AnyOutput              `pulumi:"dataProtectionPolicy"`
 	DeliveryStatusLogging TopicLoggingConfigArrayOutput `pulumi:"deliveryStatusLogging"`
-	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Set to true to create a FIFO topic.
 	FifoTopic pulumi.BoolPtrOutput `pulumi:"fifoTopic"`
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
-	//
-	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
+	//  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 	KmsMasterKeyId pulumi.StringPtrOutput `pulumi:"kmsMasterKeyId"`
-	// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
 	SignatureVersion pulumi.StringPtrOutput `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
+	//   If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
 	Subscription TopicSubscriptionArrayOutput `pulumi:"subscription"`
-	Tags         aws.TagArrayOutput           `pulumi:"tags"`
-	TopicArn     pulumi.StringOutput          `pulumi:"topicArn"`
-	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+	// The list of tags to add to a new topic.
+	//   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
+	Tags     aws.TagArrayOutput  `pulumi:"tags"`
+	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
+	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
+	//  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TopicName pulumi.StringPtrOutput `pulumi:"topicName"`
-	// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+	// Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
 	TracingConfig pulumi.StringPtrOutput `pulumi:"tracingConfig"`
 }
 
@@ -105,91 +105,85 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
-	// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+	// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	ArchivePolicy interface{} `pulumi:"archivePolicy"`
-	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
-	//
-	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
-	//
-	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+	// Enables content-based deduplication for FIFO topics.
+	//   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
+	//   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
+	//       (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
 	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
 	// The body of the policy document you want to use for this topic.
-	//
-	// You can only add one policy per topic.
-	//
-	// The policy must be in JSON string format.
-	//
-	// Length Constraints: Maximum length of 30720
+	//  You can only add one policy per topic.
+	//  The policy must be in JSON string format.
+	//  Length Constraints: Maximum length of 30,720.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
-	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	DataProtectionPolicy  interface{}          `pulumi:"dataProtectionPolicy"`
 	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
-	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName *string `pulumi:"displayName"`
 	// Set to true to create a FIFO topic.
 	FifoTopic *bool `pulumi:"fifoTopic"`
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
-	//
-	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
+	//  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
-	// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
 	SignatureVersion *string `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
+	//   If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
 	Subscription []TopicSubscription `pulumi:"subscription"`
-	Tags         []aws.Tag           `pulumi:"tags"`
-	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+	// The list of tags to add to a new topic.
+	//   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
+	//  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TopicName *string `pulumi:"topicName"`
-	// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+	// Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
 	TracingConfig *string `pulumi:"tracingConfig"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
-	// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+	// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	ArchivePolicy pulumi.Input
-	// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
-	//
-	// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
-	//
-	// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+	// Enables content-based deduplication for FIFO topics.
+	//   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
+	//   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
+	//       (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
 	ContentBasedDeduplication pulumi.BoolPtrInput
 	// The body of the policy document you want to use for this topic.
-	//
-	// You can only add one policy per topic.
-	//
-	// The policy must be in JSON string format.
-	//
-	// Length Constraints: Maximum length of 30720
+	//  You can only add one policy per topic.
+	//  The policy must be in JSON string format.
+	//  Length Constraints: Maximum length of 30,720.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
-	DataProtectionPolicy pulumi.Input
-	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	DataProtectionPolicy  pulumi.Input
 	DeliveryStatusLogging TopicLoggingConfigArrayInput
-	// The display name to use for an Amazon SNS topic with SMS subscriptions.
+	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName pulumi.StringPtrInput
 	// Set to true to create a FIFO topic.
 	FifoTopic pulumi.BoolPtrInput
-	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
-	//
-	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
+	//  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 	KmsMasterKeyId pulumi.StringPtrInput
-	// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
 	SignatureVersion pulumi.StringPtrInput
 	// The SNS subscriptions (endpoints) for this topic.
+	//   If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
 	Subscription TopicSubscriptionArrayInput
-	Tags         aws.TagArrayInput
-	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
-	//
-	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+	// The list of tags to add to a new topic.
+	//   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
+	Tags aws.TagArrayInput
+	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
+	//  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+	//   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TopicName pulumi.StringPtrInput
-	// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+	// Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
 	TracingConfig pulumi.StringPtrInput
 }
 
@@ -230,41 +224,37 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
-// The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
 //
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 func (o TopicOutput) ArchivePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Topic) pulumi.AnyOutput { return v.ArchivePolicy }).(pulumi.AnyOutput)
 }
 
-// Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
-//
-// When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
-//
-// (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+// Enables content-based deduplication for FIFO topics.
+//   - By default, “ContentBasedDeduplication“ is set to “false“. If you create a FIFO topic and this attribute is “false“, you must specify a value for the “MessageDeduplicationId“ parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
+//   - When you set “ContentBasedDeduplication“ to “true“, SNS uses a SHA-256 hash to generate the “MessageDeduplicationId“ using the body of the message (but not the attributes of the message).
+//     (Optional) To override the generated value, you can specify a value for the the “MessageDeduplicationId“ parameter for the “Publish“ action.
 func (o TopicOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.ContentBasedDeduplication }).(pulumi.BoolPtrOutput)
 }
 
 // The body of the policy document you want to use for this topic.
 //
-// You can only add one policy per topic.
-//
-// The policy must be in JSON string format.
-//
-// Length Constraints: Maximum length of 30720
+//	You can only add one policy per topic.
+//	The policy must be in JSON string format.
+//	Length Constraints: Maximum length of 30,720.
 //
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 func (o TopicOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Topic) pulumi.AnyOutput { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }
 
-// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
 func (o TopicOutput) DeliveryStatusLogging() TopicLoggingConfigArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicLoggingConfigArrayOutput { return v.DeliveryStatusLogging }).(TopicLoggingConfigArrayOutput)
 }
 
-// The display name to use for an Amazon SNS topic with SMS subscriptions.
+// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 func (o TopicOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -274,23 +264,28 @@ func (o TopicOutput) FifoTopic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.FifoTopic }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
+// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see “KeyId“ in the *API Reference*.
 //
-// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+//	This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 func (o TopicOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, “SignatureVersion“ is set to “1“.
 func (o TopicOutput) SignatureVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.SignatureVersion }).(pulumi.StringPtrOutput)
 }
 
 // The SNS subscriptions (endpoints) for this topic.
+//
+//	If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
 func (o TopicOutput) Subscription() TopicSubscriptionArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicSubscriptionArrayOutput { return v.Subscription }).(TopicSubscriptionArrayOutput)
 }
 
+// The list of tags to add to a new topic.
+//
+//	To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
 func (o TopicOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Topic) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
@@ -299,14 +294,15 @@ func (o TopicOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.TopicArn }).(pulumi.StringOutput)
 }
 
-// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
+// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with “.fifo“.
 //
-// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+//	If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+//	 If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 func (o TopicOutput) TopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.TopicName }).(pulumi.StringPtrOutput)
 }
 
-// Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+// Tracing mode of an SNS topic. By default “TracingConfig“ is set to “PassThrough“, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to “Active“, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
 func (o TopicOutput) TracingConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.TracingConfig }).(pulumi.StringPtrOutput)
 }

@@ -50,6 +50,10 @@ export class AssetModel extends pulumi.CustomResource {
      */
     public readonly assetModelDescription!: pulumi.Output<string | undefined>;
     /**
+     * The external ID of the asset model.
+     */
+    public readonly assetModelExternalId!: pulumi.Output<string | undefined>;
+    /**
      * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
      */
     public readonly assetModelHierarchies!: pulumi.Output<outputs.iotsitewise.AssetModelHierarchy[] | undefined>;
@@ -65,6 +69,10 @@ export class AssetModel extends pulumi.CustomResource {
      * The property definitions of the asset model. You can specify up to 200 properties per asset model.
      */
     public readonly assetModelProperties!: pulumi.Output<outputs.iotsitewise.AssetModelProperty[] | undefined>;
+    /**
+     * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+     */
+    public readonly assetModelType!: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
@@ -83,9 +91,11 @@ export class AssetModel extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["assetModelCompositeModels"] = args ? args.assetModelCompositeModels : undefined;
             resourceInputs["assetModelDescription"] = args ? args.assetModelDescription : undefined;
+            resourceInputs["assetModelExternalId"] = args ? args.assetModelExternalId : undefined;
             resourceInputs["assetModelHierarchies"] = args ? args.assetModelHierarchies : undefined;
             resourceInputs["assetModelName"] = args ? args.assetModelName : undefined;
             resourceInputs["assetModelProperties"] = args ? args.assetModelProperties : undefined;
+            resourceInputs["assetModelType"] = args ? args.assetModelType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["assetModelArn"] = undefined /*out*/;
             resourceInputs["assetModelId"] = undefined /*out*/;
@@ -93,13 +103,17 @@ export class AssetModel extends pulumi.CustomResource {
             resourceInputs["assetModelArn"] = undefined /*out*/;
             resourceInputs["assetModelCompositeModels"] = undefined /*out*/;
             resourceInputs["assetModelDescription"] = undefined /*out*/;
+            resourceInputs["assetModelExternalId"] = undefined /*out*/;
             resourceInputs["assetModelHierarchies"] = undefined /*out*/;
             resourceInputs["assetModelId"] = undefined /*out*/;
             resourceInputs["assetModelName"] = undefined /*out*/;
             resourceInputs["assetModelProperties"] = undefined /*out*/;
+            resourceInputs["assetModelType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["assetModelType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AssetModel.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -117,6 +131,10 @@ export interface AssetModelArgs {
      */
     assetModelDescription?: pulumi.Input<string>;
     /**
+     * The external ID of the asset model.
+     */
+    assetModelExternalId?: pulumi.Input<string>;
+    /**
      * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
      */
     assetModelHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelHierarchyArgs>[]>;
@@ -128,6 +146,10 @@ export interface AssetModelArgs {
      * The property definitions of the asset model. You can specify up to 200 properties per asset model.
      */
     assetModelProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelPropertyArgs>[]>;
+    /**
+     * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+     */
+    assetModelType?: pulumi.Input<string>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */

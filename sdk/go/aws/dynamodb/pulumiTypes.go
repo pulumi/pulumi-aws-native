@@ -2477,7 +2477,7 @@ func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) WriteCapacityAut
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
-// Represents an attribute for describing the key schema for the table and indexes.
+// Represents an attribute for describing the schema for the table and indexes.
 type TableAttributeDefinition struct {
 	// A name for the attribute.
 	AttributeName string `pulumi:"attributeName"`
@@ -2499,7 +2499,7 @@ type TableAttributeDefinitionInput interface {
 	ToTableAttributeDefinitionOutputWithContext(context.Context) TableAttributeDefinitionOutput
 }
 
-// Represents an attribute for describing the key schema for the table and indexes.
+// Represents an attribute for describing the schema for the table and indexes.
 type TableAttributeDefinitionArgs struct {
 	// A name for the attribute.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
@@ -2547,7 +2547,7 @@ func (i TableAttributeDefinitionArray) ToTableAttributeDefinitionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeDefinitionArrayOutput)
 }
 
-// Represents an attribute for describing the key schema for the table and indexes.
+// Represents an attribute for describing the schema for the table and indexes.
 type TableAttributeDefinitionOutput struct{ *pulumi.OutputState }
 
 func (TableAttributeDefinitionOutput) ElementType() reflect.Type {
@@ -3976,6 +3976,8 @@ type TableProjection struct {
 	//   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
 	//   +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
 	//   +   ``ALL`` - All of the table attributes are projected into the index.
+	//
+	//  When using the DynamoDB console, ``ALL`` is selected by default.
 	ProjectionType *string `pulumi:"projectionType"`
 }
 
@@ -3999,6 +4001,8 @@ type TableProjectionArgs struct {
 	//   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
 	//   +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
 	//   +   ``ALL`` - All of the table attributes are projected into the index.
+	//
+	//  When using the DynamoDB console, ``ALL`` is selected by default.
 	ProjectionType pulumi.StringPtrInput `pulumi:"projectionType"`
 }
 
@@ -4037,9 +4041,14 @@ func (o TableProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 }
 
 // The set of attributes that are projected into the index:
+//
 //   - “KEYS_ONLY“ - Only the index and primary keys are projected into the index.
+//
 //   - “INCLUDE“ - In addition to the attributes described in “KEYS_ONLY“, the secondary index will include other non-key attributes that you specify.
+//
 //   - “ALL“ - All of the table attributes are projected into the index.
+//
+//     When using the DynamoDB console, “ALL“ is selected by default.
 func (o TableProjectionOutput) ProjectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableProjection) *string { return v.ProjectionType }).(pulumi.StringPtrOutput)
 }

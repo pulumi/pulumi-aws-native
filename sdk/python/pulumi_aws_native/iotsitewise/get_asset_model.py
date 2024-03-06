@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssetModelResult:
-    def __init__(__self__, asset_model_arn=None, asset_model_composite_models=None, asset_model_description=None, asset_model_hierarchies=None, asset_model_id=None, asset_model_name=None, asset_model_properties=None, tags=None):
+    def __init__(__self__, asset_model_arn=None, asset_model_composite_models=None, asset_model_description=None, asset_model_external_id=None, asset_model_hierarchies=None, asset_model_id=None, asset_model_name=None, asset_model_properties=None, tags=None):
         if asset_model_arn and not isinstance(asset_model_arn, str):
             raise TypeError("Expected argument 'asset_model_arn' to be a str")
         pulumi.set(__self__, "asset_model_arn", asset_model_arn)
@@ -31,6 +31,9 @@ class GetAssetModelResult:
         if asset_model_description and not isinstance(asset_model_description, str):
             raise TypeError("Expected argument 'asset_model_description' to be a str")
         pulumi.set(__self__, "asset_model_description", asset_model_description)
+        if asset_model_external_id and not isinstance(asset_model_external_id, str):
+            raise TypeError("Expected argument 'asset_model_external_id' to be a str")
+        pulumi.set(__self__, "asset_model_external_id", asset_model_external_id)
         if asset_model_hierarchies and not isinstance(asset_model_hierarchies, list):
             raise TypeError("Expected argument 'asset_model_hierarchies' to be a list")
         pulumi.set(__self__, "asset_model_hierarchies", asset_model_hierarchies)
@@ -70,6 +73,14 @@ class GetAssetModelResult:
         A description for the asset model.
         """
         return pulumi.get(self, "asset_model_description")
+
+    @property
+    @pulumi.getter(name="assetModelExternalId")
+    def asset_model_external_id(self) -> Optional[str]:
+        """
+        The external ID of the asset model.
+        """
+        return pulumi.get(self, "asset_model_external_id")
 
     @property
     @pulumi.getter(name="assetModelHierarchies")
@@ -121,6 +132,7 @@ class AwaitableGetAssetModelResult(GetAssetModelResult):
             asset_model_arn=self.asset_model_arn,
             asset_model_composite_models=self.asset_model_composite_models,
             asset_model_description=self.asset_model_description,
+            asset_model_external_id=self.asset_model_external_id,
             asset_model_hierarchies=self.asset_model_hierarchies,
             asset_model_id=self.asset_model_id,
             asset_model_name=self.asset_model_name,
@@ -145,6 +157,7 @@ def get_asset_model(asset_model_id: Optional[str] = None,
         asset_model_arn=pulumi.get(__ret__, 'asset_model_arn'),
         asset_model_composite_models=pulumi.get(__ret__, 'asset_model_composite_models'),
         asset_model_description=pulumi.get(__ret__, 'asset_model_description'),
+        asset_model_external_id=pulumi.get(__ret__, 'asset_model_external_id'),
         asset_model_hierarchies=pulumi.get(__ret__, 'asset_model_hierarchies'),
         asset_model_id=pulumi.get(__ret__, 'asset_model_id'),
         asset_model_name=pulumi.get(__ret__, 'asset_model_name'),

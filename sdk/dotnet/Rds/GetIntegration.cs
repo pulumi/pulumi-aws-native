@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Rds
     public static class GetIntegration
     {
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Creates a zero-ETL integration with Amazon Redshift.
         /// </summary>
         public static Task<GetIntegrationResult> InvokeAsync(GetIntegrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationResult>("aws-native:rds:getIntegration", args ?? new GetIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// Creates a zero-ETL integration with Amazon Redshift.
         /// </summary>
         public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:rds:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());

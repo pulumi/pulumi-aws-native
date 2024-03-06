@@ -10,7 +10,4 @@ export const TopicLoggingConfigProtocol = {
     Application: "application",
 } as const;
 
-/**
- * Indicates one of the supported protocols for the SNS topic
- */
 export type TopicLoggingConfigProtocol = (typeof TopicLoggingConfigProtocol)[keyof typeof TopicLoggingConfigProtocol];

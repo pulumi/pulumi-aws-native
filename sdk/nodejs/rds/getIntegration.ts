@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Creates a zero-ETL integration with Amazon Redshift.
  */
 export function getIntegration(args: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
 
@@ -37,7 +37,7 @@ export interface GetIntegrationResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Creates a zero-ETL integration with Amazon Redshift.
  */
 export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
     return pulumi.output(args).apply((a: any) => getIntegration(a, opts))

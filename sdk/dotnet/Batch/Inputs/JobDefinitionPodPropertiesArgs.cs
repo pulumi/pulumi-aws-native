@@ -26,11 +26,22 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("hostNetwork")]
         public Input<bool>? HostNetwork { get; set; }
 
+        [Input("initContainers")]
+        private InputList<Inputs.JobDefinitionEksContainerArgs>? _initContainers;
+        public InputList<Inputs.JobDefinitionEksContainerArgs> InitContainers
+        {
+            get => _initContainers ?? (_initContainers = new InputList<Inputs.JobDefinitionEksContainerArgs>());
+            set => _initContainers = value;
+        }
+
         [Input("metadata")]
         public Input<Inputs.JobDefinitionMetadataArgs>? Metadata { get; set; }
 
         [Input("serviceAccountName")]
         public Input<string>? ServiceAccountName { get; set; }
+
+        [Input("shareProcessNamespace")]
+        public Input<bool>? ShareProcessNamespace { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.JobDefinitionEksVolumeArgs>? _volumes;

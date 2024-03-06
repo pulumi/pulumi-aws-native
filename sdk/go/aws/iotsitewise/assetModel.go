@@ -22,6 +22,8 @@ type AssetModel struct {
 	AssetModelCompositeModels AssetModelCompositeModelArrayOutput `pulumi:"assetModelCompositeModels"`
 	// A description for the asset model.
 	AssetModelDescription pulumi.StringPtrOutput `pulumi:"assetModelDescription"`
+	// The external ID of the asset model.
+	AssetModelExternalId pulumi.StringPtrOutput `pulumi:"assetModelExternalId"`
 	// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
 	AssetModelHierarchies AssetModelHierarchyArrayOutput `pulumi:"assetModelHierarchies"`
 	// The ID of the asset model.
@@ -30,6 +32,8 @@ type AssetModel struct {
 	AssetModelName pulumi.StringOutput `pulumi:"assetModelName"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties AssetModelPropertyArrayOutput `pulumi:"assetModelProperties"`
+	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+	AssetModelType pulumi.StringPtrOutput `pulumi:"assetModelType"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -41,6 +45,10 @@ func NewAssetModel(ctx *pulumi.Context,
 		args = &AssetModelArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"assetModelType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssetModel
 	err := ctx.RegisterResource("aws-native:iotsitewise:AssetModel", name, args, &resource, opts...)
@@ -78,12 +86,16 @@ type assetModelArgs struct {
 	AssetModelCompositeModels []AssetModelCompositeModel `pulumi:"assetModelCompositeModels"`
 	// A description for the asset model.
 	AssetModelDescription *string `pulumi:"assetModelDescription"`
+	// The external ID of the asset model.
+	AssetModelExternalId *string `pulumi:"assetModelExternalId"`
 	// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
 	AssetModelHierarchies []AssetModelHierarchy `pulumi:"assetModelHierarchies"`
 	// A unique, friendly name for the asset model.
 	AssetModelName *string `pulumi:"assetModelName"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties []AssetModelProperty `pulumi:"assetModelProperties"`
+	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+	AssetModelType *string `pulumi:"assetModelType"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -94,12 +106,16 @@ type AssetModelArgs struct {
 	AssetModelCompositeModels AssetModelCompositeModelArrayInput
 	// A description for the asset model.
 	AssetModelDescription pulumi.StringPtrInput
+	// The external ID of the asset model.
+	AssetModelExternalId pulumi.StringPtrInput
 	// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
 	AssetModelHierarchies AssetModelHierarchyArrayInput
 	// A unique, friendly name for the asset model.
 	AssetModelName pulumi.StringPtrInput
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	AssetModelProperties AssetModelPropertyArrayInput
+	// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+	AssetModelType pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayInput
 }
@@ -156,6 +172,11 @@ func (o AssetModelOutput) AssetModelDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModel) pulumi.StringPtrOutput { return v.AssetModelDescription }).(pulumi.StringPtrOutput)
 }
 
+// The external ID of the asset model.
+func (o AssetModelOutput) AssetModelExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssetModel) pulumi.StringPtrOutput { return v.AssetModelExternalId }).(pulumi.StringPtrOutput)
+}
+
 // The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
 func (o AssetModelOutput) AssetModelHierarchies() AssetModelHierarchyArrayOutput {
 	return o.ApplyT(func(v *AssetModel) AssetModelHierarchyArrayOutput { return v.AssetModelHierarchies }).(AssetModelHierarchyArrayOutput)
@@ -174,6 +195,11 @@ func (o AssetModelOutput) AssetModelName() pulumi.StringOutput {
 // The property definitions of the asset model. You can specify up to 200 properties per asset model.
 func (o AssetModelOutput) AssetModelProperties() AssetModelPropertyArrayOutput {
 	return o.ApplyT(func(v *AssetModel) AssetModelPropertyArrayOutput { return v.AssetModelProperties }).(AssetModelPropertyArrayOutput)
+}
+
+// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+func (o AssetModelOutput) AssetModelType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssetModel) pulumi.StringPtrOutput { return v.AssetModelType }).(pulumi.StringPtrOutput)
 }
 
 // A list of key-value pairs that contain metadata for the asset model.

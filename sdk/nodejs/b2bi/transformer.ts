@@ -41,7 +41,7 @@ export class Transformer extends pulumi.CustomResource {
     public readonly ediType!: pulumi.Output<outputs.b2bi.TransformerEdiTypeProperties>;
     public readonly fileFormat!: pulumi.Output<enums.b2bi.TransformerFileFormat>;
     public readonly mappingTemplate!: pulumi.Output<string>;
-    public readonly modifiedAt!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly sampleDocument!: pulumi.Output<string | undefined>;
     public readonly status!: pulumi.Output<enums.b2bi.TransformerStatus>;
@@ -75,12 +75,12 @@ export class Transformer extends pulumi.CustomResource {
             resourceInputs["ediType"] = args ? args.ediType : undefined;
             resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
             resourceInputs["mappingTemplate"] = args ? args.mappingTemplate : undefined;
-            resourceInputs["modifiedAt"] = args ? args.modifiedAt : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["sampleDocument"] = args ? args.sampleDocument : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["transformerArn"] = undefined /*out*/;
             resourceInputs["transformerId"] = undefined /*out*/;
         } else {
@@ -108,7 +108,6 @@ export interface TransformerArgs {
     ediType: pulumi.Input<inputs.b2bi.TransformerEdiTypePropertiesArgs>;
     fileFormat: pulumi.Input<enums.b2bi.TransformerFileFormat>;
     mappingTemplate: pulumi.Input<string>;
-    modifiedAt?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     sampleDocument?: pulumi.Input<string>;
     status: pulumi.Input<enums.b2bi.TransformerStatus>;

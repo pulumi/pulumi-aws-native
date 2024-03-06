@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// </summary>
         public readonly string? AssetModelDescription;
         /// <summary>
+        /// The external ID of the asset model.
+        /// </summary>
+        public readonly string? AssetModelExternalId;
+        /// <summary>
         /// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
         /// </summary>
         public readonly ImmutableArray<Outputs.AssetModelHierarchy> AssetModelHierarchies;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
             string? assetModelDescription,
 
+            string? assetModelExternalId,
+
             ImmutableArray<Outputs.AssetModelHierarchy> assetModelHierarchies,
 
             string? assetModelId,
@@ -111,6 +117,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
             AssetModelArn = assetModelArn;
             AssetModelCompositeModels = assetModelCompositeModels;
             AssetModelDescription = assetModelDescription;
+            AssetModelExternalId = assetModelExternalId;
             AssetModelHierarchies = assetModelHierarchies;
             AssetModelId = assetModelId;
             AssetModelName = assetModelName;

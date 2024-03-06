@@ -345,6 +345,34 @@ namespace Pulumi.AwsNative.WaFv2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct RuleGroupJa3FingerprintFallbackBehavior : IEquatable<RuleGroupJa3FingerprintFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private RuleGroupJa3FingerprintFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupJa3FingerprintFallbackBehavior Match { get; } = new RuleGroupJa3FingerprintFallbackBehavior("MATCH");
+        public static RuleGroupJa3FingerprintFallbackBehavior NoMatch { get; } = new RuleGroupJa3FingerprintFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(RuleGroupJa3FingerprintFallbackBehavior left, RuleGroupJa3FingerprintFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(RuleGroupJa3FingerprintFallbackBehavior left, RuleGroupJa3FingerprintFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupJa3FingerprintFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupJa3FingerprintFallbackBehavior other && Equals(other);
+        public bool Equals(RuleGroupJa3FingerprintFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The parts of the JSON to match against using the MatchPattern.
     /// </summary>
@@ -847,6 +875,34 @@ namespace Pulumi.AwsNative.WaFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebAclIpSetForwardedIpConfigurationPosition other && Equals(other);
         public bool Equals(WebAclIpSetForwardedIpConfigurationPosition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WebAclJa3FingerprintFallbackBehavior : IEquatable<WebAclJa3FingerprintFallbackBehavior>
+    {
+        private readonly string _value;
+
+        private WebAclJa3FingerprintFallbackBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclJa3FingerprintFallbackBehavior Match { get; } = new WebAclJa3FingerprintFallbackBehavior("MATCH");
+        public static WebAclJa3FingerprintFallbackBehavior NoMatch { get; } = new WebAclJa3FingerprintFallbackBehavior("NO_MATCH");
+
+        public static bool operator ==(WebAclJa3FingerprintFallbackBehavior left, WebAclJa3FingerprintFallbackBehavior right) => left.Equals(right);
+        public static bool operator !=(WebAclJa3FingerprintFallbackBehavior left, WebAclJa3FingerprintFallbackBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclJa3FingerprintFallbackBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclJa3FingerprintFallbackBehavior other && Equals(other);
+        public bool Equals(WebAclJa3FingerprintFallbackBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

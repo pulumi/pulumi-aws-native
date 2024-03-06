@@ -852,7 +852,7 @@ class GlobalTableWriteProvisionedThroughputSettings(dict):
 @pulumi.output_type
 class TableAttributeDefinition(dict):
     """
-    Represents an attribute for describing the key schema for the table and indexes.
+    Represents an attribute for describing the schema for the table and indexes.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -877,7 +877,7 @@ class TableAttributeDefinition(dict):
                  attribute_name: str,
                  attribute_type: str):
         """
-        Represents an attribute for describing the key schema for the table and indexes.
+        Represents an attribute for describing the schema for the table and indexes.
         :param str attribute_name: A name for the attribute.
         :param str attribute_type: The data type for the attribute, where:
                  +   ``S`` - the attribute is of type String
@@ -1456,6 +1456,8 @@ class TableProjection(dict):
                  +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
                  +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
                  +   ``ALL`` - All of the table attributes are projected into the index.
+                 
+                When using the DynamoDB console, ``ALL`` is selected by default.
         """
         if non_key_attributes is not None:
             pulumi.set(__self__, "non_key_attributes", non_key_attributes)
@@ -1479,6 +1481,8 @@ class TableProjection(dict):
           +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
           +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
           +   ``ALL`` - All of the table attributes are projected into the index.
+          
+         When using the DynamoDB console, ``ALL`` is selected by default.
         """
         return pulumi.get(self, "projection_type")
 

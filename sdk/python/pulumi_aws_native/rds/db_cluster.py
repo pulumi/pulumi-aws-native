@@ -1187,6 +1187,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["db_cluster_arn"] = None
             __props__.__dict__["db_cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["storage_throughput"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zones[*]", "database_name", "db_cluster_identifier", "db_subnet_group_name", "db_system_id", "engine_mode", "kms_key_id", "publicly_accessible", "restore_to_time", "restore_type", "snapshot_identifier", "source_db_cluster_identifier", "source_region", "storage_encrypted", "use_latest_restorable_time"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbCluster, __self__).__init__(
@@ -1265,6 +1266,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["source_db_cluster_identifier"] = None
         __props__.__dict__["source_region"] = None
         __props__.__dict__["storage_encrypted"] = None
+        __props__.__dict__["storage_throughput"] = None
         __props__.__dict__["storage_type"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["use_latest_restorable_time"] = None
@@ -1703,6 +1705,14 @@ class DbCluster(pulumi.CustomResource):
         If you specify the DBClusterIdentifier, SnapshotIdentifier, or SourceDBInstanceIdentifier property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance.
         """
         return pulumi.get(self, "storage_encrypted")
+
+    @property
+    @pulumi.getter(name="storageThroughput")
+    def storage_throughput(self) -> pulumi.Output[int]:
+        """
+        Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+        """
+        return pulumi.get(self, "storage_throughput")
 
     @property
     @pulumi.getter(name="storageType")

@@ -337,16 +337,12 @@ class HealthCheckTag(dict):
 @pulumi.output_type
 class HostedZoneConfig(dict):
     """
-    A complex type that contains an optional comment.
-
-    If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
+    A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
     """
     def __init__(__self__, *,
                  comment: Optional[str] = None):
         """
-        A complex type that contains an optional comment.
-
-        If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
+        A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
         :param str comment: Any comments that you want to include about the hosted zone.
         """
         if comment is not None:
@@ -410,8 +406,14 @@ class HostedZoneTag(dict):
                  value: str):
         """
         A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-        :param str key: The key name of the tag.
-        :param str value: The value for the tag.
+        :param str key: The value of ``Key`` depends on the operation that you want to perform:
+                 +   *Add a tag to a health check or hosted zone*: ``Key`` is the name that you want to give the new tag.
+                 +   *Edit a tag*: ``Key`` is the name of the tag that you want to change the ``Value`` for.
+                 +   *Delete a key*: ``Key`` is the name of the tag you want to remove.
+                 +   *Give a name to a health check*: Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
+        :param str value: The value of ``Value`` depends on the operation that you want to perform:
+                 +   *Add a tag to a health check or hosted zone*: ``Value`` is the value that you want to give the new tag.
+                 +   *Edit a tag*: ``Value`` is the new value that you want to assign the tag.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -420,7 +422,11 @@ class HostedZoneTag(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The key name of the tag.
+        The value of ``Key`` depends on the operation that you want to perform:
+          +   *Add a tag to a health check or hosted zone*: ``Key`` is the name that you want to give the new tag.
+          +   *Edit a tag*: ``Key`` is the name of the tag that you want to change the ``Value`` for.
+          +   *Delete a key*: ``Key`` is the name of the tag you want to remove.
+          +   *Give a name to a health check*: Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
         """
         return pulumi.get(self, "key")
 
@@ -428,7 +434,9 @@ class HostedZoneTag(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value for the tag.
+        The value of ``Value`` depends on the operation that you want to perform:
+          +   *Add a tag to a health check or hosted zone*: ``Value`` is the value that you want to give the new tag.
+          +   *Edit a tag*: ``Value`` is the new value that you want to assign the tag.
         """
         return pulumi.get(self, "value")
 
@@ -436,7 +444,8 @@ class HostedZoneTag(dict):
 @pulumi.output_type
 class HostedZoneVpc(dict):
     """
-    A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
+    *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+     For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -461,9 +470,12 @@ class HostedZoneVpc(dict):
                  vpc_id: str,
                  vpc_region: str):
         """
-        A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
-        :param str vpc_id: The ID of an Amazon VPC.
-        :param str vpc_region: The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
+        *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+         For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+        :param str vpc_id: *Private hosted zones only:* The ID of an Amazon VPC.
+                For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
+        :param str vpc_region: *Private hosted zones only:* The region that an Amazon VPC was created in.
+                For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         pulumi.set(__self__, "vpc_region", vpc_region)
@@ -472,7 +484,8 @@ class HostedZoneVpc(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
-        The ID of an Amazon VPC.
+        *Private hosted zones only:* The ID of an Amazon VPC.
+         For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -480,7 +493,8 @@ class HostedZoneVpc(dict):
     @pulumi.getter(name="vpcRegion")
     def vpc_region(self) -> str:
         """
-        The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
+        *Private hosted zones only:* The region that an Amazon VPC was created in.
+         For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         return pulumi.get(self, "vpc_region")
 

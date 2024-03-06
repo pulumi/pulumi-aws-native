@@ -21,7 +21,7 @@ type Transformer struct {
 	EdiType         TransformerEdiTypePropertiesOutput `pulumi:"ediType"`
 	FileFormat      TransformerFileFormatOutput        `pulumi:"fileFormat"`
 	MappingTemplate pulumi.StringOutput                `pulumi:"mappingTemplate"`
-	ModifiedAt      pulumi.StringPtrOutput             `pulumi:"modifiedAt"`
+	ModifiedAt      pulumi.StringOutput                `pulumi:"modifiedAt"`
 	Name            pulumi.StringOutput                `pulumi:"name"`
 	SampleDocument  pulumi.StringPtrOutput             `pulumi:"sampleDocument"`
 	Status          TransformerStatusOutput            `pulumi:"status"`
@@ -85,7 +85,6 @@ type transformerArgs struct {
 	EdiType         TransformerEdiTypeProperties `pulumi:"ediType"`
 	FileFormat      TransformerFileFormat        `pulumi:"fileFormat"`
 	MappingTemplate string                       `pulumi:"mappingTemplate"`
-	ModifiedAt      *string                      `pulumi:"modifiedAt"`
 	Name            *string                      `pulumi:"name"`
 	SampleDocument  *string                      `pulumi:"sampleDocument"`
 	Status          TransformerStatus            `pulumi:"status"`
@@ -97,7 +96,6 @@ type TransformerArgs struct {
 	EdiType         TransformerEdiTypePropertiesInput
 	FileFormat      TransformerFileFormatInput
 	MappingTemplate pulumi.StringInput
-	ModifiedAt      pulumi.StringPtrInput
 	Name            pulumi.StringPtrInput
 	SampleDocument  pulumi.StringPtrInput
 	Status          TransformerStatusInput
@@ -157,8 +155,8 @@ func (o TransformerOutput) MappingTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Transformer) pulumi.StringOutput { return v.MappingTemplate }).(pulumi.StringOutput)
 }
 
-func (o TransformerOutput) ModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Transformer) pulumi.StringPtrOutput { return v.ModifiedAt }).(pulumi.StringPtrOutput)
+func (o TransformerOutput) ModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Transformer) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
 func (o TransformerOutput) Name() pulumi.StringOutput {

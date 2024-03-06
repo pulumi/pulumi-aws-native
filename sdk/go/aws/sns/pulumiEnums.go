@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Indicates one of the supported protocols for the SNS topic
 type TopicLoggingConfigProtocol string
 
 const (

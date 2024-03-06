@@ -2405,7 +2405,7 @@ func (o RuleGroupCookieMatchPatternPtrOutput) IncludedCookies() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Includes headers of a web request.
+// Includes cookies of a web request.
 type RuleGroupCookies struct {
 	MatchPattern     RuleGroupCookieMatchPattern `pulumi:"matchPattern"`
 	MatchScope       RuleGroupMapMatchScope      `pulumi:"matchScope"`
@@ -2423,7 +2423,7 @@ type RuleGroupCookiesInput interface {
 	ToRuleGroupCookiesOutputWithContext(context.Context) RuleGroupCookiesOutput
 }
 
-// Includes headers of a web request.
+// Includes cookies of a web request.
 type RuleGroupCookiesArgs struct {
 	MatchPattern     RuleGroupCookieMatchPatternInput `pulumi:"matchPattern"`
 	MatchScope       RuleGroupMapMatchScopeInput      `pulumi:"matchScope"`
@@ -2483,7 +2483,7 @@ func (i *ruleGroupCookiesPtrType) ToRuleGroupCookiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCookiesPtrOutput)
 }
 
-// Includes headers of a web request.
+// Includes cookies of a web request.
 type RuleGroupCookiesOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupCookiesOutput) ElementType() reflect.Type {
@@ -3230,11 +3230,12 @@ func (o RuleGroupCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) Rul
 // Field of the request to match.
 type RuleGroupFieldToMatch struct {
 	// All query arguments of a web request.
-	AllQueryArguments interface{}        `pulumi:"allQueryArguments"`
-	Body              *RuleGroupBody     `pulumi:"body"`
-	Cookies           *RuleGroupCookies  `pulumi:"cookies"`
-	Headers           *RuleGroupHeaders  `pulumi:"headers"`
-	JsonBody          *RuleGroupJsonBody `pulumi:"jsonBody"`
+	AllQueryArguments interface{}              `pulumi:"allQueryArguments"`
+	Body              *RuleGroupBody           `pulumi:"body"`
+	Cookies           *RuleGroupCookies        `pulumi:"cookies"`
+	Headers           *RuleGroupHeaders        `pulumi:"headers"`
+	Ja3Fingerprint    *RuleGroupJa3Fingerprint `pulumi:"ja3Fingerprint"`
+	JsonBody          *RuleGroupJsonBody       `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
@@ -3260,11 +3261,12 @@ type RuleGroupFieldToMatchInput interface {
 // Field of the request to match.
 type RuleGroupFieldToMatchArgs struct {
 	// All query arguments of a web request.
-	AllQueryArguments pulumi.Input              `pulumi:"allQueryArguments"`
-	Body              RuleGroupBodyPtrInput     `pulumi:"body"`
-	Cookies           RuleGroupCookiesPtrInput  `pulumi:"cookies"`
-	Headers           RuleGroupHeadersPtrInput  `pulumi:"headers"`
-	JsonBody          RuleGroupJsonBodyPtrInput `pulumi:"jsonBody"`
+	AllQueryArguments pulumi.Input                    `pulumi:"allQueryArguments"`
+	Body              RuleGroupBodyPtrInput           `pulumi:"body"`
+	Cookies           RuleGroupCookiesPtrInput        `pulumi:"cookies"`
+	Headers           RuleGroupHeadersPtrInput        `pulumi:"headers"`
+	Ja3Fingerprint    RuleGroupJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
+	JsonBody          RuleGroupJsonBodyPtrInput       `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
@@ -3371,6 +3373,10 @@ func (o RuleGroupFieldToMatchOutput) Headers() RuleGroupHeadersPtrOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupHeaders { return v.Headers }).(RuleGroupHeadersPtrOutput)
 }
 
+func (o RuleGroupFieldToMatchOutput) Ja3Fingerprint() RuleGroupJa3FingerprintPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupJa3Fingerprint { return v.Ja3Fingerprint }).(RuleGroupJa3FingerprintPtrOutput)
+}
+
 func (o RuleGroupFieldToMatchOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupJsonBody { return v.JsonBody }).(RuleGroupJsonBodyPtrOutput)
 }
@@ -3460,6 +3466,15 @@ func (o RuleGroupFieldToMatchPtrOutput) Headers() RuleGroupHeadersPtrOutput {
 		}
 		return v.Headers
 	}).(RuleGroupHeadersPtrOutput)
+}
+
+func (o RuleGroupFieldToMatchPtrOutput) Ja3Fingerprint() RuleGroupJa3FingerprintPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupJa3Fingerprint {
+		if v == nil {
+			return nil
+		}
+		return v.Ja3Fingerprint
+	}).(RuleGroupJa3FingerprintPtrOutput)
 }
 
 func (o RuleGroupFieldToMatchPtrOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
@@ -4871,6 +4886,142 @@ func (o RuleGroupIpSetReferenceStatementPtrOutput) IpSetForwardedIpConfig() Rule
 		}
 		return v.IpSetForwardedIpConfig
 	}).(RuleGroupIpSetForwardedIpConfigurationPtrOutput)
+}
+
+// Includes the JA3 fingerprint of a web request.
+type RuleGroupJa3Fingerprint struct {
+	FallbackBehavior RuleGroupJa3FingerprintFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// RuleGroupJa3FingerprintInput is an input type that accepts RuleGroupJa3FingerprintArgs and RuleGroupJa3FingerprintOutput values.
+// You can construct a concrete instance of `RuleGroupJa3FingerprintInput` via:
+//
+//	RuleGroupJa3FingerprintArgs{...}
+type RuleGroupJa3FingerprintInput interface {
+	pulumi.Input
+
+	ToRuleGroupJa3FingerprintOutput() RuleGroupJa3FingerprintOutput
+	ToRuleGroupJa3FingerprintOutputWithContext(context.Context) RuleGroupJa3FingerprintOutput
+}
+
+// Includes the JA3 fingerprint of a web request.
+type RuleGroupJa3FingerprintArgs struct {
+	FallbackBehavior RuleGroupJa3FingerprintFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+}
+
+func (RuleGroupJa3FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJa3Fingerprint)(nil)).Elem()
+}
+
+func (i RuleGroupJa3FingerprintArgs) ToRuleGroupJa3FingerprintOutput() RuleGroupJa3FingerprintOutput {
+	return i.ToRuleGroupJa3FingerprintOutputWithContext(context.Background())
+}
+
+func (i RuleGroupJa3FingerprintArgs) ToRuleGroupJa3FingerprintOutputWithContext(ctx context.Context) RuleGroupJa3FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJa3FingerprintOutput)
+}
+
+func (i RuleGroupJa3FingerprintArgs) ToRuleGroupJa3FingerprintPtrOutput() RuleGroupJa3FingerprintPtrOutput {
+	return i.ToRuleGroupJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupJa3FingerprintArgs) ToRuleGroupJa3FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJa3FingerprintOutput).ToRuleGroupJa3FingerprintPtrOutputWithContext(ctx)
+}
+
+// RuleGroupJa3FingerprintPtrInput is an input type that accepts RuleGroupJa3FingerprintArgs, RuleGroupJa3FingerprintPtr and RuleGroupJa3FingerprintPtrOutput values.
+// You can construct a concrete instance of `RuleGroupJa3FingerprintPtrInput` via:
+//
+//	        RuleGroupJa3FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupJa3FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupJa3FingerprintPtrOutput() RuleGroupJa3FingerprintPtrOutput
+	ToRuleGroupJa3FingerprintPtrOutputWithContext(context.Context) RuleGroupJa3FingerprintPtrOutput
+}
+
+type ruleGroupJa3FingerprintPtrType RuleGroupJa3FingerprintArgs
+
+func RuleGroupJa3FingerprintPtr(v *RuleGroupJa3FingerprintArgs) RuleGroupJa3FingerprintPtrInput {
+	return (*ruleGroupJa3FingerprintPtrType)(v)
+}
+
+func (*ruleGroupJa3FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupJa3Fingerprint)(nil)).Elem()
+}
+
+func (i *ruleGroupJa3FingerprintPtrType) ToRuleGroupJa3FingerprintPtrOutput() RuleGroupJa3FingerprintPtrOutput {
+	return i.ToRuleGroupJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupJa3FingerprintPtrType) ToRuleGroupJa3FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJa3FingerprintPtrOutput)
+}
+
+// Includes the JA3 fingerprint of a web request.
+type RuleGroupJa3FingerprintOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupJa3FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJa3Fingerprint)(nil)).Elem()
+}
+
+func (o RuleGroupJa3FingerprintOutput) ToRuleGroupJa3FingerprintOutput() RuleGroupJa3FingerprintOutput {
+	return o
+}
+
+func (o RuleGroupJa3FingerprintOutput) ToRuleGroupJa3FingerprintOutputWithContext(ctx context.Context) RuleGroupJa3FingerprintOutput {
+	return o
+}
+
+func (o RuleGroupJa3FingerprintOutput) ToRuleGroupJa3FingerprintPtrOutput() RuleGroupJa3FingerprintPtrOutput {
+	return o.ToRuleGroupJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupJa3FingerprintOutput) ToRuleGroupJa3FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupJa3FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupJa3Fingerprint) *RuleGroupJa3Fingerprint {
+		return &v
+	}).(RuleGroupJa3FingerprintPtrOutput)
+}
+
+func (o RuleGroupJa3FingerprintOutput) FallbackBehavior() RuleGroupJa3FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v RuleGroupJa3Fingerprint) RuleGroupJa3FingerprintFallbackBehavior { return v.FallbackBehavior }).(RuleGroupJa3FingerprintFallbackBehaviorOutput)
+}
+
+type RuleGroupJa3FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupJa3FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupJa3Fingerprint)(nil)).Elem()
+}
+
+func (o RuleGroupJa3FingerprintPtrOutput) ToRuleGroupJa3FingerprintPtrOutput() RuleGroupJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o RuleGroupJa3FingerprintPtrOutput) ToRuleGroupJa3FingerprintPtrOutputWithContext(ctx context.Context) RuleGroupJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o RuleGroupJa3FingerprintPtrOutput) Elem() RuleGroupJa3FingerprintOutput {
+	return o.ApplyT(func(v *RuleGroupJa3Fingerprint) RuleGroupJa3Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupJa3Fingerprint
+		return ret
+	}).(RuleGroupJa3FingerprintOutput)
+}
+
+func (o RuleGroupJa3FingerprintPtrOutput) FallbackBehavior() RuleGroupJa3FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *RuleGroupJa3Fingerprint) *RuleGroupJa3FingerprintFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(RuleGroupJa3FingerprintFallbackBehaviorPtrOutput)
 }
 
 // Inspect the request body as JSON. The request body immediately follows the request headers.
@@ -11262,7 +11413,7 @@ func (o WebAclCookieMatchPatternPtrOutput) IncludedCookies() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Includes headers of a web request.
+// Includes cookies of a web request.
 type WebAclCookies struct {
 	MatchPattern     WebAclCookieMatchPattern `pulumi:"matchPattern"`
 	MatchScope       WebAclMapMatchScope      `pulumi:"matchScope"`
@@ -11280,7 +11431,7 @@ type WebAclCookiesInput interface {
 	ToWebAclCookiesOutputWithContext(context.Context) WebAclCookiesOutput
 }
 
-// Includes headers of a web request.
+// Includes cookies of a web request.
 type WebAclCookiesArgs struct {
 	MatchPattern     WebAclCookieMatchPatternInput `pulumi:"matchPattern"`
 	MatchScope       WebAclMapMatchScopeInput      `pulumi:"matchScope"`
@@ -11340,7 +11491,7 @@ func (i *webAclCookiesPtrType) ToWebAclCookiesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclCookiesPtrOutput)
 }
 
-// Includes headers of a web request.
+// Includes cookies of a web request.
 type WebAclCookiesOutput struct{ *pulumi.OutputState }
 
 func (WebAclCookiesOutput) ElementType() reflect.Type {
@@ -12462,11 +12613,12 @@ func (o WebAclFieldIdentifierArrayOutput) Index(i pulumi.IntInput) WebAclFieldId
 // Field of the request to match.
 type WebAclFieldToMatch struct {
 	// All query arguments of a web request.
-	AllQueryArguments interface{}     `pulumi:"allQueryArguments"`
-	Body              *WebAclBody     `pulumi:"body"`
-	Cookies           *WebAclCookies  `pulumi:"cookies"`
-	Headers           *WebAclHeaders  `pulumi:"headers"`
-	JsonBody          *WebAclJsonBody `pulumi:"jsonBody"`
+	AllQueryArguments interface{}           `pulumi:"allQueryArguments"`
+	Body              *WebAclBody           `pulumi:"body"`
+	Cookies           *WebAclCookies        `pulumi:"cookies"`
+	Headers           *WebAclHeaders        `pulumi:"headers"`
+	Ja3Fingerprint    *WebAclJa3Fingerprint `pulumi:"ja3Fingerprint"`
+	JsonBody          *WebAclJsonBody       `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
@@ -12492,11 +12644,12 @@ type WebAclFieldToMatchInput interface {
 // Field of the request to match.
 type WebAclFieldToMatchArgs struct {
 	// All query arguments of a web request.
-	AllQueryArguments pulumi.Input           `pulumi:"allQueryArguments"`
-	Body              WebAclBodyPtrInput     `pulumi:"body"`
-	Cookies           WebAclCookiesPtrInput  `pulumi:"cookies"`
-	Headers           WebAclHeadersPtrInput  `pulumi:"headers"`
-	JsonBody          WebAclJsonBodyPtrInput `pulumi:"jsonBody"`
+	AllQueryArguments pulumi.Input                 `pulumi:"allQueryArguments"`
+	Body              WebAclBodyPtrInput           `pulumi:"body"`
+	Cookies           WebAclCookiesPtrInput        `pulumi:"cookies"`
+	Headers           WebAclHeadersPtrInput        `pulumi:"headers"`
+	Ja3Fingerprint    WebAclJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
+	JsonBody          WebAclJsonBodyPtrInput       `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
 	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
@@ -12603,6 +12756,10 @@ func (o WebAclFieldToMatchOutput) Headers() WebAclHeadersPtrOutput {
 	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclHeaders { return v.Headers }).(WebAclHeadersPtrOutput)
 }
 
+func (o WebAclFieldToMatchOutput) Ja3Fingerprint() WebAclJa3FingerprintPtrOutput {
+	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclJa3Fingerprint { return v.Ja3Fingerprint }).(WebAclJa3FingerprintPtrOutput)
+}
+
 func (o WebAclFieldToMatchOutput) JsonBody() WebAclJsonBodyPtrOutput {
 	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclJsonBody { return v.JsonBody }).(WebAclJsonBodyPtrOutput)
 }
@@ -12692,6 +12849,15 @@ func (o WebAclFieldToMatchPtrOutput) Headers() WebAclHeadersPtrOutput {
 		}
 		return v.Headers
 	}).(WebAclHeadersPtrOutput)
+}
+
+func (o WebAclFieldToMatchPtrOutput) Ja3Fingerprint() WebAclJa3FingerprintPtrOutput {
+	return o.ApplyT(func(v *WebAclFieldToMatch) *WebAclJa3Fingerprint {
+		if v == nil {
+			return nil
+		}
+		return v.Ja3Fingerprint
+	}).(WebAclJa3FingerprintPtrOutput)
 }
 
 func (o WebAclFieldToMatchPtrOutput) JsonBody() WebAclJsonBodyPtrOutput {
@@ -14103,6 +14269,142 @@ func (o WebAclIpSetReferenceStatementPtrOutput) IpSetForwardedIpConfig() WebAclI
 		}
 		return v.IpSetForwardedIpConfig
 	}).(WebAclIpSetForwardedIpConfigurationPtrOutput)
+}
+
+// Includes the JA3 fingerprint of a web request.
+type WebAclJa3Fingerprint struct {
+	FallbackBehavior WebAclJa3FingerprintFallbackBehavior `pulumi:"fallbackBehavior"`
+}
+
+// WebAclJa3FingerprintInput is an input type that accepts WebAclJa3FingerprintArgs and WebAclJa3FingerprintOutput values.
+// You can construct a concrete instance of `WebAclJa3FingerprintInput` via:
+//
+//	WebAclJa3FingerprintArgs{...}
+type WebAclJa3FingerprintInput interface {
+	pulumi.Input
+
+	ToWebAclJa3FingerprintOutput() WebAclJa3FingerprintOutput
+	ToWebAclJa3FingerprintOutputWithContext(context.Context) WebAclJa3FingerprintOutput
+}
+
+// Includes the JA3 fingerprint of a web request.
+type WebAclJa3FingerprintArgs struct {
+	FallbackBehavior WebAclJa3FingerprintFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+}
+
+func (WebAclJa3FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclJa3Fingerprint)(nil)).Elem()
+}
+
+func (i WebAclJa3FingerprintArgs) ToWebAclJa3FingerprintOutput() WebAclJa3FingerprintOutput {
+	return i.ToWebAclJa3FingerprintOutputWithContext(context.Background())
+}
+
+func (i WebAclJa3FingerprintArgs) ToWebAclJa3FingerprintOutputWithContext(ctx context.Context) WebAclJa3FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclJa3FingerprintOutput)
+}
+
+func (i WebAclJa3FingerprintArgs) ToWebAclJa3FingerprintPtrOutput() WebAclJa3FingerprintPtrOutput {
+	return i.ToWebAclJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclJa3FingerprintArgs) ToWebAclJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclJa3FingerprintOutput).ToWebAclJa3FingerprintPtrOutputWithContext(ctx)
+}
+
+// WebAclJa3FingerprintPtrInput is an input type that accepts WebAclJa3FingerprintArgs, WebAclJa3FingerprintPtr and WebAclJa3FingerprintPtrOutput values.
+// You can construct a concrete instance of `WebAclJa3FingerprintPtrInput` via:
+//
+//	        WebAclJa3FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclJa3FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToWebAclJa3FingerprintPtrOutput() WebAclJa3FingerprintPtrOutput
+	ToWebAclJa3FingerprintPtrOutputWithContext(context.Context) WebAclJa3FingerprintPtrOutput
+}
+
+type webAclJa3FingerprintPtrType WebAclJa3FingerprintArgs
+
+func WebAclJa3FingerprintPtr(v *WebAclJa3FingerprintArgs) WebAclJa3FingerprintPtrInput {
+	return (*webAclJa3FingerprintPtrType)(v)
+}
+
+func (*webAclJa3FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclJa3Fingerprint)(nil)).Elem()
+}
+
+func (i *webAclJa3FingerprintPtrType) ToWebAclJa3FingerprintPtrOutput() WebAclJa3FingerprintPtrOutput {
+	return i.ToWebAclJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclJa3FingerprintPtrType) ToWebAclJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclJa3FingerprintPtrOutput)
+}
+
+// Includes the JA3 fingerprint of a web request.
+type WebAclJa3FingerprintOutput struct{ *pulumi.OutputState }
+
+func (WebAclJa3FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclJa3Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclJa3FingerprintOutput) ToWebAclJa3FingerprintOutput() WebAclJa3FingerprintOutput {
+	return o
+}
+
+func (o WebAclJa3FingerprintOutput) ToWebAclJa3FingerprintOutputWithContext(ctx context.Context) WebAclJa3FingerprintOutput {
+	return o
+}
+
+func (o WebAclJa3FingerprintOutput) ToWebAclJa3FingerprintPtrOutput() WebAclJa3FingerprintPtrOutput {
+	return o.ToWebAclJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclJa3FingerprintOutput) ToWebAclJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclJa3FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclJa3Fingerprint) *WebAclJa3Fingerprint {
+		return &v
+	}).(WebAclJa3FingerprintPtrOutput)
+}
+
+func (o WebAclJa3FingerprintOutput) FallbackBehavior() WebAclJa3FingerprintFallbackBehaviorOutput {
+	return o.ApplyT(func(v WebAclJa3Fingerprint) WebAclJa3FingerprintFallbackBehavior { return v.FallbackBehavior }).(WebAclJa3FingerprintFallbackBehaviorOutput)
+}
+
+type WebAclJa3FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclJa3FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclJa3Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclJa3FingerprintPtrOutput) ToWebAclJa3FingerprintPtrOutput() WebAclJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclJa3FingerprintPtrOutput) ToWebAclJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclJa3FingerprintPtrOutput) Elem() WebAclJa3FingerprintOutput {
+	return o.ApplyT(func(v *WebAclJa3Fingerprint) WebAclJa3Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclJa3Fingerprint
+		return ret
+	}).(WebAclJa3FingerprintOutput)
+}
+
+func (o WebAclJa3FingerprintPtrOutput) FallbackBehavior() WebAclJa3FingerprintFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *WebAclJa3Fingerprint) *WebAclJa3FingerprintFallbackBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(WebAclJa3FingerprintFallbackBehaviorPtrOutput)
 }
 
 // Inspect the request body as JSON. The request body immediately follows the request headers.
@@ -20478,6 +20780,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetForwardedIpConfigurationPtrInput)(nil)).Elem(), RuleGroupIpSetForwardedIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetReferenceStatementInput)(nil)).Elem(), RuleGroupIpSetReferenceStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupIpSetReferenceStatementPtrInput)(nil)).Elem(), RuleGroupIpSetReferenceStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa3FingerprintInput)(nil)).Elem(), RuleGroupJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJa3FingerprintPtrInput)(nil)).Elem(), RuleGroupJa3FingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonBodyInput)(nil)).Elem(), RuleGroupJsonBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonBodyPtrInput)(nil)).Elem(), RuleGroupJsonBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupJsonMatchPatternInput)(nil)).Elem(), RuleGroupJsonMatchPatternArgs{})
@@ -20600,6 +20904,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetForwardedIpConfigurationPtrInput)(nil)).Elem(), WebAclIpSetForwardedIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetReferenceStatementInput)(nil)).Elem(), WebAclIpSetReferenceStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclIpSetReferenceStatementPtrInput)(nil)).Elem(), WebAclIpSetReferenceStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa3FingerprintInput)(nil)).Elem(), WebAclJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJa3FingerprintPtrInput)(nil)).Elem(), WebAclJa3FingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonBodyInput)(nil)).Elem(), WebAclJsonBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonBodyPtrInput)(nil)).Elem(), WebAclJsonBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclJsonMatchPatternInput)(nil)).Elem(), WebAclJsonMatchPatternArgs{})
@@ -20746,6 +21052,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupIpSetForwardedIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupIpSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupIpSetReferenceStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupJa3FingerprintOutput{})
+	pulumi.RegisterOutputType(RuleGroupJa3FingerprintPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonBodyOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonBodyPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupJsonMatchPatternOutput{})
@@ -20870,6 +21178,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclIpSetForwardedIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebAclIpSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(WebAclIpSetReferenceStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclJa3FingerprintOutput{})
+	pulumi.RegisterOutputType(WebAclJa3FingerprintPtrOutput{})
 	pulumi.RegisterOutputType(WebAclJsonBodyOutput{})
 	pulumi.RegisterOutputType(WebAclJsonBodyPtrOutput{})
 	pulumi.RegisterOutputType(WebAclJsonMatchPatternOutput{})

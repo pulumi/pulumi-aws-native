@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.B2bi
         public Output<string> MappingTemplate { get; private set; } = null!;
 
         [Output("modifiedAt")]
-        public Output<string?> ModifiedAt { get; private set; } = null!;
+        public Output<string> ModifiedAt { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -101,9 +101,6 @@ namespace Pulumi.AwsNative.B2bi
 
         [Input("mappingTemplate", required: true)]
         public Input<string> MappingTemplate { get; set; } = null!;
-
-        [Input("modifiedAt")]
-        public Input<string>? ModifiedAt { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

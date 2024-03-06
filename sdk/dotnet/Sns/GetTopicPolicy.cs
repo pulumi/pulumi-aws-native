@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Sns
     public static class GetTopicPolicy
     {
         /// <summary>
-        /// Schema for AWS::SNS::TopicPolicy
+        /// The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
         /// </summary>
         public static Task<GetTopicPolicyResult> InvokeAsync(GetTopicPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Schema for AWS::SNS::TopicPolicy
+        /// The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
         /// </summary>
         public static Output<GetTopicPolicyResult> Invoke(GetTopicPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyInvokeArgs(), options.WithDefaults());
@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.Sns
 
     public sealed class GetTopicPolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.Sns
 
     public sealed class GetTopicPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -57,9 +51,6 @@ namespace Pulumi.AwsNative.Sns
     [OutputType]
     public sealed class GetTopicPolicyResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// A policy document that contains permissions to add to the specified SNS topics.
@@ -68,7 +59,7 @@ namespace Pulumi.AwsNative.Sns
         /// </summary>
         public readonly object? PolicyDocument;
         /// <summary>
-        /// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        /// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
         /// </summary>
         public readonly ImmutableArray<string> Topics;
 

@@ -175,6 +175,10 @@ export interface GetDbClusterResult {
      */
     readonly serverlessV2ScalingConfiguration?: outputs.rds.DbClusterServerlessV2ScalingConfiguration;
     /**
+     * Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+     */
+    readonly storageThroughput?: number;
+    /**
      * Specifies the storage type to be associated with the DB cluster.
      */
     readonly storageType?: string;

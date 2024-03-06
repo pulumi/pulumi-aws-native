@@ -24,6 +24,7 @@ export interface GetJobDefinitionArgs {
 
 export interface GetJobDefinitionResult {
     readonly containerProperties?: outputs.batch.JobDefinitionContainerProperties;
+    readonly ecsProperties?: outputs.batch.JobDefinitionEcsProperties;
     readonly eksProperties?: outputs.batch.JobDefinitionEksProperties;
     readonly id?: string;
     readonly nodeProperties?: outputs.batch.JobDefinitionNodeProperties;

@@ -129,6 +129,8 @@ type DbCluster struct {
 	// Indicates whether the DB instance is encrypted.
 	// If you specify the DBClusterIdentifier, SnapshotIdentifier, or SourceDBInstanceIdentifier property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	// Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+	StorageThroughput pulumi.IntOutput `pulumi:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB cluster.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// An array of key-value pairs to apply to this resource.
@@ -747,6 +749,11 @@ func (o DbClusterOutput) SourceRegion() pulumi.StringPtrOutput {
 // If you specify the DBClusterIdentifier, SnapshotIdentifier, or SourceDBInstanceIdentifier property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance.
 func (o DbClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+func (o DbClusterOutput) StorageThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.IntOutput { return v.StorageThroughput }).(pulumi.IntOutput)
 }
 
 // Specifies the storage type to be associated with the DB cluster.

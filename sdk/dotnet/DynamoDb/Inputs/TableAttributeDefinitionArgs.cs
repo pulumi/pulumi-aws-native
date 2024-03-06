@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 {
 
     /// <summary>
-    /// Represents an attribute for describing the key schema for the table and indexes.
+    /// Represents an attribute for describing the schema for the table and indexes.
     /// </summary>
     public sealed class TableAttributeDefinitionArgs : global::Pulumi.ResourceArgs
     {

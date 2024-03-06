@@ -16,8 +16,10 @@ namespace Pulumi.AwsNative.Batch.Outputs
         public readonly ImmutableArray<Outputs.JobDefinitionEksContainer> Containers;
         public readonly string? DnsPolicy;
         public readonly bool? HostNetwork;
+        public readonly ImmutableArray<Outputs.JobDefinitionEksContainer> InitContainers;
         public readonly Outputs.JobDefinitionMetadata? Metadata;
         public readonly string? ServiceAccountName;
+        public readonly bool? ShareProcessNamespace;
         public readonly ImmutableArray<Outputs.JobDefinitionEksVolume> Volumes;
 
         [OutputConstructor]
@@ -28,17 +30,23 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             bool? hostNetwork,
 
+            ImmutableArray<Outputs.JobDefinitionEksContainer> initContainers,
+
             Outputs.JobDefinitionMetadata? metadata,
 
             string? serviceAccountName,
+
+            bool? shareProcessNamespace,
 
             ImmutableArray<Outputs.JobDefinitionEksVolume> volumes)
         {
             Containers = containers;
             DnsPolicy = dnsPolicy;
             HostNetwork = hostNetwork;
+            InitContainers = initContainers;
             Metadata = metadata;
             ServiceAccountName = serviceAccountName;
+            ShareProcessNamespace = shareProcessNamespace;
             Volumes = volumes;
         }
     }

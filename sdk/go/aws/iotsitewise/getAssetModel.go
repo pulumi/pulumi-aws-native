@@ -35,6 +35,8 @@ type LookupAssetModelResult struct {
 	AssetModelCompositeModels []AssetModelCompositeModel `pulumi:"assetModelCompositeModels"`
 	// A description for the asset model.
 	AssetModelDescription *string `pulumi:"assetModelDescription"`
+	// The external ID of the asset model.
+	AssetModelExternalId *string `pulumi:"assetModelExternalId"`
 	// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
 	AssetModelHierarchies []AssetModelHierarchy `pulumi:"assetModelHierarchies"`
 	// The ID of the asset model.
@@ -96,6 +98,11 @@ func (o LookupAssetModelResultOutput) AssetModelCompositeModels() AssetModelComp
 // A description for the asset model.
 func (o LookupAssetModelResultOutput) AssetModelDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssetModelResult) *string { return v.AssetModelDescription }).(pulumi.StringPtrOutput)
+}
+
+// The external ID of the asset model.
+func (o LookupAssetModelResultOutput) AssetModelExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAssetModelResult) *string { return v.AssetModelExternalId }).(pulumi.StringPtrOutput)
 }
 
 // The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.

@@ -21,17 +21,31 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// </summary>
         public readonly string ChildAssetId;
         /// <summary>
+        /// String-friendly customer provided external ID
+        /// </summary>
+        public readonly string? ExternalId;
+        /// <summary>
+        /// Customer provided actual UUID for property
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The LogicalID of a hierarchy in the parent asset's model.
         /// </summary>
-        public readonly string LogicalId;
+        public readonly string? LogicalId;
 
         [OutputConstructor]
         private AssetHierarchy(
             string childAssetId,
 
-            string logicalId)
+            string? externalId,
+
+            string? id,
+
+            string? logicalId)
         {
             ChildAssetId = childAssetId;
+            ExternalId = externalId;
+            Id = id;
             LogicalId = logicalId;
         }
     }

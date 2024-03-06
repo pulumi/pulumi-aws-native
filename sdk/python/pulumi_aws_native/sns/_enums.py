@@ -10,9 +10,6 @@ __all__ = [
 
 
 class TopicLoggingConfigProtocol(str, Enum):
-    """
-    Indicates one of the supported protocols for the SNS topic
-    """
     HTTPS = "http/s"
     SQS = "sqs"
     LAMBDA_ = "lambda"

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
     public sealed class AssetModelCompositeModel
     {
         /// <summary>
+        /// The component model ID for which the composite model is composed of
+        /// </summary>
+        public readonly string? ComposedAssetModelId;
+        /// <summary>
         /// The property definitions of the asset model. You can specify up to 200 properties per asset model.
         /// </summary>
         public readonly ImmutableArray<Outputs.AssetModelProperty> CompositeModelProperties;
@@ -25,9 +29,25 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The External ID of the composite model
+        /// </summary>
+        public readonly string? ExternalId;
+        /// <summary>
+        /// The Actual ID of the composite model
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// A unique, friendly name for the asset composite model.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The parent composite model External ID
+        /// </summary>
+        public readonly string? ParentAssetModelCompositeModelExternalId;
+        /// <summary>
+        /// The path of the composite model. This is only for derived composite models
+        /// </summary>
+        public readonly ImmutableArray<string> Path;
         /// <summary>
         /// The type of the composite model. For alarm composite models, this type is AWS/ALARM
         /// </summary>
@@ -35,17 +55,32 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AssetModelCompositeModel(
+            string? composedAssetModelId,
+
             ImmutableArray<Outputs.AssetModelProperty> compositeModelProperties,
 
             string? description,
 
+            string? externalId,
+
+            string? id,
+
             string name,
+
+            string? parentAssetModelCompositeModelExternalId,
+
+            ImmutableArray<string> path,
 
             string type)
         {
+            ComposedAssetModelId = composedAssetModelId;
             CompositeModelProperties = compositeModelProperties;
             Description = description;
+            ExternalId = externalId;
+            Id = id;
             Name = name;
+            ParentAssetModelCompositeModelExternalId = parentAssetModelCompositeModelExternalId;
+            Path = path;
             Type = type;
         }
     }

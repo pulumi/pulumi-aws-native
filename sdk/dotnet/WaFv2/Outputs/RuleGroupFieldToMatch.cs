@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         public readonly Outputs.RuleGroupBody? Body;
         public readonly Outputs.RuleGroupCookies? Cookies;
         public readonly Outputs.RuleGroupHeaders? Headers;
+        public readonly Outputs.RuleGroupJa3Fingerprint? Ja3Fingerprint;
         public readonly Outputs.RuleGroupJsonBody? JsonBody;
         /// <summary>
         /// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
@@ -52,6 +53,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             Outputs.RuleGroupHeaders? headers,
 
+            Outputs.RuleGroupJa3Fingerprint? ja3Fingerprint,
+
             Outputs.RuleGroupJsonBody? jsonBody,
 
             object? method,
@@ -68,6 +71,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
             Body = body;
             Cookies = cookies;
             Headers = headers;
+            Ja3Fingerprint = ja3Fingerprint;
             JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;

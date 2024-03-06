@@ -21,29 +21,37 @@ class AssetModelArgs:
     def __init__(__self__, *,
                  asset_model_composite_models: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelCompositeModelArgs']]]] = None,
                  asset_model_description: Optional[pulumi.Input[str]] = None,
+                 asset_model_external_id: Optional[pulumi.Input[str]] = None,
                  asset_model_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelHierarchyArgs']]]] = None,
                  asset_model_name: Optional[pulumi.Input[str]] = None,
                  asset_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
+                 asset_model_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AssetModel resource.
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelCompositeModelArgs']]] asset_model_composite_models: The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
         :param pulumi.Input[str] asset_model_description: A description for the asset model.
+        :param pulumi.Input[str] asset_model_external_id: The external ID of the asset model.
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelHierarchyArgs']]] asset_model_hierarchies: The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
         :param pulumi.Input[str] asset_model_name: A unique, friendly name for the asset model.
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]] asset_model_properties: The property definitions of the asset model. You can specify up to 200 properties per asset model.
+        :param pulumi.Input[str] asset_model_type: The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         if asset_model_composite_models is not None:
             pulumi.set(__self__, "asset_model_composite_models", asset_model_composite_models)
         if asset_model_description is not None:
             pulumi.set(__self__, "asset_model_description", asset_model_description)
+        if asset_model_external_id is not None:
+            pulumi.set(__self__, "asset_model_external_id", asset_model_external_id)
         if asset_model_hierarchies is not None:
             pulumi.set(__self__, "asset_model_hierarchies", asset_model_hierarchies)
         if asset_model_name is not None:
             pulumi.set(__self__, "asset_model_name", asset_model_name)
         if asset_model_properties is not None:
             pulumi.set(__self__, "asset_model_properties", asset_model_properties)
+        if asset_model_type is not None:
+            pulumi.set(__self__, "asset_model_type", asset_model_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -70,6 +78,18 @@ class AssetModelArgs:
     @asset_model_description.setter
     def asset_model_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "asset_model_description", value)
+
+    @property
+    @pulumi.getter(name="assetModelExternalId")
+    def asset_model_external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The external ID of the asset model.
+        """
+        return pulumi.get(self, "asset_model_external_id")
+
+    @asset_model_external_id.setter
+    def asset_model_external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asset_model_external_id", value)
 
     @property
     @pulumi.getter(name="assetModelHierarchies")
@@ -108,6 +128,18 @@ class AssetModelArgs:
         pulumi.set(self, "asset_model_properties", value)
 
     @property
+    @pulumi.getter(name="assetModelType")
+    def asset_model_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+        """
+        return pulumi.get(self, "asset_model_type")
+
+    @asset_model_type.setter
+    def asset_model_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asset_model_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -127,9 +159,11 @@ class AssetModel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_model_composite_models: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelCompositeModelArgs']]]]] = None,
                  asset_model_description: Optional[pulumi.Input[str]] = None,
+                 asset_model_external_id: Optional[pulumi.Input[str]] = None,
                  asset_model_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelHierarchyArgs']]]]] = None,
                  asset_model_name: Optional[pulumi.Input[str]] = None,
                  asset_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelPropertyArgs']]]]] = None,
+                 asset_model_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
@@ -139,9 +173,11 @@ class AssetModel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelCompositeModelArgs']]]] asset_model_composite_models: The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
         :param pulumi.Input[str] asset_model_description: A description for the asset model.
+        :param pulumi.Input[str] asset_model_external_id: The external ID of the asset model.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelHierarchyArgs']]]] asset_model_hierarchies: The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
         :param pulumi.Input[str] asset_model_name: A unique, friendly name for the asset model.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelPropertyArgs']]]] asset_model_properties: The property definitions of the asset model. You can specify up to 200 properties per asset model.
+        :param pulumi.Input[str] asset_model_type: The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         ...
@@ -170,9 +206,11 @@ class AssetModel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_model_composite_models: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelCompositeModelArgs']]]]] = None,
                  asset_model_description: Optional[pulumi.Input[str]] = None,
+                 asset_model_external_id: Optional[pulumi.Input[str]] = None,
                  asset_model_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelHierarchyArgs']]]]] = None,
                  asset_model_name: Optional[pulumi.Input[str]] = None,
                  asset_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetModelPropertyArgs']]]]] = None,
+                 asset_model_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -185,12 +223,16 @@ class AssetModel(pulumi.CustomResource):
 
             __props__.__dict__["asset_model_composite_models"] = asset_model_composite_models
             __props__.__dict__["asset_model_description"] = asset_model_description
+            __props__.__dict__["asset_model_external_id"] = asset_model_external_id
             __props__.__dict__["asset_model_hierarchies"] = asset_model_hierarchies
             __props__.__dict__["asset_model_name"] = asset_model_name
             __props__.__dict__["asset_model_properties"] = asset_model_properties
+            __props__.__dict__["asset_model_type"] = asset_model_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["asset_model_arn"] = None
             __props__.__dict__["asset_model_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["asset_model_type"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AssetModel, __self__).__init__(
             'aws-native:iotsitewise:AssetModel',
             resource_name,
@@ -216,10 +258,12 @@ class AssetModel(pulumi.CustomResource):
         __props__.__dict__["asset_model_arn"] = None
         __props__.__dict__["asset_model_composite_models"] = None
         __props__.__dict__["asset_model_description"] = None
+        __props__.__dict__["asset_model_external_id"] = None
         __props__.__dict__["asset_model_hierarchies"] = None
         __props__.__dict__["asset_model_id"] = None
         __props__.__dict__["asset_model_name"] = None
         __props__.__dict__["asset_model_properties"] = None
+        __props__.__dict__["asset_model_type"] = None
         __props__.__dict__["tags"] = None
         return AssetModel(resource_name, opts=opts, __props__=__props__)
 
@@ -246,6 +290,14 @@ class AssetModel(pulumi.CustomResource):
         A description for the asset model.
         """
         return pulumi.get(self, "asset_model_description")
+
+    @property
+    @pulumi.getter(name="assetModelExternalId")
+    def asset_model_external_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The external ID of the asset model.
+        """
+        return pulumi.get(self, "asset_model_external_id")
 
     @property
     @pulumi.getter(name="assetModelHierarchies")
@@ -278,6 +330,14 @@ class AssetModel(pulumi.CustomResource):
         The property definitions of the asset model. You can specify up to 200 properties per asset model.
         """
         return pulumi.get(self, "asset_model_properties")
+
+    @property
+    @pulumi.getter(name="assetModelType")
+    def asset_model_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+        """
+        return pulumi.get(self, "asset_model_type")
 
     @property
     @pulumi.getter

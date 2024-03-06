@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ssm
     public partial class Parameter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
+        /// A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
         /// </summary>
         [Output("allowedPattern")]
         public Output<string?> AllowedPattern { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.Ssm
     public sealed class ParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
+        /// A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
         /// </summary>
         [Input("allowedPattern")]
         public Input<string>? AllowedPattern { get; set; }

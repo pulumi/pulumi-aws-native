@@ -28,6 +28,7 @@ type LookupJobDefinitionArgs struct {
 
 type LookupJobDefinitionResult struct {
 	ContainerProperties *JobDefinitionContainerProperties `pulumi:"containerProperties"`
+	EcsProperties       *JobDefinitionEcsProperties       `pulumi:"ecsProperties"`
 	EksProperties       *JobDefinitionEksProperties       `pulumi:"eksProperties"`
 	Id                  *string                           `pulumi:"id"`
 	NodeProperties      *JobDefinitionNodeProperties      `pulumi:"nodeProperties"`
@@ -78,6 +79,10 @@ func (o LookupJobDefinitionResultOutput) ToLookupJobDefinitionResultOutputWithCo
 
 func (o LookupJobDefinitionResultOutput) ContainerProperties() JobDefinitionContainerPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionContainerProperties { return v.ContainerProperties }).(JobDefinitionContainerPropertiesPtrOutput)
+}
+
+func (o LookupJobDefinitionResultOutput) EcsProperties() JobDefinitionEcsPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionEcsProperties { return v.EcsProperties }).(JobDefinitionEcsPropertiesPtrOutput)
 }
 
 func (o LookupJobDefinitionResultOutput) EksProperties() JobDefinitionEksPropertiesPtrOutput {

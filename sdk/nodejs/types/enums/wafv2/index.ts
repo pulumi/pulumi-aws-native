@@ -109,6 +109,13 @@ export const RuleGroupIpSetForwardedIpConfigurationPosition = {
 
 export type RuleGroupIpSetForwardedIpConfigurationPosition = (typeof RuleGroupIpSetForwardedIpConfigurationPosition)[keyof typeof RuleGroupIpSetForwardedIpConfigurationPosition];
 
+export const RuleGroupJa3FingerprintFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type RuleGroupJa3FingerprintFallbackBehavior = (typeof RuleGroupJa3FingerprintFallbackBehavior)[keyof typeof RuleGroupJa3FingerprintFallbackBehavior];
+
 export const RuleGroupJsonMatchScope = {
     All: "ALL",
     Key: "KEY",
@@ -281,6 +288,13 @@ export const WebAclIpSetForwardedIpConfigurationPosition = {
 } as const;
 
 export type WebAclIpSetForwardedIpConfigurationPosition = (typeof WebAclIpSetForwardedIpConfigurationPosition)[keyof typeof WebAclIpSetForwardedIpConfigurationPosition];
+
+export const WebAclJa3FingerprintFallbackBehavior = {
+    Match: "MATCH",
+    NoMatch: "NO_MATCH",
+} as const;
+
+export type WebAclJa3FingerprintFallbackBehavior = (typeof WebAclJa3FingerprintFallbackBehavior)[keyof typeof WebAclJa3FingerprintFallbackBehavior];
 
 export const WebAclJsonMatchScope = {
     All: "ALL",

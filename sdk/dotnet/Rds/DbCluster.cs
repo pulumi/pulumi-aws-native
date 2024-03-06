@@ -341,6 +341,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+        /// </summary>
+        [Output("storageThroughput")]
+        public Output<int> StorageThroughput { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the storage type to be associated with the DB cluster.
         /// </summary>
         [Output("storageType")]

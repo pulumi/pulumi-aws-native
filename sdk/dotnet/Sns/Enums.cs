@@ -7,9 +7,6 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Sns
 {
-    /// <summary>
-    /// Indicates one of the supported protocols for the SNS topic
-    /// </summary>
     [EnumType]
     public readonly struct TopicLoggingConfigProtocol : IEquatable<TopicLoggingConfigProtocol>
     {

@@ -5577,6 +5577,23 @@ export namespace batch {
         permissions?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface JobDefinitionEcsPropertiesArgs {
+        taskProperties: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEcsTaskPropertiesArgs>[]>;
+    }
+
+    export interface JobDefinitionEcsTaskPropertiesArgs {
+        containers?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionTaskContainerPropertiesArgs>[]>;
+        ephemeralStorage?: pulumi.Input<inputs.batch.JobDefinitionEphemeralStorageArgs>;
+        executionRoleArn?: pulumi.Input<string>;
+        ipcMode?: pulumi.Input<string>;
+        networkConfiguration?: pulumi.Input<inputs.batch.JobDefinitionNetworkConfigurationArgs>;
+        pidMode?: pulumi.Input<string>;
+        platformVersion?: pulumi.Input<string>;
+        runtimePlatform?: pulumi.Input<inputs.batch.JobDefinitionRuntimePlatformArgs>;
+        taskRoleArn?: pulumi.Input<string>;
+        volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionVolumesArgs>[]>;
+    }
+
     export interface JobDefinitionEfsVolumeConfigurationArgs {
         authorizationConfig?: pulumi.Input<inputs.batch.JobDefinitionAuthorizationConfigArgs>;
         fileSystemId: pulumi.Input<string>;
@@ -5703,6 +5720,8 @@ export namespace batch {
 
     export interface JobDefinitionNodeRangePropertyArgs {
         container?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesArgs>;
+        ecsProperties?: pulumi.Input<inputs.batch.JobDefinitionEcsPropertiesArgs>;
+        instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         targetNodes: pulumi.Input<string>;
     }
 
@@ -5710,8 +5729,10 @@ export namespace batch {
         containers?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksContainerArgs>[]>;
         dnsPolicy?: pulumi.Input<string>;
         hostNetwork?: pulumi.Input<boolean>;
+        initContainers?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksContainerArgs>[]>;
         metadata?: pulumi.Input<inputs.batch.JobDefinitionMetadataArgs>;
         serviceAccountName?: pulumi.Input<string>;
+        shareProcessNamespace?: pulumi.Input<boolean>;
         volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksVolumeArgs>[]>;
     }
 
@@ -5737,6 +5758,30 @@ export namespace batch {
     export interface JobDefinitionSecretArgs {
         name: pulumi.Input<string>;
         valueFrom: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionTaskContainerDependencyArgs {
+        condition: pulumi.Input<string>;
+        containerName: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionTaskContainerPropertiesArgs {
+        command?: pulumi.Input<pulumi.Input<string>[]>;
+        dependsOn?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionTaskContainerDependencyArgs>[]>;
+        environment?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEnvironmentArgs>[]>;
+        essential?: pulumi.Input<boolean>;
+        image: pulumi.Input<string>;
+        linuxParameters?: pulumi.Input<inputs.batch.JobDefinitionLinuxParametersArgs>;
+        logConfiguration?: pulumi.Input<inputs.batch.JobDefinitionLogConfigurationArgs>;
+        mountPoints?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionMountPointsArgs>[]>;
+        name?: pulumi.Input<string>;
+        privileged?: pulumi.Input<boolean>;
+        readonlyRootFilesystem?: pulumi.Input<boolean>;
+        repositoryCredentials?: pulumi.Input<inputs.batch.JobDefinitionRepositoryCredentialsArgs>;
+        resourceRequirements?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionResourceRequirementArgs>[]>;
+        secrets?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionSecretArgs>[]>;
+        ulimits?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionUlimitArgs>[]>;
+        user?: pulumi.Input<string>;
     }
 
     export interface JobDefinitionTimeoutArgs {
@@ -11986,7 +12031,7 @@ export namespace dynamodb {
     }
 
     /**
-     * Represents an attribute for describing the key schema for the table and indexes.
+     * Represents an attribute for describing the schema for the table and indexes.
      */
     export interface TableAttributeDefinitionArgs {
         /**
@@ -12173,6 +12218,8 @@ export namespace dynamodb {
          *   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
          *   +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
          *   +   ``ALL`` - All of the table attributes are projected into the index.
+         *   
+         *  When using the DynamoDB console, ``ALL`` is selected by default.
          */
         projectionType?: pulumi.Input<string>;
     }
@@ -23220,9 +23267,17 @@ export namespace iotsitewise {
          */
         childAssetId: pulumi.Input<string>;
         /**
+         * String-friendly customer provided external ID
+         */
+        externalId?: pulumi.Input<string>;
+        /**
+         * Customer provided actual UUID for property
+         */
+        id?: pulumi.Input<string>;
+        /**
          * The LogicalID of a hierarchy in the parent asset's model.
          */
-        logicalId: pulumi.Input<string>;
+        logicalId?: pulumi.Input<string>;
     }
 
     export interface AssetModelAttributeArgs {
@@ -23234,6 +23289,10 @@ export namespace iotsitewise {
      */
     export interface AssetModelCompositeModelArgs {
         /**
+         * The component model ID for which the composite model is composed of
+         */
+        composedAssetModelId?: pulumi.Input<string>;
+        /**
          * The property definitions of the asset model. You can specify up to 200 properties per asset model.
          */
         compositeModelProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelPropertyArgs>[]>;
@@ -23242,9 +23301,25 @@ export namespace iotsitewise {
          */
         description?: pulumi.Input<string>;
         /**
+         * The External ID of the composite model
+         */
+        externalId?: pulumi.Input<string>;
+        /**
+         * The Actual ID of the composite model
+         */
+        id?: pulumi.Input<string>;
+        /**
          * A unique, friendly name for the asset composite model.
          */
         name: pulumi.Input<string>;
+        /**
+         * The parent composite model External ID
+         */
+        parentAssetModelCompositeModelExternalId?: pulumi.Input<string>;
+        /**
+         * The path of the composite model. This is only for derived composite models
+         */
+        path?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The type of the composite model. For alarm composite models, this type is AWS/ALARM
          */
@@ -23271,9 +23346,17 @@ export namespace iotsitewise {
          */
         childAssetModelId: pulumi.Input<string>;
         /**
-         * Customer provided ID for hierarchy.
+         * Customer provided external ID for hierarchy
          */
-        logicalId: pulumi.Input<string>;
+        externalId?: pulumi.Input<string>;
+        /**
+         * Customer provided actual ID for hierarchy
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Customer provided logical ID for hierarchy.
+         */
+        logicalId?: pulumi.Input<string>;
         /**
          * The name of the asset model hierarchy.
          */
@@ -23315,9 +23398,17 @@ export namespace iotsitewise {
          */
         dataTypeSpec?: pulumi.Input<enums.iotsitewise.AssetModelDataTypeSpec>;
         /**
-         * Customer provided ID for property.
+         * The External ID of the Asset Model Property
          */
-        logicalId: pulumi.Input<string>;
+        externalId?: pulumi.Input<string>;
+        /**
+         * The ID of the Asset Model Property
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Customer provided Logical ID for property.
+         */
+        logicalId?: pulumi.Input<string>;
         /**
          * The name of the asset model property.
          */
@@ -23330,6 +23421,16 @@ export namespace iotsitewise {
          * The unit of the asset model property, such as Newtons or RPM.
          */
         unit?: pulumi.Input<string>;
+    }
+
+    /**
+     * The definition for property path which is used to reference properties in transforms/metrics
+     */
+    export interface AssetModelPropertyPathDefinitionArgs {
+        /**
+         * The name of the property
+         */
+        name: pulumi.Input<string>;
     }
 
     /**
@@ -23362,8 +23463,28 @@ export namespace iotsitewise {
     }
 
     export interface AssetModelVariableValueArgs {
+        /**
+         * The External ID of the hierarchy that is trying to be referenced
+         */
+        hierarchyExternalId?: pulumi.Input<string>;
+        /**
+         * The ID of the hierarchy that is trying to be referenced
+         */
+        hierarchyId?: pulumi.Input<string>;
         hierarchyLogicalId?: pulumi.Input<string>;
-        propertyLogicalId: pulumi.Input<string>;
+        /**
+         * The External ID of the property that is trying to be referenced
+         */
+        propertyExternalId?: pulumi.Input<string>;
+        /**
+         * The ID of the property that is trying to be referenced
+         */
+        propertyId?: pulumi.Input<string>;
+        propertyLogicalId?: pulumi.Input<string>;
+        /**
+         * The path of the property that is trying to be referenced
+         */
+        propertyPath?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelPropertyPathDefinitionArgs>[]>;
     }
 
     /**
@@ -23375,9 +23496,17 @@ export namespace iotsitewise {
          */
         alias?: pulumi.Input<string>;
         /**
+         * String-friendly customer provided external ID
+         */
+        externalId?: pulumi.Input<string>;
+        /**
+         * Customer provided actual UUID for property
+         */
+        id?: pulumi.Input<string>;
+        /**
          * Customer provided ID for property.
          */
-        logicalId: pulumi.Input<string>;
+        logicalId?: pulumi.Input<string>;
         /**
          * The MQTT notification state (ENABLED or DISABLED) for this asset property.
          */
@@ -26329,7 +26458,7 @@ export namespace lambda {
         /**
          * (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
          *   For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
-         *  If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs
+         *  If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
          */
         zipFile?: pulumi.Input<string>;
     }
@@ -26431,7 +26560,9 @@ export namespace lambda {
          * Specify the runtime update mode.
          *   + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
          *  + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
-         *  + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
+         *  + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
+         *  
+         *  *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
          */
         updateRuntimeOn: pulumi.Input<enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn>;
     }
@@ -45794,9 +45925,7 @@ export namespace route53 {
     }
 
     /**
-     * A complex type that contains an optional comment.
-     *
-     * If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
+     * A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
      */
     export interface HostedZoneConfigArgs {
         /**
@@ -45820,25 +45949,34 @@ export namespace route53 {
      */
     export interface HostedZoneTagArgs {
         /**
-         * The key name of the tag.
+         * The value of ``Key`` depends on the operation that you want to perform:
+         *   +   *Add a tag to a health check or hosted zone*: ``Key`` is the name that you want to give the new tag.
+         *   +   *Edit a tag*: ``Key`` is the name of the tag that you want to change the ``Value`` for.
+         *   +   *Delete a key*: ``Key`` is the name of the tag you want to remove.
+         *   +   *Give a name to a health check*: Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
          */
         key: pulumi.Input<string>;
         /**
-         * The value for the tag.
+         * The value of ``Value`` depends on the operation that you want to perform:
+         *   +   *Add a tag to a health check or hosted zone*: ``Value`` is the value that you want to give the new tag.
+         *   +   *Edit a tag*: ``Value`` is the new value that you want to assign the tag.
          */
         value: pulumi.Input<string>;
     }
 
     /**
-     * A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
+     * *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+     *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
      */
     export interface HostedZoneVpcArgs {
         /**
-         * The ID of an Amazon VPC.
+         * *Private hosted zones only:* The ID of an Amazon VPC.
+         *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
          */
         vpcId: pulumi.Input<string>;
         /**
-         * The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
+         * *Private hosted zones only:* The region that an Amazon VPC was created in.
+         *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
          */
         vpcRegion: pulumi.Input<string>;
     }
@@ -52233,26 +52371,24 @@ export namespace simspaceweaver {
 
 export namespace sns {
     export interface TopicLoggingConfigArgs {
-        /**
-         * The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
-         */
         failureFeedbackRoleArn?: pulumi.Input<string>;
-        /**
-         * Indicates one of the supported protocols for the SNS topic
-         */
         protocol: pulumi.Input<enums.sns.TopicLoggingConfigProtocol>;
-        /**
-         * The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
-         */
         successFeedbackRoleArn?: pulumi.Input<string>;
-        /**
-         * The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
-         */
         successFeedbackSampleRate?: pulumi.Input<string>;
     }
 
+    /**
+     * ``Subscription`` is an embedded property that describes the subscription endpoints of an SNS topic.
+     *   For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
+     */
     export interface TopicSubscriptionArgs {
+        /**
+         * The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
+         */
         endpoint: pulumi.Input<string>;
+        /**
+         * The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
+         */
         protocol: pulumi.Input<string>;
     }
 
@@ -53890,7 +54026,7 @@ export namespace wafv2 {
     }
 
     /**
-     * Includes headers of a web request.
+     * Includes cookies of a web request.
      */
     export interface RuleGroupCookiesArgs {
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupCookieMatchPatternArgs>;
@@ -53957,6 +54093,7 @@ export namespace wafv2 {
         body?: pulumi.Input<inputs.wafv2.RuleGroupBodyArgs>;
         cookies?: pulumi.Input<inputs.wafv2.RuleGroupCookiesArgs>;
         headers?: pulumi.Input<inputs.wafv2.RuleGroupHeadersArgs>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupJa3FingerprintArgs>;
         jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupJsonBodyArgs>;
         /**
          * The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
@@ -54032,6 +54169,13 @@ export namespace wafv2 {
     export interface RuleGroupIpSetReferenceStatementArgs {
         arn: pulumi.Input<string>;
         ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupIpSetForwardedIpConfigurationArgs>;
+    }
+
+    /**
+     * Includes the JA3 fingerprint of a web request.
+     */
+    export interface RuleGroupJa3FingerprintArgs {
+        fallbackBehavior: pulumi.Input<enums.wafv2.RuleGroupJa3FingerprintFallbackBehavior>;
     }
 
     /**
@@ -54387,7 +54531,7 @@ export namespace wafv2 {
     }
 
     /**
-     * Includes headers of a web request.
+     * Includes cookies of a web request.
      */
     export interface WebAclCookiesArgs {
         matchPattern: pulumi.Input<inputs.wafv2.WebAclCookieMatchPatternArgs>;
@@ -54473,6 +54617,7 @@ export namespace wafv2 {
         body?: pulumi.Input<inputs.wafv2.WebAclBodyArgs>;
         cookies?: pulumi.Input<inputs.wafv2.WebAclCookiesArgs>;
         headers?: pulumi.Input<inputs.wafv2.WebAclHeadersArgs>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclJa3FingerprintArgs>;
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclJsonBodyArgs>;
         /**
          * The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
@@ -54548,6 +54693,13 @@ export namespace wafv2 {
     export interface WebAclIpSetReferenceStatementArgs {
         arn: pulumi.Input<string>;
         ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.WebAclIpSetForwardedIpConfigurationArgs>;
+    }
+
+    /**
+     * Includes the JA3 fingerprint of a web request.
+     */
+    export interface WebAclJa3FingerprintArgs {
+        fallbackBehavior: pulumi.Input<enums.wafv2.WebAclJa3FingerprintFallbackBehavior>;
     }
 
     /**

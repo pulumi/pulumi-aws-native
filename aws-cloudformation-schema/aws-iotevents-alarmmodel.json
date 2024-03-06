@@ -425,7 +425,7 @@
     "AlarmModelDescription" : {
       "type" : "string",
       "description" : "A brief description of the alarm model.",
-      "maxLength" : 128
+      "maxLength" : 1024
     },
     "RoleArn" : {
       "type" : "string",

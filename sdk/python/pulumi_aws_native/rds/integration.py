@@ -124,7 +124,7 @@ class Integration(pulumi.CustomResource):
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Creates a zero-ETL integration with Amazon Redshift.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class Integration(pulumi.CustomResource):
                  args: IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Creates a zero-ETL integration with Amazon Redshift.
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

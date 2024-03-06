@@ -16,6 +16,7 @@ __all__ = [
     'RuleGroupForwardedIpConfigurationFallbackBehavior',
     'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior',
     'RuleGroupIpSetForwardedIpConfigurationPosition',
+    'RuleGroupJa3FingerprintFallbackBehavior',
     'RuleGroupJsonMatchScope',
     'RuleGroupLabelMatchScope',
     'RuleGroupMapMatchScope',
@@ -32,6 +33,7 @@ __all__ = [
     'WebAclForwardedIpConfigurationFallbackBehavior',
     'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
     'WebAclIpSetForwardedIpConfigurationPosition',
+    'WebAclJa3FingerprintFallbackBehavior',
     'WebAclJsonMatchScope',
     'WebAclLabelMatchScope',
     'WebAclManagedRuleGroupConfigPayloadType',
@@ -133,6 +135,11 @@ class RuleGroupIpSetForwardedIpConfigurationPosition(str, Enum):
     FIRST = "FIRST"
     LAST = "LAST"
     ANY = "ANY"
+
+
+class RuleGroupJa3FingerprintFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
 
 
 class RuleGroupJsonMatchScope(str, Enum):
@@ -274,6 +281,11 @@ class WebAclIpSetForwardedIpConfigurationPosition(str, Enum):
     FIRST = "FIRST"
     LAST = "LAST"
     ANY = "ANY"
+
+
+class WebAclJa3FingerprintFallbackBehavior(str, Enum):
+    MATCH = "MATCH"
+    NO_MATCH = "NO_MATCH"
 
 
 class WebAclJsonMatchScope(str, Enum):

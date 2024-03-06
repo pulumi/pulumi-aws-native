@@ -1091,8 +1091,12 @@ func (o AlarmsPropertiesPtrOutput) NotificationLambdaArn() pulumi.StringPtrOutpu
 type AssetHierarchy struct {
 	// The ID of the child asset to be associated.
 	ChildAssetId string `pulumi:"childAssetId"`
+	// String-friendly customer provided external ID
+	ExternalId *string `pulumi:"externalId"`
+	// Customer provided actual UUID for property
+	Id *string `pulumi:"id"`
 	// The LogicalID of a hierarchy in the parent asset's model.
-	LogicalId string `pulumi:"logicalId"`
+	LogicalId *string `pulumi:"logicalId"`
 }
 
 // AssetHierarchyInput is an input type that accepts AssetHierarchyArgs and AssetHierarchyOutput values.
@@ -1110,8 +1114,12 @@ type AssetHierarchyInput interface {
 type AssetHierarchyArgs struct {
 	// The ID of the child asset to be associated.
 	ChildAssetId pulumi.StringInput `pulumi:"childAssetId"`
+	// String-friendly customer provided external ID
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Customer provided actual UUID for property
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The LogicalID of a hierarchy in the parent asset's model.
-	LogicalId pulumi.StringInput `pulumi:"logicalId"`
+	LogicalId pulumi.StringPtrInput `pulumi:"logicalId"`
 }
 
 func (AssetHierarchyArgs) ElementType() reflect.Type {
@@ -1171,9 +1179,19 @@ func (o AssetHierarchyOutput) ChildAssetId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetHierarchy) string { return v.ChildAssetId }).(pulumi.StringOutput)
 }
 
+// String-friendly customer provided external ID
+func (o AssetHierarchyOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetHierarchy) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Customer provided actual UUID for property
+func (o AssetHierarchyOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetHierarchy) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 // The LogicalID of a hierarchy in the parent asset's model.
-func (o AssetHierarchyOutput) LogicalId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetHierarchy) string { return v.LogicalId }).(pulumi.StringOutput)
+func (o AssetHierarchyOutput) LogicalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetHierarchy) *string { return v.LogicalId }).(pulumi.StringPtrOutput)
 }
 
 type AssetHierarchyArrayOutput struct{ *pulumi.OutputState }
@@ -1331,12 +1349,22 @@ func (o AssetModelAttributePtrOutput) DefaultValue() pulumi.StringPtrOutput {
 
 // Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
 type AssetModelCompositeModel struct {
+	// The component model ID for which the composite model is composed of
+	ComposedAssetModelId *string `pulumi:"composedAssetModelId"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	CompositeModelProperties []AssetModelProperty `pulumi:"compositeModelProperties"`
 	// A description for the asset composite model.
 	Description *string `pulumi:"description"`
+	// The External ID of the composite model
+	ExternalId *string `pulumi:"externalId"`
+	// The Actual ID of the composite model
+	Id *string `pulumi:"id"`
 	// A unique, friendly name for the asset composite model.
 	Name string `pulumi:"name"`
+	// The parent composite model External ID
+	ParentAssetModelCompositeModelExternalId *string `pulumi:"parentAssetModelCompositeModelExternalId"`
+	// The path of the composite model. This is only for derived composite models
+	Path []string `pulumi:"path"`
 	// The type of the composite model. For alarm composite models, this type is AWS/ALARM
 	Type string `pulumi:"type"`
 }
@@ -1354,12 +1382,22 @@ type AssetModelCompositeModelInput interface {
 
 // Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
 type AssetModelCompositeModelArgs struct {
+	// The component model ID for which the composite model is composed of
+	ComposedAssetModelId pulumi.StringPtrInput `pulumi:"composedAssetModelId"`
 	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	CompositeModelProperties AssetModelPropertyArrayInput `pulumi:"compositeModelProperties"`
 	// A description for the asset composite model.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The External ID of the composite model
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// The Actual ID of the composite model
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A unique, friendly name for the asset composite model.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The parent composite model External ID
+	ParentAssetModelCompositeModelExternalId pulumi.StringPtrInput `pulumi:"parentAssetModelCompositeModelExternalId"`
+	// The path of the composite model. This is only for derived composite models
+	Path pulumi.StringArrayInput `pulumi:"path"`
 	// The type of the composite model. For alarm composite models, this type is AWS/ALARM
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1416,6 +1454,11 @@ func (o AssetModelCompositeModelOutput) ToAssetModelCompositeModelOutputWithCont
 	return o
 }
 
+// The component model ID for which the composite model is composed of
+func (o AssetModelCompositeModelOutput) ComposedAssetModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelCompositeModel) *string { return v.ComposedAssetModelId }).(pulumi.StringPtrOutput)
+}
+
 // The property definitions of the asset model. You can specify up to 200 properties per asset model.
 func (o AssetModelCompositeModelOutput) CompositeModelProperties() AssetModelPropertyArrayOutput {
 	return o.ApplyT(func(v AssetModelCompositeModel) []AssetModelProperty { return v.CompositeModelProperties }).(AssetModelPropertyArrayOutput)
@@ -1426,9 +1469,29 @@ func (o AssetModelCompositeModelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelCompositeModel) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The External ID of the composite model
+func (o AssetModelCompositeModelOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelCompositeModel) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// The Actual ID of the composite model
+func (o AssetModelCompositeModelOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelCompositeModel) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 // A unique, friendly name for the asset composite model.
 func (o AssetModelCompositeModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelCompositeModel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parent composite model External ID
+func (o AssetModelCompositeModelOutput) ParentAssetModelCompositeModelExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelCompositeModel) *string { return v.ParentAssetModelCompositeModelExternalId }).(pulumi.StringPtrOutput)
+}
+
+// The path of the composite model. This is only for derived composite models
+func (o AssetModelCompositeModelOutput) Path() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssetModelCompositeModel) []string { return v.Path }).(pulumi.StringArrayOutput)
 }
 
 // The type of the composite model. For alarm composite models, this type is AWS/ALARM
@@ -1566,8 +1629,12 @@ func (o AssetModelExpressionVariableArrayOutput) Index(i pulumi.IntInput) AssetM
 type AssetModelHierarchy struct {
 	// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
 	ChildAssetModelId string `pulumi:"childAssetModelId"`
-	// Customer provided ID for hierarchy.
-	LogicalId string `pulumi:"logicalId"`
+	// Customer provided external ID for hierarchy
+	ExternalId *string `pulumi:"externalId"`
+	// Customer provided actual ID for hierarchy
+	Id *string `pulumi:"id"`
+	// Customer provided logical ID for hierarchy.
+	LogicalId *string `pulumi:"logicalId"`
 	// The name of the asset model hierarchy.
 	Name string `pulumi:"name"`
 }
@@ -1587,8 +1654,12 @@ type AssetModelHierarchyInput interface {
 type AssetModelHierarchyArgs struct {
 	// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
 	ChildAssetModelId pulumi.StringInput `pulumi:"childAssetModelId"`
-	// Customer provided ID for hierarchy.
-	LogicalId pulumi.StringInput `pulumi:"logicalId"`
+	// Customer provided external ID for hierarchy
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Customer provided actual ID for hierarchy
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Customer provided logical ID for hierarchy.
+	LogicalId pulumi.StringPtrInput `pulumi:"logicalId"`
 	// The name of the asset model hierarchy.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -1650,9 +1721,19 @@ func (o AssetModelHierarchyOutput) ChildAssetModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelHierarchy) string { return v.ChildAssetModelId }).(pulumi.StringOutput)
 }
 
-// Customer provided ID for hierarchy.
-func (o AssetModelHierarchyOutput) LogicalId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelHierarchy) string { return v.LogicalId }).(pulumi.StringOutput)
+// Customer provided external ID for hierarchy
+func (o AssetModelHierarchyOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelHierarchy) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Customer provided actual ID for hierarchy
+func (o AssetModelHierarchyOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelHierarchy) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Customer provided logical ID for hierarchy.
+func (o AssetModelHierarchyOutput) LogicalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelHierarchy) *string { return v.LogicalId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the asset model hierarchy.
@@ -1997,8 +2078,12 @@ type AssetModelProperty struct {
 	DataType AssetModelDataType `pulumi:"dataType"`
 	// The data type of the structure for this property.
 	DataTypeSpec *AssetModelDataTypeSpec `pulumi:"dataTypeSpec"`
-	// Customer provided ID for property.
-	LogicalId string `pulumi:"logicalId"`
+	// The External ID of the Asset Model Property
+	ExternalId *string `pulumi:"externalId"`
+	// The ID of the Asset Model Property
+	Id *string `pulumi:"id"`
+	// Customer provided Logical ID for property.
+	LogicalId *string `pulumi:"logicalId"`
 	// The name of the asset model property.
 	Name string `pulumi:"name"`
 	// The property type
@@ -2024,8 +2109,12 @@ type AssetModelPropertyArgs struct {
 	DataType AssetModelDataTypeInput `pulumi:"dataType"`
 	// The data type of the structure for this property.
 	DataTypeSpec AssetModelDataTypeSpecPtrInput `pulumi:"dataTypeSpec"`
-	// Customer provided ID for property.
-	LogicalId pulumi.StringInput `pulumi:"logicalId"`
+	// The External ID of the Asset Model Property
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// The ID of the Asset Model Property
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Customer provided Logical ID for property.
+	LogicalId pulumi.StringPtrInput `pulumi:"logicalId"`
 	// The name of the asset model property.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The property type
@@ -2096,9 +2185,19 @@ func (o AssetModelPropertyOutput) DataTypeSpec() AssetModelDataTypeSpecPtrOutput
 	return o.ApplyT(func(v AssetModelProperty) *AssetModelDataTypeSpec { return v.DataTypeSpec }).(AssetModelDataTypeSpecPtrOutput)
 }
 
-// Customer provided ID for property.
-func (o AssetModelPropertyOutput) LogicalId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelProperty) string { return v.LogicalId }).(pulumi.StringOutput)
+// The External ID of the Asset Model Property
+func (o AssetModelPropertyOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelProperty) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Asset Model Property
+func (o AssetModelPropertyOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Customer provided Logical ID for property.
+func (o AssetModelPropertyOutput) LogicalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelProperty) *string { return v.LogicalId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the asset model property.
@@ -2134,6 +2233,106 @@ func (o AssetModelPropertyArrayOutput) Index(i pulumi.IntInput) AssetModelProper
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelProperty {
 		return vs[0].([]AssetModelProperty)[vs[1].(int)]
 	}).(AssetModelPropertyOutput)
+}
+
+// The definition for property path which is used to reference properties in transforms/metrics
+type AssetModelPropertyPathDefinition struct {
+	// The name of the property
+	Name string `pulumi:"name"`
+}
+
+// AssetModelPropertyPathDefinitionInput is an input type that accepts AssetModelPropertyPathDefinitionArgs and AssetModelPropertyPathDefinitionOutput values.
+// You can construct a concrete instance of `AssetModelPropertyPathDefinitionInput` via:
+//
+//	AssetModelPropertyPathDefinitionArgs{...}
+type AssetModelPropertyPathDefinitionInput interface {
+	pulumi.Input
+
+	ToAssetModelPropertyPathDefinitionOutput() AssetModelPropertyPathDefinitionOutput
+	ToAssetModelPropertyPathDefinitionOutputWithContext(context.Context) AssetModelPropertyPathDefinitionOutput
+}
+
+// The definition for property path which is used to reference properties in transforms/metrics
+type AssetModelPropertyPathDefinitionArgs struct {
+	// The name of the property
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AssetModelPropertyPathDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelPropertyPathDefinition)(nil)).Elem()
+}
+
+func (i AssetModelPropertyPathDefinitionArgs) ToAssetModelPropertyPathDefinitionOutput() AssetModelPropertyPathDefinitionOutput {
+	return i.ToAssetModelPropertyPathDefinitionOutputWithContext(context.Background())
+}
+
+func (i AssetModelPropertyPathDefinitionArgs) ToAssetModelPropertyPathDefinitionOutputWithContext(ctx context.Context) AssetModelPropertyPathDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelPropertyPathDefinitionOutput)
+}
+
+// AssetModelPropertyPathDefinitionArrayInput is an input type that accepts AssetModelPropertyPathDefinitionArray and AssetModelPropertyPathDefinitionArrayOutput values.
+// You can construct a concrete instance of `AssetModelPropertyPathDefinitionArrayInput` via:
+//
+//	AssetModelPropertyPathDefinitionArray{ AssetModelPropertyPathDefinitionArgs{...} }
+type AssetModelPropertyPathDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToAssetModelPropertyPathDefinitionArrayOutput() AssetModelPropertyPathDefinitionArrayOutput
+	ToAssetModelPropertyPathDefinitionArrayOutputWithContext(context.Context) AssetModelPropertyPathDefinitionArrayOutput
+}
+
+type AssetModelPropertyPathDefinitionArray []AssetModelPropertyPathDefinitionInput
+
+func (AssetModelPropertyPathDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelPropertyPathDefinition)(nil)).Elem()
+}
+
+func (i AssetModelPropertyPathDefinitionArray) ToAssetModelPropertyPathDefinitionArrayOutput() AssetModelPropertyPathDefinitionArrayOutput {
+	return i.ToAssetModelPropertyPathDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i AssetModelPropertyPathDefinitionArray) ToAssetModelPropertyPathDefinitionArrayOutputWithContext(ctx context.Context) AssetModelPropertyPathDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelPropertyPathDefinitionArrayOutput)
+}
+
+// The definition for property path which is used to reference properties in transforms/metrics
+type AssetModelPropertyPathDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AssetModelPropertyPathDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelPropertyPathDefinition)(nil)).Elem()
+}
+
+func (o AssetModelPropertyPathDefinitionOutput) ToAssetModelPropertyPathDefinitionOutput() AssetModelPropertyPathDefinitionOutput {
+	return o
+}
+
+func (o AssetModelPropertyPathDefinitionOutput) ToAssetModelPropertyPathDefinitionOutputWithContext(ctx context.Context) AssetModelPropertyPathDefinitionOutput {
+	return o
+}
+
+// The name of the property
+func (o AssetModelPropertyPathDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelPropertyPathDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AssetModelPropertyPathDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetModelPropertyPathDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelPropertyPathDefinition)(nil)).Elem()
+}
+
+func (o AssetModelPropertyPathDefinitionArrayOutput) ToAssetModelPropertyPathDefinitionArrayOutput() AssetModelPropertyPathDefinitionArrayOutput {
+	return o
+}
+
+func (o AssetModelPropertyPathDefinitionArrayOutput) ToAssetModelPropertyPathDefinitionArrayOutputWithContext(ctx context.Context) AssetModelPropertyPathDefinitionArrayOutput {
+	return o
+}
+
+func (o AssetModelPropertyPathDefinitionArrayOutput) Index(i pulumi.IntInput) AssetModelPropertyPathDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelPropertyPathDefinition {
+		return vs[0].([]AssetModelPropertyPathDefinition)[vs[1].(int)]
+	}).(AssetModelPropertyPathDefinitionOutput)
 }
 
 // Contains a property type, which can be one of attribute, measurement, metric, or transform.
@@ -2519,8 +2718,18 @@ func (o AssetModelTumblingWindowPtrOutput) Offset() pulumi.StringPtrOutput {
 }
 
 type AssetModelVariableValue struct {
+	// The External ID of the hierarchy that is trying to be referenced
+	HierarchyExternalId *string `pulumi:"hierarchyExternalId"`
+	// The ID of the hierarchy that is trying to be referenced
+	HierarchyId        *string `pulumi:"hierarchyId"`
 	HierarchyLogicalId *string `pulumi:"hierarchyLogicalId"`
-	PropertyLogicalId  string  `pulumi:"propertyLogicalId"`
+	// The External ID of the property that is trying to be referenced
+	PropertyExternalId *string `pulumi:"propertyExternalId"`
+	// The ID of the property that is trying to be referenced
+	PropertyId        *string `pulumi:"propertyId"`
+	PropertyLogicalId *string `pulumi:"propertyLogicalId"`
+	// The path of the property that is trying to be referenced
+	PropertyPath []AssetModelPropertyPathDefinition `pulumi:"propertyPath"`
 }
 
 // AssetModelVariableValueInput is an input type that accepts AssetModelVariableValueArgs and AssetModelVariableValueOutput values.
@@ -2535,8 +2744,18 @@ type AssetModelVariableValueInput interface {
 }
 
 type AssetModelVariableValueArgs struct {
+	// The External ID of the hierarchy that is trying to be referenced
+	HierarchyExternalId pulumi.StringPtrInput `pulumi:"hierarchyExternalId"`
+	// The ID of the hierarchy that is trying to be referenced
+	HierarchyId        pulumi.StringPtrInput `pulumi:"hierarchyId"`
 	HierarchyLogicalId pulumi.StringPtrInput `pulumi:"hierarchyLogicalId"`
-	PropertyLogicalId  pulumi.StringInput    `pulumi:"propertyLogicalId"`
+	// The External ID of the property that is trying to be referenced
+	PropertyExternalId pulumi.StringPtrInput `pulumi:"propertyExternalId"`
+	// The ID of the property that is trying to be referenced
+	PropertyId        pulumi.StringPtrInput `pulumi:"propertyId"`
+	PropertyLogicalId pulumi.StringPtrInput `pulumi:"propertyLogicalId"`
+	// The path of the property that is trying to be referenced
+	PropertyPath AssetModelPropertyPathDefinitionArrayInput `pulumi:"propertyPath"`
 }
 
 func (AssetModelVariableValueArgs) ElementType() reflect.Type {
@@ -2565,20 +2784,49 @@ func (o AssetModelVariableValueOutput) ToAssetModelVariableValueOutputWithContex
 	return o
 }
 
+// The External ID of the hierarchy that is trying to be referenced
+func (o AssetModelVariableValueOutput) HierarchyExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.HierarchyExternalId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the hierarchy that is trying to be referenced
+func (o AssetModelVariableValueOutput) HierarchyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.HierarchyId }).(pulumi.StringPtrOutput)
+}
+
 func (o AssetModelVariableValueOutput) HierarchyLogicalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.HierarchyLogicalId }).(pulumi.StringPtrOutput)
 }
 
-func (o AssetModelVariableValueOutput) PropertyLogicalId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelVariableValue) string { return v.PropertyLogicalId }).(pulumi.StringOutput)
+// The External ID of the property that is trying to be referenced
+func (o AssetModelVariableValueOutput) PropertyExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.PropertyExternalId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the property that is trying to be referenced
+func (o AssetModelVariableValueOutput) PropertyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AssetModelVariableValueOutput) PropertyLogicalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.PropertyLogicalId }).(pulumi.StringPtrOutput)
+}
+
+// The path of the property that is trying to be referenced
+func (o AssetModelVariableValueOutput) PropertyPath() AssetModelPropertyPathDefinitionArrayOutput {
+	return o.ApplyT(func(v AssetModelVariableValue) []AssetModelPropertyPathDefinition { return v.PropertyPath }).(AssetModelPropertyPathDefinitionArrayOutput)
 }
 
 // The asset property's definition, alias, unit, and notification state.
 type AssetProperty struct {
 	// The property alias that identifies the property.
 	Alias *string `pulumi:"alias"`
+	// String-friendly customer provided external ID
+	ExternalId *string `pulumi:"externalId"`
+	// Customer provided actual UUID for property
+	Id *string `pulumi:"id"`
 	// Customer provided ID for property.
-	LogicalId string `pulumi:"logicalId"`
+	LogicalId *string `pulumi:"logicalId"`
 	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
 	NotificationState *AssetPropertyNotificationState `pulumi:"notificationState"`
 	// The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
@@ -2600,8 +2848,12 @@ type AssetPropertyInput interface {
 type AssetPropertyArgs struct {
 	// The property alias that identifies the property.
 	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// String-friendly customer provided external ID
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Customer provided actual UUID for property
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Customer provided ID for property.
-	LogicalId pulumi.StringInput `pulumi:"logicalId"`
+	LogicalId pulumi.StringPtrInput `pulumi:"logicalId"`
 	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
 	NotificationState AssetPropertyNotificationStatePtrInput `pulumi:"notificationState"`
 	// The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
@@ -2665,9 +2917,19 @@ func (o AssetPropertyOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetProperty) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
+// String-friendly customer provided external ID
+func (o AssetPropertyOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetProperty) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Customer provided actual UUID for property
+func (o AssetPropertyOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 // Customer provided ID for property.
-func (o AssetPropertyOutput) LogicalId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetProperty) string { return v.LogicalId }).(pulumi.StringOutput)
+func (o AssetPropertyOutput) LogicalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetProperty) *string { return v.LogicalId }).(pulumi.StringPtrOutput)
 }
 
 // The MQTT notification state (ENABLED or DISABLED) for this asset property.
@@ -3207,6 +3469,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelMetricWindowPtrInput)(nil)).Elem(), AssetModelMetricWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelPropertyInput)(nil)).Elem(), AssetModelPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelPropertyArrayInput)(nil)).Elem(), AssetModelPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelPropertyPathDefinitionInput)(nil)).Elem(), AssetModelPropertyPathDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelPropertyPathDefinitionArrayInput)(nil)).Elem(), AssetModelPropertyPathDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelPropertyTypeInput)(nil)).Elem(), AssetModelPropertyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTransformInput)(nil)).Elem(), AssetModelTransformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTransformPtrInput)(nil)).Elem(), AssetModelTransformArgs{})
@@ -3254,6 +3518,8 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelMetricWindowPtrOutput{})
 	pulumi.RegisterOutputType(AssetModelPropertyOutput{})
 	pulumi.RegisterOutputType(AssetModelPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AssetModelPropertyPathDefinitionOutput{})
+	pulumi.RegisterOutputType(AssetModelPropertyPathDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelPropertyTypeOutput{})
 	pulumi.RegisterOutputType(AssetModelTransformOutput{})
 	pulumi.RegisterOutputType(AssetModelTransformPtrOutput{})

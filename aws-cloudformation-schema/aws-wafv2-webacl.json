@@ -158,6 +158,9 @@
         },
         "Cookies" : {
           "$ref" : "#/definitions/Cookies"
+        },
+        "JA3Fingerprint" : {
+          "$ref" : "#/definitions/JA3Fingerprint"
         }
       },
       "additionalProperties" : false
@@ -1502,7 +1505,7 @@
       "additionalProperties" : false
     },
     "Cookies" : {
-      "description" : "Includes headers of a web request.",
+      "description" : "Includes cookies of a web request.",
       "type" : "object",
       "properties" : {
         "MatchPattern" : {
@@ -1598,6 +1601,18 @@
       "description" : "Sensitivity Level current only used for sqli match statements.",
       "type" : "string",
       "enum" : [ "LOW", "HIGH" ]
+    },
+    "JA3Fingerprint" : {
+      "description" : "Includes the JA3 fingerprint of a web request.",
+      "type" : "object",
+      "properties" : {
+        "FallbackBehavior" : {
+          "type" : "string",
+          "enum" : [ "MATCH", "NO_MATCH" ]
+        }
+      },
+      "required" : [ "FallbackBehavior" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {

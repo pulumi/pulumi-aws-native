@@ -21,6 +21,7 @@ class AssetArgs:
     def __init__(__self__, *,
                  asset_model_id: pulumi.Input[str],
                  asset_description: Optional[pulumi.Input[str]] = None,
+                 asset_external_id: Optional[pulumi.Input[str]] = None,
                  asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
                  asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]]] = None,
@@ -29,12 +30,15 @@ class AssetArgs:
         The set of arguments for constructing a Asset resource.
         :param pulumi.Input[str] asset_model_id: The ID of the asset model from which to create the asset.
         :param pulumi.Input[str] asset_description: A description for the asset
+        :param pulumi.Input[str] asset_external_id: The External ID of the asset
         :param pulumi.Input[str] asset_name: A unique, friendly name for the asset.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset.
         """
         pulumi.set(__self__, "asset_model_id", asset_model_id)
         if asset_description is not None:
             pulumi.set(__self__, "asset_description", asset_description)
+        if asset_external_id is not None:
+            pulumi.set(__self__, "asset_external_id", asset_external_id)
         if asset_hierarchies is not None:
             pulumi.set(__self__, "asset_hierarchies", asset_hierarchies)
         if asset_name is not None:
@@ -67,6 +71,18 @@ class AssetArgs:
     @asset_description.setter
     def asset_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "asset_description", value)
+
+    @property
+    @pulumi.getter(name="assetExternalId")
+    def asset_external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The External ID of the asset
+        """
+        return pulumi.get(self, "asset_external_id")
+
+    @asset_external_id.setter
+    def asset_external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asset_external_id", value)
 
     @property
     @pulumi.getter(name="assetHierarchies")
@@ -117,6 +133,7 @@ class Asset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_description: Optional[pulumi.Input[str]] = None,
+                 asset_external_id: Optional[pulumi.Input[str]] = None,
                  asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetHierarchyArgs']]]]] = None,
                  asset_model_id: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
@@ -129,6 +146,7 @@ class Asset(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asset_description: A description for the asset
+        :param pulumi.Input[str] asset_external_id: The External ID of the asset
         :param pulumi.Input[str] asset_model_id: The ID of the asset model from which to create the asset.
         :param pulumi.Input[str] asset_name: A unique, friendly name for the asset.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset.
@@ -158,6 +176,7 @@ class Asset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_description: Optional[pulumi.Input[str]] = None,
+                 asset_external_id: Optional[pulumi.Input[str]] = None,
                  asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetHierarchyArgs']]]]] = None,
                  asset_model_id: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
@@ -173,6 +192,7 @@ class Asset(pulumi.CustomResource):
             __props__ = AssetArgs.__new__(AssetArgs)
 
             __props__.__dict__["asset_description"] = asset_description
+            __props__.__dict__["asset_external_id"] = asset_external_id
             __props__.__dict__["asset_hierarchies"] = asset_hierarchies
             if asset_model_id is None and not opts.urn:
                 raise TypeError("Missing required property 'asset_model_id'")
@@ -206,6 +226,7 @@ class Asset(pulumi.CustomResource):
 
         __props__.__dict__["asset_arn"] = None
         __props__.__dict__["asset_description"] = None
+        __props__.__dict__["asset_external_id"] = None
         __props__.__dict__["asset_hierarchies"] = None
         __props__.__dict__["asset_id"] = None
         __props__.__dict__["asset_model_id"] = None
@@ -229,6 +250,14 @@ class Asset(pulumi.CustomResource):
         A description for the asset
         """
         return pulumi.get(self, "asset_description")
+
+    @property
+    @pulumi.getter(name="assetExternalId")
+    def asset_external_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The External ID of the asset
+        """
+        return pulumi.get(self, "asset_external_id")
 
     @property
     @pulumi.getter(name="assetHierarchies")

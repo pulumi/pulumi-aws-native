@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
     /// </summary>
     public sealed class AssetModelCompositeModelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The component model ID for which the composite model is composed of
+        /// </summary>
+        [Input("composedAssetModelId")]
+        public Input<string>? ComposedAssetModelId { get; set; }
+
         [Input("compositeModelProperties")]
         private InputList<Inputs.AssetModelPropertyArgs>? _compositeModelProperties;
 
@@ -34,10 +40,40 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The External ID of the composite model
+        /// </summary>
+        [Input("externalId")]
+        public Input<string>? ExternalId { get; set; }
+
+        /// <summary>
+        /// The Actual ID of the composite model
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// A unique, friendly name for the asset composite model.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The parent composite model External ID
+        /// </summary>
+        [Input("parentAssetModelCompositeModelExternalId")]
+        public Input<string>? ParentAssetModelCompositeModelExternalId { get; set; }
+
+        [Input("path")]
+        private InputList<string>? _path;
+
+        /// <summary>
+        /// The path of the composite model. This is only for derived composite models
+        /// </summary>
+        public InputList<string> Path
+        {
+            get => _path ?? (_path = new InputList<string>());
+            set => _path = value;
+        }
 
         /// <summary>
         /// The type of the composite model. For alarm composite models, this type is AWS/ALARM

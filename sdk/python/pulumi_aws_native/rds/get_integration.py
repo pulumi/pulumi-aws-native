@@ -66,7 +66,7 @@ class AwaitableGetIntegrationResult(GetIntegrationResult):
 def get_integration(integration_arn: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationResult:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    Creates a zero-ETL integration with Amazon Redshift.
 
 
     :param str integration_arn: The ARN of the integration.
@@ -86,7 +86,7 @@ def get_integration(integration_arn: Optional[str] = None,
 def get_integration_output(integration_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    Creates a zero-ETL integration with Amazon Redshift.
 
 
     :param str integration_arn: The ARN of the integration.

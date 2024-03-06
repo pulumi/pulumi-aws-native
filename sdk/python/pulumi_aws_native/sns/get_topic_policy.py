@@ -32,9 +32,6 @@ class GetTopicPolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -51,7 +48,7 @@ class GetTopicPolicyResult:
     @pulumi.getter
     def topics(self) -> Optional[Sequence[str]]:
         """
-        The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
         """
         return pulumi.get(self, "topics")
 
@@ -70,10 +67,7 @@ class AwaitableGetTopicPolicyResult(GetTopicPolicyResult):
 def get_topic_policy(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicPolicyResult:
     """
-    Schema for AWS::SNS::TopicPolicy
-
-
-    :param str id: The provider-assigned unique ID for this managed resource.
+    The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -90,9 +84,6 @@ def get_topic_policy(id: Optional[str] = None,
 def get_topic_policy_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicPolicyResult]:
     """
-    Schema for AWS::SNS::TopicPolicy
-
-
-    :param str id: The provider-assigned unique ID for this managed resource.
+    The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
     """
     ...

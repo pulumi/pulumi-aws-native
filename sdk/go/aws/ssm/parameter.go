@@ -20,7 +20,7 @@ import (
 type Parameter struct {
 	pulumi.CustomResourceState
 
-	// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
+	// A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
 	AllowedPattern pulumi.StringPtrOutput `pulumi:"allowedPattern"`
 	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType ParameterDataTypePtrOutput `pulumi:"dataType"`
@@ -94,7 +94,7 @@ func (ParameterState) ElementType() reflect.Type {
 }
 
 type parameterArgs struct {
-	// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
+	// A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
 	AllowedPattern *string `pulumi:"allowedPattern"`
 	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType *ParameterDataType `pulumi:"dataType"`
@@ -120,7 +120,7 @@ type parameterArgs struct {
 
 // The set of arguments for constructing a Parameter resource.
 type ParameterArgs struct {
-	// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
+	// A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
 	AllowedPattern pulumi.StringPtrInput
 	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType ParameterDataTypePtrInput
@@ -181,7 +181,7 @@ func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) Param
 	return o
 }
 
-// A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: “AllowedPattern=^\d+$“
+// A regular expression used to validate the parameter value. For example, for “String“ types with values restricted to numbers, you can specify the following: “AllowedPattern=^\d+$“
 func (o ParameterOutput) AllowedPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.AllowedPattern }).(pulumi.StringPtrOutput)
 }

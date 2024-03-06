@@ -26,6 +26,7 @@ __all__ = [
     'AssetModelHierarchyArgs',
     'AssetModelMetricWindowArgs',
     'AssetModelMetricArgs',
+    'AssetModelPropertyPathDefinitionArgs',
     'AssetModelPropertyTypeArgs',
     'AssetModelPropertyArgs',
     'AssetModelTransformArgs',
@@ -278,14 +279,23 @@ class AlarmsPropertiesArgs:
 class AssetHierarchyArgs:
     def __init__(__self__, *,
                  child_asset_id: pulumi.Input[str],
-                 logical_id: pulumi.Input[str]):
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 logical_id: Optional[pulumi.Input[str]] = None):
         """
         A hierarchy specifies allowed parent/child asset relationships.
         :param pulumi.Input[str] child_asset_id: The ID of the child asset to be associated.
+        :param pulumi.Input[str] external_id: String-friendly customer provided external ID
+        :param pulumi.Input[str] id: Customer provided actual UUID for property
         :param pulumi.Input[str] logical_id: The LogicalID of a hierarchy in the parent asset's model.
         """
         pulumi.set(__self__, "child_asset_id", child_asset_id)
-        pulumi.set(__self__, "logical_id", logical_id)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if logical_id is not None:
+            pulumi.set(__self__, "logical_id", logical_id)
 
     @property
     @pulumi.getter(name="childAssetId")
@@ -300,15 +310,39 @@ class AssetHierarchyArgs:
         pulumi.set(self, "child_asset_id", value)
 
     @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        String-friendly customer provided external ID
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer provided actual UUID for property
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
     @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Input[str]:
+    def logical_id(self) -> Optional[pulumi.Input[str]]:
         """
         The LogicalID of a hierarchy in the parent asset's model.
         """
         return pulumi.get(self, "logical_id")
 
     @logical_id.setter
-    def logical_id(self, value: pulumi.Input[str]):
+    def logical_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "logical_id", value)
 
 
@@ -334,21 +368,41 @@ class AssetModelCompositeModelArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 composed_asset_model_id: Optional[pulumi.Input[str]] = None,
                  composite_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 parent_asset_model_composite_model_external_id: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
         :param pulumi.Input[str] name: A unique, friendly name for the asset composite model.
         :param pulumi.Input[str] type: The type of the composite model. For alarm composite models, this type is AWS/ALARM
+        :param pulumi.Input[str] composed_asset_model_id: The component model ID for which the composite model is composed of
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]] composite_model_properties: The property definitions of the asset model. You can specify up to 200 properties per asset model.
         :param pulumi.Input[str] description: A description for the asset composite model.
+        :param pulumi.Input[str] external_id: The External ID of the composite model
+        :param pulumi.Input[str] id: The Actual ID of the composite model
+        :param pulumi.Input[str] parent_asset_model_composite_model_external_id: The parent composite model External ID
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] path: The path of the composite model. This is only for derived composite models
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if composed_asset_model_id is not None:
+            pulumi.set(__self__, "composed_asset_model_id", composed_asset_model_id)
         if composite_model_properties is not None:
             pulumi.set(__self__, "composite_model_properties", composite_model_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if parent_asset_model_composite_model_external_id is not None:
+            pulumi.set(__self__, "parent_asset_model_composite_model_external_id", parent_asset_model_composite_model_external_id)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -375,6 +429,18 @@ class AssetModelCompositeModelArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="composedAssetModelId")
+    def composed_asset_model_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The component model ID for which the composite model is composed of
+        """
+        return pulumi.get(self, "composed_asset_model_id")
+
+    @composed_asset_model_id.setter
+    def composed_asset_model_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "composed_asset_model_id", value)
+
+    @property
     @pulumi.getter(name="compositeModelProperties")
     def composite_model_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]]:
         """
@@ -397,6 +463,54 @@ class AssetModelCompositeModelArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The External ID of the composite model
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Actual ID of the composite model
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="parentAssetModelCompositeModelExternalId")
+    def parent_asset_model_composite_model_external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parent composite model External ID
+        """
+        return pulumi.get(self, "parent_asset_model_composite_model_external_id")
+
+    @parent_asset_model_composite_model_external_id.setter
+    def parent_asset_model_composite_model_external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_asset_model_composite_model_external_id", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The path of the composite model. This is only for derived composite models
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "path", value)
 
 
 @pulumi.input_type
@@ -440,17 +554,26 @@ class AssetModelExpressionVariableArgs:
 class AssetModelHierarchyArgs:
     def __init__(__self__, *,
                  child_asset_model_id: pulumi.Input[str],
-                 logical_id: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 logical_id: Optional[pulumi.Input[str]] = None):
         """
         Contains information about an asset model hierarchy.
         :param pulumi.Input[str] child_asset_model_id: The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
-        :param pulumi.Input[str] logical_id: Customer provided ID for hierarchy.
         :param pulumi.Input[str] name: The name of the asset model hierarchy.
+        :param pulumi.Input[str] external_id: Customer provided external ID for hierarchy
+        :param pulumi.Input[str] id: Customer provided actual ID for hierarchy
+        :param pulumi.Input[str] logical_id: Customer provided logical ID for hierarchy.
         """
         pulumi.set(__self__, "child_asset_model_id", child_asset_model_id)
-        pulumi.set(__self__, "logical_id", logical_id)
         pulumi.set(__self__, "name", name)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if logical_id is not None:
+            pulumi.set(__self__, "logical_id", logical_id)
 
     @property
     @pulumi.getter(name="childAssetModelId")
@@ -465,18 +588,6 @@ class AssetModelHierarchyArgs:
         pulumi.set(self, "child_asset_model_id", value)
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Input[str]:
-        """
-        Customer provided ID for hierarchy.
-        """
-        return pulumi.get(self, "logical_id")
-
-    @logical_id.setter
-    def logical_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "logical_id", value)
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
@@ -487,6 +598,42 @@ class AssetModelHierarchyArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer provided external ID for hierarchy
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer provided actual ID for hierarchy
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer provided logical ID for hierarchy.
+        """
+        return pulumi.get(self, "logical_id")
+
+    @logical_id.setter
+    def logical_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logical_id", value)
 
 
 @pulumi.input_type
@@ -562,6 +709,29 @@ class AssetModelMetricArgs:
 
 
 @pulumi.input_type
+class AssetModelPropertyPathDefinitionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        The definition for property path which is used to reference properties in transforms/metrics
+        :param pulumi.Input[str] name: The name of the property
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the property
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class AssetModelPropertyTypeArgs:
     def __init__(__self__, *,
                  type_name: pulumi.Input['AssetModelTypeName'],
@@ -620,26 +790,35 @@ class AssetModelPropertyTypeArgs:
 class AssetModelPropertyArgs:
     def __init__(__self__, *,
                  data_type: pulumi.Input['AssetModelDataType'],
-                 logical_id: pulumi.Input[str],
                  name: pulumi.Input[str],
                  type: pulumi.Input['AssetModelPropertyTypeArgs'],
                  data_type_spec: Optional[pulumi.Input['AssetModelDataTypeSpec']] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 logical_id: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
         Contains information about an asset model property.
         :param pulumi.Input['AssetModelDataType'] data_type: The data type of the asset model property.
-        :param pulumi.Input[str] logical_id: Customer provided ID for property.
         :param pulumi.Input[str] name: The name of the asset model property.
         :param pulumi.Input['AssetModelPropertyTypeArgs'] type: The property type
         :param pulumi.Input['AssetModelDataTypeSpec'] data_type_spec: The data type of the structure for this property.
+        :param pulumi.Input[str] external_id: The External ID of the Asset Model Property
+        :param pulumi.Input[str] id: The ID of the Asset Model Property
+        :param pulumi.Input[str] logical_id: Customer provided Logical ID for property.
         :param pulumi.Input[str] unit: The unit of the asset model property, such as Newtons or RPM.
         """
         pulumi.set(__self__, "data_type", data_type)
-        pulumi.set(__self__, "logical_id", logical_id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if data_type_spec is not None:
             pulumi.set(__self__, "data_type_spec", data_type_spec)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if logical_id is not None:
+            pulumi.set(__self__, "logical_id", logical_id)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
 
@@ -654,18 +833,6 @@ class AssetModelPropertyArgs:
     @data_type.setter
     def data_type(self, value: pulumi.Input['AssetModelDataType']):
         pulumi.set(self, "data_type", value)
-
-    @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Input[str]:
-        """
-        Customer provided ID for property.
-        """
-        return pulumi.get(self, "logical_id")
-
-    @logical_id.setter
-    def logical_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "logical_id", value)
 
     @property
     @pulumi.getter
@@ -702,6 +869,42 @@ class AssetModelPropertyArgs:
     @data_type_spec.setter
     def data_type_spec(self, value: Optional[pulumi.Input['AssetModelDataTypeSpec']]):
         pulumi.set(self, "data_type_spec", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The External ID of the Asset Model Property
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Asset Model Property
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer provided Logical ID for property.
+        """
+        return pulumi.get(self, "logical_id")
+
+    @logical_id.setter
+    def logical_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logical_id", value)
 
     @property
     @pulumi.getter
@@ -787,20 +990,58 @@ class AssetModelTumblingWindowArgs:
 @pulumi.input_type
 class AssetModelVariableValueArgs:
     def __init__(__self__, *,
-                 property_logical_id: pulumi.Input[str],
-                 hierarchy_logical_id: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "property_logical_id", property_logical_id)
+                 hierarchy_external_id: Optional[pulumi.Input[str]] = None,
+                 hierarchy_id: Optional[pulumi.Input[str]] = None,
+                 hierarchy_logical_id: Optional[pulumi.Input[str]] = None,
+                 property_external_id: Optional[pulumi.Input[str]] = None,
+                 property_id: Optional[pulumi.Input[str]] = None,
+                 property_logical_id: Optional[pulumi.Input[str]] = None,
+                 property_path: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]]] = None):
+        """
+        :param pulumi.Input[str] hierarchy_external_id: The External ID of the hierarchy that is trying to be referenced
+        :param pulumi.Input[str] hierarchy_id: The ID of the hierarchy that is trying to be referenced
+        :param pulumi.Input[str] property_external_id: The External ID of the property that is trying to be referenced
+        :param pulumi.Input[str] property_id: The ID of the property that is trying to be referenced
+        :param pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]] property_path: The path of the property that is trying to be referenced
+        """
+        if hierarchy_external_id is not None:
+            pulumi.set(__self__, "hierarchy_external_id", hierarchy_external_id)
+        if hierarchy_id is not None:
+            pulumi.set(__self__, "hierarchy_id", hierarchy_id)
         if hierarchy_logical_id is not None:
             pulumi.set(__self__, "hierarchy_logical_id", hierarchy_logical_id)
+        if property_external_id is not None:
+            pulumi.set(__self__, "property_external_id", property_external_id)
+        if property_id is not None:
+            pulumi.set(__self__, "property_id", property_id)
+        if property_logical_id is not None:
+            pulumi.set(__self__, "property_logical_id", property_logical_id)
+        if property_path is not None:
+            pulumi.set(__self__, "property_path", property_path)
 
     @property
-    @pulumi.getter(name="propertyLogicalId")
-    def property_logical_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "property_logical_id")
+    @pulumi.getter(name="hierarchyExternalId")
+    def hierarchy_external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The External ID of the hierarchy that is trying to be referenced
+        """
+        return pulumi.get(self, "hierarchy_external_id")
 
-    @property_logical_id.setter
-    def property_logical_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "property_logical_id", value)
+    @hierarchy_external_id.setter
+    def hierarchy_external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_external_id", value)
+
+    @property
+    @pulumi.getter(name="hierarchyId")
+    def hierarchy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the hierarchy that is trying to be referenced
+        """
+        return pulumi.get(self, "hierarchy_id")
+
+    @hierarchy_id.setter
+    def hierarchy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hierarchy_id", value)
 
     @property
     @pulumi.getter(name="hierarchyLogicalId")
@@ -811,40 +1052,82 @@ class AssetModelVariableValueArgs:
     def hierarchy_logical_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hierarchy_logical_id", value)
 
+    @property
+    @pulumi.getter(name="propertyExternalId")
+    def property_external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The External ID of the property that is trying to be referenced
+        """
+        return pulumi.get(self, "property_external_id")
+
+    @property_external_id.setter
+    def property_external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property_external_id", value)
+
+    @property
+    @pulumi.getter(name="propertyId")
+    def property_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the property that is trying to be referenced
+        """
+        return pulumi.get(self, "property_id")
+
+    @property_id.setter
+    def property_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property_id", value)
+
+    @property
+    @pulumi.getter(name="propertyLogicalId")
+    def property_logical_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "property_logical_id")
+
+    @property_logical_id.setter
+    def property_logical_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property_logical_id", value)
+
+    @property
+    @pulumi.getter(name="propertyPath")
+    def property_path(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]]]:
+        """
+        The path of the property that is trying to be referenced
+        """
+        return pulumi.get(self, "property_path")
+
+    @property_path.setter
+    def property_path(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyPathDefinitionArgs']]]]):
+        pulumi.set(self, "property_path", value)
+
 
 @pulumi.input_type
 class AssetPropertyArgs:
     def __init__(__self__, *,
-                 logical_id: pulumi.Input[str],
                  alias: Optional[pulumi.Input[str]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 logical_id: Optional[pulumi.Input[str]] = None,
                  notification_state: Optional[pulumi.Input['AssetPropertyNotificationState']] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
         The asset property's definition, alias, unit, and notification state.
-        :param pulumi.Input[str] logical_id: Customer provided ID for property.
         :param pulumi.Input[str] alias: The property alias that identifies the property.
+        :param pulumi.Input[str] external_id: String-friendly customer provided external ID
+        :param pulumi.Input[str] id: Customer provided actual UUID for property
+        :param pulumi.Input[str] logical_id: Customer provided ID for property.
         :param pulumi.Input['AssetPropertyNotificationState'] notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
         :param pulumi.Input[str] unit: The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
         """
-        pulumi.set(__self__, "logical_id", logical_id)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if logical_id is not None:
+            pulumi.set(__self__, "logical_id", logical_id)
         if notification_state is not None:
             pulumi.set(__self__, "notification_state", notification_state)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
-
-    @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Input[str]:
-        """
-        Customer provided ID for property.
-        """
-        return pulumi.get(self, "logical_id")
-
-    @logical_id.setter
-    def logical_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "logical_id", value)
 
     @property
     @pulumi.getter
@@ -857,6 +1140,42 @@ class AssetPropertyArgs:
     @alias.setter
     def alias(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        String-friendly customer provided external ID
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer provided actual UUID for property
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer provided ID for property.
+        """
+        return pulumi.get(self, "logical_id")
+
+    @logical_id.setter
+    def logical_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logical_id", value)
 
     @property
     @pulumi.getter(name="notificationState")

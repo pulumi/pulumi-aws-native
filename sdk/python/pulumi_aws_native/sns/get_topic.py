@@ -60,7 +60,7 @@ class GetTopicResult:
     @pulumi.getter(name="archivePolicy")
     def archive_policy(self) -> Optional[Any]:
         """
-        The archive policy determines the number of days Amazon SNS retains messages. You can set a retention period from 1 to 365 days.
+        The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         """
@@ -70,11 +70,10 @@ class GetTopicResult:
     @pulumi.getter(name="contentBasedDeduplication")
     def content_based_deduplication(self) -> Optional[bool]:
         """
-        Enables content-based deduplication for FIFO topics. By default, ContentBasedDeduplication is set to false. If you create a FIFO topic and this attribute is false, you must specify a value for the MessageDeduplicationId parameter for the Publish action.
-
-        When you set ContentBasedDeduplication to true, Amazon SNS uses a SHA-256 hash to generate the MessageDeduplicationId using the body of the message (but not the attributes of the message).
-
-        (Optional) To override the generated value, you can specify a value for the the MessageDeduplicationId parameter for the Publish action.
+        Enables content-based deduplication for FIFO topics.
+          +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+          +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
+         (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         """
         return pulumi.get(self, "content_based_deduplication")
 
@@ -83,12 +82,9 @@ class GetTopicResult:
     def data_protection_policy(self) -> Optional[Any]:
         """
         The body of the policy document you want to use for this topic.
-
-        You can only add one policy per topic.
-
-        The policy must be in JSON string format.
-
-        Length Constraints: Maximum length of 30720
+         You can only add one policy per topic.
+         The policy must be in JSON string format.
+         Length Constraints: Maximum length of 30,720.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         """
@@ -97,16 +93,13 @@ class GetTopicResult:
     @property
     @pulumi.getter(name="deliveryStatusLogging")
     def delivery_status_logging(self) -> Optional[Sequence['outputs.TopicLoggingConfig']]:
-        """
-        Delivery status logging configuration for supported protocols for an Amazon SNS topic.
-        """
         return pulumi.get(self, "delivery_status_logging")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
         """
-        The display name to use for an Amazon SNS topic with SMS subscriptions.
+        The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         """
         return pulumi.get(self, "display_name")
 
@@ -114,9 +107,8 @@ class GetTopicResult:
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> Optional[str]:
         """
-        The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
-
-        This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+        The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
+         This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
         """
         return pulumi.get(self, "kms_master_key_id")
 
@@ -124,7 +116,7 @@ class GetTopicResult:
     @pulumi.getter(name="signatureVersion")
     def signature_version(self) -> Optional[str]:
         """
-        Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+        The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
         """
         return pulumi.get(self, "signature_version")
 
@@ -133,12 +125,17 @@ class GetTopicResult:
     def subscription(self) -> Optional[Sequence['outputs.TopicSubscription']]:
         """
         The SNS subscriptions (endpoints) for this topic.
+          If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
         """
         return pulumi.get(self, "subscription")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The list of tags to add to a new topic.
+          To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -150,7 +147,7 @@ class GetTopicResult:
     @pulumi.getter(name="tracingConfig")
     def tracing_config(self) -> Optional[str]:
         """
-        Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
+        Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
         """
         return pulumi.get(self, "tracing_config")
 
@@ -177,7 +174,9 @@ class AwaitableGetTopicResult(GetTopicResult):
 def get_topic(topic_arn: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
-    Resource Type definition for AWS::SNS::Topic
+    The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.
+      One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
+       The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
     """
     __args__ = dict()
     __args__['topicArn'] = topic_arn
@@ -202,6 +201,8 @@ def get_topic(topic_arn: Optional[str] = None,
 def get_topic_output(topic_arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
-    Resource Type definition for AWS::SNS::Topic
+    The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.
+      One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
+       The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
     """
     ...

@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Sns
 {
     /// <summary>
-    /// Schema for AWS::SNS::TopicPolicy
+    /// The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:sns:TopicPolicy")]
     public partial class TopicPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -30,7 +27,7 @@ namespace Pulumi.AwsNative.Sns
         public Output<object> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        /// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
         /// </summary>
         [Output("topics")]
         public Output<ImmutableArray<string>> Topics { get; private set; } = null!;
@@ -92,7 +89,7 @@ namespace Pulumi.AwsNative.Sns
         private InputList<string>? _topics;
 
         /// <summary>
-        /// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        /// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
         /// </summary>
         public InputList<string> Topics
         {

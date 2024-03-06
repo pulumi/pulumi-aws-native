@@ -206,6 +206,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly Outputs.DbClusterServerlessV2ScalingConfiguration? ServerlessV2ScalingConfiguration;
         /// <summary>
+        /// Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+        /// </summary>
+        public readonly int? StorageThroughput;
+        /// <summary>
         /// Specifies the storage type to be associated with the DB cluster.
         /// </summary>
         public readonly string? StorageType;
@@ -296,6 +300,8 @@ namespace Pulumi.AwsNative.Rds
 
             Outputs.DbClusterServerlessV2ScalingConfiguration? serverlessV2ScalingConfiguration,
 
+            int? storageThroughput,
+
             string? storageType,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -340,6 +346,7 @@ namespace Pulumi.AwsNative.Rds
             ReplicationSourceIdentifier = replicationSourceIdentifier;
             ScalingConfiguration = scalingConfiguration;
             ServerlessV2ScalingConfiguration = serverlessV2ScalingConfiguration;
+            StorageThroughput = storageThroughput;
             StorageType = storageType;
             Tags = tags;
             VpcSecurityGroupIds = vpcSecurityGroupIds;

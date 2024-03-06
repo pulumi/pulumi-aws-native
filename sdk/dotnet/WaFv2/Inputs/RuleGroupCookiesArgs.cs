@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 {
 
     /// <summary>
-    /// Includes headers of a web request.
+    /// Includes cookies of a web request.
     /// </summary>
     public sealed class RuleGroupCookiesArgs : global::Pulumi.ResourceArgs
     {

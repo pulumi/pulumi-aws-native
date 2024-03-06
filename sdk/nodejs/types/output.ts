@@ -5507,6 +5507,23 @@ export namespace batch {
         permissions?: string[];
     }
 
+    export interface JobDefinitionEcsProperties {
+        taskProperties: outputs.batch.JobDefinitionEcsTaskProperties[];
+    }
+
+    export interface JobDefinitionEcsTaskProperties {
+        containers?: outputs.batch.JobDefinitionTaskContainerProperties[];
+        ephemeralStorage?: outputs.batch.JobDefinitionEphemeralStorage;
+        executionRoleArn?: string;
+        ipcMode?: string;
+        networkConfiguration?: outputs.batch.JobDefinitionNetworkConfiguration;
+        pidMode?: string;
+        platformVersion?: string;
+        runtimePlatform?: outputs.batch.JobDefinitionRuntimePlatform;
+        taskRoleArn?: string;
+        volumes?: outputs.batch.JobDefinitionVolumes[];
+    }
+
     export interface JobDefinitionEfsVolumeConfiguration {
         authorizationConfig?: outputs.batch.JobDefinitionAuthorizationConfig;
         fileSystemId: string;
@@ -5633,6 +5650,8 @@ export namespace batch {
 
     export interface JobDefinitionNodeRangeProperty {
         container?: outputs.batch.JobDefinitionContainerProperties;
+        ecsProperties?: outputs.batch.JobDefinitionEcsProperties;
+        instanceTypes?: string[];
         targetNodes: string;
     }
 
@@ -5640,8 +5659,10 @@ export namespace batch {
         containers?: outputs.batch.JobDefinitionEksContainer[];
         dnsPolicy?: string;
         hostNetwork?: boolean;
+        initContainers?: outputs.batch.JobDefinitionEksContainer[];
         metadata?: outputs.batch.JobDefinitionMetadata;
         serviceAccountName?: string;
+        shareProcessNamespace?: boolean;
         volumes?: outputs.batch.JobDefinitionEksVolume[];
     }
 
@@ -5667,6 +5688,30 @@ export namespace batch {
     export interface JobDefinitionSecret {
         name: string;
         valueFrom: string;
+    }
+
+    export interface JobDefinitionTaskContainerDependency {
+        condition: string;
+        containerName: string;
+    }
+
+    export interface JobDefinitionTaskContainerProperties {
+        command?: string[];
+        dependsOn?: outputs.batch.JobDefinitionTaskContainerDependency[];
+        environment?: outputs.batch.JobDefinitionEnvironment[];
+        essential?: boolean;
+        image: string;
+        linuxParameters?: outputs.batch.JobDefinitionLinuxParameters;
+        logConfiguration?: outputs.batch.JobDefinitionLogConfiguration;
+        mountPoints?: outputs.batch.JobDefinitionMountPoints[];
+        name?: string;
+        privileged?: boolean;
+        readonlyRootFilesystem?: boolean;
+        repositoryCredentials?: outputs.batch.JobDefinitionRepositoryCredentials;
+        resourceRequirements?: outputs.batch.JobDefinitionResourceRequirement[];
+        secrets?: outputs.batch.JobDefinitionSecret[];
+        ulimits?: outputs.batch.JobDefinitionUlimit[];
+        user?: string;
     }
 
     export interface JobDefinitionTimeout {
@@ -12066,7 +12111,7 @@ export namespace dynamodb {
     }
 
     /**
-     * Represents an attribute for describing the key schema for the table and indexes.
+     * Represents an attribute for describing the schema for the table and indexes.
      */
     export interface TableAttributeDefinition {
         /**
@@ -12253,6 +12298,8 @@ export namespace dynamodb {
          *   +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
          *   +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
          *   +   ``ALL`` - All of the table attributes are projected into the index.
+         *   
+         *  When using the DynamoDB console, ``ALL`` is selected by default.
          */
         projectionType?: string;
     }
@@ -23515,9 +23562,17 @@ export namespace iotsitewise {
          */
         childAssetId: string;
         /**
+         * String-friendly customer provided external ID
+         */
+        externalId?: string;
+        /**
+         * Customer provided actual UUID for property
+         */
+        id?: string;
+        /**
          * The LogicalID of a hierarchy in the parent asset's model.
          */
-        logicalId: string;
+        logicalId?: string;
     }
 
     export interface AssetModelAttribute {
@@ -23529,6 +23584,10 @@ export namespace iotsitewise {
      */
     export interface AssetModelCompositeModel {
         /**
+         * The component model ID for which the composite model is composed of
+         */
+        composedAssetModelId?: string;
+        /**
          * The property definitions of the asset model. You can specify up to 200 properties per asset model.
          */
         compositeModelProperties?: outputs.iotsitewise.AssetModelProperty[];
@@ -23537,9 +23596,25 @@ export namespace iotsitewise {
          */
         description?: string;
         /**
+         * The External ID of the composite model
+         */
+        externalId?: string;
+        /**
+         * The Actual ID of the composite model
+         */
+        id?: string;
+        /**
          * A unique, friendly name for the asset composite model.
          */
         name: string;
+        /**
+         * The parent composite model External ID
+         */
+        parentAssetModelCompositeModelExternalId?: string;
+        /**
+         * The path of the composite model. This is only for derived composite models
+         */
+        path?: string[];
         /**
          * The type of the composite model. For alarm composite models, this type is AWS/ALARM
          */
@@ -23566,9 +23641,17 @@ export namespace iotsitewise {
          */
         childAssetModelId: string;
         /**
-         * Customer provided ID for hierarchy.
+         * Customer provided external ID for hierarchy
          */
-        logicalId: string;
+        externalId?: string;
+        /**
+         * Customer provided actual ID for hierarchy
+         */
+        id?: string;
+        /**
+         * Customer provided logical ID for hierarchy.
+         */
+        logicalId?: string;
         /**
          * The name of the asset model hierarchy.
          */
@@ -23610,9 +23693,17 @@ export namespace iotsitewise {
          */
         dataTypeSpec?: enums.iotsitewise.AssetModelDataTypeSpec;
         /**
-         * Customer provided ID for property.
+         * The External ID of the Asset Model Property
          */
-        logicalId: string;
+        externalId?: string;
+        /**
+         * The ID of the Asset Model Property
+         */
+        id?: string;
+        /**
+         * Customer provided Logical ID for property.
+         */
+        logicalId?: string;
         /**
          * The name of the asset model property.
          */
@@ -23625,6 +23716,16 @@ export namespace iotsitewise {
          * The unit of the asset model property, such as Newtons or RPM.
          */
         unit?: string;
+    }
+
+    /**
+     * The definition for property path which is used to reference properties in transforms/metrics
+     */
+    export interface AssetModelPropertyPathDefinition {
+        /**
+         * The name of the property
+         */
+        name: string;
     }
 
     /**
@@ -23657,8 +23758,28 @@ export namespace iotsitewise {
     }
 
     export interface AssetModelVariableValue {
+        /**
+         * The External ID of the hierarchy that is trying to be referenced
+         */
+        hierarchyExternalId?: string;
+        /**
+         * The ID of the hierarchy that is trying to be referenced
+         */
+        hierarchyId?: string;
         hierarchyLogicalId?: string;
-        propertyLogicalId: string;
+        /**
+         * The External ID of the property that is trying to be referenced
+         */
+        propertyExternalId?: string;
+        /**
+         * The ID of the property that is trying to be referenced
+         */
+        propertyId?: string;
+        propertyLogicalId?: string;
+        /**
+         * The path of the property that is trying to be referenced
+         */
+        propertyPath?: outputs.iotsitewise.AssetModelPropertyPathDefinition[];
     }
 
     /**
@@ -23670,9 +23791,17 @@ export namespace iotsitewise {
          */
         alias?: string;
         /**
+         * String-friendly customer provided external ID
+         */
+        externalId?: string;
+        /**
+         * Customer provided actual UUID for property
+         */
+        id?: string;
+        /**
          * Customer provided ID for property.
          */
-        logicalId: string;
+        logicalId?: string;
         /**
          * The MQTT notification state (ENABLED or DISABLED) for this asset property.
          */
@@ -26645,7 +26774,7 @@ export namespace lambda {
         /**
          * (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
          *   For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
-         *  If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs
+         *  If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
          */
         zipFile?: string;
     }
@@ -26747,7 +26876,9 @@ export namespace lambda {
          * Specify the runtime update mode.
          *   + *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
          *  + *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
-         *  + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incomp
+         *  + *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
+         *  
+         *  *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
          */
         updateRuntimeOn: enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn;
     }
@@ -46473,9 +46604,7 @@ export namespace route53 {
     }
 
     /**
-     * A complex type that contains an optional comment.
-     *
-     * If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
+     * A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
      */
     export interface HostedZoneConfig {
         /**
@@ -46499,25 +46628,34 @@ export namespace route53 {
      */
     export interface HostedZoneTag {
         /**
-         * The key name of the tag.
+         * The value of ``Key`` depends on the operation that you want to perform:
+         *   +   *Add a tag to a health check or hosted zone*: ``Key`` is the name that you want to give the new tag.
+         *   +   *Edit a tag*: ``Key`` is the name of the tag that you want to change the ``Value`` for.
+         *   +   *Delete a key*: ``Key`` is the name of the tag you want to remove.
+         *   +   *Give a name to a health check*: Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
          */
         key: string;
         /**
-         * The value for the tag.
+         * The value of ``Value`` depends on the operation that you want to perform:
+         *   +   *Add a tag to a health check or hosted zone*: ``Value`` is the value that you want to give the new tag.
+         *   +   *Edit a tag*: ``Value`` is the new value that you want to assign the tag.
          */
         value: string;
     }
 
     /**
-     * A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
+     * *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+     *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
      */
     export interface HostedZoneVpc {
         /**
-         * The ID of an Amazon VPC.
+         * *Private hosted zones only:* The ID of an Amazon VPC.
+         *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
          */
         vpcId: string;
         /**
-         * The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
+         * *Private hosted zones only:* The region that an Amazon VPC was created in.
+         *  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
          */
         vpcRegion: string;
     }
@@ -53003,26 +53141,24 @@ export namespace simspaceweaver {
 
 export namespace sns {
     export interface TopicLoggingConfig {
-        /**
-         * The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
-         */
         failureFeedbackRoleArn?: string;
-        /**
-         * Indicates one of the supported protocols for the SNS topic
-         */
         protocol: enums.sns.TopicLoggingConfigProtocol;
-        /**
-         * The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
-         */
         successFeedbackRoleArn?: string;
-        /**
-         * The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
-         */
         successFeedbackSampleRate?: string;
     }
 
+    /**
+     * ``Subscription`` is an embedded property that describes the subscription endpoints of an SNS topic.
+     *   For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
+     */
     export interface TopicSubscription {
+        /**
+         * The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
+         */
         endpoint: string;
+        /**
+         * The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
+         */
         protocol: string;
     }
 
@@ -54675,7 +54811,7 @@ export namespace wafv2 {
     }
 
     /**
-     * Includes headers of a web request.
+     * Includes cookies of a web request.
      */
     export interface RuleGroupCookies {
         matchPattern: outputs.wafv2.RuleGroupCookieMatchPattern;
@@ -54742,6 +54878,7 @@ export namespace wafv2 {
         body?: outputs.wafv2.RuleGroupBody;
         cookies?: outputs.wafv2.RuleGroupCookies;
         headers?: outputs.wafv2.RuleGroupHeaders;
+        ja3Fingerprint?: outputs.wafv2.RuleGroupJa3Fingerprint;
         jsonBody?: outputs.wafv2.RuleGroupJsonBody;
         /**
          * The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
@@ -54817,6 +54954,13 @@ export namespace wafv2 {
     export interface RuleGroupIpSetReferenceStatement {
         arn: string;
         ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupIpSetForwardedIpConfiguration;
+    }
+
+    /**
+     * Includes the JA3 fingerprint of a web request.
+     */
+    export interface RuleGroupJa3Fingerprint {
+        fallbackBehavior: enums.wafv2.RuleGroupJa3FingerprintFallbackBehavior;
     }
 
     /**
@@ -55172,7 +55316,7 @@ export namespace wafv2 {
     }
 
     /**
-     * Includes headers of a web request.
+     * Includes cookies of a web request.
      */
     export interface WebAclCookies {
         matchPattern: outputs.wafv2.WebAclCookieMatchPattern;
@@ -55258,6 +55402,7 @@ export namespace wafv2 {
         body?: outputs.wafv2.WebAclBody;
         cookies?: outputs.wafv2.WebAclCookies;
         headers?: outputs.wafv2.WebAclHeaders;
+        ja3Fingerprint?: outputs.wafv2.WebAclJa3Fingerprint;
         jsonBody?: outputs.wafv2.WebAclJsonBody;
         /**
          * The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
@@ -55333,6 +55478,13 @@ export namespace wafv2 {
     export interface WebAclIpSetReferenceStatement {
         arn: string;
         ipSetForwardedIpConfig?: outputs.wafv2.WebAclIpSetForwardedIpConfiguration;
+    }
+
+    /**
+     * Includes the JA3 fingerprint of a web request.
+     */
+    export interface WebAclJa3Fingerprint {
+        fallbackBehavior: enums.wafv2.WebAclJa3FingerprintFallbackBehavior;
     }
 
     /**

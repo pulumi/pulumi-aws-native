@@ -13,21 +13,9 @@ namespace Pulumi.AwsNative.Sns.Outputs
     [OutputType]
     public sealed class TopicLoggingConfig
     {
-        /// <summary>
-        /// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
-        /// </summary>
         public readonly string? FailureFeedbackRoleArn;
-        /// <summary>
-        /// Indicates one of the supported protocols for the SNS topic
-        /// </summary>
         public readonly Pulumi.AwsNative.Sns.TopicLoggingConfigProtocol Protocol;
-        /// <summary>
-        /// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
-        /// </summary>
         public readonly string? SuccessFeedbackRoleArn;
-        /// <summary>
-        /// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
-        /// </summary>
         public readonly string? SuccessFeedbackSampleRate;
 
         [OutputConstructor]

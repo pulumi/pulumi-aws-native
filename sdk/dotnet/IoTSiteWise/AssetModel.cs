@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Output<string?> AssetModelDescription { get; private set; } = null!;
 
         /// <summary>
+        /// The external ID of the asset model.
+        /// </summary>
+        [Output("assetModelExternalId")]
+        public Output<string?> AssetModelExternalId { get; private set; } = null!;
+
+        /// <summary>
         /// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
         /// </summary>
         [Output("assetModelHierarchies")]
@@ -56,6 +62,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// </summary>
         [Output("assetModelProperties")]
         public Output<ImmutableArray<Outputs.AssetModelProperty>> AssetModelProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+        /// </summary>
+        [Output("assetModelType")]
+        public Output<string?> AssetModelType { get; private set; } = null!;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
@@ -86,6 +98,10 @@ namespace Pulumi.AwsNative.IoTSiteWise
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "assetModelType",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -126,6 +142,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         [Input("assetModelDescription")]
         public Input<string>? AssetModelDescription { get; set; }
 
+        /// <summary>
+        /// The external ID of the asset model.
+        /// </summary>
+        [Input("assetModelExternalId")]
+        public Input<string>? AssetModelExternalId { get; set; }
+
         [Input("assetModelHierarchies")]
         private InputList<Inputs.AssetModelHierarchyArgs>? _assetModelHierarchies;
 
@@ -155,6 +177,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
             get => _assetModelProperties ?? (_assetModelProperties = new InputList<Inputs.AssetModelPropertyArgs>());
             set => _assetModelProperties = value;
         }
+
+        /// <summary>
+        /// The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+        /// </summary>
+        [Input("assetModelType")]
+        public Input<string>? AssetModelType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

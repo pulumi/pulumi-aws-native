@@ -12,11 +12,47 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 
     public sealed class AssetModelVariableValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The External ID of the hierarchy that is trying to be referenced
+        /// </summary>
+        [Input("hierarchyExternalId")]
+        public Input<string>? HierarchyExternalId { get; set; }
+
+        /// <summary>
+        /// The ID of the hierarchy that is trying to be referenced
+        /// </summary>
+        [Input("hierarchyId")]
+        public Input<string>? HierarchyId { get; set; }
+
         [Input("hierarchyLogicalId")]
         public Input<string>? HierarchyLogicalId { get; set; }
 
-        [Input("propertyLogicalId", required: true)]
-        public Input<string> PropertyLogicalId { get; set; } = null!;
+        /// <summary>
+        /// The External ID of the property that is trying to be referenced
+        /// </summary>
+        [Input("propertyExternalId")]
+        public Input<string>? PropertyExternalId { get; set; }
+
+        /// <summary>
+        /// The ID of the property that is trying to be referenced
+        /// </summary>
+        [Input("propertyId")]
+        public Input<string>? PropertyId { get; set; }
+
+        [Input("propertyLogicalId")]
+        public Input<string>? PropertyLogicalId { get; set; }
+
+        [Input("propertyPath")]
+        private InputList<Inputs.AssetModelPropertyPathDefinitionArgs>? _propertyPath;
+
+        /// <summary>
+        /// The path of the property that is trying to be referenced
+        /// </summary>
+        public InputList<Inputs.AssetModelPropertyPathDefinitionArgs> PropertyPath
+        {
+            get => _propertyPath ?? (_propertyPath = new InputList<Inputs.AssetModelPropertyPathDefinitionArgs>());
+            set => _propertyPath = value;
+        }
 
         public AssetModelVariableValueArgs()
         {

@@ -22,10 +22,22 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public Input<string> ChildAssetId { get; set; } = null!;
 
         /// <summary>
+        /// String-friendly customer provided external ID
+        /// </summary>
+        [Input("externalId")]
+        public Input<string>? ExternalId { get; set; }
+
+        /// <summary>
+        /// Customer provided actual UUID for property
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// The LogicalID of a hierarchy in the parent asset's model.
         /// </summary>
-        [Input("logicalId", required: true)]
-        public Input<string> LogicalId { get; set; } = null!;
+        [Input("logicalId")]
+        public Input<string>? LogicalId { get; set; }
 
         public AssetHierarchyArgs()
         {

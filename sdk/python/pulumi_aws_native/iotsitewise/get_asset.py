@@ -21,13 +21,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssetResult:
-    def __init__(__self__, asset_arn=None, asset_description=None, asset_hierarchies=None, asset_id=None, asset_model_id=None, asset_name=None, asset_properties=None, tags=None):
+    def __init__(__self__, asset_arn=None, asset_description=None, asset_external_id=None, asset_hierarchies=None, asset_id=None, asset_model_id=None, asset_name=None, asset_properties=None, tags=None):
         if asset_arn and not isinstance(asset_arn, str):
             raise TypeError("Expected argument 'asset_arn' to be a str")
         pulumi.set(__self__, "asset_arn", asset_arn)
         if asset_description and not isinstance(asset_description, str):
             raise TypeError("Expected argument 'asset_description' to be a str")
         pulumi.set(__self__, "asset_description", asset_description)
+        if asset_external_id and not isinstance(asset_external_id, str):
+            raise TypeError("Expected argument 'asset_external_id' to be a str")
+        pulumi.set(__self__, "asset_external_id", asset_external_id)
         if asset_hierarchies and not isinstance(asset_hierarchies, list):
             raise TypeError("Expected argument 'asset_hierarchies' to be a list")
         pulumi.set(__self__, "asset_hierarchies", asset_hierarchies)
@@ -62,6 +65,14 @@ class GetAssetResult:
         A description for the asset
         """
         return pulumi.get(self, "asset_description")
+
+    @property
+    @pulumi.getter(name="assetExternalId")
+    def asset_external_id(self) -> Optional[str]:
+        """
+        The External ID of the asset
+        """
+        return pulumi.get(self, "asset_external_id")
 
     @property
     @pulumi.getter(name="assetHierarchies")
@@ -114,6 +125,7 @@ class AwaitableGetAssetResult(GetAssetResult):
         return GetAssetResult(
             asset_arn=self.asset_arn,
             asset_description=self.asset_description,
+            asset_external_id=self.asset_external_id,
             asset_hierarchies=self.asset_hierarchies,
             asset_id=self.asset_id,
             asset_model_id=self.asset_model_id,
@@ -138,6 +150,7 @@ def get_asset(asset_id: Optional[str] = None,
     return AwaitableGetAssetResult(
         asset_arn=pulumi.get(__ret__, 'asset_arn'),
         asset_description=pulumi.get(__ret__, 'asset_description'),
+        asset_external_id=pulumi.get(__ret__, 'asset_external_id'),
         asset_hierarchies=pulumi.get(__ret__, 'asset_hierarchies'),
         asset_id=pulumi.get(__ret__, 'asset_id'),
         asset_model_id=pulumi.get(__ret__, 'asset_model_id'),

@@ -41,7 +41,7 @@ export class Parameter extends pulumi.CustomResource {
     }
 
     /**
-     * A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
+     * A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
      */
     public readonly allowedPattern!: pulumi.Output<string | undefined>;
     /**
@@ -130,7 +130,7 @@ export class Parameter extends pulumi.CustomResource {
  */
 export interface ParameterArgs {
     /**
-     * A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
+     * A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
      */
     allowedPattern?: pulumi.Input<string>;
     /**

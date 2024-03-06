@@ -21,7 +21,7 @@ class TopicPolicyArgs:
         :param Any policy_document: A policy document that contains permissions to add to the specified SNS topics.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "topics", topics)
@@ -44,7 +44,7 @@ class TopicPolicyArgs:
     @pulumi.getter
     def topics(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
         """
         return pulumi.get(self, "topics")
 
@@ -62,14 +62,14 @@ class TopicPolicy(pulumi.CustomResource):
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Schema for AWS::SNS::TopicPolicy
+        The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any policy_document: A policy document that contains permissions to add to the specified SNS topics.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
         """
         ...
     @overload
@@ -78,7 +78,7 @@ class TopicPolicy(pulumi.CustomResource):
                  args: TopicPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Schema for AWS::SNS::TopicPolicy
+        The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
 
         :param str resource_name: The name of the resource.
         :param TopicPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -143,9 +143,6 @@ class TopicPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "aws_id")
 
     @property
@@ -162,7 +159,7 @@ class TopicPolicy(pulumi.CustomResource):
     @pulumi.getter
     def topics(self) -> pulumi.Output[Sequence[str]]:
         """
-        The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
         """
         return pulumi.get(self, "topics")
 

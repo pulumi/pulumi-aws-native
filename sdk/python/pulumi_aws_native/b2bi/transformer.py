@@ -23,7 +23,6 @@ class TransformerArgs:
                  file_format: pulumi.Input['TransformerFileFormat'],
                  mapping_template: pulumi.Input[str],
                  status: pulumi.Input['TransformerStatus'],
-                 modified_at: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sample_document: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -34,8 +33,6 @@ class TransformerArgs:
         pulumi.set(__self__, "file_format", file_format)
         pulumi.set(__self__, "mapping_template", mapping_template)
         pulumi.set(__self__, "status", status)
-        if modified_at is not None:
-            pulumi.set(__self__, "modified_at", modified_at)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sample_document is not None:
@@ -80,15 +77,6 @@ class TransformerArgs:
         pulumi.set(self, "status", value)
 
     @property
-    @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "modified_at")
-
-    @modified_at.setter
-    def modified_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "modified_at", value)
-
-    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -124,7 +112,6 @@ class Transformer(pulumi.CustomResource):
                  edi_type: Optional[pulumi.Input[pulumi.InputType['TransformerEdiTypePropertiesArgs']]] = None,
                  file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
                  mapping_template: Optional[pulumi.Input[str]] = None,
-                 modified_at: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sample_document: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['TransformerStatus']] = None,
@@ -163,7 +150,6 @@ class Transformer(pulumi.CustomResource):
                  edi_type: Optional[pulumi.Input[pulumi.InputType['TransformerEdiTypePropertiesArgs']]] = None,
                  file_format: Optional[pulumi.Input['TransformerFileFormat']] = None,
                  mapping_template: Optional[pulumi.Input[str]] = None,
-                 modified_at: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sample_document: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['TransformerStatus']] = None,
@@ -186,7 +172,6 @@ class Transformer(pulumi.CustomResource):
             if mapping_template is None and not opts.urn:
                 raise TypeError("Missing required property 'mapping_template'")
             __props__.__dict__["mapping_template"] = mapping_template
-            __props__.__dict__["modified_at"] = modified_at
             __props__.__dict__["name"] = name
             __props__.__dict__["sample_document"] = sample_document
             if status is None and not opts.urn:
@@ -194,6 +179,7 @@ class Transformer(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["modified_at"] = None
             __props__.__dict__["transformer_arn"] = None
             __props__.__dict__["transformer_id"] = None
         super(Transformer, __self__).__init__(
@@ -253,7 +239,7 @@ class Transformer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modifiedAt")
-    def modified_at(self) -> pulumi.Output[Optional[str]]:
+    def modified_at(self) -> pulumi.Output[str]:
         return pulumi.get(self, "modified_at")
 
     @property

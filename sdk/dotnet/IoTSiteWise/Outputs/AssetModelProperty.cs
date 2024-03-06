@@ -25,9 +25,17 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.IoTSiteWise.AssetModelDataTypeSpec? DataTypeSpec;
         /// <summary>
-        /// Customer provided ID for property.
+        /// The External ID of the Asset Model Property
         /// </summary>
-        public readonly string LogicalId;
+        public readonly string? ExternalId;
+        /// <summary>
+        /// The ID of the Asset Model Property
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
+        /// Customer provided Logical ID for property.
+        /// </summary>
+        public readonly string? LogicalId;
         /// <summary>
         /// The name of the asset model property.
         /// </summary>
@@ -47,7 +55,11 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
             Pulumi.AwsNative.IoTSiteWise.AssetModelDataTypeSpec? dataTypeSpec,
 
-            string logicalId,
+            string? externalId,
+
+            string? id,
+
+            string? logicalId,
 
             string name,
 
@@ -57,6 +69,8 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         {
             DataType = dataType;
             DataTypeSpec = dataTypeSpec;
+            ExternalId = externalId;
+            Id = id;
             LogicalId = logicalId;
             Name = name;
             Type = type;

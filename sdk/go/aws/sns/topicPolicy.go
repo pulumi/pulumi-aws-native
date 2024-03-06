@@ -12,17 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for AWS::SNS::TopicPolicy
+// The “AWS::SNS::TopicPolicy“ resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
 type TopicPolicy struct {
 	pulumi.CustomResourceState
 
-	// The provider-assigned unique ID for this managed resource.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A policy document that contains permissions to add to the specified SNS topics.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
-	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
 }
 
@@ -76,7 +75,7 @@ type topicPolicyArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
 	Topics []string `pulumi:"topics"`
 }
 
@@ -86,7 +85,7 @@ type TopicPolicyArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
-	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+	// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
 	Topics pulumi.StringArrayInput
 }
 
@@ -127,7 +126,6 @@ func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o TopicPolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
@@ -139,7 +137,7 @@ func (o TopicPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
-// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the “Ref“ function to specify an “AWS::SNS::Topic“ resource.
 func (o TopicPolicyOutput) Topics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringArrayOutput { return v.Topics }).(pulumi.StringArrayOutput)
 }

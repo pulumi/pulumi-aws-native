@@ -28,10 +28,22 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public Input<Pulumi.AwsNative.IoTSiteWise.AssetModelDataTypeSpec>? DataTypeSpec { get; set; }
 
         /// <summary>
-        /// Customer provided ID for property.
+        /// The External ID of the Asset Model Property
         /// </summary>
-        [Input("logicalId", required: true)]
-        public Input<string> LogicalId { get; set; } = null!;
+        [Input("externalId")]
+        public Input<string>? ExternalId { get; set; }
+
+        /// <summary>
+        /// The ID of the Asset Model Property
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Customer provided Logical ID for property.
+        /// </summary>
+        [Input("logicalId")]
+        public Input<string>? LogicalId { get; set; }
 
         /// <summary>
         /// The name of the asset model property.

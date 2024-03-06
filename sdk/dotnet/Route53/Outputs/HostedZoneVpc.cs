@@ -11,17 +11,20 @@ namespace Pulumi.AwsNative.Route53.Outputs
 {
 
     /// <summary>
-    /// A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
+    /// *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+    ///  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
     /// </summary>
     [OutputType]
     public sealed class HostedZoneVpc
     {
         /// <summary>
-        /// The ID of an Amazon VPC.
+        /// *Private hosted zones only:* The ID of an Amazon VPC.
+        ///  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         /// </summary>
         public readonly string VpcId;
         /// <summary>
-        /// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
+        /// *Private hosted zones only:* The region that an Amazon VPC was created in.
+        ///  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         /// </summary>
         public readonly string VpcRegion;
 

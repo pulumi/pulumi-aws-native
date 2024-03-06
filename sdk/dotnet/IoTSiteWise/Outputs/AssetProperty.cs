@@ -21,9 +21,17 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// </summary>
         public readonly string? Alias;
         /// <summary>
+        /// String-friendly customer provided external ID
+        /// </summary>
+        public readonly string? ExternalId;
+        /// <summary>
+        /// Customer provided actual UUID for property
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Customer provided ID for property.
         /// </summary>
-        public readonly string LogicalId;
+        public readonly string? LogicalId;
         /// <summary>
         /// The MQTT notification state (ENABLED or DISABLED) for this asset property.
         /// </summary>
@@ -37,13 +45,19 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         private AssetProperty(
             string? alias,
 
-            string logicalId,
+            string? externalId,
+
+            string? id,
+
+            string? logicalId,
 
             Pulumi.AwsNative.IoTSiteWise.AssetPropertyNotificationState? notificationState,
 
             string? unit)
         {
             Alias = alias;
+            ExternalId = externalId;
+            Id = id;
             LogicalId = logicalId;
             NotificationState = notificationState;
             Unit = unit;

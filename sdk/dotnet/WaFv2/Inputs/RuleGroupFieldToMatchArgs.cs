@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("headers")]
         public Input<Inputs.RuleGroupHeadersArgs>? Headers { get; set; }
 
+        [Input("ja3Fingerprint")]
+        public Input<Inputs.RuleGroupJa3FingerprintArgs>? Ja3Fingerprint { get; set; }
+
         [Input("jsonBody")]
         public Input<Inputs.RuleGroupJsonBodyArgs>? JsonBody { get; set; }
 

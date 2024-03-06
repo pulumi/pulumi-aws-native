@@ -30,7 +30,7 @@ class ParameterArgs:
                  Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
         :param pulumi.Input[str] value: The parameter value.
                  If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
-        :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
+        :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
         :param pulumi.Input['ParameterDataType'] data_type: The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
         :param pulumi.Input[str] description: Information about the parameter.
         :param pulumi.Input[str] name: The name of the parameter.
@@ -87,7 +87,7 @@ class ParameterArgs:
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
+        A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
         """
         return pulumi.get(self, "allowed_pattern")
 
@@ -193,7 +193,7 @@ class Parameter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
+        :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
         :param pulumi.Input['ParameterDataType'] data_type: The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
         :param pulumi.Input[str] description: Information about the parameter.
         :param pulumi.Input[str] name: The name of the parameter.
@@ -304,7 +304,7 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter(name="allowedPattern")
     def allowed_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
+        A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
         """
         return pulumi.get(self, "allowed_pattern")
 

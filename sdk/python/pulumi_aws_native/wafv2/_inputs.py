@@ -44,6 +44,7 @@ __all__ = [
     'RuleGroupImmunityTimePropertyArgs',
     'RuleGroupIpSetForwardedIpConfigurationArgs',
     'RuleGroupIpSetReferenceStatementArgs',
+    'RuleGroupJa3FingerprintArgs',
     'RuleGroupJsonBodyArgs',
     'RuleGroupJsonMatchPatternArgs',
     'RuleGroupLabelMatchStatementArgs',
@@ -105,6 +106,7 @@ __all__ = [
     'WebAclImmunityTimePropertyArgs',
     'WebAclIpSetForwardedIpConfigurationArgs',
     'WebAclIpSetReferenceStatementArgs',
+    'WebAclJa3FingerprintArgs',
     'WebAclJsonBodyArgs',
     'WebAclJsonMatchPatternArgs',
     'WebAclLabelMatchStatementArgs',
@@ -687,7 +689,7 @@ class RuleGroupCookiesArgs:
                  match_scope: pulumi.Input['RuleGroupMapMatchScope'],
                  oversize_handling: pulumi.Input['RuleGroupOversizeHandling']):
         """
-        Includes headers of a web request.
+        Includes cookies of a web request.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
         pulumi.set(__self__, "match_scope", match_scope)
@@ -917,6 +919,7 @@ class RuleGroupFieldToMatchArgs:
                  body: Optional[pulumi.Input['RuleGroupBodyArgs']] = None,
                  cookies: Optional[pulumi.Input['RuleGroupCookiesArgs']] = None,
                  headers: Optional[pulumi.Input['RuleGroupHeadersArgs']] = None,
+                 ja3_fingerprint: Optional[pulumi.Input['RuleGroupJa3FingerprintArgs']] = None,
                  json_body: Optional[pulumi.Input['RuleGroupJsonBodyArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -939,6 +942,8 @@ class RuleGroupFieldToMatchArgs:
             pulumi.set(__self__, "cookies", cookies)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
+        if ja3_fingerprint is not None:
+            pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -990,6 +995,15 @@ class RuleGroupFieldToMatchArgs:
     @headers.setter
     def headers(self, value: Optional[pulumi.Input['RuleGroupHeadersArgs']]):
         pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ja3Fingerprint")
+    def ja3_fingerprint(self) -> Optional[pulumi.Input['RuleGroupJa3FingerprintArgs']]:
+        return pulumi.get(self, "ja3_fingerprint")
+
+    @ja3_fingerprint.setter
+    def ja3_fingerprint(self, value: Optional[pulumi.Input['RuleGroupJa3FingerprintArgs']]):
+        pulumi.set(self, "ja3_fingerprint", value)
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -1283,6 +1297,25 @@ class RuleGroupIpSetReferenceStatementArgs:
     @ip_set_forwarded_ip_config.setter
     def ip_set_forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupIpSetForwardedIpConfigurationArgs']]):
         pulumi.set(self, "ip_set_forwarded_ip_config", value)
+
+
+@pulumi.input_type
+class RuleGroupJa3FingerprintArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input['RuleGroupJa3FingerprintFallbackBehavior']):
+        """
+        Includes the JA3 fingerprint of a web request.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input['RuleGroupJa3FingerprintFallbackBehavior']:
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input['RuleGroupJa3FingerprintFallbackBehavior']):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 @pulumi.input_type
@@ -2890,7 +2923,7 @@ class WebAclCookiesArgs:
                  match_scope: pulumi.Input['WebAclMapMatchScope'],
                  oversize_handling: pulumi.Input['WebAclOversizeHandling']):
         """
-        Includes headers of a web request.
+        Includes cookies of a web request.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
         pulumi.set(__self__, "match_scope", match_scope)
@@ -3187,6 +3220,7 @@ class WebAclFieldToMatchArgs:
                  body: Optional[pulumi.Input['WebAclBodyArgs']] = None,
                  cookies: Optional[pulumi.Input['WebAclCookiesArgs']] = None,
                  headers: Optional[pulumi.Input['WebAclHeadersArgs']] = None,
+                 ja3_fingerprint: Optional[pulumi.Input['WebAclJa3FingerprintArgs']] = None,
                  json_body: Optional[pulumi.Input['WebAclJsonBodyArgs']] = None,
                  method: Optional[Any] = None,
                  query_string: Optional[Any] = None,
@@ -3209,6 +3243,8 @@ class WebAclFieldToMatchArgs:
             pulumi.set(__self__, "cookies", cookies)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
+        if ja3_fingerprint is not None:
+            pulumi.set(__self__, "ja3_fingerprint", ja3_fingerprint)
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
         if method is not None:
@@ -3260,6 +3296,15 @@ class WebAclFieldToMatchArgs:
     @headers.setter
     def headers(self, value: Optional[pulumi.Input['WebAclHeadersArgs']]):
         pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ja3Fingerprint")
+    def ja3_fingerprint(self) -> Optional[pulumi.Input['WebAclJa3FingerprintArgs']]:
+        return pulumi.get(self, "ja3_fingerprint")
+
+    @ja3_fingerprint.setter
+    def ja3_fingerprint(self, value: Optional[pulumi.Input['WebAclJa3FingerprintArgs']]):
+        pulumi.set(self, "ja3_fingerprint", value)
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -3553,6 +3598,25 @@ class WebAclIpSetReferenceStatementArgs:
     @ip_set_forwarded_ip_config.setter
     def ip_set_forwarded_ip_config(self, value: Optional[pulumi.Input['WebAclIpSetForwardedIpConfigurationArgs']]):
         pulumi.set(self, "ip_set_forwarded_ip_config", value)
+
+
+@pulumi.input_type
+class WebAclJa3FingerprintArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: pulumi.Input['WebAclJa3FingerprintFallbackBehavior']):
+        """
+        Includes the JA3 fingerprint of a web request.
+        """
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> pulumi.Input['WebAclJa3FingerprintFallbackBehavior']:
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: pulumi.Input['WebAclJa3FingerprintFallbackBehavior']):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 @pulumi.input_type

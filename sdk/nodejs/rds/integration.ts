@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Creates a zero-ETL integration with Amazon Redshift.
  */
 export class Integration extends pulumi.CustomResource {
     /**

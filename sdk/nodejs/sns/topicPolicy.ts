@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Schema for AWS::SNS::TopicPolicy
+ * The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
  */
 export class TopicPolicy extends pulumi.CustomResource {
     /**
@@ -34,9 +34,6 @@ export class TopicPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === TopicPolicy.__pulumiType;
     }
 
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * A policy document that contains permissions to add to the specified SNS topics.
@@ -45,7 +42,7 @@ export class TopicPolicy extends pulumi.CustomResource {
      */
     public readonly policyDocument!: pulumi.Output<any>;
     /**
-     * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+     * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
      */
     public readonly topics!: pulumi.Output<string[]>;
 
@@ -90,7 +87,7 @@ export interface TopicPolicyArgs {
      */
     policyDocument: any;
     /**
-     * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+     * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
      */
     topics: pulumi.Input<pulumi.Input<string>[]>;
 }

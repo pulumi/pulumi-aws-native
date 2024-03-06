@@ -18,6 +18,7 @@ type JobDefinition struct {
 
 	AwsId               pulumi.StringOutput                       `pulumi:"awsId"`
 	ContainerProperties JobDefinitionContainerPropertiesPtrOutput `pulumi:"containerProperties"`
+	EcsProperties       JobDefinitionEcsPropertiesPtrOutput       `pulumi:"ecsProperties"`
 	EksProperties       JobDefinitionEksPropertiesPtrOutput       `pulumi:"eksProperties"`
 	JobDefinitionName   pulumi.StringPtrOutput                    `pulumi:"jobDefinitionName"`
 	NodeProperties      JobDefinitionNodePropertiesPtrOutput      `pulumi:"nodeProperties"`
@@ -82,6 +83,7 @@ func (JobDefinitionState) ElementType() reflect.Type {
 
 type jobDefinitionArgs struct {
 	ContainerProperties *JobDefinitionContainerProperties `pulumi:"containerProperties"`
+	EcsProperties       *JobDefinitionEcsProperties       `pulumi:"ecsProperties"`
 	EksProperties       *JobDefinitionEksProperties       `pulumi:"eksProperties"`
 	JobDefinitionName   *string                           `pulumi:"jobDefinitionName"`
 	NodeProperties      *JobDefinitionNodeProperties      `pulumi:"nodeProperties"`
@@ -100,6 +102,7 @@ type jobDefinitionArgs struct {
 // The set of arguments for constructing a JobDefinition resource.
 type JobDefinitionArgs struct {
 	ContainerProperties JobDefinitionContainerPropertiesPtrInput
+	EcsProperties       JobDefinitionEcsPropertiesPtrInput
 	EksProperties       JobDefinitionEksPropertiesPtrInput
 	JobDefinitionName   pulumi.StringPtrInput
 	NodeProperties      JobDefinitionNodePropertiesPtrInput
@@ -158,6 +161,10 @@ func (o JobDefinitionOutput) AwsId() pulumi.StringOutput {
 
 func (o JobDefinitionOutput) ContainerProperties() JobDefinitionContainerPropertiesPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionContainerPropertiesPtrOutput { return v.ContainerProperties }).(JobDefinitionContainerPropertiesPtrOutput)
+}
+
+func (o JobDefinitionOutput) EcsProperties() JobDefinitionEcsPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinitionEcsPropertiesPtrOutput { return v.EcsProperties }).(JobDefinitionEcsPropertiesPtrOutput)
 }
 
 func (o JobDefinitionOutput) EksProperties() JobDefinitionEksPropertiesPtrOutput {

@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobDefinitionResult:
-    def __init__(__self__, container_properties=None, eks_properties=None, id=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, timeout=None, type=None):
+    def __init__(__self__, container_properties=None, ecs_properties=None, eks_properties=None, id=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, timeout=None, type=None):
         if container_properties and not isinstance(container_properties, dict):
             raise TypeError("Expected argument 'container_properties' to be a dict")
         pulumi.set(__self__, "container_properties", container_properties)
+        if ecs_properties and not isinstance(ecs_properties, dict):
+            raise TypeError("Expected argument 'ecs_properties' to be a dict")
+        pulumi.set(__self__, "ecs_properties", ecs_properties)
         if eks_properties and not isinstance(eks_properties, dict):
             raise TypeError("Expected argument 'eks_properties' to be a dict")
         pulumi.set(__self__, "eks_properties", eks_properties)
@@ -58,6 +61,11 @@ class GetJobDefinitionResult:
     @pulumi.getter(name="containerProperties")
     def container_properties(self) -> Optional['outputs.JobDefinitionContainerProperties']:
         return pulumi.get(self, "container_properties")
+
+    @property
+    @pulumi.getter(name="ecsProperties")
+    def ecs_properties(self) -> Optional['outputs.JobDefinitionEcsProperties']:
+        return pulumi.get(self, "ecs_properties")
 
     @property
     @pulumi.getter(name="eksProperties")
@@ -120,6 +128,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
             yield self
         return GetJobDefinitionResult(
             container_properties=self.container_properties,
+            ecs_properties=self.ecs_properties,
             eks_properties=self.eks_properties,
             id=self.id,
             node_properties=self.node_properties,
@@ -144,6 +153,7 @@ def get_job_definition(id: Optional[str] = None,
 
     return AwaitableGetJobDefinitionResult(
         container_properties=pulumi.get(__ret__, 'container_properties'),
+        ecs_properties=pulumi.get(__ret__, 'ecs_properties'),
         eks_properties=pulumi.get(__ret__, 'eks_properties'),
         id=pulumi.get(__ret__, 'id'),
         node_properties=pulumi.get(__ret__, 'node_properties'),

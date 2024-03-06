@@ -14,15 +14,23 @@ namespace Pulumi.AwsNative.Batch.Outputs
     public sealed class JobDefinitionNodeRangeProperty
     {
         public readonly Outputs.JobDefinitionContainerProperties? Container;
+        public readonly Outputs.JobDefinitionEcsProperties? EcsProperties;
+        public readonly ImmutableArray<string> InstanceTypes;
         public readonly string TargetNodes;
 
         [OutputConstructor]
         private JobDefinitionNodeRangeProperty(
             Outputs.JobDefinitionContainerProperties? container,
 
+            Outputs.JobDefinitionEcsProperties? ecsProperties,
+
+            ImmutableArray<string> instanceTypes,
+
             string targetNodes)
         {
             Container = container;
+            EcsProperties = ecsProperties;
+            InstanceTypes = instanceTypes;
             TargetNodes = targetNodes;
         }
     }

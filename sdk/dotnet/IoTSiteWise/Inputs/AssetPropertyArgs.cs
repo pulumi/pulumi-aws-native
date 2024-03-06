@@ -22,10 +22,22 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public Input<string>? Alias { get; set; }
 
         /// <summary>
+        /// String-friendly customer provided external ID
+        /// </summary>
+        [Input("externalId")]
+        public Input<string>? ExternalId { get; set; }
+
+        /// <summary>
+        /// Customer provided actual UUID for property
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// Customer provided ID for property.
         /// </summary>
-        [Input("logicalId", required: true)]
-        public Input<string> LogicalId { get; set; } = null!;
+        [Input("logicalId")]
+        public Input<string>? LogicalId { get; set; }
 
         /// <summary>
         /// The MQTT notification state (ENABLED or DISABLED) for this asset property.

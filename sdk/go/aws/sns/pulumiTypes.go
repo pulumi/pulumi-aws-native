@@ -14,14 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type TopicLoggingConfig struct {
-	// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
-	FailureFeedbackRoleArn *string `pulumi:"failureFeedbackRoleArn"`
-	// Indicates one of the supported protocols for the SNS topic
-	Protocol TopicLoggingConfigProtocol `pulumi:"protocol"`
-	// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
-	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
-	// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
-	SuccessFeedbackSampleRate *string `pulumi:"successFeedbackSampleRate"`
+	FailureFeedbackRoleArn    *string                    `pulumi:"failureFeedbackRoleArn"`
+	Protocol                  TopicLoggingConfigProtocol `pulumi:"protocol"`
+	SuccessFeedbackRoleArn    *string                    `pulumi:"successFeedbackRoleArn"`
+	SuccessFeedbackSampleRate *string                    `pulumi:"successFeedbackSampleRate"`
 }
 
 // TopicLoggingConfigInput is an input type that accepts TopicLoggingConfigArgs and TopicLoggingConfigOutput values.
@@ -36,14 +32,10 @@ type TopicLoggingConfigInput interface {
 }
 
 type TopicLoggingConfigArgs struct {
-	// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
-	FailureFeedbackRoleArn pulumi.StringPtrInput `pulumi:"failureFeedbackRoleArn"`
-	// Indicates one of the supported protocols for the SNS topic
-	Protocol TopicLoggingConfigProtocolInput `pulumi:"protocol"`
-	// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
-	SuccessFeedbackRoleArn pulumi.StringPtrInput `pulumi:"successFeedbackRoleArn"`
-	// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
-	SuccessFeedbackSampleRate pulumi.StringPtrInput `pulumi:"successFeedbackSampleRate"`
+	FailureFeedbackRoleArn    pulumi.StringPtrInput           `pulumi:"failureFeedbackRoleArn"`
+	Protocol                  TopicLoggingConfigProtocolInput `pulumi:"protocol"`
+	SuccessFeedbackRoleArn    pulumi.StringPtrInput           `pulumi:"successFeedbackRoleArn"`
+	SuccessFeedbackSampleRate pulumi.StringPtrInput           `pulumi:"successFeedbackSampleRate"`
 }
 
 func (TopicLoggingConfigArgs) ElementType() reflect.Type {
@@ -97,22 +89,18 @@ func (o TopicLoggingConfigOutput) ToTopicLoggingConfigOutputWithContext(ctx cont
 	return o
 }
 
-// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
 func (o TopicLoggingConfigOutput) FailureFeedbackRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicLoggingConfig) *string { return v.FailureFeedbackRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Indicates one of the supported protocols for the SNS topic
 func (o TopicLoggingConfigOutput) Protocol() TopicLoggingConfigProtocolOutput {
 	return o.ApplyT(func(v TopicLoggingConfig) TopicLoggingConfigProtocol { return v.Protocol }).(TopicLoggingConfigProtocolOutput)
 }
 
-// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
 func (o TopicLoggingConfigOutput) SuccessFeedbackRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicLoggingConfig) *string { return v.SuccessFeedbackRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
 func (o TopicLoggingConfigOutput) SuccessFeedbackSampleRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicLoggingConfig) *string { return v.SuccessFeedbackSampleRate }).(pulumi.StringPtrOutput)
 }
@@ -137,8 +125,13 @@ func (o TopicLoggingConfigArrayOutput) Index(i pulumi.IntInput) TopicLoggingConf
 	}).(TopicLoggingConfigOutput)
 }
 
+// “Subscription“ is an embedded property that describes the subscription endpoints of an SNS topic.
+//
+//	For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
 type TopicSubscription struct {
+	// The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
 	Endpoint string `pulumi:"endpoint"`
+	// The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -153,8 +146,13 @@ type TopicSubscriptionInput interface {
 	ToTopicSubscriptionOutputWithContext(context.Context) TopicSubscriptionOutput
 }
 
+// “Subscription“ is an embedded property that describes the subscription endpoints of an SNS topic.
+//
+//	For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
 type TopicSubscriptionArgs struct {
+	// The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The subscription's protocol. For more information, see the ``Protocol`` parameter of the ``Subscribe`` action in the *API Reference*.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -195,6 +193,9 @@ func (i TopicSubscriptionArray) ToTopicSubscriptionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionArrayOutput)
 }
 
+// “Subscription“ is an embedded property that describes the subscription endpoints of an SNS topic.
+//
+//	For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.
 type TopicSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (TopicSubscriptionOutput) ElementType() reflect.Type {
@@ -209,10 +210,12 @@ func (o TopicSubscriptionOutput) ToTopicSubscriptionOutputWithContext(ctx contex
 	return o
 }
 
+// The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the “Endpoint“ parameter of the “Subscribe“ action in the *API Reference*.
 func (o TopicSubscriptionOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicSubscription) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// The subscription's protocol. For more information, see the “Protocol“ parameter of the “Subscribe“ action in the *API Reference*.
 func (o TopicSubscriptionOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicSubscription) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -237,10 +240,11 @@ func (o TopicSubscriptionArrayOutput) Index(i pulumi.IntInput) TopicSubscription
 	}).(TopicSubscriptionOutput)
 }
 
+// The list of tags to be added to the specified topic.
 type TopicTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_`, `.`, `/`, `=`, `+`, and `-`.
+	// The required key portion of the tag.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 characters in length.
+	// The optional value portion of the tag.
 	Value string `pulumi:"value"`
 }
 
