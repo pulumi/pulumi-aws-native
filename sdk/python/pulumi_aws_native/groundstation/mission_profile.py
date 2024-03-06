@@ -237,6 +237,7 @@ class MissionProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'tracking_config_arn'")
             __props__.__dict__["tracking_config_arn"] = tracking_config_arn
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["region"] = None
         super(MissionProfile, __self__).__init__(
             'aws-native:groundstation:MissionProfile',
@@ -261,6 +262,7 @@ class MissionProfile(pulumi.CustomResource):
         __props__ = MissionProfileArgs.__new__(MissionProfileArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["contact_post_pass_duration_seconds"] = None
         __props__.__dict__["contact_pre_pass_duration_seconds"] = None
         __props__.__dict__["dataflow_edges"] = None
@@ -277,6 +279,11 @@ class MissionProfile(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="contactPostPassDurationSeconds")

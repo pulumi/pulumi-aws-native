@@ -172,6 +172,7 @@ class GatewayResponse(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
             __props__.__dict__["status_code"] = status_code
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["response_type", "rest_api_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GatewayResponse, __self__).__init__(
@@ -196,12 +197,18 @@ class GatewayResponse(pulumi.CustomResource):
 
         __props__ = GatewayResponseArgs.__new__(GatewayResponseArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["response_parameters"] = None
         __props__.__dict__["response_templates"] = None
         __props__.__dict__["response_type"] = None
         __props__.__dict__["rest_api_id"] = None
         __props__.__dict__["status_code"] = None
         return GatewayResponse(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="responseParameters")

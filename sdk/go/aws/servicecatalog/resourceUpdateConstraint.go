@@ -19,6 +19,7 @@ type ResourceUpdateConstraint struct {
 	pulumi.CustomResourceState
 
 	AcceptLanguage                pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	AwsId                         pulumi.StringOutput    `pulumi:"awsId"`
 	Description                   pulumi.StringPtrOutput `pulumi:"description"`
 	PortfolioId                   pulumi.StringOutput    `pulumi:"portfolioId"`
 	ProductId                     pulumi.StringOutput    `pulumi:"productId"`
@@ -134,6 +135,10 @@ func (o ResourceUpdateConstraintOutput) ToResourceUpdateConstraintOutputWithCont
 
 func (o ResourceUpdateConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceUpdateConstraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceUpdateConstraintOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceUpdateConstraint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ResourceUpdateConstraintOutput) Description() pulumi.StringPtrOutput {

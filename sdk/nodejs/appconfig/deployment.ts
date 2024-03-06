@@ -41,6 +41,7 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     public readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly configurationProfileId!: pulumi.Output<string>;
     public readonly configurationVersion!: pulumi.Output<string>;
     public readonly deploymentStrategyId!: pulumi.Output<string>;
@@ -85,8 +86,10 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configurationProfileId"] = undefined /*out*/;
             resourceInputs["configurationVersion"] = undefined /*out*/;
             resourceInputs["deploymentStrategyId"] = undefined /*out*/;

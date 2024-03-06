@@ -138,6 +138,7 @@ class WirelessDeviceImportTask(pulumi.CustomResource):
             __props__.__dict__["sidewalk"] = sidewalk
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["failed_imported_devices_count"] = None
             __props__.__dict__["initialized_imported_devices_count"] = None
@@ -168,6 +169,7 @@ class WirelessDeviceImportTask(pulumi.CustomResource):
         __props__ = WirelessDeviceImportTaskArgs.__new__(WirelessDeviceImportTaskArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["destination_name"] = None
         __props__.__dict__["failed_imported_devices_count"] = None
@@ -187,6 +189,14 @@ class WirelessDeviceImportTask(pulumi.CustomResource):
         Arn for Wireless Device Import Task, Returned upon successful start.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id for Wireless Device Import Task, Returned upon successful start.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationDate")

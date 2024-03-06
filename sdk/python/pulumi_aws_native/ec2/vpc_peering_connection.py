@@ -183,6 +183,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["peer_owner_id", "peer_region", "peer_role_arn", "peer_vpc_id", "vpc_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcPeeringConnection, __self__).__init__(
@@ -207,6 +208,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         __props__ = VpcPeeringConnectionArgs.__new__(VpcPeeringConnectionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["peer_owner_id"] = None
         __props__.__dict__["peer_region"] = None
         __props__.__dict__["peer_role_arn"] = None
@@ -214,6 +216,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
         return VpcPeeringConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="peerOwnerId")

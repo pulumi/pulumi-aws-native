@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.EmrContainers
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Id of the virtual cluster.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Container provider of the virtual cluster.
         /// </summary>
         [Output("containerProvider")]

@@ -19,6 +19,7 @@ type Mesh struct {
 	pulumi.CustomResourceState
 
 	Arn           pulumi.StringOutput    `pulumi:"arn"`
+	AwsId         pulumi.StringOutput    `pulumi:"awsId"`
 	MeshName      pulumi.StringPtrOutput `pulumi:"meshName"`
 	MeshOwner     pulumi.StringOutput    `pulumi:"meshOwner"`
 	ResourceOwner pulumi.StringOutput    `pulumi:"resourceOwner"`
@@ -122,6 +123,10 @@ func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 
 func (o MeshOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o MeshOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o MeshOutput) MeshName() pulumi.StringPtrOutput {

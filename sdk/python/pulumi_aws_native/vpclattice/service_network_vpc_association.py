@@ -128,6 +128,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_identifier"] = vpc_identifier
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["service_network_arn"] = None
             __props__.__dict__["service_network_id"] = None
@@ -159,6 +160,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         __props__ = ServiceNetworkVpcAssociationArgs.__new__(ServiceNetworkVpcAssociationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["service_network_arn"] = None
@@ -175,6 +177,11 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

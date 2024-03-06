@@ -19,6 +19,7 @@ type AcceptedPortfolioShare struct {
 	pulumi.CustomResourceState
 
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	AwsId          pulumi.StringOutput    `pulumi:"awsId"`
 	PortfolioId    pulumi.StringOutput    `pulumi:"portfolioId"`
 }
 
@@ -119,6 +120,10 @@ func (o AcceptedPortfolioShareOutput) ToAcceptedPortfolioShareOutputWithContext(
 
 func (o AcceptedPortfolioShareOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AcceptedPortfolioShare) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o AcceptedPortfolioShareOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AcceptedPortfolioShare) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AcceptedPortfolioShareOutput) PortfolioId() pulumi.StringOutput {

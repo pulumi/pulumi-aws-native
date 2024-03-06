@@ -214,6 +214,7 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["status"] = None
         super(EnvironmentAccountConnection, __self__).__init__(
             'aws-native:proton:EnvironmentAccountConnection',
@@ -238,6 +239,7 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
         __props__ = EnvironmentAccountConnectionArgs.__new__(EnvironmentAccountConnectionArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["codebuild_role_arn"] = None
         __props__.__dict__["component_role_arn"] = None
         __props__.__dict__["environment_account_id"] = None
@@ -255,6 +257,14 @@ class EnvironmentAccountConnection(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the environment account connection.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the environment account connection.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="codebuildRoleArn")

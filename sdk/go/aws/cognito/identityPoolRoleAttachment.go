@@ -16,6 +16,7 @@ import (
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
 
+	AwsId          pulumi.StringOutput                            `pulumi:"awsId"`
 	IdentityPoolId pulumi.StringOutput                            `pulumi:"identityPoolId"`
 	RoleMappings   IdentityPoolRoleAttachmentRoleMappingMapOutput `pulumi:"roleMappings"`
 	Roles          pulumi.StringMapOutput                         `pulumi:"roles"`
@@ -115,6 +116,10 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutput() I
 
 func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput {
 	return o
+}
+
+func (o IdentityPoolRoleAttachmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o IdentityPoolRoleAttachmentOutput) IdentityPoolId() pulumi.StringOutput {

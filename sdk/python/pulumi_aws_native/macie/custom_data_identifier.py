@@ -208,6 +208,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
             __props__.__dict__["regex"] = regex
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "ignore_words[*]", "keywords[*]", "maximum_match_distance", "name", "regex"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomDataIdentifier, __self__).__init__(
@@ -233,6 +234,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
         __props__ = CustomDataIdentifierArgs.__new__(CustomDataIdentifierArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["ignore_words"] = None
         __props__.__dict__["keywords"] = None
@@ -249,6 +251,14 @@ class CustomDataIdentifier(pulumi.CustomResource):
         Custom data identifier ARN.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Custom data identifier ID.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

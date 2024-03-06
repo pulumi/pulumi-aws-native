@@ -45,6 +45,7 @@ export class GraphQlApi extends pulumi.CustomResource {
     public readonly apiType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authenticationType!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly enhancedMetricsConfig!: pulumi.Output<outputs.appsync.GraphQlApiEnhancedMetricsConfig | undefined>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
@@ -105,6 +106,7 @@ export class GraphQlApi extends pulumi.CustomResource {
             resourceInputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["graphQlDns"] = undefined /*out*/;
             resourceInputs["graphQlEndpointArn"] = undefined /*out*/;
             resourceInputs["graphQlUrl"] = undefined /*out*/;
@@ -116,6 +118,7 @@ export class GraphQlApi extends pulumi.CustomResource {
             resourceInputs["apiType"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["enhancedMetricsConfig"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
             resourceInputs["graphQlDns"] = undefined /*out*/;

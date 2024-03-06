@@ -229,6 +229,7 @@ class Trigger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["workflow_name"] = workflow_name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type", "workflow_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Trigger, __self__).__init__(
@@ -254,6 +255,7 @@ class Trigger(pulumi.CustomResource):
         __props__ = TriggerArgs.__new__(TriggerArgs)
 
         __props__.__dict__["actions"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["event_batching_condition"] = None
         __props__.__dict__["name"] = None
@@ -269,6 +271,11 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence['outputs.TriggerAction']]:
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

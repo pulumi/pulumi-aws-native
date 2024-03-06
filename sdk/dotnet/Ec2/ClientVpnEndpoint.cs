@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("authenticationOptions")]
         public Output<ImmutableArray<Outputs.ClientVpnEndpointClientAuthenticationRequest>> AuthenticationOptions { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("clientCidrBlock")]
         public Output<string> ClientCidrBlock { get; private set; } = null!;
 

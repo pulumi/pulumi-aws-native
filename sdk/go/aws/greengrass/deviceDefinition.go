@@ -18,6 +18,7 @@ type DeviceDefinition struct {
 	pulumi.CustomResourceState
 
 	Arn              pulumi.StringOutput                  `pulumi:"arn"`
+	AwsId            pulumi.StringOutput                  `pulumi:"awsId"`
 	InitialVersion   DeviceDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                  `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                  `pulumi:"name"`
@@ -122,6 +123,10 @@ func (o DeviceDefinitionOutput) ToDeviceDefinitionOutputWithContext(ctx context.
 
 func (o DeviceDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DeviceDefinitionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceDefinition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DeviceDefinitionOutput) InitialVersion() DeviceDefinitionVersionTypePtrOutput {

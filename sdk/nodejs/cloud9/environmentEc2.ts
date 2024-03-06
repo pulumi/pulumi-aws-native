@@ -42,6 +42,7 @@ export class EnvironmentEc2 extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly automaticStopTimeMinutes!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly connectionType!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly imageId!: pulumi.Output<string>;
@@ -82,9 +83,11 @@ export class EnvironmentEc2 extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["automaticStopTimeMinutes"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["connectionType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;

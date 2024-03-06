@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.WafRegional
     [AwsNativeResourceType("aws-native:wafregional:IpSet")]
     public partial class IpSet : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("ipSetDescriptors")]
         public Output<ImmutableArray<Outputs.IpSetIpSetDescriptor>> IpSetDescriptors { get; private set; } = null!;
 

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("availableInstanceCount")]
         public Output<int> AvailableInstanceCount { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("ebsOptimized")]
         public Output<bool?> EbsOptimized { get; private set; } = null!;
 

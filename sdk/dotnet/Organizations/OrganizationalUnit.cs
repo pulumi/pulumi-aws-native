@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Organizations
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The unique identifier (ID) associated with this OU.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The friendly name of this OU.
         /// </summary>
         [Output("name")]

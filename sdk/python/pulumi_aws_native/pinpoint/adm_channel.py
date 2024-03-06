@@ -133,6 +133,7 @@ class AdmChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = client_secret
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AdmChannel, __self__).__init__(
@@ -158,6 +159,7 @@ class AdmChannel(pulumi.CustomResource):
         __props__ = AdmChannelArgs.__new__(AdmChannelArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_id"] = None
         __props__.__dict__["client_secret"] = None
         __props__.__dict__["enabled"] = None
@@ -167,6 +169,11 @@ class AdmChannel(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientId")

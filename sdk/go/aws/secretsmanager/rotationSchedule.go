@@ -18,6 +18,7 @@ import (
 type RotationSchedule struct {
 	pulumi.CustomResourceState
 
+	AwsId                     pulumi.StringOutput                           `pulumi:"awsId"`
 	HostedRotationLambda      RotationScheduleHostedRotationLambdaPtrOutput `pulumi:"hostedRotationLambda"`
 	RotateImmediatelyOnUpdate pulumi.BoolPtrOutput                          `pulumi:"rotateImmediatelyOnUpdate"`
 	RotationLambdaArn         pulumi.StringPtrOutput                        `pulumi:"rotationLambdaArn"`
@@ -123,6 +124,10 @@ func (o RotationScheduleOutput) ToRotationScheduleOutput() RotationScheduleOutpu
 
 func (o RotationScheduleOutput) ToRotationScheduleOutputWithContext(ctx context.Context) RotationScheduleOutput {
 	return o
+}
+
+func (o RotationScheduleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RotationSchedule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RotationScheduleOutput) HostedRotationLambda() RotationScheduleHostedRotationLambdaPtrOutput {

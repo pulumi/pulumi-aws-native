@@ -40,6 +40,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
         return obj['__pulumiType'] === MaintenanceWindowTask.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cutoffBehavior!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly loggingInfo!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskLoggingInfo | undefined>;
@@ -97,7 +98,9 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             resourceInputs["taskParameters"] = args ? args.taskParameters : undefined;
             resourceInputs["taskType"] = args ? args.taskType : undefined;
             resourceInputs["windowId"] = args ? args.windowId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cutoffBehavior"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["loggingInfo"] = undefined /*out*/;

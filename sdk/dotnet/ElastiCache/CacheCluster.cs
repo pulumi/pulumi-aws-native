@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("azMode")]
         public Output<string?> AzMode { get; private set; } = null!;
 

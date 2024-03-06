@@ -17,6 +17,7 @@ import (
 type ByteMatchSet struct {
 	pulumi.CustomResourceState
 
+	AwsId           pulumi.StringOutput                   `pulumi:"awsId"`
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayOutput `pulumi:"byteMatchTuples"`
 	Name            pulumi.StringOutput                   `pulumi:"name"`
 }
@@ -110,6 +111,10 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutput() ByteMatchSetOutput {
 
 func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput {
 	return o
+}
+
+func (o ByteMatchSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ByteMatchSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ByteMatchSetOutput) ByteMatchTuples() ByteMatchSetByteMatchTupleArrayOutput {

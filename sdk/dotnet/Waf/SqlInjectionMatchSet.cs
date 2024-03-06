@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Waf
     [AwsNativeResourceType("aws-native:waf:SqlInjectionMatchSet")]
     public partial class SqlInjectionMatchSet : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

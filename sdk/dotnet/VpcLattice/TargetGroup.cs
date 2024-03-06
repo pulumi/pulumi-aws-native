@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("config")]
         public Output<Outputs.TargetGroupConfig?> Config { get; private set; } = null!;
 

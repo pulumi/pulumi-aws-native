@@ -82,6 +82,7 @@ class OriginAccessControl(pulumi.CustomResource):
             if origin_access_control_config is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_access_control_config'")
             __props__.__dict__["origin_access_control_config"] = origin_access_control_config
+            __props__.__dict__["aws_id"] = None
         super(OriginAccessControl, __self__).__init__(
             'aws-native:cloudfront:OriginAccessControl',
             resource_name,
@@ -104,8 +105,14 @@ class OriginAccessControl(pulumi.CustomResource):
 
         __props__ = OriginAccessControlArgs.__new__(OriginAccessControlArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["origin_access_control_config"] = None
         return OriginAccessControl(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="originAccessControlConfig")

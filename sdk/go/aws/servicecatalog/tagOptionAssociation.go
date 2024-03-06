@@ -18,6 +18,7 @@ import (
 type TagOptionAssociation struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput `pulumi:"awsId"`
 	ResourceId  pulumi.StringOutput `pulumi:"resourceId"`
 	TagOptionId pulumi.StringOutput `pulumi:"tagOptionId"`
 }
@@ -118,6 +119,10 @@ func (o TagOptionAssociationOutput) ToTagOptionAssociationOutput() TagOptionAsso
 
 func (o TagOptionAssociationOutput) ToTagOptionAssociationOutputWithContext(ctx context.Context) TagOptionAssociationOutput {
 	return o
+}
+
+func (o TagOptionAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagOptionAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TagOptionAssociationOutput) ResourceId() pulumi.StringOutput {

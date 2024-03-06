@@ -38,6 +38,7 @@ export class User extends pulumi.CustomResource {
     }
 
     public readonly authenticationType!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly firstName!: pulumi.Output<string | undefined>;
     public readonly lastName!: pulumi.Output<string | undefined>;
     public readonly messageAction!: pulumi.Output<string | undefined>;
@@ -64,8 +65,10 @@ export class User extends pulumi.CustomResource {
             resourceInputs["lastName"] = args ? args.lastName : undefined;
             resourceInputs["messageAction"] = args ? args.messageAction : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["authenticationType"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["firstName"] = undefined /*out*/;
             resourceInputs["lastName"] = undefined /*out*/;
             resourceInputs["messageAction"] = undefined /*out*/;

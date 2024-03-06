@@ -84,6 +84,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["cloud_watch_role_arn"] = cloud_watch_role_arn
+            __props__.__dict__["aws_id"] = None
         super(Account, __self__).__init__(
             'aws-native:apigateway:Account',
             resource_name,
@@ -106,8 +107,14 @@ class Account(pulumi.CustomResource):
 
         __props__ = AccountArgs.__new__(AccountArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cloud_watch_role_arn"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cloudWatchRoleArn")

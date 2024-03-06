@@ -18,7 +18,8 @@ type AttributeGroup struct {
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
-	Attributes pulumi.AnyOutput `pulumi:"attributes"`
+	Attributes pulumi.AnyOutput    `pulumi:"attributes"`
+	AwsId      pulumi.StringOutput `pulumi:"awsId"`
 	// The description of the attribute group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the attribute group.
@@ -133,6 +134,10 @@ func (o AttributeGroupOutput) Arn() pulumi.StringOutput {
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceCatalogAppRegistry::AttributeGroup` for more information about the expected schema for this property.
 func (o AttributeGroupOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AttributeGroup) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+}
+
+func (o AttributeGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttributeGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The description of the attribute group.

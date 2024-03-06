@@ -37,6 +37,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResponseHeadersPolicy.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     public readonly responseHeadersPolicyConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyConfig>;
 
@@ -55,8 +56,10 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'responseHeadersPolicyConfig'");
             }
             resourceInputs["responseHeadersPolicyConfig"] = args ? args.responseHeadersPolicyConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["responseHeadersPolicyConfig"] = undefined /*out*/;
         }

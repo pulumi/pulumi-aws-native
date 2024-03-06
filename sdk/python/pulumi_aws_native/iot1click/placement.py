@@ -141,6 +141,7 @@ class Placement(pulumi.CustomResource):
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["associated_devices", "placement_name", "project_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Placement, __self__).__init__(
@@ -167,6 +168,7 @@ class Placement(pulumi.CustomResource):
 
         __props__.__dict__["associated_devices"] = None
         __props__.__dict__["attributes"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["placement_name"] = None
         __props__.__dict__["project_name"] = None
         return Placement(resource_name, opts=opts, __props__=__props__)
@@ -186,6 +188,11 @@ class Placement(pulumi.CustomResource):
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="placementName")

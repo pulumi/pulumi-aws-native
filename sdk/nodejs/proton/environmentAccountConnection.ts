@@ -42,6 +42,10 @@ export class EnvironmentAccountConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ID of the environment account connection.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
      */
     public readonly codebuildRoleArn!: pulumi.Output<string | undefined>;
@@ -95,9 +99,11 @@ export class EnvironmentAccountConnection extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["codebuildRoleArn"] = undefined /*out*/;
             resourceInputs["componentRoleArn"] = undefined /*out*/;
             resourceInputs["environmentAccountId"] = undefined /*out*/;

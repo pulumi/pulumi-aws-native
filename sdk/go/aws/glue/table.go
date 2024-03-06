@@ -18,6 +18,7 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
+	AwsId                pulumi.StringOutput                `pulumi:"awsId"`
 	CatalogId            pulumi.StringOutput                `pulumi:"catalogId"`
 	DatabaseName         pulumi.StringOutput                `pulumi:"databaseName"`
 	OpenTableFormatInput TableOpenTableFormatInputPtrOutput `pulumi:"openTableFormatInput"`
@@ -127,6 +128,10 @@ func (o TableOutput) ToTableOutput() TableOutput {
 
 func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
+}
+
+func (o TableOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TableOutput) CatalogId() pulumi.StringOutput {

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
         [Output("actions")]
         public Output<ImmutableArray<Outputs.DatasetAction>> Actions { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("contentDeliveryRules")]
         public Output<ImmutableArray<Outputs.DatasetContentDeliveryRule>> ContentDeliveryRules { get; private set; } = null!;
 

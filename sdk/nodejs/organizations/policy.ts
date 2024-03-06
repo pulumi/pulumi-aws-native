@@ -42,6 +42,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Id of the Policy
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
      */
     public /*out*/ readonly awsManaged!: pulumi.Output<boolean>;
@@ -96,9 +100,11 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["targetIds"] = args ? args.targetIds : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["awsManaged"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["awsManaged"] = undefined /*out*/;
             resourceInputs["content"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

@@ -108,6 +108,7 @@ class ResolverConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
             __props__.__dict__["autodefined_reverse"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["owner_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autodefined_reverse_flag", "resource_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -135,6 +136,7 @@ class ResolverConfig(pulumi.CustomResource):
 
         __props__.__dict__["autodefined_reverse"] = None
         __props__.__dict__["autodefined_reverse_flag"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["owner_id"] = None
         __props__.__dict__["resource_id"] = None
         return ResolverConfig(resource_name, opts=opts, __props__=__props__)
@@ -154,6 +156,14 @@ class ResolverConfig(pulumi.CustomResource):
         Represents the desired status of AutodefinedReverse. The only supported value on creation is DISABLE. Deletion of this resource will return AutodefinedReverse to its default value (ENABLED).
         """
         return pulumi.get(self, "autodefined_reverse_flag")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="ownerId")

@@ -160,6 +160,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["status"] = None
@@ -189,6 +190,7 @@ class Service(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["auth_type"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["certificate_arn"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["custom_domain_name"] = None
@@ -208,6 +210,11 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Output[Optional['ServiceAuthType']]:
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="certificateArn")

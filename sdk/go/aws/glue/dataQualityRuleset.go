@@ -17,6 +17,7 @@ import (
 type DataQualityRuleset struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput    `pulumi:"awsId"`
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Name        pulumi.StringPtrOutput `pulumi:"name"`
@@ -121,6 +122,10 @@ func (o DataQualityRulesetOutput) ToDataQualityRulesetOutput() DataQualityRulese
 
 func (o DataQualityRulesetOutput) ToDataQualityRulesetOutputWithContext(ctx context.Context) DataQualityRulesetOutput {
 	return o
+}
+
+func (o DataQualityRulesetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DataQualityRulesetOutput) ClientToken() pulumi.StringPtrOutput {

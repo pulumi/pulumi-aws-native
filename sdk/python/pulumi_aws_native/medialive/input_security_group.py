@@ -108,6 +108,7 @@ class InputSecurityGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["whitelist_rules"] = whitelist_rules
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(InputSecurityGroup, __self__).__init__(
             'aws-native:medialive:InputSecurityGroup',
             resource_name,
@@ -131,6 +132,7 @@ class InputSecurityGroup(pulumi.CustomResource):
         __props__ = InputSecurityGroupArgs.__new__(InputSecurityGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["whitelist_rules"] = None
         return InputSecurityGroup(resource_name, opts=opts, __props__=__props__)
@@ -139,6 +141,11 @@ class InputSecurityGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

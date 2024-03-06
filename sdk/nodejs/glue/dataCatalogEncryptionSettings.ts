@@ -40,6 +40,7 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataCatalogEncryptionSettings.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly catalogId!: pulumi.Output<string>;
     public readonly dataCatalogEncryptionSettings!: pulumi.Output<outputs.glue.DataCatalogEncryptionSettings>;
 
@@ -64,7 +65,9 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
             }
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["dataCatalogEncryptionSettings"] = args ? args.dataCatalogEncryptionSettings : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["catalogId"] = undefined /*out*/;
             resourceInputs["dataCatalogEncryptionSettings"] = undefined /*out*/;
         }

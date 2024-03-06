@@ -173,6 +173,7 @@ class AnnotationStore(pulumi.CustomResource):
             __props__.__dict__["store_format"] = store_format
             __props__.__dict__["store_options"] = store_options
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
@@ -203,6 +204,7 @@ class AnnotationStore(pulumi.CustomResource):
 
         __props__ = AnnotationStoreArgs.__new__(AnnotationStoreArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -217,6 +219,11 @@ class AnnotationStore(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["update_time"] = None
         return AnnotationStore(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

@@ -22,6 +22,7 @@ type Placement struct {
 	AssociatedDevices pulumi.AnyOutput `pulumi:"associatedDevices"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
 	Attributes    pulumi.AnyOutput       `pulumi:"attributes"`
+	AwsId         pulumi.StringOutput    `pulumi:"awsId"`
 	PlacementName pulumi.StringPtrOutput `pulumi:"placementName"`
 	ProjectName   pulumi.StringOutput    `pulumi:"projectName"`
 }
@@ -138,6 +139,10 @@ func (o PlacementOutput) AssociatedDevices() pulumi.AnyOutput {
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT1Click::Placement` for more information about the expected schema for this property.
 func (o PlacementOutput) Attributes() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Placement) pulumi.AnyOutput { return v.Attributes }).(pulumi.AnyOutput)
+}
+
+func (o PlacementOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Placement) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PlacementOutput) PlacementName() pulumi.StringPtrOutput {

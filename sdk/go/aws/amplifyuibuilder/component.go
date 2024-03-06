@@ -16,6 +16,7 @@ type Component struct {
 	pulumi.CustomResourceState
 
 	AppId                pulumi.StringPtrOutput                   `pulumi:"appId"`
+	AwsId                pulumi.StringOutput                      `pulumi:"awsId"`
 	BindingProperties    ComponentBindingPropertiesValueMapOutput `pulumi:"bindingProperties"`
 	Children             ComponentChildArrayOutput                `pulumi:"children"`
 	CollectionProperties ComponentDataConfigurationMapOutput      `pulumi:"collectionProperties"`
@@ -151,6 +152,10 @@ func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) Compo
 
 func (o ComponentOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+func (o ComponentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ComponentOutput) BindingProperties() ComponentBindingPropertiesValueMapOutput {

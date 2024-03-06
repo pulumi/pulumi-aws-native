@@ -254,6 +254,7 @@ class App(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["shortname", "stack_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(App, __self__).__init__(
@@ -280,6 +281,7 @@ class App(pulumi.CustomResource):
 
         __props__.__dict__["app_source"] = None
         __props__.__dict__["attributes"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["data_sources"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["domains"] = None
@@ -301,6 +303,11 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="dataSources")

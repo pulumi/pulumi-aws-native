@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
     [AwsNativeResourceType("aws-native:servicecatalog:TagOptionAssociation")]
     public partial class TagOptionAssociation : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 

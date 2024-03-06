@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:CodeRepository")]
     public partial class CodeRepository : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("codeRepositoryName")]
         public Output<string?> CodeRepositoryName { get; private set; } = null!;
 

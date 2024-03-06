@@ -39,6 +39,7 @@ export class Extension extends pulumi.CustomResource {
 
     public readonly actions!: pulumi.Output<{[key: string]: outputs.appconfig.ExtensionAction[]}>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Description of the extension.
      */
@@ -76,10 +77,12 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["versionNumber"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["latestVersionNumber"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

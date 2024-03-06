@@ -41,6 +41,7 @@ export class ScalingPlan extends pulumi.CustomResource {
     }
 
     public readonly applicationSource!: pulumi.Output<outputs.autoscalingplans.ScalingPlanApplicationSource>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly scalingInstructions!: pulumi.Output<outputs.autoscalingplans.ScalingPlanScalingInstruction[]>;
     public /*out*/ readonly scalingPlanName!: pulumi.Output<string>;
     public /*out*/ readonly scalingPlanVersion!: pulumi.Output<string>;
@@ -66,10 +67,12 @@ export class ScalingPlan extends pulumi.CustomResource {
             }
             resourceInputs["applicationSource"] = args ? args.applicationSource : undefined;
             resourceInputs["scalingInstructions"] = args ? args.scalingInstructions : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["scalingPlanName"] = undefined /*out*/;
             resourceInputs["scalingPlanVersion"] = undefined /*out*/;
         } else {
             resourceInputs["applicationSource"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["scalingInstructions"] = undefined /*out*/;
             resourceInputs["scalingPlanName"] = undefined /*out*/;
             resourceInputs["scalingPlanVersion"] = undefined /*out*/;

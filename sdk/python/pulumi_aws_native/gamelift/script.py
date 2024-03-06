@@ -150,6 +150,7 @@ class Script(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["size_on_disk"] = None
         super(Script, __self__).__init__(
@@ -175,6 +176,7 @@ class Script(pulumi.CustomResource):
         __props__ = ScriptArgs.__new__(ScriptArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["size_on_disk"] = None
@@ -190,6 +192,14 @@ class Script(pulumi.CustomResource):
         The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the Realtime script
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.MediaLive
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaLive::InputSecurityGroup` for more information about the expected schema for this property.
         /// </summary>

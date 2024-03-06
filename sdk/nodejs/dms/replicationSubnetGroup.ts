@@ -40,6 +40,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationSubnetGroup.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly replicationSubnetGroupDescription!: pulumi.Output<string>;
     public readonly replicationSubnetGroupIdentifier!: pulumi.Output<string | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
@@ -68,7 +69,9 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             resourceInputs["replicationSubnetGroupIdentifier"] = args ? args.replicationSubnetGroupIdentifier : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["replicationSubnetGroupDescription"] = undefined /*out*/;
             resourceInputs["replicationSubnetGroupIdentifier"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;

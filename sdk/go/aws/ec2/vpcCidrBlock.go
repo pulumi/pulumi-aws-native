@@ -19,6 +19,7 @@ type VpcCidrBlock struct {
 	pulumi.CustomResourceState
 
 	AmazonProvidedIpv6CidrBlock pulumi.BoolPtrOutput   `pulumi:"amazonProvidedIpv6CidrBlock"`
+	AwsId                       pulumi.StringOutput    `pulumi:"awsId"`
 	CidrBlock                   pulumi.StringPtrOutput `pulumi:"cidrBlock"`
 	Ipv4IpamPoolId              pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
 	Ipv4NetmaskLength           pulumi.IntPtrOutput    `pulumi:"ipv4NetmaskLength"`
@@ -147,6 +148,10 @@ func (o VpcCidrBlockOutput) ToVpcCidrBlockOutputWithContext(ctx context.Context)
 
 func (o VpcCidrBlockOutput) AmazonProvidedIpv6CidrBlock() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcCidrBlock) pulumi.BoolPtrOutput { return v.AmazonProvidedIpv6CidrBlock }).(pulumi.BoolPtrOutput)
+}
+
+func (o VpcCidrBlockOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcCidrBlock) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o VpcCidrBlockOutput) CidrBlock() pulumi.StringPtrOutput {

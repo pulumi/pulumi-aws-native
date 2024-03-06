@@ -41,6 +41,7 @@ export class DevEndpoint extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::DevEndpoint` for more information about the expected schema for this property.
      */
     public readonly arguments!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly endpointName!: pulumi.Output<string | undefined>;
     public readonly extraJarsS3Path!: pulumi.Output<string | undefined>;
     public readonly extraPythonLibsS3Path!: pulumi.Output<string | undefined>;
@@ -90,8 +91,10 @@ export class DevEndpoint extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arguments"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpointName"] = undefined /*out*/;
             resourceInputs["extraJarsS3Path"] = undefined /*out*/;
             resourceInputs["extraPythonLibsS3Path"] = undefined /*out*/;

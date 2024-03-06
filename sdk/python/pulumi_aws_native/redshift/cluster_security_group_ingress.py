@@ -131,6 +131,7 @@ class ClusterSecurityGroupIngress(pulumi.CustomResource):
             __props__.__dict__["cluster_security_group_name"] = cluster_security_group_name
             __props__.__dict__["ec2_security_group_name"] = ec2_security_group_name
             __props__.__dict__["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidrip", "cluster_security_group_name", "ec2_security_group_name", "ec2_security_group_owner_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClusterSecurityGroupIngress, __self__).__init__(
@@ -155,11 +156,17 @@ class ClusterSecurityGroupIngress(pulumi.CustomResource):
 
         __props__ = ClusterSecurityGroupIngressArgs.__new__(ClusterSecurityGroupIngressArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cidrip"] = None
         __props__.__dict__["cluster_security_group_name"] = None
         __props__.__dict__["ec2_security_group_name"] = None
         __props__.__dict__["ec2_security_group_owner_id"] = None
         return ClusterSecurityGroupIngress(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

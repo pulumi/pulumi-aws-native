@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Ses
         [Output("after")]
         public Output<string?> After { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("rule")]
         public Output<Outputs.ReceiptRuleRule> Rule { get; private set; } = null!;
 

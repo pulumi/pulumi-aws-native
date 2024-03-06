@@ -19,6 +19,7 @@ type GraphQlSchema struct {
 	pulumi.CustomResourceState
 
 	ApiId                pulumi.StringOutput    `pulumi:"apiId"`
+	AwsId                pulumi.StringOutput    `pulumi:"awsId"`
 	Definition           pulumi.StringPtrOutput `pulumi:"definition"`
 	DefinitionS3Location pulumi.StringPtrOutput `pulumi:"definitionS3Location"`
 }
@@ -121,6 +122,10 @@ func (o GraphQlSchemaOutput) ToGraphQlSchemaOutputWithContext(ctx context.Contex
 
 func (o GraphQlSchemaOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQlSchema) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o GraphQlSchemaOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQlSchema) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o GraphQlSchemaOutput) Definition() pulumi.StringPtrOutput {

@@ -42,6 +42,10 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly assetFormsInput!: pulumi.Output<outputs.datazone.DataSourceFormInput[] | undefined>;
     /**
+     * The unique identifier of the data source.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
      */
     public readonly configuration!: pulumi.Output<outputs.datazone.DataSourceConfigurationInput0Properties | outputs.datazone.DataSourceConfigurationInput1Properties | undefined>;
@@ -157,6 +161,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["recommendation"] = args ? args.recommendation : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
@@ -168,6 +173,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["assetFormsInput"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

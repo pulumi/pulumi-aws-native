@@ -112,6 +112,7 @@ class TopicPolicy(pulumi.CustomResource):
             if topics is None and not opts.urn:
                 raise TypeError("Missing required property 'topics'")
             __props__.__dict__["topics"] = topics
+            __props__.__dict__["aws_id"] = None
         super(TopicPolicy, __self__).__init__(
             'aws-native:sns:TopicPolicy',
             resource_name,
@@ -134,9 +135,18 @@ class TopicPolicy(pulumi.CustomResource):
 
         __props__ = TopicPolicyArgs.__new__(TopicPolicyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["policy_document"] = None
         __props__.__dict__["topics"] = None
         return TopicPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The provider-assigned unique ID for this managed resource.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="policyDocument")

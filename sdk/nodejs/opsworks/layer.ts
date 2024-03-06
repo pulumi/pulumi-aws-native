@@ -43,6 +43,7 @@ export class Layer extends pulumi.CustomResource {
     public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly autoAssignElasticIps!: pulumi.Output<boolean>;
     public readonly autoAssignPublicIps!: pulumi.Output<boolean>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly customInstanceProfileArn!: pulumi.Output<string | undefined>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
@@ -113,10 +114,12 @@ export class Layer extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             resourceInputs["volumeConfigurations"] = args ? args.volumeConfigurations : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["attributes"] = undefined /*out*/;
             resourceInputs["autoAssignElasticIps"] = undefined /*out*/;
             resourceInputs["autoAssignPublicIps"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["customInstanceProfileArn"] = undefined /*out*/;
             resourceInputs["customJson"] = undefined /*out*/;
             resourceInputs["customRecipes"] = undefined /*out*/;

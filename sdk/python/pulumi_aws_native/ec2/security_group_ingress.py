@@ -341,6 +341,7 @@ class SecurityGroupIngress(pulumi.CustomResource):
             __props__.__dict__["source_security_group_name"] = source_security_group_name
             __props__.__dict__["source_security_group_owner_id"] = source_security_group_owner_id
             __props__.__dict__["to_port"] = to_port
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidr_ip", "cidr_ipv6", "from_port", "group_id", "group_name", "ip_protocol", "source_prefix_list_id", "source_security_group_id", "source_security_group_name", "source_security_group_owner_id", "to_port"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityGroupIngress, __self__).__init__(
@@ -365,6 +366,7 @@ class SecurityGroupIngress(pulumi.CustomResource):
 
         __props__ = SecurityGroupIngressInitArgs.__new__(SecurityGroupIngressInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cidr_ip"] = None
         __props__.__dict__["cidr_ipv6"] = None
         __props__.__dict__["description"] = None
@@ -378,6 +380,14 @@ class SecurityGroupIngress(pulumi.CustomResource):
         __props__.__dict__["source_security_group_owner_id"] = None
         __props__.__dict__["to_port"] = None
         return SecurityGroupIngress(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The Security Group Rule Id
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cidrIp")

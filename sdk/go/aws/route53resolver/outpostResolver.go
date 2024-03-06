@@ -19,6 +19,8 @@ type OutpostResolver struct {
 
 	// The OutpostResolver ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Id
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The OutpostResolver creation time
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The id of the creator request.
@@ -157,6 +159,11 @@ func (o OutpostResolverOutput) ToOutpostResolverOutputWithContext(ctx context.Co
 // The OutpostResolver ARN.
 func (o OutpostResolverOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutpostResolver) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Id
+func (o OutpostResolverOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutpostResolver) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The OutpostResolver creation time

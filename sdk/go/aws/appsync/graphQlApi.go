@@ -24,6 +24,7 @@ type GraphQlApi struct {
 	ApiType                           pulumi.StringPtrOutput                                `pulumi:"apiType"`
 	Arn                               pulumi.StringOutput                                   `pulumi:"arn"`
 	AuthenticationType                pulumi.StringOutput                                   `pulumi:"authenticationType"`
+	AwsId                             pulumi.StringOutput                                   `pulumi:"awsId"`
 	EnhancedMetricsConfig             GraphQlApiEnhancedMetricsConfigPtrOutput              `pulumi:"enhancedMetricsConfig"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AppSync::GraphQLApi` for more information about the expected schema for this property.
 	EnvironmentVariables      pulumi.AnyOutput                          `pulumi:"environmentVariables"`
@@ -191,6 +192,10 @@ func (o GraphQlApiOutput) Arn() pulumi.StringOutput {
 
 func (o GraphQlApiOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQlApi) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o GraphQlApiOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQlApi) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o GraphQlApiOutput) EnhancedMetricsConfig() GraphQlApiEnhancedMetricsConfigPtrOutput {

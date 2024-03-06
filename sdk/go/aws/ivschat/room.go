@@ -18,6 +18,8 @@ type Room struct {
 
 	// Room ARN is automatically generated on creation and assigned as the unique identifier.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The system-generated ID of the room.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Array of logging configuration identifiers attached to the room.
 	LoggingConfigurationIdentifiers pulumi.StringArrayOutput `pulumi:"loggingConfigurationIdentifiers"`
 	// The maximum number of characters in a single message.
@@ -139,6 +141,11 @@ func (o RoomOutput) ToRoomOutputWithContext(ctx context.Context) RoomOutput {
 // Room ARN is automatically generated on creation and assigned as the unique identifier.
 func (o RoomOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Room) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The system-generated ID of the room.
+func (o RoomOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Room) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Array of logging configuration identifiers attached to the room.

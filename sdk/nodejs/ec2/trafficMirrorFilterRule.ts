@@ -40,6 +40,7 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficMirrorFilterRule.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly destinationCidrBlock!: pulumi.Output<string>;
     public readonly destinationPortRange!: pulumi.Output<outputs.ec2.TrafficMirrorFilterRuleTrafficMirrorPortRange | undefined>;
@@ -92,7 +93,9 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
             resourceInputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
             resourceInputs["trafficDirection"] = args ? args.trafficDirection : undefined;
             resourceInputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinationCidrBlock"] = undefined /*out*/;
             resourceInputs["destinationPortRange"] = undefined /*out*/;

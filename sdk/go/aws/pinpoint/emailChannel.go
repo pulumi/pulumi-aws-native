@@ -19,6 +19,7 @@ type EmailChannel struct {
 	pulumi.CustomResourceState
 
 	ApplicationId    pulumi.StringOutput    `pulumi:"applicationId"`
+	AwsId            pulumi.StringOutput    `pulumi:"awsId"`
 	ConfigurationSet pulumi.StringPtrOutput `pulumi:"configurationSet"`
 	Enabled          pulumi.BoolPtrOutput   `pulumi:"enabled"`
 	FromAddress      pulumi.StringOutput    `pulumi:"fromAddress"`
@@ -136,6 +137,10 @@ func (o EmailChannelOutput) ToEmailChannelOutputWithContext(ctx context.Context)
 
 func (o EmailChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o EmailChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o EmailChannelOutput) ConfigurationSet() pulumi.StringPtrOutput {

@@ -37,6 +37,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly policy!: pulumi.Output<outputs.lex.ResourcePolicyPolicy>;
     public readonly resourceArn!: pulumi.Output<string>;
     public /*out*/ readonly revisionId!: pulumi.Output<string>;
@@ -60,8 +61,10 @@ export class ResourcePolicy extends pulumi.CustomResource {
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["revisionId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["revisionId"] = undefined /*out*/;

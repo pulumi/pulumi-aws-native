@@ -18,6 +18,7 @@ import (
 type ThingPrincipalAttachment struct {
 	pulumi.CustomResourceState
 
+	AwsId     pulumi.StringOutput `pulumi:"awsId"`
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	ThingName pulumi.StringOutput `pulumi:"thingName"`
 }
@@ -118,6 +119,10 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutput() Thing
 
 func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput {
 	return o
+}
+
+func (o ThingPrincipalAttachmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ThingPrincipalAttachmentOutput) Principal() pulumi.StringOutput {

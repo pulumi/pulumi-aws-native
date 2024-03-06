@@ -45,6 +45,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly architecture!: pulumi.Output<string | undefined>;
     public readonly autoScalingType!: pulumi.Output<string | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly blockDeviceMappings!: pulumi.Output<outputs.opsworks.InstanceBlockDeviceMapping[] | undefined>;
     public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
     public readonly elasticIps!: pulumi.Output<string[] | undefined>;
@@ -109,6 +110,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["timeBasedAutoScaling"] = args ? args.timeBasedAutoScaling : undefined;
             resourceInputs["virtualizationType"] = args ? args.virtualizationType : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["privateDnsName"] = undefined /*out*/;
             resourceInputs["privateIp"] = undefined /*out*/;
             resourceInputs["publicDnsName"] = undefined /*out*/;
@@ -119,6 +121,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["architecture"] = undefined /*out*/;
             resourceInputs["autoScalingType"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["blockDeviceMappings"] = undefined /*out*/;
             resourceInputs["ebsOptimized"] = undefined /*out*/;
             resourceInputs["elasticIps"] = undefined /*out*/;

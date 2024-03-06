@@ -18,6 +18,7 @@ import (
 type NetworkAclEntry struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
 	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
 	// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet)
@@ -173,6 +174,10 @@ func (o NetworkAclEntryOutput) ToNetworkAclEntryOutput() NetworkAclEntryOutput {
 
 func (o NetworkAclEntryOutput) ToNetworkAclEntryOutputWithContext(ctx context.Context) NetworkAclEntryOutput {
 	return o
+}
+
+func (o NetworkAclEntryOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkAclEntry) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property

@@ -456,6 +456,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["use_custom_cookbooks"] = use_custom_cookbooks
             __props__.__dict__["use_opsworks_security_groups"] = use_opsworks_security_groups
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clone_app_ids[*]", "clone_permissions", "service_role_arn", "source_stack_id", "vpc_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stack, __self__).__init__(
@@ -482,6 +483,7 @@ class Stack(pulumi.CustomResource):
 
         __props__.__dict__["agent_version"] = None
         __props__.__dict__["attributes"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["chef_configuration"] = None
         __props__.__dict__["clone_app_ids"] = None
         __props__.__dict__["clone_permissions"] = None
@@ -516,6 +518,11 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="chefConfiguration")

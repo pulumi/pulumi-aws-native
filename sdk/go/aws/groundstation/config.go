@@ -18,6 +18,7 @@ type Config struct {
 	pulumi.CustomResourceState
 
 	Arn        pulumi.StringOutput `pulumi:"arn"`
+	AwsId      pulumi.StringOutput `pulumi:"awsId"`
 	ConfigData ConfigDataOutput    `pulumi:"configData"`
 	Name       pulumi.StringOutput `pulumi:"name"`
 	Tags       aws.TagArrayOutput  `pulumi:"tags"`
@@ -118,6 +119,10 @@ func (o ConfigOutput) ToConfigOutputWithContext(ctx context.Context) ConfigOutpu
 
 func (o ConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ConfigOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Config) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ConfigOutput) ConfigData() ConfigDataOutput {

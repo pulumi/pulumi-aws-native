@@ -291,6 +291,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             if window_id is None and not opts.urn:
                 raise TypeError("Missing required property 'window_id'")
             __props__.__dict__["window_id"] = window_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["task_type", "window_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MaintenanceWindowTask, __self__).__init__(
@@ -315,6 +316,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         __props__ = MaintenanceWindowTaskArgs.__new__(MaintenanceWindowTaskArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cutoff_behavior"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["logging_info"] = None
@@ -330,6 +332,11 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         __props__.__dict__["task_type"] = None
         __props__.__dict__["window_id"] = None
         return MaintenanceWindowTask(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cutoffBehavior")

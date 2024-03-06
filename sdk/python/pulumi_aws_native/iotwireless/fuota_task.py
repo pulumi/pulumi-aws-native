@@ -272,6 +272,7 @@ class FuotaTask(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["fuota_task_status"] = None
         super(FuotaTask, __self__).__init__(
             'aws-native:iotwireless:FuotaTask',
@@ -298,6 +299,7 @@ class FuotaTask(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["associate_multicast_group"] = None
         __props__.__dict__["associate_wireless_device"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["disassociate_multicast_group"] = None
         __props__.__dict__["disassociate_wireless_device"] = None
@@ -332,6 +334,14 @@ class FuotaTask(pulumi.CustomResource):
         Wireless device to associate. Only for update request.
         """
         return pulumi.get(self, "associate_wireless_device")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        FUOTA task id. Returned after successful create.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

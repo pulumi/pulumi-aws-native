@@ -104,6 +104,7 @@ class ScalingPlan(pulumi.CustomResource):
             if scaling_instructions is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_instructions'")
             __props__.__dict__["scaling_instructions"] = scaling_instructions
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["scaling_plan_name"] = None
             __props__.__dict__["scaling_plan_version"] = None
         super(ScalingPlan, __self__).__init__(
@@ -129,6 +130,7 @@ class ScalingPlan(pulumi.CustomResource):
         __props__ = ScalingPlanArgs.__new__(ScalingPlanArgs)
 
         __props__.__dict__["application_source"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["scaling_instructions"] = None
         __props__.__dict__["scaling_plan_name"] = None
         __props__.__dict__["scaling_plan_version"] = None
@@ -138,6 +140,11 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter(name="applicationSource")
     def application_source(self) -> pulumi.Output['outputs.ScalingPlanApplicationSource']:
         return pulumi.get(self, "application_source")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="scalingInstructions")

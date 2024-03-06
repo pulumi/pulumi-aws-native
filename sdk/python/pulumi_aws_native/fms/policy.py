@@ -283,6 +283,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["security_service_policy_data"] = security_service_policy_data
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(Policy, __self__).__init__(
             'aws-native:fms:Policy',
             resource_name,
@@ -306,6 +307,7 @@ class Policy(pulumi.CustomResource):
         __props__ = PolicyArgs.__new__(PolicyArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["delete_all_policy_resources"] = None
         __props__.__dict__["exclude_map"] = None
         __props__.__dict__["exclude_resource_tags"] = None
@@ -326,6 +328,11 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deleteAllPolicyResources")

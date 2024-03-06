@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Dms
     [AwsNativeResourceType("aws-native:dms:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("certificateIdentifier")]
         public Output<string?> CertificateIdentifier { get; private set; } = null!;
 

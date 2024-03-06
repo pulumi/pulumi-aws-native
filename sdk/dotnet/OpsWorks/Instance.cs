@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("blockDeviceMappings")]
         public Output<ImmutableArray<Outputs.InstanceBlockDeviceMapping>> BlockDeviceMappings { get; private set; } = null!;
 

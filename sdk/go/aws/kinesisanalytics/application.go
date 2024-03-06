@@ -21,6 +21,7 @@ type Application struct {
 	ApplicationCode        pulumi.StringPtrOutput          `pulumi:"applicationCode"`
 	ApplicationDescription pulumi.StringPtrOutput          `pulumi:"applicationDescription"`
 	ApplicationName        pulumi.StringPtrOutput          `pulumi:"applicationName"`
+	AwsId                  pulumi.StringOutput             `pulumi:"awsId"`
 	Inputs                 ApplicationInputTypeArrayOutput `pulumi:"inputs"`
 }
 
@@ -132,6 +133,10 @@ func (o ApplicationOutput) ApplicationDescription() pulumi.StringPtrOutput {
 
 func (o ApplicationOutput) ApplicationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApplicationOutput) Inputs() ApplicationInputTypeArrayOutput {

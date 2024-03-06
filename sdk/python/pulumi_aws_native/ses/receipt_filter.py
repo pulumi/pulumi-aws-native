@@ -88,6 +88,7 @@ class ReceiptFilter(pulumi.CustomResource):
             if filter is None and not opts.urn:
                 raise TypeError("Missing required property 'filter'")
             __props__.__dict__["filter"] = filter
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["filter"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReceiptFilter, __self__).__init__(
@@ -112,8 +113,14 @@ class ReceiptFilter(pulumi.CustomResource):
 
         __props__ = ReceiptFilterArgs.__new__(ReceiptFilterArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["filter"] = None
         return ReceiptFilter(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

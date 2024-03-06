@@ -40,6 +40,7 @@ export class LoggerDefinitionVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoggerDefinitionVersion.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly loggerDefinitionId!: pulumi.Output<string>;
     public readonly loggers!: pulumi.Output<outputs.greengrass.LoggerDefinitionVersionLogger[]>;
 
@@ -64,7 +65,9 @@ export class LoggerDefinitionVersion extends pulumi.CustomResource {
             }
             resourceInputs["loggerDefinitionId"] = args ? args.loggerDefinitionId : undefined;
             resourceInputs["loggers"] = args ? args.loggers : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["loggerDefinitionId"] = undefined /*out*/;
             resourceInputs["loggers"] = undefined /*out*/;
         }

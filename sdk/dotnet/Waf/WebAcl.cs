@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Waf
     [AwsNativeResourceType("aws-native:waf:WebAcl")]
     public partial class WebAcl : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("defaultAction")]
         public Output<Outputs.WebAclWafAction> DefaultAction { get; private set; } = null!;
 

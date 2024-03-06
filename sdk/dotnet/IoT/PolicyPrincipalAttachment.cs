@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:PolicyPrincipalAttachment")]
     public partial class PolicyPrincipalAttachment : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 

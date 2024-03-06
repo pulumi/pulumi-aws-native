@@ -18,6 +18,7 @@ import (
 type RateBasedRule struct {
 	pulumi.CustomResourceState
 
+	AwsId           pulumi.StringOutput               `pulumi:"awsId"`
 	MatchPredicates RateBasedRulePredicateArrayOutput `pulumi:"matchPredicates"`
 	MetricName      pulumi.StringOutput               `pulumi:"metricName"`
 	Name            pulumi.StringOutput               `pulumi:"name"`
@@ -131,6 +132,10 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutput() RateBasedRuleOutput {
 
 func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Context) RateBasedRuleOutput {
 	return o
+}
+
+func (o RateBasedRuleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RateBasedRuleOutput) MatchPredicates() RateBasedRulePredicateArrayOutput {

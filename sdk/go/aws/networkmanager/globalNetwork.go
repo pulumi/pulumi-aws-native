@@ -18,6 +18,8 @@ type GlobalNetwork struct {
 
 	// The Amazon Resource Name (ARN) of the global network.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the global network.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The date and time that the global network was created.
 	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
 	// The description of the global network.
@@ -130,6 +132,11 @@ func (o GlobalNetworkOutput) ToGlobalNetworkOutputWithContext(ctx context.Contex
 // The Amazon Resource Name (ARN) of the global network.
 func (o GlobalNetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the global network.
+func (o GlobalNetworkOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalNetwork) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The date and time that the global network was created.

@@ -152,6 +152,7 @@ class VirtualService(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_service_name"] = virtual_service_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["uid"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["mesh_name", "mesh_owner", "virtual_service_name"])
@@ -179,6 +180,7 @@ class VirtualService(pulumi.CustomResource):
         __props__ = VirtualServiceArgs.__new__(VirtualServiceArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["mesh_name"] = None
         __props__.__dict__["mesh_owner"] = None
         __props__.__dict__["resource_owner"] = None
@@ -192,6 +194,11 @@ class VirtualService(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="meshName")

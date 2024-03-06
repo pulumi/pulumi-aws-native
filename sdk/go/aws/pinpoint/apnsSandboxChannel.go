@@ -19,6 +19,7 @@ type ApnsSandboxChannel struct {
 	pulumi.CustomResourceState
 
 	ApplicationId               pulumi.StringOutput    `pulumi:"applicationId"`
+	AwsId                       pulumi.StringOutput    `pulumi:"awsId"`
 	BundleId                    pulumi.StringPtrOutput `pulumi:"bundleId"`
 	Certificate                 pulumi.StringPtrOutput `pulumi:"certificate"`
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
@@ -139,6 +140,10 @@ func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelOutputWithContext(ctx cont
 
 func (o ApnsSandboxChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApnsSandboxChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ApnsSandboxChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApnsSandboxChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApnsSandboxChannelOutput) BundleId() pulumi.StringPtrOutput {

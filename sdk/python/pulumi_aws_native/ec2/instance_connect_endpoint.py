@@ -167,6 +167,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_token", "preserve_client_ip", "security_group_ids[*]", "subnet_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceConnectEndpoint, __self__).__init__(
@@ -191,12 +192,21 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
         __props__ = InstanceConnectEndpointArgs.__new__(InstanceConnectEndpointArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_token"] = None
         __props__.__dict__["preserve_client_ip"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
         return InstanceConnectEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The id of the instance connect endpoint
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientToken")

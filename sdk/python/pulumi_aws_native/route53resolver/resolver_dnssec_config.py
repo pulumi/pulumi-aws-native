@@ -85,6 +85,7 @@ class ResolverDnssecConfig(pulumi.CustomResource):
             __props__ = ResolverDnssecConfigArgs.__new__(ResolverDnssecConfigArgs)
 
             __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["validation_status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_id"])
@@ -111,10 +112,19 @@ class ResolverDnssecConfig(pulumi.CustomResource):
 
         __props__ = ResolverDnssecConfigArgs.__new__(ResolverDnssecConfigArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["owner_id"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["validation_status"] = None
         return ResolverDnssecConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="ownerId")

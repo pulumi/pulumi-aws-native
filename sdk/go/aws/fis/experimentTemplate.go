@@ -17,6 +17,7 @@ type ExperimentTemplate struct {
 	pulumi.CustomResourceState
 
 	Actions           ExperimentTemplateActionMapOutput            `pulumi:"actions"`
+	AwsId             pulumi.StringOutput                          `pulumi:"awsId"`
 	Description       pulumi.StringOutput                          `pulumi:"description"`
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrOutput `pulumi:"experimentOptions"`
 	LogConfiguration  ExperimentTemplateLogConfigurationPtrOutput  `pulumi:"logConfiguration"`
@@ -146,6 +147,10 @@ func (o ExperimentTemplateOutput) ToExperimentTemplateOutputWithContext(ctx cont
 
 func (o ExperimentTemplateOutput) Actions() ExperimentTemplateActionMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateActionMapOutput { return v.Actions }).(ExperimentTemplateActionMapOutput)
+}
+
+func (o ExperimentTemplateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {

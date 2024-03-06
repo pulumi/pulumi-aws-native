@@ -34,6 +34,7 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetRouteTableAssociation.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The ID of the route table.
      *  The physical ID changes when the route table ID is changed.
@@ -63,7 +64,9 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
             }
             resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["routeTableId"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
         }

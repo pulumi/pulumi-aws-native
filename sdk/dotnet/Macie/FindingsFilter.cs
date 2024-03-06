@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Macie
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Findings filter ID.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Findings filter description
         /// </summary>
         [Output("description")]

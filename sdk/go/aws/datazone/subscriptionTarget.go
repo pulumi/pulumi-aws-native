@@ -20,6 +20,8 @@ type SubscriptionTarget struct {
 	ApplicableAssetTypes pulumi.StringArrayOutput `pulumi:"applicableAssetTypes"`
 	// The authorized principals of the subscription target.
 	AuthorizedPrincipals pulumi.StringArrayOutput `pulumi:"authorizedPrincipals"`
+	// The ID of the subscription target.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The timestamp of when the subscription target was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Amazon DataZone user who created the subscription target.
@@ -204,6 +206,11 @@ func (o SubscriptionTargetOutput) ApplicableAssetTypes() pulumi.StringArrayOutpu
 // The authorized principals of the subscription target.
 func (o SubscriptionTargetOutput) AuthorizedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionTarget) pulumi.StringArrayOutput { return v.AuthorizedPrincipals }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subscription target.
+func (o SubscriptionTargetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionTarget) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The timestamp of when the subscription target was created.

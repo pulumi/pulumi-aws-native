@@ -41,6 +41,7 @@ export class Skill extends pulumi.CustomResource {
     }
 
     public readonly authenticationConfiguration!: pulumi.Output<outputs.ask.SkillAuthenticationConfiguration>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly skillPackage!: pulumi.Output<outputs.ask.SkillPackage>;
     public readonly vendorId!: pulumi.Output<string>;
 
@@ -69,8 +70,10 @@ export class Skill extends pulumi.CustomResource {
             resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
             resourceInputs["skillPackage"] = args ? args.skillPackage : undefined;
             resourceInputs["vendorId"] = args ? args.vendorId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["skillPackage"] = undefined /*out*/;
             resourceInputs["vendorId"] = undefined /*out*/;
         }

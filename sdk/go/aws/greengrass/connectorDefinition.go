@@ -18,6 +18,7 @@ type ConnectorDefinition struct {
 	pulumi.CustomResourceState
 
 	Arn              pulumi.StringOutput                     `pulumi:"arn"`
+	AwsId            pulumi.StringOutput                     `pulumi:"awsId"`
 	InitialVersion   ConnectorDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                     `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                     `pulumi:"name"`
@@ -122,6 +123,10 @@ func (o ConnectorDefinitionOutput) ToConnectorDefinitionOutputWithContext(ctx co
 
 func (o ConnectorDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ConnectorDefinitionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorDefinition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ConnectorDefinitionOutput) InitialVersion() ConnectorDefinitionVersionTypePtrOutput {

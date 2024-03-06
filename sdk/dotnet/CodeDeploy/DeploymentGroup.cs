@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.CodeDeploy
         [Output("autoScalingGroups")]
         public Output<ImmutableArray<string>> AutoScalingGroups { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("blueGreenDeploymentConfiguration")]
         public Output<Outputs.DeploymentGroupBlueGreenDeploymentConfiguration?> BlueGreenDeploymentConfiguration { get; private set; } = null!;
 

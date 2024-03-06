@@ -19,6 +19,7 @@ import (
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId                     pulumi.StringOutput    `pulumi:"awsId"`
 	CacheParameterGroupFamily pulumi.StringOutput    `pulumi:"cacheParameterGroupFamily"`
 	Description               pulumi.StringOutput    `pulumi:"description"`
 	Properties                pulumi.StringMapOutput `pulumi:"properties"`
@@ -124,6 +125,10 @@ func (o ParameterGroupOutput) ToParameterGroupOutput() ParameterGroupOutput {
 
 func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput {
 	return o
+}
+
+func (o ParameterGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ParameterGroupOutput) CacheParameterGroupFamily() pulumi.StringOutput {

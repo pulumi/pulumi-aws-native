@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("ruleBody")]
         public Output<string> RuleBody { get; private set; } = null!;
 

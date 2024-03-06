@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayRoute")]
     public partial class TransitGatewayRoute : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("blackhole")]
         public Output<bool?> Blackhole { get; private set; } = null!;
 

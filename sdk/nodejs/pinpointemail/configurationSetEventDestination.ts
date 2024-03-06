@@ -40,6 +40,7 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationSetEventDestination.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly configurationSetName!: pulumi.Output<string>;
     public readonly eventDestination!: pulumi.Output<outputs.pinpointemail.ConfigurationSetEventDestinationEventDestination | undefined>;
     public readonly eventDestinationName!: pulumi.Output<string>;
@@ -66,7 +67,9 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
             resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
             resourceInputs["eventDestination"] = args ? args.eventDestination : undefined;
             resourceInputs["eventDestinationName"] = args ? args.eventDestinationName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configurationSetName"] = undefined /*out*/;
             resourceInputs["eventDestination"] = undefined /*out*/;
             resourceInputs["eventDestinationName"] = undefined /*out*/;

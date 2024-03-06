@@ -39,6 +39,7 @@ export class ClientVpnAuthorizationRule extends pulumi.CustomResource {
 
     public readonly accessGroupId!: pulumi.Output<string | undefined>;
     public readonly authorizeAllGroups!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly clientVpnEndpointId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly targetNetworkCidr!: pulumi.Output<string>;
@@ -67,9 +68,11 @@ export class ClientVpnAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["targetNetworkCidr"] = args ? args.targetNetworkCidr : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["accessGroupId"] = undefined /*out*/;
             resourceInputs["authorizeAllGroups"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientVpnEndpointId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["targetNetworkCidr"] = undefined /*out*/;

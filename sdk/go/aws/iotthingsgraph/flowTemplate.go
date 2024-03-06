@@ -18,6 +18,7 @@ import (
 type FlowTemplate struct {
 	pulumi.CustomResourceState
 
+	AwsId                      pulumi.StringOutput                  `pulumi:"awsId"`
 	CompatibleNamespaceVersion pulumi.Float64PtrOutput              `pulumi:"compatibleNamespaceVersion"`
 	Definition                 FlowTemplateDefinitionDocumentOutput `pulumi:"definition"`
 }
@@ -110,6 +111,10 @@ func (o FlowTemplateOutput) ToFlowTemplateOutput() FlowTemplateOutput {
 
 func (o FlowTemplateOutput) ToFlowTemplateOutputWithContext(ctx context.Context) FlowTemplateOutput {
 	return o
+}
+
+func (o FlowTemplateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowTemplate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o FlowTemplateOutput) CompatibleNamespaceVersion() pulumi.Float64PtrOutput {

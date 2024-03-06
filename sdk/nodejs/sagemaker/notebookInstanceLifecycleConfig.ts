@@ -40,6 +40,7 @@ export class NotebookInstanceLifecycleConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotebookInstanceLifecycleConfig.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly notebookInstanceLifecycleConfigName!: pulumi.Output<string | undefined>;
     public readonly onCreate!: pulumi.Output<outputs.sagemaker.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook[] | undefined>;
     public readonly onStart!: pulumi.Output<outputs.sagemaker.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook[] | undefined>;
@@ -60,7 +61,9 @@ export class NotebookInstanceLifecycleConfig extends pulumi.CustomResource {
             resourceInputs["notebookInstanceLifecycleConfigName"] = args ? args.notebookInstanceLifecycleConfigName : undefined;
             resourceInputs["onCreate"] = args ? args.onCreate : undefined;
             resourceInputs["onStart"] = args ? args.onStart : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["notebookInstanceLifecycleConfigName"] = undefined /*out*/;
             resourceInputs["onCreate"] = undefined /*out*/;
             resourceInputs["onStart"] = undefined /*out*/;

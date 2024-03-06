@@ -20,6 +20,7 @@ type CacheCluster struct {
 	pulumi.CustomResourceState
 
 	AutoMinorVersionUpgrade      pulumi.BoolPtrOutput                                   `pulumi:"autoMinorVersionUpgrade"`
+	AwsId                        pulumi.StringOutput                                    `pulumi:"awsId"`
 	AzMode                       pulumi.StringPtrOutput                                 `pulumi:"azMode"`
 	CacheNodeType                pulumi.StringOutput                                    `pulumi:"cacheNodeType"`
 	CacheParameterGroupName      pulumi.StringPtrOutput                                 `pulumi:"cacheParameterGroupName"`
@@ -212,6 +213,10 @@ func (o CacheClusterOutput) ToCacheClusterOutputWithContext(ctx context.Context)
 
 func (o CacheClusterOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheCluster) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o CacheClusterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CacheClusterOutput) AzMode() pulumi.StringPtrOutput {

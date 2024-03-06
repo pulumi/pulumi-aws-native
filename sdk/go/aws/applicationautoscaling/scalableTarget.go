@@ -16,6 +16,8 @@ import (
 type ScalableTarget struct {
 	pulumi.CustomResourceState
 
+	// This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
 	MaxCapacity pulumi.IntOutput `pulumi:"maxCapacity"`
 	// The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand
@@ -168,6 +170,11 @@ func (o ScalableTargetOutput) ToScalableTargetOutput() ScalableTargetOutput {
 
 func (o ScalableTargetOutput) ToScalableTargetOutputWithContext(ctx context.Context) ScalableTargetOutput {
 	return o
+}
+
+// This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace
+func (o ScalableTargetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalableTarget) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand

@@ -40,6 +40,7 @@ export class NetworkAclEntry extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkAclEntry.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
      */
@@ -111,7 +112,9 @@ export class NetworkAclEntry extends pulumi.CustomResource {
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["ruleAction"] = args ? args.ruleAction : undefined;
             resourceInputs["ruleNumber"] = args ? args.ruleNumber : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["egress"] = undefined /*out*/;
             resourceInputs["icmp"] = undefined /*out*/;

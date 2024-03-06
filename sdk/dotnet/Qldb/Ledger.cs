@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Qldb
     [AwsNativeResourceType("aws-native:qldb:Ledger")]
     public partial class Ledger : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 

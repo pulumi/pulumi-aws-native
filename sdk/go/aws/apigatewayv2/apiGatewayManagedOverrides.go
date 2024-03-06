@@ -19,6 +19,7 @@ type ApiGatewayManagedOverrides struct {
 	pulumi.CustomResourceState
 
 	ApiId       pulumi.StringOutput                                     `pulumi:"apiId"`
+	AwsId       pulumi.StringOutput                                     `pulumi:"awsId"`
 	Integration ApiGatewayManagedOverridesIntegrationOverridesPtrOutput `pulumi:"integration"`
 	Route       ApiGatewayManagedOverridesRouteOverridesPtrOutput       `pulumi:"route"`
 	Stage       ApiGatewayManagedOverridesStageOverridesPtrOutput       `pulumi:"stage"`
@@ -124,6 +125,10 @@ func (o ApiGatewayManagedOverridesOutput) ToApiGatewayManagedOverridesOutputWith
 
 func (o ApiGatewayManagedOverridesOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiGatewayManagedOverrides) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o ApiGatewayManagedOverridesOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverrides) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApiGatewayManagedOverridesOutput) Integration() ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {

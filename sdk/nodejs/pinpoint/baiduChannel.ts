@@ -39,6 +39,7 @@ export class BaiduChannel extends pulumi.CustomResource {
 
     public readonly apiKey!: pulumi.Output<string>;
     public readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly secretKey!: pulumi.Output<string>;
 
@@ -68,9 +69,11 @@ export class BaiduChannel extends pulumi.CustomResource {
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["secretKey"] = args ? args.secretKey : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["apiKey"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["secretKey"] = undefined /*out*/;
         }

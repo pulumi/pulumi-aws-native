@@ -16,6 +16,7 @@ import (
 type TransitGatewayRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
+	AwsId                      pulumi.StringOutput `pulumi:"awsId"`
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
 }
@@ -116,6 +117,10 @@ func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAss
 
 func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAssociationOutputWithContext(ctx context.Context) TransitGatewayRouteTableAssociationOutput {
 	return o
+}
+
+func (o TransitGatewayRouteTableAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TransitGatewayRouteTableAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {

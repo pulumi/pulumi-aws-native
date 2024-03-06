@@ -206,6 +206,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
             __props__.__dict__["team_id"] = team_id
             __props__.__dict__["token_key"] = token_key
             __props__.__dict__["token_key_id"] = token_key_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApnsSandboxChannel, __self__).__init__(
@@ -231,6 +232,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         __props__ = ApnsSandboxChannelArgs.__new__(ApnsSandboxChannelArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["bundle_id"] = None
         __props__.__dict__["certificate"] = None
         __props__.__dict__["default_authentication_method"] = None
@@ -245,6 +247,11 @@ class ApnsSandboxChannel(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="bundleId")

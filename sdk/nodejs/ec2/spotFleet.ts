@@ -37,6 +37,7 @@ export class SpotFleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SpotFleet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly spotFleetRequestConfigData!: pulumi.Output<outputs.ec2.SpotFleetRequestConfigData>;
 
     /**
@@ -54,7 +55,9 @@ export class SpotFleet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'spotFleetRequestConfigData'");
             }
             resourceInputs["spotFleetRequestConfigData"] = args ? args.spotFleetRequestConfigData : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["spotFleetRequestConfigData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

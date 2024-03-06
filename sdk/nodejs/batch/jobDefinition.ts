@@ -37,6 +37,7 @@ export class JobDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === JobDefinition.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly containerProperties!: pulumi.Output<outputs.batch.JobDefinitionContainerProperties | undefined>;
     public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
     public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
@@ -82,7 +83,9 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["containerProperties"] = undefined /*out*/;
             resourceInputs["eksProperties"] = undefined /*out*/;
             resourceInputs["jobDefinitionName"] = undefined /*out*/;

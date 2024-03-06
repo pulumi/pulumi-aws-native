@@ -16,6 +16,7 @@ import (
 type ContinuousDeploymentPolicy struct {
 	pulumi.CustomResourceState
 
+	AwsId                            pulumi.StringOutput                    `pulumi:"awsId"`
 	ContinuousDeploymentPolicyConfig ContinuousDeploymentPolicyConfigOutput `pulumi:"continuousDeploymentPolicyConfig"`
 	LastModifiedTime                 pulumi.StringOutput                    `pulumi:"lastModifiedTime"`
 }
@@ -106,6 +107,10 @@ func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutput() C
 
 func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyOutput {
 	return o
+}
+
+func (o ContinuousDeploymentPolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ContinuousDeploymentPolicyOutput) ContinuousDeploymentPolicyConfig() ContinuousDeploymentPolicyConfigOutput {

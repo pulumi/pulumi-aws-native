@@ -164,6 +164,7 @@ class EipAssociation(pulumi.CustomResource):
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["private_ip_address"] = private_ip_address
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocation_id", "eip", "instance_id", "network_interface_id", "private_ip_address"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EipAssociation, __self__).__init__(
@@ -189,6 +190,7 @@ class EipAssociation(pulumi.CustomResource):
         __props__ = EipAssociationArgs.__new__(EipAssociationArgs)
 
         __props__.__dict__["allocation_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["eip"] = None
         __props__.__dict__["instance_id"] = None
         __props__.__dict__["network_interface_id"] = None
@@ -202,6 +204,14 @@ class EipAssociation(pulumi.CustomResource):
         The allocation ID. This is required for EC2-VPC.
         """
         return pulumi.get(self, "allocation_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Composite ID of non-empty properties, to determine the identification.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

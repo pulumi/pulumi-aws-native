@@ -41,6 +41,7 @@ export class Route extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly meshName!: pulumi.Output<string>;
     public readonly meshOwner!: pulumi.Output<string | undefined>;
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
@@ -79,10 +80,12 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["resourceOwner"] = undefined /*out*/;
             resourceInputs["uid"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["meshName"] = undefined /*out*/;
             resourceInputs["meshOwner"] = undefined /*out*/;
             resourceInputs["resourceOwner"] = undefined /*out*/;

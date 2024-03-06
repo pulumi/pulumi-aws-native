@@ -17,6 +17,7 @@ import (
 type CustomActionType struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The category of the custom action, such as a build action or a test action.
 	Category pulumi.StringOutput `pulumi:"category"`
 	// The configuration properties for the custom action.
@@ -173,6 +174,10 @@ func (o CustomActionTypeOutput) ToCustomActionTypeOutput() CustomActionTypeOutpu
 
 func (o CustomActionTypeOutput) ToCustomActionTypeOutputWithContext(ctx context.Context) CustomActionTypeOutput {
 	return o
+}
+
+func (o CustomActionTypeOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The category of the custom action, such as a build action or a test action.

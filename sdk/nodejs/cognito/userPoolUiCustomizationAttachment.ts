@@ -34,6 +34,7 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolUiCustomizationAttachment.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly clientId!: pulumi.Output<string>;
     public readonly css!: pulumi.Output<string | undefined>;
     public readonly userPoolId!: pulumi.Output<string>;
@@ -58,7 +59,9 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["css"] = args ? args.css : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["css"] = undefined /*out*/;
             resourceInputs["userPoolId"] = undefined /*out*/;

@@ -253,6 +253,7 @@ class SubscriptionTarget(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["domain_id"] = None
@@ -286,6 +287,7 @@ class SubscriptionTarget(pulumi.CustomResource):
 
         __props__.__dict__["applicable_asset_types"] = None
         __props__.__dict__["authorized_principals"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["domain_id"] = None
@@ -317,6 +319,14 @@ class SubscriptionTarget(pulumi.CustomResource):
         The authorized principals of the subscription target.
         """
         return pulumi.get(self, "authorized_principals")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subscription target.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

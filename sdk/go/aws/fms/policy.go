@@ -18,6 +18,7 @@ type Policy struct {
 	pulumi.CustomResourceState
 
 	Arn                       pulumi.StringOutput                   `pulumi:"arn"`
+	AwsId                     pulumi.StringOutput                   `pulumi:"awsId"`
 	DeleteAllPolicyResources  pulumi.BoolPtrOutput                  `pulumi:"deleteAllPolicyResources"`
 	ExcludeMap                PolicyIeMapPtrOutput                  `pulumi:"excludeMap"`
 	ExcludeResourceTags       pulumi.BoolOutput                     `pulumi:"excludeResourceTags"`
@@ -156,6 +157,10 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 
 func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PolicyOutput) DeleteAllPolicyResources() pulumi.BoolPtrOutput {

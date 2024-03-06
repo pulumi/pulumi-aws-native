@@ -115,6 +115,7 @@ class WaitCondition(pulumi.CustomResource):
             __props__.__dict__["count"] = count
             __props__.__dict__["handle"] = handle
             __props__.__dict__["timeout"] = timeout
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["data"] = None
         super(WaitCondition, __self__).__init__(
             'aws-native:cloudformation:WaitCondition',
@@ -138,11 +139,17 @@ class WaitCondition(pulumi.CustomResource):
 
         __props__ = WaitConditionArgs.__new__(WaitConditionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["count"] = None
         __props__.__dict__["data"] = None
         __props__.__dict__["handle"] = None
         __props__.__dict__["timeout"] = None
         return WaitCondition(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

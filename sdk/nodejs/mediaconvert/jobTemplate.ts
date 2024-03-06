@@ -42,6 +42,7 @@ export class JobTemplate extends pulumi.CustomResource {
 
     public readonly accelerationSettings!: pulumi.Output<outputs.mediaconvert.JobTemplateAccelerationSettings | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly category!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly hopDestinations!: pulumi.Output<outputs.mediaconvert.JobTemplateHopDestination[] | undefined>;
@@ -85,9 +86,11 @@ export class JobTemplate extends pulumi.CustomResource {
             resourceInputs["statusUpdateInterval"] = args ? args.statusUpdateInterval : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["accelerationSettings"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hopDestinations"] = undefined /*out*/;

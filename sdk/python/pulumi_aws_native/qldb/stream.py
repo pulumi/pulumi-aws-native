@@ -183,6 +183,7 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["stream_name"] = stream_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["exclusive_end_time", "inclusive_start_time", "kinesis_configuration", "ledger_name", "role_arn", "stream_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stream, __self__).__init__(
@@ -208,6 +209,7 @@ class Stream(pulumi.CustomResource):
         __props__ = StreamArgs.__new__(StreamArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["exclusive_end_time"] = None
         __props__.__dict__["inclusive_start_time"] = None
         __props__.__dict__["kinesis_configuration"] = None
@@ -221,6 +223,11 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="exclusiveEndTime")

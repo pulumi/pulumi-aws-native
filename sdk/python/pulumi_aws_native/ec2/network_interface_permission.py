@@ -118,6 +118,7 @@ class NetworkInterfacePermission(pulumi.CustomResource):
             if permission is None and not opts.urn:
                 raise TypeError("Missing required property 'permission'")
             __props__.__dict__["permission"] = permission
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_account_id", "network_interface_id", "permission"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkInterfacePermission, __self__).__init__(
@@ -143,6 +144,7 @@ class NetworkInterfacePermission(pulumi.CustomResource):
         __props__ = NetworkInterfacePermissionArgs.__new__(NetworkInterfacePermissionArgs)
 
         __props__.__dict__["aws_account_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["network_interface_id"] = None
         __props__.__dict__["permission"] = None
         return NetworkInterfacePermission(resource_name, opts=opts, __props__=__props__)
@@ -151,6 +153,11 @@ class NetworkInterfacePermission(pulumi.CustomResource):
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "aws_account_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")

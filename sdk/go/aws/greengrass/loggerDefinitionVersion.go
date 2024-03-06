@@ -18,6 +18,7 @@ import (
 type LoggerDefinitionVersion struct {
 	pulumi.CustomResourceState
 
+	AwsId              pulumi.StringOutput                      `pulumi:"awsId"`
 	LoggerDefinitionId pulumi.StringOutput                      `pulumi:"loggerDefinitionId"`
 	Loggers            LoggerDefinitionVersionLoggerArrayOutput `pulumi:"loggers"`
 }
@@ -118,6 +119,10 @@ func (o LoggerDefinitionVersionOutput) ToLoggerDefinitionVersionOutput() LoggerD
 
 func (o LoggerDefinitionVersionOutput) ToLoggerDefinitionVersionOutputWithContext(ctx context.Context) LoggerDefinitionVersionOutput {
 	return o
+}
+
+func (o LoggerDefinitionVersionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggerDefinitionVersion) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LoggerDefinitionVersionOutput) LoggerDefinitionId() pulumi.StringOutput {

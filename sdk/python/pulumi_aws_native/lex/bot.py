@@ -266,6 +266,7 @@ class Bot(pulumi.CustomResource):
             __props__.__dict__["test_bot_alias_settings"] = test_bot_alias_settings
             __props__.__dict__["test_bot_alias_tags"] = test_bot_alias_tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(Bot, __self__).__init__(
             'aws-native:lex:Bot',
             resource_name,
@@ -290,6 +291,7 @@ class Bot(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_build_bot_locales"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["bot_file_s3_location"] = None
         __props__.__dict__["bot_locales"] = None
         __props__.__dict__["bot_tags"] = None
@@ -314,6 +316,11 @@ class Bot(pulumi.CustomResource):
         Specifies whether to build the bot locales after bot creation completes.
         """
         return pulumi.get(self, "auto_build_bot_locales")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="botFileS3Location")

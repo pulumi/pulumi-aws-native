@@ -40,6 +40,7 @@ export class StreamingDistribution extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamingDistribution.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     public readonly streamingDistributionConfig!: pulumi.Output<outputs.cloudfront.StreamingDistributionConfig>;
     public readonly tags!: pulumi.Output<outputs.Tag[]>;
@@ -65,8 +66,10 @@ export class StreamingDistribution extends pulumi.CustomResource {
             }
             resourceInputs["streamingDistributionConfig"] = args ? args.streamingDistributionConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["streamingDistributionConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

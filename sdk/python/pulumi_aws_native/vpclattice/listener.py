@@ -162,6 +162,7 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["service_identifier"] = service_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["service_arn"] = None
             __props__.__dict__["service_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "port", "protocol", "service_identifier"])
@@ -189,6 +190,7 @@ class Listener(pulumi.CustomResource):
         __props__ = ListenerArgs.__new__(ListenerArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["default_action"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["port"] = None
@@ -203,6 +205,11 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="defaultAction")

@@ -18,6 +18,7 @@ import (
 type ConfigurationAssociation struct {
 	pulumi.CustomResourceState
 
+	AwsId         pulumi.StringOutput                           `pulumi:"awsId"`
 	Broker        pulumi.StringOutput                           `pulumi:"broker"`
 	Configuration ConfigurationAssociationConfigurationIdOutput `pulumi:"configuration"`
 }
@@ -117,6 +118,10 @@ func (o ConfigurationAssociationOutput) ToConfigurationAssociationOutput() Confi
 
 func (o ConfigurationAssociationOutput) ToConfigurationAssociationOutputWithContext(ctx context.Context) ConfigurationAssociationOutput {
 	return o
+}
+
+func (o ConfigurationAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ConfigurationAssociationOutput) Broker() pulumi.StringOutput {

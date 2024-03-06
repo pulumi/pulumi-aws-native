@@ -38,6 +38,7 @@ export class Theme extends pulumi.CustomResource {
     }
 
     public readonly appId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly environmentName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
@@ -63,10 +64,12 @@ export class Theme extends pulumi.CustomResource {
             resourceInputs["overrides"] = args ? args.overrides : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["values"] = args ? args.values : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
         } else {
             resourceInputs["appId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["environmentName"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

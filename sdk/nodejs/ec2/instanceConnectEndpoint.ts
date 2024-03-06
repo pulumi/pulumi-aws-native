@@ -38,6 +38,10 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The id of the instance connect endpoint
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The client token of the instance connect endpoint.
      */
     public readonly clientToken!: pulumi.Output<string | undefined>;
@@ -77,7 +81,9 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientToken"] = undefined /*out*/;
             resourceInputs["preserveClientIp"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;

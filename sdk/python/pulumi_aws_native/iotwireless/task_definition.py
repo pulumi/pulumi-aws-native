@@ -191,6 +191,7 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["task_definition_type"] = task_definition_type
             __props__.__dict__["update"] = update
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(TaskDefinition, __self__).__init__(
             'aws-native:iotwireless:TaskDefinition',
             resource_name,
@@ -215,6 +216,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_create_tasks"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["lo_ra_wan_update_gateway_task_entry"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -237,6 +239,14 @@ class TaskDefinition(pulumi.CustomResource):
         Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
         """
         return pulumi.get(self, "auto_create_tasks")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the new wireless gateway task definition
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="loRaWanUpdateGatewayTaskEntry")

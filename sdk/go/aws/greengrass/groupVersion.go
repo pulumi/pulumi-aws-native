@@ -18,6 +18,7 @@ import (
 type GroupVersion struct {
 	pulumi.CustomResourceState
 
+	AwsId                            pulumi.StringOutput    `pulumi:"awsId"`
 	ConnectorDefinitionVersionArn    pulumi.StringPtrOutput `pulumi:"connectorDefinitionVersionArn"`
 	CoreDefinitionVersionArn         pulumi.StringPtrOutput `pulumi:"coreDefinitionVersionArn"`
 	DeviceDefinitionVersionArn       pulumi.StringPtrOutput `pulumi:"deviceDefinitionVersionArn"`
@@ -139,6 +140,10 @@ func (o GroupVersionOutput) ToGroupVersionOutput() GroupVersionOutput {
 
 func (o GroupVersionOutput) ToGroupVersionOutputWithContext(ctx context.Context) GroupVersionOutput {
 	return o
+}
+
+func (o GroupVersionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupVersion) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o GroupVersionOutput) ConnectorDefinitionVersionArn() pulumi.StringPtrOutput {

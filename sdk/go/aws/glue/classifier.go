@@ -17,6 +17,7 @@ import (
 type Classifier struct {
 	pulumi.CustomResourceState
 
+	AwsId          pulumi.StringOutput               `pulumi:"awsId"`
 	CsvClassifier  ClassifierCsvClassifierPtrOutput  `pulumi:"csvClassifier"`
 	GrokClassifier ClassifierGrokClassifierPtrOutput `pulumi:"grokClassifier"`
 	JsonClassifier ClassifierJsonClassifierPtrOutput `pulumi:"jsonClassifier"`
@@ -112,6 +113,10 @@ func (o ClassifierOutput) ToClassifierOutput() ClassifierOutput {
 
 func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput {
 	return o
+}
+
+func (o ClassifierOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Classifier) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ClassifierOutput) CsvClassifier() ClassifierCsvClassifierPtrOutput {

@@ -38,6 +38,10 @@ export class FlowLog extends pulumi.CustomResource {
     }
 
     /**
+     * The Flow Log ID
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
      */
     public readonly deliverCrossAccountRole!: pulumi.Output<string | undefined>;
@@ -112,7 +116,9 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficType"] = args ? args.trafficType : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deliverCrossAccountRole"] = undefined /*out*/;
             resourceInputs["deliverLogsPermissionArn"] = undefined /*out*/;
             resourceInputs["destinationOptions"] = undefined /*out*/;

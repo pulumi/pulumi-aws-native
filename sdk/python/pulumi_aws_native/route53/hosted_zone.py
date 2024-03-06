@@ -168,6 +168,7 @@ class HostedZone(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["query_logging_config"] = query_logging_config
             __props__.__dict__["vpcs"] = vpcs
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["name_servers"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -193,6 +194,7 @@ class HostedZone(pulumi.CustomResource):
 
         __props__ = HostedZoneArgs.__new__(HostedZoneArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["hosted_zone_config"] = None
         __props__.__dict__["hosted_zone_tags"] = None
         __props__.__dict__["name"] = None
@@ -200,6 +202,11 @@ class HostedZone(pulumi.CustomResource):
         __props__.__dict__["query_logging_config"] = None
         __props__.__dict__["vpcs"] = None
         return HostedZone(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="hostedZoneConfig")

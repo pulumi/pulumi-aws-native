@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Backup
     [AwsNativeResourceType("aws-native:backup:BackupSelection")]
     public partial class BackupSelection : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("backupPlanId")]
         public Output<string> BackupPlanId { get; private set; } = null!;
 

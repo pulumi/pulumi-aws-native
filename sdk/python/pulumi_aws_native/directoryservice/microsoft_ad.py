@@ -180,6 +180,7 @@ class MicrosoftAd(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings
             __props__.__dict__["alias"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["dns_ip_addresses"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["create_alias", "edition", "name", "password", "short_name", "vpc_settings"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -206,6 +207,7 @@ class MicrosoftAd(pulumi.CustomResource):
         __props__ = MicrosoftAdArgs.__new__(MicrosoftAdArgs)
 
         __props__.__dict__["alias"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["create_alias"] = None
         __props__.__dict__["dns_ip_addresses"] = None
         __props__.__dict__["edition"] = None
@@ -220,6 +222,11 @@ class MicrosoftAd(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[str]:
         return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createAlias")

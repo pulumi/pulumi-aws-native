@@ -41,6 +41,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     }
 
     public readonly allowUnassociatedTargets!: pulumi.Output<boolean>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cutoff!: pulumi.Output<number>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly duration!: pulumi.Output<number>;
@@ -88,8 +89,10 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             resourceInputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
             resourceInputs["startDate"] = args ? args.startDate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["allowUnassociatedTargets"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cutoff"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["duration"] = undefined /*out*/;

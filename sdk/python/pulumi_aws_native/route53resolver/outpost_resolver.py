@@ -170,6 +170,7 @@ class OutpostResolver(pulumi.CustomResource):
             __props__.__dict__["preferred_instance_type"] = preferred_instance_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["creator_request_id"] = None
             __props__.__dict__["modification_time"] = None
@@ -200,6 +201,7 @@ class OutpostResolver(pulumi.CustomResource):
         __props__ = OutpostResolverArgs.__new__(OutpostResolverArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["creator_request_id"] = None
         __props__.__dict__["instance_count"] = None
@@ -219,6 +221,14 @@ class OutpostResolver(pulumi.CustomResource):
         The OutpostResolver ARN.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

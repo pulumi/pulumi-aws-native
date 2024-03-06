@@ -41,6 +41,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
      * The name of the Elastic Beanstalk application that is associated with this application version. 
      */
     public readonly applicationName!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * A description of this application version.
      */
@@ -70,8 +71,10 @@ export class ApplicationVersion extends pulumi.CustomResource {
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["sourceBundle"] = args ? args.sourceBundle : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["sourceBundle"] = undefined /*out*/;
         }

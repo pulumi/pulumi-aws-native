@@ -40,6 +40,7 @@ export class DedicatedIpPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === DedicatedIpPool.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly poolName!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -58,7 +59,9 @@ export class DedicatedIpPool extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["poolName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }

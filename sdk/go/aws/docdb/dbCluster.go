@@ -19,6 +19,7 @@ type DbCluster struct {
 	pulumi.CustomResourceState
 
 	AvailabilityZones           pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+	AwsId                       pulumi.StringOutput      `pulumi:"awsId"`
 	BackupRetentionPeriod       pulumi.IntPtrOutput      `pulumi:"backupRetentionPeriod"`
 	ClusterResourceId           pulumi.StringOutput      `pulumi:"clusterResourceId"`
 	CopyTagsToSnapshot          pulumi.BoolPtrOutput     `pulumi:"copyTagsToSnapshot"`
@@ -191,6 +192,10 @@ func (o DbClusterOutput) ToDbClusterOutputWithContext(ctx context.Context) DbClu
 
 func (o DbClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o DbClusterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DbClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {

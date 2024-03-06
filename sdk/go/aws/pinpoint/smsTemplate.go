@@ -19,6 +19,7 @@ type SmsTemplate struct {
 	pulumi.CustomResourceState
 
 	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	AwsId                pulumi.StringOutput    `pulumi:"awsId"`
 	Body                 pulumi.StringOutput    `pulumi:"body"`
 	DefaultSubstitutions pulumi.StringPtrOutput `pulumi:"defaultSubstitutions"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::SmsTemplate` for more information about the expected schema for this property.
@@ -134,6 +135,10 @@ func (o SmsTemplateOutput) ToSmsTemplateOutputWithContext(ctx context.Context) S
 
 func (o SmsTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmsTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o SmsTemplateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmsTemplate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SmsTemplateOutput) Body() pulumi.StringOutput {

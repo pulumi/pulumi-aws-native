@@ -18,6 +18,7 @@ import (
 type DeliveryChannel struct {
 	pulumi.CustomResourceState
 
+	AwsId                            pulumi.StringOutput                                      `pulumi:"awsId"`
 	ConfigSnapshotDeliveryProperties DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput `pulumi:"configSnapshotDeliveryProperties"`
 	Name                             pulumi.StringPtrOutput                                   `pulumi:"name"`
 	S3BucketName                     pulumi.StringOutput                                      `pulumi:"s3BucketName"`
@@ -126,6 +127,10 @@ func (o DeliveryChannelOutput) ToDeliveryChannelOutput() DeliveryChannelOutput {
 
 func (o DeliveryChannelOutput) ToDeliveryChannelOutputWithContext(ctx context.Context) DeliveryChannelOutput {
 	return o
+}
+
+func (o DeliveryChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DeliveryChannelOutput) ConfigSnapshotDeliveryProperties() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {

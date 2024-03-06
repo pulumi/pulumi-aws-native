@@ -42,6 +42,7 @@ export class UsagePlan extends pulumi.CustomResource {
      * The associated API stages of a usage plan.
      */
     public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The description of a usage plan.
      */
@@ -80,8 +81,10 @@ export class UsagePlan extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throttle"] = args ? args.throttle : undefined;
             resourceInputs["usagePlanName"] = args ? args.usagePlanName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["apiStages"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["quota"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

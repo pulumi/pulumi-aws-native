@@ -109,6 +109,7 @@ class Distribution(pulumi.CustomResource):
                 raise TypeError("Missing required property 'distribution_config'")
             __props__.__dict__["distribution_config"] = distribution_config
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["domain_name"] = None
         super(Distribution, __self__).__init__(
             'aws-native:cloudfront:Distribution',
@@ -132,10 +133,16 @@ class Distribution(pulumi.CustomResource):
 
         __props__ = DistributionArgs.__new__(DistributionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["distribution_config"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["tags"] = None
         return Distribution(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="distributionConfig")

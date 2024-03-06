@@ -19,6 +19,8 @@ type PackagingConfiguration struct {
 
 	// The ARN of the PackagingConfiguration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the PackagingConfiguration.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A CMAF packaging configuration.
 	CmafPackage PackagingConfigurationCmafPackagePtrOutput `pulumi:"cmafPackage"`
 	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -40,6 +42,9 @@ func NewPackagingConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AwsId == nil {
+		return nil, errors.New("invalid value for required argument 'AwsId'")
+	}
 	if args.PackagingGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'PackagingGroupId'")
 	}
@@ -76,6 +81,8 @@ func (PackagingConfigurationState) ElementType() reflect.Type {
 }
 
 type packagingConfigurationArgs struct {
+	// The ID of the PackagingConfiguration.
+	AwsId string `pulumi:"awsId"`
 	// A CMAF packaging configuration.
 	CmafPackage *PackagingConfigurationCmafPackage `pulumi:"cmafPackage"`
 	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -92,6 +99,8 @@ type packagingConfigurationArgs struct {
 
 // The set of arguments for constructing a PackagingConfiguration resource.
 type PackagingConfigurationArgs struct {
+	// The ID of the PackagingConfiguration.
+	AwsId pulumi.StringInput
 	// A CMAF packaging configuration.
 	CmafPackage PackagingConfigurationCmafPackagePtrInput
 	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -146,6 +155,11 @@ func (o PackagingConfigurationOutput) ToPackagingConfigurationOutputWithContext(
 // The ARN of the PackagingConfiguration.
 func (o PackagingConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackagingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the PackagingConfiguration.
+func (o PackagingConfigurationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackagingConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // A CMAF packaging configuration.

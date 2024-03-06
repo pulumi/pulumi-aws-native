@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Route53
         [Output("aliasTarget")]
         public Output<Outputs.RecordSetAliasTarget?> AliasTarget { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cidrRoutingConfig")]
         public Output<Outputs.RecordSetCidrRoutingConfig?> CidrRoutingConfig { get; private set; } = null!;
 

@@ -38,6 +38,10 @@ export class ResolverDnssecConfig extends pulumi.CustomResource {
     }
 
     /**
+     * Id
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * AccountId
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
@@ -62,9 +66,11 @@ export class ResolverDnssecConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["validationStatus"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["validationStatus"] = undefined /*out*/;

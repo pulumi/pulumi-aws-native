@@ -180,6 +180,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["retain_all_variant_properties"] = retain_all_variant_properties
             __props__.__dict__["retain_deployment_config"] = retain_deployment_config
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Endpoint, __self__).__init__(
@@ -204,6 +205,7 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = EndpointArgs.__new__(EndpointArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["deployment_config"] = None
         __props__.__dict__["endpoint_config_name"] = None
         __props__.__dict__["endpoint_name"] = None
@@ -212,6 +214,11 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["retain_deployment_config"] = None
         __props__.__dict__["tags"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deploymentConfig")

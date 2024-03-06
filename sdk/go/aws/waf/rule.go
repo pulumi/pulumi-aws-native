@@ -18,6 +18,7 @@ import (
 type Rule struct {
 	pulumi.CustomResourceState
 
+	AwsId      pulumi.StringOutput      `pulumi:"awsId"`
 	MetricName pulumi.StringOutput      `pulumi:"metricName"`
 	Name       pulumi.StringOutput      `pulumi:"name"`
 	Predicates RulePredicateArrayOutput `pulumi:"predicates"`
@@ -118,6 +119,10 @@ func (o RuleOutput) ToRuleOutput() RuleOutput {
 
 func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
+}
+
+func (o RuleOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RuleOutput) MetricName() pulumi.StringOutput {

@@ -17,6 +17,7 @@ import (
 type SizeConstraintSet struct {
 	pulumi.CustomResourceState
 
+	AwsId           pulumi.StringOutput                        `pulumi:"awsId"`
 	Name            pulumi.StringOutput                        `pulumi:"name"`
 	SizeConstraints SizeConstraintSetSizeConstraintArrayOutput `pulumi:"sizeConstraints"`
 }
@@ -110,6 +111,10 @@ func (o SizeConstraintSetOutput) ToSizeConstraintSetOutput() SizeConstraintSetOu
 
 func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx context.Context) SizeConstraintSetOutput {
 	return o
+}
+
+func (o SizeConstraintSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SizeConstraintSetOutput) Name() pulumi.StringOutput {

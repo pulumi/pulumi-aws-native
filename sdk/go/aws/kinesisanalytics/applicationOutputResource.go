@@ -19,6 +19,7 @@ type ApplicationOutputResource struct {
 	pulumi.CustomResourceState
 
 	ApplicationName pulumi.StringOutput                       `pulumi:"applicationName"`
+	AwsId           pulumi.StringOutput                       `pulumi:"awsId"`
 	Output          ApplicationOutputResourceOutputTypeOutput `pulumi:"output"`
 }
 
@@ -121,6 +122,10 @@ func (o ApplicationOutputResourceOutput) ToApplicationOutputResourceOutputWithCo
 
 func (o ApplicationOutputResourceOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationOutputResource) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutputResourceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationOutputResource) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApplicationOutputResourceOutput) Output() ApplicationOutputResourceOutputTypeOutput {

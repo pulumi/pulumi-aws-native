@@ -37,6 +37,7 @@ export class PublicKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === PublicKey.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly publicKeyConfig!: pulumi.Output<outputs.cloudfront.PublicKeyConfig>;
 
@@ -55,8 +56,10 @@ export class PublicKey extends pulumi.CustomResource {
                 throw new Error("Missing required property 'publicKeyConfig'");
             }
             resourceInputs["publicKeyConfig"] = args ? args.publicKeyConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["publicKeyConfig"] = undefined /*out*/;
         }

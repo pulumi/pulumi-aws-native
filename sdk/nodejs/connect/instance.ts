@@ -46,6 +46,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly attributes!: pulumi.Output<outputs.connect.InstanceAttributes>;
     /**
+     * An instanceId is automatically generated on creation and assigned as the unique identifier.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Timestamp of instance creation logged as part of instance creation.
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
@@ -97,12 +101,14 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["instanceAlias"] = args ? args.instanceAlias : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["instanceStatus"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["directoryId"] = undefined /*out*/;
             resourceInputs["identityManagementType"] = undefined /*out*/;

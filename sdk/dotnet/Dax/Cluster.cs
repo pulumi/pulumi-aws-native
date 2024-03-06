@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Dax
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("clusterDiscoveryEndpoint")]
         public Output<string> ClusterDiscoveryEndpoint { get; private set; } = null!;
 

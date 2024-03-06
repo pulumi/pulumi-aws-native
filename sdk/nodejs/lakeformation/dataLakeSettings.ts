@@ -44,6 +44,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
     public readonly allowExternalDataFiltering!: pulumi.Output<boolean | undefined>;
     public readonly allowFullTableExternalDataAccess!: pulumi.Output<boolean | undefined>;
     public readonly authorizedSessionTagValueList!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly createDatabaseDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissions | undefined>;
     public readonly createTableDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateTableDefaultPermissions | undefined>;
     public readonly externalDataFilteringAllowList!: pulumi.Output<outputs.lakeformation.DataLakeSettingsExternalDataFilteringAllowList | undefined>;
@@ -77,11 +78,13 @@ export class DataLakeSettings extends pulumi.CustomResource {
             resourceInputs["mutationType"] = args ? args.mutationType : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["admins"] = undefined /*out*/;
             resourceInputs["allowExternalDataFiltering"] = undefined /*out*/;
             resourceInputs["allowFullTableExternalDataAccess"] = undefined /*out*/;
             resourceInputs["authorizedSessionTagValueList"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createDatabaseDefaultPermissions"] = undefined /*out*/;
             resourceInputs["createTableDefaultPermissions"] = undefined /*out*/;
             resourceInputs["externalDataFilteringAllowList"] = undefined /*out*/;

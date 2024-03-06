@@ -117,6 +117,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["network_services"] = network_services
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrafficMirrorFilter, __self__).__init__(
@@ -141,10 +142,16 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
         __props__ = TrafficMirrorFilterArgs.__new__(TrafficMirrorFilterArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["network_services"] = None
         __props__.__dict__["tags"] = None
         return TrafficMirrorFilter(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

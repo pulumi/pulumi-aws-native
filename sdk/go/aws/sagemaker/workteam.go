@@ -18,6 +18,7 @@ import (
 type Workteam struct {
 	pulumi.CustomResourceState
 
+	AwsId                     pulumi.StringOutput                        `pulumi:"awsId"`
 	Description               pulumi.StringPtrOutput                     `pulumi:"description"`
 	MemberDefinitions         WorkteamMemberDefinitionArrayOutput        `pulumi:"memberDefinitions"`
 	NotificationConfiguration WorkteamNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
@@ -124,6 +125,10 @@ func (o WorkteamOutput) ToWorkteamOutput() WorkteamOutput {
 
 func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutput {
 	return o
+}
+
+func (o WorkteamOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o WorkteamOutput) Description() pulumi.StringPtrOutput {

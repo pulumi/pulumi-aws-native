@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lex
     [AwsNativeResourceType("aws-native:lex:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("policy")]
         public Output<Outputs.ResourcePolicyPolicy> Policy { get; private set; } = null!;
 

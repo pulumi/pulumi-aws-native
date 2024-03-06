@@ -147,6 +147,7 @@ class GlobalNetwork(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(GlobalNetwork, __self__).__init__(
             'aws-native:networkmanager:GlobalNetwork',
             resource_name,
@@ -170,6 +171,7 @@ class GlobalNetwork(pulumi.CustomResource):
         __props__ = GlobalNetworkArgs.__new__(GlobalNetworkArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["state"] = None
@@ -183,6 +185,14 @@ class GlobalNetwork(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the global network.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the global network.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

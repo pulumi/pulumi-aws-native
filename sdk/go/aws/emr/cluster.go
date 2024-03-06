@@ -24,6 +24,7 @@ type Cluster struct {
 	Applications            ClusterApplicationArrayOutput           `pulumi:"applications"`
 	AutoScalingRole         pulumi.StringPtrOutput                  `pulumi:"autoScalingRole"`
 	AutoTerminationPolicy   ClusterAutoTerminationPolicyPtrOutput   `pulumi:"autoTerminationPolicy"`
+	AwsId                   pulumi.StringOutput                     `pulumi:"awsId"`
 	BootstrapActions        ClusterBootstrapActionConfigArrayOutput `pulumi:"bootstrapActions"`
 	Configurations          ClusterConfigurationArrayOutput         `pulumi:"configurations"`
 	CustomAmiId             pulumi.StringPtrOutput                  `pulumi:"customAmiId"`
@@ -237,6 +238,10 @@ func (o ClusterOutput) AutoScalingRole() pulumi.StringPtrOutput {
 
 func (o ClusterOutput) AutoTerminationPolicy() ClusterAutoTerminationPolicyPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterAutoTerminationPolicyPtrOutput { return v.AutoTerminationPolicy }).(ClusterAutoTerminationPolicyPtrOutput)
+}
+
+func (o ClusterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ClusterOutput) BootstrapActions() ClusterBootstrapActionConfigArrayOutput {

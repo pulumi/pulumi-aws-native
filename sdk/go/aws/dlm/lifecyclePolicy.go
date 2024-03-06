@@ -19,6 +19,7 @@ type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
 	Arn                    pulumi.StringOutput                            `pulumi:"arn"`
+	AwsId                  pulumi.StringOutput                            `pulumi:"awsId"`
 	CopyTags               pulumi.BoolPtrOutput                           `pulumi:"copyTags"`
 	CreateInterval         pulumi.IntPtrOutput                            `pulumi:"createInterval"`
 	CrossRegionCopyTargets LifecyclePolicyCrossRegionCopyTargetsPtrOutput `pulumi:"crossRegionCopyTargets"`
@@ -142,6 +143,10 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 
 func (o LifecyclePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LifecyclePolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LifecyclePolicyOutput) CopyTags() pulumi.BoolPtrOutput {

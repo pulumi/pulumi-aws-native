@@ -183,6 +183,7 @@ class EmailTemplate(pulumi.CustomResource):
             __props__.__dict__["template_name"] = template_name
             __props__.__dict__["text_part"] = text_part
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["template_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EmailTemplate, __self__).__init__(
@@ -208,6 +209,7 @@ class EmailTemplate(pulumi.CustomResource):
         __props__ = EmailTemplateArgs.__new__(EmailTemplateArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["default_substitutions"] = None
         __props__.__dict__["html_part"] = None
         __props__.__dict__["subject"] = None
@@ -221,6 +223,11 @@ class EmailTemplate(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="defaultSubstitutions")

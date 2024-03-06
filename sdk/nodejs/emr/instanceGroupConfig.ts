@@ -41,6 +41,7 @@ export class InstanceGroupConfig extends pulumi.CustomResource {
     }
 
     public readonly autoScalingPolicy!: pulumi.Output<outputs.emr.InstanceGroupConfigAutoScalingPolicy | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly bidPrice!: pulumi.Output<string | undefined>;
     public readonly configurations!: pulumi.Output<outputs.emr.InstanceGroupConfigConfiguration[] | undefined>;
     public readonly customAmiId!: pulumi.Output<string | undefined>;
@@ -88,8 +89,10 @@ export class InstanceGroupConfig extends pulumi.CustomResource {
             resourceInputs["jobFlowId"] = args ? args.jobFlowId : undefined;
             resourceInputs["market"] = args ? args.market : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["autoScalingPolicy"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["bidPrice"] = undefined /*out*/;
             resourceInputs["configurations"] = undefined /*out*/;
             resourceInputs["customAmiId"] = undefined /*out*/;

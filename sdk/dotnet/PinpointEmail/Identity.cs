@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.PinpointEmail
     [AwsNativeResourceType("aws-native:pinpointemail:Identity")]
     public partial class Identity : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("dkimSigningEnabled")]
         public Output<bool?> DkimSigningEnabled { get; private set; } = null!;
 

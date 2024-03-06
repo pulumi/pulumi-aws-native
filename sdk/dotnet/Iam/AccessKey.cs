@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Iam
     [AwsNativeResourceType("aws-native:iam:AccessKey")]
     public partial class AccessKey : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("secretAccessKey")]
         public Output<string> SecretAccessKey { get; private set; } = null!;
 

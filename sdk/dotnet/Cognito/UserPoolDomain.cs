@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolDomain")]
     public partial class UserPoolDomain : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cloudFrontDistribution")]
         public Output<string> CloudFrontDistribution { get; private set; } = null!;
 

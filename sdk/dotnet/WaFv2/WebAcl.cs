@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.WaFv2
         [Output("associationConfig")]
         public Output<Outputs.WebAclAssociationConfig?> AssociationConfig { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 

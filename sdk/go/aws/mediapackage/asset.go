@@ -19,6 +19,8 @@ type Asset struct {
 
 	// The ARN of the Asset.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The unique identifier for the Asset.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The time the Asset was initially submitted for Ingest.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The list of egress endpoints available for the Asset.
@@ -42,6 +44,9 @@ func NewAsset(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AwsId == nil {
+		return nil, errors.New("invalid value for required argument 'AwsId'")
+	}
 	if args.PackagingGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'PackagingGroupId'")
 	}
@@ -84,6 +89,8 @@ func (AssetState) ElementType() reflect.Type {
 }
 
 type assetArgs struct {
+	// The unique identifier for the Asset.
+	AwsId string `pulumi:"awsId"`
 	// The list of egress endpoints available for the Asset.
 	EgressEndpoints []AssetEgressEndpoint `pulumi:"egressEndpoints"`
 	// The ID of the PackagingGroup for the Asset.
@@ -100,6 +107,8 @@ type assetArgs struct {
 
 // The set of arguments for constructing a Asset resource.
 type AssetArgs struct {
+	// The unique identifier for the Asset.
+	AwsId pulumi.StringInput
 	// The list of egress endpoints available for the Asset.
 	EgressEndpoints AssetEgressEndpointArrayInput
 	// The ID of the PackagingGroup for the Asset.
@@ -154,6 +163,11 @@ func (o AssetOutput) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 // The ARN of the Asset.
 func (o AssetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The unique identifier for the Asset.
+func (o AssetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The time the Asset was initially submitted for Ingest.

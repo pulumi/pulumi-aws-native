@@ -46,6 +46,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ID of the endpoint.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The VPC CIDR committed by this endpoint.
      */
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
@@ -106,6 +110,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
@@ -113,6 +118,7 @@ export class Endpoint extends pulumi.CustomResource {
         } else {
             resourceInputs["accessType"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["customerOwnedIpv4Pool"] = undefined /*out*/;

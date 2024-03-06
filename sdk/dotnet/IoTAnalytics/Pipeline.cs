@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
     [AwsNativeResourceType("aws-native:iotanalytics:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("pipelineActivities")]
         public Output<ImmutableArray<Outputs.PipelineActivity>> PipelineActivities { get; private set; } = null!;
 

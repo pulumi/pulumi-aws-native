@@ -19,6 +19,8 @@ type WirelessDevice struct {
 
 	// Wireless device arn. Returned after successful create.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Wireless device Id. Returned after successful create.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Wireless device description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Wireless device destination name
@@ -163,6 +165,11 @@ func (o WirelessDeviceOutput) ToWirelessDeviceOutputWithContext(ctx context.Cont
 // Wireless device arn. Returned after successful create.
 func (o WirelessDeviceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WirelessDevice) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Wireless device Id. Returned after successful create.
+func (o WirelessDeviceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WirelessDevice) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Wireless device description

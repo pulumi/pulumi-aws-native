@@ -147,6 +147,7 @@ class MountTarget(pulumi.CustomResource):
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["file_system_id", "ip_address", "subnet_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MountTarget, __self__).__init__(
@@ -171,11 +172,17 @@ class MountTarget(pulumi.CustomResource):
 
         __props__ = MountTargetArgs.__new__(MountTargetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["file_system_id"] = None
         __props__.__dict__["ip_address"] = None
         __props__.__dict__["security_groups"] = None
         __props__.__dict__["subnet_id"] = None
         return MountTarget(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="fileSystemId")

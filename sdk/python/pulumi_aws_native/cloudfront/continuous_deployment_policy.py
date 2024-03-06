@@ -83,6 +83,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             if continuous_deployment_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'continuous_deployment_policy_config'")
             __props__.__dict__["continuous_deployment_policy_config"] = continuous_deployment_policy_config
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(ContinuousDeploymentPolicy, __self__).__init__(
             'aws-native:cloudfront:ContinuousDeploymentPolicy',
@@ -106,9 +107,15 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         __props__ = ContinuousDeploymentPolicyArgs.__new__(ContinuousDeploymentPolicyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["continuous_deployment_policy_config"] = None
         __props__.__dict__["last_modified_time"] = None
         return ContinuousDeploymentPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="continuousDeploymentPolicyConfig")

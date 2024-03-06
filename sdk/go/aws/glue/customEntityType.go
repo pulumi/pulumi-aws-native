@@ -17,6 +17,7 @@ import (
 type CustomEntityType struct {
 	pulumi.CustomResourceState
 
+	AwsId        pulumi.StringOutput      `pulumi:"awsId"`
 	ContextWords pulumi.StringArrayOutput `pulumi:"contextWords"`
 	Name         pulumi.StringPtrOutput   `pulumi:"name"`
 	RegexString  pulumi.StringPtrOutput   `pulumi:"regexString"`
@@ -115,6 +116,10 @@ func (o CustomEntityTypeOutput) ToCustomEntityTypeOutput() CustomEntityTypeOutpu
 
 func (o CustomEntityTypeOutput) ToCustomEntityTypeOutputWithContext(ctx context.Context) CustomEntityTypeOutput {
 	return o
+}
+
+func (o CustomEntityTypeOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomEntityType) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CustomEntityTypeOutput) ContextWords() pulumi.StringArrayOutput {

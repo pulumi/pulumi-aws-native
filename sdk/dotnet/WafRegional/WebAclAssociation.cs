@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.WafRegional
     [AwsNativeResourceType("aws-native:wafregional:WebAclAssociation")]
     public partial class WebAclAssociation : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 

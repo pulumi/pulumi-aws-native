@@ -159,6 +159,7 @@ class SecurityGroup(pulumi.CustomResource):
             __props__.__dict__["security_group_ingress"] = security_group_ingress
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["group_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["group_description", "group_name", "vpc_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -184,6 +185,7 @@ class SecurityGroup(pulumi.CustomResource):
 
         __props__ = SecurityGroupArgs.__new__(SecurityGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["group_description"] = None
         __props__.__dict__["group_id"] = None
         __props__.__dict__["group_name"] = None
@@ -192,6 +194,11 @@ class SecurityGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_id"] = None
         return SecurityGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="groupDescription")

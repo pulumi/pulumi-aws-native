@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Sns
     public partial class TopicPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// A policy document that contains permissions to add to the specified SNS topics.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.

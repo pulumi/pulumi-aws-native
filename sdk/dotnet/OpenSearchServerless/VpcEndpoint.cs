@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public partial class VpcEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The identifier of the VPC Endpoint
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the VPC Endpoint
         /// </summary>
         [Output("name")]

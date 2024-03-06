@@ -432,6 +432,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["read_endpoint"] = None
@@ -460,6 +461,7 @@ class DbCluster(pulumi.CustomResource):
         __props__ = DbClusterArgs.__new__(DbClusterArgs)
 
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["cluster_resource_id"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
@@ -492,6 +494,11 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")

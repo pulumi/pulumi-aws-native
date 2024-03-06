@@ -19,6 +19,7 @@ type HttpNamespace struct {
 	pulumi.CustomResourceState
 
 	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	AwsId       pulumi.StringOutput    `pulumi:"awsId"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Name        pulumi.StringOutput    `pulumi:"name"`
 	Tags        aws.TagArrayOutput     `pulumi:"tags"`
@@ -119,6 +120,10 @@ func (o HttpNamespaceOutput) ToHttpNamespaceOutputWithContext(ctx context.Contex
 
 func (o HttpNamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o HttpNamespaceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o HttpNamespaceOutput) Description() pulumi.StringPtrOutput {

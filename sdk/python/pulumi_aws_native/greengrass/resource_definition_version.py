@@ -104,6 +104,7 @@ class ResourceDefinitionVersion(pulumi.CustomResource):
             if resources is None and not opts.urn:
                 raise TypeError("Missing required property 'resources'")
             __props__.__dict__["resources"] = resources
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_definition_id", "resources[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourceDefinitionVersion, __self__).__init__(
@@ -128,9 +129,15 @@ class ResourceDefinitionVersion(pulumi.CustomResource):
 
         __props__ = ResourceDefinitionVersionInitArgs.__new__(ResourceDefinitionVersionInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["resource_definition_id"] = None
         __props__.__dict__["resources"] = None
         return ResourceDefinitionVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="resourceDefinitionId")

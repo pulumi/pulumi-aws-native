@@ -213,6 +213,7 @@ class StackSetConstraint(pulumi.CustomResource):
             if stack_instance_control is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_instance_control'")
             __props__.__dict__["stack_instance_control"] = stack_instance_control
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portfolio_id", "product_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StackSetConstraint, __self__).__init__(
@@ -240,6 +241,7 @@ class StackSetConstraint(pulumi.CustomResource):
         __props__.__dict__["accept_language"] = None
         __props__.__dict__["account_list"] = None
         __props__.__dict__["admin_role"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["execution_role"] = None
         __props__.__dict__["portfolio_id"] = None
@@ -262,6 +264,11 @@ class StackSetConstraint(pulumi.CustomResource):
     @pulumi.getter(name="adminRole")
     def admin_role(self) -> pulumi.Output[str]:
         return pulumi.get(self, "admin_role")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

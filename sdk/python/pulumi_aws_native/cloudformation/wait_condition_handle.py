@@ -71,6 +71,7 @@ class WaitConditionHandle(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WaitConditionHandleArgs.__new__(WaitConditionHandleArgs)
 
+            __props__.__dict__["aws_id"] = None
         super(WaitConditionHandle, __self__).__init__(
             'aws-native:cloudformation:WaitConditionHandle',
             resource_name,
@@ -93,5 +94,11 @@ class WaitConditionHandle(pulumi.CustomResource):
 
         __props__ = WaitConditionHandleArgs.__new__(WaitConditionHandleArgs)
 
+        __props__.__dict__["aws_id"] = None
         return WaitConditionHandle(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 

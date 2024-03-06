@@ -37,6 +37,7 @@ export class TransitGatewayRouteTablePropagation extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayRouteTablePropagation.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
@@ -61,7 +62,9 @@ export class TransitGatewayRouteTablePropagation extends pulumi.CustomResource {
             }
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
             resourceInputs["transitGatewayRouteTableId"] = undefined /*out*/;
         }

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.PinpointEmail
     [AwsNativeResourceType("aws-native:pinpointemail:ConfigurationSetEventDestination")]
     public partial class ConfigurationSetEventDestination : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("configurationSetName")]
         public Output<string> ConfigurationSetName { get; private set; } = null!;
 

@@ -298,6 +298,7 @@ class ReplicationInstance(pulumi.CustomResource):
             __props__.__dict__["resource_identifier"] = resource_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["replication_instance_private_ip_addresses"] = None
             __props__.__dict__["replication_instance_public_ip_addresses"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key_id", "publicly_accessible", "replication_subnet_group_identifier", "resource_identifier"])
@@ -328,6 +329,7 @@ class ReplicationInstance(pulumi.CustomResource):
         __props__.__dict__["allow_major_version_upgrade"] = None
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["multi_az"] = None
@@ -362,6 +364,11 @@ class ReplicationInstance(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="engineVersion")

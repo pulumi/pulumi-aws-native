@@ -39,6 +39,7 @@ export class Workflow extends pulumi.CustomResource {
 
     public readonly accelerators!: pulumi.Output<enums.omics.WorkflowAccelerators | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly definitionUri!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -72,12 +73,14 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accelerators"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["definitionUri"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

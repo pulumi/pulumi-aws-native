@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Greengrass
     [AwsNativeResourceType("aws-native:greengrass:ResourceDefinitionVersion")]
     public partial class ResourceDefinitionVersion : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("resourceDefinitionId")]
         public Output<string> ResourceDefinitionId { get; private set; } = null!;
 

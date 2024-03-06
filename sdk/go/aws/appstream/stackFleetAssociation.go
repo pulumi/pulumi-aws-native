@@ -18,6 +18,7 @@ import (
 type StackFleetAssociation struct {
 	pulumi.CustomResourceState
 
+	AwsId     pulumi.StringOutput `pulumi:"awsId"`
 	FleetName pulumi.StringOutput `pulumi:"fleetName"`
 	StackName pulumi.StringOutput `pulumi:"stackName"`
 }
@@ -113,6 +114,10 @@ func (o StackFleetAssociationOutput) ToStackFleetAssociationOutput() StackFleetA
 
 func (o StackFleetAssociationOutput) ToStackFleetAssociationOutputWithContext(ctx context.Context) StackFleetAssociationOutput {
 	return o
+}
+
+func (o StackFleetAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackFleetAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o StackFleetAssociationOutput) FleetName() pulumi.StringOutput {

@@ -47,6 +47,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly applications!: pulumi.Output<outputs.emr.ClusterApplication[] | undefined>;
     public readonly autoScalingRole!: pulumi.Output<string | undefined>;
     public readonly autoTerminationPolicy!: pulumi.Output<outputs.emr.ClusterAutoTerminationPolicy | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapActionConfig[] | undefined>;
     public readonly configurations!: pulumi.Output<outputs.emr.ClusterConfiguration[] | undefined>;
     public readonly customAmiId!: pulumi.Output<string | undefined>;
@@ -121,12 +122,14 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["masterPublicDns"] = undefined /*out*/;
         } else {
             resourceInputs["additionalInfo"] = undefined /*out*/;
             resourceInputs["applications"] = undefined /*out*/;
             resourceInputs["autoScalingRole"] = undefined /*out*/;
             resourceInputs["autoTerminationPolicy"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["bootstrapActions"] = undefined /*out*/;
             resourceInputs["configurations"] = undefined /*out*/;
             resourceInputs["customAmiId"] = undefined /*out*/;

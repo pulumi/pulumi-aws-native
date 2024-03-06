@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Qldb
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("exclusiveEndTime")]
         public Output<string?> ExclusiveEndTime { get; private set; } = null!;
 

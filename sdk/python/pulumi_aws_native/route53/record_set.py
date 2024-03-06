@@ -328,6 +328,7 @@ class RecordSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["weight"] = weight
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["hosted_zone_id", "hosted_zone_name", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RecordSet, __self__).__init__(
@@ -353,6 +354,7 @@ class RecordSet(pulumi.CustomResource):
         __props__ = RecordSetArgs.__new__(RecordSetArgs)
 
         __props__.__dict__["alias_target"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cidr_routing_config"] = None
         __props__.__dict__["comment"] = None
         __props__.__dict__["failover"] = None
@@ -375,6 +377,11 @@ class RecordSet(pulumi.CustomResource):
     @pulumi.getter(name="aliasTarget")
     def alias_target(self) -> pulumi.Output[Optional['outputs.RecordSetAliasTarget']]:
         return pulumi.get(self, "alias_target")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cidrRoutingConfig")

@@ -43,6 +43,7 @@ export class DbInstance extends pulumi.CustomResource {
     public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
     public readonly dbInstanceClass!: pulumi.Output<string>;
     public readonly dbInstanceIdentifier!: pulumi.Output<string | undefined>;
@@ -81,12 +82,14 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
         } else {
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dbInstanceClass"] = undefined /*out*/;
             resourceInputs["dbInstanceIdentifier"] = undefined /*out*/;

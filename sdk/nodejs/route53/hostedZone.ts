@@ -37,6 +37,7 @@ export class HostedZone extends pulumi.CustomResource {
         return obj['__pulumiType'] === HostedZone.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly hostedZoneConfig!: pulumi.Output<outputs.route53.HostedZoneConfig | undefined>;
     /**
      * Adds, edits, or deletes tags for a health check or a hosted zone.
@@ -73,8 +74,10 @@ export class HostedZone extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["queryLoggingConfig"] = args ? args.queryLoggingConfig : undefined;
             resourceInputs["vpcs"] = args ? args.vpcs : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["nameServers"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["hostedZoneConfig"] = undefined /*out*/;
             resourceInputs["hostedZoneTags"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

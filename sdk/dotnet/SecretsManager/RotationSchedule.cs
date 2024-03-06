@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SecretsManager
     [AwsNativeResourceType("aws-native:secretsmanager:RotationSchedule")]
     public partial class RotationSchedule : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("hostedRotationLambda")]
         public Output<Outputs.RotationScheduleHostedRotationLambda?> HostedRotationLambda { get; private set; } = null!;
 

@@ -230,6 +230,7 @@ class DataIntegration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_uri'")
             __props__.__dict__["source_uri"] = source_uri
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["data_integration_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key", "schedule_config", "source_uri"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -255,6 +256,7 @@ class DataIntegration(pulumi.CustomResource):
 
         __props__ = DataIntegrationArgs.__new__(DataIntegrationArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["data_integration_arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["file_configuration"] = None
@@ -265,6 +267,14 @@ class DataIntegration(pulumi.CustomResource):
         __props__.__dict__["source_uri"] = None
         __props__.__dict__["tags"] = None
         return DataIntegration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifer of the data integration.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="dataIntegrationArn")

@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("asyncInferenceConfig")]
         public Output<Outputs.EndpointConfigAsyncInferenceConfig?> AsyncInferenceConfig { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("dataCaptureConfig")]
         public Output<Outputs.EndpointConfigDataCaptureConfig?> DataCaptureConfig { get; private set; } = null!;
 

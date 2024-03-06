@@ -37,6 +37,7 @@ export class WaitCondition extends pulumi.CustomResource {
         return obj['__pulumiType'] === WaitCondition.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly count!: pulumi.Output<number | undefined>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::WaitCondition` for more information about the expected schema for this property.
@@ -61,8 +62,10 @@ export class WaitCondition extends pulumi.CustomResource {
             resourceInputs["count"] = args ? args.count : undefined;
             resourceInputs["handle"] = args ? args.handle : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["data"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["count"] = undefined /*out*/;
             resourceInputs["data"] = undefined /*out*/;
             resourceInputs["handle"] = undefined /*out*/;

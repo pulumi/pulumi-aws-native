@@ -20,6 +20,7 @@ type JobTemplate struct {
 
 	AccelerationSettings JobTemplateAccelerationSettingsPtrOutput `pulumi:"accelerationSettings"`
 	Arn                  pulumi.StringOutput                      `pulumi:"arn"`
+	AwsId                pulumi.StringOutput                      `pulumi:"awsId"`
 	Category             pulumi.StringPtrOutput                   `pulumi:"category"`
 	Description          pulumi.StringPtrOutput                   `pulumi:"description"`
 	HopDestinations      JobTemplateHopDestinationArrayOutput     `pulumi:"hopDestinations"`
@@ -153,6 +154,10 @@ func (o JobTemplateOutput) AccelerationSettings() JobTemplateAccelerationSetting
 
 func (o JobTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o JobTemplateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o JobTemplateOutput) Category() pulumi.StringPtrOutput {

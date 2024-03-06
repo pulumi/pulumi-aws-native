@@ -228,6 +228,7 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["type", "vpc"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Input, __self__).__init__(
@@ -253,6 +254,7 @@ class Input(pulumi.CustomResource):
         __props__ = InputArgs.__new__(InputArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["destinations"] = None
         __props__.__dict__["input_devices"] = None
         __props__.__dict__["input_security_groups"] = None
@@ -269,6 +271,11 @@ class Input(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

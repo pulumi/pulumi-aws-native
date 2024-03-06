@@ -153,6 +153,7 @@ class SmsTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'template_name'")
             __props__.__dict__["template_name"] = template_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["template_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SmsTemplate, __self__).__init__(
@@ -178,6 +179,7 @@ class SmsTemplate(pulumi.CustomResource):
         __props__ = SmsTemplateArgs.__new__(SmsTemplateArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["body"] = None
         __props__.__dict__["default_substitutions"] = None
         __props__.__dict__["tags"] = None
@@ -189,6 +191,11 @@ class SmsTemplate(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

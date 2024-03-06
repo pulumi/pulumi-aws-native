@@ -40,6 +40,7 @@ export class ParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ParameterGroup.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cacheParameterGroupFamily!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -68,7 +69,9 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cacheParameterGroupFamily"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

@@ -19,6 +19,7 @@ type MicrosoftAd struct {
 	pulumi.CustomResourceState
 
 	Alias          pulumi.StringOutput          `pulumi:"alias"`
+	AwsId          pulumi.StringOutput          `pulumi:"awsId"`
 	CreateAlias    pulumi.BoolPtrOutput         `pulumi:"createAlias"`
 	DnsIpAddresses pulumi.StringArrayOutput     `pulumi:"dnsIpAddresses"`
 	Edition        pulumi.StringPtrOutput       `pulumi:"edition"`
@@ -143,6 +144,10 @@ func (o MicrosoftAdOutput) ToMicrosoftAdOutputWithContext(ctx context.Context) M
 
 func (o MicrosoftAdOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *MicrosoftAd) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+func (o MicrosoftAdOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftAd) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o MicrosoftAdOutput) CreateAlias() pulumi.BoolPtrOutput {

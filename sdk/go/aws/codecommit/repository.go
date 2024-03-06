@@ -19,6 +19,7 @@ type Repository struct {
 	pulumi.CustomResourceState
 
 	Arn                   pulumi.StringOutput          `pulumi:"arn"`
+	AwsId                 pulumi.StringOutput          `pulumi:"awsId"`
 	CloneUrlHttp          pulumi.StringOutput          `pulumi:"cloneUrlHttp"`
 	CloneUrlSsh           pulumi.StringOutput          `pulumi:"cloneUrlSsh"`
 	Code                  RepositoryCodePtrOutput      `pulumi:"code"`
@@ -127,6 +128,10 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 
 func (o RepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RepositoryOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RepositoryOutput) CloneUrlHttp() pulumi.StringOutput {

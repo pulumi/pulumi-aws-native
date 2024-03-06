@@ -46,6 +46,10 @@ export class ResolverConfig extends pulumi.CustomResource {
      */
     public readonly autodefinedReverseFlag!: pulumi.Output<enums.route53resolver.ResolverConfigAutodefinedReverseFlag>;
     /**
+     * Id
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * AccountId
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
@@ -74,10 +78,12 @@ export class ResolverConfig extends pulumi.CustomResource {
             resourceInputs["autodefinedReverseFlag"] = args ? args.autodefinedReverseFlag : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["autodefinedReverse"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
         } else {
             resourceInputs["autodefinedReverse"] = undefined /*out*/;
             resourceInputs["autodefinedReverseFlag"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
         }

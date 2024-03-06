@@ -46,6 +46,10 @@ export class MulticastGroup extends pulumi.CustomResource {
      */
     public readonly associateWirelessDevice!: pulumi.Output<string | undefined>;
     /**
+     * Multicast group id. Returned after successful create.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Multicast group description
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -91,10 +95,12 @@ export class MulticastGroup extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associateWirelessDevice"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disassociateWirelessDevice"] = undefined /*out*/;
             resourceInputs["loRaWan"] = undefined /*out*/;

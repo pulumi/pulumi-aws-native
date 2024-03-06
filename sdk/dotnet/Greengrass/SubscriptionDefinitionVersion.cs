@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Greengrass
     [AwsNativeResourceType("aws-native:greengrass:SubscriptionDefinitionVersion")]
     public partial class SubscriptionDefinitionVersion : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("subscriptionDefinitionId")]
         public Output<string> SubscriptionDefinitionId { get; private set; } = null!;
 

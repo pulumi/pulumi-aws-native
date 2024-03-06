@@ -19,6 +19,7 @@ type ApnsChannel struct {
 	pulumi.CustomResourceState
 
 	ApplicationId               pulumi.StringOutput    `pulumi:"applicationId"`
+	AwsId                       pulumi.StringOutput    `pulumi:"awsId"`
 	BundleId                    pulumi.StringPtrOutput `pulumi:"bundleId"`
 	Certificate                 pulumi.StringPtrOutput `pulumi:"certificate"`
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
@@ -139,6 +140,10 @@ func (o ApnsChannelOutput) ToApnsChannelOutputWithContext(ctx context.Context) A
 
 func (o ApnsChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApnsChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ApnsChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApnsChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApnsChannelOutput) BundleId() pulumi.StringPtrOutput {

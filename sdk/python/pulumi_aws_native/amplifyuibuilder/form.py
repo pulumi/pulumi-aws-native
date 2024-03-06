@@ -247,6 +247,7 @@ class Form(pulumi.CustomResource):
             __props__.__dict__["sectional_elements"] = sectional_elements
             __props__.__dict__["style"] = style
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_id", "environment_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Form, __self__).__init__(
@@ -272,6 +273,7 @@ class Form(pulumi.CustomResource):
         __props__ = FormArgs.__new__(FormArgs)
 
         __props__.__dict__["app_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cta"] = None
         __props__.__dict__["data_type"] = None
         __props__.__dict__["environment_name"] = None
@@ -289,6 +291,11 @@ class Form(pulumi.CustomResource):
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

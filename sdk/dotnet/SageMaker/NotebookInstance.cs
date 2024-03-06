@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("additionalCodeRepositories")]
         public Output<ImmutableArray<string>> AdditionalCodeRepositories { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("defaultCodeRepository")]
         public Output<string?> DefaultCodeRepository { get; private set; } = null!;
 

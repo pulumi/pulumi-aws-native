@@ -38,6 +38,7 @@ export class MissionProfile extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Post-pass time needed after the contact.
      */
@@ -97,9 +98,11 @@ export class MissionProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trackingConfigArn"] = args ? args.trackingConfigArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["contactPostPassDurationSeconds"] = undefined /*out*/;
             resourceInputs["contactPrePassDurationSeconds"] = undefined /*out*/;
             resourceInputs["dataflowEdges"] = undefined /*out*/;

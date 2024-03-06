@@ -277,6 +277,7 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["source_id"] = source_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["variants"] = variants
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_id", "environment_name"])
@@ -304,6 +305,7 @@ class Component(pulumi.CustomResource):
         __props__ = ComponentArgs.__new__(ComponentArgs)
 
         __props__.__dict__["app_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["binding_properties"] = None
         __props__.__dict__["children"] = None
         __props__.__dict__["collection_properties"] = None
@@ -325,6 +327,11 @@ class Component(pulumi.CustomResource):
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="bindingProperties")

@@ -37,6 +37,7 @@ export class SecretTargetAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecretTargetAttachment.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly secretId!: pulumi.Output<string>;
     public readonly targetId!: pulumi.Output<string>;
     public readonly targetType!: pulumi.Output<string>;
@@ -66,7 +67,9 @@ export class SecretTargetAttachment extends pulumi.CustomResource {
             resourceInputs["secretId"] = args ? args.secretId : undefined;
             resourceInputs["targetId"] = args ? args.targetId : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["secretId"] = undefined /*out*/;
             resourceInputs["targetId"] = undefined /*out*/;
             resourceInputs["targetType"] = undefined /*out*/;

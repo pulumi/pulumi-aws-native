@@ -42,6 +42,7 @@ export class Configuration extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authenticationStrategy!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly data!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly engineType!: pulumi.Output<string>;
@@ -80,10 +81,12 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authenticationStrategy"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["data"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["engineType"] = undefined /*out*/;

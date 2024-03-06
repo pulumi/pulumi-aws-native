@@ -42,6 +42,10 @@ export class GlobalNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ID of the global network.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The date and time that the global network was created.
      */
     public readonly createdAt!: pulumi.Output<string | undefined>;
@@ -74,8 +78,10 @@ export class GlobalNetwork extends pulumi.CustomResource {
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

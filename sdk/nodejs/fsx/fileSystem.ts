@@ -40,6 +40,7 @@ export class FileSystem extends pulumi.CustomResource {
         return obj['__pulumiType'] === FileSystem.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly backupId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     public readonly fileSystemType!: pulumi.Output<string>;
@@ -90,11 +91,13 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["windowsConfiguration"] = args ? args.windowsConfiguration : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["lustreMountName"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["rootVolumeId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["backupId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["fileSystemType"] = undefined /*out*/;

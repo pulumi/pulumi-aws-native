@@ -252,6 +252,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["activation_code"] = None
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["desktop_type"] = None
             __props__.__dict__["pending_software_set_id"] = None
@@ -285,6 +286,7 @@ class Environment(pulumi.CustomResource):
 
         __props__.__dict__["activation_code"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["desired_software_set_id"] = None
         __props__.__dict__["desktop_arn"] = None
@@ -318,6 +320,14 @@ class Environment(pulumi.CustomResource):
         The environment ARN.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Unique identifier of the environment.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

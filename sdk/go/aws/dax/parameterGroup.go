@@ -17,6 +17,7 @@ import (
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId              pulumi.StringOutput    `pulumi:"awsId"`
 	Description        pulumi.StringPtrOutput `pulumi:"description"`
 	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DAX::ParameterGroup` for more information about the expected schema for this property.
@@ -116,6 +117,10 @@ func (o ParameterGroupOutput) ToParameterGroupOutput() ParameterGroupOutput {
 
 func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput {
 	return o
+}
+
+func (o ParameterGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {

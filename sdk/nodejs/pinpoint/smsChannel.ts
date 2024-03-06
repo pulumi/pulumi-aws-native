@@ -38,6 +38,7 @@ export class SmsChannel extends pulumi.CustomResource {
     }
 
     public readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly senderId!: pulumi.Output<string | undefined>;
     public readonly shortCode!: pulumi.Output<string | undefined>;
@@ -62,8 +63,10 @@ export class SmsChannel extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["senderId"] = args ? args.senderId : undefined;
             resourceInputs["shortCode"] = args ? args.shortCode : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["senderId"] = undefined /*out*/;
             resourceInputs["shortCode"] = undefined /*out*/;

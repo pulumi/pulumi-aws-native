@@ -19,6 +19,7 @@ import (
 type DbClusterParameterGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput    `pulumi:"awsId"`
 	Description pulumi.StringOutput    `pulumi:"description"`
 	Family      pulumi.StringOutput    `pulumi:"family"`
 	Name        pulumi.StringPtrOutput `pulumi:"name"`
@@ -135,6 +136,10 @@ func (o DbClusterParameterGroupOutput) ToDbClusterParameterGroupOutput() DbClust
 
 func (o DbClusterParameterGroupOutput) ToDbClusterParameterGroupOutputWithContext(ctx context.Context) DbClusterParameterGroupOutput {
 	return o
+}
+
+func (o DbClusterParameterGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbClusterParameterGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DbClusterParameterGroupOutput) Description() pulumi.StringOutput {

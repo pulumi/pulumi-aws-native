@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.AmazonMq
         [Output("authenticationStrategy")]
         public Output<string?> AuthenticationStrategy { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("data")]
         public Output<string> Data { get; private set; } = null!;
 

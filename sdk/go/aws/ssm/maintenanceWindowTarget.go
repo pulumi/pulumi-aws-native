@@ -18,6 +18,7 @@ import (
 type MaintenanceWindowTarget struct {
 	pulumi.CustomResourceState
 
+	AwsId            pulumi.StringOutput                       `pulumi:"awsId"`
 	Description      pulumi.StringPtrOutput                    `pulumi:"description"`
 	Name             pulumi.StringPtrOutput                    `pulumi:"name"`
 	OwnerInformation pulumi.StringPtrOutput                    `pulumi:"ownerInformation"`
@@ -132,6 +133,10 @@ func (o MaintenanceWindowTargetOutput) ToMaintenanceWindowTargetOutput() Mainten
 
 func (o MaintenanceWindowTargetOutput) ToMaintenanceWindowTargetOutputWithContext(ctx context.Context) MaintenanceWindowTargetOutput {
 	return o
+}
+
+func (o MaintenanceWindowTargetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTarget) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o MaintenanceWindowTargetOutput) Description() pulumi.StringPtrOutput {

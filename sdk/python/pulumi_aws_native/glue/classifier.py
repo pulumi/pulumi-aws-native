@@ -132,6 +132,7 @@ class Classifier(pulumi.CustomResource):
             __props__.__dict__["grok_classifier"] = grok_classifier
             __props__.__dict__["json_classifier"] = json_classifier
             __props__.__dict__["xml_classifier"] = xml_classifier
+            __props__.__dict__["aws_id"] = None
         super(Classifier, __self__).__init__(
             'aws-native:glue:Classifier',
             resource_name,
@@ -154,11 +155,17 @@ class Classifier(pulumi.CustomResource):
 
         __props__ = ClassifierArgs.__new__(ClassifierArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["csv_classifier"] = None
         __props__.__dict__["grok_classifier"] = None
         __props__.__dict__["json_classifier"] = None
         __props__.__dict__["xml_classifier"] = None
         return Classifier(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="csvClassifier")

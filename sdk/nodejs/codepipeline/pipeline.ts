@@ -42,6 +42,7 @@ export class Pipeline extends pulumi.CustomResource {
 
     public readonly artifactStore!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore | undefined>;
     public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStoreMap[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly disableInboundStageTransitions!: pulumi.Output<outputs.codepipeline.PipelineStageTransition[] | undefined>;
     public readonly executionMode!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -85,10 +86,12 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["artifactStore"] = undefined /*out*/;
             resourceInputs["artifactStores"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["disableInboundStageTransitions"] = undefined /*out*/;
             resourceInputs["executionMode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

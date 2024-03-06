@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("allowSelfManagement")]
         public Output<bool?> AllowSelfManagement { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("iamUserArn")]
         public Output<string> IamUserArn { get; private set; } = null!;
 

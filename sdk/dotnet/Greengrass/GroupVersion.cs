@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Greengrass
     [AwsNativeResourceType("aws-native:greengrass:GroupVersion")]
     public partial class GroupVersion : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("connectorDefinitionVersionArn")]
         public Output<string?> ConnectorDefinitionVersionArn { get; private set; } = null!;
 

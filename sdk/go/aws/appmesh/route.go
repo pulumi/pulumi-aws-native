@@ -20,6 +20,7 @@ type Route struct {
 	pulumi.CustomResourceState
 
 	Arn               pulumi.StringOutput    `pulumi:"arn"`
+	AwsId             pulumi.StringOutput    `pulumi:"awsId"`
 	MeshName          pulumi.StringOutput    `pulumi:"meshName"`
 	MeshOwner         pulumi.StringPtrOutput `pulumi:"meshOwner"`
 	ResourceOwner     pulumi.StringOutput    `pulumi:"resourceOwner"`
@@ -143,6 +144,10 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 
 func (o RouteOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o RouteOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RouteOutput) MeshName() pulumi.StringOutput {

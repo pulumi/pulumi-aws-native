@@ -18,6 +18,7 @@ import (
 type MaintenanceWindowTask struct {
 	pulumi.CustomResourceState
 
+	AwsId                    pulumi.StringOutput                                    `pulumi:"awsId"`
 	CutoffBehavior           pulumi.StringPtrOutput                                 `pulumi:"cutoffBehavior"`
 	Description              pulumi.StringPtrOutput                                 `pulumi:"description"`
 	LoggingInfo              MaintenanceWindowTaskLoggingInfoPtrOutput              `pulumi:"loggingInfo"`
@@ -163,6 +164,10 @@ func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutput() Maintenance
 
 func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutputWithContext(ctx context.Context) MaintenanceWindowTaskOutput {
 	return o
+}
+
+func (o MaintenanceWindowTaskOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o MaintenanceWindowTaskOutput) CutoffBehavior() pulumi.StringPtrOutput {

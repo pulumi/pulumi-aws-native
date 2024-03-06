@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTWireless
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Service profile Id. Returned after successful create.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         /// </summary>
         [Output("loRaWan")]

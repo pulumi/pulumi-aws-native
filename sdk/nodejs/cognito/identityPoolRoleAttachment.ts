@@ -37,6 +37,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentityPoolRoleAttachment.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly identityPoolId!: pulumi.Output<string>;
     public readonly roleMappings!: pulumi.Output<{[key: string]: outputs.cognito.IdentityPoolRoleAttachmentRoleMapping} | undefined>;
     public readonly roles!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -58,7 +59,9 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
             resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
             resourceInputs["roleMappings"] = args ? args.roleMappings : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["identityPoolId"] = undefined /*out*/;
             resourceInputs["roleMappings"] = undefined /*out*/;
             resourceInputs["roles"] = undefined /*out*/;

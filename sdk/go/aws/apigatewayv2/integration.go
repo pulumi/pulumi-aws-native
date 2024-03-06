@@ -19,6 +19,7 @@ type Integration struct {
 	pulumi.CustomResourceState
 
 	ApiId                   pulumi.StringOutput    `pulumi:"apiId"`
+	AwsId                   pulumi.StringOutput    `pulumi:"awsId"`
 	ConnectionId            pulumi.StringPtrOutput `pulumi:"connectionId"`
 	ConnectionType          pulumi.StringPtrOutput `pulumi:"connectionType"`
 	ContentHandlingStrategy pulumi.StringPtrOutput `pulumi:"contentHandlingStrategy"`
@@ -178,6 +179,10 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 
 func (o IntegrationOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o IntegrationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o IntegrationOutput) ConnectionId() pulumi.StringPtrOutput {

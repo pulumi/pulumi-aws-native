@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.MediaPackage
         public Output<Outputs.OriginEndpointAuthorization?> Authorization { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the OriginEndpoint.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Channel the OriginEndpoint is associated with.
         /// </summary>
         [Output("channelId")]
@@ -137,6 +143,12 @@ namespace Pulumi.AwsNative.MediaPackage
     {
         [Input("authorization")]
         public Input<Inputs.OriginEndpointAuthorizationArgs>? Authorization { get; set; }
+
+        /// <summary>
+        /// The ID of the OriginEndpoint.
+        /// </summary>
+        [Input("awsId", required: true)]
+        public Input<string> AwsId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Channel the OriginEndpoint is associated with.

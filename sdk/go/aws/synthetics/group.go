@@ -16,6 +16,8 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
+	// Id of the group.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Name of the group.
 	Name         pulumi.StringOutput      `pulumi:"name"`
 	ResourceArns pulumi.StringArrayOutput `pulumi:"resourceArns"`
@@ -115,6 +117,11 @@ func (o GroupOutput) ToGroupOutput() GroupOutput {
 
 func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
+}
+
+// Id of the group.
+func (o GroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Name of the group.

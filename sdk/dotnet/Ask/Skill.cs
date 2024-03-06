@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Ask
         [Output("authenticationConfiguration")]
         public Output<Outputs.SkillAuthenticationConfiguration> AuthenticationConfiguration { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("skillPackage")]
         public Output<Outputs.SkillPackage> SkillPackage { get; private set; } = null!;
 

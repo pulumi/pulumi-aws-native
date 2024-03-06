@@ -21,6 +21,7 @@ type DbInstance struct {
 
 	AutoMinorVersionUpgrade    pulumi.BoolPtrOutput   `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone           pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	AwsId                      pulumi.StringOutput    `pulumi:"awsId"`
 	CaCertificateIdentifier    pulumi.StringPtrOutput `pulumi:"caCertificateIdentifier"`
 	CertificateRotationRestart pulumi.BoolPtrOutput   `pulumi:"certificateRotationRestart"`
 	DbClusterIdentifier        pulumi.StringOutput    `pulumi:"dbClusterIdentifier"`
@@ -154,6 +155,10 @@ func (o DbInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 
 func (o DbInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o DbInstanceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DbInstanceOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {

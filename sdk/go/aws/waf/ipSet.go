@@ -17,6 +17,7 @@ import (
 type IpSet struct {
 	pulumi.CustomResourceState
 
+	AwsId            pulumi.StringOutput             `pulumi:"awsId"`
 	IpSetDescriptors IpSetIpSetDescriptorArrayOutput `pulumi:"ipSetDescriptors"`
 	Name             pulumi.StringOutput             `pulumi:"name"`
 }
@@ -110,6 +111,10 @@ func (o IpSetOutput) ToIpSetOutput() IpSetOutput {
 
 func (o IpSetOutput) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 	return o
+}
+
+func (o IpSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o IpSetOutput) IpSetDescriptors() IpSetIpSetDescriptorArrayOutput {

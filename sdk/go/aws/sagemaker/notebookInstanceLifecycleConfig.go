@@ -17,6 +17,7 @@ import (
 type NotebookInstanceLifecycleConfig struct {
 	pulumi.CustomResourceState
 
+	AwsId                               pulumi.StringOutput                                                     `pulumi:"awsId"`
 	NotebookInstanceLifecycleConfigName pulumi.StringPtrOutput                                                  `pulumi:"notebookInstanceLifecycleConfigName"`
 	OnCreate                            NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput `pulumi:"onCreate"`
 	OnStart                             NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput `pulumi:"onStart"`
@@ -113,6 +114,10 @@ func (o NotebookInstanceLifecycleConfigOutput) ToNotebookInstanceLifecycleConfig
 
 func (o NotebookInstanceLifecycleConfigOutput) ToNotebookInstanceLifecycleConfigOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigOutput {
 	return o
+}
+
+func (o NotebookInstanceLifecycleConfigOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotebookInstanceLifecycleConfig) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o NotebookInstanceLifecycleConfigOutput) NotebookInstanceLifecycleConfigName() pulumi.StringPtrOutput {

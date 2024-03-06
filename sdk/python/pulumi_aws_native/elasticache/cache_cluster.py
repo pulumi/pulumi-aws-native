@@ -512,6 +512,7 @@ class CacheCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cache_subnet_group_name", "cluster_name", "engine", "network_type", "port", "snapshot_arns[*]", "snapshot_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CacheCluster, __self__).__init__(
@@ -537,6 +538,7 @@ class CacheCluster(pulumi.CustomResource):
         __props__ = CacheClusterArgs.__new__(CacheClusterArgs)
 
         __props__.__dict__["auto_minor_version_upgrade"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["az_mode"] = None
         __props__.__dict__["cache_node_type"] = None
         __props__.__dict__["cache_parameter_group_name"] = None
@@ -571,6 +573,11 @@ class CacheCluster(pulumi.CustomResource):
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="azMode")

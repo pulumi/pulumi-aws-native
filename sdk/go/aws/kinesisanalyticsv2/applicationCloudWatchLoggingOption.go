@@ -19,6 +19,7 @@ type ApplicationCloudWatchLoggingOption struct {
 	pulumi.CustomResourceState
 
 	ApplicationName         pulumi.StringOutput                                             `pulumi:"applicationName"`
+	AwsId                   pulumi.StringOutput                                             `pulumi:"awsId"`
 	CloudWatchLoggingOption ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput `pulumi:"cloudWatchLoggingOption"`
 }
 
@@ -121,6 +122,10 @@ func (o ApplicationCloudWatchLoggingOptionOutput) ToApplicationCloudWatchLogging
 
 func (o ApplicationCloudWatchLoggingOptionOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationCloudWatchLoggingOption) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+func (o ApplicationCloudWatchLoggingOptionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationCloudWatchLoggingOption) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApplicationCloudWatchLoggingOptionOutput) CloudWatchLoggingOption() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput {

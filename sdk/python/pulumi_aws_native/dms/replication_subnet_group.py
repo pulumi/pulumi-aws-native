@@ -134,6 +134,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["replication_subnet_group_identifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReplicationSubnetGroup, __self__).__init__(
@@ -158,11 +159,17 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
         __props__ = ReplicationSubnetGroupArgs.__new__(ReplicationSubnetGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["replication_subnet_group_description"] = None
         __props__.__dict__["replication_subnet_group_identifier"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
         return ReplicationSubnetGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="replicationSubnetGroupDescription")

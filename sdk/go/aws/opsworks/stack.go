@@ -21,6 +21,7 @@ type Stack struct {
 
 	AgentVersion          pulumi.StringPtrOutput             `pulumi:"agentVersion"`
 	Attributes            pulumi.StringMapOutput             `pulumi:"attributes"`
+	AwsId                 pulumi.StringOutput                `pulumi:"awsId"`
 	ChefConfiguration     StackChefConfigurationPtrOutput    `pulumi:"chefConfiguration"`
 	CloneAppIds           pulumi.StringArrayOutput           `pulumi:"cloneAppIds"`
 	ClonePermissions      pulumi.BoolPtrOutput               `pulumi:"clonePermissions"`
@@ -202,6 +203,10 @@ func (o StackOutput) AgentVersion() pulumi.StringPtrOutput {
 
 func (o StackOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
+}
+
+func (o StackOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o StackOutput) ChefConfiguration() StackChefConfigurationPtrOutput {

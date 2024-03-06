@@ -194,6 +194,7 @@ class GitHubRepository(pulumi.CustomResource):
             if repository_owner is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_owner'")
             __props__.__dict__["repository_owner"] = repository_owner
+            __props__.__dict__["aws_id"] = None
         super(GitHubRepository, __self__).__init__(
             'aws-native:codestar:GitHubRepository',
             resource_name,
@@ -216,6 +217,7 @@ class GitHubRepository(pulumi.CustomResource):
 
         __props__ = GitHubRepositoryArgs.__new__(GitHubRepositoryArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["code"] = None
         __props__.__dict__["connection_arn"] = None
         __props__.__dict__["enable_issues"] = None
@@ -225,6 +227,11 @@ class GitHubRepository(pulumi.CustomResource):
         __props__.__dict__["repository_name"] = None
         __props__.__dict__["repository_owner"] = None
         return GitHubRepository(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

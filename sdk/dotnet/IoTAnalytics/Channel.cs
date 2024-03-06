@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
     [AwsNativeResourceType("aws-native:iotanalytics:Channel")]
     public partial class Channel : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("channelName")]
         public Output<string?> ChannelName { get; private set; } = null!;
 

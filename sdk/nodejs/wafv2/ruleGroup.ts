@@ -42,6 +42,7 @@ export class RuleGroup extends pulumi.CustomResource {
      * Collection of Available Labels.
      */
     public readonly availableLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly capacity!: pulumi.Output<number>;
     /**
      * Collection of Consumed Labels.
@@ -90,10 +91,12 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availableLabels"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["consumedLabels"] = undefined /*out*/;
             resourceInputs["customResponseBodies"] = undefined /*out*/;

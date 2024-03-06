@@ -19,6 +19,7 @@ type AdmChannel struct {
 	pulumi.CustomResourceState
 
 	ApplicationId pulumi.StringOutput  `pulumi:"applicationId"`
+	AwsId         pulumi.StringOutput  `pulumi:"awsId"`
 	ClientId      pulumi.StringOutput  `pulumi:"clientId"`
 	ClientSecret  pulumi.StringOutput  `pulumi:"clientSecret"`
 	Enabled       pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -130,6 +131,10 @@ func (o AdmChannelOutput) ToAdmChannelOutputWithContext(ctx context.Context) Adm
 
 func (o AdmChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o AdmChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdmChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AdmChannelOutput) ClientId() pulumi.StringOutput {

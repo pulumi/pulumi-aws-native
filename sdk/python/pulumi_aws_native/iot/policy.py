@@ -118,6 +118,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["policy_name"] = policy_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Policy, __self__).__init__(
@@ -143,6 +144,7 @@ class Policy(pulumi.CustomResource):
         __props__ = PolicyArgs.__new__(PolicyArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["policy_document"] = None
         __props__.__dict__["policy_name"] = None
         __props__.__dict__["tags"] = None
@@ -152,6 +154,11 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="policyDocument")

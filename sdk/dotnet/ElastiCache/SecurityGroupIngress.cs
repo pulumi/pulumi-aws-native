@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ElastiCache
     [AwsNativeResourceType("aws-native:elasticache:SecurityGroupIngress")]
     public partial class SecurityGroupIngress : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cacheSecurityGroupName")]
         public Output<string> CacheSecurityGroupName { get; private set; } = null!;
 

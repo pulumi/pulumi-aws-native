@@ -21,6 +21,7 @@ type PushTemplate struct {
 	Adm                  PushTemplateAndroidPushNotificationTemplatePtrOutput `pulumi:"adm"`
 	Apns                 PushTemplateApnsPushNotificationTemplatePtrOutput    `pulumi:"apns"`
 	Arn                  pulumi.StringOutput                                  `pulumi:"arn"`
+	AwsId                pulumi.StringOutput                                  `pulumi:"awsId"`
 	Baidu                PushTemplateAndroidPushNotificationTemplatePtrOutput `pulumi:"baidu"`
 	Default              PushTemplateDefaultPushNotificationTemplatePtrOutput `pulumi:"default"`
 	DefaultSubstitutions pulumi.StringPtrOutput                               `pulumi:"defaultSubstitutions"`
@@ -151,6 +152,10 @@ func (o PushTemplateOutput) Apns() PushTemplateApnsPushNotificationTemplatePtrOu
 
 func (o PushTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PushTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PushTemplateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PushTemplate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PushTemplateOutput) Baidu() PushTemplateAndroidPushNotificationTemplatePtrOutput {

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<ImmutableArray<Outputs.DataSourceFormInput>> AssetFormsInput { get; private set; } = null!;
 
         /// <summary>
+        /// The unique identifier of the data source.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
         /// </summary>
         [Output("configuration")]

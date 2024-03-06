@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.LakeFormation
         [Output("authorizedSessionTagValueList")]
         public Output<ImmutableArray<string>> AuthorizedSessionTagValueList { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("createDatabaseDefaultPermissions")]
         public Output<Outputs.DataLakeSettingsCreateDatabaseDefaultPermissions?> CreateDatabaseDefaultPermissions { get; private set; } = null!;
 

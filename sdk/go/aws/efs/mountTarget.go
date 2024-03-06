@@ -16,6 +16,7 @@ import (
 type MountTarget struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ID of the file system for which to create the mount target.
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
 	// Valid IPv4 address within the address range of the specified subnet.
@@ -138,6 +139,10 @@ func (o MountTargetOutput) ToMountTargetOutput() MountTargetOutput {
 
 func (o MountTargetOutput) ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput {
 	return o
+}
+
+func (o MountTargetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The ID of the file system for which to create the mount target.

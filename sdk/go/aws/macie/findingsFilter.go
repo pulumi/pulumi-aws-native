@@ -21,6 +21,8 @@ type FindingsFilter struct {
 	Action FindingsFilterFindingFilterActionPtrOutput `pulumi:"action"`
 	// Findings filter ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Findings filter ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Findings filter description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Findings filter criteria.
@@ -151,6 +153,11 @@ func (o FindingsFilterOutput) Action() FindingsFilterFindingFilterActionPtrOutpu
 // Findings filter ARN.
 func (o FindingsFilterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Findings filter ID.
+func (o FindingsFilterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Findings filter description

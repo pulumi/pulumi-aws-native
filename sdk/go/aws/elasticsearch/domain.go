@@ -23,6 +23,7 @@ type Domain struct {
 	AdvancedOptions             pulumi.StringMapOutput                      `pulumi:"advancedOptions"`
 	AdvancedSecurityOptions     DomainAdvancedSecurityOptionsInputPtrOutput `pulumi:"advancedSecurityOptions"`
 	Arn                         pulumi.StringOutput                         `pulumi:"arn"`
+	AwsId                       pulumi.StringOutput                         `pulumi:"awsId"`
 	CognitoOptions              DomainCognitoOptionsPtrOutput               `pulumi:"cognitoOptions"`
 	DomainArn                   pulumi.StringOutput                         `pulumi:"domainArn"`
 	DomainEndpoint              pulumi.StringOutput                         `pulumi:"domainEndpoint"`
@@ -173,6 +174,10 @@ func (o DomainOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInp
 
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DomainOutput) CognitoOptions() DomainCognitoOptionsPtrOutput {

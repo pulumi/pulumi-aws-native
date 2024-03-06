@@ -46,6 +46,10 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly associationCount!: pulumi.Output<number>;
     /**
+     * ResourceId
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Rfc3339TimeString
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
@@ -89,6 +93,7 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationCount"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["creatorRequestId"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
@@ -97,6 +102,7 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationCount"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["creatorRequestId"] = undefined /*out*/;
             resourceInputs["destinationArn"] = undefined /*out*/;

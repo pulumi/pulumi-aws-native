@@ -42,6 +42,10 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * ResourceId
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Rfc3339TimeString
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["creatorRequestId"] = undefined /*out*/;
             resourceInputs["modificationTime"] = undefined /*out*/;
@@ -111,6 +116,7 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
             resourceInputs["statusMessage"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["creatorRequestId"] = undefined /*out*/;
             resourceInputs["firewallRules"] = undefined /*out*/;

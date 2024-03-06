@@ -42,6 +42,7 @@ export class Bot extends pulumi.CustomResource {
      * Specifies whether to build the bot locales after bot creation completes.
      */
     public readonly autoBuildBotLocales!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly botFileS3Location!: pulumi.Output<outputs.lex.BotS3Location | undefined>;
     /**
      * List of bot locales
@@ -100,9 +101,11 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["testBotAliasSettings"] = args ? args.testBotAliasSettings : undefined;
             resourceInputs["testBotAliasTags"] = args ? args.testBotAliasTags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoBuildBotLocales"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["botFileS3Location"] = undefined /*out*/;
             resourceInputs["botLocales"] = undefined /*out*/;
             resourceInputs["botTags"] = undefined /*out*/;

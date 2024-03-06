@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// A description of this application version.
         /// </summary>

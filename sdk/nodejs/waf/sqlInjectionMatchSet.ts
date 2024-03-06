@@ -40,6 +40,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlInjectionMatchSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly sqlInjectionMatchTuples!: pulumi.Output<outputs.waf.SqlInjectionMatchSetSqlInjectionMatchTuple[] | undefined>;
 
@@ -58,7 +59,9 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["sqlInjectionMatchTuples"] = args ? args.sqlInjectionMatchTuples : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sqlInjectionMatchTuples"] = undefined /*out*/;
         }

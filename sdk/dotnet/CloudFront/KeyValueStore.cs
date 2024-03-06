@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 

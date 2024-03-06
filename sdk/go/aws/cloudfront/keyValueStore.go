@@ -16,6 +16,7 @@ type KeyValueStore struct {
 	pulumi.CustomResourceState
 
 	Arn          pulumi.StringOutput                `pulumi:"arn"`
+	AwsId        pulumi.StringOutput                `pulumi:"awsId"`
 	Comment      pulumi.StringPtrOutput             `pulumi:"comment"`
 	ImportSource KeyValueStoreImportSourcePtrOutput `pulumi:"importSource"`
 	Name         pulumi.StringOutput                `pulumi:"name"`
@@ -117,6 +118,10 @@ func (o KeyValueStoreOutput) ToKeyValueStoreOutputWithContext(ctx context.Contex
 
 func (o KeyValueStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o KeyValueStoreOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o KeyValueStoreOutput) Comment() pulumi.StringPtrOutput {

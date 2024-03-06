@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.OpsWorks
     [AwsNativeResourceType("aws-native:opsworks:ElasticLoadBalancerAttachment")]
     public partial class ElasticLoadBalancerAttachment : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("elasticLoadBalancerName")]
         public Output<string> ElasticLoadBalancerName { get; private set; } = null!;
 

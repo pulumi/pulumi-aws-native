@@ -165,6 +165,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             if window_id is None and not opts.urn:
                 raise TypeError("Missing required property 'window_id'")
             __props__.__dict__["window_id"] = window_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["window_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MaintenanceWindowTarget, __self__).__init__(
@@ -189,6 +190,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
 
         __props__ = MaintenanceWindowTargetArgs.__new__(MaintenanceWindowTargetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner_information"] = None
@@ -196,6 +198,11 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         __props__.__dict__["targets"] = None
         __props__.__dict__["window_id"] = None
         return MaintenanceWindowTarget(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

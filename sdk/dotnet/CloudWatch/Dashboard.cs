@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CloudWatch
     [AwsNativeResourceType("aws-native:cloudwatch:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("dashboardBody")]
         public Output<string> DashboardBody { get; private set; } = null!;
 

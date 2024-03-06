@@ -130,6 +130,7 @@ class FirewallRuleGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["creator_request_id"] = None
             __props__.__dict__["modification_time"] = None
@@ -163,6 +164,7 @@ class FirewallRuleGroup(pulumi.CustomResource):
         __props__ = FirewallRuleGroupArgs.__new__(FirewallRuleGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["creator_request_id"] = None
         __props__.__dict__["firewall_rules"] = None
@@ -183,6 +185,14 @@ class FirewallRuleGroup(pulumi.CustomResource):
         Arn
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        ResourceId
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

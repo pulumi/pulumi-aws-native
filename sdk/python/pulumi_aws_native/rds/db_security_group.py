@@ -136,6 +136,7 @@ class DbSecurityGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_description'")
             __props__.__dict__["group_description"] = group_description
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_vpc_id", "group_description"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbSecurityGroup, __self__).__init__(
@@ -160,11 +161,17 @@ class DbSecurityGroup(pulumi.CustomResource):
 
         __props__ = DbSecurityGroupArgs.__new__(DbSecurityGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["db_security_group_ingress"] = None
         __props__.__dict__["ec2_vpc_id"] = None
         __props__.__dict__["group_description"] = None
         __props__.__dict__["tags"] = None
         return DbSecurityGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="dbSecurityGroupIngress")

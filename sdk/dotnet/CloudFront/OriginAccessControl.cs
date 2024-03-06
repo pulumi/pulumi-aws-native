@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:OriginAccessControl")]
     public partial class OriginAccessControl : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("originAccessControlConfig")]
         public Output<Outputs.OriginAccessControlConfig> OriginAccessControlConfig { get; private set; } = null!;
 

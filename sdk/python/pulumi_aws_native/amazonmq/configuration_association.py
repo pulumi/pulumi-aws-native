@@ -104,6 +104,7 @@ class ConfigurationAssociation(pulumi.CustomResource):
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["broker"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationAssociation, __self__).__init__(
@@ -128,9 +129,15 @@ class ConfigurationAssociation(pulumi.CustomResource):
 
         __props__ = ConfigurationAssociationArgs.__new__(ConfigurationAssociationArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["broker"] = None
         __props__.__dict__["configuration"] = None
         return ConfigurationAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

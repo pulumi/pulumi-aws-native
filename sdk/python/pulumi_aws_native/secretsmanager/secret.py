@@ -246,6 +246,7 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["replica_regions"] = replica_regions
             __props__.__dict__["secret_string"] = secret_string
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Secret, __self__).__init__(
@@ -270,6 +271,7 @@ class Secret(pulumi.CustomResource):
 
         __props__ = SecretArgs.__new__(SecretArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["generate_secret_string"] = None
         __props__.__dict__["kms_key_id"] = None
@@ -278,6 +280,11 @@ class Secret(pulumi.CustomResource):
         __props__.__dict__["secret_string"] = None
         __props__.__dict__["tags"] = None
         return Secret(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

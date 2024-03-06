@@ -46,6 +46,10 @@ export class EnvironmentProfile extends pulumi.CustomResource {
      */
     public readonly awsAccountRegion!: pulumi.Output<string>;
     /**
+     * The ID of this Amazon DataZone environment profile.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The timestamp of when this environment profile was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -128,6 +132,7 @@ export class EnvironmentProfile extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
             resourceInputs["userParameters"] = args ? args.userParameters : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
@@ -137,6 +142,7 @@ export class EnvironmentProfile extends pulumi.CustomResource {
         } else {
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["awsAccountRegion"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

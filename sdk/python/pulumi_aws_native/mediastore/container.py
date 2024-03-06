@@ -179,6 +179,7 @@ class Container(pulumi.CustomResource):
             __props__.__dict__["metric_policy"] = metric_policy
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["endpoint"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["container_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -205,6 +206,7 @@ class Container(pulumi.CustomResource):
         __props__ = ContainerArgs.__new__(ContainerArgs)
 
         __props__.__dict__["access_logging_enabled"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["container_name"] = None
         __props__.__dict__["cors_policy"] = None
         __props__.__dict__["endpoint"] = None
@@ -218,6 +220,11 @@ class Container(pulumi.CustomResource):
     @pulumi.getter(name="accessLoggingEnabled")
     def access_logging_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "access_logging_enabled")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="containerName")

@@ -15,6 +15,7 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ARN of an Amazon CloudWatch role for the current Account.
 	CloudWatchRoleArn pulumi.StringPtrOutput `pulumi:"cloudWatchRoleArn"`
 }
@@ -104,6 +105,10 @@ func (o AccountOutput) ToAccountOutput() AccountOutput {
 
 func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
 	return o
+}
+
+func (o AccountOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The ARN of an Amazon CloudWatch role for the current Account.

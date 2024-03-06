@@ -16,6 +16,7 @@ type Theme struct {
 	pulumi.CustomResourceState
 
 	AppId           pulumi.StringPtrOutput `pulumi:"appId"`
+	AwsId           pulumi.StringOutput    `pulumi:"awsId"`
 	CreatedAt       pulumi.StringOutput    `pulumi:"createdAt"`
 	EnvironmentName pulumi.StringPtrOutput `pulumi:"environmentName"`
 	ModifiedAt      pulumi.StringOutput    `pulumi:"modifiedAt"`
@@ -127,6 +128,10 @@ func (o ThemeOutput) ToThemeOutputWithContext(ctx context.Context) ThemeOutput {
 
 func (o ThemeOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ThemeOutput) CreatedAt() pulumi.StringOutput {

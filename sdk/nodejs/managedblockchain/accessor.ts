@@ -42,6 +42,7 @@ export class Accessor extends pulumi.CustomResource {
 
     public readonly accessorType!: pulumi.Output<enums.managedblockchain.AccessorType>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly billingToken!: pulumi.Output<string>;
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     public readonly networkType!: pulumi.Output<enums.managedblockchain.AccessorNetworkAccessorType | undefined>;
@@ -71,12 +72,14 @@ export class Accessor extends pulumi.CustomResource {
             resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["billingToken"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["accessorType"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["billingToken"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["networkType"] = undefined /*out*/;

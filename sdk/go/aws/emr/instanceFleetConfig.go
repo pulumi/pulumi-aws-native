@@ -18,6 +18,7 @@ import (
 type InstanceFleetConfig struct {
 	pulumi.CustomResourceState
 
+	AwsId                  pulumi.StringOutput                                                 `pulumi:"awsId"`
 	ClusterId              pulumi.StringOutput                                                 `pulumi:"clusterId"`
 	InstanceFleetType      pulumi.StringOutput                                                 `pulumi:"instanceFleetType"`
 	InstanceTypeConfigs    InstanceFleetConfigInstanceTypeConfigArrayOutput                    `pulumi:"instanceTypeConfigs"`
@@ -136,6 +137,10 @@ func (o InstanceFleetConfigOutput) ToInstanceFleetConfigOutput() InstanceFleetCo
 
 func (o InstanceFleetConfigOutput) ToInstanceFleetConfigOutputWithContext(ctx context.Context) InstanceFleetConfigOutput {
 	return o
+}
+
+func (o InstanceFleetConfigOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceFleetConfig) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o InstanceFleetConfigOutput) ClusterId() pulumi.StringOutput {

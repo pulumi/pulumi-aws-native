@@ -19,6 +19,7 @@ type EventStream struct {
 	pulumi.CustomResourceState
 
 	ApplicationId        pulumi.StringOutput `pulumi:"applicationId"`
+	AwsId                pulumi.StringOutput `pulumi:"awsId"`
 	DestinationStreamArn pulumi.StringOutput `pulumi:"destinationStreamArn"`
 	RoleArn              pulumi.StringOutput `pulumi:"roleArn"`
 }
@@ -127,6 +128,10 @@ func (o EventStreamOutput) ToEventStreamOutputWithContext(ctx context.Context) E
 
 func (o EventStreamOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o EventStreamOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o EventStreamOutput) DestinationStreamArn() pulumi.StringOutput {

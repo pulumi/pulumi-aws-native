@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 

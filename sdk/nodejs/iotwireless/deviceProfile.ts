@@ -42,6 +42,10 @@ export class DeviceProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Service profile Id. Returned after successful create.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
      */
     public readonly loRaWan!: pulumi.Output<outputs.iotwireless.DeviceProfileLoRaWanDeviceProfile | undefined>;
@@ -69,8 +73,10 @@ export class DeviceProfile extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["loRaWan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

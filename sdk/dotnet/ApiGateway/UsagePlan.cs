@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("apiStages")]
         public Output<ImmutableArray<Outputs.UsagePlanApiStage>> ApiStages { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// The description of a usage plan.
         /// </summary>

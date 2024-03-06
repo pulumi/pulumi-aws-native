@@ -41,6 +41,7 @@ export class RecordSet extends pulumi.CustomResource {
     }
 
     public readonly aliasTarget!: pulumi.Output<outputs.route53.RecordSetAliasTarget | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cidrRoutingConfig!: pulumi.Output<outputs.route53.RecordSetCidrRoutingConfig | undefined>;
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly failover!: pulumi.Output<string | undefined>;
@@ -91,8 +92,10 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["aliasTarget"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrRoutingConfig"] = undefined /*out*/;
             resourceInputs["comment"] = undefined /*out*/;
             resourceInputs["failover"] = undefined /*out*/;

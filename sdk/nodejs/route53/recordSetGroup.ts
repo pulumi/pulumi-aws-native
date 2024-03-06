@@ -40,6 +40,7 @@ export class RecordSetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RecordSetGroup.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly hostedZoneId!: pulumi.Output<string | undefined>;
     public readonly hostedZoneName!: pulumi.Output<string | undefined>;
@@ -62,7 +63,9 @@ export class RecordSetGroup extends pulumi.CustomResource {
             resourceInputs["hostedZoneId"] = args ? args.hostedZoneId : undefined;
             resourceInputs["hostedZoneName"] = args ? args.hostedZoneName : undefined;
             resourceInputs["recordSets"] = args ? args.recordSets : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["comment"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["hostedZoneName"] = undefined /*out*/;

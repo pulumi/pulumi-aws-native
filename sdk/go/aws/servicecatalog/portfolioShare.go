@@ -20,6 +20,7 @@ type PortfolioShare struct {
 
 	AcceptLanguage  pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
 	AccountId       pulumi.StringOutput    `pulumi:"accountId"`
+	AwsId           pulumi.StringOutput    `pulumi:"awsId"`
 	PortfolioId     pulumi.StringOutput    `pulumi:"portfolioId"`
 	ShareTagOptions pulumi.BoolPtrOutput   `pulumi:"shareTagOptions"`
 }
@@ -133,6 +134,10 @@ func (o PortfolioShareOutput) AcceptLanguage() pulumi.StringPtrOutput {
 
 func (o PortfolioShareOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+func (o PortfolioShareOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PortfolioShareOutput) PortfolioId() pulumi.StringOutput {

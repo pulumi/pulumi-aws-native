@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.FSx
     [AwsNativeResourceType("aws-native:fsx:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 

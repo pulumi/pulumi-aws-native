@@ -439,6 +439,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Project, __self__).__init__(
@@ -465,6 +466,7 @@ class Project(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["artifacts"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["badge_enabled"] = None
         __props__.__dict__["build_batch_config"] = None
         __props__.__dict__["cache"] = None
@@ -499,6 +501,11 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def artifacts(self) -> pulumi.Output['outputs.ProjectArtifacts']:
         return pulumi.get(self, "artifacts")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="badgeEnabled")

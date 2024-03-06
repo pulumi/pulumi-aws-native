@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolUiCustomizationAttachment")]
     public partial class UserPoolUiCustomizationAttachment : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 

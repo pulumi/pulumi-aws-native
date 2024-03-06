@@ -147,6 +147,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["network_load_balancer_arn"] = network_load_balancer_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "gateway_load_balancer_endpoint_id", "network_interface_id", "network_load_balancer_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrafficMirrorTarget, __self__).__init__(
@@ -171,12 +172,18 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         __props__ = TrafficMirrorTargetArgs.__new__(TrafficMirrorTargetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["gateway_load_balancer_endpoint_id"] = None
         __props__.__dict__["network_interface_id"] = None
         __props__.__dict__["network_load_balancer_arn"] = None
         __props__.__dict__["tags"] = None
         return TrafficMirrorTarget(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         public Output<Pulumi.AwsNative.Route53Resolver.ResolverConfigAutodefinedReverseFlag> AutodefinedReverseFlag { get; private set; } = null!;
 
         /// <summary>
+        /// Id
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// AccountId
         /// </summary>
         [Output("ownerId")]

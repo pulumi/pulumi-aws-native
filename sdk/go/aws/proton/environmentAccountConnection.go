@@ -18,6 +18,8 @@ type EnvironmentAccountConnection struct {
 
 	// The Amazon Resource Name (ARN) of the environment account connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the environment account connection.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
 	CodebuildRoleArn pulumi.StringPtrOutput `pulumi:"codebuildRoleArn"`
 	// The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account. It determines the scope of infrastructure that a component can provision in the account.
@@ -156,6 +158,11 @@ func (o EnvironmentAccountConnectionOutput) ToEnvironmentAccountConnectionOutput
 // The Amazon Resource Name (ARN) of the environment account connection.
 func (o EnvironmentAccountConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentAccountConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the environment account connection.
+func (o EnvironmentAccountConnectionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentAccountConnection) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.

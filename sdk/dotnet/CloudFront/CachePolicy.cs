@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudFront
     [AwsNativeResourceType("aws-native:cloudfront:CachePolicy")]
     public partial class CachePolicy : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cachePolicyConfig")]
         public Output<Outputs.CachePolicyConfig> CachePolicyConfig { get; private set; } = null!;
 

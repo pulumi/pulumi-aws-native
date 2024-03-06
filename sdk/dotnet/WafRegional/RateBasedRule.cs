@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.WafRegional
     [AwsNativeResourceType("aws-native:wafregional:RateBasedRule")]
     public partial class RateBasedRule : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("matchPredicates")]
         public Output<ImmutableArray<Outputs.RateBasedRulePredicate>> MatchPredicates { get; private set; } = null!;
 

@@ -113,6 +113,7 @@ class AccessLogSubscription(pulumi.CustomResource):
             __props__.__dict__["resource_identifier"] = resource_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["resource_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_identifier"])
@@ -140,6 +141,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         __props__ = AccessLogSubscriptionArgs.__new__(AccessLogSubscriptionArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["destination_arn"] = None
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["resource_id"] = None
@@ -151,6 +153,11 @@ class AccessLogSubscription(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="destinationArn")

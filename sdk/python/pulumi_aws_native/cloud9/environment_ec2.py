@@ -227,6 +227,7 @@ class EnvironmentEc2(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["automatic_stop_time_minutes", "connection_type", "image_id", "instance_type", "owner_arn", "repositories[*]", "subnet_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EnvironmentEc2, __self__).__init__(
@@ -253,6 +254,7 @@ class EnvironmentEc2(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["automatic_stop_time_minutes"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["connection_type"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["image_id"] = None
@@ -273,6 +275,11 @@ class EnvironmentEc2(pulumi.CustomResource):
     @pulumi.getter(name="automaticStopTimeMinutes")
     def automatic_stop_time_minutes(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "automatic_stop_time_minutes")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="connectionType")

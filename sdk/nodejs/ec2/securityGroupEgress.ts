@@ -38,6 +38,7 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroupEgress.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The IPv4 address range, in CIDR format.
      *  You must specify a destination security group (``DestinationPrefixListId`` or ``DestinationSecurityGroupId``) or a CIDR range (``CidrIp`` or ``CidrIpv6``).
@@ -109,7 +110,9 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
             resourceInputs["groupId"] = args ? args.groupId : undefined;
             resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
             resourceInputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrIp"] = undefined /*out*/;
             resourceInputs["cidrIpv6"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

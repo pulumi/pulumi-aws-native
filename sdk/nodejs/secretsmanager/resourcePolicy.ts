@@ -37,6 +37,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
@@ -66,7 +67,9 @@ export class ResourcePolicy extends pulumi.CustomResource {
             resourceInputs["blockPublicPolicy"] = args ? args.blockPublicPolicy : undefined;
             resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
             resourceInputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["blockPublicPolicy"] = undefined /*out*/;
             resourceInputs["resourcePolicy"] = undefined /*out*/;
             resourceInputs["secretId"] = undefined /*out*/;

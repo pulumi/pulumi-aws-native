@@ -16,6 +16,7 @@ import (
 type BackupSelection struct {
 	pulumi.CustomResourceState
 
+	AwsId           pulumi.StringOutput               `pulumi:"awsId"`
 	BackupPlanId    pulumi.StringOutput               `pulumi:"backupPlanId"`
 	BackupSelection BackupSelectionResourceTypeOutput `pulumi:"backupSelection"`
 	SelectionId     pulumi.StringOutput               `pulumi:"selectionId"`
@@ -117,6 +118,10 @@ func (o BackupSelectionOutput) ToBackupSelectionOutput() BackupSelectionOutput {
 
 func (o BackupSelectionOutput) ToBackupSelectionOutputWithContext(ctx context.Context) BackupSelectionOutput {
 	return o
+}
+
+func (o BackupSelectionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupSelection) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o BackupSelectionOutput) BackupPlanId() pulumi.StringOutput {

@@ -20,6 +20,7 @@ type IpSet struct {
 	// List of IPAddresses.
 	Addresses        pulumi.StringArrayOutput    `pulumi:"addresses"`
 	Arn              pulumi.StringOutput         `pulumi:"arn"`
+	AwsId            pulumi.StringOutput         `pulumi:"awsId"`
 	Description      pulumi.StringPtrOutput      `pulumi:"description"`
 	IpAddressVersion IpSetIpAddressVersionOutput `pulumi:"ipAddressVersion"`
 	Name             pulumi.StringPtrOutput      `pulumi:"name"`
@@ -145,6 +146,10 @@ func (o IpSetOutput) Addresses() pulumi.StringArrayOutput {
 
 func (o IpSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o IpSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o IpSetOutput) Description() pulumi.StringPtrOutput {

@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.Grafana
         public Output<ImmutableArray<Pulumi.AwsNative.Grafana.WorkspaceAuthenticationProviderTypes>> AuthenticationProviders { get; private set; } = null!;
 
         /// <summary>
+        /// The id that uniquely identifies a Grafana workspace.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
         /// </summary>
         [Output("clientToken")]

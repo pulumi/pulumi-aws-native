@@ -130,6 +130,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
             __props__.__dict__["service_network_identifier"] = service_network_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["service_arn"] = None
             __props__.__dict__["service_id"] = None
@@ -163,6 +164,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         __props__ = ServiceNetworkServiceAssociationArgs.__new__(ServiceNetworkServiceAssociationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["dns_entry"] = None
         __props__.__dict__["service_arn"] = None
@@ -181,6 +183,11 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

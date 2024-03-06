@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:DataQualityRuleset")]
     public partial class DataQualityRuleset : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("clientToken")]
         public Output<string?> ClientToken { get; private set; } = null!;
 

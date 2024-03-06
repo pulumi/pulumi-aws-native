@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.PinpointEmail
     [AwsNativeResourceType("aws-native:pinpointemail:DedicatedIpPool")]
     public partial class DedicatedIpPool : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("poolName")]
         public Output<string?> PoolName { get; private set; } = null!;
 

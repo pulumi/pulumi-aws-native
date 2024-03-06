@@ -19,6 +19,7 @@ type TagOption struct {
 	pulumi.CustomResourceState
 
 	Active pulumi.BoolPtrOutput `pulumi:"active"`
+	AwsId  pulumi.StringOutput  `pulumi:"awsId"`
 	Key    pulumi.StringOutput  `pulumi:"key"`
 	Value  pulumi.StringOutput  `pulumi:"value"`
 }
@@ -125,6 +126,10 @@ func (o TagOptionOutput) ToTagOptionOutputWithContext(ctx context.Context) TagOp
 
 func (o TagOptionOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+func (o TagOptionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TagOptionOutput) Key() pulumi.StringOutput {

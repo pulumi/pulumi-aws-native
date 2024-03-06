@@ -19,6 +19,7 @@ type ClientVpnEndpoint struct {
 	pulumi.CustomResourceState
 
 	AuthenticationOptions    ClientVpnEndpointClientAuthenticationRequestArrayOutput `pulumi:"authenticationOptions"`
+	AwsId                    pulumi.StringOutput                                     `pulumi:"awsId"`
 	ClientCidrBlock          pulumi.StringOutput                                     `pulumi:"clientCidrBlock"`
 	ClientConnectOptions     ClientVpnEndpointClientConnectOptionsPtrOutput          `pulumi:"clientConnectOptions"`
 	ClientLoginBannerOptions ClientVpnEndpointClientLoginBannerOptionsPtrOutput      `pulumi:"clientLoginBannerOptions"`
@@ -174,6 +175,10 @@ func (o ClientVpnEndpointOutput) AuthenticationOptions() ClientVpnEndpointClient
 	return o.ApplyT(func(v *ClientVpnEndpoint) ClientVpnEndpointClientAuthenticationRequestArrayOutput {
 		return v.AuthenticationOptions
 	}).(ClientVpnEndpointClientAuthenticationRequestArrayOutput)
+}
+
+func (o ClientVpnEndpointOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnEndpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ClientVpnEndpointOutput) ClientCidrBlock() pulumi.StringOutput {

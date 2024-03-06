@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Budgets
     [AwsNativeResourceType("aws-native:budgets:Budget")]
     public partial class Budget : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("budget")]
         public Output<Outputs.BudgetData> BudgetValue { get; private set; } = null!;
 

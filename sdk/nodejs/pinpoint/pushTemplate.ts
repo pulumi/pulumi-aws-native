@@ -43,6 +43,7 @@ export class PushTemplate extends pulumi.CustomResource {
     public readonly adm!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
     public readonly apns!: pulumi.Output<outputs.pinpoint.PushTemplateApnsPushNotificationTemplate | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly baidu!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
     public readonly default!: pulumi.Output<outputs.pinpoint.PushTemplateDefaultPushNotificationTemplate | undefined>;
     public readonly defaultSubstitutions!: pulumi.Output<string | undefined>;
@@ -80,10 +81,12 @@ export class PushTemplate extends pulumi.CustomResource {
             resourceInputs["templateDescription"] = args ? args.templateDescription : undefined;
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["adm"] = undefined /*out*/;
             resourceInputs["apns"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["baidu"] = undefined /*out*/;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["defaultSubstitutions"] = undefined /*out*/;

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.LakeFormation
     [AwsNativeResourceType("aws-native:lakeformation:Permissions")]
     public partial class Permissions : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("dataLakePrincipal")]
         public Output<Outputs.PermissionsDataLakePrincipal> DataLakePrincipal { get; private set; } = null!;
 

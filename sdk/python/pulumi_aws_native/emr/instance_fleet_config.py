@@ -179,6 +179,7 @@ class InstanceFleetConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["target_on_demand_capacity"] = target_on_demand_capacity
             __props__.__dict__["target_spot_capacity"] = target_spot_capacity
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_id", "instance_fleet_type", "instance_type_configs[*]", "launch_specifications", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceFleetConfig, __self__).__init__(
@@ -203,6 +204,7 @@ class InstanceFleetConfig(pulumi.CustomResource):
 
         __props__ = InstanceFleetConfigArgs.__new__(InstanceFleetConfigArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["instance_fleet_type"] = None
         __props__.__dict__["instance_type_configs"] = None
@@ -211,6 +213,11 @@ class InstanceFleetConfig(pulumi.CustomResource):
         __props__.__dict__["target_on_demand_capacity"] = None
         __props__.__dict__["target_spot_capacity"] = None
         return InstanceFleetConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clusterId")

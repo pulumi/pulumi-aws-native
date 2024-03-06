@@ -120,6 +120,7 @@ class CodeRepository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'git_config'")
             __props__.__dict__["git_config"] = git_config
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["code_repository_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CodeRepository, __self__).__init__(
@@ -144,10 +145,16 @@ class CodeRepository(pulumi.CustomResource):
 
         __props__ = CodeRepositoryArgs.__new__(CodeRepositoryArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["code_repository_name"] = None
         __props__.__dict__["git_config"] = None
         __props__.__dict__["tags"] = None
         return CodeRepository(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="codeRepositoryName")

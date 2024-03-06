@@ -168,6 +168,7 @@ class GatewayRoute(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_gateway_name'")
             __props__.__dict__["virtual_gateway_name"] = virtual_gateway_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["uid"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["gateway_route_name", "mesh_name", "mesh_owner", "virtual_gateway_name"])
@@ -195,6 +196,7 @@ class GatewayRoute(pulumi.CustomResource):
         __props__ = GatewayRouteArgs.__new__(GatewayRouteArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["gateway_route_name"] = None
         __props__.__dict__["mesh_name"] = None
         __props__.__dict__["mesh_owner"] = None
@@ -209,6 +211,11 @@ class GatewayRoute(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="gatewayRouteName")

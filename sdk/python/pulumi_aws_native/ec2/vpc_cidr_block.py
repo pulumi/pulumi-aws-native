@@ -206,6 +206,7 @@ class VpcCidrBlock(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_provided_ipv6_cidr_block", "cidr_block", "ipv4_ipam_pool_id", "ipv4_netmask_length", "ipv6_cidr_block", "ipv6_ipam_pool_id", "ipv6_netmask_length", "ipv6_pool", "vpc_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcCidrBlock, __self__).__init__(
@@ -231,6 +232,7 @@ class VpcCidrBlock(pulumi.CustomResource):
         __props__ = VpcCidrBlockArgs.__new__(VpcCidrBlockArgs)
 
         __props__.__dict__["amazon_provided_ipv6_cidr_block"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cidr_block"] = None
         __props__.__dict__["ipv4_ipam_pool_id"] = None
         __props__.__dict__["ipv4_netmask_length"] = None
@@ -245,6 +247,11 @@ class VpcCidrBlock(pulumi.CustomResource):
     @pulumi.getter(name="amazonProvidedIpv6CidrBlock")
     def amazon_provided_ipv6_cidr_block(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "amazon_provided_ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cidrBlock")

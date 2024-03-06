@@ -37,6 +37,7 @@ export class VariantStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === VariantStore.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
@@ -68,6 +69,7 @@ export class VariantStore extends pulumi.CustomResource {
             resourceInputs["reference"] = args ? args.reference : undefined;
             resourceInputs["sseConfig"] = args ? args.sseConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
@@ -75,6 +77,7 @@ export class VariantStore extends pulumi.CustomResource {
             resourceInputs["storeSizeBytes"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

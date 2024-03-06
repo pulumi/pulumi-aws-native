@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.WaFv2
         [Output("availableLabels")]
         public Output<ImmutableArray<Outputs.RuleGroupLabelSummary>> AvailableLabels { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 

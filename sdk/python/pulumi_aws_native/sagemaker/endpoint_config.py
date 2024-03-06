@@ -240,6 +240,7 @@ class EndpointConfig(pulumi.CustomResource):
             __props__.__dict__["shadow_production_variants"] = shadow_production_variants
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_config"] = vpc_config
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["async_inference_config", "data_capture_config", "enable_network_isolation", "endpoint_config_name", "execution_role_arn", "explainer_config", "kms_key_id", "production_variants[*]", "shadow_production_variants[*]", "vpc_config"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EndpointConfig, __self__).__init__(
@@ -265,6 +266,7 @@ class EndpointConfig(pulumi.CustomResource):
         __props__ = EndpointConfigArgs.__new__(EndpointConfigArgs)
 
         __props__.__dict__["async_inference_config"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["data_capture_config"] = None
         __props__.__dict__["enable_network_isolation"] = None
         __props__.__dict__["endpoint_config_name"] = None
@@ -281,6 +283,11 @@ class EndpointConfig(pulumi.CustomResource):
     @pulumi.getter(name="asyncInferenceConfig")
     def async_inference_config(self) -> pulumi.Output[Optional['outputs.EndpointConfigAsyncInferenceConfig']]:
         return pulumi.get(self, "async_inference_config")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="dataCaptureConfig")

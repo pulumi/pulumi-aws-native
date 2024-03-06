@@ -176,6 +176,7 @@ class Collection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["collection_endpoint"] = None
             __props__.__dict__["dashboard_endpoint"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]", "type"])
@@ -203,6 +204,7 @@ class Collection(pulumi.CustomResource):
         __props__ = CollectionArgs.__new__(CollectionArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["collection_endpoint"] = None
         __props__.__dict__["dashboard_endpoint"] = None
         __props__.__dict__["description"] = None
@@ -219,6 +221,14 @@ class Collection(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the collection.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the collection
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="collectionEndpoint")

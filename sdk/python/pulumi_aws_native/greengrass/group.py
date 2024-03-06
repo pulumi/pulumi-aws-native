@@ -138,6 +138,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["latest_version_arn"] = None
             __props__.__dict__["role_attached_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["initial_version"])
@@ -165,6 +166,7 @@ class Group(pulumi.CustomResource):
         __props__ = GroupArgs.__new__(GroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["initial_version"] = None
         __props__.__dict__["latest_version_arn"] = None
         __props__.__dict__["name"] = None
@@ -177,6 +179,11 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="initialVersion")

@@ -23,6 +23,8 @@ type FuotaTask struct {
 	AssociateMulticastGroup pulumi.StringPtrOutput `pulumi:"associateMulticastGroup"`
 	// Wireless device to associate. Only for update request.
 	AssociateWirelessDevice pulumi.StringPtrOutput `pulumi:"associateWirelessDevice"`
+	// FUOTA task id. Returned after successful create.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// FUOTA task description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Multicast group to disassociate. Only for update request.
@@ -188,6 +190,11 @@ func (o FuotaTaskOutput) AssociateMulticastGroup() pulumi.StringPtrOutput {
 // Wireless device to associate. Only for update request.
 func (o FuotaTaskOutput) AssociateWirelessDevice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FuotaTask) pulumi.StringPtrOutput { return v.AssociateWirelessDevice }).(pulumi.StringPtrOutput)
+}
+
+// FUOTA task id. Returned after successful create.
+func (o FuotaTaskOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FuotaTask) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // FUOTA task description

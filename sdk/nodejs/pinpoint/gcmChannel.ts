@@ -39,6 +39,7 @@ export class GcmChannel extends pulumi.CustomResource {
 
     public readonly apiKey!: pulumi.Output<string | undefined>;
     public readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly defaultAuthenticationMethod!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly serviceJson!: pulumi.Output<string | undefined>;
@@ -64,9 +65,11 @@ export class GcmChannel extends pulumi.CustomResource {
             resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["serviceJson"] = args ? args.serviceJson : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["apiKey"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultAuthenticationMethod"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["serviceJson"] = undefined /*out*/;

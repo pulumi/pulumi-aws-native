@@ -18,6 +18,7 @@ type Listener struct {
 	pulumi.CustomResourceState
 
 	Arn               pulumi.StringOutput         `pulumi:"arn"`
+	AwsId             pulumi.StringOutput         `pulumi:"awsId"`
 	DefaultAction     ListenerDefaultActionOutput `pulumi:"defaultAction"`
 	Name              pulumi.StringPtrOutput      `pulumi:"name"`
 	Port              pulumi.IntPtrOutput         `pulumi:"port"`
@@ -138,6 +139,10 @@ func (o ListenerOutput) ToListenerOutputWithContext(ctx context.Context) Listene
 
 func (o ListenerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ListenerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ListenerOutput) DefaultAction() ListenerDefaultActionOutput {

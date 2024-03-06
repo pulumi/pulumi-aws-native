@@ -19,6 +19,7 @@ type StackUserAssociation struct {
 	pulumi.CustomResourceState
 
 	AuthenticationType    pulumi.StringOutput  `pulumi:"authenticationType"`
+	AwsId                 pulumi.StringOutput  `pulumi:"awsId"`
 	SendEmailNotification pulumi.BoolPtrOutput `pulumi:"sendEmailNotification"`
 	StackName             pulumi.StringOutput  `pulumi:"stackName"`
 	UserName              pulumi.StringOutput  `pulumi:"userName"`
@@ -133,6 +134,10 @@ func (o StackUserAssociationOutput) ToStackUserAssociationOutputWithContext(ctx 
 
 func (o StackUserAssociationOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackUserAssociation) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o StackUserAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackUserAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o StackUserAssociationOutput) SendEmailNotification() pulumi.BoolPtrOutput {

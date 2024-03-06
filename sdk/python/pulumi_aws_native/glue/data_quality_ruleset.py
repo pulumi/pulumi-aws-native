@@ -167,6 +167,7 @@ class DataQualityRuleset(pulumi.CustomResource):
             __props__.__dict__["ruleset"] = ruleset
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_table"] = target_table
+            __props__.__dict__["aws_id"] = None
         super(DataQualityRuleset, __self__).__init__(
             'aws-native:glue:DataQualityRuleset',
             resource_name,
@@ -189,6 +190,7 @@ class DataQualityRuleset(pulumi.CustomResource):
 
         __props__ = DataQualityRulesetArgs.__new__(DataQualityRulesetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_token"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -196,6 +198,11 @@ class DataQualityRuleset(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_table"] = None
         return DataQualityRuleset(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientToken")

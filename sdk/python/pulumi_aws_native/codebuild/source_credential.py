@@ -133,6 +133,7 @@ class SourceCredential(pulumi.CustomResource):
                 raise TypeError("Missing required property 'token'")
             __props__.__dict__["token"] = token
             __props__.__dict__["username"] = username
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["server_type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SourceCredential, __self__).__init__(
@@ -158,6 +159,7 @@ class SourceCredential(pulumi.CustomResource):
         __props__ = SourceCredentialArgs.__new__(SourceCredentialArgs)
 
         __props__.__dict__["auth_type"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["server_type"] = None
         __props__.__dict__["token"] = None
         __props__.__dict__["username"] = None
@@ -167,6 +169,11 @@ class SourceCredential(pulumi.CustomResource):
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="serverType")

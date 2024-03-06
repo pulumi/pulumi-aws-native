@@ -19,6 +19,7 @@ import (
 type Ledger struct {
 	pulumi.CustomResourceState
 
+	AwsId              pulumi.StringOutput    `pulumi:"awsId"`
 	DeletionProtection pulumi.BoolPtrOutput   `pulumi:"deletionProtection"`
 	KmsKey             pulumi.StringPtrOutput `pulumi:"kmsKey"`
 	Name               pulumi.StringPtrOutput `pulumi:"name"`
@@ -124,6 +125,10 @@ func (o LedgerOutput) ToLedgerOutput() LedgerOutput {
 
 func (o LedgerOutput) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 	return o
+}
+
+func (o LedgerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LedgerOutput) DeletionProtection() pulumi.BoolPtrOutput {

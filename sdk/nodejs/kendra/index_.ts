@@ -38,6 +38,7 @@ export class Index extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Capacity units
      */
@@ -92,8 +93,10 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["userContextPolicy"] = args ? args.userContextPolicy : undefined;
             resourceInputs["userTokenConfigurations"] = args ? args.userTokenConfigurations : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["capacityUnits"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["documentMetadataConfigurations"] = undefined /*out*/;

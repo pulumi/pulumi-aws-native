@@ -191,6 +191,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["single_sign_on"] = single_sign_on
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["managed_account_id"] = None
@@ -221,6 +222,7 @@ class Domain(pulumi.CustomResource):
         __props__ = DomainArgs.__new__(DomainArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["domain_execution_role"] = None
@@ -241,6 +243,14 @@ class Domain(pulumi.CustomResource):
         The ARN of the Amazon DataZone domain.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The id of the Amazon DataZone domain.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createdAt")

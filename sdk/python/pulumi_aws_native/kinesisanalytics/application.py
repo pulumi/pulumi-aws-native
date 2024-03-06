@@ -133,6 +133,7 @@ class Application(pulumi.CustomResource):
             if inputs is None and not opts.urn:
                 raise TypeError("Missing required property 'inputs'")
             __props__.__dict__["inputs"] = inputs
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
@@ -160,6 +161,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["application_code"] = None
         __props__.__dict__["application_description"] = None
         __props__.__dict__["application_name"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["inputs"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
@@ -177,6 +179,11 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -405,6 +405,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["usb_device_filter_strings"] = usb_device_filter_strings
             __props__.__dict__["vpc_config"] = vpc_config
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fleet_type", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Fleet, __self__).__init__(
@@ -429,6 +430,7 @@ class Fleet(pulumi.CustomResource):
 
         __props__ = FleetArgs.__new__(FleetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["compute_capacity"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["disconnect_timeout_in_seconds"] = None
@@ -452,6 +454,11 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["usb_device_filter_strings"] = None
         __props__.__dict__["vpc_config"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="computeCapacity")

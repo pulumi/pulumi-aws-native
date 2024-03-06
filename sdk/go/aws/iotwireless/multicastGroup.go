@@ -21,6 +21,8 @@ type MulticastGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Wireless device to associate. Only for update request.
 	AssociateWirelessDevice pulumi.StringPtrOutput `pulumi:"associateWirelessDevice"`
+	// Multicast group id. Returned after successful create.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Multicast group description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Wireless device to disassociate. Only for update request.
@@ -153,6 +155,11 @@ func (o MulticastGroupOutput) Arn() pulumi.StringOutput {
 // Wireless device to associate. Only for update request.
 func (o MulticastGroupOutput) AssociateWirelessDevice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MulticastGroup) pulumi.StringPtrOutput { return v.AssociateWirelessDevice }).(pulumi.StringPtrOutput)
+}
+
+// Multicast group id. Returned after successful create.
+func (o MulticastGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MulticastGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Multicast group description

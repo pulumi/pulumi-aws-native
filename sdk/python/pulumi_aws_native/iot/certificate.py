@@ -142,6 +142,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ca_certificate_pem", "certificate_mode", "certificate_pem", "certificate_signing_request"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Certificate, __self__).__init__(
@@ -167,6 +168,7 @@ class Certificate(pulumi.CustomResource):
         __props__ = CertificateArgs.__new__(CertificateArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["ca_certificate_pem"] = None
         __props__.__dict__["certificate_mode"] = None
         __props__.__dict__["certificate_pem"] = None
@@ -178,6 +180,11 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="caCertificatePem")

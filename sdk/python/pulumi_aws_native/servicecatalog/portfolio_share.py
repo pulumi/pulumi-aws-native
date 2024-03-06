@@ -132,6 +132,7 @@ class PortfolioShare(pulumi.CustomResource):
                 raise TypeError("Missing required property 'portfolio_id'")
             __props__.__dict__["portfolio_id"] = portfolio_id
             __props__.__dict__["share_tag_options"] = share_tag_options
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accept_language", "account_id", "portfolio_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PortfolioShare, __self__).__init__(
@@ -158,6 +159,7 @@ class PortfolioShare(pulumi.CustomResource):
 
         __props__.__dict__["accept_language"] = None
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["portfolio_id"] = None
         __props__.__dict__["share_tag_options"] = None
         return PortfolioShare(resource_name, opts=opts, __props__=__props__)
@@ -171,6 +173,11 @@ class PortfolioShare(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="portfolioId")

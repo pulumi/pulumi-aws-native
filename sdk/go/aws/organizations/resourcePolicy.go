@@ -19,6 +19,8 @@ type ResourcePolicy struct {
 
 	// The Amazon Resource Name (ARN) of the resource policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The unique identifier (ID) associated with this resource policy.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Organizations::ResourcePolicy` for more information about the expected schema for this property.
@@ -128,6 +130,11 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 // The Amazon Resource Name (ARN) of the resource policy.
 func (o ResourcePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The unique identifier (ID) associated with this resource policy.
+func (o ResourcePolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The policy document. For AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it.

@@ -21,6 +21,7 @@ type ApiCache struct {
 	ApiCachingBehavior       pulumi.StringOutput    `pulumi:"apiCachingBehavior"`
 	ApiId                    pulumi.StringOutput    `pulumi:"apiId"`
 	AtRestEncryptionEnabled  pulumi.BoolPtrOutput   `pulumi:"atRestEncryptionEnabled"`
+	AwsId                    pulumi.StringOutput    `pulumi:"awsId"`
 	HealthMetricsConfig      pulumi.StringPtrOutput `pulumi:"healthMetricsConfig"`
 	TransitEncryptionEnabled pulumi.BoolPtrOutput   `pulumi:"transitEncryptionEnabled"`
 	Ttl                      pulumi.Float64Output   `pulumi:"ttl"`
@@ -150,6 +151,10 @@ func (o ApiCacheOutput) ApiId() pulumi.StringOutput {
 
 func (o ApiCacheOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApiCacheOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApiCacheOutput) HealthMetricsConfig() pulumi.StringPtrOutput {

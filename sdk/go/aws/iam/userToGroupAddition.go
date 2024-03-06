@@ -18,6 +18,7 @@ import (
 type UserToGroupAddition struct {
 	pulumi.CustomResourceState
 
+	AwsId     pulumi.StringOutput      `pulumi:"awsId"`
 	GroupName pulumi.StringOutput      `pulumi:"groupName"`
 	Users     pulumi.StringArrayOutput `pulumi:"users"`
 }
@@ -113,6 +114,10 @@ func (o UserToGroupAdditionOutput) ToUserToGroupAdditionOutput() UserToGroupAddi
 
 func (o UserToGroupAdditionOutput) ToUserToGroupAdditionOutputWithContext(ctx context.Context) UserToGroupAdditionOutput {
 	return o
+}
+
+func (o UserToGroupAdditionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserToGroupAddition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o UserToGroupAdditionOutput) GroupName() pulumi.StringOutput {

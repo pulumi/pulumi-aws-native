@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CodePipeline
     [AwsNativeResourceType("aws-native:codepipeline:CustomActionType")]
     public partial class CustomActionType : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// The category of the custom action, such as a build action or a test action.
         /// </summary>

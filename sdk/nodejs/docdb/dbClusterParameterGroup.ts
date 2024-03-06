@@ -40,6 +40,7 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DbClusterParameterGroup.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string>;
     public readonly family!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -76,7 +77,9 @@ export class DbClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

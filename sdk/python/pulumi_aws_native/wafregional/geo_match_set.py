@@ -102,6 +102,7 @@ class GeoMatchSet(pulumi.CustomResource):
 
             __props__.__dict__["geo_match_constraints"] = geo_match_constraints
             __props__.__dict__["name"] = name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GeoMatchSet, __self__).__init__(
@@ -126,9 +127,15 @@ class GeoMatchSet(pulumi.CustomResource):
 
         __props__ = GeoMatchSetArgs.__new__(GeoMatchSetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["geo_match_constraints"] = None
         __props__.__dict__["name"] = None
         return GeoMatchSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="geoMatchConstraints")

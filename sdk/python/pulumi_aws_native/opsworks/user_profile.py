@@ -131,6 +131,7 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["iam_user_arn"] = iam_user_arn
             __props__.__dict__["ssh_public_key"] = ssh_public_key
             __props__.__dict__["ssh_username"] = ssh_username
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["iam_user_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserProfile, __self__).__init__(
@@ -156,6 +157,7 @@ class UserProfile(pulumi.CustomResource):
         __props__ = UserProfileArgs.__new__(UserProfileArgs)
 
         __props__.__dict__["allow_self_management"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["iam_user_arn"] = None
         __props__.__dict__["ssh_public_key"] = None
         __props__.__dict__["ssh_username"] = None
@@ -165,6 +167,11 @@ class UserProfile(pulumi.CustomResource):
     @pulumi.getter(name="allowSelfManagement")
     def allow_self_management(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "allow_self_management")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="iamUserArn")

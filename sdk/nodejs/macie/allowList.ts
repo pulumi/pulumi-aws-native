@@ -42,6 +42,10 @@ export class AllowList extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * AllowList ID.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * AllowList criteria.
      */
     public readonly criteria!: pulumi.Output<outputs.macie.AllowListCriteria>;
@@ -81,9 +85,11 @@ export class AllowList extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["criteria"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

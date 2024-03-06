@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.MediaConvert
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("category")]
         public Output<string?> Category { get; private set; } = null!;
 

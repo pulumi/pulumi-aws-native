@@ -40,6 +40,7 @@ export class RateBasedRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === RateBasedRule.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly matchPredicates!: pulumi.Output<outputs.wafregional.RateBasedRulePredicate[] | undefined>;
     public readonly metricName!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
@@ -73,7 +74,9 @@ export class RateBasedRule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["rateKey"] = args ? args.rateKey : undefined;
             resourceInputs["rateLimit"] = args ? args.rateLimit : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["matchPredicates"] = undefined /*out*/;
             resourceInputs["metricName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

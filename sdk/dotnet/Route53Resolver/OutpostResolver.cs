@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Id
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The OutpostResolver creation time
         /// </summary>
         [Output("creationTime")]

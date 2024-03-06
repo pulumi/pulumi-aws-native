@@ -19,6 +19,7 @@ type ApnsVoipChannel struct {
 	pulumi.CustomResourceState
 
 	ApplicationId               pulumi.StringOutput    `pulumi:"applicationId"`
+	AwsId                       pulumi.StringOutput    `pulumi:"awsId"`
 	BundleId                    pulumi.StringPtrOutput `pulumi:"bundleId"`
 	Certificate                 pulumi.StringPtrOutput `pulumi:"certificate"`
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
@@ -139,6 +140,10 @@ func (o ApnsVoipChannelOutput) ToApnsVoipChannelOutputWithContext(ctx context.Co
 
 func (o ApnsVoipChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ApnsVoipChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApnsVoipChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApnsVoipChannelOutput) BundleId() pulumi.StringPtrOutput {

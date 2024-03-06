@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("dataSourceArn")]
         public Output<string> DataSourceArn { get; private set; } = null!;
 

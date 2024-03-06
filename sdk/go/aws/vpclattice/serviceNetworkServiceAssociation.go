@@ -17,6 +17,7 @@ type ServiceNetworkServiceAssociation struct {
 	pulumi.CustomResourceState
 
 	Arn                      pulumi.StringOutput                               `pulumi:"arn"`
+	AwsId                    pulumi.StringOutput                               `pulumi:"awsId"`
 	CreatedAt                pulumi.StringOutput                               `pulumi:"createdAt"`
 	DnsEntry                 ServiceNetworkServiceAssociationDnsEntryPtrOutput `pulumi:"dnsEntry"`
 	ServiceArn               pulumi.StringOutput                               `pulumi:"serviceArn"`
@@ -129,6 +130,10 @@ func (o ServiceNetworkServiceAssociationOutput) ToServiceNetworkServiceAssociati
 
 func (o ServiceNetworkServiceAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ServiceNetworkServiceAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ServiceNetworkServiceAssociationOutput) CreatedAt() pulumi.StringOutput {

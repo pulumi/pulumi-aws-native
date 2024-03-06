@@ -104,6 +104,7 @@ class ApplicationOutputResource(pulumi.CustomResource):
             if output is None and not opts.urn:
                 raise TypeError("Missing required property 'output'")
             __props__.__dict__["output"] = output
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationOutputResource, __self__).__init__(
@@ -129,6 +130,7 @@ class ApplicationOutputResource(pulumi.CustomResource):
         __props__ = ApplicationOutputResourceArgs.__new__(ApplicationOutputResourceArgs)
 
         __props__.__dict__["application_name"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["output"] = None
         return ApplicationOutputResource(resource_name, opts=opts, __props__=__props__)
 
@@ -136,6 +138,11 @@ class ApplicationOutputResource(pulumi.CustomResource):
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

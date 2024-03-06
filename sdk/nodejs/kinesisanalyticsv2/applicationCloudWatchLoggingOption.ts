@@ -41,6 +41,7 @@ export class ApplicationCloudWatchLoggingOption extends pulumi.CustomResource {
     }
 
     public readonly applicationName!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cloudWatchLoggingOption!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption>;
 
     /**
@@ -64,8 +65,10 @@ export class ApplicationCloudWatchLoggingOption extends pulumi.CustomResource {
             }
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["cloudWatchLoggingOption"] = args ? args.cloudWatchLoggingOption : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloudWatchLoggingOption"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

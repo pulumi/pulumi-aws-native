@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// The capacity type of your managed node group.
         /// </summary>

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:Classifier")]
     public partial class Classifier : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("csvClassifier")]
         public Output<Outputs.ClassifierCsvClassifier?> CsvClassifier { get; private set; } = null!;
 

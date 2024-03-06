@@ -18,6 +18,7 @@ import (
 type Connection struct {
 	pulumi.CustomResourceState
 
+	AwsId           pulumi.StringOutput       `pulumi:"awsId"`
 	CatalogId       pulumi.StringOutput       `pulumi:"catalogId"`
 	ConnectionInput ConnectionInputTypeOutput `pulumi:"connectionInput"`
 }
@@ -117,6 +118,10 @@ func (o ConnectionOutput) ToConnectionOutput() ConnectionOutput {
 
 func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) ConnectionOutput {
 	return o
+}
+
+func (o ConnectionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ConnectionOutput) CatalogId() pulumi.StringOutput {

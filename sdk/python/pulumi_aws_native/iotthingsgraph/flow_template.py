@@ -103,6 +103,7 @@ class FlowTemplate(pulumi.CustomResource):
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
+            __props__.__dict__["aws_id"] = None
         super(FlowTemplate, __self__).__init__(
             'aws-native:iotthingsgraph:FlowTemplate',
             resource_name,
@@ -125,9 +126,15 @@ class FlowTemplate(pulumi.CustomResource):
 
         __props__ = FlowTemplateArgs.__new__(FlowTemplateArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["compatible_namespace_version"] = None
         __props__.__dict__["definition"] = None
         return FlowTemplate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="compatibleNamespaceVersion")

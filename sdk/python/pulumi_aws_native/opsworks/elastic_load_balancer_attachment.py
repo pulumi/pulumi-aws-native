@@ -102,6 +102,7 @@ class ElasticLoadBalancerAttachment(pulumi.CustomResource):
             if layer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'layer_id'")
             __props__.__dict__["layer_id"] = layer_id
+            __props__.__dict__["aws_id"] = None
         super(ElasticLoadBalancerAttachment, __self__).__init__(
             'aws-native:opsworks:ElasticLoadBalancerAttachment',
             resource_name,
@@ -124,9 +125,15 @@ class ElasticLoadBalancerAttachment(pulumi.CustomResource):
 
         __props__ = ElasticLoadBalancerAttachmentArgs.__new__(ElasticLoadBalancerAttachmentArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["elastic_load_balancer_name"] = None
         __props__.__dict__["layer_id"] = None
         return ElasticLoadBalancerAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="elasticLoadBalancerName")

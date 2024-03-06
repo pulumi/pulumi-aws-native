@@ -20,6 +20,7 @@ type ResourceShare struct {
 
 	AllowExternalPrincipals pulumi.BoolPtrOutput     `pulumi:"allowExternalPrincipals"`
 	Arn                     pulumi.StringOutput      `pulumi:"arn"`
+	AwsId                   pulumi.StringOutput      `pulumi:"awsId"`
 	Name                    pulumi.StringOutput      `pulumi:"name"`
 	PermissionArns          pulumi.StringArrayOutput `pulumi:"permissionArns"`
 	Principals              pulumi.StringArrayOutput `pulumi:"principals"`
@@ -131,6 +132,10 @@ func (o ResourceShareOutput) AllowExternalPrincipals() pulumi.BoolPtrOutput {
 
 func (o ResourceShareOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ResourceShareOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ResourceShareOutput) Name() pulumi.StringOutput {

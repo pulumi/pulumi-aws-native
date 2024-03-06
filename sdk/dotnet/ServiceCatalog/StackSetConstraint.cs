@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Output("adminRole")]
         public Output<string> AdminRole { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 

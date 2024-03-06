@@ -40,6 +40,7 @@ export class Workspace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workspace.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly bundleId!: pulumi.Output<string>;
     public readonly directoryId!: pulumi.Output<string>;
     public readonly rootVolumeEncryptionEnabled!: pulumi.Output<boolean | undefined>;
@@ -79,7 +80,9 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["userVolumeEncryptionEnabled"] = args ? args.userVolumeEncryptionEnabled : undefined;
             resourceInputs["volumeEncryptionKey"] = args ? args.volumeEncryptionKey : undefined;
             resourceInputs["workspaceProperties"] = args ? args.workspaceProperties : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["bundleId"] = undefined /*out*/;
             resourceInputs["directoryId"] = undefined /*out*/;
             resourceInputs["rootVolumeEncryptionEnabled"] = undefined /*out*/;

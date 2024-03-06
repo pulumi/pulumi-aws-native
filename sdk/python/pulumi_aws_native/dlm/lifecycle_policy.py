@@ -255,6 +255,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(LifecyclePolicy, __self__).__init__(
             'aws-native:dlm:LifecyclePolicy',
             resource_name,
@@ -278,6 +279,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         __props__ = LifecyclePolicyArgs.__new__(LifecyclePolicyArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["copy_tags"] = None
         __props__.__dict__["create_interval"] = None
         __props__.__dict__["cross_region_copy_targets"] = None
@@ -296,6 +298,11 @@ class LifecyclePolicy(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="copyTags")

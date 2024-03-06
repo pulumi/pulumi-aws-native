@@ -42,6 +42,7 @@ export class IpSet extends pulumi.CustomResource {
      */
     public readonly addresses!: pulumi.Output<string[]>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly ipAddressVersion!: pulumi.Output<enums.wafv2.IpSetIpAddressVersion>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -75,9 +76,11 @@ export class IpSet extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["addresses"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["ipAddressVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

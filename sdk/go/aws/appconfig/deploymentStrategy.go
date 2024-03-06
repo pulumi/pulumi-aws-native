@@ -19,6 +19,7 @@ import (
 type DeploymentStrategy struct {
 	pulumi.CustomResourceState
 
+	AwsId                       pulumi.StringOutput     `pulumi:"awsId"`
 	DeploymentDurationInMinutes pulumi.Float64Output    `pulumi:"deploymentDurationInMinutes"`
 	Description                 pulumi.StringPtrOutput  `pulumi:"description"`
 	FinalBakeTimeInMinutes      pulumi.Float64PtrOutput `pulumi:"finalBakeTimeInMinutes"`
@@ -140,6 +141,10 @@ func (o DeploymentStrategyOutput) ToDeploymentStrategyOutput() DeploymentStrateg
 
 func (o DeploymentStrategyOutput) ToDeploymentStrategyOutputWithContext(ctx context.Context) DeploymentStrategyOutput {
 	return o
+}
+
+func (o DeploymentStrategyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DeploymentStrategyOutput) DeploymentDurationInMinutes() pulumi.Float64Output {

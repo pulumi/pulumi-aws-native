@@ -105,6 +105,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
 
             __props__.__dict__["resolver_query_log_config_id"] = resolver_query_log_config_id
             __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["error"] = None
             __props__.__dict__["error_message"] = None
@@ -133,6 +134,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
 
         __props__ = ResolverQueryLoggingConfigAssociationArgs.__new__(ResolverQueryLoggingConfigAssociationArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["error"] = None
         __props__.__dict__["error_message"] = None
@@ -140,6 +142,14 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["status"] = None
         return ResolverQueryLoggingConfigAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="creationTime")

@@ -164,6 +164,7 @@ class ConfigurationSet(pulumi.CustomResource):
             __props__.__dict__["sending_options"] = sending_options
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tracking_options"] = tracking_options
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationSet, __self__).__init__(
@@ -188,6 +189,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
         __props__ = ConfigurationSetArgs.__new__(ConfigurationSetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["delivery_options"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["reputation_options"] = None
@@ -195,6 +197,11 @@ class ConfigurationSet(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["tracking_options"] = None
         return ConfigurationSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deliveryOptions")

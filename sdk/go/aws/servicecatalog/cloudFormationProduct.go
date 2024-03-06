@@ -20,6 +20,7 @@ type CloudFormationProduct struct {
 	pulumi.CustomResourceState
 
 	AcceptLanguage                 pulumi.StringPtrOutput                                         `pulumi:"acceptLanguage"`
+	AwsId                          pulumi.StringOutput                                            `pulumi:"awsId"`
 	Description                    pulumi.StringPtrOutput                                         `pulumi:"description"`
 	Distributor                    pulumi.StringPtrOutput                                         `pulumi:"distributor"`
 	Name                           pulumi.StringOutput                                            `pulumi:"name"`
@@ -151,6 +152,10 @@ func (o CloudFormationProductOutput) ToCloudFormationProductOutputWithContext(ct
 
 func (o CloudFormationProductOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudFormationProductOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationProduct) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CloudFormationProductOutput) Description() pulumi.StringPtrOutput {

@@ -151,6 +151,7 @@ class AllowList(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["status"] = None
         super(AllowList, __self__).__init__(
             'aws-native:macie:AllowList',
@@ -175,6 +176,7 @@ class AllowList(pulumi.CustomResource):
         __props__ = AllowListArgs.__new__(AllowListArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["criteria"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -189,6 +191,14 @@ class AllowList(pulumi.CustomResource):
         AllowList ARN.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        AllowList ID.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

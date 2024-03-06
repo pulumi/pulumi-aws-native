@@ -40,6 +40,7 @@ export class ReceiptFilter extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReceiptFilter.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly filter!: pulumi.Output<outputs.ses.ReceiptFilterFilter>;
 
     /**
@@ -59,7 +60,9 @@ export class ReceiptFilter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'filter'");
             }
             resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["filter"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

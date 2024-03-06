@@ -40,6 +40,7 @@ export class ByteMatchSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ByteMatchSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly byteMatchTuples!: pulumi.Output<outputs.waf.ByteMatchSetByteMatchTuple[] | undefined>;
     public readonly name!: pulumi.Output<string>;
 
@@ -58,7 +59,9 @@ export class ByteMatchSet extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["byteMatchTuples"] = args ? args.byteMatchTuples : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["byteMatchTuples"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

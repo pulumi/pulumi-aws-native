@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:StackFleetAssociation")]
     public partial class StackFleetAssociation : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("fleetName")]
         public Output<string> FleetName { get; private set; } = null!;
 

@@ -238,6 +238,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["port"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "db_cluster_identifier", "db_instance_identifier", "db_snapshot_identifier", "db_subnet_group_name"])
@@ -267,6 +268,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["allow_major_version_upgrade"] = None
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["db_cluster_identifier"] = None
         __props__.__dict__["db_instance_class"] = None
         __props__.__dict__["db_instance_identifier"] = None
@@ -293,6 +295,11 @@ class DbInstance(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")

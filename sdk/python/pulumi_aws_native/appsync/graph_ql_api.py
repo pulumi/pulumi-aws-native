@@ -352,6 +352,7 @@ class GraphQlApi(pulumi.CustomResource):
             __props__.__dict__["xray_enabled"] = xray_enabled
             __props__.__dict__["api_id"] = None
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["graph_ql_dns"] = None
             __props__.__dict__["graph_ql_endpoint_arn"] = None
             __props__.__dict__["graph_ql_url"] = None
@@ -384,6 +385,7 @@ class GraphQlApi(pulumi.CustomResource):
         __props__.__dict__["api_type"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["authentication_type"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["enhanced_metrics_config"] = None
         __props__.__dict__["environment_variables"] = None
         __props__.__dict__["graph_ql_dns"] = None
@@ -430,6 +432,11 @@ class GraphQlApi(pulumi.CustomResource):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="enhancedMetricsConfig")

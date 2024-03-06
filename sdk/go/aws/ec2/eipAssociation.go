@@ -17,6 +17,8 @@ type EipAssociation struct {
 
 	// The allocation ID. This is required for EC2-VPC.
 	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
+	// Composite ID of non-empty properties, to determine the identification.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The Elastic IP address to associate with the instance.
 	Eip pulumi.StringPtrOutput `pulumi:"eip"`
 	// The ID of the instance.
@@ -141,6 +143,11 @@ func (o EipAssociationOutput) ToEipAssociationOutputWithContext(ctx context.Cont
 // The allocation ID. This is required for EC2-VPC.
 func (o EipAssociationOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+// Composite ID of non-empty properties, to determine the identification.
+func (o EipAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The Elastic IP address to associate with the instance.

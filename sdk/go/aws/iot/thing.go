@@ -17,6 +17,7 @@ type Thing struct {
 
 	Arn              pulumi.StringOutput            `pulumi:"arn"`
 	AttributePayload ThingAttributePayloadPtrOutput `pulumi:"attributePayload"`
+	AwsId            pulumi.StringOutput            `pulumi:"awsId"`
 	ThingName        pulumi.StringPtrOutput         `pulumi:"thingName"`
 }
 
@@ -117,6 +118,10 @@ func (o ThingOutput) Arn() pulumi.StringOutput {
 
 func (o ThingOutput) AttributePayload() ThingAttributePayloadPtrOutput {
 	return o.ApplyT(func(v *Thing) ThingAttributePayloadPtrOutput { return v.AttributePayload }).(ThingAttributePayloadPtrOutput)
+}
+
+func (o ThingOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ThingOutput) ThingName() pulumi.StringPtrOutput {

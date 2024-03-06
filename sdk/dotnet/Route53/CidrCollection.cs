@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// UUID of the CIDR collection.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// A complex type that contains information about the list of CIDR locations.
         /// </summary>
         [Output("locations")]

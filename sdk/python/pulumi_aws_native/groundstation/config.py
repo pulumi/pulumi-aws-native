@@ -116,6 +116,7 @@ class Config(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["type"] = None
         super(Config, __self__).__init__(
             'aws-native:groundstation:Config',
@@ -140,6 +141,7 @@ class Config(pulumi.CustomResource):
         __props__ = ConfigArgs.__new__(ConfigArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["config_data"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -150,6 +152,11 @@ class Config(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="configData")

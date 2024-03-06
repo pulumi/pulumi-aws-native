@@ -370,6 +370,7 @@ class Layer(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["volume_configurations"] = volume_configurations
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["stack_id", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Layer, __self__).__init__(
@@ -397,6 +398,7 @@ class Layer(pulumi.CustomResource):
         __props__.__dict__["attributes"] = None
         __props__.__dict__["auto_assign_elastic_ips"] = None
         __props__.__dict__["auto_assign_public_ips"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["custom_instance_profile_arn"] = None
         __props__.__dict__["custom_json"] = None
         __props__.__dict__["custom_recipes"] = None
@@ -429,6 +431,11 @@ class Layer(pulumi.CustomResource):
     @pulumi.getter(name="autoAssignPublicIps")
     def auto_assign_public_ips(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "auto_assign_public_ips")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="customInstanceProfileArn")

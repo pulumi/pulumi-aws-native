@@ -19,6 +19,7 @@ type RemediationConfiguration struct {
 	pulumi.CustomResourceState
 
 	Automatic                pulumi.BoolPtrOutput                               `pulumi:"automatic"`
+	AwsId                    pulumi.StringOutput                                `pulumi:"awsId"`
 	ConfigRuleName           pulumi.StringOutput                                `pulumi:"configRuleName"`
 	ExecutionControls        RemediationConfigurationExecutionControlsPtrOutput `pulumi:"executionControls"`
 	MaximumAutomaticAttempts pulumi.IntPtrOutput                                `pulumi:"maximumAutomaticAttempts"`
@@ -151,6 +152,10 @@ func (o RemediationConfigurationOutput) ToRemediationConfigurationOutputWithCont
 
 func (o RemediationConfigurationOutput) Automatic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemediationConfiguration) pulumi.BoolPtrOutput { return v.Automatic }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemediationConfigurationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RemediationConfigurationOutput) ConfigRuleName() pulumi.StringOutput {

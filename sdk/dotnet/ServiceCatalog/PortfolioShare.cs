@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("portfolioId")]
         public Output<string> PortfolioId { get; private set; } = null!;
 

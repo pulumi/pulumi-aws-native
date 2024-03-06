@@ -40,6 +40,7 @@ export class TransitGateway extends pulumi.CustomResource {
     public readonly amazonSideAsn!: pulumi.Output<number | undefined>;
     public readonly associationDefaultRouteTableId!: pulumi.Output<string | undefined>;
     public readonly autoAcceptSharedAttachments!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly defaultRouteTableAssociation!: pulumi.Output<string | undefined>;
     public readonly defaultRouteTablePropagation!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -74,11 +75,13 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
             resourceInputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["transitGatewayArn"] = undefined /*out*/;
         } else {
             resourceInputs["amazonSideAsn"] = undefined /*out*/;
             resourceInputs["associationDefaultRouteTableId"] = undefined /*out*/;
             resourceInputs["autoAcceptSharedAttachments"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultRouteTableAssociation"] = undefined /*out*/;
             resourceInputs["defaultRouteTablePropagation"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

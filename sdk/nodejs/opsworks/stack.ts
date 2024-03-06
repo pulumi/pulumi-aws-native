@@ -42,6 +42,7 @@ export class Stack extends pulumi.CustomResource {
 
     public readonly agentVersion!: pulumi.Output<string | undefined>;
     public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly chefConfiguration!: pulumi.Output<outputs.opsworks.StackChefConfiguration | undefined>;
     public readonly cloneAppIds!: pulumi.Output<string[] | undefined>;
     public readonly clonePermissions!: pulumi.Output<boolean | undefined>;
@@ -113,9 +114,11 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["useCustomCookbooks"] = args ? args.useCustomCookbooks : undefined;
             resourceInputs["useOpsworksSecurityGroups"] = args ? args.useOpsworksSecurityGroups : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["chefConfiguration"] = undefined /*out*/;
             resourceInputs["cloneAppIds"] = undefined /*out*/;
             resourceInputs["clonePermissions"] = undefined /*out*/;

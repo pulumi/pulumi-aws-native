@@ -38,6 +38,7 @@ export class AcceptedPortfolioShare extends pulumi.CustomResource {
     }
 
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly portfolioId!: pulumi.Output<string>;
 
     /**
@@ -58,8 +59,10 @@ export class AcceptedPortfolioShare extends pulumi.CustomResource {
             }
             resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
             resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["portfolioId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

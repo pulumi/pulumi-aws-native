@@ -37,6 +37,12 @@ namespace Pulumi.AwsNative.Ssm
         public Output<bool?> ApprovedPatchesEnableNonSecurity { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the patch baseline.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Set the baseline as default baseline. Only registering to default patch baseline is allowed.
         /// </summary>
         [Output("defaultBaseline")]

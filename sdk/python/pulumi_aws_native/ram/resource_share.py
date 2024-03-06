@@ -178,6 +178,7 @@ class ResourceShare(pulumi.CustomResource):
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(ResourceShare, __self__).__init__(
             'aws-native:ram:ResourceShare',
             resource_name,
@@ -202,6 +203,7 @@ class ResourceShare(pulumi.CustomResource):
 
         __props__.__dict__["allow_external_principals"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["permission_arns"] = None
         __props__.__dict__["principals"] = None
@@ -219,6 +221,11 @@ class ResourceShare(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

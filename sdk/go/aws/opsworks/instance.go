@@ -23,6 +23,7 @@ type Instance struct {
 	Architecture         pulumi.StringPtrOutput                `pulumi:"architecture"`
 	AutoScalingType      pulumi.StringPtrOutput                `pulumi:"autoScalingType"`
 	AvailabilityZone     pulumi.StringPtrOutput                `pulumi:"availabilityZone"`
+	AwsId                pulumi.StringOutput                   `pulumi:"awsId"`
 	BlockDeviceMappings  InstanceBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
 	EbsOptimized         pulumi.BoolPtrOutput                  `pulumi:"ebsOptimized"`
 	ElasticIps           pulumi.StringArrayOutput              `pulumi:"elasticIps"`
@@ -210,6 +211,10 @@ func (o InstanceOutput) AutoScalingType() pulumi.StringPtrOutput {
 
 func (o InstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o InstanceOutput) BlockDeviceMappings() InstanceBlockDeviceMappingArrayOutput {

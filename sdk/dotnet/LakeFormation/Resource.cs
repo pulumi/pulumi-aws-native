@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.LakeFormation
     [AwsNativeResourceType("aws-native:lakeformation:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("hybridAccessEnabled")]
         public Output<bool?> HybridAccessEnabled { get; private set; } = null!;
 

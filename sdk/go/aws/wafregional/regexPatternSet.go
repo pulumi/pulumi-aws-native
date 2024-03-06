@@ -18,6 +18,7 @@ import (
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
 
+	AwsId               pulumi.StringOutput      `pulumi:"awsId"`
 	Name                pulumi.StringOutput      `pulumi:"name"`
 	RegexPatternStrings pulumi.StringArrayOutput `pulumi:"regexPatternStrings"`
 }
@@ -114,6 +115,10 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {
 
 func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
 	return o
+}
+
+func (o RegexPatternSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RegexPatternSetOutput) Name() pulumi.StringOutput {

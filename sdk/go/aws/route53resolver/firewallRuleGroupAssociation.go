@@ -19,6 +19,8 @@ type FirewallRuleGroupAssociation struct {
 
 	// Arn
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Id
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Rfc3339TimeString
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The id of the creator request.
@@ -169,6 +171,11 @@ func (o FirewallRuleGroupAssociationOutput) ToFirewallRuleGroupAssociationOutput
 // Arn
 func (o FirewallRuleGroupAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Id
+func (o FirewallRuleGroupAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Rfc3339TimeString

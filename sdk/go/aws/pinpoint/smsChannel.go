@@ -19,6 +19,7 @@ type SmsChannel struct {
 	pulumi.CustomResourceState
 
 	ApplicationId pulumi.StringOutput    `pulumi:"applicationId"`
+	AwsId         pulumi.StringOutput    `pulumi:"awsId"`
 	Enabled       pulumi.BoolPtrOutput   `pulumi:"enabled"`
 	SenderId      pulumi.StringPtrOutput `pulumi:"senderId"`
 	ShortCode     pulumi.StringPtrOutput `pulumi:"shortCode"`
@@ -124,6 +125,10 @@ func (o SmsChannelOutput) ToSmsChannelOutputWithContext(ctx context.Context) Sms
 
 func (o SmsChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o SmsChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmsChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SmsChannelOutput) Enabled() pulumi.BoolPtrOutput {

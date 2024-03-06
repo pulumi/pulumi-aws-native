@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.IoTWireless
         public Output<string?> AssociateWirelessDevice { get; private set; } = null!;
 
         /// <summary>
+        /// FUOTA task id. Returned after successful create.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// FUOTA task description
         /// </summary>
         [Output("description")]

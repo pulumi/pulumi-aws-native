@@ -41,6 +41,7 @@ export class EndpointConfig extends pulumi.CustomResource {
     }
 
     public readonly asyncInferenceConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigAsyncInferenceConfig | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly dataCaptureConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigDataCaptureConfig | undefined>;
     public readonly enableNetworkIsolation!: pulumi.Output<boolean | undefined>;
     public readonly endpointConfigName!: pulumi.Output<string | undefined>;
@@ -79,8 +80,10 @@ export class EndpointConfig extends pulumi.CustomResource {
             resourceInputs["shadowProductionVariants"] = args ? args.shadowProductionVariants : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["asyncInferenceConfig"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataCaptureConfig"] = undefined /*out*/;
             resourceInputs["enableNetworkIsolation"] = undefined /*out*/;
             resourceInputs["endpointConfigName"] = undefined /*out*/;

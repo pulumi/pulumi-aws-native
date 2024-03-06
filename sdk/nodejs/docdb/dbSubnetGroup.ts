@@ -40,6 +40,7 @@ export class DbSubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DbSubnetGroup.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly dbSubnetGroupDescription!: pulumi.Output<string>;
     public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
@@ -68,7 +69,9 @@ export class DbSubnetGroup extends pulumi.CustomResource {
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dbSubnetGroupDescription"] = undefined /*out*/;
             resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;

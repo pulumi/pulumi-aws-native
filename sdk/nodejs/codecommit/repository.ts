@@ -41,6 +41,7 @@ export class Repository extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly cloneUrlHttp!: pulumi.Output<string>;
     public /*out*/ readonly cloneUrlSsh!: pulumi.Output<string>;
     public readonly code!: pulumi.Output<outputs.codecommit.RepositoryCode | undefined>;
@@ -71,11 +72,13 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloneUrlHttp"] = undefined /*out*/;
             resourceInputs["cloneUrlSsh"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloneUrlHttp"] = undefined /*out*/;
             resourceInputs["cloneUrlSsh"] = undefined /*out*/;
             resourceInputs["code"] = undefined /*out*/;

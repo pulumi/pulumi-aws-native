@@ -38,6 +38,7 @@ export class UserProfile extends pulumi.CustomResource {
     }
 
     public readonly allowSelfManagement!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly iamUserArn!: pulumi.Output<string>;
     public readonly sshPublicKey!: pulumi.Output<string | undefined>;
     public readonly sshUsername!: pulumi.Output<string | undefined>;
@@ -62,8 +63,10 @@ export class UserProfile extends pulumi.CustomResource {
             resourceInputs["iamUserArn"] = args ? args.iamUserArn : undefined;
             resourceInputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
             resourceInputs["sshUsername"] = args ? args.sshUsername : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["allowSelfManagement"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["iamUserArn"] = undefined /*out*/;
             resourceInputs["sshPublicKey"] = undefined /*out*/;
             resourceInputs["sshUsername"] = undefined /*out*/;

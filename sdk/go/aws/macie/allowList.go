@@ -19,6 +19,8 @@ type AllowList struct {
 
 	// AllowList ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AllowList ID.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// AllowList criteria.
 	Criteria AllowListCriteriaOutput `pulumi:"criteria"`
 	// Description of AllowList.
@@ -136,6 +138,11 @@ func (o AllowListOutput) ToAllowListOutputWithContext(ctx context.Context) Allow
 // AllowList ARN.
 func (o AllowListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AllowList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// AllowList ID.
+func (o AllowListOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AllowList) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // AllowList criteria.

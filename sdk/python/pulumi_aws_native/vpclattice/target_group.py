@@ -146,6 +146,7 @@ class TargetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["status"] = None
@@ -174,6 +175,7 @@ class TargetGroup(pulumi.CustomResource):
         __props__ = TargetGroupArgs.__new__(TargetGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["config"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["last_updated_at"] = None
@@ -188,6 +190,11 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

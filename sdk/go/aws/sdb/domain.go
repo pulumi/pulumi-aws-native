@@ -17,6 +17,7 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput    `pulumi:"awsId"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 }
 
@@ -103,6 +104,10 @@ func (o DomainOutput) ToDomainOutput() DomainOutput {
 
 func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return o
+}
+
+func (o DomainOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DomainOutput) Description() pulumi.StringPtrOutput {

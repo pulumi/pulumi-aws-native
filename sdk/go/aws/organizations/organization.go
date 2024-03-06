@@ -17,6 +17,8 @@ type Organization struct {
 
 	// The Amazon Resource Name (ARN) of an organization.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The unique identifier (ID) of an organization.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.
 	FeatureSet OrganizationFeatureSetPtrOutput `pulumi:"featureSet"`
 	// The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.
@@ -119,6 +121,11 @@ func (o OrganizationOutput) ToOrganizationOutputWithContext(ctx context.Context)
 // The Amazon Resource Name (ARN) of an organization.
 func (o OrganizationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The unique identifier (ID) of an organization.
+func (o OrganizationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.

@@ -19,6 +19,7 @@ import (
 type SecurityGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput `pulumi:"awsId"`
 	Description pulumi.StringOutput `pulumi:"description"`
 	Tags        aws.TagArrayOutput  `pulumi:"tags"`
 }
@@ -111,6 +112,10 @@ func (o SecurityGroupOutput) ToSecurityGroupOutput() SecurityGroupOutput {
 
 func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
 	return o
+}
+
+func (o SecurityGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SecurityGroupOutput) Description() pulumi.StringOutput {

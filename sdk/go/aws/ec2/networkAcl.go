@@ -17,6 +17,7 @@ import (
 type NetworkAcl struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The tags to assign to the network ACL.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC.
@@ -119,6 +120,10 @@ func (o NetworkAclOutput) ToNetworkAclOutput() NetworkAclOutput {
 
 func (o NetworkAclOutput) ToNetworkAclOutputWithContext(ctx context.Context) NetworkAclOutput {
 	return o
+}
+
+func (o NetworkAclOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkAcl) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The tags to assign to the network ACL.

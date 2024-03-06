@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.OpsWorks
     [AwsNativeResourceType("aws-native:opsworks:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("ec2VolumeId")]
         public Output<string> Ec2VolumeId { get; private set; } = null!;
 

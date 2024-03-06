@@ -18,6 +18,7 @@ import (
 type TransitGatewayRoute struct {
 	pulumi.CustomResourceState
 
+	AwsId                      pulumi.StringOutput    `pulumi:"awsId"`
 	Blackhole                  pulumi.BoolPtrOutput   `pulumi:"blackhole"`
 	DestinationCidrBlock       pulumi.StringPtrOutput `pulumi:"destinationCidrBlock"`
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
@@ -123,6 +124,10 @@ func (o TransitGatewayRouteOutput) ToTransitGatewayRouteOutput() TransitGatewayR
 
 func (o TransitGatewayRouteOutput) ToTransitGatewayRouteOutputWithContext(ctx context.Context) TransitGatewayRouteOutput {
 	return o
+}
+
+func (o TransitGatewayRouteOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayRoute) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TransitGatewayRouteOutput) Blackhole() pulumi.BoolPtrOutput {

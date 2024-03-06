@@ -18,6 +18,7 @@ import (
 type ClusterSecurityGroupIngress struct {
 	pulumi.CustomResourceState
 
+	AwsId                    pulumi.StringOutput    `pulumi:"awsId"`
 	Cidrip                   pulumi.StringPtrOutput `pulumi:"cidrip"`
 	ClusterSecurityGroupName pulumi.StringOutput    `pulumi:"clusterSecurityGroupName"`
 	Ec2SecurityGroupName     pulumi.StringPtrOutput `pulumi:"ec2SecurityGroupName"`
@@ -123,6 +124,10 @@ func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutput()
 
 func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutputWithContext(ctx context.Context) ClusterSecurityGroupIngressOutput {
 	return o
+}
+
+func (o ClusterSecurityGroupIngressOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ClusterSecurityGroupIngressOutput) Cidrip() pulumi.StringPtrOutput {

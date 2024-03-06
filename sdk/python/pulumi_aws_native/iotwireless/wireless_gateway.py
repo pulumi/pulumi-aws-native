@@ -210,6 +210,7 @@ class WirelessGateway(pulumi.CustomResource):
             __props__.__dict__["thing_arn"] = thing_arn
             __props__.__dict__["thing_name"] = thing_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(WirelessGateway, __self__).__init__(
             'aws-native:iotwireless:WirelessGateway',
             resource_name,
@@ -233,6 +234,7 @@ class WirelessGateway(pulumi.CustomResource):
         __props__ = WirelessGatewayArgs.__new__(WirelessGatewayArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["last_uplink_received_at"] = None
         __props__.__dict__["lo_ra_wan"] = None
@@ -249,6 +251,14 @@ class WirelessGateway(pulumi.CustomResource):
         Arn for Wireless Gateway. Returned upon successful create.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id for Wireless Gateway. Returned upon successful create.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

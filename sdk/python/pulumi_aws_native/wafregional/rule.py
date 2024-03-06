@@ -118,6 +118,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["metric_name"] = metric_name
             __props__.__dict__["name"] = name
             __props__.__dict__["predicates"] = predicates
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["metric_name", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Rule, __self__).__init__(
@@ -142,10 +143,16 @@ class Rule(pulumi.CustomResource):
 
         __props__ = RuleArgs.__new__(RuleArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["metric_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["predicates"] = None
         return Rule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="metricName")

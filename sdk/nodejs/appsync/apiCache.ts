@@ -40,6 +40,7 @@ export class ApiCache extends pulumi.CustomResource {
     public readonly apiCachingBehavior!: pulumi.Output<string>;
     public readonly apiId!: pulumi.Output<string>;
     public readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly healthMetricsConfig!: pulumi.Output<string | undefined>;
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     public readonly ttl!: pulumi.Output<number>;
@@ -77,10 +78,12 @@ export class ApiCache extends pulumi.CustomResource {
             resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["apiCachingBehavior"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["healthMetricsConfig"] = undefined /*out*/;
             resourceInputs["transitEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["ttl"] = undefined /*out*/;

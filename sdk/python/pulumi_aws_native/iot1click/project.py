@@ -119,6 +119,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["placement_template"] = placement_template
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["project_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Project, __self__).__init__(
@@ -144,6 +145,7 @@ class Project(pulumi.CustomResource):
         __props__ = ProjectArgs.__new__(ProjectArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["placement_template"] = None
         __props__.__dict__["project_name"] = None
@@ -153,6 +155,11 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

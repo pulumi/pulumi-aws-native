@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.AppConfig
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// Description of the extension.
         /// </summary>

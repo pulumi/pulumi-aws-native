@@ -19,6 +19,7 @@ type ApnsVoipSandboxChannel struct {
 	pulumi.CustomResourceState
 
 	ApplicationId               pulumi.StringOutput    `pulumi:"applicationId"`
+	AwsId                       pulumi.StringOutput    `pulumi:"awsId"`
 	BundleId                    pulumi.StringPtrOutput `pulumi:"bundleId"`
 	Certificate                 pulumi.StringPtrOutput `pulumi:"certificate"`
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
@@ -139,6 +140,10 @@ func (o ApnsVoipSandboxChannelOutput) ToApnsVoipSandboxChannelOutputWithContext(
 
 func (o ApnsVoipSandboxChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApnsVoipSandboxChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ApnsVoipSandboxChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApnsVoipSandboxChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApnsVoipSandboxChannelOutput) BundleId() pulumi.StringPtrOutput {

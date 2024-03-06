@@ -16,6 +16,7 @@ import (
 type SubnetRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ID of the route table.
 	//  The physical ID changes when the route table ID is changed.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
@@ -125,6 +126,10 @@ func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutput()
 
 func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput {
 	return o
+}
+
+func (o SubnetRouteTableAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetRouteTableAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The ID of the route table.

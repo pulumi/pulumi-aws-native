@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Cloud9
         [Output("automaticStopTimeMinutes")]
         public Output<int?> AutomaticStopTimeMinutes { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("connectionType")]
         public Output<string?> ConnectionType { get; private set; } = null!;
 

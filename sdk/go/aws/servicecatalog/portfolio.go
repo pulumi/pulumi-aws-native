@@ -20,6 +20,7 @@ type Portfolio struct {
 	pulumi.CustomResourceState
 
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	AwsId          pulumi.StringOutput    `pulumi:"awsId"`
 	Description    pulumi.StringPtrOutput `pulumi:"description"`
 	DisplayName    pulumi.StringOutput    `pulumi:"displayName"`
 	PortfolioName  pulumi.StringOutput    `pulumi:"portfolioName"`
@@ -128,6 +129,10 @@ func (o PortfolioOutput) ToPortfolioOutputWithContext(ctx context.Context) Portf
 
 func (o PortfolioOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o PortfolioOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PortfolioOutput) Description() pulumi.StringPtrOutput {

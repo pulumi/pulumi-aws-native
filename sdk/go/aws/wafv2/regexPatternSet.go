@@ -19,6 +19,8 @@ type RegexPatternSet struct {
 
 	// ARN of the WAF entity.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Id of the RegexPatternSet
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Description of the entity.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the RegexPatternSet.
@@ -142,6 +144,11 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 // ARN of the WAF entity.
 func (o RegexPatternSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Id of the RegexPatternSet
+func (o RegexPatternSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Description of the entity.

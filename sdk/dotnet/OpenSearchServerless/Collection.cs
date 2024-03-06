@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier of the collection
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint for the collection.
         /// </summary>
         [Output("collectionEndpoint")]

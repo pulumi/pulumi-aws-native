@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Pinpoint
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("destinationStreamArn")]
         public Output<string> DestinationStreamArn { get; private set; } = null!;
 

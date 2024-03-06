@@ -19,6 +19,7 @@ type SourceCredential struct {
 	pulumi.CustomResourceState
 
 	AuthType   pulumi.StringOutput    `pulumi:"authType"`
+	AwsId      pulumi.StringOutput    `pulumi:"awsId"`
 	ServerType pulumi.StringOutput    `pulumi:"serverType"`
 	Token      pulumi.StringOutput    `pulumi:"token"`
 	Username   pulumi.StringPtrOutput `pulumi:"username"`
@@ -130,6 +131,10 @@ func (o SourceCredentialOutput) ToSourceCredentialOutputWithContext(ctx context.
 
 func (o SourceCredentialOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
+}
+
+func (o SourceCredentialOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SourceCredentialOutput) ServerType() pulumi.StringOutput {

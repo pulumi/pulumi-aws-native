@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackage
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The unique identifier for the Asset.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The time the Asset was initially submitted for Ingest.
         /// </summary>
         [Output("createdAt")]
@@ -108,6 +114,12 @@ namespace Pulumi.AwsNative.MediaPackage
 
     public sealed class AssetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier for the Asset.
+        /// </summary>
+        [Input("awsId", required: true)]
+        public Input<string> AwsId { get; set; } = null!;
+
         [Input("egressEndpoints")]
         private InputList<Inputs.AssetEgressEndpointArgs>? _egressEndpoints;
 

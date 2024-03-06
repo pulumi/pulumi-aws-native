@@ -21,6 +21,8 @@ type Canary struct {
 	ArtifactConfig CanaryArtifactConfigPtrOutput `pulumi:"artifactConfig"`
 	// Provide the s3 bucket output location for test results
 	ArtifactS3Location pulumi.StringOutput `pulumi:"artifactS3Location"`
+	// Id of the canary
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Provide the canary script source
 	Code CanaryCodeOutput `pulumi:"code"`
 	// Deletes associated lambda resources created by Synthetics if set to True. Default is False
@@ -218,6 +220,11 @@ func (o CanaryOutput) ArtifactConfig() CanaryArtifactConfigPtrOutput {
 // Provide the s3 bucket output location for test results
 func (o CanaryOutput) ArtifactS3Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.ArtifactS3Location }).(pulumi.StringOutput)
+}
+
+// Id of the canary
+func (o CanaryOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Provide the canary script source

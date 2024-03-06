@@ -217,6 +217,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["policy_name"] = policy_name
             __props__.__dict__["roles"] = roles
             __props__.__dict__["users"] = users
+            __props__.__dict__["aws_id"] = None
         super(Policy, __self__).__init__(
             'aws-native:iam:Policy',
             resource_name,
@@ -239,12 +240,18 @@ class Policy(pulumi.CustomResource):
 
         __props__ = PolicyArgs.__new__(PolicyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["groups"] = None
         __props__.__dict__["policy_document"] = None
         __props__.__dict__["policy_name"] = None
         __props__.__dict__["roles"] = None
         __props__.__dict__["users"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

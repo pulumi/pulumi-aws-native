@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 

@@ -37,6 +37,7 @@ export class ResourceSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly resourceTypeList!: pulumi.Output<string[]>;
@@ -62,7 +63,9 @@ export class ResourceSet extends pulumi.CustomResource {
             resourceInputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
             resourceInputs["resources"] = args ? args.resources : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resourceTypeList"] = undefined /*out*/;

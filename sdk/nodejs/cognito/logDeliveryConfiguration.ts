@@ -37,6 +37,7 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogDeliveryConfiguration.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly logConfigurations!: pulumi.Output<outputs.cognito.LogDeliveryConfigurationLogConfiguration[] | undefined>;
     public readonly userPoolId!: pulumi.Output<string>;
 
@@ -56,7 +57,9 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["logConfigurations"] = args ? args.logConfigurations : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["logConfigurations"] = undefined /*out*/;
             resourceInputs["userPoolId"] = undefined /*out*/;
         }

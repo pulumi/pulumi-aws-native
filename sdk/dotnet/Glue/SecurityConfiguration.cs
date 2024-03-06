@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Glue
     [AwsNativeResourceType("aws-native:glue:SecurityConfiguration")]
     public partial class SecurityConfiguration : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("encryptionConfiguration")]
         public Output<Outputs.SecurityConfigurationEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
 

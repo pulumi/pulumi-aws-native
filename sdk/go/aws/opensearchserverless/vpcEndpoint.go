@@ -16,6 +16,8 @@ import (
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 
+	// The identifier of the VPC Endpoint
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The name of the VPC Endpoint
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of one or more security groups to associate with the endpoint network interface
@@ -134,6 +136,11 @@ func (o VpcEndpointOutput) ToVpcEndpointOutput() VpcEndpointOutput {
 
 func (o VpcEndpointOutput) ToVpcEndpointOutputWithContext(ctx context.Context) VpcEndpointOutput {
 	return o
+}
+
+// The identifier of the VPC Endpoint
+func (o VpcEndpointOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The name of the VPC Endpoint

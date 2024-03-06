@@ -389,6 +389,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["worker_type"] = worker_type
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Job, __self__).__init__(
@@ -414,6 +415,7 @@ class Job(pulumi.CustomResource):
         __props__ = JobArgs.__new__(JobArgs)
 
         __props__.__dict__["allocated_capacity"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["command"] = None
         __props__.__dict__["connections"] = None
         __props__.__dict__["default_arguments"] = None
@@ -439,6 +441,11 @@ class Job(pulumi.CustomResource):
     @pulumi.getter(name="allocatedCapacity")
     def allocated_capacity(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "allocated_capacity")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

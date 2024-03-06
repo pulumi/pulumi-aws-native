@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.SecretsManager
     [AwsNativeResourceType("aws-native:secretsmanager:Secret")]
     public partial class Secret : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// The description of the secret.
         /// </summary>

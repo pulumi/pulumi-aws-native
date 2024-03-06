@@ -37,6 +37,7 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolResourceServer.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly identifier!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly scopes!: pulumi.Output<outputs.cognito.UserPoolResourceServerResourceServerScopeType[] | undefined>;
@@ -63,7 +64,9 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;

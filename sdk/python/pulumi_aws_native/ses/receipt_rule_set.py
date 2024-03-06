@@ -85,6 +85,7 @@ class ReceiptRuleSet(pulumi.CustomResource):
             __props__ = ReceiptRuleSetArgs.__new__(ReceiptRuleSetArgs)
 
             __props__.__dict__["rule_set_name"] = rule_set_name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rule_set_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReceiptRuleSet, __self__).__init__(
@@ -109,8 +110,14 @@ class ReceiptRuleSet(pulumi.CustomResource):
 
         __props__ = ReceiptRuleSetArgs.__new__(ReceiptRuleSetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["rule_set_name"] = None
         return ReceiptRuleSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="ruleSetName")

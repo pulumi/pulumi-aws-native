@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Configuration
     [AwsNativeResourceType("aws-native:configuration:ConfigurationRecorder")]
     public partial class ConfigurationRecorder : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 

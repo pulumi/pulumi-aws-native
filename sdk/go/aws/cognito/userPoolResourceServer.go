@@ -16,6 +16,7 @@ import (
 type UserPoolResourceServer struct {
 	pulumi.CustomResourceState
 
+	AwsId      pulumi.StringOutput                                      `pulumi:"awsId"`
 	Identifier pulumi.StringOutput                                      `pulumi:"identifier"`
 	Name       pulumi.StringOutput                                      `pulumi:"name"`
 	Scopes     UserPoolResourceServerResourceServerScopeTypeArrayOutput `pulumi:"scopes"`
@@ -122,6 +123,10 @@ func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutput() UserPoolR
 
 func (o UserPoolResourceServerOutput) ToUserPoolResourceServerOutputWithContext(ctx context.Context) UserPoolResourceServerOutput {
 	return o
+}
+
+func (o UserPoolResourceServerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o UserPoolResourceServerOutput) Identifier() pulumi.StringOutput {

@@ -104,6 +104,7 @@ class ApplicationCloudWatchLoggingOption(pulumi.CustomResource):
             if cloud_watch_logging_option is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_watch_logging_option'")
             __props__.__dict__["cloud_watch_logging_option"] = cloud_watch_logging_option
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationCloudWatchLoggingOption, __self__).__init__(
@@ -129,6 +130,7 @@ class ApplicationCloudWatchLoggingOption(pulumi.CustomResource):
         __props__ = ApplicationCloudWatchLoggingOptionArgs.__new__(ApplicationCloudWatchLoggingOptionArgs)
 
         __props__.__dict__["application_name"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cloud_watch_logging_option"] = None
         return ApplicationCloudWatchLoggingOption(resource_name, opts=opts, __props__=__props__)
 
@@ -136,6 +138,11 @@ class ApplicationCloudWatchLoggingOption(pulumi.CustomResource):
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cloudWatchLoggingOption")

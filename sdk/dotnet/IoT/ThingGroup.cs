@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("parentGroupName")]
         public Output<string?> ParentGroupName { get; private set; } = null!;
 

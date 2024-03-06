@@ -228,6 +228,7 @@ class Faq(pulumi.CustomResource):
             __props__.__dict__["s3_path"] = s3_path
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "file_format", "index_id", "name", "role_arn", "s3_path"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Faq, __self__).__init__(
@@ -253,6 +254,7 @@ class Faq(pulumi.CustomResource):
         __props__ = FaqArgs.__new__(FaqArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["file_format"] = None
         __props__.__dict__["index_id"] = None
@@ -267,6 +269,11 @@ class Faq(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

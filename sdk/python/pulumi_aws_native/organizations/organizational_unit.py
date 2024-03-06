@@ -128,6 +128,7 @@ class OrganizationalUnit(pulumi.CustomResource):
             __props__.__dict__["parent_id"] = parent_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["parent_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OrganizationalUnit, __self__).__init__(
@@ -153,6 +154,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         __props__ = OrganizationalUnitArgs.__new__(OrganizationalUnitArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parent_id"] = None
         __props__.__dict__["tags"] = None
@@ -165,6 +167,14 @@ class OrganizationalUnit(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of this OU.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier (ID) associated with this OU.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("arguments")]
         public Output<object?> Arguments { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("endpointName")]
         public Output<string?> EndpointName { get; private set; } = null!;
 

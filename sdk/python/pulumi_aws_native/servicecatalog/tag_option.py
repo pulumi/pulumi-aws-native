@@ -117,6 +117,7 @@ class TagOption(pulumi.CustomResource):
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["key", "value"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TagOption, __self__).__init__(
@@ -142,6 +143,7 @@ class TagOption(pulumi.CustomResource):
         __props__ = TagOptionArgs.__new__(TagOptionArgs)
 
         __props__.__dict__["active"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["key"] = None
         __props__.__dict__["value"] = None
         return TagOption(resource_name, opts=opts, __props__=__props__)
@@ -150,6 +152,11 @@ class TagOption(pulumi.CustomResource):
     @pulumi.getter
     def active(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

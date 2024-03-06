@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("autoAcceptSharedAttachments")]
         public Output<string?> AutoAcceptSharedAttachments { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("defaultRouteTableAssociation")]
         public Output<string?> DefaultRouteTableAssociation { get; private set; } = null!;
 

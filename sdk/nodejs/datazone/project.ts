@@ -35,6 +35,10 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the Amazon DataZone project.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The timestamp of when the project was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -85,11 +89,13 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
             resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

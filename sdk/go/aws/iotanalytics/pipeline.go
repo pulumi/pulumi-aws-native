@@ -17,6 +17,7 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
+	AwsId              pulumi.StringOutput         `pulumi:"awsId"`
 	PipelineActivities PipelineActivityArrayOutput `pulumi:"pipelineActivities"`
 	PipelineName       pulumi.StringPtrOutput      `pulumi:"pipelineName"`
 	Tags               aws.TagArrayOutput          `pulumi:"tags"`
@@ -116,6 +117,10 @@ func (o PipelineOutput) ToPipelineOutput() PipelineOutput {
 
 func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
 	return o
+}
+
+func (o PipelineOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PipelineOutput) PipelineActivities() PipelineActivityArrayOutput {

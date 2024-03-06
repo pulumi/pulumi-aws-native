@@ -17,6 +17,7 @@ type ThingGroup struct {
 	pulumi.CustomResourceState
 
 	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	AwsId           pulumi.StringOutput    `pulumi:"awsId"`
 	ParentGroupName pulumi.StringPtrOutput `pulumi:"parentGroupName"`
 	QueryString     pulumi.StringPtrOutput `pulumi:"queryString"`
 	// An array of key-value pairs to apply to this resource.
@@ -127,6 +128,10 @@ func (o ThingGroupOutput) ToThingGroupOutputWithContext(ctx context.Context) Thi
 
 func (o ThingGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ThingGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ThingGroupOutput) ParentGroupName() pulumi.StringPtrOutput {

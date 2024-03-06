@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Sns
     [AwsNativeResourceType("aws-native:sns:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Subscription` for more information about the expected schema for this property.
         /// </summary>

@@ -18,6 +18,7 @@ import (
 type GitHubRepository struct {
 	pulumi.CustomResourceState
 
+	AwsId                 pulumi.StringOutput           `pulumi:"awsId"`
 	Code                  GitHubRepositoryCodePtrOutput `pulumi:"code"`
 	ConnectionArn         pulumi.StringPtrOutput        `pulumi:"connectionArn"`
 	EnableIssues          pulumi.BoolPtrOutput          `pulumi:"enableIssues"`
@@ -131,6 +132,10 @@ func (o GitHubRepositoryOutput) ToGitHubRepositoryOutput() GitHubRepositoryOutpu
 
 func (o GitHubRepositoryOutput) ToGitHubRepositoryOutputWithContext(ctx context.Context) GitHubRepositoryOutput {
 	return o
+}
+
+func (o GitHubRepositoryOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GitHubRepository) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o GitHubRepositoryOutput) Code() GitHubRepositoryCodePtrOutput {

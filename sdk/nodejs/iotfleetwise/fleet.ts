@@ -41,6 +41,7 @@ export class Fleet extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lastModificationTime!: pulumi.Output<string>;
@@ -60,9 +61,13 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.awsId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'awsId'");
+            }
             if ((!args || args.signalCatalogArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'signalCatalogArn'");
             }
+            resourceInputs["awsId"] = args ? args.awsId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["signalCatalogArn"] = args ? args.signalCatalogArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -71,6 +76,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["lastModificationTime"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["lastModificationTime"] = undefined /*out*/;
@@ -88,6 +94,7 @@ export class Fleet extends pulumi.CustomResource {
  * The set of arguments for constructing a Fleet resource.
  */
 export interface FleetArgs {
+    awsId: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     signalCatalogArn: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;

@@ -40,6 +40,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityConfiguration.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly encryptionConfiguration!: pulumi.Output<outputs.glue.SecurityConfigurationEncryptionConfiguration>;
     public readonly name!: pulumi.Output<string>;
 
@@ -61,7 +62,9 @@ export class SecurityConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

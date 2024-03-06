@@ -82,6 +82,7 @@ class CachePolicy(pulumi.CustomResource):
             if cache_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_policy_config'")
             __props__.__dict__["cache_policy_config"] = cache_policy_config
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(CachePolicy, __self__).__init__(
             'aws-native:cloudfront:CachePolicy',
@@ -105,9 +106,15 @@ class CachePolicy(pulumi.CustomResource):
 
         __props__ = CachePolicyArgs.__new__(CachePolicyArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cache_policy_config"] = None
         __props__.__dict__["last_modified_time"] = None
         return CachePolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cachePolicyConfig")

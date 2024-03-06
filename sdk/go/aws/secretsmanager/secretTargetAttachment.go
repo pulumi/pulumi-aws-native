@@ -18,6 +18,7 @@ import (
 type SecretTargetAttachment struct {
 	pulumi.CustomResourceState
 
+	AwsId      pulumi.StringOutput `pulumi:"awsId"`
 	SecretId   pulumi.StringOutput `pulumi:"secretId"`
 	TargetId   pulumi.StringOutput `pulumi:"targetId"`
 	TargetType pulumi.StringOutput `pulumi:"targetType"`
@@ -119,6 +120,10 @@ func (o SecretTargetAttachmentOutput) ToSecretTargetAttachmentOutput() SecretTar
 
 func (o SecretTargetAttachmentOutput) ToSecretTargetAttachmentOutputWithContext(ctx context.Context) SecretTargetAttachmentOutput {
 	return o
+}
+
+func (o SecretTargetAttachmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecretTargetAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SecretTargetAttachmentOutput) SecretId() pulumi.StringOutput {

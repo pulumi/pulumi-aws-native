@@ -18,6 +18,7 @@ type TargetGroup struct {
 	pulumi.CustomResourceState
 
 	Arn           pulumi.StringOutput          `pulumi:"arn"`
+	AwsId         pulumi.StringOutput          `pulumi:"awsId"`
 	Config        TargetGroupConfigPtrOutput   `pulumi:"config"`
 	CreatedAt     pulumi.StringOutput          `pulumi:"createdAt"`
 	LastUpdatedAt pulumi.StringOutput          `pulumi:"lastUpdatedAt"`
@@ -137,6 +138,10 @@ func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) T
 
 func (o TargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o TargetGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TargetGroupOutput) Config() TargetGroupConfigPtrOutput {

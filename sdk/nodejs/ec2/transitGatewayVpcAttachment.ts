@@ -38,6 +38,7 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
     }
 
     public readonly addSubnetIds!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The options for the transit gateway vpc attachment.
      */
@@ -75,8 +76,10 @@ export class TransitGatewayVpcAttachment extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["addSubnetIds"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["options"] = undefined /*out*/;
             resourceInputs["removeSubnetIds"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;

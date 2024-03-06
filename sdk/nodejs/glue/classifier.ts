@@ -40,6 +40,7 @@ export class Classifier extends pulumi.CustomResource {
         return obj['__pulumiType'] === Classifier.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly csvClassifier!: pulumi.Output<outputs.glue.ClassifierCsvClassifier | undefined>;
     public readonly grokClassifier!: pulumi.Output<outputs.glue.ClassifierGrokClassifier | undefined>;
     public readonly jsonClassifier!: pulumi.Output<outputs.glue.ClassifierJsonClassifier | undefined>;
@@ -62,7 +63,9 @@ export class Classifier extends pulumi.CustomResource {
             resourceInputs["grokClassifier"] = args ? args.grokClassifier : undefined;
             resourceInputs["jsonClassifier"] = args ? args.jsonClassifier : undefined;
             resourceInputs["xmlClassifier"] = args ? args.xmlClassifier : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["csvClassifier"] = undefined /*out*/;
             resourceInputs["grokClassifier"] = undefined /*out*/;
             resourceInputs["jsonClassifier"] = undefined /*out*/;

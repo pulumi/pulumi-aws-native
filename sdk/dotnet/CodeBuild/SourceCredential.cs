@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("authType")]
         public Output<string> AuthType { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("serverType")]
         public Output<string> ServerType { get; private set; } = null!;
 

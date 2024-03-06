@@ -18,6 +18,7 @@ import (
 type ConfigurationSetEventDestination struct {
 	pulumi.CustomResourceState
 
+	AwsId                pulumi.StringOutput                                       `pulumi:"awsId"`
 	ConfigurationSetName pulumi.StringOutput                                       `pulumi:"configurationSetName"`
 	EventDestination     ConfigurationSetEventDestinationEventDestinationPtrOutput `pulumi:"eventDestination"`
 	EventDestinationName pulumi.StringOutput                                       `pulumi:"eventDestinationName"`
@@ -121,6 +122,10 @@ func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinati
 
 func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationOutput {
 	return o
+}
+
+func (o ConfigurationSetEventDestinationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ConfigurationSetEventDestinationOutput) ConfigurationSetName() pulumi.StringOutput {

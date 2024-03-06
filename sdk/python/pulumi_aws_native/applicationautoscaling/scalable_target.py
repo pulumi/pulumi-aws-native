@@ -231,6 +231,7 @@ class ScalableTarget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_namespace'")
             __props__.__dict__["service_namespace"] = service_namespace
             __props__.__dict__["suspended_state"] = suspended_state
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_id", "scalable_dimension", "service_namespace"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ScalableTarget, __self__).__init__(
@@ -255,6 +256,7 @@ class ScalableTarget(pulumi.CustomResource):
 
         __props__ = ScalableTargetArgs.__new__(ScalableTargetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["max_capacity"] = None
         __props__.__dict__["min_capacity"] = None
         __props__.__dict__["resource_id"] = None
@@ -264,6 +266,14 @@ class ScalableTarget(pulumi.CustomResource):
         __props__.__dict__["service_namespace"] = None
         __props__.__dict__["suspended_state"] = None
         return ScalableTarget(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        This value can be returned by using the Ref function. Ref returns the Cloudformation generated ID of the resource in format - ResourceId|ScalableDimension|ServiceNamespace
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="maxCapacity")

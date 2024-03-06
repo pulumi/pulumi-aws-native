@@ -40,6 +40,7 @@ export class IpSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly ipSetDescriptors!: pulumi.Output<outputs.waf.IpSetIpSetDescriptor[] | undefined>;
     public readonly name!: pulumi.Output<string>;
 
@@ -58,7 +59,9 @@ export class IpSet extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["ipSetDescriptors"] = args ? args.ipSetDescriptors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ipSetDescriptors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

@@ -37,6 +37,10 @@ export class NetworkInterface extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInterface.__pulumiType;
     }
 
+    /**
+     * Network interface id.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly connectionTrackingSpecification!: pulumi.Output<outputs.ec2.NetworkInterfaceConnectionTrackingSpecification | undefined>;
     /**
      * A description for the network interface.
@@ -146,10 +150,12 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["primaryIpv6Address"] = undefined /*out*/;
             resourceInputs["primaryPrivateIpAddress"] = undefined /*out*/;
             resourceInputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["connectionTrackingSpecification"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["enablePrimaryIpv6"] = undefined /*out*/;

@@ -37,6 +37,7 @@ export class WaitConditionHandle extends pulumi.CustomResource {
         return obj['__pulumiType'] === WaitConditionHandle.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
 
     /**
      * Create a WaitConditionHandle resource with the given unique name, arguments, and options.
@@ -51,7 +52,9 @@ export class WaitConditionHandle extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WaitConditionHandle.__pulumiType, name, resourceInputs, opts);

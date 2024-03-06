@@ -103,6 +103,7 @@ class SizeConstraintSet(pulumi.CustomResource):
             if size_constraints is None and not opts.urn:
                 raise TypeError("Missing required property 'size_constraints'")
             __props__.__dict__["size_constraints"] = size_constraints
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SizeConstraintSet, __self__).__init__(
@@ -127,9 +128,15 @@ class SizeConstraintSet(pulumi.CustomResource):
 
         __props__ = SizeConstraintSetArgs.__new__(SizeConstraintSetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["size_constraints"] = None
         return SizeConstraintSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

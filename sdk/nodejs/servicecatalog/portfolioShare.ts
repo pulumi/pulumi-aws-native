@@ -39,6 +39,7 @@ export class PortfolioShare extends pulumi.CustomResource {
 
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
     public readonly accountId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly portfolioId!: pulumi.Output<string>;
     public readonly shareTagOptions!: pulumi.Output<boolean | undefined>;
 
@@ -65,9 +66,11 @@ export class PortfolioShare extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
             resourceInputs["shareTagOptions"] = args ? args.shareTagOptions : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["portfolioId"] = undefined /*out*/;
             resourceInputs["shareTagOptions"] = undefined /*out*/;
         }

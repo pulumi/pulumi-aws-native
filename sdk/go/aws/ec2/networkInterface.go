@@ -17,6 +17,8 @@ import (
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
+	// Network interface id.
+	AwsId                           pulumi.StringOutput                                      `pulumi:"awsId"`
 	ConnectionTrackingSpecification NetworkInterfaceConnectionTrackingSpecificationPtrOutput `pulumi:"connectionTrackingSpecification"`
 	// A description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -214,6 +216,11 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutput() NetworkInterfaceOutpu
 
 func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
 	return o
+}
+
+// Network interface id.
+func (o NetworkInterfaceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o NetworkInterfaceOutput) ConnectionTrackingSpecification() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {

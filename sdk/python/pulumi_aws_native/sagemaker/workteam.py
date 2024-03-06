@@ -164,6 +164,7 @@ class Workteam(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workforce_name"] = workforce_name
             __props__.__dict__["workteam_name"] = workteam_name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["workforce_name", "workteam_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workteam, __self__).__init__(
@@ -188,6 +189,7 @@ class Workteam(pulumi.CustomResource):
 
         __props__ = WorkteamArgs.__new__(WorkteamArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["member_definitions"] = None
         __props__.__dict__["notification_configuration"] = None
@@ -195,6 +197,11 @@ class Workteam(pulumi.CustomResource):
         __props__.__dict__["workforce_name"] = None
         __props__.__dict__["workteam_name"] = None
         return Workteam(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -18,6 +18,7 @@ __all__ = ['ChannelArgs', 'Channel']
 @pulumi.input_type
 class ChannelArgs:
     def __init__(__self__, *,
+                 aws_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
                  hls_ingest: Optional[pulumi.Input['ChannelHlsIngestArgs']] = None,
@@ -25,12 +26,14 @@ class ChannelArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
+        :param pulumi.Input[str] aws_id: The ID of the Channel.
         :param pulumi.Input[str] description: A short text description of the Channel.
         :param pulumi.Input['ChannelLogConfigurationArgs'] egress_access_logs: The configuration parameters for egress access logging.
         :param pulumi.Input['ChannelHlsIngestArgs'] hls_ingest: An HTTP Live Streaming (HLS) ingest resource configuration.
         :param pulumi.Input['ChannelLogConfigurationArgs'] ingress_access_logs: The configuration parameters for egress access logging.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
         """
+        pulumi.set(__self__, "aws_id", aws_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if egress_access_logs is not None:
@@ -41,6 +44,18 @@ class ChannelArgs:
             pulumi.set(__self__, "ingress_access_logs", ingress_access_logs)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Channel.
+        """
+        return pulumi.get(self, "aws_id")
+
+    @aws_id.setter
+    def aws_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_id", value)
 
     @property
     @pulumi.getter
@@ -108,6 +123,7 @@ class Channel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
                  hls_ingest: Optional[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]] = None,
@@ -119,6 +135,7 @@ class Channel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_id: The ID of the Channel.
         :param pulumi.Input[str] description: A short text description of the Channel.
         :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']] egress_access_logs: The configuration parameters for egress access logging.
         :param pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']] hls_ingest: An HTTP Live Streaming (HLS) ingest resource configuration.
@@ -129,7 +146,7 @@ class Channel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ChannelArgs] = None,
+                 args: ChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::MediaPackage::Channel
@@ -149,6 +166,7 @@ class Channel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
                  hls_ingest: Optional[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]] = None,
@@ -163,6 +181,9 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
+            if aws_id is None and not opts.urn:
+                raise TypeError("Missing required property 'aws_id'")
+            __props__.__dict__["aws_id"] = aws_id
             __props__.__dict__["description"] = description
             __props__.__dict__["egress_access_logs"] = egress_access_logs
             __props__.__dict__["hls_ingest"] = hls_ingest
@@ -194,6 +215,7 @@ class Channel(pulumi.CustomResource):
         __props__ = ChannelArgs.__new__(ChannelArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["egress_access_logs"] = None
         __props__.__dict__["hls_ingest"] = None
@@ -208,6 +230,14 @@ class Channel(pulumi.CustomResource):
         The Amazon Resource Name (ARN) assigned to the Channel.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Channel.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

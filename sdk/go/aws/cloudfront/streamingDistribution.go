@@ -19,6 +19,7 @@ import (
 type StreamingDistribution struct {
 	pulumi.CustomResourceState
 
+	AwsId                       pulumi.StringOutput               `pulumi:"awsId"`
 	DomainName                  pulumi.StringOutput               `pulumi:"domainName"`
 	StreamingDistributionConfig StreamingDistributionConfigOutput `pulumi:"streamingDistributionConfig"`
 	Tags                        aws.TagArrayOutput                `pulumi:"tags"`
@@ -115,6 +116,10 @@ func (o StreamingDistributionOutput) ToStreamingDistributionOutput() StreamingDi
 
 func (o StreamingDistributionOutput) ToStreamingDistributionOutputWithContext(ctx context.Context) StreamingDistributionOutput {
 	return o
+}
+
+func (o StreamingDistributionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingDistribution) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o StreamingDistributionOutput) DomainName() pulumi.StringOutput {

@@ -37,6 +37,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginAccessControl.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly originAccessControlConfig!: pulumi.Output<outputs.cloudfront.OriginAccessControlConfig>;
 
     /**
@@ -54,7 +55,9 @@ export class OriginAccessControl extends pulumi.CustomResource {
                 throw new Error("Missing required property 'originAccessControlConfig'");
             }
             resourceInputs["originAccessControlConfig"] = args ? args.originAccessControlConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["originAccessControlConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

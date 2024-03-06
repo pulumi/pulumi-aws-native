@@ -134,6 +134,7 @@ class Permissions(pulumi.CustomResource):
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_lake_principal", "resource"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Permissions, __self__).__init__(
@@ -158,11 +159,17 @@ class Permissions(pulumi.CustomResource):
 
         __props__ = PermissionsArgs.__new__(PermissionsArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["data_lake_principal"] = None
         __props__.__dict__["permissions"] = None
         __props__.__dict__["permissions_with_grant_option"] = None
         __props__.__dict__["resource"] = None
         return Permissions(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="dataLakePrincipal")

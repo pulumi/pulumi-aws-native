@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("listenerIdentifier")]
         public Output<string?> ListenerIdentifier { get; private set; } = null!;
 

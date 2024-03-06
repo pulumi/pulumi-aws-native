@@ -38,6 +38,7 @@ export class AdmChannel extends pulumi.CustomResource {
     }
 
     public readonly applicationId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly clientId!: pulumi.Output<string>;
     public readonly clientSecret!: pulumi.Output<string>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
@@ -68,8 +69,10 @@ export class AdmChannel extends pulumi.CustomResource {
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;

@@ -177,6 +177,7 @@ class AnomalyDetector(pulumi.CustomResource):
             __props__.__dict__["namespace"] = namespace
             __props__.__dict__["single_metric_anomaly_detector"] = single_metric_anomaly_detector
             __props__.__dict__["stat"] = stat
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dimensions[*]", "metric_math_anomaly_detector", "metric_name", "namespace", "single_metric_anomaly_detector", "stat"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnomalyDetector, __self__).__init__(
@@ -201,6 +202,7 @@ class AnomalyDetector(pulumi.CustomResource):
 
         __props__ = AnomalyDetectorArgs.__new__(AnomalyDetectorArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["dimensions"] = None
         __props__.__dict__["metric_math_anomaly_detector"] = None
@@ -209,6 +211,11 @@ class AnomalyDetector(pulumi.CustomResource):
         __props__.__dict__["single_metric_anomaly_detector"] = None
         __props__.__dict__["stat"] = None
         return AnomalyDetector(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

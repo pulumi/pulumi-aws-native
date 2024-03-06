@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.PinpointEmail
     [AwsNativeResourceType("aws-native:pinpointemail:ConfigurationSet")]
     public partial class ConfigurationSet : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("deliveryOptions")]
         public Output<Outputs.ConfigurationSetDeliveryOptions?> DeliveryOptions { get; private set; } = null!;
 

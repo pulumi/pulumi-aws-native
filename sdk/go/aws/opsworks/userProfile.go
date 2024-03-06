@@ -19,6 +19,7 @@ type UserProfile struct {
 	pulumi.CustomResourceState
 
 	AllowSelfManagement pulumi.BoolPtrOutput   `pulumi:"allowSelfManagement"`
+	AwsId               pulumi.StringOutput    `pulumi:"awsId"`
 	IamUserArn          pulumi.StringOutput    `pulumi:"iamUserArn"`
 	SshPublicKey        pulumi.StringPtrOutput `pulumi:"sshPublicKey"`
 	SshUsername         pulumi.StringPtrOutput `pulumi:"sshUsername"`
@@ -124,6 +125,10 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 
 func (o UserProfileOutput) AllowSelfManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.BoolPtrOutput { return v.AllowSelfManagement }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserProfileOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o UserProfileOutput) IamUserArn() pulumi.StringOutput {

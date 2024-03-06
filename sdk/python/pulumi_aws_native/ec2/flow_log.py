@@ -306,6 +306,7 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_type"] = traffic_type
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["deliver_cross_account_role", "deliver_logs_permission_arn", "destination_options", "log_destination", "log_destination_type", "log_format", "log_group_name", "max_aggregation_interval", "resource_id", "resource_type", "traffic_type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowLog, __self__).__init__(
@@ -330,6 +331,7 @@ class FlowLog(pulumi.CustomResource):
 
         __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["deliver_cross_account_role"] = None
         __props__.__dict__["deliver_logs_permission_arn"] = None
         __props__.__dict__["destination_options"] = None
@@ -343,6 +345,14 @@ class FlowLog(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["traffic_type"] = None
         return FlowLog(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The Flow Log ID
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deliverCrossAccountRole")

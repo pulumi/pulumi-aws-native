@@ -19,6 +19,7 @@ import (
 type Fleet struct {
 	pulumi.CustomResourceState
 
+	AwsId                          pulumi.StringOutput           `pulumi:"awsId"`
 	ComputeCapacity                FleetComputeCapacityPtrOutput `pulumi:"computeCapacity"`
 	Description                    pulumi.StringPtrOutput        `pulumi:"description"`
 	DisconnectTimeoutInSeconds     pulumi.IntPtrOutput           `pulumi:"disconnectTimeoutInSeconds"`
@@ -176,6 +177,10 @@ func (o FleetOutput) ToFleetOutput() FleetOutput {
 
 func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
+}
+
+func (o FleetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o FleetOutput) ComputeCapacity() FleetComputeCapacityPtrOutput {

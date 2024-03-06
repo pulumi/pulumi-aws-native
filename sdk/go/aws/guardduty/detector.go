@@ -17,6 +17,7 @@ import (
 type Detector struct {
 	pulumi.CustomResourceState
 
+	AwsId                      pulumi.StringOutput                          `pulumi:"awsId"`
 	DataSources                DetectorCfnDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
 	Enable                     pulumi.BoolOutput                            `pulumi:"enable"`
 	Features                   DetectorCfnFeatureConfigurationArrayOutput   `pulumi:"features"`
@@ -118,6 +119,10 @@ func (o DetectorOutput) ToDetectorOutput() DetectorOutput {
 
 func (o DetectorOutput) ToDetectorOutputWithContext(ctx context.Context) DetectorOutput {
 	return o
+}
+
+func (o DetectorOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DetectorOutput) DataSources() DetectorCfnDataSourceConfigurationsPtrOutput {

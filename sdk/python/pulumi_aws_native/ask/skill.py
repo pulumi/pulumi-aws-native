@@ -120,6 +120,7 @@ class Skill(pulumi.CustomResource):
             if vendor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vendor_id'")
             __props__.__dict__["vendor_id"] = vendor_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["vendor_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Skill, __self__).__init__(
@@ -145,6 +146,7 @@ class Skill(pulumi.CustomResource):
         __props__ = SkillArgs.__new__(SkillArgs)
 
         __props__.__dict__["authentication_configuration"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["skill_package"] = None
         __props__.__dict__["vendor_id"] = None
         return Skill(resource_name, opts=opts, __props__=__props__)
@@ -153,6 +155,11 @@ class Skill(pulumi.CustomResource):
     @pulumi.getter(name="authenticationConfiguration")
     def authentication_configuration(self) -> pulumi.Output['outputs.SkillAuthenticationConfiguration']:
         return pulumi.get(self, "authentication_configuration")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="skillPackage")

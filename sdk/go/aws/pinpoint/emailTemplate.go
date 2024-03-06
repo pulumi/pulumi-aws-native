@@ -19,6 +19,7 @@ type EmailTemplate struct {
 	pulumi.CustomResourceState
 
 	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	AwsId                pulumi.StringOutput    `pulumi:"awsId"`
 	DefaultSubstitutions pulumi.StringPtrOutput `pulumi:"defaultSubstitutions"`
 	HtmlPart             pulumi.StringPtrOutput `pulumi:"htmlPart"`
 	Subject              pulumi.StringOutput    `pulumi:"subject"`
@@ -140,6 +141,10 @@ func (o EmailTemplateOutput) ToEmailTemplateOutputWithContext(ctx context.Contex
 
 func (o EmailTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o EmailTemplateOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o EmailTemplateOutput) DefaultSubstitutions() pulumi.StringPtrOutput {

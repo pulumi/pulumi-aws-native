@@ -19,6 +19,7 @@ type EventBusPolicy struct {
 	pulumi.CustomResourceState
 
 	Action       pulumi.StringPtrOutput           `pulumi:"action"`
+	AwsId        pulumi.StringOutput              `pulumi:"awsId"`
 	Condition    EventBusPolicyConditionPtrOutput `pulumi:"condition"`
 	EventBusName pulumi.StringPtrOutput           `pulumi:"eventBusName"`
 	Principal    pulumi.StringPtrOutput           `pulumi:"principal"`
@@ -134,6 +135,10 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Cont
 
 func (o EventBusPolicyOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+func (o EventBusPolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o EventBusPolicyOutput) Condition() EventBusPolicyConditionPtrOutput {

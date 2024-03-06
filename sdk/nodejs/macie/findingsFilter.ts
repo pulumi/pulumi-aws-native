@@ -46,6 +46,10 @@ export class FindingsFilter extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Findings filter ID.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Findings filter description
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -87,9 +91,11 @@ export class FindingsFilter extends pulumi.CustomResource {
             resourceInputs["position"] = args ? args.position : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["findingCriteria"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

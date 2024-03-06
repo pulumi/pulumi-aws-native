@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Dms
     [AwsNativeResourceType("aws-native:dms:ReplicationTask")]
     public partial class ReplicationTask : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cdcStartPosition")]
         public Output<string?> CdcStartPosition { get; private set; } = null!;
 

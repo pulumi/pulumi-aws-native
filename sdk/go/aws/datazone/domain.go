@@ -19,6 +19,8 @@ type Domain struct {
 
 	// The ARN of the Amazon DataZone domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The id of the Amazon DataZone domain.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The timestamp of when the Amazon DataZone domain was last updated.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the Amazon DataZone domain.
@@ -160,6 +162,11 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 // The ARN of the Amazon DataZone domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The id of the Amazon DataZone domain.
+func (o DomainOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The timestamp of when the Amazon DataZone domain was last updated.

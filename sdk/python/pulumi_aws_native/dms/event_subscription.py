@@ -178,6 +178,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["source_type"] = source_type
             __props__.__dict__["subscription_name"] = subscription_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["source_ids[*]", "subscription_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventSubscription, __self__).__init__(
@@ -202,6 +203,7 @@ class EventSubscription(pulumi.CustomResource):
 
         __props__ = EventSubscriptionArgs.__new__(EventSubscriptionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["event_categories"] = None
         __props__.__dict__["sns_topic_arn"] = None
@@ -210,6 +212,11 @@ class EventSubscription(pulumi.CustomResource):
         __props__.__dict__["subscription_name"] = None
         __props__.__dict__["tags"] = None
         return EventSubscription(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

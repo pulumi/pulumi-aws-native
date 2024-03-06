@@ -40,6 +40,7 @@ export class CodeRepository extends pulumi.CustomResource {
         return obj['__pulumiType'] === CodeRepository.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly codeRepositoryName!: pulumi.Output<string | undefined>;
     public readonly gitConfig!: pulumi.Output<outputs.sagemaker.CodeRepositoryGitConfig>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -63,7 +64,9 @@ export class CodeRepository extends pulumi.CustomResource {
             resourceInputs["codeRepositoryName"] = args ? args.codeRepositoryName : undefined;
             resourceInputs["gitConfig"] = args ? args.gitConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["codeRepositoryName"] = undefined /*out*/;
             resourceInputs["gitConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

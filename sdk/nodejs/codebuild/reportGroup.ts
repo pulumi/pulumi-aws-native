@@ -41,6 +41,7 @@ export class ReportGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly deleteReports!: pulumi.Output<boolean | undefined>;
     public readonly exportConfig!: pulumi.Output<outputs.codebuild.ReportGroupReportExportConfig>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -72,8 +73,10 @@ export class ReportGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deleteReports"] = undefined /*out*/;
             resourceInputs["exportConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

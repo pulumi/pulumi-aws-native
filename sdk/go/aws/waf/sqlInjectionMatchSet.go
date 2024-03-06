@@ -17,6 +17,7 @@ import (
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState
 
+	AwsId                   pulumi.StringOutput                                   `pulumi:"awsId"`
 	Name                    pulumi.StringOutput                                   `pulumi:"name"`
 	SqlInjectionMatchTuples SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput `pulumi:"sqlInjectionMatchTuples"`
 }
@@ -110,6 +111,10 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutput() SqlInjectionM
 
 func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput {
 	return o
+}
+
+func (o SqlInjectionMatchSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlInjectionMatchSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SqlInjectionMatchSetOutput) Name() pulumi.StringOutput {

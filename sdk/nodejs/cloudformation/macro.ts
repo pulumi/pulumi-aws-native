@@ -37,6 +37,7 @@ export class Macro extends pulumi.CustomResource {
         return obj['__pulumiType'] === Macro.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly functionName!: pulumi.Output<string>;
     public readonly logGroupName!: pulumi.Output<string | undefined>;
@@ -64,7 +65,9 @@ export class Macro extends pulumi.CustomResource {
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["logRoleArn"] = args ? args.logRoleArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;

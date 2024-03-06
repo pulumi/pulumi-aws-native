@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.DirectoryService
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("createAlias")]
         public Output<bool?> CreateAlias { get; private set; } = null!;
 

@@ -37,6 +37,7 @@ export class CachePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === CachePolicy.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cachePolicyConfig!: pulumi.Output<outputs.cloudfront.CachePolicyConfig>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
@@ -55,8 +56,10 @@ export class CachePolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'cachePolicyConfig'");
             }
             resourceInputs["cachePolicyConfig"] = args ? args.cachePolicyConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cachePolicyConfig"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         }

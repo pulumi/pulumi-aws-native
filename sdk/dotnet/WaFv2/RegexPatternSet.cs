@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WaFv2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Id of the RegexPatternSet
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the entity.
         /// </summary>
         [Output("description")]

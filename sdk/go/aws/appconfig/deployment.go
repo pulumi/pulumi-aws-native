@@ -20,6 +20,7 @@ type Deployment struct {
 	pulumi.CustomResourceState
 
 	ApplicationId          pulumi.StringOutput          `pulumi:"applicationId"`
+	AwsId                  pulumi.StringOutput          `pulumi:"awsId"`
 	ConfigurationProfileId pulumi.StringOutput          `pulumi:"configurationProfileId"`
 	ConfigurationVersion   pulumi.StringOutput          `pulumi:"configurationVersion"`
 	DeploymentStrategyId   pulumi.StringOutput          `pulumi:"deploymentStrategyId"`
@@ -156,6 +157,10 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 
 func (o DeploymentOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o DeploymentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DeploymentOutput) ConfigurationProfileId() pulumi.StringOutput {

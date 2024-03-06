@@ -19,6 +19,7 @@ type Bot struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether to build the bot locales after bot creation completes.
 	AutoBuildBotLocales pulumi.BoolPtrOutput   `pulumi:"autoBuildBotLocales"`
+	AwsId               pulumi.StringOutput    `pulumi:"awsId"`
 	BotFileS3Location   BotS3LocationPtrOutput `pulumi:"botFileS3Location"`
 	// List of bot locales
 	BotLocales BotLocaleArrayOutput `pulumi:"botLocales"`
@@ -169,6 +170,10 @@ func (o BotOutput) Arn() pulumi.StringOutput {
 // Specifies whether to build the bot locales after bot creation completes.
 func (o BotOutput) AutoBuildBotLocales() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Bot) pulumi.BoolPtrOutput { return v.AutoBuildBotLocales }).(pulumi.BoolPtrOutput)
+}
+
+func (o BotOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o BotOutput) BotFileS3Location() BotS3LocationPtrOutput {

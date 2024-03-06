@@ -18,6 +18,7 @@ import (
 type SecurityGroupIngress struct {
 	pulumi.CustomResourceState
 
+	AwsId                   pulumi.StringOutput    `pulumi:"awsId"`
 	CacheSecurityGroupName  pulumi.StringOutput    `pulumi:"cacheSecurityGroupName"`
 	Ec2SecurityGroupName    pulumi.StringOutput    `pulumi:"ec2SecurityGroupName"`
 	Ec2SecurityGroupOwnerId pulumi.StringPtrOutput `pulumi:"ec2SecurityGroupOwnerId"`
@@ -116,6 +117,10 @@ func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutput() SecurityGroup
 
 func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
 	return o
+}
+
+func (o SecurityGroupIngressOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SecurityGroupIngressOutput) CacheSecurityGroupName() pulumi.StringOutput {

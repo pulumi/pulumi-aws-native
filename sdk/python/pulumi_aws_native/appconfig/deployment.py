@@ -197,6 +197,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id", "configuration_profile_id", "configuration_version", "deployment_strategy_id", "description", "environment_id", "kms_key_identifier", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Deployment, __self__).__init__(
@@ -222,6 +223,7 @@ class Deployment(pulumi.CustomResource):
         __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["configuration_profile_id"] = None
         __props__.__dict__["configuration_version"] = None
         __props__.__dict__["deployment_strategy_id"] = None
@@ -235,6 +237,11 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="configurationProfileId")

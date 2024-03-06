@@ -17,6 +17,7 @@ import (
 type VpcPeeringConnection struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The AWS account ID of the owner of the accepter VPC.
 	PeerOwnerId pulumi.StringPtrOutput `pulumi:"peerOwnerId"`
 	// The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
@@ -147,6 +148,10 @@ func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionOutput() VpcPeeringCon
 
 func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionOutputWithContext(ctx context.Context) VpcPeeringConnectionOutput {
 	return o
+}
+
+func (o VpcPeeringConnectionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The AWS account ID of the owner of the accepter VPC.

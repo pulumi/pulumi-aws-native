@@ -82,6 +82,7 @@ class KeyGroup(pulumi.CustomResource):
             if key_group_config is None and not opts.urn:
                 raise TypeError("Missing required property 'key_group_config'")
             __props__.__dict__["key_group_config"] = key_group_config
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(KeyGroup, __self__).__init__(
             'aws-native:cloudfront:KeyGroup',
@@ -105,9 +106,15 @@ class KeyGroup(pulumi.CustomResource):
 
         __props__ = KeyGroupArgs.__new__(KeyGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["key_group_config"] = None
         __props__.__dict__["last_modified_time"] = None
         return KeyGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="keyGroupConfig")

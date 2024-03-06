@@ -37,6 +37,7 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpnGatewayRoutePropagation.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly routeTableIds!: pulumi.Output<string[]>;
     public readonly vpnGatewayId!: pulumi.Output<string>;
 
@@ -61,7 +62,9 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
             }
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["routeTableIds"] = undefined /*out*/;
             resourceInputs["vpnGatewayId"] = undefined /*out*/;
         }

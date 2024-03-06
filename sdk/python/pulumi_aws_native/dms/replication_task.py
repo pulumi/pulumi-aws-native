@@ -272,6 +272,7 @@ class ReplicationTask(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_endpoint_arn'")
             __props__.__dict__["target_endpoint_arn"] = target_endpoint_arn
             __props__.__dict__["task_data"] = task_data
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["replication_instance_arn", "resource_identifier", "source_endpoint_arn", "target_endpoint_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReplicationTask, __self__).__init__(
@@ -296,6 +297,7 @@ class ReplicationTask(pulumi.CustomResource):
 
         __props__ = ReplicationTaskArgs.__new__(ReplicationTaskArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cdc_start_position"] = None
         __props__.__dict__["cdc_start_time"] = None
         __props__.__dict__["cdc_stop_position"] = None
@@ -310,6 +312,11 @@ class ReplicationTask(pulumi.CustomResource):
         __props__.__dict__["target_endpoint_arn"] = None
         __props__.__dict__["task_data"] = None
         return ReplicationTask(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cdcStartPosition")

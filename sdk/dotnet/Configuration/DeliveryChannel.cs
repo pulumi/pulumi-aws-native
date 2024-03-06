@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Configuration
     [AwsNativeResourceType("aws-native:configuration:DeliveryChannel")]
     public partial class DeliveryChannel : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("configSnapshotDeliveryProperties")]
         public Output<Outputs.DeliveryChannelConfigSnapshotDeliveryProperties?> ConfigSnapshotDeliveryProperties { get; private set; } = null!;
 

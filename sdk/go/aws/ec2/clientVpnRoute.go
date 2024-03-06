@@ -18,6 +18,7 @@ import (
 type ClientVpnRoute struct {
 	pulumi.CustomResourceState
 
+	AwsId                pulumi.StringOutput    `pulumi:"awsId"`
 	ClientVpnEndpointId  pulumi.StringOutput    `pulumi:"clientVpnEndpointId"`
 	Description          pulumi.StringPtrOutput `pulumi:"description"`
 	DestinationCidrBlock pulumi.StringOutput    `pulumi:"destinationCidrBlock"`
@@ -129,6 +130,10 @@ func (o ClientVpnRouteOutput) ToClientVpnRouteOutput() ClientVpnRouteOutput {
 
 func (o ClientVpnRouteOutput) ToClientVpnRouteOutputWithContext(ctx context.Context) ClientVpnRouteOutput {
 	return o
+}
+
+func (o ClientVpnRouteOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClientVpnRoute) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ClientVpnRouteOutput) ClientVpnEndpointId() pulumi.StringOutput {

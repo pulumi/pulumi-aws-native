@@ -40,6 +40,7 @@ export class DeploymentStrategy extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeploymentStrategy.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly deploymentDurationInMinutes!: pulumi.Output<number>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly finalBakeTimeInMinutes!: pulumi.Output<number | undefined>;
@@ -79,7 +80,9 @@ export class DeploymentStrategy extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["replicateTo"] = args ? args.replicateTo : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deploymentDurationInMinutes"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["finalBakeTimeInMinutes"] = undefined /*out*/;

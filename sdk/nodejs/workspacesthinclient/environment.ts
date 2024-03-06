@@ -46,6 +46,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Unique identifier of the environment.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The timestamp in unix epoch format when environment was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -135,6 +139,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["activationCode"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["desktopType"] = undefined /*out*/;
             resourceInputs["pendingSoftwareSetId"] = undefined /*out*/;
@@ -145,6 +150,7 @@ export class Environment extends pulumi.CustomResource {
         } else {
             resourceInputs["activationCode"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["desiredSoftwareSetId"] = undefined /*out*/;
             resourceInputs["desktopArn"] = undefined /*out*/;

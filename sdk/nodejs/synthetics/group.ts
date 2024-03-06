@@ -38,6 +38,10 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
+     * Id of the group.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Name of the group.
      */
     public readonly name!: pulumi.Output<string>;
@@ -58,7 +62,9 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceArns"] = args ? args.resourceArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resourceArns"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

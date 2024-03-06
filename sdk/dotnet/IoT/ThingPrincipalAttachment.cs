@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:ThingPrincipalAttachment")]
     public partial class ThingPrincipalAttachment : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 

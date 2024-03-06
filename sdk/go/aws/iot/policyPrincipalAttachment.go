@@ -18,6 +18,7 @@ import (
 type PolicyPrincipalAttachment struct {
 	pulumi.CustomResourceState
 
+	AwsId      pulumi.StringOutput `pulumi:"awsId"`
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
 	Principal  pulumi.StringOutput `pulumi:"principal"`
 }
@@ -118,6 +119,10 @@ func (o PolicyPrincipalAttachmentOutput) ToPolicyPrincipalAttachmentOutput() Pol
 
 func (o PolicyPrincipalAttachmentOutput) ToPolicyPrincipalAttachmentOutputWithContext(ctx context.Context) PolicyPrincipalAttachmentOutput {
 	return o
+}
+
+func (o PolicyPrincipalAttachmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyPrincipalAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PolicyPrincipalAttachmentOutput) PolicyName() pulumi.StringOutput {

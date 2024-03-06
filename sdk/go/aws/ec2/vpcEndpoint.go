@@ -19,6 +19,7 @@ import (
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 
+	AwsId               pulumi.StringOutput      `pulumi:"awsId"`
 	CreationTimestamp   pulumi.StringOutput      `pulumi:"creationTimestamp"`
 	DnsEntries          pulumi.StringArrayOutput `pulumi:"dnsEntries"`
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
@@ -186,6 +187,10 @@ func (o VpcEndpointOutput) ToVpcEndpointOutput() VpcEndpointOutput {
 
 func (o VpcEndpointOutput) ToVpcEndpointOutputWithContext(ctx context.Context) VpcEndpointOutput {
 	return o
+}
+
+func (o VpcEndpointOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o VpcEndpointOutput) CreationTimestamp() pulumi.StringOutput {

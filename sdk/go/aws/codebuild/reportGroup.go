@@ -20,6 +20,7 @@ type ReportGroup struct {
 	pulumi.CustomResourceState
 
 	Arn           pulumi.StringOutput                 `pulumi:"arn"`
+	AwsId         pulumi.StringOutput                 `pulumi:"awsId"`
 	DeleteReports pulumi.BoolPtrOutput                `pulumi:"deleteReports"`
 	ExportConfig  ReportGroupReportExportConfigOutput `pulumi:"exportConfig"`
 	Name          pulumi.StringPtrOutput              `pulumi:"name"`
@@ -133,6 +134,10 @@ func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) R
 
 func (o ReportGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ReportGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ReportGroupOutput) DeleteReports() pulumi.BoolPtrOutput {

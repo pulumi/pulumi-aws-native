@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Dax
     [AwsNativeResourceType("aws-native:dax:ParameterGroup")]
     public partial class ParameterGroup : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 

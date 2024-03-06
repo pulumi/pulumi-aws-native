@@ -40,6 +40,7 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly certificateAuthorityArn!: pulumi.Output<string | undefined>;
     public readonly certificateTransparencyLoggingPreference!: pulumi.Output<string | undefined>;
     public readonly domainName!: pulumi.Output<string>;
@@ -73,7 +74,9 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validationMethod"] = args ? args.validationMethod : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateAuthorityArn"] = undefined /*out*/;
             resourceInputs["certificateTransparencyLoggingPreference"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;

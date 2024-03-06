@@ -42,6 +42,7 @@ export class Webhook extends pulumi.CustomResource {
 
     public readonly authentication!: pulumi.Output<string>;
     public readonly authenticationConfiguration!: pulumi.Output<outputs.codepipeline.WebhookAuthConfiguration>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly filters!: pulumi.Output<outputs.codepipeline.WebhookFilterRule[]>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly registerWithThirdParty!: pulumi.Output<boolean | undefined>;
@@ -89,10 +90,12 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["targetAction"] = args ? args.targetAction : undefined;
             resourceInputs["targetPipeline"] = args ? args.targetPipeline : undefined;
             resourceInputs["targetPipelineVersion"] = args ? args.targetPipelineVersion : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         } else {
             resourceInputs["authentication"] = undefined /*out*/;
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["filters"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["registerWithThirdParty"] = undefined /*out*/;

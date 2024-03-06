@@ -37,6 +37,7 @@ export class ElasticLoadBalancerAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ElasticLoadBalancerAttachment.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly elasticLoadBalancerName!: pulumi.Output<string>;
     public readonly layerId!: pulumi.Output<string>;
 
@@ -61,7 +62,9 @@ export class ElasticLoadBalancerAttachment extends pulumi.CustomResource {
             }
             resourceInputs["elasticLoadBalancerName"] = args ? args.elasticLoadBalancerName : undefined;
             resourceInputs["layerId"] = args ? args.layerId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["elasticLoadBalancerName"] = undefined /*out*/;
             resourceInputs["layerId"] = undefined /*out*/;
         }

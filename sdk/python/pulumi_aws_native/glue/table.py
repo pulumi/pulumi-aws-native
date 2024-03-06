@@ -135,6 +135,7 @@ class Table(pulumi.CustomResource):
             if table_input is None and not opts.urn:
                 raise TypeError("Missing required property 'table_input'")
             __props__.__dict__["table_input"] = table_input
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id", "database_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Table, __self__).__init__(
@@ -159,11 +160,17 @@ class Table(pulumi.CustomResource):
 
         __props__ = TableArgs.__new__(TableArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["catalog_id"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["open_table_format_input"] = None
         __props__.__dict__["table_input"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="catalogId")

@@ -185,6 +185,7 @@ class Room(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(Room, __self__).__init__(
             'aws-native:ivschat:Room',
             resource_name,
@@ -208,6 +209,7 @@ class Room(pulumi.CustomResource):
         __props__ = RoomArgs.__new__(RoomArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["logging_configuration_identifiers"] = None
         __props__.__dict__["maximum_message_length"] = None
         __props__.__dict__["maximum_message_rate_per_second"] = None
@@ -223,6 +225,14 @@ class Room(pulumi.CustomResource):
         Room ARN is automatically generated on creation and assigned as the unique identifier.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The system-generated ID of the room.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="loggingConfigurationIdentifiers")

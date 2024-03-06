@@ -38,6 +38,7 @@ export class Stream extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly exclusiveEndTime!: pulumi.Output<string | undefined>;
     public readonly inclusiveStartTime!: pulumi.Output<string>;
     public readonly kinesisConfiguration!: pulumi.Output<outputs.qldb.StreamKinesisConfiguration>;
@@ -80,8 +81,10 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["streamName"] = args ? args.streamName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["exclusiveEndTime"] = undefined /*out*/;
             resourceInputs["inclusiveStartTime"] = undefined /*out*/;
             resourceInputs["kinesisConfiguration"] = undefined /*out*/;

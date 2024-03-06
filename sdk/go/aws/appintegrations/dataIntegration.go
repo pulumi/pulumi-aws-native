@@ -17,6 +17,8 @@ import (
 type DataIntegration struct {
 	pulumi.CustomResourceState
 
+	// The unique identifer of the data integration.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The Amazon Resource Name (ARN) of the data integration.
 	DataIntegrationArn pulumi.StringOutput `pulumi:"dataIntegrationArn"`
 	// The data integration description.
@@ -162,6 +164,11 @@ func (o DataIntegrationOutput) ToDataIntegrationOutput() DataIntegrationOutput {
 
 func (o DataIntegrationOutput) ToDataIntegrationOutputWithContext(ctx context.Context) DataIntegrationOutput {
 	return o
+}
+
+// The unique identifer of the data integration.
+func (o DataIntegrationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the data integration.

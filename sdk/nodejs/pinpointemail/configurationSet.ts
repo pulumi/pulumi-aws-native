@@ -40,6 +40,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationSet.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly deliveryOptions!: pulumi.Output<outputs.pinpointemail.ConfigurationSetDeliveryOptions | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly reputationOptions!: pulumi.Output<outputs.pinpointemail.ConfigurationSetReputationOptions | undefined>;
@@ -66,7 +67,9 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deliveryOptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["reputationOptions"] = undefined /*out*/;

@@ -103,6 +103,7 @@ class ClusterSecurityGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClusterSecurityGroup, __self__).__init__(
@@ -127,9 +128,15 @@ class ClusterSecurityGroup(pulumi.CustomResource):
 
         __props__ = ClusterSecurityGroupArgs.__new__(ClusterSecurityGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["tags"] = None
         return ClusterSecurityGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

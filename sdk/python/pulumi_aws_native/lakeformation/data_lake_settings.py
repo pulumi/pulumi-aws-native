@@ -227,6 +227,7 @@ class DataLakeSettings(pulumi.CustomResource):
             __props__.__dict__["mutation_type"] = mutation_type
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["trusted_resource_owners"] = trusted_resource_owners
+            __props__.__dict__["aws_id"] = None
         super(DataLakeSettings, __self__).__init__(
             'aws-native:lakeformation:DataLakeSettings',
             resource_name,
@@ -253,6 +254,7 @@ class DataLakeSettings(pulumi.CustomResource):
         __props__.__dict__["allow_external_data_filtering"] = None
         __props__.__dict__["allow_full_table_external_data_access"] = None
         __props__.__dict__["authorized_session_tag_value_list"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["create_database_default_permissions"] = None
         __props__.__dict__["create_table_default_permissions"] = None
         __props__.__dict__["external_data_filtering_allow_list"] = None
@@ -280,6 +282,11 @@ class DataLakeSettings(pulumi.CustomResource):
     @pulumi.getter(name="authorizedSessionTagValueList")
     def authorized_session_tag_value_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "authorized_session_tag_value_list")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="createDatabaseDefaultPermissions")

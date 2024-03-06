@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("autoRegistrationStatus")]
         public Output<Pulumi.AwsNative.IoT.CaCertificateAutoRegistrationStatus?> AutoRegistrationStatus { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("caCertificatePem")]
         public Output<string> CaCertificatePem { get; private set; } = null!;
 

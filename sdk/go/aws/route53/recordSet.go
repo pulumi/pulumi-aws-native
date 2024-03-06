@@ -19,6 +19,7 @@ type RecordSet struct {
 	pulumi.CustomResourceState
 
 	AliasTarget          RecordSetAliasTargetPtrOutput          `pulumi:"aliasTarget"`
+	AwsId                pulumi.StringOutput                    `pulumi:"awsId"`
 	CidrRoutingConfig    RecordSetCidrRoutingConfigPtrOutput    `pulumi:"cidrRoutingConfig"`
 	Comment              pulumi.StringPtrOutput                 `pulumi:"comment"`
 	Failover             pulumi.StringPtrOutput                 `pulumi:"failover"`
@@ -165,6 +166,10 @@ func (o RecordSetOutput) ToRecordSetOutputWithContext(ctx context.Context) Recor
 
 func (o RecordSetOutput) AliasTarget() RecordSetAliasTargetPtrOutput {
 	return o.ApplyT(func(v *RecordSet) RecordSetAliasTargetPtrOutput { return v.AliasTarget }).(RecordSetAliasTargetPtrOutput)
+}
+
+func (o RecordSetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RecordSetOutput) CidrRoutingConfig() RecordSetCidrRoutingConfigPtrOutput {

@@ -42,6 +42,7 @@ export class App extends pulumi.CustomResource {
 
     public readonly appSource!: pulumi.Output<outputs.opsworks.AppSource | undefined>;
     public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly dataSources!: pulumi.Output<outputs.opsworks.AppDataSource[] | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly domains!: pulumi.Output<string[] | undefined>;
@@ -84,9 +85,11 @@ export class App extends pulumi.CustomResource {
             resourceInputs["sslConfiguration"] = args ? args.sslConfiguration : undefined;
             resourceInputs["stackId"] = args ? args.stackId : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["appSource"] = undefined /*out*/;
             resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataSources"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domains"] = undefined /*out*/;

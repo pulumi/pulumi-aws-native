@@ -197,6 +197,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["user_volume_encryption_enabled"] = user_volume_encryption_enabled
             __props__.__dict__["volume_encryption_key"] = volume_encryption_key
             __props__.__dict__["workspace_properties"] = workspace_properties
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["user_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workspace, __self__).__init__(
@@ -221,6 +222,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["bundle_id"] = None
         __props__.__dict__["directory_id"] = None
         __props__.__dict__["root_volume_encryption_enabled"] = None
@@ -230,6 +232,11 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["volume_encryption_key"] = None
         __props__.__dict__["workspace_properties"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="bundleId")

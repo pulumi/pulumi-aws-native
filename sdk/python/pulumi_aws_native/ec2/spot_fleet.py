@@ -83,6 +83,7 @@ class SpotFleet(pulumi.CustomResource):
             if spot_fleet_request_config_data is None and not opts.urn:
                 raise TypeError("Missing required property 'spot_fleet_request_config_data'")
             __props__.__dict__["spot_fleet_request_config_data"] = spot_fleet_request_config_data
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["spot_fleet_request_config_data.allocation_strategy", "spot_fleet_request_config_data.iam_fleet_role", "spot_fleet_request_config_data.instance_interruption_behavior", "spot_fleet_request_config_data.instance_pools_to_use_count", "spot_fleet_request_config_data.launch_specifications[*]", "spot_fleet_request_config_data.launch_template_configs[*]", "spot_fleet_request_config_data.load_balancers_config", "spot_fleet_request_config_data.on_demand_allocation_strategy", "spot_fleet_request_config_data.on_demand_max_total_price", "spot_fleet_request_config_data.on_demand_target_capacity", "spot_fleet_request_config_data.replace_unhealthy_instances", "spot_fleet_request_config_data.spot_maintenance_strategies", "spot_fleet_request_config_data.spot_max_total_price", "spot_fleet_request_config_data.spot_price", "spot_fleet_request_config_data.tag_specifications[*]", "spot_fleet_request_config_data.terminate_instances_with_expiration", "spot_fleet_request_config_data.type", "spot_fleet_request_config_data.valid_from", "spot_fleet_request_config_data.valid_until"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SpotFleet, __self__).__init__(
@@ -107,8 +108,14 @@ class SpotFleet(pulumi.CustomResource):
 
         __props__ = SpotFleetArgs.__new__(SpotFleetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["spot_fleet_request_config_data"] = None
         return SpotFleet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="spotFleetRequestConfigData")

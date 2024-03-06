@@ -316,6 +316,7 @@ class ClientVpnEndpoint(pulumi.CustomResource):
             __props__.__dict__["transport_protocol"] = transport_protocol
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["vpn_port"] = vpn_port
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authentication_options[*]", "client_cidr_block", "tag_specifications[*]", "transport_protocol"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClientVpnEndpoint, __self__).__init__(
@@ -341,6 +342,7 @@ class ClientVpnEndpoint(pulumi.CustomResource):
         __props__ = ClientVpnEndpointArgs.__new__(ClientVpnEndpointArgs)
 
         __props__.__dict__["authentication_options"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_cidr_block"] = None
         __props__.__dict__["client_connect_options"] = None
         __props__.__dict__["client_login_banner_options"] = None
@@ -362,6 +364,11 @@ class ClientVpnEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="authenticationOptions")
     def authentication_options(self) -> pulumi.Output[Sequence['outputs.ClientVpnEndpointClientAuthenticationRequest']]:
         return pulumi.get(self, "authentication_options")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientCidrBlock")

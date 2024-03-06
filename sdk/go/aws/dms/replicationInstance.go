@@ -23,6 +23,7 @@ type ReplicationInstance struct {
 	AllowMajorVersionUpgrade              pulumi.BoolPtrOutput     `pulumi:"allowMajorVersionUpgrade"`
 	AutoMinorVersionUpgrade               pulumi.BoolPtrOutput     `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone                      pulumi.StringPtrOutput   `pulumi:"availabilityZone"`
+	AwsId                                 pulumi.StringOutput      `pulumi:"awsId"`
 	EngineVersion                         pulumi.StringPtrOutput   `pulumi:"engineVersion"`
 	KmsKeyId                              pulumi.StringPtrOutput   `pulumi:"kmsKeyId"`
 	MultiAz                               pulumi.BoolPtrOutput     `pulumi:"multiAz"`
@@ -175,6 +176,10 @@ func (o ReplicationInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutpu
 
 func (o ReplicationInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationInstanceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ReplicationInstanceOutput) EngineVersion() pulumi.StringPtrOutput {

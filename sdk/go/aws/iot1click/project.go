@@ -19,6 +19,7 @@ type Project struct {
 	pulumi.CustomResourceState
 
 	Arn               pulumi.StringOutput            `pulumi:"arn"`
+	AwsId             pulumi.StringOutput            `pulumi:"awsId"`
 	Description       pulumi.StringPtrOutput         `pulumi:"description"`
 	PlacementTemplate ProjectPlacementTemplateOutput `pulumi:"placementTemplate"`
 	ProjectName       pulumi.StringPtrOutput         `pulumi:"projectName"`
@@ -122,6 +123,10 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 
 func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ProjectOutput) Description() pulumi.StringPtrOutput {

@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ecs
     public partial class TaskSet : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the task set.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         /// </summary>
         [Output("cluster")]

@@ -103,6 +103,7 @@ class SecurityGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         super(SecurityGroup, __self__).__init__(
             'aws-native:elasticache:SecurityGroup',
             resource_name,
@@ -125,9 +126,15 @@ class SecurityGroup(pulumi.CustomResource):
 
         __props__ = SecurityGroupArgs.__new__(SecurityGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["tags"] = None
         return SecurityGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

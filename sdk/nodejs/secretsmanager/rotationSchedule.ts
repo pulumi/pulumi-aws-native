@@ -40,6 +40,7 @@ export class RotationSchedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === RotationSchedule.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly hostedRotationLambda!: pulumi.Output<outputs.secretsmanager.RotationScheduleHostedRotationLambda | undefined>;
     public readonly rotateImmediatelyOnUpdate!: pulumi.Output<boolean | undefined>;
     public readonly rotationLambdaArn!: pulumi.Output<string | undefined>;
@@ -67,7 +68,9 @@ export class RotationSchedule extends pulumi.CustomResource {
             resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
             resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
             resourceInputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["hostedRotationLambda"] = undefined /*out*/;
             resourceInputs["rotateImmediatelyOnUpdate"] = undefined /*out*/;
             resourceInputs["rotationLambdaArn"] = undefined /*out*/;

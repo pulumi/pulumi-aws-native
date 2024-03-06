@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("autoAssignPublicIps")]
         public Output<bool> AutoAssignPublicIps { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("customInstanceProfileArn")]
         public Output<string?> CustomInstanceProfileArn { get; private set; } = null!;
 

@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Dlm
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("copyTags")]
         public Output<bool?> CopyTags { get; private set; } = null!;
 

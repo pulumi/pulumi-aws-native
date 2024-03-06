@@ -18,6 +18,7 @@ import (
 type DeviceDefinitionVersion struct {
 	pulumi.CustomResourceState
 
+	AwsId              pulumi.StringOutput                      `pulumi:"awsId"`
 	DeviceDefinitionId pulumi.StringOutput                      `pulumi:"deviceDefinitionId"`
 	Devices            DeviceDefinitionVersionDeviceArrayOutput `pulumi:"devices"`
 }
@@ -118,6 +119,10 @@ func (o DeviceDefinitionVersionOutput) ToDeviceDefinitionVersionOutput() DeviceD
 
 func (o DeviceDefinitionVersionOutput) ToDeviceDefinitionVersionOutputWithContext(ctx context.Context) DeviceDefinitionVersionOutput {
 	return o
+}
+
+func (o DeviceDefinitionVersionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceDefinitionVersion) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DeviceDefinitionVersionOutput) DeviceDefinitionId() pulumi.StringOutput {

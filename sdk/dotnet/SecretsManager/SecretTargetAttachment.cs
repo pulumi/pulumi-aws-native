@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SecretsManager
     [AwsNativeResourceType("aws-native:secretsmanager:SecretTargetAttachment")]
     public partial class SecretTargetAttachment : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("secretId")]
         public Output<string> SecretId { get; private set; } = null!;
 

@@ -344,6 +344,7 @@ class PatchBaseline(pulumi.CustomResource):
             __props__.__dict__["rejected_patches_action"] = rejected_patches_action
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["operating_system"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PatchBaseline, __self__).__init__(
@@ -372,6 +373,7 @@ class PatchBaseline(pulumi.CustomResource):
         __props__.__dict__["approved_patches"] = None
         __props__.__dict__["approved_patches_compliance_level"] = None
         __props__.__dict__["approved_patches_enable_non_security"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["default_baseline"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["global_filters"] = None
@@ -412,6 +414,14 @@ class PatchBaseline(pulumi.CustomResource):
         Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
         """
         return pulumi.get(self, "approved_patches_enable_non_security")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the patch baseline.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="defaultBaseline")

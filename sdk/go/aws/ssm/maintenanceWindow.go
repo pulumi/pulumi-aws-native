@@ -20,6 +20,7 @@ type MaintenanceWindow struct {
 	pulumi.CustomResourceState
 
 	AllowUnassociatedTargets pulumi.BoolOutput      `pulumi:"allowUnassociatedTargets"`
+	AwsId                    pulumi.StringOutput    `pulumi:"awsId"`
 	Cutoff                   pulumi.IntOutput       `pulumi:"cutoff"`
 	Description              pulumi.StringPtrOutput `pulumi:"description"`
 	Duration                 pulumi.IntOutput       `pulumi:"duration"`
@@ -151,6 +152,10 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx contex
 
 func (o MaintenanceWindowOutput) AllowUnassociatedTargets() pulumi.BoolOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.BoolOutput { return v.AllowUnassociatedTargets }).(pulumi.BoolOutput)
+}
+
+func (o MaintenanceWindowOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o MaintenanceWindowOutput) Cutoff() pulumi.IntOutput {

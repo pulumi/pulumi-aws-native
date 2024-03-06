@@ -37,6 +37,7 @@ export class ClientVpnTargetNetworkAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClientVpnTargetNetworkAssociation.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly clientVpnEndpointId!: pulumi.Output<string>;
     public readonly subnetId!: pulumi.Output<string>;
 
@@ -61,7 +62,9 @@ export class ClientVpnTargetNetworkAssociation extends pulumi.CustomResource {
             }
             resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientVpnEndpointId"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
         }

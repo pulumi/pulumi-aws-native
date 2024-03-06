@@ -38,6 +38,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly serviceNetworkArn!: pulumi.Output<string>;
@@ -65,6 +66,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcIdentifier"] = args ? args.vpcIdentifier : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["serviceNetworkArn"] = undefined /*out*/;
             resourceInputs["serviceNetworkId"] = undefined /*out*/;
@@ -73,6 +75,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["serviceNetworkArn"] = undefined /*out*/;

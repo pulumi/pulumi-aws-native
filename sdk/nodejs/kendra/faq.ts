@@ -38,6 +38,7 @@ export class Faq extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * FAQ description
      */
@@ -97,8 +98,10 @@ export class Faq extends pulumi.CustomResource {
             resourceInputs["s3Path"] = args ? args.s3Path : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["fileFormat"] = undefined /*out*/;
             resourceInputs["indexId"] = undefined /*out*/;

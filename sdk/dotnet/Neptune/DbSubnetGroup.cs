@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Neptune
     [AwsNativeResourceType("aws-native:neptune:DbSubnetGroup")]
     public partial class DbSubnetGroup : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("dbSubnetGroupDescription")]
         public Output<string> DbSubnetGroupDescription { get; private set; } = null!;
 

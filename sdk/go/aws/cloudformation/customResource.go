@@ -18,6 +18,7 @@ import (
 type CustomResource struct {
 	pulumi.CustomResourceState
 
+	AwsId        pulumi.StringOutput `pulumi:"awsId"`
 	ServiceToken pulumi.StringOutput `pulumi:"serviceToken"`
 }
 
@@ -111,6 +112,10 @@ func (o CustomResourceOutput) ToCustomResourceOutput() CustomResourceOutput {
 
 func (o CustomResourceOutput) ToCustomResourceOutputWithContext(ctx context.Context) CustomResourceOutput {
 	return o
+}
+
+func (o CustomResourceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomResource) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CustomResourceOutput) ServiceToken() pulumi.StringOutput {

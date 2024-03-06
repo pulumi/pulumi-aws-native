@@ -18,7 +18,9 @@ type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
 	// LoggingConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
-	Arn                      pulumi.StringOutput                                `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The system-generated ID of the logging configuration.
+	AwsId                    pulumi.StringOutput                                `pulumi:"awsId"`
 	DestinationConfiguration LoggingConfigurationDestinationConfigurationOutput `pulumi:"destinationConfiguration"`
 	// The name of the logging configuration. The value does not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -127,6 +129,11 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationOutputWithContext(ctx 
 // LoggingConfiguration ARN is automatically generated on creation and assigned as the unique identifier.
 func (o LoggingConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The system-generated ID of the logging configuration.
+func (o LoggingConfigurationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LoggingConfigurationOutput) DestinationConfiguration() LoggingConfigurationDestinationConfigurationOutput {

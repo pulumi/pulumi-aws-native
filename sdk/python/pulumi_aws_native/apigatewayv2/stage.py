@@ -268,6 +268,7 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["stage_name"] = stage_name
             __props__.__dict__["stage_variables"] = stage_variables
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id", "stage_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stage, __self__).__init__(
@@ -296,6 +297,7 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["access_policy_id"] = None
         __props__.__dict__["api_id"] = None
         __props__.__dict__["auto_deploy"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_certificate_id"] = None
         __props__.__dict__["default_route_settings"] = None
         __props__.__dict__["deployment_id"] = None
@@ -325,6 +327,11 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="autoDeploy")
     def auto_deploy(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "auto_deploy")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientCertificateId")

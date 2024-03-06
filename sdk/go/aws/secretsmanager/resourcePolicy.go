@@ -18,6 +18,7 @@ import (
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
+	AwsId             pulumi.StringOutput  `pulumi:"awsId"`
 	BlockPublicPolicy pulumi.BoolPtrOutput `pulumi:"blockPublicPolicy"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SecretsManager::ResourcePolicy` for more information about the expected schema for this property.
 	ResourcePolicy pulumi.AnyOutput    `pulumi:"resourcePolicy"`
@@ -123,6 +124,10 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutput() ResourcePolicyOutput {
 
 func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput {
 	return o
+}
+
+func (o ResourcePolicyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ResourcePolicyOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {

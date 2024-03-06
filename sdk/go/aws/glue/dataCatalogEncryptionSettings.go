@@ -18,6 +18,7 @@ import (
 type DataCatalogEncryptionSettings struct {
 	pulumi.CustomResourceState
 
+	AwsId                         pulumi.StringOutput                     `pulumi:"awsId"`
 	CatalogId                     pulumi.StringOutput                     `pulumi:"catalogId"`
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsTypeOutput `pulumi:"dataCatalogEncryptionSettings"`
 }
@@ -117,6 +118,10 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutp
 
 func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsOutput {
 	return o
+}
+
+func (o DataCatalogEncryptionSettingsOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettings) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DataCatalogEncryptionSettingsOutput) CatalogId() pulumi.StringOutput {

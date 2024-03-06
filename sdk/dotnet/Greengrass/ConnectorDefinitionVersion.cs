@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Greengrass
     [AwsNativeResourceType("aws-native:greengrass:ConnectorDefinitionVersion")]
     public partial class ConnectorDefinitionVersion : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("connectorDefinitionId")]
         public Output<string> ConnectorDefinitionId { get; private set; } = null!;
 

@@ -37,6 +37,7 @@ export class Distribution extends pulumi.CustomResource {
         return obj['__pulumiType'] === Distribution.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The distribution's configuration.
      */
@@ -63,8 +64,10 @@ export class Distribution extends pulumi.CustomResource {
             }
             resourceInputs["distributionConfig"] = args ? args.distributionConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["distributionConfig"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

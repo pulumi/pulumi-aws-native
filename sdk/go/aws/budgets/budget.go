@@ -18,6 +18,7 @@ import (
 type Budget struct {
 	pulumi.CustomResourceState
 
+	AwsId                        pulumi.StringOutput                          `pulumi:"awsId"`
 	Budget                       BudgetDataOutput                             `pulumi:"budget"`
 	NotificationsWithSubscribers BudgetNotificationWithSubscribersArrayOutput `pulumi:"notificationsWithSubscribers"`
 }
@@ -114,6 +115,10 @@ func (o BudgetOutput) ToBudgetOutput() BudgetOutput {
 
 func (o BudgetOutput) ToBudgetOutputWithContext(ctx context.Context) BudgetOutput {
 	return o
+}
+
+func (o BudgetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o BudgetOutput) Budget() BudgetDataOutput {

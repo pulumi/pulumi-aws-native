@@ -38,6 +38,7 @@ export class ThingType extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly deprecateThingType!: pulumi.Output<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -62,8 +63,10 @@ export class ThingType extends pulumi.CustomResource {
             resourceInputs["thingTypeName"] = args ? args.thingTypeName : undefined;
             resourceInputs["thingTypeProperties"] = args ? args.thingTypeProperties : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deprecateThingType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["thingTypeName"] = undefined /*out*/;

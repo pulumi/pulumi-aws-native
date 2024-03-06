@@ -20,6 +20,7 @@ type Fleet struct {
 	pulumi.CustomResourceState
 
 	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	AwsId                pulumi.StringOutput    `pulumi:"awsId"`
 	CreationTime         pulumi.StringOutput    `pulumi:"creationTime"`
 	Description          pulumi.StringPtrOutput `pulumi:"description"`
 	LastModificationTime pulumi.StringOutput    `pulumi:"lastModificationTime"`
@@ -34,6 +35,9 @@ func NewFleet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AwsId == nil {
+		return nil, errors.New("invalid value for required argument 'AwsId'")
+	}
 	if args.SignalCatalogArn == nil {
 		return nil, errors.New("invalid value for required argument 'SignalCatalogArn'")
 	}
@@ -74,6 +78,7 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
+	AwsId            string    `pulumi:"awsId"`
 	Description      *string   `pulumi:"description"`
 	SignalCatalogArn string    `pulumi:"signalCatalogArn"`
 	Tags             []aws.Tag `pulumi:"tags"`
@@ -81,6 +86,7 @@ type fleetArgs struct {
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
+	AwsId            pulumi.StringInput
 	Description      pulumi.StringPtrInput
 	SignalCatalogArn pulumi.StringInput
 	Tags             aws.TagArrayInput
@@ -125,6 +131,10 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 
 func (o FleetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o FleetOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o FleetOutput) CreationTime() pulumi.StringOutput {

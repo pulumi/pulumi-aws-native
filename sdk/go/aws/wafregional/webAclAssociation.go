@@ -18,6 +18,7 @@ import (
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 
+	AwsId       pulumi.StringOutput `pulumi:"awsId"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	WebAclId    pulumi.StringOutput `pulumi:"webAclId"`
 }
@@ -118,6 +119,10 @@ func (o WebAclAssociationOutput) ToWebAclAssociationOutput() WebAclAssociationOu
 
 func (o WebAclAssociationOutput) ToWebAclAssociationOutputWithContext(ctx context.Context) WebAclAssociationOutput {
 	return o
+}
+
+func (o WebAclAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAclAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o WebAclAssociationOutput) ResourceArn() pulumi.StringOutput {

@@ -146,6 +146,7 @@ class DbSecurityGroupIngress(pulumi.CustomResource):
             __props__.__dict__["ec2_security_group_id"] = ec2_security_group_id
             __props__.__dict__["ec2_security_group_name"] = ec2_security_group_name
             __props__.__dict__["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+            __props__.__dict__["aws_id"] = None
         super(DbSecurityGroupIngress, __self__).__init__(
             'aws-native:rds:DbSecurityGroupIngress',
             resource_name,
@@ -168,12 +169,18 @@ class DbSecurityGroupIngress(pulumi.CustomResource):
 
         __props__ = DbSecurityGroupIngressInitArgs.__new__(DbSecurityGroupIngressInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cidrip"] = None
         __props__.__dict__["db_security_group_name"] = None
         __props__.__dict__["ec2_security_group_id"] = None
         __props__.__dict__["ec2_security_group_name"] = None
         __props__.__dict__["ec2_security_group_owner_id"] = None
         return DbSecurityGroupIngress(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

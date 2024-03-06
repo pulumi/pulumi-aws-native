@@ -148,6 +148,7 @@ class RotationSchedule(pulumi.CustomResource):
             if secret_id is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_id'")
             __props__.__dict__["secret_id"] = secret_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["secret_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RotationSchedule, __self__).__init__(
@@ -172,12 +173,18 @@ class RotationSchedule(pulumi.CustomResource):
 
         __props__ = RotationScheduleArgs.__new__(RotationScheduleArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["hosted_rotation_lambda"] = None
         __props__.__dict__["rotate_immediately_on_update"] = None
         __props__.__dict__["rotation_lambda_arn"] = None
         __props__.__dict__["rotation_rules"] = None
         __props__.__dict__["secret_id"] = None
         return RotationSchedule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="hostedRotationLambda")

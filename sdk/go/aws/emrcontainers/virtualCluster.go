@@ -18,6 +18,8 @@ type VirtualCluster struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Id of the virtual cluster.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Container provider of the virtual cluster.
 	ContainerProvider VirtualClusterContainerProviderOutput `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
@@ -131,6 +133,11 @@ func (o VirtualClusterOutput) ToVirtualClusterOutputWithContext(ctx context.Cont
 
 func (o VirtualClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Id of the virtual cluster.
+func (o VirtualClusterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Container provider of the virtual cluster.

@@ -114,6 +114,7 @@ class ResourcePolicy(pulumi.CustomResource):
             __props__.__dict__["content"] = content
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(ResourcePolicy, __self__).__init__(
             'aws-native:organizations:ResourcePolicy',
             resource_name,
@@ -137,6 +138,7 @@ class ResourcePolicy(pulumi.CustomResource):
         __props__ = ResourcePolicyArgs.__new__(ResourcePolicyArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["content"] = None
         __props__.__dict__["tags"] = None
         return ResourcePolicy(resource_name, opts=opts, __props__=__props__)
@@ -148,6 +150,14 @@ class ResourcePolicy(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the resource policy.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier (ID) associated with this resource policy.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

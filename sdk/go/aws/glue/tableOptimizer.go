@@ -18,6 +18,7 @@ import (
 type TableOptimizer struct {
 	pulumi.CustomResourceState
 
+	AwsId                       pulumi.StringOutput               `pulumi:"awsId"`
 	CatalogId                   pulumi.StringOutput               `pulumi:"catalogId"`
 	DatabaseName                pulumi.StringOutput               `pulumi:"databaseName"`
 	TableName                   pulumi.StringOutput               `pulumi:"tableName"`
@@ -138,6 +139,10 @@ func (o TableOptimizerOutput) ToTableOptimizerOutput() TableOptimizerOutput {
 
 func (o TableOptimizerOutput) ToTableOptimizerOutputWithContext(ctx context.Context) TableOptimizerOutput {
 	return o
+}
+
+func (o TableOptimizerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableOptimizer) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o TableOptimizerOutput) CatalogId() pulumi.StringOutput {

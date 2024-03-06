@@ -40,6 +40,7 @@ export class FunctionDefinitionVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === FunctionDefinitionVersion.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly defaultConfig!: pulumi.Output<outputs.greengrass.FunctionDefinitionVersionDefaultConfig | undefined>;
     public readonly functionDefinitionId!: pulumi.Output<string>;
     public readonly functions!: pulumi.Output<outputs.greengrass.FunctionDefinitionVersionFunction[]>;
@@ -66,7 +67,9 @@ export class FunctionDefinitionVersion extends pulumi.CustomResource {
             resourceInputs["defaultConfig"] = args ? args.defaultConfig : undefined;
             resourceInputs["functionDefinitionId"] = args ? args.functionDefinitionId : undefined;
             resourceInputs["functions"] = args ? args.functions : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultConfig"] = undefined /*out*/;
             resourceInputs["functionDefinitionId"] = undefined /*out*/;
             resourceInputs["functions"] = undefined /*out*/;

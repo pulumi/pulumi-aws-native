@@ -17,6 +17,7 @@ import (
 type AnomalyDetector struct {
 	pulumi.CustomResourceState
 
+	AwsId                       pulumi.StringOutput                                 `pulumi:"awsId"`
 	Configuration               AnomalyDetectorConfigurationPtrOutput               `pulumi:"configuration"`
 	Dimensions                  AnomalyDetectorDimensionArrayOutput                 `pulumi:"dimensions"`
 	MetricMathAnomalyDetector   AnomalyDetectorMetricMathAnomalyDetectorPtrOutput   `pulumi:"metricMathAnomalyDetector"`
@@ -130,6 +131,10 @@ func (o AnomalyDetectorOutput) ToAnomalyDetectorOutput() AnomalyDetectorOutput {
 
 func (o AnomalyDetectorOutput) ToAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorOutput {
 	return o
+}
+
+func (o AnomalyDetectorOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalyDetector) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AnomalyDetectorOutput) Configuration() AnomalyDetectorConfigurationPtrOutput {

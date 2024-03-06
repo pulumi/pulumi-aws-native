@@ -241,6 +241,7 @@ class InstanceGroupConfig(pulumi.CustomResource):
             __props__.__dict__["job_flow_id"] = job_flow_id
             __props__.__dict__["market"] = market
             __props__.__dict__["name"] = name
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bid_price", "configurations[*]", "custom_ami_id", "ebs_configuration", "instance_role", "instance_type", "job_flow_id", "market", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceGroupConfig, __self__).__init__(
@@ -266,6 +267,7 @@ class InstanceGroupConfig(pulumi.CustomResource):
         __props__ = InstanceGroupConfigArgs.__new__(InstanceGroupConfigArgs)
 
         __props__.__dict__["auto_scaling_policy"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["bid_price"] = None
         __props__.__dict__["configurations"] = None
         __props__.__dict__["custom_ami_id"] = None
@@ -282,6 +284,11 @@ class InstanceGroupConfig(pulumi.CustomResource):
     @pulumi.getter(name="autoScalingPolicy")
     def auto_scaling_policy(self) -> pulumi.Output[Optional['outputs.InstanceGroupConfigAutoScalingPolicy']]:
         return pulumi.get(self, "auto_scaling_policy")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="bidPrice")

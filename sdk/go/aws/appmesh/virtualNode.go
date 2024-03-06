@@ -20,6 +20,7 @@ type VirtualNode struct {
 	pulumi.CustomResourceState
 
 	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	AwsId           pulumi.StringOutput    `pulumi:"awsId"`
 	MeshName        pulumi.StringOutput    `pulumi:"meshName"`
 	MeshOwner       pulumi.StringPtrOutput `pulumi:"meshOwner"`
 	ResourceOwner   pulumi.StringOutput    `pulumi:"resourceOwner"`
@@ -136,6 +137,10 @@ func (o VirtualNodeOutput) ToVirtualNodeOutputWithContext(ctx context.Context) V
 
 func (o VirtualNodeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VirtualNodeOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o VirtualNodeOutput) MeshName() pulumi.StringOutput {

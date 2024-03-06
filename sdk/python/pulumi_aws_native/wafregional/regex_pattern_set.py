@@ -101,6 +101,7 @@ class RegexPatternSet(pulumi.CustomResource):
             if regex_pattern_strings is None and not opts.urn:
                 raise TypeError("Missing required property 'regex_pattern_strings'")
             __props__.__dict__["regex_pattern_strings"] = regex_pattern_strings
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RegexPatternSet, __self__).__init__(
@@ -125,9 +126,15 @@ class RegexPatternSet(pulumi.CustomResource):
 
         __props__ = RegexPatternSetArgs.__new__(RegexPatternSetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["regex_pattern_strings"] = None
         return RegexPatternSet(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

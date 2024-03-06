@@ -38,6 +38,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     }
 
     public readonly actions!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateAction} | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string>;
     public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions | undefined>;
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
@@ -80,8 +81,10 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["experimentOptions"] = undefined /*out*/;
             resourceInputs["logConfiguration"] = undefined /*out*/;

@@ -18,6 +18,7 @@ import (
 type FunctionDefinitionVersion struct {
 	pulumi.CustomResourceState
 
+	AwsId                pulumi.StringOutput                             `pulumi:"awsId"`
 	DefaultConfig        FunctionDefinitionVersionDefaultConfigPtrOutput `pulumi:"defaultConfig"`
 	FunctionDefinitionId pulumi.StringOutput                             `pulumi:"functionDefinitionId"`
 	Functions            FunctionDefinitionVersionFunctionArrayOutput    `pulumi:"functions"`
@@ -122,6 +123,10 @@ func (o FunctionDefinitionVersionOutput) ToFunctionDefinitionVersionOutput() Fun
 
 func (o FunctionDefinitionVersionOutput) ToFunctionDefinitionVersionOutputWithContext(ctx context.Context) FunctionDefinitionVersionOutput {
 	return o
+}
+
+func (o FunctionDefinitionVersionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionDefinitionVersion) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o FunctionDefinitionVersionOutput) DefaultConfig() FunctionDefinitionVersionDefaultConfigPtrOutput {

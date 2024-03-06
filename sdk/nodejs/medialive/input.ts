@@ -41,6 +41,7 @@ export class Input extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly destinations!: pulumi.Output<outputs.medialive.InputDestinationRequest[] | undefined>;
     public readonly inputDevices!: pulumi.Output<outputs.medialive.InputDeviceSettings[] | undefined>;
     public readonly inputSecurityGroups!: pulumi.Output<string[] | undefined>;
@@ -79,8 +80,10 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["vpc"] = args ? args.vpc : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
             resourceInputs["inputDevices"] = undefined /*out*/;
             resourceInputs["inputSecurityGroups"] = undefined /*out*/;

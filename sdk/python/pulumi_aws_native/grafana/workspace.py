@@ -385,6 +385,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["saml_configuration"] = saml_configuration
             __props__.__dict__["stack_set_name"] = stack_set_name
             __props__.__dict__["vpc_configuration"] = vpc_configuration
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_timestamp"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["modification_timestamp"] = None
@@ -417,6 +418,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__.__dict__["account_access_type"] = None
         __props__.__dict__["authentication_providers"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_token"] = None
         __props__.__dict__["creation_timestamp"] = None
         __props__.__dict__["data_sources"] = None
@@ -452,6 +454,14 @@ class Workspace(pulumi.CustomResource):
         List of authentication providers to enable.
         """
         return pulumi.get(self, "authentication_providers")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        The id that uniquely identifies a Grafana workspace.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="clientToken")

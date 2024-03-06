@@ -19,6 +19,7 @@ import (
 type FileSystem struct {
 	pulumi.CustomResourceState
 
+	AwsId                 pulumi.StringOutput                     `pulumi:"awsId"`
 	BackupId              pulumi.StringPtrOutput                  `pulumi:"backupId"`
 	DnsName               pulumi.StringOutput                     `pulumi:"dnsName"`
 	FileSystemType        pulumi.StringOutput                     `pulumi:"fileSystemType"`
@@ -160,6 +161,10 @@ func (o FileSystemOutput) ToFileSystemOutput() FileSystemOutput {
 
 func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) FileSystemOutput {
 	return o
+}
+
+func (o FileSystemOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o FileSystemOutput) BackupId() pulumi.StringPtrOutput {

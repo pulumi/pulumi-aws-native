@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.OpsWorks
         [Output("attributes")]
         public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("dataSources")]
         public Output<ImmutableArray<Outputs.AppDataSource>> DataSources { get; private set; } = null!;
 

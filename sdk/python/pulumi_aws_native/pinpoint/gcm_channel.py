@@ -146,6 +146,7 @@ class GcmChannel(pulumi.CustomResource):
             __props__.__dict__["default_authentication_method"] = default_authentication_method
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["service_json"] = service_json
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GcmChannel, __self__).__init__(
@@ -172,6 +173,7 @@ class GcmChannel(pulumi.CustomResource):
 
         __props__.__dict__["api_key"] = None
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["default_authentication_method"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["service_json"] = None
@@ -186,6 +188,11 @@ class GcmChannel(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="defaultAuthenticationMethod")

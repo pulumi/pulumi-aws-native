@@ -104,6 +104,7 @@ class SubscriptionDefinitionVersion(pulumi.CustomResource):
             if subscriptions is None and not opts.urn:
                 raise TypeError("Missing required property 'subscriptions'")
             __props__.__dict__["subscriptions"] = subscriptions
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subscription_definition_id", "subscriptions[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubscriptionDefinitionVersion, __self__).__init__(
@@ -128,9 +129,15 @@ class SubscriptionDefinitionVersion(pulumi.CustomResource):
 
         __props__ = SubscriptionDefinitionVersionInitArgs.__new__(SubscriptionDefinitionVersionInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["subscription_definition_id"] = None
         __props__.__dict__["subscriptions"] = None
         return SubscriptionDefinitionVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="subscriptionDefinitionId")

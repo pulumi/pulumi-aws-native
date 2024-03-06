@@ -38,6 +38,7 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
     }
 
     public readonly awsAccountId!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly networkInterfaceId!: pulumi.Output<string>;
     public readonly permission!: pulumi.Output<string>;
 
@@ -66,8 +67,10 @@ export class NetworkInterfacePermission extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["permission"] = args ? args.permission : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
             resourceInputs["permission"] = undefined /*out*/;
         }

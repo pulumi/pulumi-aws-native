@@ -38,6 +38,7 @@ export class VpcCidrBlock extends pulumi.CustomResource {
     }
 
     public readonly amazonProvidedIpv6CidrBlock!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cidrBlock!: pulumi.Output<string | undefined>;
     public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
     public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
@@ -72,8 +73,10 @@ export class VpcCidrBlock extends pulumi.CustomResource {
             resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             resourceInputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["amazonProvidedIpv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["ipv4IpamPoolId"] = undefined /*out*/;
             resourceInputs["ipv4NetmaskLength"] = undefined /*out*/;

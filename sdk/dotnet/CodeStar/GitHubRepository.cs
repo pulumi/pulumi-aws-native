@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CodeStar
     [AwsNativeResourceType("aws-native:codestar:GitHubRepository")]
     public partial class GitHubRepository : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("code")]
         public Output<Outputs.GitHubRepositoryCode?> Code { get; private set; } = null!;
 

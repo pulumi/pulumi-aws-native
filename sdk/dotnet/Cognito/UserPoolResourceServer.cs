@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolResourceServer")]
     public partial class UserPoolResourceServer : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 

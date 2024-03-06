@@ -20,6 +20,7 @@ type VirtualGateway struct {
 	pulumi.CustomResourceState
 
 	Arn                pulumi.StringOutput      `pulumi:"arn"`
+	AwsId              pulumi.StringOutput      `pulumi:"awsId"`
 	MeshName           pulumi.StringOutput      `pulumi:"meshName"`
 	MeshOwner          pulumi.StringPtrOutput   `pulumi:"meshOwner"`
 	ResourceOwner      pulumi.StringOutput      `pulumi:"resourceOwner"`
@@ -136,6 +137,10 @@ func (o VirtualGatewayOutput) ToVirtualGatewayOutputWithContext(ctx context.Cont
 
 func (o VirtualGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o VirtualGatewayOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualGateway) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o VirtualGatewayOutput) MeshName() pulumi.StringOutput {

@@ -202,6 +202,7 @@ class CaCertificate(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["verification_certificate_pem"] = verification_certificate_pem
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ca_certificate_pem", "certificate_mode", "verification_certificate_pem"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CaCertificate, __self__).__init__(
@@ -228,6 +229,7 @@ class CaCertificate(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_registration_status"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["ca_certificate_pem"] = None
         __props__.__dict__["certificate_mode"] = None
         __props__.__dict__["registration_config"] = None
@@ -246,6 +248,11 @@ class CaCertificate(pulumi.CustomResource):
     @pulumi.getter(name="autoRegistrationStatus")
     def auto_registration_status(self) -> pulumi.Output[Optional['CaCertificateAutoRegistrationStatus']]:
         return pulumi.get(self, "auto_registration_status")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="caCertificatePem")

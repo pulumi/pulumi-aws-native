@@ -41,6 +41,7 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     }
 
     public readonly automatic!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly configRuleName!: pulumi.Output<string>;
     public readonly executionControls!: pulumi.Output<outputs.configuration.RemediationConfigurationExecutionControls | undefined>;
     public readonly maximumAutomaticAttempts!: pulumi.Output<number | undefined>;
@@ -86,8 +87,10 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             resourceInputs["targetId"] = args ? args.targetId : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["targetVersion"] = args ? args.targetVersion : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["automatic"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configRuleName"] = undefined /*out*/;
             resourceInputs["executionControls"] = undefined /*out*/;
             resourceInputs["maximumAutomaticAttempts"] = undefined /*out*/;

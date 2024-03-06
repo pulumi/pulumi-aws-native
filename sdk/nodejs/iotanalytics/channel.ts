@@ -37,6 +37,7 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly channelName!: pulumi.Output<string | undefined>;
     public readonly channelStorage!: pulumi.Output<outputs.iotanalytics.ChannelStorage | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.ChannelRetentionPeriod | undefined>;
@@ -57,7 +58,9 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["channelStorage"] = args ? args.channelStorage : undefined;
             resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["channelName"] = undefined /*out*/;
             resourceInputs["channelStorage"] = undefined /*out*/;
             resourceInputs["retentionPeriod"] = undefined /*out*/;

@@ -224,6 +224,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["enable_performance_insights"] = enable_performance_insights
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["port"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "db_cluster_identifier", "db_instance_identifier"])
@@ -252,6 +253,7 @@ class DbInstance(pulumi.CustomResource):
 
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["ca_certificate_identifier"] = None
         __props__.__dict__["certificate_rotation_restart"] = None
         __props__.__dict__["db_cluster_identifier"] = None
@@ -273,6 +275,11 @@ class DbInstance(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="caCertificateIdentifier")

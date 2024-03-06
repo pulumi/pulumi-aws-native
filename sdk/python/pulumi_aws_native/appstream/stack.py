@@ -284,6 +284,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["streaming_experience_settings"] = streaming_experience_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_settings"] = user_settings
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stack, __self__).__init__(
@@ -311,6 +312,7 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["access_endpoints"] = None
         __props__.__dict__["application_settings"] = None
         __props__.__dict__["attributes_to_delete"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["delete_storage_connectors"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -338,6 +340,11 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="attributesToDelete")
     def attributes_to_delete(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "attributes_to_delete")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deleteStorageConnectors")

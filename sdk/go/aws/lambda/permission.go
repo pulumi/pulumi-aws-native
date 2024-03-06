@@ -21,6 +21,7 @@ type Permission struct {
 
 	// The action that the principal can use on the function. For example, ``lambda:InvokeFunction`` or ``lambda:GetFunction``.
 	Action pulumi.StringOutput `pulumi:"action"`
+	AwsId  pulumi.StringOutput `pulumi:"awsId"`
 	// For Alexa Smart Home functions, a token that the invoker must supply.
 	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
 	// The name of the Lambda function, version, or alias.
@@ -196,6 +197,10 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 // The action that the principal can use on the function. For example, “lambda:InvokeFunction“ or “lambda:GetFunction“.
 func (o PermissionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o PermissionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // For Alexa Smart Home functions, a token that the invoker must supply.

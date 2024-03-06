@@ -19,6 +19,7 @@ type ApplicationSettings struct {
 	pulumi.CustomResourceState
 
 	ApplicationId            pulumi.StringOutput                      `pulumi:"applicationId"`
+	AwsId                    pulumi.StringOutput                      `pulumi:"awsId"`
 	CampaignHook             ApplicationSettingsCampaignHookPtrOutput `pulumi:"campaignHook"`
 	CloudWatchMetricsEnabled pulumi.BoolPtrOutput                     `pulumi:"cloudWatchMetricsEnabled"`
 	Limits                   ApplicationSettingsLimitsPtrOutput       `pulumi:"limits"`
@@ -127,6 +128,10 @@ func (o ApplicationSettingsOutput) ToApplicationSettingsOutputWithContext(ctx co
 
 func (o ApplicationSettingsOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ApplicationSettingsOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSettings) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ApplicationSettingsOutput) CampaignHook() ApplicationSettingsCampaignHookPtrOutput {

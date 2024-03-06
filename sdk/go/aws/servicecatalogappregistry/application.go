@@ -22,6 +22,7 @@ type Application struct {
 	// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
 	ApplicationTagValue pulumi.StringOutput `pulumi:"applicationTagValue"`
 	Arn                 pulumi.StringOutput `pulumi:"arn"`
+	AwsId               pulumi.StringOutput `pulumi:"awsId"`
 	// The description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the application.
@@ -139,6 +140,10 @@ func (o ApplicationOutput) ApplicationTagValue() pulumi.StringOutput {
 
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The description of the application.

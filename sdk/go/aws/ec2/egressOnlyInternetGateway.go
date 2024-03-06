@@ -16,6 +16,8 @@ import (
 type EgressOnlyInternetGateway struct {
 	pulumi.CustomResourceState
 
+	// Service Generated ID of the EgressOnlyInternetGateway
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ID of the VPC for which to create the egress-only internet gateway.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -112,6 +114,11 @@ func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutput() Egr
 
 func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
 	return o
+}
+
+// Service Generated ID of the EgressOnlyInternetGateway
+func (o EgressOnlyInternetGatewayOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EgressOnlyInternetGateway) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The ID of the VPC for which to create the egress-only internet gateway.

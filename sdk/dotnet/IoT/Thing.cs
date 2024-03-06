@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("attributePayload")]
         public Output<Outputs.ThingAttributePayload?> AttributePayload { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("thingName")]
         public Output<string?> ThingName { get; private set; } = null!;
 

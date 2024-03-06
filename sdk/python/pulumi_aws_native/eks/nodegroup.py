@@ -430,6 +430,7 @@ class Nodegroup(pulumi.CustomResource):
             __props__.__dict__["update_config"] = update_config
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ami_type", "capacity_type", "cluster_name", "disk_size", "instance_types[*]", "node_role", "nodegroup_name", "remote_access", "subnets[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Nodegroup, __self__).__init__(
@@ -456,6 +457,7 @@ class Nodegroup(pulumi.CustomResource):
 
         __props__.__dict__["ami_type"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["capacity_type"] = None
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["disk_size"] = None
@@ -487,6 +489,11 @@ class Nodegroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="capacityType")

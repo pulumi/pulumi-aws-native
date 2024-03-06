@@ -18,6 +18,7 @@ type FunctionDefinition struct {
 	pulumi.CustomResourceState
 
 	Arn              pulumi.StringOutput                    `pulumi:"arn"`
+	AwsId            pulumi.StringOutput                    `pulumi:"awsId"`
 	InitialVersion   FunctionDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                    `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                    `pulumi:"name"`
@@ -122,6 +123,10 @@ func (o FunctionDefinitionOutput) ToFunctionDefinitionOutputWithContext(ctx cont
 
 func (o FunctionDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o FunctionDefinitionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionDefinition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o FunctionDefinitionOutput) InitialVersion() FunctionDefinitionVersionTypePtrOutput {

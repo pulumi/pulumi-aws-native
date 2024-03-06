@@ -40,6 +40,7 @@ export class Model extends pulumi.CustomResource {
         return obj['__pulumiType'] === Model.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly containers!: pulumi.Output<outputs.sagemaker.ModelContainerDefinition[] | undefined>;
     public readonly enableNetworkIsolation!: pulumi.Output<boolean | undefined>;
     public readonly executionRoleArn!: pulumi.Output<string | undefined>;
@@ -70,7 +71,9 @@ export class Model extends pulumi.CustomResource {
             resourceInputs["primaryContainer"] = args ? args.primaryContainer : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["containers"] = undefined /*out*/;
             resourceInputs["enableNetworkIsolation"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;

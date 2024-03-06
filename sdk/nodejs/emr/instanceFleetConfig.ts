@@ -40,6 +40,7 @@ export class InstanceFleetConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceFleetConfig.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly clusterId!: pulumi.Output<string>;
     public readonly instanceFleetType!: pulumi.Output<string>;
     public readonly instanceTypeConfigs!: pulumi.Output<outputs.emr.InstanceFleetConfigInstanceTypeConfig[] | undefined>;
@@ -74,7 +75,9 @@ export class InstanceFleetConfig extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["targetOnDemandCapacity"] = args ? args.targetOnDemandCapacity : undefined;
             resourceInputs["targetSpotCapacity"] = args ? args.targetSpotCapacity : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["instanceFleetType"] = undefined /*out*/;
             resourceInputs["instanceTypeConfigs"] = undefined /*out*/;

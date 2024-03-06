@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("billingToken")]
         public Output<string> BillingToken { get; private set; } = null!;
 

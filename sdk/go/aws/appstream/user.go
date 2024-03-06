@@ -19,6 +19,7 @@ type User struct {
 	pulumi.CustomResourceState
 
 	AuthenticationType pulumi.StringOutput    `pulumi:"authenticationType"`
+	AwsId              pulumi.StringOutput    `pulumi:"awsId"`
 	FirstName          pulumi.StringPtrOutput `pulumi:"firstName"`
 	LastName           pulumi.StringPtrOutput `pulumi:"lastName"`
 	MessageAction      pulumi.StringPtrOutput `pulumi:"messageAction"`
@@ -131,6 +132,10 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 
 func (o UserOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o UserOutput) FirstName() pulumi.StringPtrOutput {

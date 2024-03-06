@@ -19,6 +19,7 @@ type Skill struct {
 	pulumi.CustomResourceState
 
 	AuthenticationConfiguration SkillAuthenticationConfigurationOutput `pulumi:"authenticationConfiguration"`
+	AwsId                       pulumi.StringOutput                    `pulumi:"awsId"`
 	SkillPackage                SkillPackageOutput                     `pulumi:"skillPackage"`
 	VendorId                    pulumi.StringOutput                    `pulumi:"vendorId"`
 }
@@ -127,6 +128,10 @@ func (o SkillOutput) ToSkillOutputWithContext(ctx context.Context) SkillOutput {
 
 func (o SkillOutput) AuthenticationConfiguration() SkillAuthenticationConfigurationOutput {
 	return o.ApplyT(func(v *Skill) SkillAuthenticationConfigurationOutput { return v.AuthenticationConfiguration }).(SkillAuthenticationConfigurationOutput)
+}
+
+func (o SkillOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Skill) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SkillOutput) SkillPackage() SkillPackageOutput {

@@ -19,6 +19,7 @@ import (
 type CodeRepository struct {
 	pulumi.CustomResourceState
 
+	AwsId              pulumi.StringOutput           `pulumi:"awsId"`
 	CodeRepositoryName pulumi.StringPtrOutput        `pulumi:"codeRepositoryName"`
 	GitConfig          CodeRepositoryGitConfigOutput `pulumi:"gitConfig"`
 	Tags               aws.TagArrayOutput            `pulumi:"tags"`
@@ -118,6 +119,10 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutput() CodeRepositoryOutput {
 
 func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
 	return o
+}
+
+func (o CodeRepositoryOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodeRepository) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o CodeRepositoryOutput) CodeRepositoryName() pulumi.StringPtrOutput {

@@ -23,6 +23,7 @@ type Broker struct {
 	Arn                             pulumi.StringOutput               `pulumi:"arn"`
 	AuthenticationStrategy          pulumi.StringPtrOutput            `pulumi:"authenticationStrategy"`
 	AutoMinorVersionUpgrade         pulumi.BoolOutput                 `pulumi:"autoMinorVersionUpgrade"`
+	AwsId                           pulumi.StringOutput               `pulumi:"awsId"`
 	BrokerName                      pulumi.StringOutput               `pulumi:"brokerName"`
 	Configuration                   BrokerConfigurationIdPtrOutput    `pulumi:"configuration"`
 	ConfigurationId                 pulumi.StringOutput               `pulumi:"configurationId"`
@@ -219,6 +220,10 @@ func (o BrokerOutput) AuthenticationStrategy() pulumi.StringPtrOutput {
 
 func (o BrokerOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Broker) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
+}
+
+func (o BrokerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o BrokerOutput) BrokerName() pulumi.StringOutput {

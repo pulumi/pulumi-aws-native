@@ -21,6 +21,7 @@ type NotebookInstance struct {
 
 	AcceleratorTypes                     pulumi.StringArrayOutput                                      `pulumi:"acceleratorTypes"`
 	AdditionalCodeRepositories           pulumi.StringArrayOutput                                      `pulumi:"additionalCodeRepositories"`
+	AwsId                                pulumi.StringOutput                                           `pulumi:"awsId"`
 	DefaultCodeRepository                pulumi.StringPtrOutput                                        `pulumi:"defaultCodeRepository"`
 	DirectInternetAccess                 pulumi.StringPtrOutput                                        `pulumi:"directInternetAccess"`
 	InstanceMetadataServiceConfiguration NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput `pulumi:"instanceMetadataServiceConfiguration"`
@@ -173,6 +174,10 @@ func (o NotebookInstanceOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 
 func (o NotebookInstanceOutput) AdditionalCodeRepositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringArrayOutput { return v.AdditionalCodeRepositories }).(pulumi.StringArrayOutput)
+}
+
+func (o NotebookInstanceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o NotebookInstanceOutput) DefaultCodeRepository() pulumi.StringPtrOutput {

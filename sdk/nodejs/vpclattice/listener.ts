@@ -38,6 +38,7 @@ export class Listener extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly defaultAction!: pulumi.Output<outputs.vpclattice.ListenerDefaultAction>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly port!: pulumi.Output<number | undefined>;
@@ -71,10 +72,12 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["serviceArn"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["defaultAction"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;

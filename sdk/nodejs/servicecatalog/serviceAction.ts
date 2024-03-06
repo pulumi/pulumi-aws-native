@@ -38,6 +38,7 @@ export class ServiceAction extends pulumi.CustomResource {
     }
 
     public readonly acceptLanguage!: pulumi.Output<enums.servicecatalog.ServiceActionAcceptLanguage | undefined>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly definition!: pulumi.Output<outputs.servicecatalog.ServiceActionDefinitionParameter[]>;
     public readonly definitionType!: pulumi.Output<enums.servicecatalog.ServiceActionDefinitionType>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -65,8 +66,10 @@ export class ServiceAction extends pulumi.CustomResource {
             resourceInputs["definitionType"] = args ? args.definitionType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["definitionType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

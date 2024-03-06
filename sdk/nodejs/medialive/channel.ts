@@ -41,6 +41,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cdiInputSpecification!: pulumi.Output<outputs.medialive.ChannelCdiInputSpecification | undefined>;
     public readonly channelClass!: pulumi.Output<string | undefined>;
     public readonly destinations!: pulumi.Output<outputs.medialive.ChannelOutputDestination[] | undefined>;
@@ -84,9 +85,11 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpc"] = args ? args.vpc : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["inputs"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cdiInputSpecification"] = undefined /*out*/;
             resourceInputs["channelClass"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;

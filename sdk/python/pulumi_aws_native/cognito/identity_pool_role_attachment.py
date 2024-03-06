@@ -112,6 +112,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             __props__.__dict__["identity_pool_id"] = identity_pool_id
             __props__.__dict__["role_mappings"] = role_mappings
             __props__.__dict__["roles"] = roles
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identity_pool_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IdentityPoolRoleAttachment, __self__).__init__(
@@ -136,10 +137,16 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
 
         __props__ = IdentityPoolRoleAttachmentArgs.__new__(IdentityPoolRoleAttachmentArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["identity_pool_id"] = None
         __props__.__dict__["role_mappings"] = None
         __props__.__dict__["roles"] = None
         return IdentityPoolRoleAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="identityPoolId")

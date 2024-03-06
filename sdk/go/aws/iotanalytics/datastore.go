@@ -16,6 +16,7 @@ import (
 type Datastore struct {
 	pulumi.CustomResourceState
 
+	AwsId                   pulumi.StringOutput                       `pulumi:"awsId"`
 	DatastoreName           pulumi.StringPtrOutput                    `pulumi:"datastoreName"`
 	DatastorePartitions     DatastorePartitionsPtrOutput              `pulumi:"datastorePartitions"`
 	DatastoreStorage        DatastoreStoragePtrOutput                 `pulumi:"datastoreStorage"`
@@ -121,6 +122,10 @@ func (o DatastoreOutput) ToDatastoreOutput() DatastoreOutput {
 
 func (o DatastoreOutput) ToDatastoreOutputWithContext(ctx context.Context) DatastoreOutput {
 	return o
+}
+
+func (o DatastoreOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o DatastoreOutput) DatastoreName() pulumi.StringPtrOutput {

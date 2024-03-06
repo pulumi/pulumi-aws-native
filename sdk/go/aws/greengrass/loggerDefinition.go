@@ -18,6 +18,7 @@ type LoggerDefinition struct {
 	pulumi.CustomResourceState
 
 	Arn              pulumi.StringOutput                  `pulumi:"arn"`
+	AwsId            pulumi.StringOutput                  `pulumi:"awsId"`
 	InitialVersion   LoggerDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                  `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                  `pulumi:"name"`
@@ -122,6 +123,10 @@ func (o LoggerDefinitionOutput) ToLoggerDefinitionOutputWithContext(ctx context.
 
 func (o LoggerDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggerDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LoggerDefinitionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggerDefinition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LoggerDefinitionOutput) InitialVersion() LoggerDefinitionVersionTypePtrOutput {

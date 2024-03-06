@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Dms
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("engineVersion")]
         public Output<string?> EngineVersion { get; private set; } = null!;
 

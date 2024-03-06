@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.DataZone
     public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the Amazon DataZone project.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp of when the project was created.
         /// </summary>
         [Output("createdAt")]

@@ -18,6 +18,7 @@ import (
 type Resource struct {
 	pulumi.CustomResourceState
 
+	AwsId                pulumi.StringOutput    `pulumi:"awsId"`
 	HybridAccessEnabled  pulumi.BoolPtrOutput   `pulumi:"hybridAccessEnabled"`
 	ResourceArn          pulumi.StringOutput    `pulumi:"resourceArn"`
 	RoleArn              pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -126,6 +127,10 @@ func (o ResourceOutput) ToResourceOutput() ResourceOutput {
 
 func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) ResourceOutput {
 	return o
+}
+
+func (o ResourceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ResourceOutput) HybridAccessEnabled() pulumi.BoolPtrOutput {

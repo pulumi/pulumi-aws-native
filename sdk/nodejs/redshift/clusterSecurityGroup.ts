@@ -40,6 +40,7 @@ export class ClusterSecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterSecurityGroup.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -61,7 +62,9 @@ export class ClusterSecurityGroup extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }

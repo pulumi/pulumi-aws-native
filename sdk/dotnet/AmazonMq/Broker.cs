@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.AmazonMq
         [Output("autoMinorVersionUpgrade")]
         public Output<bool> AutoMinorVersionUpgrade { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("brokerName")]
         public Output<string> BrokerName { get; private set; } = null!;
 

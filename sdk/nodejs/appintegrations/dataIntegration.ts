@@ -38,6 +38,10 @@ export class DataIntegration extends pulumi.CustomResource {
     }
 
     /**
+     * The unique identifer of the data integration.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the data integration.
      */
     public /*out*/ readonly dataIntegrationArn!: pulumi.Output<string>;
@@ -99,8 +103,10 @@ export class DataIntegration extends pulumi.CustomResource {
             resourceInputs["scheduleConfig"] = args ? args.scheduleConfig : undefined;
             resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataIntegrationArn"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataIntegrationArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["fileConfiguration"] = undefined /*out*/;

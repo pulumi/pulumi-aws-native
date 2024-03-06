@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CloudFormation
     [AwsNativeResourceType("aws-native:cloudformation:Macro")]
     public partial class Macro : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 

@@ -131,6 +131,7 @@ class TransitGatewayRoute(pulumi.CustomResource):
             if transit_gateway_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_route_table_id'")
             __props__.__dict__["transit_gateway_route_table_id"] = transit_gateway_route_table_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["blackhole", "destination_cidr_block", "transit_gateway_attachment_id", "transit_gateway_route_table_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayRoute, __self__).__init__(
@@ -155,11 +156,17 @@ class TransitGatewayRoute(pulumi.CustomResource):
 
         __props__ = TransitGatewayRouteArgs.__new__(TransitGatewayRouteArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["blackhole"] = None
         __props__.__dict__["destination_cidr_block"] = None
         __props__.__dict__["transit_gateway_attachment_id"] = None
         __props__.__dict__["transit_gateway_route_table_id"] = None
         return TransitGatewayRoute(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

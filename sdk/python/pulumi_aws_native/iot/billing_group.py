@@ -119,6 +119,7 @@ class BillingGroup(pulumi.CustomResource):
             __props__.__dict__["billing_group_properties"] = billing_group_properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["billing_group_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BillingGroup, __self__).__init__(
@@ -144,6 +145,7 @@ class BillingGroup(pulumi.CustomResource):
         __props__ = BillingGroupArgs.__new__(BillingGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["billing_group_name"] = None
         __props__.__dict__["billing_group_properties"] = None
         __props__.__dict__["tags"] = None
@@ -153,6 +155,11 @@ class BillingGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="billingGroupName")

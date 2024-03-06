@@ -19,6 +19,7 @@ type NetworkInterfacePermission struct {
 	pulumi.CustomResourceState
 
 	AwsAccountId       pulumi.StringOutput `pulumi:"awsAccountId"`
+	AwsId              pulumi.StringOutput `pulumi:"awsId"`
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	Permission         pulumi.StringOutput `pulumi:"permission"`
 }
@@ -129,6 +130,10 @@ func (o NetworkInterfacePermissionOutput) ToNetworkInterfacePermissionOutputWith
 
 func (o NetworkInterfacePermissionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfacePermissionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfacePermission) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o NetworkInterfacePermissionOutput) NetworkInterfaceId() pulumi.StringOutput {

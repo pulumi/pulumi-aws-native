@@ -198,6 +198,7 @@ class Webhook(pulumi.CustomResource):
             if target_pipeline_version is None and not opts.urn:
                 raise TypeError("Missing required property 'target_pipeline_version'")
             __props__.__dict__["target_pipeline_version"] = target_pipeline_version
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["url"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -225,6 +226,7 @@ class Webhook(pulumi.CustomResource):
 
         __props__.__dict__["authentication"] = None
         __props__.__dict__["authentication_configuration"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["filters"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["register_with_third_party"] = None
@@ -243,6 +245,11 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter(name="authenticationConfiguration")
     def authentication_configuration(self) -> pulumi.Output['outputs.WebhookAuthConfiguration']:
         return pulumi.get(self, "authentication_configuration")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

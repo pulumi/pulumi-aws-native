@@ -19,6 +19,7 @@ type LaunchNotificationConstraint struct {
 	pulumi.CustomResourceState
 
 	AcceptLanguage   pulumi.StringPtrOutput   `pulumi:"acceptLanguage"`
+	AwsId            pulumi.StringOutput      `pulumi:"awsId"`
 	Description      pulumi.StringPtrOutput   `pulumi:"description"`
 	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
 	PortfolioId      pulumi.StringOutput      `pulumi:"portfolioId"`
@@ -134,6 +135,10 @@ func (o LaunchNotificationConstraintOutput) ToLaunchNotificationConstraintOutput
 
 func (o LaunchNotificationConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchNotificationConstraint) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchNotificationConstraintOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchNotificationConstraint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LaunchNotificationConstraintOutput) Description() pulumi.StringPtrOutput {

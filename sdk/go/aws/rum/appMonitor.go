@@ -18,7 +18,9 @@ type AppMonitor struct {
 	pulumi.CustomResourceState
 
 	AppMonitorConfiguration AppMonitorConfigurationPtrOutput `pulumi:"appMonitorConfiguration"`
-	CustomEvents            AppMonitorCustomEventsPtrOutput  `pulumi:"customEvents"`
+	// The unique ID of the new app monitor.
+	AwsId        pulumi.StringOutput             `pulumi:"awsId"`
+	CustomEvents AppMonitorCustomEventsPtrOutput `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled pulumi.BoolPtrOutput `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
@@ -138,6 +140,11 @@ func (o AppMonitorOutput) ToAppMonitorOutputWithContext(ctx context.Context) App
 
 func (o AppMonitorOutput) AppMonitorConfiguration() AppMonitorConfigurationPtrOutput {
 	return o.ApplyT(func(v *AppMonitor) AppMonitorConfigurationPtrOutput { return v.AppMonitorConfiguration }).(AppMonitorConfigurationPtrOutput)
+}
+
+// The unique ID of the new app monitor.
+func (o AppMonitorOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AppMonitorOutput) CustomEvents() AppMonitorCustomEventsPtrOutput {

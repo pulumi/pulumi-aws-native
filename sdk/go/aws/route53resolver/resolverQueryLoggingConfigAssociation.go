@@ -15,6 +15,8 @@ import (
 type ResolverQueryLoggingConfigAssociation struct {
 	pulumi.CustomResourceState
 
+	// Id
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Rfc3339TimeString
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// ResolverQueryLogConfigAssociationError
@@ -123,6 +125,11 @@ func (o ResolverQueryLoggingConfigAssociationOutput) ToResolverQueryLoggingConfi
 
 func (o ResolverQueryLoggingConfigAssociationOutput) ToResolverQueryLoggingConfigAssociationOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationOutput {
 	return o
+}
+
+// Id
+func (o ResolverQueryLoggingConfigAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLoggingConfigAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // Rfc3339TimeString

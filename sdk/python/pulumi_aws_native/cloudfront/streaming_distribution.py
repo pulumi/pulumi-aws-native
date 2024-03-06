@@ -106,6 +106,7 @@ class StreamingDistribution(pulumi.CustomResource):
             if tags is None and not opts.urn:
                 raise TypeError("Missing required property 'tags'")
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["domain_name"] = None
         super(StreamingDistribution, __self__).__init__(
             'aws-native:cloudfront:StreamingDistribution',
@@ -129,10 +130,16 @@ class StreamingDistribution(pulumi.CustomResource):
 
         __props__ = StreamingDistributionArgs.__new__(StreamingDistributionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["streaming_distribution_config"] = None
         __props__.__dict__["tags"] = None
         return StreamingDistribution(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="domainName")

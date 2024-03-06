@@ -38,6 +38,7 @@ export class Policy extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly deleteAllPolicyResources!: pulumi.Output<boolean | undefined>;
     public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyIeMap | undefined>;
     public readonly excludeResourceTags!: pulumi.Output<boolean>;
@@ -88,8 +89,10 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deleteAllPolicyResources"] = undefined /*out*/;
             resourceInputs["excludeMap"] = undefined /*out*/;
             resourceInputs["excludeResourceTags"] = undefined /*out*/;

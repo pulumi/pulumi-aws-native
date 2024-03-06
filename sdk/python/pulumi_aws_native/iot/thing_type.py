@@ -134,6 +134,7 @@ class ThingType(pulumi.CustomResource):
             __props__.__dict__["thing_type_name"] = thing_type_name
             __props__.__dict__["thing_type_properties"] = thing_type_properties
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["thing_type_name", "thing_type_properties"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ThingType, __self__).__init__(
@@ -159,6 +160,7 @@ class ThingType(pulumi.CustomResource):
         __props__ = ThingTypeArgs.__new__(ThingTypeArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["deprecate_thing_type"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["thing_type_name"] = None
@@ -169,6 +171,11 @@ class ThingType(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="deprecateThingType")

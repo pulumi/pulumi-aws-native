@@ -42,6 +42,10 @@ export class WirelessGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Id for Wireless Gateway. Returned upon successful create.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * Description of Wireless Gateway.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -92,8 +96,10 @@ export class WirelessGateway extends pulumi.CustomResource {
             resourceInputs["thingArn"] = args ? args.thingArn : undefined;
             resourceInputs["thingName"] = args ? args.thingName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["lastUplinkReceivedAt"] = undefined /*out*/;
             resourceInputs["loRaWan"] = undefined /*out*/;

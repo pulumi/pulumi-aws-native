@@ -17,6 +17,7 @@ import (
 type TransitGatewayAttachment struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The options for the transit gateway vpc attachment.
 	Options          OptionsPropertiesPtrOutput `pulumi:"options"`
 	SubnetIds        pulumi.StringArrayOutput   `pulumi:"subnetIds"`
@@ -132,6 +133,10 @@ func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutput() Trans
 
 func (o TransitGatewayAttachmentOutput) ToTransitGatewayAttachmentOutputWithContext(ctx context.Context) TransitGatewayAttachmentOutput {
 	return o
+}
+
+func (o TransitGatewayAttachmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGatewayAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The options for the transit gateway vpc attachment.

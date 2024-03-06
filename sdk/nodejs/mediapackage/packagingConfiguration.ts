@@ -42,6 +42,10 @@ export class PackagingConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ID of the PackagingConfiguration.
+     */
+    public readonly awsId!: pulumi.Output<string>;
+    /**
      * A CMAF packaging configuration.
      */
     public readonly cmafPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationCmafPackage | undefined>;
@@ -77,9 +81,13 @@ export class PackagingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.awsId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'awsId'");
+            }
             if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
+            resourceInputs["awsId"] = args ? args.awsId : undefined;
             resourceInputs["cmafPackage"] = args ? args.cmafPackage : undefined;
             resourceInputs["dashPackage"] = args ? args.dashPackage : undefined;
             resourceInputs["hlsPackage"] = args ? args.hlsPackage : undefined;
@@ -89,6 +97,7 @@ export class PackagingConfiguration extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cmafPackage"] = undefined /*out*/;
             resourceInputs["dashPackage"] = undefined /*out*/;
             resourceInputs["hlsPackage"] = undefined /*out*/;
@@ -105,6 +114,10 @@ export class PackagingConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a PackagingConfiguration resource.
  */
 export interface PackagingConfigurationArgs {
+    /**
+     * The ID of the PackagingConfiguration.
+     */
+    awsId: pulumi.Input<string>;
     /**
      * A CMAF packaging configuration.
      */

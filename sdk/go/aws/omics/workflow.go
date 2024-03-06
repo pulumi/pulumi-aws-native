@@ -17,6 +17,7 @@ type Workflow struct {
 
 	Accelerators      WorkflowAcceleratorsPtrOutput `pulumi:"accelerators"`
 	Arn               pulumi.StringOutput           `pulumi:"arn"`
+	AwsId             pulumi.StringOutput           `pulumi:"awsId"`
 	CreationTime      pulumi.StringOutput           `pulumi:"creationTime"`
 	DefinitionUri     pulumi.StringPtrOutput        `pulumi:"definitionUri"`
 	Description       pulumi.StringPtrOutput        `pulumi:"description"`
@@ -146,6 +147,10 @@ func (o WorkflowOutput) Accelerators() WorkflowAcceleratorsPtrOutput {
 
 func (o WorkflowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o WorkflowOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o WorkflowOutput) CreationTime() pulumi.StringOutput {

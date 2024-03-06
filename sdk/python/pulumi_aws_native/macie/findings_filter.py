@@ -191,6 +191,7 @@ class FindingsFilter(pulumi.CustomResource):
             __props__.__dict__["position"] = position
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         super(FindingsFilter, __self__).__init__(
             'aws-native:macie:FindingsFilter',
             resource_name,
@@ -215,6 +216,7 @@ class FindingsFilter(pulumi.CustomResource):
 
         __props__.__dict__["action"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["finding_criteria"] = None
         __props__.__dict__["name"] = None
@@ -237,6 +239,14 @@ class FindingsFilter(pulumi.CustomResource):
         Findings filter ARN.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Findings filter ID.
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

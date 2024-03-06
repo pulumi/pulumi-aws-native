@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("authorizeAllGroups")]
         public Output<bool?> AuthorizeAllGroups { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("clientVpnEndpointId")]
         public Output<string> ClientVpnEndpointId { get; private set; } = null!;
 

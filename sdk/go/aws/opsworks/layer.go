@@ -22,6 +22,7 @@ type Layer struct {
 	Attributes               pulumi.StringMapOutput `pulumi:"attributes"`
 	AutoAssignElasticIps     pulumi.BoolOutput      `pulumi:"autoAssignElasticIps"`
 	AutoAssignPublicIps      pulumi.BoolOutput      `pulumi:"autoAssignPublicIps"`
+	AwsId                    pulumi.StringOutput    `pulumi:"awsId"`
 	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpsWorks::Layer` for more information about the expected schema for this property.
 	CustomJson                  pulumi.AnyOutput                          `pulumi:"customJson"`
@@ -197,6 +198,10 @@ func (o LayerOutput) AutoAssignElasticIps() pulumi.BoolOutput {
 
 func (o LayerOutput) AutoAssignPublicIps() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Layer) pulumi.BoolOutput { return v.AutoAssignPublicIps }).(pulumi.BoolOutput)
+}
+
+func (o LayerOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Layer) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o LayerOutput) CustomInstanceProfileArn() pulumi.StringPtrOutput {

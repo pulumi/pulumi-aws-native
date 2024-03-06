@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Organizations
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Id of the Policy
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
         /// </summary>
         [Output("awsManaged")]

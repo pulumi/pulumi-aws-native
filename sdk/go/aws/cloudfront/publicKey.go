@@ -16,6 +16,7 @@ import (
 type PublicKey struct {
 	pulumi.CustomResourceState
 
+	AwsId           pulumi.StringOutput   `pulumi:"awsId"`
 	CreatedTime     pulumi.StringOutput   `pulumi:"createdTime"`
 	PublicKeyConfig PublicKeyConfigOutput `pulumi:"publicKeyConfig"`
 }
@@ -106,6 +107,10 @@ func (o PublicKeyOutput) ToPublicKeyOutput() PublicKeyOutput {
 
 func (o PublicKeyOutput) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput {
 	return o
+}
+
+func (o PublicKeyOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicKey) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PublicKeyOutput) CreatedTime() pulumi.StringOutput {

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Omics
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IvsChat
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The system-generated ID of the room.
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Array of logging configuration identifiers attached to the room.
         /// </summary>
         [Output("loggingConfigurationIdentifiers")]

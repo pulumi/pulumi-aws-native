@@ -37,6 +37,7 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudFrontOriginAccessIdentity.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cloudFrontOriginAccessIdentityConfig!: pulumi.Output<outputs.cloudfront.CloudFrontOriginAccessIdentityConfig>;
     public /*out*/ readonly s3CanonicalUserId!: pulumi.Output<string>;
 
@@ -55,8 +56,10 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
                 throw new Error("Missing required property 'cloudFrontOriginAccessIdentityConfig'");
             }
             resourceInputs["cloudFrontOriginAccessIdentityConfig"] = args ? args.cloudFrontOriginAccessIdentityConfig : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["s3CanonicalUserId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cloudFrontOriginAccessIdentityConfig"] = undefined /*out*/;
             resourceInputs["s3CanonicalUserId"] = undefined /*out*/;
         }

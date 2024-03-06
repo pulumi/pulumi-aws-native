@@ -18,6 +18,7 @@ type AccessLogSubscription struct {
 	pulumi.CustomResourceState
 
 	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	AwsId              pulumi.StringOutput    `pulumi:"awsId"`
 	DestinationArn     pulumi.StringOutput    `pulumi:"destinationArn"`
 	ResourceArn        pulumi.StringOutput    `pulumi:"resourceArn"`
 	ResourceId         pulumi.StringOutput    `pulumi:"resourceId"`
@@ -123,6 +124,10 @@ func (o AccessLogSubscriptionOutput) ToAccessLogSubscriptionOutputWithContext(ct
 
 func (o AccessLogSubscriptionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o AccessLogSubscriptionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AccessLogSubscriptionOutput) DestinationArn() pulumi.StringOutput {

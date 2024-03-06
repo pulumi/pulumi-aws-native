@@ -37,6 +37,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === UsagePlanKey.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * The Id of the UsagePlanKey resource.
      */
@@ -73,7 +74,9 @@ export class UsagePlanKey extends pulumi.CustomResource {
             resourceInputs["keyId"] = args ? args.keyId : undefined;
             resourceInputs["keyType"] = args ? args.keyType : undefined;
             resourceInputs["usagePlanId"] = args ? args.usagePlanId : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
             resourceInputs["keyType"] = undefined /*out*/;
             resourceInputs["usagePlanId"] = undefined /*out*/;

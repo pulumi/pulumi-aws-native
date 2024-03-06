@@ -19,6 +19,7 @@ type PublicDnsNamespace struct {
 	pulumi.CustomResourceState
 
 	Arn          pulumi.StringOutput                   `pulumi:"arn"`
+	AwsId        pulumi.StringOutput                   `pulumi:"awsId"`
 	Description  pulumi.StringPtrOutput                `pulumi:"description"`
 	HostedZoneId pulumi.StringOutput                   `pulumi:"hostedZoneId"`
 	Name         pulumi.StringOutput                   `pulumi:"name"`
@@ -123,6 +124,10 @@ func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx cont
 
 func (o PublicDnsNamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o PublicDnsNamespaceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicDnsNamespace) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o PublicDnsNamespaceOutput) Description() pulumi.StringPtrOutput {

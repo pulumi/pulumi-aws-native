@@ -35,6 +35,10 @@ export class TopicPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
      * A policy document that contains permissions to add to the specified SNS topics.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::TopicPolicy` for more information about the expected schema for this property.
@@ -64,7 +68,9 @@ export class TopicPolicy extends pulumi.CustomResource {
             }
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["topics"] = undefined /*out*/;
         }

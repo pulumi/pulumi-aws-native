@@ -101,6 +101,7 @@ class VoiceChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VoiceChannel, __self__).__init__(
@@ -126,6 +127,7 @@ class VoiceChannel(pulumi.CustomResource):
         __props__ = VoiceChannelArgs.__new__(VoiceChannelArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["enabled"] = None
         return VoiceChannel(resource_name, opts=opts, __props__=__props__)
 
@@ -133,6 +135,11 @@ class VoiceChannel(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

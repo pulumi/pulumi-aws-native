@@ -228,6 +228,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             if traffic_mirror_filter_id is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_mirror_filter_id'")
             __props__.__dict__["traffic_mirror_filter_id"] = traffic_mirror_filter_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["traffic_mirror_filter_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrafficMirrorFilterRule, __self__).__init__(
@@ -252,6 +253,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
         __props__ = TrafficMirrorFilterRuleArgs.__new__(TrafficMirrorFilterRuleArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["destination_cidr_block"] = None
         __props__.__dict__["destination_port_range"] = None
@@ -263,6 +265,11 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         __props__.__dict__["traffic_direction"] = None
         __props__.__dict__["traffic_mirror_filter_id"] = None
         return TrafficMirrorFilterRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

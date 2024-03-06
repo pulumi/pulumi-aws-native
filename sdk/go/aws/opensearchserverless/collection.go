@@ -18,6 +18,8 @@ type Collection struct {
 
 	// The Amazon Resource Name (ARN) of the collection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The identifier of the collection
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The endpoint for the collection.
 	CollectionEndpoint pulumi.StringOutput `pulumi:"collectionEndpoint"`
 	// The OpenSearch Dashboards endpoint for the collection.
@@ -158,6 +160,11 @@ func (o CollectionOutput) ToCollectionOutputWithContext(ctx context.Context) Col
 // The Amazon Resource Name (ARN) of the collection.
 func (o CollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The identifier of the collection
+func (o CollectionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The endpoint for the collection.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -20,6 +21,8 @@ type PackagingGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// CDN Authorization
 	Authorization PackagingGroupAuthorizationPtrOutput `pulumi:"authorization"`
+	// The ID of the PackagingGroup.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The fully qualified domain name for Assets in the PackagingGroup.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The configuration parameters for egress access logging.
@@ -32,9 +35,12 @@ type PackagingGroup struct {
 func NewPackagingGroup(ctx *pulumi.Context,
 	name string, args *PackagingGroupArgs, opts ...pulumi.ResourceOption) (*PackagingGroup, error) {
 	if args == nil {
-		args = &PackagingGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AwsId == nil {
+		return nil, errors.New("invalid value for required argument 'AwsId'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"tags[*]",
 	})
@@ -74,6 +80,8 @@ func (PackagingGroupState) ElementType() reflect.Type {
 type packagingGroupArgs struct {
 	// CDN Authorization
 	Authorization *PackagingGroupAuthorization `pulumi:"authorization"`
+	// The ID of the PackagingGroup.
+	AwsId string `pulumi:"awsId"`
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs *PackagingGroupLogConfiguration `pulumi:"egressAccessLogs"`
 	// A collection of tags associated with a resource
@@ -84,6 +92,8 @@ type packagingGroupArgs struct {
 type PackagingGroupArgs struct {
 	// CDN Authorization
 	Authorization PackagingGroupAuthorizationPtrInput
+	// The ID of the PackagingGroup.
+	AwsId pulumi.StringInput
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs PackagingGroupLogConfigurationPtrInput
 	// A collection of tags associated with a resource
@@ -135,6 +145,11 @@ func (o PackagingGroupOutput) Arn() pulumi.StringOutput {
 // CDN Authorization
 func (o PackagingGroupOutput) Authorization() PackagingGroupAuthorizationPtrOutput {
 	return o.ApplyT(func(v *PackagingGroup) PackagingGroupAuthorizationPtrOutput { return v.Authorization }).(PackagingGroupAuthorizationPtrOutput)
+}
+
+// The ID of the PackagingGroup.
+func (o PackagingGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackagingGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The fully qualified domain name for Assets in the PackagingGroup.

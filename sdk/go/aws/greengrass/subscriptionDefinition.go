@@ -18,6 +18,7 @@ type SubscriptionDefinition struct {
 	pulumi.CustomResourceState
 
 	Arn              pulumi.StringOutput                        `pulumi:"arn"`
+	AwsId            pulumi.StringOutput                        `pulumi:"awsId"`
 	InitialVersion   SubscriptionDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
 	LatestVersionArn pulumi.StringOutput                        `pulumi:"latestVersionArn"`
 	Name             pulumi.StringOutput                        `pulumi:"name"`
@@ -122,6 +123,10 @@ func (o SubscriptionDefinitionOutput) ToSubscriptionDefinitionOutputWithContext(
 
 func (o SubscriptionDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionDefinitionOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionDefinition) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o SubscriptionDefinitionOutput) InitialVersion() SubscriptionDefinitionVersionTypePtrOutput {

@@ -38,6 +38,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public /*out*/ readonly extensionArn!: pulumi.Output<string>;
     public readonly extensionIdentifier!: pulumi.Output<string | undefined>;
     public readonly extensionVersionNumber!: pulumi.Output<number | undefined>;
@@ -66,10 +67,12 @@ export class ExtensionAssociation extends pulumi.CustomResource {
             resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["extensionArn"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["extensionArn"] = undefined /*out*/;
             resourceInputs["extensionIdentifier"] = undefined /*out*/;
             resourceInputs["extensionVersionNumber"] = undefined /*out*/;

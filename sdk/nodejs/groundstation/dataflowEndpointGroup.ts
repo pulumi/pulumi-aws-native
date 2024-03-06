@@ -38,6 +38,7 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
      */
@@ -68,8 +69,10 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
             resourceInputs["endpointDetails"] = args ? args.endpointDetails : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["contactPostPassDurationSeconds"] = undefined /*out*/;
             resourceInputs["contactPrePassDurationSeconds"] = undefined /*out*/;
             resourceInputs["endpointDetails"] = undefined /*out*/;

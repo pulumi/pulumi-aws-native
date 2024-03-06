@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Sqs
     [AwsNativeResourceType("aws-native:sqs:QueuePolicy")]
     public partial class QueuePolicy : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// A policy document that contains the permissions for the specified SQS queues. For more information about SQS policies, see [Using custom policies with the access policy language](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html) in the *Developer Guide*.
         /// 

@@ -38,6 +38,7 @@ export class SmsTemplate extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly body!: pulumi.Output<string>;
     public readonly defaultSubstitutions!: pulumi.Output<string | undefined>;
     /**
@@ -72,8 +73,10 @@ export class SmsTemplate extends pulumi.CustomResource {
             resourceInputs["templateDescription"] = args ? args.templateDescription : undefined;
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["body"] = undefined /*out*/;
             resourceInputs["defaultSubstitutions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

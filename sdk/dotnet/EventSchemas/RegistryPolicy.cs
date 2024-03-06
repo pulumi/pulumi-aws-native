@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.EventSchemas
     [AwsNativeResourceType("aws-native:eventschemas:RegistryPolicy")]
     public partial class RegistryPolicy : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventSchemas::RegistryPolicy` for more information about the expected schema for this property.
         /// </summary>

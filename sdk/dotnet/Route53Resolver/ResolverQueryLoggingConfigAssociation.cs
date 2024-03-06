@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Route53Resolver
     public partial class ResolverQueryLoggingConfigAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Id
+        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
+        /// <summary>
         /// Rfc3339TimeString
         /// </summary>
         [Output("creationTime")]

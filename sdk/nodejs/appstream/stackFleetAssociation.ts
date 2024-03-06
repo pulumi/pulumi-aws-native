@@ -37,6 +37,7 @@ export class StackFleetAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === StackFleetAssociation.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly fleetName!: pulumi.Output<string>;
     public readonly stackName!: pulumi.Output<string>;
 
@@ -61,7 +62,9 @@ export class StackFleetAssociation extends pulumi.CustomResource {
             }
             resourceInputs["fleetName"] = args ? args.fleetName : undefined;
             resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["fleetName"] = undefined /*out*/;
             resourceInputs["stackName"] = undefined /*out*/;
         }

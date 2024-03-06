@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Waf
     [AwsNativeResourceType("aws-native:waf:ByteMatchSet")]
     public partial class ByteMatchSet : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("byteMatchTuples")]
         public Output<ImmutableArray<Outputs.ByteMatchSetByteMatchTuple>> ByteMatchTuples { get; private set; } = null!;
 

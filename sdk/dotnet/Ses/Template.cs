@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ses
     [AwsNativeResourceType("aws-native:ses:Template")]
     public partial class Template : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("template")]
         public Output<Outputs.Template?> TemplateValue { get; private set; } = null!;
 

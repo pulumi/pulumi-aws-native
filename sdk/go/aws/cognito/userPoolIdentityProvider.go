@@ -18,6 +18,7 @@ type UserPoolIdentityProvider struct {
 
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 	AttributeMapping pulumi.AnyOutput         `pulumi:"attributeMapping"`
+	AwsId            pulumi.StringOutput      `pulumi:"awsId"`
 	IdpIdentifiers   pulumi.StringArrayOutput `pulumi:"idpIdentifiers"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 	ProviderDetails pulumi.AnyOutput    `pulumi:"providerDetails"`
@@ -143,6 +144,10 @@ func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutputWithCont
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 func (o UserPoolIdentityProviderOutput) AttributeMapping() pulumi.AnyOutput {
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.AnyOutput { return v.AttributeMapping }).(pulumi.AnyOutput)
+}
+
+func (o UserPoolIdentityProviderOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o UserPoolIdentityProviderOutput) IdpIdentifiers() pulumi.StringArrayOutput {

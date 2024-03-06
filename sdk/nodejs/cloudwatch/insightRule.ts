@@ -41,6 +41,7 @@ export class InsightRule extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly ruleBody!: pulumi.Output<string>;
     public readonly ruleName!: pulumi.Output<string>;
     public readonly ruleState!: pulumi.Output<string>;
@@ -73,8 +74,10 @@ export class InsightRule extends pulumi.CustomResource {
             resourceInputs["ruleState"] = args ? args.ruleState : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["ruleBody"] = undefined /*out*/;
             resourceInputs["ruleName"] = undefined /*out*/;
             resourceInputs["ruleState"] = undefined /*out*/;

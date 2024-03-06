@@ -20,6 +20,7 @@ type RuleGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Collection of Available Labels.
 	AvailableLabels RuleGroupLabelSummaryArrayOutput `pulumi:"availableLabels"`
+	AwsId           pulumi.StringOutput              `pulumi:"awsId"`
 	Capacity        pulumi.IntOutput                 `pulumi:"capacity"`
 	// Collection of Consumed Labels.
 	ConsumedLabels       RuleGroupLabelSummaryArrayOutput     `pulumi:"consumedLabels"`
@@ -164,6 +165,10 @@ func (o RuleGroupOutput) Arn() pulumi.StringOutput {
 // Collection of Available Labels.
 func (o RuleGroupOutput) AvailableLabels() RuleGroupLabelSummaryArrayOutput {
 	return o.ApplyT(func(v *RuleGroup) RuleGroupLabelSummaryArrayOutput { return v.AvailableLabels }).(RuleGroupLabelSummaryArrayOutput)
+}
+
+func (o RuleGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o RuleGroupOutput) Capacity() pulumi.IntOutput {

@@ -19,6 +19,7 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
+	AwsId                       pulumi.StringOutput          `pulumi:"awsId"`
 	BundleId                    pulumi.StringOutput          `pulumi:"bundleId"`
 	DirectoryId                 pulumi.StringOutput          `pulumi:"directoryId"`
 	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput         `pulumi:"rootVolumeEncryptionEnabled"`
@@ -139,6 +140,10 @@ func (o WorkspaceOutput) ToWorkspaceOutput() WorkspaceOutput {
 
 func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
 	return o
+}
+
+func (o WorkspaceOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o WorkspaceOutput) BundleId() pulumi.StringOutput {

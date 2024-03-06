@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Ssm
         [Output("allowUnassociatedTargets")]
         public Output<bool> AllowUnassociatedTargets { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("cutoff")]
         public Output<int> Cutoff { get; private set; } = null!;
 

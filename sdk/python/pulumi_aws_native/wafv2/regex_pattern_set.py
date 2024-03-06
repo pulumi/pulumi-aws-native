@@ -160,6 +160,7 @@ class RegexPatternSet(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "scope"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RegexPatternSet, __self__).__init__(
@@ -185,6 +186,7 @@ class RegexPatternSet(pulumi.CustomResource):
         __props__ = RegexPatternSetArgs.__new__(RegexPatternSetArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["regular_expression_list"] = None
@@ -199,6 +201,14 @@ class RegexPatternSet(pulumi.CustomResource):
         ARN of the WAF entity.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        """
+        Id of the RegexPatternSet
+        """
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

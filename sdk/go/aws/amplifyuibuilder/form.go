@@ -16,6 +16,7 @@ type Form struct {
 	pulumi.CustomResourceState
 
 	AppId             pulumi.StringPtrOutput        `pulumi:"appId"`
+	AwsId             pulumi.StringOutput           `pulumi:"awsId"`
 	Cta               FormCtaPtrOutput              `pulumi:"cta"`
 	DataType          FormDataTypeConfigPtrOutput   `pulumi:"dataType"`
 	EnvironmentName   pulumi.StringPtrOutput        `pulumi:"environmentName"`
@@ -143,6 +144,10 @@ func (o FormOutput) ToFormOutputWithContext(ctx context.Context) FormOutput {
 
 func (o FormOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Form) pulumi.StringPtrOutput { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+func (o FormOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Form) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o FormOutput) Cta() FormCtaPtrOutput {

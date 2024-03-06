@@ -20,6 +20,8 @@ type Cluster struct {
 	AccessConfig ClusterAccessConfigPtrOutput `pulumi:"accessConfig"`
 	// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The unique ID given to your cluster.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The certificate-authority-data for your cluster.
 	CertificateAuthorityData pulumi.StringOutput `pulumi:"certificateAuthorityData"`
 	// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
@@ -178,6 +180,11 @@ func (o ClusterOutput) AccessConfig() ClusterAccessConfigPtrOutput {
 // The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The unique ID given to your cluster.
+func (o ClusterOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The certificate-authority-data for your cluster.

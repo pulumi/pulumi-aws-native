@@ -16,6 +16,7 @@ import (
 type AnnotationStore struct {
 	pulumi.CustomResourceState
 
+	AwsId          pulumi.StringOutput                            `pulumi:"awsId"`
 	CreationTime   pulumi.StringOutput                            `pulumi:"creationTime"`
 	Description    pulumi.StringPtrOutput                         `pulumi:"description"`
 	Name           pulumi.StringOutput                            `pulumi:"name"`
@@ -138,6 +139,10 @@ func (o AnnotationStoreOutput) ToAnnotationStoreOutput() AnnotationStoreOutput {
 
 func (o AnnotationStoreOutput) ToAnnotationStoreOutputWithContext(ctx context.Context) AnnotationStoreOutput {
 	return o
+}
+
+func (o AnnotationStoreOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnnotationStore) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o AnnotationStoreOutput) CreationTime() pulumi.StringOutput {

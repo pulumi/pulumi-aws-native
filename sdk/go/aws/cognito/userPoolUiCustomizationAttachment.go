@@ -16,6 +16,7 @@ import (
 type UserPoolUiCustomizationAttachment struct {
 	pulumi.CustomResourceState
 
+	AwsId      pulumi.StringOutput    `pulumi:"awsId"`
 	ClientId   pulumi.StringOutput    `pulumi:"clientId"`
 	Css        pulumi.StringPtrOutput `pulumi:"css"`
 	UserPoolId pulumi.StringOutput    `pulumi:"userPoolId"`
@@ -119,6 +120,10 @@ func (o UserPoolUiCustomizationAttachmentOutput) ToUserPoolUiCustomizationAttach
 
 func (o UserPoolUiCustomizationAttachmentOutput) ToUserPoolUiCustomizationAttachmentOutputWithContext(ctx context.Context) UserPoolUiCustomizationAttachmentOutput {
 	return o
+}
+
+func (o UserPoolUiCustomizationAttachmentOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o UserPoolUiCustomizationAttachmentOutput) ClientId() pulumi.StringOutput {

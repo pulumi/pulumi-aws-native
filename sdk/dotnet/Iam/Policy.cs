@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Iam
     [AwsNativeResourceType("aws-native:iam:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the group to associate the policy with.
         ///  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.

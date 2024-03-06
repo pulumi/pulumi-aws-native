@@ -103,6 +103,7 @@ class Budget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'budget'")
             __props__.__dict__["budget"] = budget
             __props__.__dict__["notifications_with_subscribers"] = notifications_with_subscribers
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["notifications_with_subscribers[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Budget, __self__).__init__(
@@ -127,9 +128,15 @@ class Budget(pulumi.CustomResource):
 
         __props__ = BudgetArgs.__new__(BudgetArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["budget"] = None
         __props__.__dict__["notifications_with_subscribers"] = None
         return Budget(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

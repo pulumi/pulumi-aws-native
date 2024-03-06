@@ -17,6 +17,7 @@ type ExtensionAssociation struct {
 	pulumi.CustomResourceState
 
 	Arn                    pulumi.StringOutput    `pulumi:"arn"`
+	AwsId                  pulumi.StringOutput    `pulumi:"awsId"`
 	ExtensionArn           pulumi.StringOutput    `pulumi:"extensionArn"`
 	ExtensionIdentifier    pulumi.StringPtrOutput `pulumi:"extensionIdentifier"`
 	ExtensionVersionNumber pulumi.IntPtrOutput    `pulumi:"extensionVersionNumber"`
@@ -131,6 +132,10 @@ func (o ExtensionAssociationOutput) ToExtensionAssociationOutputWithContext(ctx 
 
 func (o ExtensionAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ExtensionAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 func (o ExtensionAssociationOutput) ExtensionArn() pulumi.StringOutput {

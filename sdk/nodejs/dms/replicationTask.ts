@@ -40,6 +40,7 @@ export class ReplicationTask extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationTask.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly cdcStartPosition!: pulumi.Output<string | undefined>;
     public readonly cdcStartTime!: pulumi.Output<number | undefined>;
     public readonly cdcStopPosition!: pulumi.Output<string | undefined>;
@@ -95,7 +96,9 @@ export class ReplicationTask extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
             resourceInputs["taskData"] = args ? args.taskData : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["cdcStartPosition"] = undefined /*out*/;
             resourceInputs["cdcStartTime"] = undefined /*out*/;
             resourceInputs["cdcStopPosition"] = undefined /*out*/;

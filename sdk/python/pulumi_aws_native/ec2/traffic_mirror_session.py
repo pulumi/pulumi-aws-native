@@ -196,6 +196,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
                 raise TypeError("Missing required property 'traffic_mirror_target_id'")
             __props__.__dict__["traffic_mirror_target_id"] = traffic_mirror_target_id
             __props__.__dict__["virtual_network_id"] = virtual_network_id
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["network_interface_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrafficMirrorSession, __self__).__init__(
@@ -220,6 +221,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         __props__ = TrafficMirrorSessionArgs.__new__(TrafficMirrorSessionArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["network_interface_id"] = None
         __props__.__dict__["packet_length"] = None
@@ -229,6 +231,11 @@ class TrafficMirrorSession(pulumi.CustomResource):
         __props__.__dict__["traffic_mirror_target_id"] = None
         __props__.__dict__["virtual_network_id"] = None
         return TrafficMirrorSession(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter

@@ -390,6 +390,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["time_based_auto_scaling"] = time_based_auto_scaling
             __props__.__dict__["virtualization_type"] = virtualization_type
             __props__.__dict__["volumes"] = volumes
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["private_dns_name"] = None
             __props__.__dict__["private_ip"] = None
             __props__.__dict__["public_dns_name"] = None
@@ -423,6 +424,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["architecture"] = None
         __props__.__dict__["auto_scaling_type"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["block_device_mappings"] = None
         __props__.__dict__["ebs_optimized"] = None
         __props__.__dict__["elastic_ips"] = None
@@ -469,6 +471,11 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="blockDeviceMappings")

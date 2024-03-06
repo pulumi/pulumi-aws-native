@@ -40,6 +40,7 @@ export class OrganizationConfigRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationConfigRule.__pulumiType;
     }
 
+    public /*out*/ readonly awsId!: pulumi.Output<string>;
     public readonly excludedAccounts!: pulumi.Output<string[] | undefined>;
     public readonly organizationConfigRuleName!: pulumi.Output<string>;
     public readonly organizationCustomPolicyRuleMetadata!: pulumi.Output<outputs.configuration.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata | undefined>;
@@ -64,7 +65,9 @@ export class OrganizationConfigRule extends pulumi.CustomResource {
             resourceInputs["organizationCustomPolicyRuleMetadata"] = args ? args.organizationCustomPolicyRuleMetadata : undefined;
             resourceInputs["organizationCustomRuleMetadata"] = args ? args.organizationCustomRuleMetadata : undefined;
             resourceInputs["organizationManagedRuleMetadata"] = args ? args.organizationManagedRuleMetadata : undefined;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["excludedAccounts"] = undefined /*out*/;
             resourceInputs["organizationConfigRuleName"] = undefined /*out*/;
             resourceInputs["organizationCustomPolicyRuleMetadata"] = undefined /*out*/;

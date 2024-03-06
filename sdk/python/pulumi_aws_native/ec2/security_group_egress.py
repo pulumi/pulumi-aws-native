@@ -278,6 +278,7 @@ class SecurityGroupEgress(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ip_protocol'")
             __props__.__dict__["ip_protocol"] = ip_protocol
             __props__.__dict__["to_port"] = to_port
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidr_ip", "cidr_ipv6", "destination_prefix_list_id", "destination_security_group_id", "from_port", "group_id", "ip_protocol", "to_port"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityGroupEgress, __self__).__init__(
@@ -302,6 +303,7 @@ class SecurityGroupEgress(pulumi.CustomResource):
 
         __props__ = SecurityGroupEgressInitArgs.__new__(SecurityGroupEgressInitArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["cidr_ip"] = None
         __props__.__dict__["cidr_ipv6"] = None
         __props__.__dict__["description"] = None
@@ -312,6 +314,11 @@ class SecurityGroupEgress(pulumi.CustomResource):
         __props__.__dict__["ip_protocol"] = None
         __props__.__dict__["to_port"] = None
         return SecurityGroupEgress(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="cidrIp")

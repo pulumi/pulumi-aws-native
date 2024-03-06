@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.MediaStore
         [Output("accessLoggingEnabled")]
         public Output<bool?> AccessLoggingEnabled { get; private set; } = null!;
 
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("containerName")]
         public Output<string> ContainerName { get; private set; } = null!;
 
