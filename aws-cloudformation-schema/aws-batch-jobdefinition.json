@@ -37,6 +37,9 @@
     "ContainerProperties" : {
       "$ref" : "#/definitions/ContainerProperties"
     },
+    "EcsProperties" : {
+      "$ref" : "#/definitions/EcsProperties"
+    },
     "Id" : {
       "type" : "string"
     },
@@ -55,8 +58,18 @@
         "Container" : {
           "$ref" : "#/definitions/ContainerProperties"
         },
+        "InstanceTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
         "TargetNodes" : {
           "type" : "string"
+        },
+        "EcsProperties" : {
+          "$ref" : "#/definitions/EcsProperties"
         }
       },
       "required" : [ "TargetNodes" ]
@@ -197,6 +210,13 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "InitContainers" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/EksContainer"
+          }
+        },
         "Volumes" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -222,6 +242,9 @@
         },
         "HostNetwork" : {
           "type" : "boolean"
+        },
+        "ShareProcessNamespace" : {
+          "type" : "boolean"
         }
       }
     },
@@ -244,6 +267,19 @@
         }
       },
       "required" : [ "Size", "ContainerPath" ]
+    },
+    "TaskContainerDependency" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Condition" : {
+          "type" : "string"
+        },
+        "ContainerName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Condition", "ContainerName" ]
     },
     "ContainerProperties" : {
       "type" : "object",
@@ -349,6 +385,20 @@
       },
       "required" : [ "Image" ]
     },
+    "EcsProperties" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TaskProperties" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/EcsTaskProperties"
+          }
+        }
+      },
+      "required" : [ "TaskProperties" ]
+    },
     "AuthorizationConfig" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -382,6 +432,50 @@
         }
       }
     },
+    "EcsTaskProperties" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PlatformVersion" : {
+          "type" : "string"
+        },
+        "ExecutionRoleArn" : {
+          "type" : "string"
+        },
+        "RuntimePlatform" : {
+          "$ref" : "#/definitions/RuntimePlatform"
+        },
+        "TaskRoleArn" : {
+          "type" : "string"
+        },
+        "IpcMode" : {
+          "type" : "string"
+        },
+        "Volumes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Volumes"
+          }
+        },
+        "Containers" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/TaskContainerProperties"
+          }
+        },
+        "NetworkConfiguration" : {
+          "$ref" : "#/definitions/NetworkConfiguration"
+        },
+        "PidMode" : {
+          "type" : "string"
+        },
+        "EphemeralStorage" : {
+          "$ref" : "#/definitions/EphemeralStorage"
+        }
+      }
+    },
     "EksContainerSecurityContext" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -402,6 +496,89 @@
           "type" : "boolean"
         }
       }
+    },
+    "TaskContainerProperties" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RepositoryCredentials" : {
+          "$ref" : "#/definitions/RepositoryCredentials"
+        },
+        "User" : {
+          "type" : "string"
+        },
+        "Secrets" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Secret"
+          }
+        },
+        "Privileged" : {
+          "type" : "boolean"
+        },
+        "LinuxParameters" : {
+          "$ref" : "#/definitions/LinuxParameters"
+        },
+        "ReadonlyRootFilesystem" : {
+          "type" : "boolean"
+        },
+        "Image" : {
+          "type" : "string"
+        },
+        "LogConfiguration" : {
+          "$ref" : "#/definitions/LogConfiguration"
+        },
+        "Essential" : {
+          "type" : "boolean"
+        },
+        "ResourceRequirements" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/ResourceRequirement"
+          }
+        },
+        "Name" : {
+          "type" : "string"
+        },
+        "MountPoints" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/MountPoints"
+          }
+        },
+        "DependsOn" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/TaskContainerDependency"
+          }
+        },
+        "Command" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Environment" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Environment"
+          }
+        },
+        "Ulimits" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Ulimit"
+          }
+        }
+      },
+      "required" : [ "Image" ]
     },
     "EksSecret" : {
       "type" : "object",

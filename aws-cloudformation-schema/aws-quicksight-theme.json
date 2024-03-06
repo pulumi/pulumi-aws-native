@@ -378,7 +378,7 @@
   "readOnlyProperties" : [ "/properties/CreatedTime", "/properties/Version", "/properties/LastUpdatedTime", "/properties/Arn", "/properties/Type" ],
   "writeOnlyProperties" : [ "/properties/BaseThemeId", "/properties/Configuration", "/properties/VersionDescription" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/ThemeId" ],
-  "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/ThemeId" ],
+  "primaryIdentifier" : [ "/properties/ThemeId", "/properties/AwsAccountId" ],
   "handlers" : {
     "read" : {
       "permissions" : [ "quicksight:DescribeTheme", "quicksight:DescribeThemePermissions", "quicksight:ListTagsForResource" ]

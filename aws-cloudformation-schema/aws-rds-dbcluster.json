@@ -244,6 +244,10 @@
       "description" : "Indicates whether the DB instance is encrypted.\nIf you specify the DBClusterIdentifier, SnapshotIdentifier, or SourceDBInstanceIdentifier property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance.",
       "type" : "boolean"
     },
+    "StorageThroughput" : {
+      "description" : "Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.",
+      "type" : "integer"
+    },
     "StorageType" : {
       "description" : "Specifies the storage type to be associated with the DB cluster.",
       "type" : "string"
@@ -410,7 +414,7 @@
     "/properties/SourceDBClusterIdentifier" : "$lowercase(SourceDBClusterIdentifier)",
     "/properties/StorageType" : "$lowercase(StorageType)"
   },
-  "readOnlyProperties" : [ "/properties/DBClusterArn", "/properties/DBClusterResourceId", "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Port", "/properties/ReadEndpoint/Address", "/properties/MasterUserSecret/SecretArn" ],
+  "readOnlyProperties" : [ "/properties/DBClusterArn", "/properties/DBClusterResourceId", "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Port", "/properties/ReadEndpoint/Address", "/properties/MasterUserSecret/SecretArn", "/properties/StorageThroughput" ],
   "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/DBSystemId", "/properties/DatabaseName", "/properties/EngineMode", "/properties/KmsKeyId", "/properties/PubliclyAccessible", "/properties/RestoreToTime", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
   "conditionalCreateOnlyProperties" : [ "/properties/Engine", "/properties/GlobalClusterIdentifier", "/properties/MasterUsername" ],
   "primaryIdentifier" : [ "/properties/DBClusterIdentifier" ],
