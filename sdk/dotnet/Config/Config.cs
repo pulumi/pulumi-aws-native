@@ -62,11 +62,11 @@ namespace Pulumi.AwsNative
             set => _assumeRole.Set(value);
         }
 
-        private static readonly __Value<Pulumi.AwsNative.Config.Types.DefaultTags?> _defaultTags = new __Value<Pulumi.AwsNative.Config.Types.DefaultTags?>(() => __config.GetObject<Pulumi.AwsNative.Config.Types.DefaultTags>("defaultTags"));
+        private static readonly __Value<ImmutableDictionary<string, string>?> _defaultTags = new __Value<ImmutableDictionary<string, string>?>(() => __config.GetObject<ImmutableDictionary<string, string>>("defaultTags"));
         /// <summary>
         /// Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
         /// </summary>
-        public static Pulumi.AwsNative.Config.Types.DefaultTags? DefaultTags
+        public static ImmutableDictionary<string, string>? DefaultTags
         {
             get => _defaultTags.Get();
             set => _defaultTags.Set(value);
@@ -279,14 +279,6 @@ namespace Pulumi.AwsNative
             /// A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
             /// </summary>
                 public ImmutableArray<string> TransitiveTagKeys { get; set; }
-            }
-
-             public class DefaultTags
-             {
-            /// <summary>
-            /// A group of tags to set across all resources.
-            /// </summary>
-                public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
             }
 
              public class Endpoints

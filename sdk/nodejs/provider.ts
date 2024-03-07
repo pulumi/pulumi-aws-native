@@ -104,7 +104,7 @@ export interface ProviderArgs {
     /**
      * Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
      */
-    defaultTags?: pulumi.Input<inputs.ProviderDefaultTagsArgs>;
+    defaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for customizing service endpoints.
      */

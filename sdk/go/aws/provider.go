@@ -86,7 +86,7 @@ type providerArgs struct {
 	// Configuration for retrieving temporary credentials from the STS service.
 	AssumeRole *ProviderAssumeRole `pulumi:"assumeRole"`
 	// Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
+	DefaultTags map[string]string `pulumi:"defaultTags"`
 	// Configuration block for customizing service endpoints.
 	Endpoints []ProviderEndpoint `pulumi:"endpoints"`
 	// List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
@@ -132,7 +132,7 @@ type ProviderArgs struct {
 	// Configuration for retrieving temporary credentials from the STS service.
 	AssumeRole ProviderAssumeRolePtrInput
 	// Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-	DefaultTags ProviderDefaultTagsPtrInput
+	DefaultTags pulumi.StringMapInput
 	// Configuration block for customizing service endpoints.
 	Endpoints ProviderEndpointArrayInput
 	// List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.

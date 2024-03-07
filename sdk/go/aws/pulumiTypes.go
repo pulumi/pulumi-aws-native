@@ -395,146 +395,6 @@ func (o ProviderAssumeRolePtrOutput) TransitiveTagKeys() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-type ProviderDefaultTags struct {
-	// A group of tags to set across all resources.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// ProviderDefaultTagsInput is an input type that accepts ProviderDefaultTagsArgs and ProviderDefaultTagsOutput values.
-// You can construct a concrete instance of `ProviderDefaultTagsInput` via:
-//
-//	ProviderDefaultTagsArgs{...}
-type ProviderDefaultTagsInput interface {
-	pulumi.Input
-
-	ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput
-	ToProviderDefaultTagsOutputWithContext(context.Context) ProviderDefaultTagsOutput
-}
-
-// The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-type ProviderDefaultTagsArgs struct {
-	// A group of tags to set across all resources.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (ProviderDefaultTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderDefaultTags)(nil)).Elem()
-}
-
-func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput {
-	return i.ToProviderDefaultTagsOutputWithContext(context.Background())
-}
-
-func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutputWithContext(ctx context.Context) ProviderDefaultTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput)
-}
-
-func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
-	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
-}
-
-func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput).ToProviderDefaultTagsPtrOutputWithContext(ctx)
-}
-
-// ProviderDefaultTagsPtrInput is an input type that accepts ProviderDefaultTagsArgs, ProviderDefaultTagsPtr and ProviderDefaultTagsPtrOutput values.
-// You can construct a concrete instance of `ProviderDefaultTagsPtrInput` via:
-//
-//	        ProviderDefaultTagsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ProviderDefaultTagsPtrInput interface {
-	pulumi.Input
-
-	ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput
-	ToProviderDefaultTagsPtrOutputWithContext(context.Context) ProviderDefaultTagsPtrOutput
-}
-
-type providerDefaultTagsPtrType ProviderDefaultTagsArgs
-
-func ProviderDefaultTagsPtr(v *ProviderDefaultTagsArgs) ProviderDefaultTagsPtrInput {
-	return (*providerDefaultTagsPtrType)(v)
-}
-
-func (*providerDefaultTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProviderDefaultTags)(nil)).Elem()
-}
-
-func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
-	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsPtrOutput)
-}
-
-// The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-type ProviderDefaultTagsOutput struct{ *pulumi.OutputState }
-
-func (ProviderDefaultTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderDefaultTags)(nil)).Elem()
-}
-
-func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsOutput() ProviderDefaultTagsOutput {
-	return o
-}
-
-func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsOutputWithContext(ctx context.Context) ProviderDefaultTagsOutput {
-	return o
-}
-
-func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
-	return o.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
-}
-
-func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderDefaultTags) *ProviderDefaultTags {
-		return &v
-	}).(ProviderDefaultTagsPtrOutput)
-}
-
-// A group of tags to set across all resources.
-func (o ProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-type ProviderDefaultTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (ProviderDefaultTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProviderDefaultTags)(nil)).Elem()
-}
-
-func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
-	return o
-}
-
-func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
-	return o
-}
-
-func (o ProviderDefaultTagsPtrOutput) Elem() ProviderDefaultTagsOutput {
-	return o.ApplyT(func(v *ProviderDefaultTags) ProviderDefaultTags {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderDefaultTags
-		return ret
-	}).(ProviderDefaultTagsOutput)
-}
-
-// A group of tags to set across all resources.
-func (o ProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ProviderDefaultTags) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
 // The configuration for for customizing service endpoints.
 type ProviderEndpoint struct {
 	// Override the default endpoint for AWS CloudControl
@@ -944,8 +804,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CreateOnlyTagArrayInput)(nil)).Elem(), CreateOnlyTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRolePtrInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsPtrInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderEndpointInput)(nil)).Elem(), ProviderEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderEndpointArrayInput)(nil)).Elem(), ProviderEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIgnoreTagsInput)(nil)).Elem(), ProviderIgnoreTagsArgs{})
@@ -956,8 +814,6 @@ func init() {
 	pulumi.RegisterOutputType(CreateOnlyTagArrayOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
-	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})
-	pulumi.RegisterOutputType(ProviderDefaultTagsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderEndpointOutput{})
 	pulumi.RegisterOutputType(ProviderEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ProviderIgnoreTagsOutput{})

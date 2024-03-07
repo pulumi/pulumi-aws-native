@@ -13,7 +13,6 @@ from ._enums import *
 __all__ = [
     'CreateOnlyTagArgs',
     'ProviderAssumeRoleArgs',
-    'ProviderDefaultTagsArgs',
     'ProviderEndpointArgs',
     'ProviderIgnoreTagsArgs',
     'TagArgs',
@@ -191,30 +190,6 @@ class ProviderAssumeRoleArgs:
     @transitive_tag_keys.setter
     def transitive_tag_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transitive_tag_keys", value)
-
-
-@pulumi.input_type
-class ProviderDefaultTagsArgs:
-    def __init__(__self__, *,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A group of tags to set across all resources.
-        """
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A group of tags to set across all resources.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

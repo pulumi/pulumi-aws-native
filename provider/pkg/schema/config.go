@@ -74,21 +74,6 @@ var assumeRole = pschema.ComplexTypeSpec{
 	},
 }
 
-var defaultTags = pschema.ComplexTypeSpec{
-	ObjectTypeSpec: pschema.ObjectTypeSpec{
-		Description: "The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
-		Properties: map[string]pschema.PropertySpec{
-			"tags": {
-				Description: "A group of tags to set across all resources.",
-				TypeSpec: pschema.TypeSpec{
-					Type:                 "object",
-					AdditionalProperties: &pschema.TypeSpec{Type: "string"}},
-			},
-		},
-		Type: "object",
-	},
-}
-
 var endpoints = pschema.ComplexTypeSpec{
 	ObjectTypeSpec: pschema.ObjectTypeSpec{
 		Description: "The configuration for for customizing service endpoints.",
@@ -171,13 +156,11 @@ var region = pschema.ComplexTypeSpec{
 
 // typeOverlays augment the types defined by the schema.
 var typeOverlays = map[string]pschema.ComplexTypeSpec{
-	"aws-native:config:AssumeRole":         assumeRole,
-	"aws-native:index:ProviderAssumeRole":  configToProvider(assumeRole),
-	"aws-native:config:DefaultTags":        defaultTags,
-	"aws-native:index:ProviderDefaultTags": configToProvider(defaultTags),
-	"aws-native:config:Endpoints":          endpoints,
-	"aws-native:index:ProviderEndpoint":    configToProvider(endpoints),
-	"aws-native:config:IgnoreTags":         ignoreTags,
-	"aws-native:index:ProviderIgnoreTags":  configToProvider(ignoreTags),
-	"aws-native:index/Region:Region":       region,
+	"aws-native:config:AssumeRole":        assumeRole,
+	"aws-native:index:ProviderAssumeRole": configToProvider(assumeRole),
+	"aws-native:config:Endpoints":         endpoints,
+	"aws-native:index:ProviderEndpoint":   configToProvider(endpoints),
+	"aws-native:config:IgnoreTags":        ignoreTags,
+	"aws-native:index:ProviderIgnoreTags": configToProvider(ignoreTags),
+	"aws-native:index/Region:Region":      region,
 }
