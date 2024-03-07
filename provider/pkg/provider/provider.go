@@ -1075,6 +1075,8 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, err
 	}
 
+	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
+	// patch requests as adds to ensure the updated model validates.
 	for _, writeOnlyPropName := range spec.WriteOnly {
 		propKey := resource.PropertyKey(writeOnlyPropName)
 		if _, ok := diff.Sames[propKey]; ok {
