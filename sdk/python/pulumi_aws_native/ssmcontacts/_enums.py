@@ -13,7 +13,7 @@ __all__ = [
 
 class ContactChannelChannelType(str, Enum):
     """
-    Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+    Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
     """
     SMS = "SMS"
     VOICE = "VOICE"
@@ -22,7 +22,7 @@ class ContactChannelChannelType(str, Enum):
 
 class ContactType(str, Enum):
     """
-    Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+    Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
     """
     PERSONAL = "PERSONAL"
     CUSTOM = "CUSTOM"

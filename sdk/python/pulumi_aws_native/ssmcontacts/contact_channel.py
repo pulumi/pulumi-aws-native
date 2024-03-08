@@ -24,7 +24,7 @@ class ContactChannelArgs:
         The set of arguments for constructing a ContactChannel resource.
         :param pulumi.Input[str] channel_address: The details that SSM Incident Manager uses when trying to engage the contact channel.
         :param pulumi.Input[str] channel_name: The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
-        :param pulumi.Input['ContactChannelChannelType'] channel_type: Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+        :param pulumi.Input['ContactChannelChannelType'] channel_type: Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
         :param pulumi.Input[str] contact_id: ARN of the contact resource
         :param pulumi.Input[bool] defer_activation: If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         """
@@ -67,7 +67,7 @@ class ContactChannelArgs:
     @pulumi.getter(name="channelType")
     def channel_type(self) -> Optional[pulumi.Input['ContactChannelChannelType']]:
         """
-        Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+        Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
         """
         return pulumi.get(self, "channel_type")
 
@@ -118,7 +118,7 @@ class ContactChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_address: The details that SSM Incident Manager uses when trying to engage the contact channel.
         :param pulumi.Input[str] channel_name: The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
-        :param pulumi.Input['ContactChannelChannelType'] channel_type: Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+        :param pulumi.Input['ContactChannelChannelType'] channel_type: Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
         :param pulumi.Input[str] contact_id: ARN of the contact resource
         :param pulumi.Input[bool] defer_activation: If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         """
@@ -226,7 +226,7 @@ class ContactChannel(pulumi.CustomResource):
     @pulumi.getter(name="channelType")
     def channel_type(self) -> pulumi.Output[Optional['ContactChannelChannelType']]:
         """
-        Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+        Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
         """
         return pulumi.get(self, "channel_type")
 

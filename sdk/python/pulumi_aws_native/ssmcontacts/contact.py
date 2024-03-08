@@ -25,7 +25,7 @@ class ContactArgs:
         The set of arguments for constructing a Contact resource.
         :param pulumi.Input[str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         :param pulumi.Input[str] display_name: Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
-        :param pulumi.Input['ContactType'] type: Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+        :param pulumi.Input['ContactType'] type: Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
         :param pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
         pulumi.set(__self__, "alias", alias)
@@ -62,7 +62,7 @@ class ContactArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['ContactType']:
         """
-        Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+        Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
         """
         return pulumi.get(self, "type")
 
@@ -101,7 +101,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         :param pulumi.Input[str] display_name: Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactStageArgs']]]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
-        :param pulumi.Input['ContactType'] type: Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+        :param pulumi.Input['ContactType'] type: Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
         """
         ...
     @overload
@@ -218,7 +218,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output['ContactType']:
         """
-        Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+        Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
         """
         return pulumi.get(self, "type")
 

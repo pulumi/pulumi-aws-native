@@ -32,8 +32,8 @@ type Certificate struct {
 	TemplateArn pulumi.StringPtrOutput `pulumi:"templateArn"`
 	// The period of time during which the certificate will be valid.
 	Validity CertificateValidityOutput `pulumi:"validity"`
-	// Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-	//  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value.
+	// Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+	//  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value.
 	//  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
 	//  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
 	ValidityNotBefore CertificateValidityPtrOutput `pulumi:"validityNotBefore"`
@@ -115,8 +115,8 @@ type certificateArgs struct {
 	TemplateArn *string `pulumi:"templateArn"`
 	// The period of time during which the certificate will be valid.
 	Validity CertificateValidity `pulumi:"validity"`
-	// Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-	//  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value.
+	// Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+	//  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value.
 	//  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
 	//  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
 	ValidityNotBefore *CertificateValidity `pulumi:"validityNotBefore"`
@@ -138,8 +138,8 @@ type CertificateArgs struct {
 	TemplateArn pulumi.StringPtrInput
 	// The period of time during which the certificate will be valid.
 	Validity CertificateValidityInput
-	// Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-	//  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value.
+	// Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+	//  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value.
 	//  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
 	//  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
 	ValidityNotBefore CertificateValidityPtrInput
@@ -223,9 +223,9 @@ func (o CertificateOutput) Validity() CertificateValidityOutput {
 	return o.ApplyT(func(v *Certificate) CertificateValidityOutput { return v.Validity }).(CertificateValidityOutput)
 }
 
-// Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
+// Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
 //
-//	By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value.
+//	By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value.
 //	Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
 //	The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
 func (o CertificateOutput) ValidityNotBefore() CertificateValidityPtrOutput {

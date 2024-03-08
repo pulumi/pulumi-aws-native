@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.SsmContacts
         public Output<string?> ChannelName { get; private set; } = null!;
 
         /// <summary>
-        /// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+        /// Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
         /// </summary>
         [Output("channelType")]
         public Output<Pulumi.AwsNative.SsmContacts.ContactChannelChannelType?> ChannelType { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.SsmContacts
         public Input<string>? ChannelName { get; set; }
 
         /// <summary>
-        /// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+        /// Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
         /// </summary>
         [Input("channelType")]
         public Input<Pulumi.AwsNative.SsmContacts.ContactChannelChannelType>? ChannelType { get; set; }

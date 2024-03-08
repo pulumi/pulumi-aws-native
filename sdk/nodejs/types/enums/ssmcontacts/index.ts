@@ -9,7 +9,7 @@ export const ContactChannelChannelType = {
 } as const;
 
 /**
- * Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+ * Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
  */
 export type ContactChannelChannelType = (typeof ContactChannelChannelType)[keyof typeof ContactChannelChannelType];
 
@@ -22,7 +22,7 @@ export const ContactType = {
 } as const;
 
 /**
- * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+ * Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
  */
 export type ContactType = (typeof ContactType)[keyof typeof ContactType];
 

@@ -33,8 +33,8 @@ class CertificateArgs:
         :param pulumi.Input['CertificateValidityArgs'] validity: The period of time during which the certificate will be valid.
         :param pulumi.Input['CertificateApiPassthroughArgs'] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
         :param pulumi.Input[str] template_arn: Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
-        :param pulumi.Input['CertificateValidityArgs'] validity_not_before: Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-                By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+        :param pulumi.Input['CertificateValidityArgs'] validity_not_before: Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+                By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value. 
                 Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
                 The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         """
@@ -127,8 +127,8 @@ class CertificateArgs:
     @pulumi.getter(name="validityNotBefore")
     def validity_not_before(self) -> Optional[pulumi.Input['CertificateValidityArgs']]:
         """
-        Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-         By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+        Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+         By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value. 
          Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
          The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         """
@@ -165,8 +165,8 @@ class Certificate(pulumi.CustomResource):
                  The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
         :param pulumi.Input[str] template_arn: Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
         :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity: The period of time during which the certificate will be valid.
-        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity_not_before: Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-                By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity_not_before: Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+                By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value. 
                 Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
                 The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         """
@@ -326,8 +326,8 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="validityNotBefore")
     def validity_not_before(self) -> pulumi.Output[Optional['outputs.CertificateValidity']]:
         """
-        Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-         By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+        Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+         By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value. 
          Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
          The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         """

@@ -60,8 +60,8 @@ namespace Pulumi.AwsNative.Acmpca
         public Output<Outputs.CertificateValidity> Validity { get; private set; } = null!;
 
         /// <summary>
-        /// Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-        ///  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+        /// Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+        ///  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value. 
         ///  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
         ///  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         /// </summary>
@@ -162,8 +162,8 @@ namespace Pulumi.AwsNative.Acmpca
         public Input<Inputs.CertificateValidityArgs> Validity { get; set; } = null!;
 
         /// <summary>
-        /// Information describing the start of the validity period of the certificate. This parameter sets the “Not Before" date for the certificate.
-        ///  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the “Not Before” value. 
+        /// Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+        ///  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value. 
         ///  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
         ///  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
         /// </summary>

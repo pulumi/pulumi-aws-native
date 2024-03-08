@@ -24,7 +24,7 @@ type Contact struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 	Plan ContactStageArrayOutput `pulumi:"plan"`
-	// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+	// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
 	Type ContactTypeOutput `pulumi:"type"`
 }
 
@@ -88,7 +88,7 @@ type contactArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 	Plan []ContactStage `pulumi:"plan"`
-	// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+	// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
 	Type ContactType `pulumi:"type"`
 }
 
@@ -100,7 +100,7 @@ type ContactArgs struct {
 	DisplayName pulumi.StringInput
 	// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 	Plan ContactStageArrayInput
-	// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+	// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
 	Type ContactTypeInput
 }
 
@@ -161,7 +161,7 @@ func (o ContactOutput) Plan() ContactStageArrayOutput {
 	return o.ApplyT(func(v *Contact) ContactStageArrayOutput { return v.Plan }).(ContactStageArrayOutput)
 }
 
-// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
 func (o ContactOutput) Type() ContactTypeOutput {
 	return o.ApplyT(func(v *Contact) ContactTypeOutput { return v.Type }).(ContactTypeOutput)
 }
