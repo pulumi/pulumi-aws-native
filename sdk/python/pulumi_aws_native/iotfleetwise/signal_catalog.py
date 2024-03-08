@@ -84,11 +84,11 @@ class SignalCatalogArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""SignalCatalog is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""SignalCatalog is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class SignalCatalog(pulumi.CustomResource):
-    warnings.warn("""SignalCatalog is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""SignalCatalog is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -136,7 +136,7 @@ class SignalCatalog(pulumi.CustomResource):
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['SignalCatalogNode0PropertiesArgs'], pulumi.InputType['SignalCatalogNode1PropertiesArgs'], pulumi.InputType['SignalCatalogNode2PropertiesArgs'], pulumi.InputType['SignalCatalogNode3PropertiesArgs']]]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""SignalCatalog is deprecated: SignalCatalog is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""SignalCatalog is deprecated: SignalCatalog is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -81,11 +81,11 @@ class SmsTemplateArgs:
         pulumi.set(self, "template_description", value)
 
 
-warnings.warn("""SmsTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""SmsTemplate is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class SmsTemplate(pulumi.CustomResource):
-    warnings.warn("""SmsTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""SmsTemplate is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -134,7 +134,7 @@ class SmsTemplate(pulumi.CustomResource):
                  template_description: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SmsTemplate is deprecated: SmsTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""SmsTemplate is deprecated: SmsTemplate is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

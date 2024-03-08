@@ -91,11 +91,11 @@ class AliasArgs:
         pulumi.set(self, "routing_config", value)
 
 
-warnings.warn("""Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Alias is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Alias(pulumi.CustomResource):
-    warnings.warn("""Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Alias is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -145,7 +145,7 @@ class Alias(pulumi.CustomResource):
                  provisioned_concurrency_config: Optional[pulumi.Input[pulumi.InputType['AliasProvisionedConcurrencyConfigurationArgs']]] = None,
                  routing_config: Optional[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Alias is deprecated: Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Alias is deprecated: Alias is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

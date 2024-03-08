@@ -149,11 +149,11 @@ class InstanceGroupConfigArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""InstanceGroupConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""InstanceGroupConfig is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class InstanceGroupConfig(pulumi.CustomResource):
-    warnings.warn("""InstanceGroupConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""InstanceGroupConfig is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -213,7 +213,7 @@ class InstanceGroupConfig(pulumi.CustomResource):
                  market: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""InstanceGroupConfig is deprecated: InstanceGroupConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""InstanceGroupConfig is deprecated: InstanceGroupConfig is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Emr
     /// <summary>
     /// Resource Type definition for AWS::EMR::Cluster
     /// </summary>
-    [Obsolete(@"Cluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Cluster is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {

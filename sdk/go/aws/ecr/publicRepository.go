@@ -14,7 +14,7 @@ import (
 
 // The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Public Registry (Amazon Public ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR
 //
-// Deprecated: PublicRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: PublicRepository is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type PublicRepository struct {
 	pulumi.CustomResourceState
 

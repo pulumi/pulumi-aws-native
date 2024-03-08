@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
     /// <summary>
     /// Definition of AWS::ManagedBlockchain::com.amazonaws.taiga.webservice.api#Accessor Resource Type
     /// </summary>
-    [Obsolete(@"Accessor is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Accessor is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:managedblockchain:Accessor")]
     public partial class Accessor : global::Pulumi.CustomResource
     {

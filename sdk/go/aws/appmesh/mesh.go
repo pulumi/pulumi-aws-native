@@ -14,7 +14,7 @@ import (
 
 // Resource Type definition for AWS::AppMesh::Mesh
 //
-// Deprecated: Mesh is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: Mesh is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Mesh struct {
 	pulumi.CustomResourceState
 

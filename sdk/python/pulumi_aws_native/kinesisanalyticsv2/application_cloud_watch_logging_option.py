@@ -43,11 +43,11 @@ class ApplicationCloudWatchLoggingOptionArgs:
         pulumi.set(self, "cloud_watch_logging_option", value)
 
 
-warnings.warn("""ApplicationCloudWatchLoggingOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ApplicationCloudWatchLoggingOption is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ApplicationCloudWatchLoggingOption(pulumi.CustomResource):
-    warnings.warn("""ApplicationCloudWatchLoggingOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ApplicationCloudWatchLoggingOption is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -89,7 +89,7 @@ class ApplicationCloudWatchLoggingOption(pulumi.CustomResource):
                  application_name: Optional[pulumi.Input[str]] = None,
                  cloud_watch_logging_option: Optional[pulumi.Input[pulumi.InputType['ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApplicationCloudWatchLoggingOption is deprecated: ApplicationCloudWatchLoggingOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ApplicationCloudWatchLoggingOption is deprecated: ApplicationCloudWatchLoggingOption is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

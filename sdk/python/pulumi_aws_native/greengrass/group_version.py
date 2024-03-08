@@ -114,11 +114,11 @@ class GroupVersionInitArgs:
         pulumi.set(self, "subscription_definition_version_arn", value)
 
 
-warnings.warn("""GroupVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""GroupVersion is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class GroupVersion(pulumi.CustomResource):
-    warnings.warn("""GroupVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""GroupVersion is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -172,7 +172,7 @@ class GroupVersion(pulumi.CustomResource):
                  resource_definition_version_arn: Optional[pulumi.Input[str]] = None,
                  subscription_definition_version_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GroupVersion is deprecated: GroupVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""GroupVersion is deprecated: GroupVersion is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

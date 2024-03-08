@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.LookoutEquipment
     /// <summary>
     /// Resource schema for LookoutEquipment InferenceScheduler.
     /// </summary>
-    [Obsolete(@"InferenceScheduler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"InferenceScheduler is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lookoutequipment:InferenceScheduler")]
     public partial class InferenceScheduler : global::Pulumi.CustomResource
     {

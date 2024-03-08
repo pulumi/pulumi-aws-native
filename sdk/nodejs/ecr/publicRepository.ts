@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Public Registry (Amazon Public ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR
  *
- * @deprecated PublicRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated PublicRepository is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class PublicRepository extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class PublicRepository extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PublicRepository {
-        pulumi.log.warn("PublicRepository is deprecated: PublicRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("PublicRepository is deprecated: PublicRepository is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new PublicRepository(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,9 +67,9 @@ export class PublicRepository extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated PublicRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated PublicRepository is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: PublicRepositoryArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PublicRepository is deprecated: PublicRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("PublicRepository is deprecated: PublicRepository is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

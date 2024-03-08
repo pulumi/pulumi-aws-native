@@ -77,11 +77,11 @@ class ClientVpnAuthorizationRuleArgs:
         pulumi.set(self, "description", value)
 
 
-warnings.warn("""ClientVpnAuthorizationRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ClientVpnAuthorizationRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ClientVpnAuthorizationRule(pulumi.CustomResource):
-    warnings.warn("""ClientVpnAuthorizationRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ClientVpnAuthorizationRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -129,7 +129,7 @@ class ClientVpnAuthorizationRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  target_network_cidr: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ClientVpnAuthorizationRule is deprecated: ClientVpnAuthorizationRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ClientVpnAuthorizationRule is deprecated: ClientVpnAuthorizationRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

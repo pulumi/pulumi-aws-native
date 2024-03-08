@@ -67,11 +67,11 @@ class PermissionsArgs:
         pulumi.set(self, "permissions_with_grant_option", value)
 
 
-warnings.warn("""Permissions is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Permissions is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Permissions(pulumi.CustomResource):
-    warnings.warn("""Permissions is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Permissions is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -117,7 +117,7 @@ class Permissions(pulumi.CustomResource):
                  permissions_with_grant_option: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['PermissionsResourceArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Permissions is deprecated: Permissions is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Permissions is deprecated: Permissions is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

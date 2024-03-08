@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.BillingConductor
     /// <summary>
     /// Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
     /// </summary>
-    [Obsolete(@"PricingPlan is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"PricingPlan is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:billingconductor:PricingPlan")]
     public partial class PricingPlan : global::Pulumi.CustomResource
     {

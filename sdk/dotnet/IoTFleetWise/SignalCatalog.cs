@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
     /// <summary>
     /// Definition of AWS::IoTFleetWise::SignalCatalog Resource Type
     /// </summary>
-    [Obsolete(@"SignalCatalog is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SignalCatalog is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotfleetwise:SignalCatalog")]
     public partial class SignalCatalog : global::Pulumi.CustomResource
     {

@@ -15,7 +15,7 @@ import (
 
 // Resource Type definition for AWS::ElastiCache::ReplicationGroup
 //
-// Deprecated: ReplicationGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: ReplicationGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ReplicationGroup struct {
 	pulumi.CustomResourceState
 

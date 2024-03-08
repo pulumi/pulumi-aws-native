@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Qldb
     /// <summary>
     /// Resource Type definition for AWS::QLDB::Ledger
     /// </summary>
-    [Obsolete(@"Ledger is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Ledger is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:qldb:Ledger")]
     public partial class Ledger : global::Pulumi.CustomResource
     {

@@ -15,7 +15,7 @@ import (
 
 // A custom line item is an one time charge that is applied to a specific billing group's bill.
 //
-// Deprecated: CustomLineItem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: CustomLineItem is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type CustomLineItem struct {
 	pulumi.CustomResourceState
 

@@ -43,11 +43,11 @@ class DataCatalogEncryptionSettingsInitArgs:
         pulumi.set(self, "data_catalog_encryption_settings", value)
 
 
-warnings.warn("""DataCatalogEncryptionSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DataCatalogEncryptionSettings is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class DataCatalogEncryptionSettings(pulumi.CustomResource):
-    warnings.warn("""DataCatalogEncryptionSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""DataCatalogEncryptionSettings is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -89,7 +89,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""DataCatalogEncryptionSettings is deprecated: DataCatalogEncryptionSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DataCatalogEncryptionSettings is deprecated: DataCatalogEncryptionSettings is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

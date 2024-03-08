@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lambda::Alias
  *
- * @deprecated Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated Alias is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Alias extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Alias {
-        pulumi.log.warn("Alias is deprecated: Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Alias is deprecated: Alias is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Alias(name, undefined as any, { ...opts, id: id });
     }
 
@@ -55,9 +55,9 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated Alias is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Alias is deprecated: Alias is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Alias is deprecated: Alias is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

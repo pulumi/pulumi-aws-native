@@ -64,11 +64,11 @@ class ClientVpnRouteArgs:
         pulumi.set(self, "description", value)
 
 
-warnings.warn("""ClientVpnRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ClientVpnRoute is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ClientVpnRoute(pulumi.CustomResource):
-    warnings.warn("""ClientVpnRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ClientVpnRoute is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -114,7 +114,7 @@ class ClientVpnRoute(pulumi.CustomResource):
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  target_vpc_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ClientVpnRoute is deprecated: ClientVpnRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ClientVpnRoute is deprecated: ClientVpnRoute is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

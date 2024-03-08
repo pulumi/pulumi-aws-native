@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// <summary>
     /// Resource Type definition for AWS::Pinpoint::GCMChannel
     /// </summary>
-    [Obsolete(@"GcmChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"GcmChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:GcmChannel")]
     public partial class GcmChannel : global::Pulumi.CustomResource
     {

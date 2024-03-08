@@ -66,11 +66,11 @@ class SmsChannelArgs:
         pulumi.set(self, "short_code", value)
 
 
-warnings.warn("""SmsChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""SmsChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class SmsChannel(pulumi.CustomResource):
-    warnings.warn("""SmsChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""SmsChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -116,7 +116,7 @@ class SmsChannel(pulumi.CustomResource):
                  sender_id: Optional[pulumi.Input[str]] = None,
                  short_code: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SmsChannel is deprecated: SmsChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""SmsChannel is deprecated: SmsChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Sqs
     /// <summary>
     /// The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
     /// </summary>
-    [Obsolete(@"QueuePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"QueuePolicy is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sqs:QueuePolicy")]
     public partial class QueuePolicy : global::Pulumi.CustomResource
     {

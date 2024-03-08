@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.FSx
     /// <summary>
     /// Resource Type definition for AWS::FSx::FileSystem
     /// </summary>
-    [Obsolete(@"FileSystem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"FileSystem is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:fsx:FileSystem")]
     public partial class FileSystem : global::Pulumi.CustomResource
     {

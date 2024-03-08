@@ -126,11 +126,11 @@ class ApnsVoipChannelArgs:
         pulumi.set(self, "token_key_id", value)
 
 
-warnings.warn("""ApnsVoipChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ApnsVoipChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ApnsVoipChannel(pulumi.CustomResource):
-    warnings.warn("""ApnsVoipChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ApnsVoipChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -186,7 +186,7 @@ class ApnsVoipChannel(pulumi.CustomResource):
                  token_key: Optional[pulumi.Input[str]] = None,
                  token_key_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApnsVoipChannel is deprecated: ApnsVoipChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ApnsVoipChannel is deprecated: ApnsVoipChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

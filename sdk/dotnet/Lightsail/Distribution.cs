@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Lightsail
     /// <summary>
     /// Resource Type definition for AWS::Lightsail::Distribution
     /// </summary>
-    [Obsolete(@"Distribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Distribution is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lightsail:Distribution")]
     public partial class Distribution : global::Pulumi.CustomResource
     {

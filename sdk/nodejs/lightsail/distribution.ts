@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Lightsail::Distribution
  *
- * @deprecated Distribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated Distribution is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Distribution extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Distribution extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Distribution {
-        pulumi.log.warn("Distribution is deprecated: Distribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Distribution is deprecated: Distribution is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Distribution(name, undefined as any, { ...opts, id: id });
     }
 
@@ -97,9 +97,9 @@ export class Distribution extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Distribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated Distribution is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DistributionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Distribution is deprecated: Distribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Distribution is deprecated: Distribution is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

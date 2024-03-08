@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AmazonMq
     /// <summary>
     /// Resource Type definition for AWS::AmazonMQ::Broker
     /// </summary>
-    [Obsolete(@"Broker is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Broker is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:amazonmq:Broker")]
     public partial class Broker : global::Pulumi.CustomResource
     {

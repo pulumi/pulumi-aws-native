@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppMesh
     /// <summary>
     /// Resource Type definition for AWS::AppMesh::Mesh
     /// </summary>
-    [Obsolete(@"Mesh is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Mesh is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appmesh:Mesh")]
     public partial class Mesh : global::Pulumi.CustomResource
     {

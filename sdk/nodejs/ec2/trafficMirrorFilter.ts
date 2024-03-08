@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::EC2::TrafficMirrorFilter
  *
- * @deprecated TrafficMirrorFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated TrafficMirrorFilter is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class TrafficMirrorFilter extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TrafficMirrorFilter {
-        pulumi.log.warn("TrafficMirrorFilter is deprecated: TrafficMirrorFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("TrafficMirrorFilter is deprecated: TrafficMirrorFilter is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new TrafficMirrorFilter(name, undefined as any, { ...opts, id: id });
     }
 
@@ -52,9 +52,9 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated TrafficMirrorFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated TrafficMirrorFilter is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: TrafficMirrorFilterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TrafficMirrorFilter is deprecated: TrafficMirrorFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("TrafficMirrorFilter is deprecated: TrafficMirrorFilter is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

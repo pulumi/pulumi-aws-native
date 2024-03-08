@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Rds
     /// <summary>
     /// Resource Type definition for AWS::RDS::DBSecurityGroup
     /// </summary>
-    [Obsolete(@"DbSecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DbSecurityGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:rds:DbSecurityGroup")]
     public partial class DbSecurityGroup : global::Pulumi.CustomResource
     {

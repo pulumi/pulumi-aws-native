@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppStream
     /// <summary>
     /// Resource Type definition for AWS::AppStream::Fleet
     /// </summary>
-    [Obsolete(@"Fleet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Fleet is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {

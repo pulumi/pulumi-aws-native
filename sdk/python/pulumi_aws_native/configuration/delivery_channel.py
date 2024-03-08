@@ -92,11 +92,11 @@ class DeliveryChannelArgs:
         pulumi.set(self, "sns_topic_arn", value)
 
 
-warnings.warn("""DeliveryChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DeliveryChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class DeliveryChannel(pulumi.CustomResource):
-    warnings.warn("""DeliveryChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""DeliveryChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -146,7 +146,7 @@ class DeliveryChannel(pulumi.CustomResource):
                  s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DeliveryChannel is deprecated: DeliveryChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DeliveryChannel is deprecated: DeliveryChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

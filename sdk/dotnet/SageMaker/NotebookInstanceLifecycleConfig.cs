@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
     /// </summary>
-    [Obsolete(@"NotebookInstanceLifecycleConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"NotebookInstanceLifecycleConfig is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sagemaker:NotebookInstanceLifecycleConfig")]
     public partial class NotebookInstanceLifecycleConfig : global::Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.BillingConductor
     /// <summary>
     /// A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
     /// </summary>
-    [Obsolete(@"PricingRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"PricingRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:billingconductor:PricingRule")]
     public partial class PricingRule : global::Pulumi.CustomResource
     {

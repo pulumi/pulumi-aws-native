@@ -15,7 +15,7 @@ import (
 
 // Resource Type definition for AWS::Cloud9::EnvironmentEC2
 //
-// Deprecated: EnvironmentEc2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: EnvironmentEc2 is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type EnvironmentEc2 struct {
 	pulumi.CustomResourceState
 

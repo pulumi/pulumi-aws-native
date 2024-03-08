@@ -45,11 +45,11 @@ class SqlInjectionMatchSetArgs:
         pulumi.set(self, "sql_injection_match_tuples", value)
 
 
-warnings.warn("""SqlInjectionMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""SqlInjectionMatchSet is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class SqlInjectionMatchSet(pulumi.CustomResource):
-    warnings.warn("""SqlInjectionMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""SqlInjectionMatchSet is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -91,7 +91,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlInjectionMatchSet is deprecated: SqlInjectionMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""SqlInjectionMatchSet is deprecated: SqlInjectionMatchSet is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -14,7 +14,7 @@ import (
 
 // Resource Type definition for AWS::EC2::NetworkInterfacePermission
 //
-// Deprecated: NetworkInterfacePermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: NetworkInterfacePermission is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type NetworkInterfacePermission struct {
 	pulumi.CustomResourceState
 

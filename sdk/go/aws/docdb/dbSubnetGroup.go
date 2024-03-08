@@ -15,7 +15,7 @@ import (
 
 // Resource Type definition for AWS::DocDB::DBSubnetGroup
 //
-// Deprecated: DbSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: DbSubnetGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type DbSubnetGroup struct {
 	pulumi.CustomResourceState
 

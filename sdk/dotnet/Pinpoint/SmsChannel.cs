@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// <summary>
     /// Resource Type definition for AWS::Pinpoint::SMSChannel
     /// </summary>
-    [Obsolete(@"SmsChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SmsChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:SmsChannel")]
     public partial class SmsChannel : global::Pulumi.CustomResource
     {

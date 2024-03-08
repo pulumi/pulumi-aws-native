@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.BillingConductor
     /// <summary>
     /// A custom line item is an one time charge that is applied to a specific billing group's bill.
     /// </summary>
-    [Obsolete(@"CustomLineItem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"CustomLineItem is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:billingconductor:CustomLineItem")]
     public partial class CustomLineItem : global::Pulumi.CustomResource
     {

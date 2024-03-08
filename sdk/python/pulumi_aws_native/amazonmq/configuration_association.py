@@ -43,11 +43,11 @@ class ConfigurationAssociationArgs:
         pulumi.set(self, "configuration", value)
 
 
-warnings.warn("""ConfigurationAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ConfigurationAssociation is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ConfigurationAssociation(pulumi.CustomResource):
-    warnings.warn("""ConfigurationAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ConfigurationAssociation is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -89,7 +89,7 @@ class ConfigurationAssociation(pulumi.CustomResource):
                  broker: Optional[pulumi.Input[str]] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['ConfigurationAssociationConfigurationIdArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConfigurationAssociation is deprecated: ConfigurationAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ConfigurationAssociation is deprecated: ConfigurationAssociation is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

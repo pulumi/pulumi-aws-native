@@ -14,7 +14,7 @@ import (
 
 // Resource Type definition for AWS::SecretsManager::ResourcePolicy
 //
-// Deprecated: ResourcePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: ResourcePolicy is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

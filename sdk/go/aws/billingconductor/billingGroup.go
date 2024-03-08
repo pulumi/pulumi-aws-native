@@ -15,7 +15,7 @@ import (
 
 // A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.
 //
-// Deprecated: BillingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: BillingGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type BillingGroup struct {
 	pulumi.CustomResourceState
 

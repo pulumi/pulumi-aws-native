@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SecretsManager
     /// <summary>
     /// Resource Type definition for AWS::SecretsManager::RotationSchedule
     /// </summary>
-    [Obsolete(@"RotationSchedule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"RotationSchedule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:secretsmanager:RotationSchedule")]
     public partial class RotationSchedule : global::Pulumi.CustomResource
     {

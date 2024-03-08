@@ -41,11 +41,11 @@ class ElasticLoadBalancerAttachmentArgs:
         pulumi.set(self, "layer_id", value)
 
 
-warnings.warn("""ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ElasticLoadBalancerAttachment is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ElasticLoadBalancerAttachment(pulumi.CustomResource):
-    warnings.warn("""ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ElasticLoadBalancerAttachment is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -87,7 +87,7 @@ class ElasticLoadBalancerAttachment(pulumi.CustomResource):
                  elastic_load_balancer_name: Optional[pulumi.Input[str]] = None,
                  layer_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ElasticLoadBalancerAttachment is deprecated: ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ElasticLoadBalancerAttachment is deprecated: ElasticLoadBalancerAttachment is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
