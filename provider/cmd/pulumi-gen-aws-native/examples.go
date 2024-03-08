@@ -205,7 +205,8 @@ func findExamples(fileName string) ([]string, error) {
 		line := scanner.Text()
 		if strings.HasPrefix(line, "```") {
 			if snippet && buf.Len() > 0 {
-				result = append(result, buf.String())
+				ex := pschema.SanitizeCfnString(buf.String())
+				result = append(result, ex)
 			}
 			snippet = !snippet
 			continue

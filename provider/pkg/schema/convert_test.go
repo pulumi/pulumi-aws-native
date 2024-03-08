@@ -3,9 +3,10 @@
 package schema
 
 import (
-	"github.com/mattbaird/jsonpatch"
 	"sort"
 	"testing"
+
+	"github.com/mattbaird/jsonpatch"
 
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -306,4 +307,30 @@ var sampleSchema = &CloudAPIMetadata{
 			},
 		},
 	},
+}
+
+func TestSanitizeCfnString(t *testing.T) {
+	tests := []struct {
+		name     string
+		input    string
+		expected string
+	}{
+		{
+			name:     "No special characters",
+			input:    "Hello, World!",
+			expected: "Hello, World!",
+		},
+		{
+			name:     "Replace left and right double quotation marks",
+			input:    "“Hello, World!”",
+			expected: "\"Hello, World!\"",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			actual := SanitizeCfnString(test.input)
+			assert.Equal(t, test.expected, actual)
+		})
+	}
 }

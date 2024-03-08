@@ -29,6 +29,13 @@ func DiffToPatch(res *CloudAPIResource, types map[string]CloudAPIType, diff *res
 	return converter.diffToPatch(diff)
 }
 
+var quotationReplacer = strings.NewReplacer("“", "\"", "”", "\"")
+
+// SanitizeCfnString ensures that a string from CFN docs meets the requirements for Pulumi schema strings.
+func SanitizeCfnString(str string) string {
+	return quotationReplacer.Replace(str)
+}
+
 type sdkToCfnConverter struct {
 	spec  *CloudAPIResource
 	types map[string]CloudAPIType
