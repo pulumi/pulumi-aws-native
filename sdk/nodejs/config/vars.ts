@@ -48,10 +48,10 @@ Object.defineProperty(exports, "assumeRole", {
 /**
  * Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
  */
-export declare const defaultTags: {[key: string]: string} | undefined;
+export declare const defaultTags: outputs.config.DefaultTags | undefined;
 Object.defineProperty(exports, "defaultTags", {
     get() {
-        return __config.getObject<{[key: string]: string}>("defaultTags");
+        return __config.getObject<outputs.config.DefaultTags>("defaultTags");
     },
     enumerable: true,
 });

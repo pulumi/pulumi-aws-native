@@ -19,7 +19,7 @@ class ProviderArgs:
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
-                 default_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ignore_tags: Optional[pulumi.Input['ProviderIgnoreTagsArgs']] = None,
@@ -42,7 +42,7 @@ class ProviderArgs:
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         :param pulumi.Input['ProviderAssumeRoleArgs'] assume_role: Configuration for retrieving temporary credentials from the STS service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
+        :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
         :param pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]] endpoints: Configuration block for customizing service endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] forbidden_account_ids: List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
         :param pulumi.Input['ProviderIgnoreTagsArgs'] ignore_tags: Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
@@ -166,14 +166,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="defaultTags")
-    def default_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def default_tags(self) -> Optional[pulumi.Input['ProviderDefaultTagsArgs']]:
         """
         Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
         """
         return pulumi.get(self, "default_tags")
 
     @default_tags.setter
-    def default_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def default_tags(self, value: Optional[pulumi.Input['ProviderDefaultTagsArgs']]):
         pulumi.set(self, "default_tags", value)
 
     @property
@@ -377,7 +377,7 @@ class Provider(pulumi.ProviderResource):
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
-                 default_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
@@ -404,7 +404,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         :param pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']] assume_role: Configuration for retrieving temporary credentials from the STS service.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
+        :param pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]] endpoints: Configuration block for customizing service endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] forbidden_account_ids: List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
         :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']] ignore_tags: Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
@@ -450,7 +450,7 @@ class Provider(pulumi.ProviderResource):
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
-                 default_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,

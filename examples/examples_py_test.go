@@ -27,7 +27,9 @@ func TestDefaultTagsPython(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "default-tags-py"),
 			Config: map[string]string{
 				"aws-native:defaultTags": `{
-					"defaultTag": "defaultTagValue"
+						"tags": {
+							"defaultTag": "defaultTagValue"
+						}
 					}`,
 			},
 			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {

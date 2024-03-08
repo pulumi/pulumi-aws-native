@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'AssumeRole',
+    'DefaultTags',
     'Endpoints',
     'IgnoreTags',
 ]
@@ -120,6 +121,29 @@ class AssumeRole(dict):
         A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
         """
         return pulumi.get(self, "transitive_tag_keys")
+
+
+@pulumi.output_type
+class DefaultTags(dict):
+    """
+    The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
+    """
+    def __init__(__self__, *,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
+        :param Mapping[str, str] tags: A group of tags to set across all resources.
+        """
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A group of tags to set across all resources.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
