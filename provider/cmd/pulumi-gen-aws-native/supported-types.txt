@@ -323,6 +323,7 @@ AWS::EC2::TransitGatewayRouteTable
 AWS::EC2::TransitGatewayRouteTableAssociation
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
+AWS::EC2::VPCCidrBlock
 AWS::EC2::VPCDHCPOptionsAssociation
 AWS::EC2::VPCEndpoint
 AWS::EC2::VPCEndpointConnectionNotification
@@ -1048,6 +1049,7 @@ MongoDB::Atlas::PrivatelinkEndpointServiceDataFederationOnlineArchive
 MongoDB::Atlas::Project
 MongoDB::Atlas::ProjectInvitation
 MongoDB::Atlas::ProjectIpAccessList
+MongoDB::Atlas::SearchDeployment
 MongoDB::Atlas::SearchIndex
 MongoDB::Atlas::ServerlessInstance
 MongoDB::Atlas::ServerlessPrivateEndpoint
