@@ -1,17 +1,15 @@
-# Pulumi AWS Native Provider (preview)
+# Pulumi AWS Native Cloud Control Provider
 
-The Pulumi AWS Native Provider enables you to build, deploy, and manage [any AWS resource that's supported by the AWS Cloud Control API](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt).
-With AWS Native, you get same-day access to all new AWS resources and all new properties on existing resources supported by the Cloud Control API.
-You can use AWS Native from a Pulumi program written in any Pulumi language: C#, Go, JavaScript/TypeScript, and Python.
+The Pulumi AWS Native Cloud Control Provider enables you to build, deploy, and manage [any AWS resource that's supported by the AWS Cloud Control API](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt).
+With AWS Native Cloud Control, you get same-day access to all new AWS resources and all new properties on existing resources supported by the Cloud Control API.
+You can use AWS Native Cloud Control from a Pulumi program written in any Pulumi language: C#, Go, JavaScript/TypeScript, and Python.
 You'll need to [install and configure the Pulumi CLI](https://pulumi.com/docs/get-started/install) if you haven't already.
 
 ---
 > [!NOTE]
-> AWS Native is in public preview.
 > This provider covers all resources as supported by the [AWS Cloud Control API](https://aws.amazon.com/cloudcontrolapi/). This does not yet include all AWS resources. See the [list of supported resources](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt) for full details.
 
-For new projects, we recommend using AWS Native and [AWS Classic](https://github.com/pulumi/pulumi-aws) side-by-side so you can get the speed and correctness benefits of AWS Native where possible.
-For existing projects, AWS Classic remains fully supported; at this time, we recommend waiting to migrate existing projects to AWS Native.
+For new projects, we recommend using AWS Native Cloud Control and [AWS Classic](https://github.com/pulumi/pulumi-aws) side-by-side so you can get the speed and correctness benefits of AWS Native Cloud Control where possible. AWS Classic remains fully supported.
 
 ---
 
