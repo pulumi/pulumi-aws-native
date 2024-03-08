@@ -754,7 +754,17 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	label := fmt.Sprintf("%s.Diff(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	diff, err := p.diffState(req.GetOlds(), req.GetNews(), label)
+	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.properties", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, errors.Wrapf(err, "failed to parse inputs for update")
+	}
+
+	diff, err := p.diffState(req.GetOlds(), newInputs, label)
 	if err != nil {
 		return nil, err
 	}
@@ -1050,9 +1060,29 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	}
 
 	news := req.GetNews()
-	diff, err := p.diffState(req.GetOlds(), news, label)
+	newInputs, err := plugin.UnmarshalProperties(news, plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.properties", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, errors.Wrapf(err, "failed to parse inputs for update")
+	}
+
+	diff, err := p.diffState(req.GetOlds(), newInputs, label)
 	if err != nil {
 		return nil, err
+	}
+
+	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
+	// patch requests as adds to ensure the updated model validates.
+	for _, writeOnlyPropName := range spec.WriteOnly {
+		propKey := resource.PropertyKey(writeOnlyPropName)
+		if _, ok := diff.Sames[propKey]; ok {
+			delete(diff.Sames, propKey)
+			diff.Adds[propKey] = newInputs[propKey]
+		}
 	}
 
 	ops, err := schema.DiffToPatch(&spec, p.resourceMap.Types, diff)
@@ -1063,16 +1093,6 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	doc, err := json.Marshal(ops)
 	if err != nil {
 		return nil, errors.Wrapf(err, "serializing patch as json")
-	}
-
-	inputs, err := plugin.UnmarshalProperties(news, plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.properties", label),
-		KeepUnknowns: true,
-		RejectAssets: true,
-		KeepSecrets:  true,
-	})
-	if err != nil {
-		return nil, errors.Wrapf(err, "failed to parse inputs for update")
 	}
 
 	docAsString := string(doc)
@@ -1100,7 +1120,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 
 	// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 	if len(spec.WriteOnly) > 0 {
-		inputsMap := inputs.Mappable()
+		inputsMap := newInputs.Mappable()
 		for _, writeOnlyProp := range spec.WriteOnly {
 			if _, ok := outputs[writeOnlyProp]; !ok {
 				inputValue, ok := inputsMap[writeOnlyProp]
@@ -1113,7 +1133,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 
 	// Store both outputs and inputs into the state and return RPC checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
-		checkpointObject(inputs, outputs),
+		checkpointObject(newInputs, outputs),
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
@@ -1296,7 +1316,7 @@ func mapReplStripSecrets(v resource.PropertyValue) (interface{}, bool) {
 }
 
 // diffState extracts old and new inputs and calculates a diff between them.
-func (p *cfnProvider) diffState(olds *pbstruct.Struct, news *pbstruct.Struct, label string) (*resource.ObjectDiff, error) {
+func (p *cfnProvider) diffState(olds *pbstruct.Struct, newInputs resource.PropertyMap, label string) (*resource.ObjectDiff, error) {
 	oldState, err := plugin.UnmarshalProperties(olds, plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.oldState", label),
 		KeepUnknowns: true,
@@ -1310,17 +1330,9 @@ func (p *cfnProvider) diffState(olds *pbstruct.Struct, news *pbstruct.Struct, la
 	// Extract old inputs from the `__inputs` field of the old state.
 	oldInputs := parseCheckpointObject(oldState)
 
-	newInputs, err := plugin.UnmarshalProperties(news, plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.newInputs", label),
-		KeepUnknowns: true,
-		RejectAssets: true,
-		KeepSecrets:  true,
-	})
-	if err != nil {
-		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs")
-	}
+	diff := oldInputs.Diff(newInputs)
 
-	return oldInputs.Diff(newInputs), nil
+	return diff, nil
 }
 
 // applyDiff produces a new map as a merge of a calculated diff into an existing map of values.
