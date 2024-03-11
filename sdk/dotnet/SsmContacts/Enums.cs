@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AwsNative.SsmContacts
 {
     /// <summary>
-    /// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+    /// Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
     /// </summary>
     [EnumType]
     public readonly struct ContactChannelChannelType : IEquatable<ContactChannelChannelType>
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.SsmContacts
     }
 
     /// <summary>
-    /// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+    /// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
     /// </summary>
     [EnumType]
     public readonly struct ContactType : IEquatable<ContactType>

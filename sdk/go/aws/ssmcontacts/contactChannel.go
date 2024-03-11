@@ -21,7 +21,7 @@ type ContactChannel struct {
 	ChannelAddress pulumi.StringPtrOutput `pulumi:"channelAddress"`
 	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
 	ChannelName pulumi.StringPtrOutput `pulumi:"channelName"`
-	// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+	// Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
 	ChannelType ContactChannelChannelTypePtrOutput `pulumi:"channelType"`
 	// ARN of the contact resource
 	ContactId pulumi.StringPtrOutput `pulumi:"contactId"`
@@ -78,7 +78,7 @@ type contactChannelArgs struct {
 	ChannelAddress *string `pulumi:"channelAddress"`
 	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
 	ChannelName *string `pulumi:"channelName"`
-	// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+	// Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
 	ChannelType *ContactChannelChannelType `pulumi:"channelType"`
 	// ARN of the contact resource
 	ContactId *string `pulumi:"contactId"`
@@ -92,7 +92,7 @@ type ContactChannelArgs struct {
 	ChannelAddress pulumi.StringPtrInput
 	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
 	ChannelName pulumi.StringPtrInput
-	// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+	// Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
 	ChannelType ContactChannelChannelTypePtrInput
 	// ARN of the contact resource
 	ContactId pulumi.StringPtrInput
@@ -152,7 +152,7 @@ func (o ContactChannelOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringPtrOutput { return v.ChannelName }).(pulumi.StringPtrOutput)
 }
 
-// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+// Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
 func (o ContactChannelOutput) ChannelType() ContactChannelChannelTypePtrOutput {
 	return o.ApplyT(func(v *ContactChannel) ContactChannelChannelTypePtrOutput { return v.ChannelType }).(ContactChannelChannelTypePtrOutput)
 }

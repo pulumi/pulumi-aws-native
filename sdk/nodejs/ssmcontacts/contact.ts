@@ -54,7 +54,7 @@ export class Contact extends pulumi.CustomResource {
      */
     public readonly plan!: pulumi.Output<outputs.ssmcontacts.ContactStage[] | undefined>;
     /**
-     * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+     * Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
      */
     public readonly type!: pulumi.Output<enums.ssmcontacts.ContactType>;
 
@@ -114,7 +114,7 @@ export interface ContactArgs {
      */
     plan?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.ContactStageArgs>[]>;
     /**
-     * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+     * Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
      */
     type: pulumi.Input<enums.ssmcontacts.ContactType>;
 }

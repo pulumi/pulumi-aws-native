@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.SsmContacts
         public Output<ImmutableArray<Outputs.ContactStage>> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+        /// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.SsmContacts.ContactType> Type { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.SsmContacts
         }
 
         /// <summary>
-        /// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+        /// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.SsmContacts.ContactType> Type { get; set; } = null!;

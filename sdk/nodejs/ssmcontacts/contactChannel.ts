@@ -50,7 +50,7 @@ export class ContactChannel extends pulumi.CustomResource {
      */
     public readonly channelName!: pulumi.Output<string | undefined>;
     /**
-     * Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+     * Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
      */
     public readonly channelType!: pulumi.Output<enums.ssmcontacts.ContactChannelChannelType | undefined>;
     /**
@@ -107,7 +107,7 @@ export interface ContactChannelArgs {
      */
     channelName?: pulumi.Input<string>;
     /**
-     * Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+     * Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
      */
     channelType?: pulumi.Input<enums.ssmcontacts.ContactChannelChannelType>;
     /**

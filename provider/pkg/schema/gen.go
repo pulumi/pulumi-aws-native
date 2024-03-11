@@ -770,7 +770,7 @@ func (ctx *context) gatherInvoke() error {
 	}
 
 	ctx.pkg.Functions[getterToken] = pschema.FunctionSpec{
-		Description: ctx.resourceSpec.Description,
+		Description: SanitizeCfnString(ctx.resourceSpec.Description),
 		Inputs: &pschema.ObjectTypeSpec{
 			Properties: inputs,
 			Required:   inputNames,
@@ -875,7 +875,7 @@ func (ctx *context) gatherResourceType() error {
 	}
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: ctx.resourceSpec.Description,
+			Description: SanitizeCfnString(ctx.resourceSpec.Description),
 			Properties:  properties,
 			Type:        "object",
 			Required:    required.SortedValues(),
@@ -964,7 +964,7 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 	}
 	propertySpec := pschema.PropertySpec{
 		TypeSpec:    *typeSpec,
-		Description: spec.Description,
+		Description: SanitizeCfnString(spec.Description),
 	}
 
 	// If the property name is the same as the resource type name, we need to rename the property's C# name
@@ -1060,7 +1060,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 
 				ctx.pkg.Types[tok] = pschema.ComplexTypeSpec{
 					ObjectTypeSpec: pschema.ObjectTypeSpec{
-						Description: typeSchema.Description,
+						Description: SanitizeCfnString(typeSchema.Description),
 						Type:        "object",
 						Properties:  specs,
 						Required:    requiredSpecs.SortedValues(),
@@ -1091,7 +1091,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 
 		ctx.pkg.Types[tok] = pschema.ComplexTypeSpec{
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
-				Description: propSchema.Description,
+				Description: SanitizeCfnString(propSchema.Description),
 				Type:        "object",
 				Properties:  specs,
 				Required:    requiredSpecs.SortedValues(),
@@ -1253,7 +1253,7 @@ func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema
 			return nil, nil, nil, errors.Wrapf(err, "property %s", name)
 		}
 		propertySpec := pschema.PropertySpec{
-			Description: value.Description,
+			Description: SanitizeCfnString(value.Description),
 			TypeSpec:    *typeSpec,
 		}
 		// TODO: temporary workaround to get the 0.1.0 out, let's find a better solution later.
@@ -1300,7 +1300,7 @@ func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*
 	enumSpec := &pschema.ComplexTypeSpec{
 		Enum: []pschema.EnumValueSpec{},
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: propSchema.Description,
+			Description: SanitizeCfnString(propSchema.Description),
 			Type:        "string",
 		},
 	}

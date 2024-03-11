@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+// Device type, which specify notification channel. Currently supported values: "SMS", "VOICE", "EMAIL", "CHATBOT.
 type ContactChannelChannelType string
 
 const (
@@ -178,7 +178,7 @@ func (in *contactChannelChannelTypePtr) ToContactChannelChannelTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ContactChannelChannelTypePtrOutput)
 }
 
-// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
+// Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
 type ContactType string
 
 const (
