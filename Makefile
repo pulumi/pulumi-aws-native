@@ -81,7 +81,7 @@ build_nodejs::
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
-generate_python::
+generate_python: .pulumi/bin/pulumi
 	rm -rf sdk/python
 	mkdir sdk/python
 	echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/python/go.mod'
@@ -101,7 +101,7 @@ build_python::
         cd ./bin && \
         ../venv/bin/python -m build .
 
-generate_dotnet::
+generate_dotnet: .pulumi/bin/pulumi
 	rm -rf sdk/dotnet
 	mkdir sdk/dotnet
 	echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/dotnet/go.mod'
@@ -124,7 +124,7 @@ build_java::
 	cd ${PACKDIR}/java/ && \
 		gradle --console=plain build
 
-generate_go::
+generate_go: .pulumi/bin/pulumi
 	rm -rf sdk/go && mkdir sdk/go
 	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language go
 
