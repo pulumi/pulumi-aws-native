@@ -15,19 +15,33 @@
 package main
 
 import (
+	awsNative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	ssm "github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
+		awsNativeConfig := config.New(ctx, "aws-native")
+		awsNativeProvider, err := awsNative.NewProvider(ctx, "aws-native", &awsNative.ProviderArgs{
+			Region: pulumi.String(awsNativeConfig.Require("region")),
+			DefaultTags: awsNative.ProviderDefaultTagsArgs{
+				Tags: pulumi.StringMap{
+					"defaultTag": pulumi.String("defaultTagValue"),
+				},
+			},
+		})
+		if err != nil {
+			return err
+		}
 		logGroup, err := ssm.NewParameter(ctx, "log-test", &ssm.ParameterArgs{
 			Type:  ssm.ParameterTypeString,
 			Value: pulumi.String("test"),
 			Tags: pulumi.StringMap{
 				"localTag": pulumi.String("localTagValue"),
 			},
-		})
+		}, pulumi.Provider(awsNativeProvider))
 		if err != nil {
 			return err
 		}
