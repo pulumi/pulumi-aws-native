@@ -461,12 +461,21 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	if defaultTagsJson, ok := vars["aws-native:config:defaultTags"]; ok {
-		var defaultTags map[string]string
-		err := json.Unmarshal([]byte(defaultTagsJson), &defaultTags)
-		if err != nil {
-			return nil, fmt.Errorf("failed to unmarshal 'skipCredentialsValidation' config: %w", err)
+		type DefaultTags struct {
+			Tags map[string]string `json:"tags"`
 		}
-		p.defaultTags = defaultTags
+		var defaultTags DefaultTags
+		err := json.Unmarshal([]byte(defaultTagsJson), &defaultTags)
+		if err == nil {
+			p.defaultTags = defaultTags.Tags
+		} else {
+			// As a fallback, we also try to unmarshal the default tags as a simple map[string]string
+			// as this was originally supported when implementing defaultTags.
+			fallbackErr := json.Unmarshal([]byte(defaultTagsJson), &p.defaultTags)
+			if fallbackErr != nil {
+				return nil, fmt.Errorf("failed to unmarshal 'defaultTags' config: %w", err)
+			}
+		}
 	} else {
 		p.defaultTags = nil
 	}

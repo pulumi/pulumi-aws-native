@@ -27,14 +27,10 @@ func TestWriteOnlyGo(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			ExpectRefreshChanges: false,
 			Dir:                  filepath.Join(getCwd(t), "write-only-go"),
-			Config: map[string]string{
-				"aws-native:defaultTags": `{
-					"defaultTag": "defaultTagValue"
-					}`,
-			},
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 				// We should see both the default tag and the local tag in the log group tags.
-				// If the default tag is missing, it's because there was a missing output from the provider and the SDK filled in the value with the original input.
+				// If the default tag is missing, it's because there was a missing output from the provider
+				// because write-only properties aren't returned in the read result and the SDK filled in the value with the original input.
 				tags := stack.Outputs["tags"].(map[string]interface{})
 				assert.Equal(t, map[string]interface{}{
 					"defaultTag": "defaultTagValue",
