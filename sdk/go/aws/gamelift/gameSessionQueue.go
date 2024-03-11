@@ -33,16 +33,16 @@ import (
 //				Name:               pulumi.String("MyGameSessionQueue"),
 //				TimeoutInSeconds:   pulumi.Int(60),
 //				NotificationTarget: pulumi.String("arn:aws:sns:us-west-2:111122223333:My_Placement_SNS_Topic"),
-//				Destinations: []gamelift.GameSessionQueueDestinationArgs{
-//					{
+//				Destinations: gamelift.GameSessionQueueDestinationArray{
+//					&gamelift.GameSessionQueueDestinationArgs{
 //						DestinationArn: pulumi.String("arn:aws:gamelift:us-west-2:012345678912:fleet/fleet-id"),
 //					},
-//					{
+//					&gamelift.GameSessionQueueDestinationArgs{
 //						DestinationArn: pulumi.String("arn:aws:gamelift:us-west-2:012345678912:alias/alias-id"),
 //					},
 //				},
-//				PlayerLatencyPolicies: []gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
-//					{
+//				PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
+//					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
 //						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(1000),
 //						PolicyDurationSeconds:                      pulumi.Int(60),
 //					},
@@ -111,12 +111,12 @@ import (
 //				Description:              pulumi.String("A basic matchmaking configuration for a GameLift-hosted game"),
 //				FlexMatchMode:            gamelift.MatchmakingConfigurationFlexMatchModeWithQueue,
 //				GameSessionData:          pulumi.String("MyGameSessionData"),
-//				GameProperties: []gamelift.MatchmakingConfigurationGamePropertyArgs{
-//					{
+//				GameProperties: gamelift.MatchmakingConfigurationGamePropertyArray{
+//					&gamelift.MatchmakingConfigurationGamePropertyArgs{
 //						Key:   pulumi.String("level"),
 //						Value: pulumi.String("10"),
 //					},
-//					{
+//					&gamelift.MatchmakingConfigurationGamePropertyArgs{
 //						Key:   pulumi.String("gameMode"),
 //						Value: pulumi.String("hard"),
 //					},

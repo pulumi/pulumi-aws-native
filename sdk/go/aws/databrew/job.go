@@ -38,12 +38,12 @@ import (
 // JobSample: &databrew.JobSampleArgs{
 // Mode: databrew.JobSampleModeFullDataset,
 // },
-// OutputLocation: interface{}{
+// OutputLocation: &databrew.JobOutputLocationArgs{
 // Bucket: pulumi.String("test-output"),
 // Key: pulumi.String("job-output.json"),
 // },
-// Tags: []aws.CreateOnlyTagArgs{
-// {
+// Tags: aws.CreateOnlyTagArray{
+// &aws.CreateOnlyTagArgs{
 // Key: pulumi.String("key00AtCreate"),
 // Value: pulumi.String("value001AtCreate"),
 // },

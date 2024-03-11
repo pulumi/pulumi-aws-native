@@ -26,27 +26,28 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := personalize.NewDataset(ctx, "myDataset", &personalize.DatasetArgs{
-// Name: pulumi.String("my-dataset-name"),
-// DatasetType: personalize.DatasetTypeInteractions,
-// DatasetGroupArn: pulumi.String("arn:aws:personalize:us-west-2:123456789012:dataset-group/dataset-group-name"),
-// SchemaArn: pulumi.String("arn:aws:personalize:us-west-2:123456789012:schema/schema-name"),
-// DatasetImportJob: interface{}{
-// JobName: pulumi.String("my-import-job-name"),
-// DataSource: &personalize.DatasetImportJobDataSourcePropertiesArgs{
-// DataLocation: pulumi.String("s3://bucket-name/file-name.csv"),
-// },
-// RoleArn: pulumi.String("arn:aws:iam::123456789012:role/personalize-role"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := personalize.NewDataset(ctx, "myDataset", &personalize.DatasetArgs{
+//				Name:            pulumi.String("my-dataset-name"),
+//				DatasetType:     personalize.DatasetTypeInteractions,
+//				DatasetGroupArn: pulumi.String("arn:aws:personalize:us-west-2:123456789012:dataset-group/dataset-group-name"),
+//				SchemaArn:       pulumi.String("arn:aws:personalize:us-west-2:123456789012:schema/schema-name"),
+//				DatasetImportJob: &personalize.DatasetImportJobArgs{
+//					JobName: pulumi.String("my-import-job-name"),
+//					DataSource: &personalize.DatasetImportJobDataSourcePropertiesArgs{
+//						DataLocation: pulumi.String("s3://bucket-name/file-name.csv"),
+//					},
+//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/personalize-role"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -60,27 +61,28 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := personalize.NewDataset(ctx, "myDataset", &personalize.DatasetArgs{
-// Name: pulumi.String("my-dataset-name"),
-// DatasetType: personalize.DatasetTypeInteractions,
-// DatasetGroupArn: pulumi.String("arn:aws:personalize:us-west-2:123456789012:dataset-group/dataset-group-name"),
-// SchemaArn: pulumi.String("arn:aws:personalize:us-west-2:123456789012:schema/schema-name"),
-// DatasetImportJob: interface{}{
-// JobName: pulumi.String("my-import-job-name"),
-// DataSource: &personalize.DatasetImportJobDataSourcePropertiesArgs{
-// DataLocation: pulumi.String("s3://bucket-name/file-name.csv"),
-// },
-// RoleArn: pulumi.String("arn:aws:iam::123456789012:role/personalize-role"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := personalize.NewDataset(ctx, "myDataset", &personalize.DatasetArgs{
+//				Name:            pulumi.String("my-dataset-name"),
+//				DatasetType:     personalize.DatasetTypeInteractions,
+//				DatasetGroupArn: pulumi.String("arn:aws:personalize:us-west-2:123456789012:dataset-group/dataset-group-name"),
+//				SchemaArn:       pulumi.String("arn:aws:personalize:us-west-2:123456789012:schema/schema-name"),
+//				DatasetImportJob: &personalize.DatasetImportJobArgs{
+//					JobName: pulumi.String("my-import-job-name"),
+//					DataSource: &personalize.DatasetImportJobDataSourcePropertiesArgs{
+//						DataLocation: pulumi.String("s3://bucket-name/file-name.csv"),
+//					},
+//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/personalize-role"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Dataset struct {

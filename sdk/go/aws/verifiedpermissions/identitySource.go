@@ -27,30 +27,31 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// policyStoreId := cfg.Require("policyStoreId")
-// userPoolArn := cfg.Require("userPoolArn")
-// clientIds := cfg.Require("clientIds")
-// principalEntityType := cfg.Require("principalEntityType")
-// identitySource, err := verifiedpermissions.NewIdentitySource(ctx, "identitySource", &verifiedpermissions.IdentitySourceArgs{
-// PolicyStoreId: pulumi.String(policyStoreId),
-// Configuration: interface{}{
-// CognitoUserPoolConfiguration: &verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs{
-// UserPoolArn: pulumi.String(userPoolArn),
-// ClientIds: clientIds,
-// },
-// },
-// PrincipalEntityType: pulumi.String(principalEntityType),
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("identitySourceId", identitySource.IdentitySourceId)
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			policyStoreId := cfg.Require("policyStoreId")
+//			userPoolArn := cfg.Require("userPoolArn")
+//			clientIds := cfg.Require("clientIds")
+//			principalEntityType := cfg.Require("principalEntityType")
+//			identitySource, err := verifiedpermissions.NewIdentitySource(ctx, "identitySource", &verifiedpermissions.IdentitySourceArgs{
+//				PolicyStoreId: pulumi.String(policyStoreId),
+//				Configuration: &verifiedpermissions.IdentitySourceConfigurationArgs{
+//					CognitoUserPoolConfiguration: &verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs{
+//						UserPoolArn: pulumi.String(userPoolArn),
+//						ClientIds:   clientIds,
+//					},
+//				},
+//				PrincipalEntityType: pulumi.String(principalEntityType),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("identitySourceId", identitySource.IdentitySourceId)
+//			return nil
+//		})
+//	}
 //
 // ```
 type IdentitySource struct {

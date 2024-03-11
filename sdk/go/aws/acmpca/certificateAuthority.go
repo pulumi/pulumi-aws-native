@@ -50,7 +50,7 @@ import (
 // Pseudonym: pulumi.String("string"),
 // GenerationQualifier: pulumi.String("DBG"),
 // },
-// RevocationConfiguration: interface{}{
+// RevocationConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationArgs{
 // CrlConfiguration: &acmpca.CertificateAuthorityCrlConfigurationArgs{
 // Enabled: pulumi.Bool(false),
 // },
@@ -174,12 +174,12 @@ import (
 // Pseudonym: pulumi.String("string"),
 // GenerationQualifier: pulumi.String("DBG"),
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Key1"),
 // Value: pulumi.String("Value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("Key2"),
 // Value: pulumi.String("Value2"),
 // },

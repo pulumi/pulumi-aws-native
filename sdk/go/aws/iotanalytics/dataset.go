@@ -27,32 +27,33 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
-// DatasetName: pulumi.String("SimpleSQLDataset"),
-// Actions: iotanalytics.DatasetActionArray{
-// interface{}{
-// ActionName: pulumi.String("SqlAction"),
-// QueryAction: &iotanalytics.DatasetQueryActionArgs{
-// SqlQuery: pulumi.String("select * from Datastore"),
-// },
-// },
-// },
-// Triggers: []iotanalytics.DatasetTriggerArgs{
-// {
-// Schedule: {
-// ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
+//				DatasetName: pulumi.String("SimpleSQLDataset"),
+//				Actions: iotanalytics.DatasetActionArray{
+//					&iotanalytics.DatasetActionArgs{
+//						ActionName: pulumi.String("SqlAction"),
+//						QueryAction: &iotanalytics.DatasetQueryActionArgs{
+//							SqlQuery: pulumi.String("select * from Datastore"),
+//						},
+//					},
+//				},
+//				Triggers: iotanalytics.DatasetTriggerArray{
+//					&iotanalytics.DatasetTriggerArgs{
+//						Schedule: &iotanalytics.DatasetScheduleArgs{
+//							ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -66,32 +67,33 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
-// DatasetName: pulumi.String("SimpleSQLDataset"),
-// Actions: iotanalytics.DatasetActionArray{
-// interface{}{
-// ActionName: pulumi.String("SqlAction"),
-// QueryAction: &iotanalytics.DatasetQueryActionArgs{
-// SqlQuery: pulumi.String("select * from Datastore"),
-// },
-// },
-// },
-// Triggers: []iotanalytics.DatasetTriggerArgs{
-// {
-// Schedule: {
-// ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
+//				DatasetName: pulumi.String("SimpleSQLDataset"),
+//				Actions: iotanalytics.DatasetActionArray{
+//					&iotanalytics.DatasetActionArgs{
+//						ActionName: pulumi.String("SqlAction"),
+//						QueryAction: &iotanalytics.DatasetQueryActionArgs{
+//							SqlQuery: pulumi.String("select * from Datastore"),
+//						},
+//					},
+//				},
+//				Triggers: iotanalytics.DatasetTriggerArray{
+//					&iotanalytics.DatasetTriggerArgs{
+//						Schedule: &iotanalytics.DatasetScheduleArgs{
+//							ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -111,9 +113,9 @@ import (
 // _, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
 // DatasetName: pulumi.String("ComplexSQLDataset"),
 // Actions: iotanalytics.DatasetActionArray{
-// interface{}{
+// &iotanalytics.DatasetActionArgs{
 // ActionName: pulumi.String("SqlAction"),
-// QueryAction: interface{}{
+// QueryAction: &iotanalytics.DatasetQueryActionArgs{
 // SqlQuery: pulumi.String("select * from Datastore"),
 // Filters: iotanalytics.DatasetFilterArray{
 // &iotanalytics.DatasetFilterArgs{
@@ -126,9 +128,9 @@ import (
 // },
 // },
 // },
-// Triggers: []iotanalytics.DatasetTriggerArgs{
-// {
-// Schedule: {
+// Triggers: iotanalytics.DatasetTriggerArray{
+// &iotanalytics.DatasetTriggerArgs{
+// Schedule: &iotanalytics.DatasetScheduleArgs{
 // ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
 // },
 // },
@@ -137,12 +139,12 @@ import (
 // Unlimited: pulumi.Bool(false),
 // NumberOfDays: pulumi.Int(10),
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },
@@ -173,9 +175,9 @@ import (
 // _, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
 // DatasetName: pulumi.String("ComplexSQLDataset"),
 // Actions: iotanalytics.DatasetActionArray{
-// interface{}{
+// &iotanalytics.DatasetActionArgs{
 // ActionName: pulumi.String("SqlAction"),
-// QueryAction: interface{}{
+// QueryAction: &iotanalytics.DatasetQueryActionArgs{
 // SqlQuery: pulumi.String("select * from Datastore"),
 // Filters: iotanalytics.DatasetFilterArray{
 // &iotanalytics.DatasetFilterArgs{
@@ -188,9 +190,9 @@ import (
 // },
 // },
 // },
-// Triggers: []iotanalytics.DatasetTriggerArgs{
-// {
-// Schedule: {
+// Triggers: iotanalytics.DatasetTriggerArray{
+// &iotanalytics.DatasetTriggerArgs{
+// Schedule: &iotanalytics.DatasetScheduleArgs{
 // ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
 // },
 // },
@@ -199,12 +201,12 @@ import (
 // Unlimited: pulumi.Bool(false),
 // NumberOfDays: pulumi.Int(10),
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },

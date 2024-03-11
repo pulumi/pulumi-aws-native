@@ -32,8 +32,8 @@ import (
 // _, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
 // ConnectionName: pulumi.String("MyConnection"),
 // ProviderType: pulumi.String("Bitbucket"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Project"),
 // Value: pulumi.String("ProjectB"),
 // },
@@ -64,8 +64,8 @@ import (
 // _, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
 // ConnectionName: pulumi.String("MyConnection"),
 // ProviderType: pulumi.String("Bitbucket"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Project"),
 // Value: pulumi.String("ProjectB"),
 // },
@@ -97,8 +97,8 @@ import (
 // ConnectionName: pulumi.String("MyConnection"),
 // ProviderType: pulumi.String("GitHubEnterpriseServer"),
 // HostArn: pulumi.String("arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Project"),
 // Value: pulumi.String("ProjectB"),
 // },
@@ -130,8 +130,8 @@ import (
 // ConnectionName: pulumi.String("MyConnection"),
 // ProviderType: pulumi.String("GitHubEnterpriseServer"),
 // HostArn: pulumi.String("arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Project"),
 // Value: pulumi.String("ProjectB"),
 // },

@@ -26,22 +26,23 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// Name: pulumi.String("MyTestSimulation"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/my-test-simulation-app-role"),
-// SchemaS3Location: interface{}{
-// BucketName: pulumi.String("MyTestSimulationBucket"),
-// ObjectKey: pulumi.String("MyTestSimulation-schema.yaml"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				Name:    pulumi.String("MyTestSimulation"),
+//				RoleArn: pulumi.String("arn:aws:iam::111122223333:role/my-test-simulation-app-role"),
+//				SchemaS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("MyTestSimulationBucket"),
+//					ObjectKey:  pulumi.String("MyTestSimulation-schema.yaml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -55,22 +56,23 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// Name: pulumi.String("MyTestSimulation"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/my-test-simulation-app-role"),
-// SchemaS3Location: interface{}{
-// BucketName: pulumi.String("MyTestSimulationBucket"),
-// ObjectKey: pulumi.String("MyTestSimulation-schema.yaml"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				Name:    pulumi.String("MyTestSimulation"),
+//				RoleArn: pulumi.String("arn:aws:iam::111122223333:role/my-test-simulation-app-role"),
+//				SchemaS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("MyTestSimulationBucket"),
+//					ObjectKey:  pulumi.String("MyTestSimulation-schema.yaml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -84,22 +86,23 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// Name: pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
-// SchemaS3Location: interface{}{
-// BucketName: pulumi.String("weaver-mytestsimulation-111122223333-schemas-us-west-2"),
-// ObjectKey: pulumi.String("MyTestSimulation-schema.yaml"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				Name:    pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
+//				RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
+//				SchemaS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("weaver-mytestsimulation-111122223333-schemas-us-west-2"),
+//					ObjectKey:  pulumi.String("MyTestSimulation-schema.yaml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -113,22 +116,23 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// Name: pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
-// SchemaS3Location: interface{}{
-// BucketName: pulumi.String("weaver-mytestsimulation-111122223333-schemas-us-west-2"),
-// ObjectKey: pulumi.String("MyTestSimulation-schema.yaml"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				Name:    pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
+//				RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
+//				SchemaS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("weaver-mytestsimulation-111122223333-schemas-us-west-2"),
+//					ObjectKey:  pulumi.String("MyTestSimulation-schema.yaml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -142,22 +146,23 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// Name: pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
-// SchemaS3Location: interface{}{
-// BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
-// ObjectKey: pulumi.String("MyTestSimulation-schema.yaml"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				Name:    pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
+//				RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
+//				SchemaS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
+//					ObjectKey:  pulumi.String("MyTestSimulation-schema.yaml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -171,22 +176,23 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// Name: pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
-// SchemaS3Location: interface{}{
-// BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
-// ObjectKey: pulumi.String("MyTestSimulation-schema.yaml"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				Name:    pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
+//				RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
+//				SchemaS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
+//					ObjectKey:  pulumi.String("MyTestSimulation-schema.yaml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -200,23 +206,24 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// MaximumDuration: pulumi.String("1H"),
-// Name: pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
-// SchemaS3Location: interface{}{
-// BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
-// ObjectKey: pulumi.String("MyTestSimulation-schema.yaml"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				MaximumDuration: pulumi.String("1H"),
+//				Name:            pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
+//				RoleArn:         pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
+//				SchemaS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
+//					ObjectKey:  pulumi.String("MyTestSimulation-schema.yaml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -230,23 +237,24 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// MaximumDuration: pulumi.String("1H"),
-// Name: pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
-// SchemaS3Location: interface{}{
-// BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
-// ObjectKey: pulumi.String("MyTestSimulation-schema.yaml"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				MaximumDuration: pulumi.String("1H"),
+//				Name:            pulumi.String("MyTestSimulation_22-12-15_12_00_00"),
+//				RoleArn:         pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role"),
+//				SchemaS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
+//					ObjectKey:  pulumi.String("MyTestSimulation-schema.yaml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -260,23 +268,24 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// MaximumDuration: pulumi.String("2D"),
-// Name: pulumi.String("MyTestSimulation_from_snapshot"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role-copy"),
-// SnapshotS3Location: interface{}{
-// BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
-// ObjectKey: pulumi.String("snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				MaximumDuration: pulumi.String("2D"),
+//				Name:            pulumi.String("MyTestSimulation_from_snapshot"),
+//				RoleArn:         pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role-copy"),
+//				SnapshotS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
+//					ObjectKey:  pulumi.String("snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -290,23 +299,24 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
-// MaximumDuration: pulumi.String("2D"),
-// Name: pulumi.String("MyTestSimulation_from_snapshot"),
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role-copy"),
-// SnapshotS3Location: interface{}{
-// BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
-// ObjectKey: pulumi.String("snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := simspaceweaver.NewSimulation(ctx, "myTestSimulation", &simspaceweaver.SimulationArgs{
+//				MaximumDuration: pulumi.String("2D"),
+//				Name:            pulumi.String("MyTestSimulation_from_snapshot"),
+//				RoleArn:         pulumi.String("arn:aws:iam::111122223333:role/weaver-MyTestSimulation-app-role-copy"),
+//				SnapshotS3Location: &simspaceweaver.SimulationS3LocationArgs{
+//					BucketName: pulumi.String("weaver-mytestsimulation-111122223333-artifacts-us-west-2"),
+//					ObjectKey:  pulumi.String("snapshot/MyTestSimulation_22-12-15_12_00_00-230428-1207-13.zip"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Simulation struct {

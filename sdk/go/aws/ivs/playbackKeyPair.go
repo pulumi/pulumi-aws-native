@@ -37,8 +37,8 @@ import (
 // -----END PUBLIC KEY-----
 // `),
 // Name: pulumi.String("MyPlaybackKeyPair"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("MyKey"),
 // Value: pulumi.String("MyValue"),
 // },
@@ -76,8 +76,8 @@ import (
 // -----END PUBLIC KEY-----
 // `),
 // Name: pulumi.String("MyPlaybackKeyPair"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("MyKey"),
 // Value: pulumi.String("MyValue"),
 // },

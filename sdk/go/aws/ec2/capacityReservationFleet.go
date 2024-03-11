@@ -30,15 +30,15 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewCapacityReservationFleet(ctx, "ec2CapacityReservationFleetCanary", &ec2.CapacityReservationFleetArgs{
 //				AllocationStrategy: pulumi.String("prioritized"),
-//				InstanceTypeSpecifications: []ec2.CapacityReservationFleetInstanceTypeSpecificationArgs{
-//					{
+//				InstanceTypeSpecifications: ec2.CapacityReservationFleetInstanceTypeSpecificationArray{
+//					&ec2.CapacityReservationFleetInstanceTypeSpecificationArgs{
 //						InstanceType:     pulumi.String("c4.large"),
 //						InstancePlatform: pulumi.String("Linux/UNIX"),
 //						AvailabilityZone: pulumi.String("us-east-1a"),
 //						Weight:           pulumi.Float64(1),
 //						Priority:         pulumi.Int(1),
 //					},
-//					{
+//					&ec2.CapacityReservationFleetInstanceTypeSpecificationArgs{
 //						InstanceType:     pulumi.String("c5.large"),
 //						InstancePlatform: pulumi.String("Linux/UNIX"),
 //						AvailabilityZone: pulumi.String("us-east-1a"),

@@ -31,12 +31,12 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := cassandra.NewKeyspace(ctx, "myNewKeyspace", &cassandra.KeyspaceArgs{
 // KeyspaceName: pulumi.String("MyNewKeyspace"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("tag1"),
 // Value: pulumi.String("val1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("tag2"),
 // Value: pulumi.String("val2"),
 // },

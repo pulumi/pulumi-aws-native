@@ -74,12 +74,12 @@ import (
 //	}`),
 //
 // RoleArn: pulumi.String("arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },
@@ -122,12 +122,12 @@ import (
 //	}`),
 //
 // RoleArn: pulumi.String("arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },
@@ -152,25 +152,26 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := stepfunctions.NewStateMachine(ctx, "myStateMachine", &stepfunctions.StateMachineArgs{
-// StateMachineName: pulumi.String("HelloWorld-StateMachine"),
-// DefinitionS3Location: interface{}{
-// Bucket: pulumi.String("example_bucket"),
-// Key: pulumi.String("hello_world.json"),
-// },
-// DefinitionSubstitutions: pulumi.Map{
-// "helloFunction": pulumi.Any("arn:aws:lambda:us-east-1:111122223333:function:HelloFunction"),
-// },
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1"),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := stepfunctions.NewStateMachine(ctx, "myStateMachine", &stepfunctions.StateMachineArgs{
+//				StateMachineName: pulumi.String("HelloWorld-StateMachine"),
+//				DefinitionS3Location: &stepfunctions.StateMachineS3LocationArgs{
+//					Bucket: pulumi.String("example_bucket"),
+//					Key:    pulumi.String("hello_world.json"),
+//				},
+//				DefinitionSubstitutions: pulumi.Map{
+//					"helloFunction": pulumi.Any("arn:aws:lambda:us-east-1:111122223333:function:HelloFunction"),
+//				},
+//				RoleArn: pulumi.String("arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type StateMachine struct {

@@ -15,6 +15,82 @@ import (
 // Resource Type definition for AWS::ApiGateway::DomainName.
 //
 // ## Example Usage
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			cfnDomainName := cfg.Require("cfnDomainName")
+//			certificateArn := cfg.Require("certificateArn")
+//			_type := cfg.Require("type")
+//			myDomainName, err := apigateway.NewDomainName(ctx, "myDomainName", &apigateway.DomainNameArgs{
+//				CertificateArn: pulumi.String(certificateArn),
+//				DomainName:     pulumi.String(cfnDomainName),
+//				EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
+//					Types: pulumi.StringArray{
+//						pulumi.String(_type),
+//					},
+//				},
+//				RegionalCertificateArn: pulumi.String(certificateArn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("domainName", myDomainName.ID())
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			cfnDomainName := cfg.Require("cfnDomainName")
+//			certificateArn := cfg.Require("certificateArn")
+//			_type := cfg.Require("type")
+//			myDomainName, err := apigateway.NewDomainName(ctx, "myDomainName", &apigateway.DomainNameArgs{
+//				CertificateArn: pulumi.String(certificateArn),
+//				DomainName:     pulumi.String(cfnDomainName),
+//				EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
+//					Types: pulumi.StringArray{
+//						pulumi.String(_type),
+//					},
+//				},
+//				RegionalCertificateArn: pulumi.String(certificateArn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("domainName", myDomainName.ID())
+//			return nil
+//		})
+//	}
+//
+// ```
 type DomainName struct {
 	pulumi.CustomResourceState
 

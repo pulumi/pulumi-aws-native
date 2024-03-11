@@ -34,11 +34,11 @@ import (
 //				OutputFormat: pulumi.String("json"),
 //				FirehoseArn:  pulumi.String("arn:aws:firehose:us-east-1:123456789012:deliverystream/MyDeliveryStream"),
 //				RoleArn:      pulumi.String("arn:aws:iam::123456789012:role/service-role/MyRole"),
-//				IncludeFilters: []cloudwatch.MetricStreamFilterArgs{
-//					{
+//				IncludeFilters: cloudwatch.MetricStreamFilterArray{
+//					&cloudwatch.MetricStreamFilterArgs{
 //						Namespace: pulumi.String("AWS/ELB"),
 //					},
-//					{
+//					&cloudwatch.MetricStreamFilterArgs{
 //						Namespace: pulumi.String("AWS/EC2"),
 //					},
 //				},

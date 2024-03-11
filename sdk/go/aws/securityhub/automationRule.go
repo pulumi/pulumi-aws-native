@@ -25,335 +25,336 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := securityhub.NewAutomationRule(ctx, "ruleWithCriteriaActionsTags", &securityhub.AutomationRuleArgs{
-// RuleName: pulumi.String("Example rule name"),
-// RuleOrder: pulumi.Int(5),
-// Description: pulumi.String("Example rule description."),
-// IsTerminal: pulumi.Bool(false),
-// RuleStatus: securityhub.AutomationRuleRuleStatusEnabled,
-// Criteria: interface{}{
-// ProductName: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("GuardDuty"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("SecurityHub"),
-// },
-// },
-// CompanyName: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("AWS"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("Private"),
-// },
-// },
-// ProductArn: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/aws"),
-// },
-// },
-// AwsAccountId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("123456789012"),
-// },
-// },
-// Id: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("example-finding-id"),
-// },
-// },
-// GeneratorId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("example-generator-id"),
-// },
-// },
-// Type: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("type-1"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("type-2"),
-// },
-// },
-// Description: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("description1"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("description2"),
-// },
-// },
-// SourceUrl: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("https"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("ftp"),
-// },
-// },
-// Title: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("title-1"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("title-2"),
-// },
-// },
-// SeverityLabel: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("LOW"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("HIGH"),
-// },
-// },
-// ResourceType: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("AwsEc2Instance"),
-// },
-// },
-// ResourcePartition: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("aws"),
-// },
-// },
-// ResourceId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("i-1234567890"),
-// },
-// },
-// ResourceRegion: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("us-west"),
-// },
-// },
-// ComplianceStatus: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("FAILED"),
-// },
-// },
-// ComplianceSecurityControlId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("EC2.3"),
-// },
-// },
-// ComplianceAssociatedStandardsId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-// },
-// },
-// VerificationState: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("BENIGN_POSITIVE"),
-// },
-// },
-// RecordState: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("ACTIVE"),
-// },
-// },
-// RelatedFindingsProductArn: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("arn:aws:securityhub:eu-central-1::product/aws/securityhub"),
-// },
-// },
-// RelatedFindingsId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("example-finding-id-2"),
-// },
-// },
-// NoteText: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("example-note-text"),
-// },
-// },
-// NoteUpdatedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// DateRange: &securityhub.AutomationRuleDateRangeArgs{
-// Unit: securityhub.AutomationRuleDateRangeUnitDays,
-// Value: pulumi.Float64(5),
-// },
-// },
-// },
-// NoteUpdatedBy: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("sechub"),
-// },
-// },
-// WorkflowStatus: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("NEW"),
-// },
-// },
-// FirstObservedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// DateRange: &securityhub.AutomationRuleDateRangeArgs{
-// Unit: securityhub.AutomationRuleDateRangeUnitDays,
-// Value: pulumi.Float64(5),
-// },
-// },
-// },
-// LastObservedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// DateRange: &securityhub.AutomationRuleDateRangeArgs{
-// Unit: securityhub.AutomationRuleDateRangeUnitDays,
-// Value: pulumi.Float64(5),
-// },
-// },
-// },
-// CreatedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// DateRange: &securityhub.AutomationRuleDateRangeArgs{
-// Unit: securityhub.AutomationRuleDateRangeUnitDays,
-// Value: pulumi.Float64(5),
-// },
-// },
-// },
-// UpdatedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// Start: pulumi.String("2023-04-25T17:05:54.832Z"),
-// End: pulumi.String("2023-05-25T17:05:54.832Z"),
-// },
-// },
-// ResourceTags: securityhub.AutomationRuleMapFilterArray{
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
-// Key: pulumi.String("department"),
-// Value: pulumi.String("security"),
-// },
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
-// Key: pulumi.String("department"),
-// Value: pulumi.String("operations"),
-// },
-// },
-// UserDefinedFields: securityhub.AutomationRuleMapFilterArray{
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonEquals,
-// Key: pulumi.String("key1"),
-// Value: pulumi.String("security"),
-// },
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonEquals,
-// Key: pulumi.String("key2"),
-// Value: pulumi.String("operations"),
-// },
-// },
-// ResourceDetailsOther: securityhub.AutomationRuleMapFilterArray{
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
-// Key: pulumi.String("area"),
-// Value: pulumi.String("na"),
-// },
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
-// Key: pulumi.String("department"),
-// Value: pulumi.String("sales"),
-// },
-// },
-// Confidence: securityhub.AutomationRuleNumberFilterArray{
-// &securityhub.AutomationRuleNumberFilterArgs{
-// Gte: pulumi.Float64(50),
-// Lte: pulumi.Float64(95),
-// },
-// },
-// Criticality: securityhub.AutomationRuleNumberFilterArray{
-// &securityhub.AutomationRuleNumberFilterArgs{
-// Gte: pulumi.Float64(50),
-// Lte: pulumi.Float64(95),
-// },
-// },
-// },
-// Actions: []securityhub.AutomationRulesActionArgs{
-// {
-// Type: securityhub.AutomationRulesActionTypeFindingFieldsUpdate,
-// FindingFieldsUpdate: {
-// Severity: {
-// Product: pulumi.Float64(50),
-// Label: securityhub.AutomationRuleSeverityUpdateLabelMedium,
-// Normalized: pulumi.Int(60),
-// },
-// Types: pulumi.StringArray{
-// pulumi.String("Software and Configuration Checks/Industry and Regulatory Standards/AWS-Foundational-Security-Best-Practices"),
-// pulumi.String("Industry Compliance"),
-// },
-// Confidence: pulumi.Int(98),
-// Criticality: pulumi.Int(95),
-// UserDefinedFields: {
-// "key1": pulumi.String("value1"),
-// "key2": pulumi.String("value2"),
-// },
-// RelatedFindings: securityhub.AutomationRuleRelatedFindingArray{
-// {
-// ProductArn: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
-// Id: pulumi.String("sample-finding-id-1"),
-// },
-// {
-// ProductArn: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
-// Id: pulumi.String("sample-finding-id-2"),
-// },
-// },
-// Note: {
-// Text: pulumi.String("sample-note-text"),
-// UpdatedBy: pulumi.String("sechub"),
-// },
-// VerificationState: securityhub.AutomationRulesFindingFieldsUpdateVerificationStateTruePositive,
-// Workflow: {
-// Status: securityhub.AutomationRuleWorkflowUpdateStatusNotified,
-// },
-// },
-// },
-// },
-// Tags: pulumi.StringMap{
-// "sampleTag": pulumi.String("sampleValue"),
-// "organizationUnit": pulumi.String("pnw"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securityhub.NewAutomationRule(ctx, "ruleWithCriteriaActionsTags", &securityhub.AutomationRuleArgs{
+//				RuleName:    pulumi.String("Example rule name"),
+//				RuleOrder:   pulumi.Int(5),
+//				Description: pulumi.String("Example rule description."),
+//				IsTerminal:  pulumi.Bool(false),
+//				RuleStatus:  securityhub.AutomationRuleRuleStatusEnabled,
+//				Criteria: &securityhub.AutomationRulesFindingFiltersArgs{
+//					ProductName: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("GuardDuty"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("SecurityHub"),
+//						},
+//					},
+//					CompanyName: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("AWS"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("Private"),
+//						},
+//					},
+//					ProductArn: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/aws"),
+//						},
+//					},
+//					AwsAccountId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("123456789012"),
+//						},
+//					},
+//					Id: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("example-finding-id"),
+//						},
+//					},
+//					GeneratorId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("example-generator-id"),
+//						},
+//					},
+//					Type: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("type-1"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("type-2"),
+//						},
+//					},
+//					Description: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("description1"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("description2"),
+//						},
+//					},
+//					SourceUrl: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("https"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("ftp"),
+//						},
+//					},
+//					Title: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("title-1"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("title-2"),
+//						},
+//					},
+//					SeverityLabel: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("LOW"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("HIGH"),
+//						},
+//					},
+//					ResourceType: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("AwsEc2Instance"),
+//						},
+//					},
+//					ResourcePartition: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("aws"),
+//						},
+//					},
+//					ResourceId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("i-1234567890"),
+//						},
+//					},
+//					ResourceRegion: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("us-west"),
+//						},
+//					},
+//					ComplianceStatus: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("FAILED"),
+//						},
+//					},
+//					ComplianceSecurityControlId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("EC2.3"),
+//						},
+//					},
+//					ComplianceAssociatedStandardsId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
+//						},
+//					},
+//					VerificationState: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("BENIGN_POSITIVE"),
+//						},
+//					},
+//					RecordState: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("ACTIVE"),
+//						},
+//					},
+//					RelatedFindingsProductArn: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("arn:aws:securityhub:eu-central-1::product/aws/securityhub"),
+//						},
+//					},
+//					RelatedFindingsId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("example-finding-id-2"),
+//						},
+//					},
+//					NoteText: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("example-note-text"),
+//						},
+//					},
+//					NoteUpdatedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							DateRange: &securityhub.AutomationRuleDateRangeArgs{
+//								Unit:  securityhub.AutomationRuleDateRangeUnitDays,
+//								Value: pulumi.Float64(5),
+//							},
+//						},
+//					},
+//					NoteUpdatedBy: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("sechub"),
+//						},
+//					},
+//					WorkflowStatus: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("NEW"),
+//						},
+//					},
+//					FirstObservedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							DateRange: &securityhub.AutomationRuleDateRangeArgs{
+//								Unit:  securityhub.AutomationRuleDateRangeUnitDays,
+//								Value: pulumi.Float64(5),
+//							},
+//						},
+//					},
+//					LastObservedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							DateRange: &securityhub.AutomationRuleDateRangeArgs{
+//								Unit:  securityhub.AutomationRuleDateRangeUnitDays,
+//								Value: pulumi.Float64(5),
+//							},
+//						},
+//					},
+//					CreatedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							DateRange: &securityhub.AutomationRuleDateRangeArgs{
+//								Unit:  securityhub.AutomationRuleDateRangeUnitDays,
+//								Value: pulumi.Float64(5),
+//							},
+//						},
+//					},
+//					UpdatedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							Start: pulumi.String("2023-04-25T17:05:54.832Z"),
+//							End:   pulumi.String("2023-05-25T17:05:54.832Z"),
+//						},
+//					},
+//					ResourceTags: securityhub.AutomationRuleMapFilterArray{
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
+//							Key:        pulumi.String("department"),
+//							Value:      pulumi.String("security"),
+//						},
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
+//							Key:        pulumi.String("department"),
+//							Value:      pulumi.String("operations"),
+//						},
+//					},
+//					UserDefinedFields: securityhub.AutomationRuleMapFilterArray{
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonEquals,
+//							Key:        pulumi.String("key1"),
+//							Value:      pulumi.String("security"),
+//						},
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonEquals,
+//							Key:        pulumi.String("key2"),
+//							Value:      pulumi.String("operations"),
+//						},
+//					},
+//					ResourceDetailsOther: securityhub.AutomationRuleMapFilterArray{
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
+//							Key:        pulumi.String("area"),
+//							Value:      pulumi.String("na"),
+//						},
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
+//							Key:        pulumi.String("department"),
+//							Value:      pulumi.String("sales"),
+//						},
+//					},
+//					Confidence: securityhub.AutomationRuleNumberFilterArray{
+//						&securityhub.AutomationRuleNumberFilterArgs{
+//							Gte: pulumi.Float64(50),
+//							Lte: pulumi.Float64(95),
+//						},
+//					},
+//					Criticality: securityhub.AutomationRuleNumberFilterArray{
+//						&securityhub.AutomationRuleNumberFilterArgs{
+//							Gte: pulumi.Float64(50),
+//							Lte: pulumi.Float64(95),
+//						},
+//					},
+//				},
+//				Actions: securityhub.AutomationRulesActionArray{
+//					&securityhub.AutomationRulesActionArgs{
+//						Type: securityhub.AutomationRulesActionTypeFindingFieldsUpdate,
+//						FindingFieldsUpdate: &securityhub.AutomationRulesFindingFieldsUpdateArgs{
+//							Severity: &securityhub.AutomationRuleSeverityUpdateArgs{
+//								Product:    pulumi.Float64(50),
+//								Label:      securityhub.AutomationRuleSeverityUpdateLabelMedium,
+//								Normalized: pulumi.Int(60),
+//							},
+//							Types: pulumi.StringArray{
+//								pulumi.String("Software and Configuration Checks/Industry and Regulatory Standards/AWS-Foundational-Security-Best-Practices"),
+//								pulumi.String("Industry Compliance"),
+//							},
+//							Confidence:  pulumi.Int(98),
+//							Criticality: pulumi.Int(95),
+//							UserDefinedFields: pulumi.StringMap{
+//								"key1": pulumi.String("value1"),
+//								"key2": pulumi.String("value2"),
+//							},
+//							RelatedFindings: securityhub.AutomationRuleRelatedFindingArray{
+//								&securityhub.AutomationRuleRelatedFindingArgs{
+//									ProductArn: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
+//									Id:         pulumi.String("sample-finding-id-1"),
+//								},
+//								&securityhub.AutomationRuleRelatedFindingArgs{
+//									ProductArn: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
+//									Id:         pulumi.String("sample-finding-id-2"),
+//								},
+//							},
+//							Note: &securityhub.AutomationRuleNoteUpdateArgs{
+//								Text:      pulumi.String("sample-note-text"),
+//								UpdatedBy: pulumi.String("sechub"),
+//							},
+//							VerificationState: securityhub.AutomationRulesFindingFieldsUpdateVerificationStateTruePositive,
+//							Workflow: &securityhub.AutomationRuleWorkflowUpdateArgs{
+//								Status: securityhub.AutomationRuleWorkflowUpdateStatusNotified,
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"sampleTag":        pulumi.String("sampleValue"),
+//					"organizationUnit": pulumi.String("pnw"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -367,335 +368,336 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := securityhub.NewAutomationRule(ctx, "ruleWithCriteriaActionsTags", &securityhub.AutomationRuleArgs{
-// RuleName: pulumi.String("Example rule name"),
-// RuleOrder: pulumi.Int(5),
-// Description: pulumi.String("Example rule description."),
-// IsTerminal: pulumi.Bool(false),
-// RuleStatus: securityhub.AutomationRuleRuleStatusEnabled,
-// Criteria: interface{}{
-// ProductName: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("GuardDuty"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("SecurityHub"),
-// },
-// },
-// CompanyName: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("AWS"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("Private"),
-// },
-// },
-// ProductArn: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/aws"),
-// },
-// },
-// AwsAccountId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("123456789012"),
-// },
-// },
-// Id: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("example-finding-id"),
-// },
-// },
-// GeneratorId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("example-generator-id"),
-// },
-// },
-// Type: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("type-1"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("type-2"),
-// },
-// },
-// Description: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("description1"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("description2"),
-// },
-// },
-// SourceUrl: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("https"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("ftp"),
-// },
-// },
-// Title: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("title-1"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("title-2"),
-// },
-// },
-// SeverityLabel: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("LOW"),
-// },
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("HIGH"),
-// },
-// },
-// ResourceType: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("AwsEc2Instance"),
-// },
-// },
-// ResourcePartition: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("aws"),
-// },
-// },
-// ResourceId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("i-1234567890"),
-// },
-// },
-// ResourceRegion: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("us-west"),
-// },
-// },
-// ComplianceStatus: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("FAILED"),
-// },
-// },
-// ComplianceSecurityControlId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("EC2.3"),
-// },
-// },
-// ComplianceAssociatedStandardsId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-// },
-// },
-// VerificationState: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("BENIGN_POSITIVE"),
-// },
-// },
-// RecordState: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("ACTIVE"),
-// },
-// },
-// RelatedFindingsProductArn: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("arn:aws:securityhub:eu-central-1::product/aws/securityhub"),
-// },
-// },
-// RelatedFindingsId: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("example-finding-id-2"),
-// },
-// },
-// NoteText: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("example-note-text"),
-// },
-// },
-// NoteUpdatedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// DateRange: &securityhub.AutomationRuleDateRangeArgs{
-// Unit: securityhub.AutomationRuleDateRangeUnitDays,
-// Value: pulumi.Float64(5),
-// },
-// },
-// },
-// NoteUpdatedBy: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
-// Value: pulumi.String("sechub"),
-// },
-// },
-// WorkflowStatus: securityhub.AutomationRuleStringFilterArray{
-// &securityhub.AutomationRuleStringFilterArgs{
-// Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
-// Value: pulumi.String("NEW"),
-// },
-// },
-// FirstObservedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// DateRange: &securityhub.AutomationRuleDateRangeArgs{
-// Unit: securityhub.AutomationRuleDateRangeUnitDays,
-// Value: pulumi.Float64(5),
-// },
-// },
-// },
-// LastObservedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// DateRange: &securityhub.AutomationRuleDateRangeArgs{
-// Unit: securityhub.AutomationRuleDateRangeUnitDays,
-// Value: pulumi.Float64(5),
-// },
-// },
-// },
-// CreatedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// DateRange: &securityhub.AutomationRuleDateRangeArgs{
-// Unit: securityhub.AutomationRuleDateRangeUnitDays,
-// Value: pulumi.Float64(5),
-// },
-// },
-// },
-// UpdatedAt: securityhub.AutomationRuleDateFilterArray{
-// &securityhub.AutomationRuleDateFilterArgs{
-// Start: pulumi.String("2023-04-25T17:05:54.832Z"),
-// End: pulumi.String("2023-05-25T17:05:54.832Z"),
-// },
-// },
-// ResourceTags: securityhub.AutomationRuleMapFilterArray{
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
-// Key: pulumi.String("department"),
-// Value: pulumi.String("security"),
-// },
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
-// Key: pulumi.String("department"),
-// Value: pulumi.String("operations"),
-// },
-// },
-// UserDefinedFields: securityhub.AutomationRuleMapFilterArray{
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonEquals,
-// Key: pulumi.String("key1"),
-// Value: pulumi.String("security"),
-// },
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonEquals,
-// Key: pulumi.String("key2"),
-// Value: pulumi.String("operations"),
-// },
-// },
-// ResourceDetailsOther: securityhub.AutomationRuleMapFilterArray{
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
-// Key: pulumi.String("area"),
-// Value: pulumi.String("na"),
-// },
-// &securityhub.AutomationRuleMapFilterArgs{
-// Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
-// Key: pulumi.String("department"),
-// Value: pulumi.String("sales"),
-// },
-// },
-// Confidence: securityhub.AutomationRuleNumberFilterArray{
-// &securityhub.AutomationRuleNumberFilterArgs{
-// Gte: pulumi.Float64(50),
-// Lte: pulumi.Float64(95),
-// },
-// },
-// Criticality: securityhub.AutomationRuleNumberFilterArray{
-// &securityhub.AutomationRuleNumberFilterArgs{
-// Gte: pulumi.Float64(50),
-// Lte: pulumi.Float64(95),
-// },
-// },
-// },
-// Actions: []securityhub.AutomationRulesActionArgs{
-// {
-// Type: securityhub.AutomationRulesActionTypeFindingFieldsUpdate,
-// FindingFieldsUpdate: {
-// Severity: {
-// Product: pulumi.Float64(50),
-// Label: securityhub.AutomationRuleSeverityUpdateLabelMedium,
-// Normalized: pulumi.Int(60),
-// },
-// Types: pulumi.StringArray{
-// pulumi.String("Software and Configuration Checks/Industry and Regulatory Standards/AWS-Foundational-Security-Best-Practices"),
-// pulumi.String("Industry Compliance"),
-// },
-// Confidence: pulumi.Int(98),
-// Criticality: pulumi.Int(95),
-// UserDefinedFields: {
-// "key1": pulumi.String("value1"),
-// "key2": pulumi.String("value2"),
-// },
-// RelatedFindings: securityhub.AutomationRuleRelatedFindingArray{
-// {
-// ProductArn: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
-// Id: pulumi.String("sample-finding-id-1"),
-// },
-// {
-// ProductArn: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
-// Id: pulumi.String("sample-finding-id-2"),
-// },
-// },
-// Note: {
-// Text: pulumi.String("sample-note-text"),
-// UpdatedBy: pulumi.String("sechub"),
-// },
-// VerificationState: securityhub.AutomationRulesFindingFieldsUpdateVerificationStateTruePositive,
-// Workflow: {
-// Status: securityhub.AutomationRuleWorkflowUpdateStatusNotified,
-// },
-// },
-// },
-// },
-// Tags: pulumi.StringMap{
-// "sampleTag": pulumi.String("sampleValue"),
-// "organizationUnit": pulumi.String("pnw"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securityhub.NewAutomationRule(ctx, "ruleWithCriteriaActionsTags", &securityhub.AutomationRuleArgs{
+//				RuleName:    pulumi.String("Example rule name"),
+//				RuleOrder:   pulumi.Int(5),
+//				Description: pulumi.String("Example rule description."),
+//				IsTerminal:  pulumi.Bool(false),
+//				RuleStatus:  securityhub.AutomationRuleRuleStatusEnabled,
+//				Criteria: &securityhub.AutomationRulesFindingFiltersArgs{
+//					ProductName: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("GuardDuty"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("SecurityHub"),
+//						},
+//					},
+//					CompanyName: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("AWS"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("Private"),
+//						},
+//					},
+//					ProductArn: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/aws"),
+//						},
+//					},
+//					AwsAccountId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("123456789012"),
+//						},
+//					},
+//					Id: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("example-finding-id"),
+//						},
+//					},
+//					GeneratorId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("example-generator-id"),
+//						},
+//					},
+//					Type: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("type-1"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("type-2"),
+//						},
+//					},
+//					Description: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("description1"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("description2"),
+//						},
+//					},
+//					SourceUrl: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("https"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("ftp"),
+//						},
+//					},
+//					Title: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("title-1"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("title-2"),
+//						},
+//					},
+//					SeverityLabel: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("LOW"),
+//						},
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("HIGH"),
+//						},
+//					},
+//					ResourceType: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("AwsEc2Instance"),
+//						},
+//					},
+//					ResourcePartition: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("aws"),
+//						},
+//					},
+//					ResourceId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("i-1234567890"),
+//						},
+//					},
+//					ResourceRegion: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("us-west"),
+//						},
+//					},
+//					ComplianceStatus: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("FAILED"),
+//						},
+//					},
+//					ComplianceSecurityControlId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("EC2.3"),
+//						},
+//					},
+//					ComplianceAssociatedStandardsId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
+//						},
+//					},
+//					VerificationState: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("BENIGN_POSITIVE"),
+//						},
+//					},
+//					RecordState: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("ACTIVE"),
+//						},
+//					},
+//					RelatedFindingsProductArn: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("arn:aws:securityhub:eu-central-1::product/aws/securityhub"),
+//						},
+//					},
+//					RelatedFindingsId: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("example-finding-id-2"),
+//						},
+//					},
+//					NoteText: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("example-note-text"),
+//						},
+//					},
+//					NoteUpdatedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							DateRange: &securityhub.AutomationRuleDateRangeArgs{
+//								Unit:  securityhub.AutomationRuleDateRangeUnitDays,
+//								Value: pulumi.Float64(5),
+//							},
+//						},
+//					},
+//					NoteUpdatedBy: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonPrefix,
+//							Value:      pulumi.String("sechub"),
+//						},
+//					},
+//					WorkflowStatus: securityhub.AutomationRuleStringFilterArray{
+//						&securityhub.AutomationRuleStringFilterArgs{
+//							Comparison: securityhub.AutomationRuleStringFilterComparisonEquals,
+//							Value:      pulumi.String("NEW"),
+//						},
+//					},
+//					FirstObservedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							DateRange: &securityhub.AutomationRuleDateRangeArgs{
+//								Unit:  securityhub.AutomationRuleDateRangeUnitDays,
+//								Value: pulumi.Float64(5),
+//							},
+//						},
+//					},
+//					LastObservedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							DateRange: &securityhub.AutomationRuleDateRangeArgs{
+//								Unit:  securityhub.AutomationRuleDateRangeUnitDays,
+//								Value: pulumi.Float64(5),
+//							},
+//						},
+//					},
+//					CreatedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							DateRange: &securityhub.AutomationRuleDateRangeArgs{
+//								Unit:  securityhub.AutomationRuleDateRangeUnitDays,
+//								Value: pulumi.Float64(5),
+//							},
+//						},
+//					},
+//					UpdatedAt: securityhub.AutomationRuleDateFilterArray{
+//						&securityhub.AutomationRuleDateFilterArgs{
+//							Start: pulumi.String("2023-04-25T17:05:54.832Z"),
+//							End:   pulumi.String("2023-05-25T17:05:54.832Z"),
+//						},
+//					},
+//					ResourceTags: securityhub.AutomationRuleMapFilterArray{
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
+//							Key:        pulumi.String("department"),
+//							Value:      pulumi.String("security"),
+//						},
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
+//							Key:        pulumi.String("department"),
+//							Value:      pulumi.String("operations"),
+//						},
+//					},
+//					UserDefinedFields: securityhub.AutomationRuleMapFilterArray{
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonEquals,
+//							Key:        pulumi.String("key1"),
+//							Value:      pulumi.String("security"),
+//						},
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonEquals,
+//							Key:        pulumi.String("key2"),
+//							Value:      pulumi.String("operations"),
+//						},
+//					},
+//					ResourceDetailsOther: securityhub.AutomationRuleMapFilterArray{
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
+//							Key:        pulumi.String("area"),
+//							Value:      pulumi.String("na"),
+//						},
+//						&securityhub.AutomationRuleMapFilterArgs{
+//							Comparison: securityhub.AutomationRuleMapFilterComparisonNotEquals,
+//							Key:        pulumi.String("department"),
+//							Value:      pulumi.String("sales"),
+//						},
+//					},
+//					Confidence: securityhub.AutomationRuleNumberFilterArray{
+//						&securityhub.AutomationRuleNumberFilterArgs{
+//							Gte: pulumi.Float64(50),
+//							Lte: pulumi.Float64(95),
+//						},
+//					},
+//					Criticality: securityhub.AutomationRuleNumberFilterArray{
+//						&securityhub.AutomationRuleNumberFilterArgs{
+//							Gte: pulumi.Float64(50),
+//							Lte: pulumi.Float64(95),
+//						},
+//					},
+//				},
+//				Actions: securityhub.AutomationRulesActionArray{
+//					&securityhub.AutomationRulesActionArgs{
+//						Type: securityhub.AutomationRulesActionTypeFindingFieldsUpdate,
+//						FindingFieldsUpdate: &securityhub.AutomationRulesFindingFieldsUpdateArgs{
+//							Severity: &securityhub.AutomationRuleSeverityUpdateArgs{
+//								Product:    pulumi.Float64(50),
+//								Label:      securityhub.AutomationRuleSeverityUpdateLabelMedium,
+//								Normalized: pulumi.Int(60),
+//							},
+//							Types: pulumi.StringArray{
+//								pulumi.String("Software and Configuration Checks/Industry and Regulatory Standards/AWS-Foundational-Security-Best-Practices"),
+//								pulumi.String("Industry Compliance"),
+//							},
+//							Confidence:  pulumi.Int(98),
+//							Criticality: pulumi.Int(95),
+//							UserDefinedFields: pulumi.StringMap{
+//								"key1": pulumi.String("value1"),
+//								"key2": pulumi.String("value2"),
+//							},
+//							RelatedFindings: securityhub.AutomationRuleRelatedFindingArray{
+//								&securityhub.AutomationRuleRelatedFindingArgs{
+//									ProductArn: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
+//									Id:         pulumi.String("sample-finding-id-1"),
+//								},
+//								&securityhub.AutomationRuleRelatedFindingArgs{
+//									ProductArn: pulumi.String("arn:aws:securityhub:us-west-2:123456789012:product/123456789012/default"),
+//									Id:         pulumi.String("sample-finding-id-2"),
+//								},
+//							},
+//							Note: &securityhub.AutomationRuleNoteUpdateArgs{
+//								Text:      pulumi.String("sample-note-text"),
+//								UpdatedBy: pulumi.String("sechub"),
+//							},
+//							VerificationState: securityhub.AutomationRulesFindingFieldsUpdateVerificationStateTruePositive,
+//							Workflow: &securityhub.AutomationRuleWorkflowUpdateArgs{
+//								Status: securityhub.AutomationRuleWorkflowUpdateStatusNotified,
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"sampleTag":        pulumi.String("sampleValue"),
+//					"organizationUnit": pulumi.String("pnw"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type AutomationRule struct {

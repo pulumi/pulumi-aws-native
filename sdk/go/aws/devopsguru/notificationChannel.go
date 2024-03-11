@@ -26,32 +26,33 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := devopsguru.NewNotificationChannel(ctx, "myNotificationChannel", &devopsguru.NotificationChannelArgs{
-// Config: interface{}{
-// Filters: &devopsguru.NotificationChannelNotificationFilterConfigArgs{
-// MessageTypes: devopsguru.NotificationChannelNotificationMessageTypeArray{
-// devopsguru.NotificationChannelNotificationMessageTypeNewInsight,
-// devopsguru.NotificationChannelNotificationMessageTypeClosedInsight,
-// devopsguru.NotificationChannelNotificationMessageTypeSeverityUpgraded,
-// },
-// Severities: devopsguru.NotificationChannelInsightSeverityArray{
-// devopsguru.NotificationChannelInsightSeverityMedium,
-// devopsguru.NotificationChannelInsightSeverityHigh,
-// },
-// },
-// Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
-// TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := devopsguru.NewNotificationChannel(ctx, "myNotificationChannel", &devopsguru.NotificationChannelArgs{
+//				Config: &devopsguru.NotificationChannelConfigArgs{
+//					Filters: &devopsguru.NotificationChannelNotificationFilterConfigArgs{
+//						MessageTypes: devopsguru.NotificationChannelNotificationMessageTypeArray{
+//							devopsguru.NotificationChannelNotificationMessageTypeNewInsight,
+//							devopsguru.NotificationChannelNotificationMessageTypeClosedInsight,
+//							devopsguru.NotificationChannelNotificationMessageTypeSeverityUpgraded,
+//						},
+//						Severities: devopsguru.NotificationChannelInsightSeverityArray{
+//							devopsguru.NotificationChannelInsightSeverityMedium,
+//							devopsguru.NotificationChannelInsightSeverityHigh,
+//						},
+//					},
+//					Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
+//						TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -65,31 +66,32 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := devopsguru.NewNotificationChannel(ctx, "myNotificationChannel1", &devopsguru.NotificationChannelArgs{
-// Config: interface{}{
-// Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
-// TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = devopsguru.NewNotificationChannel(ctx, "myNotificationChannel2", &devopsguru.NotificationChannelArgs{
-// Config: interface{}{
-// Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
-// TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := devopsguru.NewNotificationChannel(ctx, "myNotificationChannel1", &devopsguru.NotificationChannelArgs{
+//				Config: &devopsguru.NotificationChannelConfigArgs{
+//					Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
+//						TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devopsguru.NewNotificationChannel(ctx, "myNotificationChannel2", &devopsguru.NotificationChannelArgs{
+//				Config: &devopsguru.NotificationChannelConfigArgs{
+//					Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
+//						TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -103,31 +105,32 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := devopsguru.NewNotificationChannel(ctx, "myNotificationChannel1", &devopsguru.NotificationChannelArgs{
-// Config: interface{}{
-// Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
-// TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = devopsguru.NewNotificationChannel(ctx, "myNotificationChannel2", &devopsguru.NotificationChannelArgs{
-// Config: interface{}{
-// Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
-// TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := devopsguru.NewNotificationChannel(ctx, "myNotificationChannel1", &devopsguru.NotificationChannelArgs{
+//				Config: &devopsguru.NotificationChannelConfigArgs{
+//					Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
+//						TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devopsguru.NewNotificationChannel(ctx, "myNotificationChannel2", &devopsguru.NotificationChannelArgs{
+//				Config: &devopsguru.NotificationChannelConfigArgs{
+//					Sns: &devopsguru.NotificationChannelSnsChannelConfigArgs{
+//						TopicArn: pulumi.String("arn:aws:sns:us-east-1:123456789012:DefaultNotificationChannel2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type NotificationChannel struct {

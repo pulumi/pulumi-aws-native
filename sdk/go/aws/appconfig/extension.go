@@ -50,8 +50,8 @@ import (
 // Description: pulumi.String("My test parameter"),
 // },
 // },
-// Tags: []aws.CreateOnlyTagArgs{
-// {
+// Tags: aws.CreateOnlyTagArray{
+// &aws.CreateOnlyTagArgs{
 // Key: pulumi.String("Ext"),
 // Value: pulumi.String("Test"),
 // },

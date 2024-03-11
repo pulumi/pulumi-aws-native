@@ -36,8 +36,8 @@ import (
 // InstanceArn: pulumi.String("arn:aws:connect:region-name:aws-account-id:instance/instance-arn"),
 // Type: connect.ContactFlowTypeContactFlow,
 // Content: pulumi.String("ExampleFlow content(JSON) using Amazon Connect Flow Language."),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("testkey"),
 // Value: pulumi.String("testValue"),
 // },

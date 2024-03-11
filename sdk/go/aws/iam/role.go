@@ -50,13 +50,13 @@ import (
 //					},
 //				},
 //				RoleName: pulumi.String("ScriptIAMRole"),
-//				Policies: []iam.RolePolicyTypeArgs{
-//					{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("ScriptResourceIAMPolicy"),
-//						PolicyDocument: {
+//						PolicyDocument: pulumi.Any{
 //							Version: "2012-10-17",
 //							Statement: []map[string]interface{}{
-//								{
+//								map[string]interface{}{
 //									"effect": "Allow",
 //									"action": []string{
 //										"s3:GetObject",
@@ -125,13 +125,13 @@ import (
 //					},
 //				},
 //				RoleName: pulumi.String("ScriptIAMRole"),
-//				Policies: []iam.RolePolicyTypeArgs{
-//					{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("ScriptResourceIAMPolicy"),
-//						PolicyDocument: {
+//						PolicyDocument: pulumi.Any{
 //							Version: "2012-10-17",
 //							Statement: []map[string]interface{}{
-//								{
+//								map[string]interface{}{
 //									"effect": "Allow",
 //									"action": []string{
 //										"s3:GetObject",
@@ -180,78 +180,79 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// amazonGrafanaWorkspaceIAMRole, err := iam.NewRole(ctx, "amazonGrafanaWorkspaceIAMRole", &iam.RoleArgs{
-// ManagedPolicyArns: pulumi.StringArray{
-// pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess"),
-// },
-// AssumeRolePolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "effect": "Allow",
-// "principal": map[string]interface{}{
-// "service": []string{
-// "grafana.amazonaws.com",
-// },
-// },
-// "action": []string{
-// "sts:AssumeRole",
-// },
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// amazonGrafanaWorkspace, err := grafana.NewWorkspace(ctx, "amazonGrafanaWorkspace", &grafana.WorkspaceArgs{
-// AccountAccessType: grafana.WorkspaceAccountAccessTypeCurrentAccount,
-// Name: pulumi.String("AmazonGrafanaWorkspace"),
-// Description: pulumi.String("Amazon Grafana Workspace"),
-// AuthenticationProviders: grafana.WorkspaceAuthenticationProviderTypesArray{
-// grafana.WorkspaceAuthenticationProviderTypesSaml,
-// },
-// PermissionType: grafana.WorkspacePermissionTypeCustomerManaged,
-// GrafanaVersion: pulumi.String("9.4"),
-// RoleArn: amazonGrafanaWorkspaceIAMRole.Arn,
-// SamlConfiguration: interface{}{
-// IdpMetadata: &grafana.WorkspaceIdpMetadataArgs{
-// Xml: pulumi.String("<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>"),
-// },
-// AssertionAttributes: &grafana.WorkspaceAssertionAttributesArgs{
-// Name: pulumi.String("displayName"),
-// Login: pulumi.String("login"),
-// Email: pulumi.String("email"),
-// Groups: pulumi.String("group"),
-// Role: pulumi.String("role"),
-// Org: pulumi.String("org"),
-// },
-// RoleValues: &grafana.WorkspaceRoleValuesArgs{
-// Editor: pulumi.StringArray{
-// pulumi.String("editor1"),
-// },
-// Admin: pulumi.StringArray{
-// pulumi.String("admin1"),
-// },
-// },
-// AllowedOrganizations: pulumi.StringArray{
-// pulumi.String("org1"),
-// },
-// LoginValidityDuration: pulumi.Float64(60),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("workspaceEndpoint", amazonGrafanaWorkspace.Endpoint)
-// ctx.Export("workspaceStatus", amazonGrafanaWorkspace.Status)
-// ctx.Export("workspaceId", amazonGrafanaWorkspace.ID())
-// ctx.Export("grafanaVersion", amazonGrafanaWorkspace.GrafanaVersion)
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			amazonGrafanaWorkspaceIAMRole, err := iam.NewRole(ctx, "amazonGrafanaWorkspaceIAMRole", &iam.RoleArgs{
+//				ManagedPolicyArns: pulumi.StringArray{
+//					pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess"),
+//				},
+//				AssumeRolePolicyDocument: pulumi.Any{
+//					Version: "2012-10-17",
+//					Statement: []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"grafana.amazonaws.com",
+//								},
+//							},
+//							"action": []string{
+//								"sts:AssumeRole",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			amazonGrafanaWorkspace, err := grafana.NewWorkspace(ctx, "amazonGrafanaWorkspace", &grafana.WorkspaceArgs{
+//				AccountAccessType: grafana.WorkspaceAccountAccessTypeCurrentAccount,
+//				Name:              pulumi.String("AmazonGrafanaWorkspace"),
+//				Description:       pulumi.String("Amazon Grafana Workspace"),
+//				AuthenticationProviders: grafana.WorkspaceAuthenticationProviderTypesArray{
+//					grafana.WorkspaceAuthenticationProviderTypesSaml,
+//				},
+//				PermissionType: grafana.WorkspacePermissionTypeCustomerManaged,
+//				GrafanaVersion: pulumi.String("9.4"),
+//				RoleArn:        amazonGrafanaWorkspaceIAMRole.Arn,
+//				SamlConfiguration: &grafana.WorkspaceSamlConfigurationArgs{
+//					IdpMetadata: &grafana.WorkspaceIdpMetadataArgs{
+//						Xml: pulumi.String("<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>"),
+//					},
+//					AssertionAttributes: &grafana.WorkspaceAssertionAttributesArgs{
+//						Name:   pulumi.String("displayName"),
+//						Login:  pulumi.String("login"),
+//						Email:  pulumi.String("email"),
+//						Groups: pulumi.String("group"),
+//						Role:   pulumi.String("role"),
+//						Org:    pulumi.String("org"),
+//					},
+//					RoleValues: &grafana.WorkspaceRoleValuesArgs{
+//						Editor: pulumi.StringArray{
+//							pulumi.String("editor1"),
+//						},
+//						Admin: pulumi.StringArray{
+//							pulumi.String("admin1"),
+//						},
+//					},
+//					AllowedOrganizations: pulumi.StringArray{
+//						pulumi.String("org1"),
+//					},
+//					LoginValidityDuration: pulumi.Float64(60),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("workspaceEndpoint", amazonGrafanaWorkspace.Endpoint)
+//			ctx.Export("workspaceStatus", amazonGrafanaWorkspace.Status)
+//			ctx.Export("workspaceId", amazonGrafanaWorkspace.ID())
+//			ctx.Export("grafanaVersion", amazonGrafanaWorkspace.GrafanaVersion)
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -266,78 +267,79 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// amazonGrafanaWorkspaceIAMRole, err := iam.NewRole(ctx, "amazonGrafanaWorkspaceIAMRole", &iam.RoleArgs{
-// ManagedPolicyArns: pulumi.StringArray{
-// pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess"),
-// },
-// AssumeRolePolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "effect": "Allow",
-// "principal": map[string]interface{}{
-// "service": []string{
-// "grafana.amazonaws.com",
-// },
-// },
-// "action": []string{
-// "sts:AssumeRole",
-// },
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// amazonGrafanaWorkspace, err := grafana.NewWorkspace(ctx, "amazonGrafanaWorkspace", &grafana.WorkspaceArgs{
-// AccountAccessType: grafana.WorkspaceAccountAccessTypeCurrentAccount,
-// Name: pulumi.String("AmazonGrafanaWorkspace"),
-// Description: pulumi.String("Amazon Grafana Workspace"),
-// AuthenticationProviders: grafana.WorkspaceAuthenticationProviderTypesArray{
-// grafana.WorkspaceAuthenticationProviderTypesSaml,
-// },
-// PermissionType: grafana.WorkspacePermissionTypeCustomerManaged,
-// GrafanaVersion: pulumi.String("9.4"),
-// RoleArn: amazonGrafanaWorkspaceIAMRole.Arn,
-// SamlConfiguration: interface{}{
-// IdpMetadata: &grafana.WorkspaceIdpMetadataArgs{
-// Xml: pulumi.String("<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>"),
-// },
-// AssertionAttributes: &grafana.WorkspaceAssertionAttributesArgs{
-// Name: pulumi.String("displayName"),
-// Login: pulumi.String("login"),
-// Email: pulumi.String("email"),
-// Groups: pulumi.String("group"),
-// Role: pulumi.String("role"),
-// Org: pulumi.String("org"),
-// },
-// RoleValues: &grafana.WorkspaceRoleValuesArgs{
-// Editor: pulumi.StringArray{
-// pulumi.String("editor1"),
-// },
-// Admin: pulumi.StringArray{
-// pulumi.String("admin1"),
-// },
-// },
-// AllowedOrganizations: pulumi.StringArray{
-// pulumi.String("org1"),
-// },
-// LoginValidityDuration: pulumi.Float64(60),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("workspaceEndpoint", amazonGrafanaWorkspace.Endpoint)
-// ctx.Export("workspaceStatus", amazonGrafanaWorkspace.Status)
-// ctx.Export("workspaceId", amazonGrafanaWorkspace.ID())
-// ctx.Export("grafanaVersion", amazonGrafanaWorkspace.GrafanaVersion)
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			amazonGrafanaWorkspaceIAMRole, err := iam.NewRole(ctx, "amazonGrafanaWorkspaceIAMRole", &iam.RoleArgs{
+//				ManagedPolicyArns: pulumi.StringArray{
+//					pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess"),
+//				},
+//				AssumeRolePolicyDocument: pulumi.Any{
+//					Version: "2012-10-17",
+//					Statement: []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"grafana.amazonaws.com",
+//								},
+//							},
+//							"action": []string{
+//								"sts:AssumeRole",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			amazonGrafanaWorkspace, err := grafana.NewWorkspace(ctx, "amazonGrafanaWorkspace", &grafana.WorkspaceArgs{
+//				AccountAccessType: grafana.WorkspaceAccountAccessTypeCurrentAccount,
+//				Name:              pulumi.String("AmazonGrafanaWorkspace"),
+//				Description:       pulumi.String("Amazon Grafana Workspace"),
+//				AuthenticationProviders: grafana.WorkspaceAuthenticationProviderTypesArray{
+//					grafana.WorkspaceAuthenticationProviderTypesSaml,
+//				},
+//				PermissionType: grafana.WorkspacePermissionTypeCustomerManaged,
+//				GrafanaVersion: pulumi.String("9.4"),
+//				RoleArn:        amazonGrafanaWorkspaceIAMRole.Arn,
+//				SamlConfiguration: &grafana.WorkspaceSamlConfigurationArgs{
+//					IdpMetadata: &grafana.WorkspaceIdpMetadataArgs{
+//						Xml: pulumi.String("<md:EntityDescriptor xmlns:md='urn:oasis:names:tc:SAML:2.0:metadata' entityID='entityId'>DATA</md:EntityDescriptor>"),
+//					},
+//					AssertionAttributes: &grafana.WorkspaceAssertionAttributesArgs{
+//						Name:   pulumi.String("displayName"),
+//						Login:  pulumi.String("login"),
+//						Email:  pulumi.String("email"),
+//						Groups: pulumi.String("group"),
+//						Role:   pulumi.String("role"),
+//						Org:    pulumi.String("org"),
+//					},
+//					RoleValues: &grafana.WorkspaceRoleValuesArgs{
+//						Editor: pulumi.StringArray{
+//							pulumi.String("editor1"),
+//						},
+//						Admin: pulumi.StringArray{
+//							pulumi.String("admin1"),
+//						},
+//					},
+//					AllowedOrganizations: pulumi.StringArray{
+//						pulumi.String("org1"),
+//					},
+//					LoginValidityDuration: pulumi.Float64(60),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("workspaceEndpoint", amazonGrafanaWorkspace.Endpoint)
+//			ctx.Export("workspaceStatus", amazonGrafanaWorkspace.Status)
+//			ctx.Export("workspaceId", amazonGrafanaWorkspace.ID())
+//			ctx.Export("grafanaVersion", amazonGrafanaWorkspace.GrafanaVersion)
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -372,13 +374,13 @@ import (
 //					},
 //				},
 //				Path: pulumi.String("/"),
-//				Policies: []iam.RolePolicyTypeArgs{
-//					{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("root"),
-//						PolicyDocument: {
+//						PolicyDocument: pulumi.Any{
 //							Version: "2012-10-17",
 //							Statement: []map[string]interface{}{
-//								{
+//								map[string]interface{}{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
@@ -437,13 +439,13 @@ import (
 //					},
 //				},
 //				Path: pulumi.String("/"),
-//				Policies: []iam.RolePolicyTypeArgs{
-//					{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("root"),
-//						PolicyDocument: {
+//						PolicyDocument: pulumi.Any{
 //							Version: "2012-10-17",
 //							Statement: []map[string]interface{}{
-//								{
+//								map[string]interface{}{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
@@ -515,8 +517,8 @@ import (
 //						pulumi.String("AutomationExecutionRole.Arn"),
 //					},
 //				},
-//				Targets: []ssm.AssociationTargetArgs{
-//					{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("ParameterValues"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("i-1234567890abcdef0"),

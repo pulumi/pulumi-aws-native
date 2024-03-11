@@ -29,39 +29,40 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// myIamInstanceProfile, err := iam.NewInstanceProfile(ctx, "myIamInstanceProfile", &iam.InstanceProfileArgs{
-// InstanceProfileName: pulumi.String("MyIamInstanceProfile"),
-// Path: pulumi.String("/"),
-// Roles: pulumi.StringArray{
-// pulumi.String("MyAdminRole"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = ec2.NewLaunchTemplate(ctx, "myLaunchTemplate", &ec2.LaunchTemplateArgs{
-// LaunchTemplateName: pulumi.String("MyLaunchTemplate"),
-// LaunchTemplateData: interface{}{
-// IamInstanceProfile: &ec2.LaunchTemplateIamInstanceProfileArgs{
-// Arn: myIamInstanceProfile.Arn,
-// },
-// DisableApiTermination: pulumi.Bool(true),
-// ImageId: pulumi.String("ami-04d5cc9b88example"),
-// InstanceType: pulumi.String("t2.micro"),
-// KeyName: pulumi.String("MyKeyPair"),
-// SecurityGroupIds: pulumi.StringArray{
-// pulumi.String("sg-083cd3bfb8example"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myIamInstanceProfile, err := iam.NewInstanceProfile(ctx, "myIamInstanceProfile", &iam.InstanceProfileArgs{
+//				InstanceProfileName: pulumi.String("MyIamInstanceProfile"),
+//				Path:                pulumi.String("/"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("MyAdminRole"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewLaunchTemplate(ctx, "myLaunchTemplate", &ec2.LaunchTemplateArgs{
+//				LaunchTemplateName: pulumi.String("MyLaunchTemplate"),
+//				LaunchTemplateData: &ec2.LaunchTemplateDataArgs{
+//					IamInstanceProfile: &ec2.LaunchTemplateIamInstanceProfileArgs{
+//						Arn: myIamInstanceProfile.Arn,
+//					},
+//					DisableApiTermination: pulumi.Bool(true),
+//					ImageId:               pulumi.String("ami-04d5cc9b88example"),
+//					InstanceType:          pulumi.String("t2.micro"),
+//					KeyName:               pulumi.String("MyKeyPair"),
+//					SecurityGroupIds: pulumi.StringArray{
+//						pulumi.String("sg-083cd3bfb8example"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -76,39 +77,40 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// myIamInstanceProfile, err := iam.NewInstanceProfile(ctx, "myIamInstanceProfile", &iam.InstanceProfileArgs{
-// InstanceProfileName: pulumi.String("MyIamInstanceProfile"),
-// Path: pulumi.String("/"),
-// Roles: pulumi.StringArray{
-// pulumi.String("MyAdminRole"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = ec2.NewLaunchTemplate(ctx, "myLaunchTemplate", &ec2.LaunchTemplateArgs{
-// LaunchTemplateName: pulumi.String("MyLaunchTemplate"),
-// LaunchTemplateData: interface{}{
-// IamInstanceProfile: &ec2.LaunchTemplateIamInstanceProfileArgs{
-// Arn: myIamInstanceProfile.Arn,
-// },
-// DisableApiTermination: pulumi.Bool(true),
-// ImageId: pulumi.String("ami-04d5cc9b88example"),
-// InstanceType: pulumi.String("t2.micro"),
-// KeyName: pulumi.String("MyKeyPair"),
-// SecurityGroupIds: pulumi.StringArray{
-// pulumi.String("sg-083cd3bfb8example"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myIamInstanceProfile, err := iam.NewInstanceProfile(ctx, "myIamInstanceProfile", &iam.InstanceProfileArgs{
+//				InstanceProfileName: pulumi.String("MyIamInstanceProfile"),
+//				Path:                pulumi.String("/"),
+//				Roles: pulumi.StringArray{
+//					pulumi.String("MyAdminRole"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewLaunchTemplate(ctx, "myLaunchTemplate", &ec2.LaunchTemplateArgs{
+//				LaunchTemplateName: pulumi.String("MyLaunchTemplate"),
+//				LaunchTemplateData: &ec2.LaunchTemplateDataArgs{
+//					IamInstanceProfile: &ec2.LaunchTemplateIamInstanceProfileArgs{
+//						Arn: myIamInstanceProfile.Arn,
+//					},
+//					DisableApiTermination: pulumi.Bool(true),
+//					ImageId:               pulumi.String("ami-04d5cc9b88example"),
+//					InstanceType:          pulumi.String("t2.micro"),
+//					KeyName:               pulumi.String("MyKeyPair"),
+//					SecurityGroupIds: pulumi.StringArray{
+//						pulumi.String("sg-083cd3bfb8example"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type InstanceProfile struct {

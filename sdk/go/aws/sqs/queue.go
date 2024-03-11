@@ -51,8 +51,8 @@ import (
 //				return err
 //			}
 //			alarmTopic, err := sns.NewTopic(ctx, "alarmTopic", &sns.TopicArgs{
-//				Subscription: []sns.TopicSubscriptionArgs{
-//					{
+//				Subscription: sns.TopicSubscriptionArray{
+//					&sns.TopicSubscriptionArgs{
 //						Endpoint: pulumi.String(alarmEmail),
 //						Protocol: pulumi.String("email"),
 //					},
@@ -65,8 +65,8 @@ import (
 //				AlarmDescription: pulumi.String("Alarm if queue depth increases to more than 10 messages"),
 //				Namespace:        pulumi.String("AWS/SQS"),
 //				MetricName:       pulumi.String("ApproximateNumberOfMessagesVisible"),
-//				Dimensions: []cloudwatch.AlarmDimensionArgs{
-//					{
+//				Dimensions: cloudwatch.AlarmDimensionArray{
+//					&cloudwatch.AlarmDimensionArgs{
 //						Name:  pulumi.String("QueueName"),
 //						Value: myQueue.QueueName,
 //					},
@@ -123,8 +123,8 @@ import (
 //				return err
 //			}
 //			alarmTopic, err := sns.NewTopic(ctx, "alarmTopic", &sns.TopicArgs{
-//				Subscription: []sns.TopicSubscriptionArgs{
-//					{
+//				Subscription: sns.TopicSubscriptionArray{
+//					&sns.TopicSubscriptionArgs{
 //						Endpoint: pulumi.String(alarmEmail),
 //						Protocol: pulumi.String("email"),
 //					},
@@ -137,8 +137,8 @@ import (
 //				AlarmDescription: pulumi.String("Alarm if queue depth increases to more than 10 messages"),
 //				Namespace:        pulumi.String("AWS/SQS"),
 //				MetricName:       pulumi.String("ApproximateNumberOfMessagesVisible"),
-//				Dimensions: []cloudwatch.AlarmDimensionArgs{
-//					{
+//				Dimensions: cloudwatch.AlarmDimensionArray{
+//					&cloudwatch.AlarmDimensionArgs{
 //						Name:  pulumi.String("QueueName"),
 //						Value: myQueue.QueueName,
 //					},

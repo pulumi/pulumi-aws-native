@@ -31,12 +31,12 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := stepfunctions.NewActivity(ctx, "myActivity", &stepfunctions.ActivityArgs{
 // Name: pulumi.String("myActivity"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },
@@ -66,12 +66,12 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := stepfunctions.NewActivity(ctx, "myActivity", &stepfunctions.ActivityArgs{
 // Name: pulumi.String("myActivity"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },

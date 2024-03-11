@@ -49,8 +49,8 @@ import (
 // },
 // FailureRetentionPeriod: pulumi.Int(30),
 // SuccessRetentionPeriod: pulumi.Int(30),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("key00AtCreate"),
 // Value: pulumi.String("value001AtCreate"),
 // },
@@ -121,8 +121,8 @@ import (
 // },
 // FailureRetentionPeriod: pulumi.Int(30),
 // SuccessRetentionPeriod: pulumi.Int(30),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("key00AtCreate"),
 // Value: pulumi.String("value001AtCreate"),
 // },

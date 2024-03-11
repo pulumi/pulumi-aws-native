@@ -33,17 +33,17 @@ import (
 // Name: pulumi.String("MyCustomWorkGroup"),
 // Description: pulumi.String("My WorkGroup"),
 // State: athena.WorkGroupStateEnabled,
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("key1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("key2"),
 // Value: pulumi.String("value2"),
 // },
 // },
-// WorkGroupConfiguration: interface{}{
+// WorkGroupConfiguration: &athena.WorkGroupConfigurationArgs{
 // BytesScannedCutoffPerQuery: pulumi.Int(200000000),
 // EnforceWorkGroupConfiguration: pulumi.Bool(false),
 // PublishCloudWatchMetricsEnabled: pulumi.Bool(false),
@@ -79,17 +79,17 @@ import (
 // Name: pulumi.String("MyCustomWorkGroup"),
 // Description: pulumi.String("My WorkGroup"),
 // State: athena.WorkGroupStateEnabled,
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("key1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("key2"),
 // Value: pulumi.String("value2"),
 // },
 // },
-// WorkGroupConfiguration: interface{}{
+// WorkGroupConfiguration: &athena.WorkGroupConfigurationArgs{
 // BytesScannedCutoffPerQuery: pulumi.Int(200000000),
 // EnforceWorkGroupConfiguration: pulumi.Bool(false),
 // PublishCloudWatchMetricsEnabled: pulumi.Bool(false),
@@ -125,22 +125,22 @@ import (
 // Name: pulumi.String("MyCustomWorkGroup"),
 // Description: pulumi.String("My WorkGroup Updated"),
 // State: athena.WorkGroupStateDisabled,
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("key1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("key2"),
 // Value: pulumi.String("value2"),
 // },
 // },
-// WorkGroupConfigurationUpdates: interface{}{
+// WorkGroupConfigurationUpdates: &athena.WorkGroupConfigurationUpdatesArgs{
 // BytesScannedCutoffPerQuery: pulumi.Int(10000000),
 // EnforceWorkGroupConfiguration: pulumi.Bool(true),
 // PublishCloudWatchMetricsEnabled: pulumi.Bool(true),
 // RequesterPaysEnabled: pulumi.Bool(false),
-// ResultConfigurationUpdates: interface{}{
+// ResultConfigurationUpdates: &athena.WorkGroupResultConfigurationUpdatesArgs{
 // EncryptionConfiguration: &athena.WorkGroupEncryptionConfigurationArgs{
 // EncryptionOption: athena.WorkGroupEncryptionOptionSseS3,
 // },
@@ -174,22 +174,22 @@ import (
 // Name: pulumi.String("MyCustomWorkGroup"),
 // Description: pulumi.String("My WorkGroup Updated"),
 // State: athena.WorkGroupStateDisabled,
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("key1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("key2"),
 // Value: pulumi.String("value2"),
 // },
 // },
-// WorkGroupConfigurationUpdates: interface{}{
+// WorkGroupConfigurationUpdates: &athena.WorkGroupConfigurationUpdatesArgs{
 // BytesScannedCutoffPerQuery: pulumi.Int(10000000),
 // EnforceWorkGroupConfiguration: pulumi.Bool(true),
 // PublishCloudWatchMetricsEnabled: pulumi.Bool(true),
 // RequesterPaysEnabled: pulumi.Bool(false),
-// ResultConfigurationUpdates: interface{}{
+// ResultConfigurationUpdates: &athena.WorkGroupResultConfigurationUpdatesArgs{
 // EncryptionConfiguration: &athena.WorkGroupEncryptionConfigurationArgs{
 // EncryptionOption: athena.WorkGroupEncryptionOptionSseS3,
 // },

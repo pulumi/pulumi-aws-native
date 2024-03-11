@@ -181,12 +181,12 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
 // DomainName: pulumi.String("my-domain"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },
@@ -216,12 +216,12 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
 // DomainName: pulumi.String("my-domain"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },
@@ -412,12 +412,12 @@ import (
 // _, err = codeartifact.NewRepository(ctx, "myCodeArtifactRepository", &codeartifact.RepositoryArgs{
 // RepositoryName: pulumi.String("my-repo"),
 // DomainName: myCodeArtifactDomain.Name,
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },
@@ -454,12 +454,12 @@ import (
 // _, err = codeartifact.NewRepository(ctx, "myCodeArtifactRepository", &codeartifact.RepositoryArgs{
 // RepositoryName: pulumi.String("my-repo"),
 // DomainName: myCodeArtifactDomain.Name,
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },

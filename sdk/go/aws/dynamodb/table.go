@@ -32,121 +32,122 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := dynamodb.NewTable(ctx, "myDynamoDBTable", &dynamodb.TableArgs{
-// AttributeDefinitions: []dynamodb.TableAttributeDefinitionArgs{
-// {
-// AttributeName: pulumi.String("Album"),
-// AttributeType: pulumi.String("S"),
-// },
-// {
-// AttributeName: pulumi.String("Artist"),
-// AttributeType: pulumi.String("S"),
-// },
-// {
-// AttributeName: pulumi.String("Sales"),
-// AttributeType: pulumi.String("N"),
-// },
-// {
-// AttributeName: pulumi.String("NumberOfSongs"),
-// AttributeType: pulumi.String("N"),
-// },
-// },
-// KeySchema: pulumi.Any{
-// &dynamodb.TableKeySchemaArgs{
-// AttributeName: pulumi.String("Album"),
-// KeyType: pulumi.String("HASH"),
-// },
-// &dynamodb.TableKeySchemaArgs{
-// AttributeName: pulumi.String("Artist"),
-// KeyType: pulumi.String("RANGE"),
-// },
-// },
-// ProvisionedThroughput: interface{}{
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// TableName: pulumi.String("myTableName"),
-// GlobalSecondaryIndexes: []dynamodb.TableGlobalSecondaryIndexArgs{
-// {
-// IndexName: pulumi.String("myGSI"),
-// KeySchema: []dynamodb.TableKeySchemaArgs{
-// {
-// AttributeName: pulumi.String("Sales"),
-// KeyType: pulumi.String("HASH"),
-// },
-// {
-// AttributeName: pulumi.String("Artist"),
-// KeyType: pulumi.String("RANGE"),
-// },
-// },
-// Projection: {
-// NonKeyAttributes: pulumi.StringArray{
-// pulumi.String("Album"),
-// pulumi.String("NumberOfSongs"),
-// },
-// ProjectionType: pulumi.String("INCLUDE"),
-// },
-// ProvisionedThroughput: {
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// },
-// {
-// IndexName: pulumi.String("myGSI2"),
-// KeySchema: []dynamodb.TableKeySchemaArgs{
-// {
-// AttributeName: pulumi.String("NumberOfSongs"),
-// KeyType: pulumi.String("HASH"),
-// },
-// {
-// AttributeName: pulumi.String("Sales"),
-// KeyType: pulumi.String("RANGE"),
-// },
-// },
-// Projection: {
-// NonKeyAttributes: pulumi.StringArray{
-// pulumi.String("Album"),
-// pulumi.String("Artist"),
-// },
-// ProjectionType: pulumi.String("INCLUDE"),
-// },
-// ProvisionedThroughput: {
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// },
-// },
-// LocalSecondaryIndexes: []dynamodb.TableLocalSecondaryIndexArgs{
-// {
-// IndexName: pulumi.String("myLSI"),
-// KeySchema: []dynamodb.TableKeySchemaArgs{
-// {
-// AttributeName: pulumi.String("Album"),
-// KeyType: pulumi.String("HASH"),
-// },
-// {
-// AttributeName: pulumi.String("Sales"),
-// KeyType: pulumi.String("RANGE"),
-// },
-// },
-// Projection: {
-// NonKeyAttributes: pulumi.StringArray{
-// pulumi.String("Artist"),
-// pulumi.String("NumberOfSongs"),
-// },
-// ProjectionType: pulumi.String("INCLUDE"),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dynamodb.NewTable(ctx, "myDynamoDBTable", &dynamodb.TableArgs{
+//				AttributeDefinitions: dynamodb.TableAttributeDefinitionArray{
+//					&dynamodb.TableAttributeDefinitionArgs{
+//						AttributeName: pulumi.String("Album"),
+//						AttributeType: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeDefinitionArgs{
+//						AttributeName: pulumi.String("Artist"),
+//						AttributeType: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeDefinitionArgs{
+//						AttributeName: pulumi.String("Sales"),
+//						AttributeType: pulumi.String("N"),
+//					},
+//					&dynamodb.TableAttributeDefinitionArgs{
+//						AttributeName: pulumi.String("NumberOfSongs"),
+//						AttributeType: pulumi.String("N"),
+//					},
+//				},
+//				KeySchema: pulumi.Any{
+//					&dynamodb.TableKeySchemaArgs{
+//						AttributeName: pulumi.String("Album"),
+//						KeyType:       pulumi.String("HASH"),
+//					},
+//					&dynamodb.TableKeySchemaArgs{
+//						AttributeName: pulumi.String("Artist"),
+//						KeyType:       pulumi.String("RANGE"),
+//					},
+//				},
+//				ProvisionedThroughput: &dynamodb.TableProvisionedThroughputArgs{
+//					ReadCapacityUnits:  pulumi.Int(5),
+//					WriteCapacityUnits: pulumi.Int(5),
+//				},
+//				TableName: pulumi.String("myTableName"),
+//				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
+//					&dynamodb.TableGlobalSecondaryIndexArgs{
+//						IndexName: pulumi.String("myGSI"),
+//						KeySchema: []dynamodb.TableKeySchemaArgs{
+//							{
+//								AttributeName: pulumi.String("Sales"),
+//								KeyType:       pulumi.String("HASH"),
+//							},
+//							{
+//								AttributeName: pulumi.String("Artist"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
+//						},
+//						Projection: &dynamodb.TableProjectionArgs{
+//							NonKeyAttributes: pulumi.StringArray{
+//								pulumi.String("Album"),
+//								pulumi.String("NumberOfSongs"),
+//							},
+//							ProjectionType: pulumi.String("INCLUDE"),
+//						},
+//						ProvisionedThroughput: &dynamodb.TableProvisionedThroughputArgs{
+//							ReadCapacityUnits:  pulumi.Int(5),
+//							WriteCapacityUnits: pulumi.Int(5),
+//						},
+//					},
+//					&dynamodb.TableGlobalSecondaryIndexArgs{
+//						IndexName: pulumi.String("myGSI2"),
+//						KeySchema: []dynamodb.TableKeySchemaArgs{
+//							{
+//								AttributeName: pulumi.String("NumberOfSongs"),
+//								KeyType:       pulumi.String("HASH"),
+//							},
+//							{
+//								AttributeName: pulumi.String("Sales"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
+//						},
+//						Projection: &dynamodb.TableProjectionArgs{
+//							NonKeyAttributes: pulumi.StringArray{
+//								pulumi.String("Album"),
+//								pulumi.String("Artist"),
+//							},
+//							ProjectionType: pulumi.String("INCLUDE"),
+//						},
+//						ProvisionedThroughput: &dynamodb.TableProvisionedThroughputArgs{
+//							ReadCapacityUnits:  pulumi.Int(5),
+//							WriteCapacityUnits: pulumi.Int(5),
+//						},
+//					},
+//				},
+//				LocalSecondaryIndexes: dynamodb.TableLocalSecondaryIndexArray{
+//					&dynamodb.TableLocalSecondaryIndexArgs{
+//						IndexName: pulumi.String("myLSI"),
+//						KeySchema: []dynamodb.TableKeySchemaArgs{
+//							{
+//								AttributeName: pulumi.String("Album"),
+//								KeyType:       pulumi.String("HASH"),
+//							},
+//							{
+//								AttributeName: pulumi.String("Sales"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
+//						},
+//						Projection: &dynamodb.TableProjectionArgs{
+//							NonKeyAttributes: pulumi.StringArray{
+//								pulumi.String("Artist"),
+//								pulumi.String("NumberOfSongs"),
+//							},
+//							ProjectionType: pulumi.String("INCLUDE"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -160,121 +161,122 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := dynamodb.NewTable(ctx, "myDynamoDBTable", &dynamodb.TableArgs{
-// AttributeDefinitions: []dynamodb.TableAttributeDefinitionArgs{
-// {
-// AttributeName: pulumi.String("Album"),
-// AttributeType: pulumi.String("S"),
-// },
-// {
-// AttributeName: pulumi.String("Artist"),
-// AttributeType: pulumi.String("S"),
-// },
-// {
-// AttributeName: pulumi.String("Sales"),
-// AttributeType: pulumi.String("N"),
-// },
-// {
-// AttributeName: pulumi.String("NumberOfSongs"),
-// AttributeType: pulumi.String("N"),
-// },
-// },
-// KeySchema: pulumi.Any{
-// &dynamodb.TableKeySchemaArgs{
-// AttributeName: pulumi.String("Album"),
-// KeyType: pulumi.String("HASH"),
-// },
-// &dynamodb.TableKeySchemaArgs{
-// AttributeName: pulumi.String("Artist"),
-// KeyType: pulumi.String("RANGE"),
-// },
-// },
-// ProvisionedThroughput: interface{}{
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// TableName: pulumi.String("myTableName"),
-// GlobalSecondaryIndexes: []dynamodb.TableGlobalSecondaryIndexArgs{
-// {
-// IndexName: pulumi.String("myGSI"),
-// KeySchema: []dynamodb.TableKeySchemaArgs{
-// {
-// AttributeName: pulumi.String("Sales"),
-// KeyType: pulumi.String("HASH"),
-// },
-// {
-// AttributeName: pulumi.String("Artist"),
-// KeyType: pulumi.String("RANGE"),
-// },
-// },
-// Projection: {
-// NonKeyAttributes: pulumi.StringArray{
-// pulumi.String("Album"),
-// pulumi.String("NumberOfSongs"),
-// },
-// ProjectionType: pulumi.String("INCLUDE"),
-// },
-// ProvisionedThroughput: {
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// },
-// {
-// IndexName: pulumi.String("myGSI2"),
-// KeySchema: []dynamodb.TableKeySchemaArgs{
-// {
-// AttributeName: pulumi.String("NumberOfSongs"),
-// KeyType: pulumi.String("HASH"),
-// },
-// {
-// AttributeName: pulumi.String("Sales"),
-// KeyType: pulumi.String("RANGE"),
-// },
-// },
-// Projection: {
-// NonKeyAttributes: pulumi.StringArray{
-// pulumi.String("Album"),
-// pulumi.String("Artist"),
-// },
-// ProjectionType: pulumi.String("INCLUDE"),
-// },
-// ProvisionedThroughput: {
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// },
-// },
-// LocalSecondaryIndexes: []dynamodb.TableLocalSecondaryIndexArgs{
-// {
-// IndexName: pulumi.String("myLSI"),
-// KeySchema: []dynamodb.TableKeySchemaArgs{
-// {
-// AttributeName: pulumi.String("Album"),
-// KeyType: pulumi.String("HASH"),
-// },
-// {
-// AttributeName: pulumi.String("Sales"),
-// KeyType: pulumi.String("RANGE"),
-// },
-// },
-// Projection: {
-// NonKeyAttributes: pulumi.StringArray{
-// pulumi.String("Artist"),
-// pulumi.String("NumberOfSongs"),
-// },
-// ProjectionType: pulumi.String("INCLUDE"),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dynamodb.NewTable(ctx, "myDynamoDBTable", &dynamodb.TableArgs{
+//				AttributeDefinitions: dynamodb.TableAttributeDefinitionArray{
+//					&dynamodb.TableAttributeDefinitionArgs{
+//						AttributeName: pulumi.String("Album"),
+//						AttributeType: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeDefinitionArgs{
+//						AttributeName: pulumi.String("Artist"),
+//						AttributeType: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeDefinitionArgs{
+//						AttributeName: pulumi.String("Sales"),
+//						AttributeType: pulumi.String("N"),
+//					},
+//					&dynamodb.TableAttributeDefinitionArgs{
+//						AttributeName: pulumi.String("NumberOfSongs"),
+//						AttributeType: pulumi.String("N"),
+//					},
+//				},
+//				KeySchema: pulumi.Any{
+//					&dynamodb.TableKeySchemaArgs{
+//						AttributeName: pulumi.String("Album"),
+//						KeyType:       pulumi.String("HASH"),
+//					},
+//					&dynamodb.TableKeySchemaArgs{
+//						AttributeName: pulumi.String("Artist"),
+//						KeyType:       pulumi.String("RANGE"),
+//					},
+//				},
+//				ProvisionedThroughput: &dynamodb.TableProvisionedThroughputArgs{
+//					ReadCapacityUnits:  pulumi.Int(5),
+//					WriteCapacityUnits: pulumi.Int(5),
+//				},
+//				TableName: pulumi.String("myTableName"),
+//				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
+//					&dynamodb.TableGlobalSecondaryIndexArgs{
+//						IndexName: pulumi.String("myGSI"),
+//						KeySchema: []dynamodb.TableKeySchemaArgs{
+//							{
+//								AttributeName: pulumi.String("Sales"),
+//								KeyType:       pulumi.String("HASH"),
+//							},
+//							{
+//								AttributeName: pulumi.String("Artist"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
+//						},
+//						Projection: &dynamodb.TableProjectionArgs{
+//							NonKeyAttributes: pulumi.StringArray{
+//								pulumi.String("Album"),
+//								pulumi.String("NumberOfSongs"),
+//							},
+//							ProjectionType: pulumi.String("INCLUDE"),
+//						},
+//						ProvisionedThroughput: &dynamodb.TableProvisionedThroughputArgs{
+//							ReadCapacityUnits:  pulumi.Int(5),
+//							WriteCapacityUnits: pulumi.Int(5),
+//						},
+//					},
+//					&dynamodb.TableGlobalSecondaryIndexArgs{
+//						IndexName: pulumi.String("myGSI2"),
+//						KeySchema: []dynamodb.TableKeySchemaArgs{
+//							{
+//								AttributeName: pulumi.String("NumberOfSongs"),
+//								KeyType:       pulumi.String("HASH"),
+//							},
+//							{
+//								AttributeName: pulumi.String("Sales"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
+//						},
+//						Projection: &dynamodb.TableProjectionArgs{
+//							NonKeyAttributes: pulumi.StringArray{
+//								pulumi.String("Album"),
+//								pulumi.String("Artist"),
+//							},
+//							ProjectionType: pulumi.String("INCLUDE"),
+//						},
+//						ProvisionedThroughput: &dynamodb.TableProvisionedThroughputArgs{
+//							ReadCapacityUnits:  pulumi.Int(5),
+//							WriteCapacityUnits: pulumi.Int(5),
+//						},
+//					},
+//				},
+//				LocalSecondaryIndexes: dynamodb.TableLocalSecondaryIndexArray{
+//					&dynamodb.TableLocalSecondaryIndexArgs{
+//						IndexName: pulumi.String("myLSI"),
+//						KeySchema: []dynamodb.TableKeySchemaArgs{
+//							{
+//								AttributeName: pulumi.String("Album"),
+//								KeyType:       pulumi.String("HASH"),
+//							},
+//							{
+//								AttributeName: pulumi.String("Sales"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
+//						},
+//						Projection: &dynamodb.TableProjectionArgs{
+//							NonKeyAttributes: pulumi.StringArray{
+//								pulumi.String("Artist"),
+//								pulumi.String("NumberOfSongs"),
+//							},
+//							ProjectionType: pulumi.String("INCLUDE"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Table struct {

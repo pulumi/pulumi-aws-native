@@ -36,8 +36,8 @@ import (
 // },
 // Name: pulumi.String("schedule-name"),
 // CronExpression: pulumi.String("cron(0 0/1 ? * * *)"),
-// Tags: []aws.CreateOnlyTagArgs{
-// {
+// Tags: aws.CreateOnlyTagArray{
+// &aws.CreateOnlyTagArgs{
 // Key: pulumi.String("key00AtCreate"),
 // Value: pulumi.String("value001AtCreate"),
 // },

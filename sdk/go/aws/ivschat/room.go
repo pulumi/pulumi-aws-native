@@ -31,8 +31,8 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // room, err := ivschat.NewRoom(ctx, "room", &ivschat.RoomArgs{
 // Name: pulumi.String("MyRoom"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("MyKey"),
 // Value: pulumi.String("MyValue"),
 // },
@@ -64,8 +64,8 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // room, err := ivschat.NewRoom(ctx, "room", &ivschat.RoomArgs{
 // Name: pulumi.String("MyRoom"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("MyKey"),
 // Value: pulumi.String("MyValue"),
 // },

@@ -54,8 +54,8 @@ import (
 // },
 // Provider: pulumi.String("AnyCompany"),
 // Type: pulumi.String("Broadband"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Name"),
 // Value: pulumi.String("broadband-link-1"),
 // },
@@ -68,8 +68,8 @@ import (
 // Description: pulumi.String("Chicago office device"),
 // GlobalNetworkId: globalNetwork.ID(),
 // SiteId: site.SiteId,
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Network"),
 // Value: pulumi.String("north-america"),
 // },
@@ -130,8 +130,8 @@ import (
 // },
 // Provider: pulumi.String("AnyCompany"),
 // Type: pulumi.String("Broadband"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Name"),
 // Value: pulumi.String("broadband-link-1"),
 // },
@@ -144,8 +144,8 @@ import (
 // Description: pulumi.String("Chicago office device"),
 // GlobalNetworkId: globalNetwork.ID(),
 // SiteId: site.SiteId,
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Network"),
 // Value: pulumi.String("north-america"),
 // },

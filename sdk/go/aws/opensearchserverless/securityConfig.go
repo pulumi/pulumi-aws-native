@@ -25,25 +25,26 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := opensearchserverless.NewSecurityConfig(ctx, "testSecurityConfig", &opensearchserverless.SecurityConfigArgs{
-// Name: pulumi.String("my-provider"),
-// Type: opensearchserverless.SecurityConfigTypeSaml,
-// Description: pulumi.String("Serverless SAML configuration"),
-// SamlOptions: interface{}{
-// Metadata: pulumi.String("<?xml version=\"1.0\" encoding=\"UTF-8\"?><md:EntityDescriptor entityID=\"http://www.okta.com/foobar\" xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\"false\" protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\"><md:KeyDescriptor use=\"signing\"><ds:KeyInfo xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\"/><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\" Location=\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\"/></md:IDPSSODescriptor></md:EntityDescriptor>"),
-// UserAttribute: pulumi.String("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"),
-// GroupAttribute: pulumi.String("ALLGroups"),
-// SessionTimeout: pulumi.Int(120),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opensearchserverless.NewSecurityConfig(ctx, "testSecurityConfig", &opensearchserverless.SecurityConfigArgs{
+//				Name:        pulumi.String("my-provider"),
+//				Type:        opensearchserverless.SecurityConfigTypeSaml,
+//				Description: pulumi.String("Serverless SAML configuration"),
+//				SamlOptions: &opensearchserverless.SecurityConfigSamlConfigOptionsArgs{
+//					Metadata:       pulumi.String("<?xml version=\"1.0\" encoding=\"UTF-8\"?><md:EntityDescriptor entityID=\"http://www.okta.com/foobar\" xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\"false\" protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\"><md:KeyDescriptor use=\"signing\"><ds:KeyInfo xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\"/><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\" Location=\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\"/></md:IDPSSODescriptor></md:EntityDescriptor>"),
+//					UserAttribute:  pulumi.String("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"),
+//					GroupAttribute: pulumi.String("ALLGroups"),
+//					SessionTimeout: pulumi.Int(120),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -57,25 +58,26 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := opensearchserverless.NewSecurityConfig(ctx, "testSecurityConfig", &opensearchserverless.SecurityConfigArgs{
-// Name: pulumi.String("my-provider"),
-// Type: opensearchserverless.SecurityConfigTypeSaml,
-// Description: pulumi.String("Serverless SAML configuration"),
-// SamlOptions: interface{}{
-// Metadata: pulumi.String("<?xml version=\"1.0\" encoding=\"UTF-8\"?><md:EntityDescriptor entityID=\"http://www.okta.com/foobar\" xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\"false\" protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\"><md:KeyDescriptor use=\"signing\"><ds:KeyInfo xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\"/><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\" Location=\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\"/></md:IDPSSODescriptor></md:EntityDescriptor>"),
-// UserAttribute: pulumi.String("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"),
-// GroupAttribute: pulumi.String("ALLGroups"),
-// SessionTimeout: pulumi.Int(120),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opensearchserverless.NewSecurityConfig(ctx, "testSecurityConfig", &opensearchserverless.SecurityConfigArgs{
+//				Name:        pulumi.String("my-provider"),
+//				Type:        opensearchserverless.SecurityConfigTypeSaml,
+//				Description: pulumi.String("Serverless SAML configuration"),
+//				SamlOptions: &opensearchserverless.SecurityConfigSamlConfigOptionsArgs{
+//					Metadata:       pulumi.String("<?xml version=\"1.0\" encoding=\"UTF-8\"?><md:EntityDescriptor entityID=\"http://www.okta.com/foobar\" xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"><md:IDPSSODescriptor WantAuthnRequestsSigned=\"false\" protocolSupportEnumeration=\"urn:oasis:names:tc:SAML:2.0:protocol\"><md:KeyDescriptor use=\"signing\"><ds:KeyInfo xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:X509Data><ds:X509Certificate>Mfoobar</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\"/><md:SingleSignOnService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\" Location=\"https://trial-1234567.okta.com/app/trial-1234567_saml2_1/foobar/sso/saml\"/></md:IDPSSODescriptor></md:EntityDescriptor>"),
+//					UserAttribute:  pulumi.String("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"),
+//					GroupAttribute: pulumi.String("ALLGroups"),
+//					SessionTimeout: pulumi.Int(120),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type SecurityConfig struct {

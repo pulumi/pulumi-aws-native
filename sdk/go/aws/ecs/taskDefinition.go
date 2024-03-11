@@ -36,11 +36,11 @@ import (
 //				RequiresCompatibilities: pulumi.StringArray{
 //					pulumi.String("EC2"),
 //				},
-//				ContainerDefinitions: []ecs.TaskDefinitionContainerDefinitionArgs{
-//					{
+//				ContainerDefinitions: ecs.TaskDefinitionContainerDefinitionArray{
+//					&ecs.TaskDefinitionContainerDefinitionArgs{
 //						Name: pulumi.String("my-app"),
 //						MountPoints: ecs.TaskDefinitionMountPointArray{
-//							{
+//							&ecs.TaskDefinitionMountPointArgs{
 //								SourceVolume:  pulumi.String("my-vol"),
 //								ContainerPath: pulumi.String("/var/www/my-vol"),
 //							},
@@ -55,7 +55,7 @@ import (
 //						Memory:    pulumi.Int(512),
 //						Essential: pulumi.Bool(true),
 //					},
-//					{
+//					&ecs.TaskDefinitionContainerDefinitionArgs{
 //						Name:  pulumi.String("busybox"),
 //						Image: pulumi.String("busybox"),
 //						Cpu:   pulumi.Int(256),
@@ -69,21 +69,21 @@ import (
 //						},
 //						Essential: pulumi.Bool(false),
 //						DependsOn: ecs.TaskDefinitionContainerDependencyArray{
-//							{
+//							&ecs.TaskDefinitionContainerDependencyArgs{
 //								ContainerName: pulumi.String("my-app"),
 //								Condition:     pulumi.String("START"),
 //							},
 //						},
 //						VolumesFrom: ecs.TaskDefinitionVolumeFromArray{
-//							{
+//							&ecs.TaskDefinitionVolumeFromArgs{
 //								SourceContainer: pulumi.String("my-app"),
 //							},
 //						},
 //					},
 //				},
-//				Volumes: []ecs.TaskDefinitionVolumeArgs{
-//					{
-//						Host: {
+//				Volumes: ecs.TaskDefinitionVolumeArray{
+//					&ecs.TaskDefinitionVolumeArgs{
+//						Host: &ecs.TaskDefinitionHostVolumePropertiesArgs{
 //							SourcePath: pulumi.String("/var/lib/docker/vfs/dir/"),
 //						},
 //						Name: pulumi.String("my-vol"),
@@ -116,11 +116,11 @@ import (
 //				RequiresCompatibilities: pulumi.StringArray{
 //					pulumi.String("EC2"),
 //				},
-//				ContainerDefinitions: []ecs.TaskDefinitionContainerDefinitionArgs{
-//					{
+//				ContainerDefinitions: ecs.TaskDefinitionContainerDefinitionArray{
+//					&ecs.TaskDefinitionContainerDefinitionArgs{
 //						Name: pulumi.String("my-app"),
 //						MountPoints: ecs.TaskDefinitionMountPointArray{
-//							{
+//							&ecs.TaskDefinitionMountPointArgs{
 //								SourceVolume:  pulumi.String("my-vol"),
 //								ContainerPath: pulumi.String("/var/www/my-vol"),
 //							},
@@ -135,7 +135,7 @@ import (
 //						Memory:    pulumi.Int(512),
 //						Essential: pulumi.Bool(true),
 //					},
-//					{
+//					&ecs.TaskDefinitionContainerDefinitionArgs{
 //						Name:  pulumi.String("busybox"),
 //						Image: pulumi.String("busybox"),
 //						Cpu:   pulumi.Int(256),
@@ -149,21 +149,21 @@ import (
 //						},
 //						Essential: pulumi.Bool(false),
 //						DependsOn: ecs.TaskDefinitionContainerDependencyArray{
-//							{
+//							&ecs.TaskDefinitionContainerDependencyArgs{
 //								ContainerName: pulumi.String("my-app"),
 //								Condition:     pulumi.String("START"),
 //							},
 //						},
 //						VolumesFrom: ecs.TaskDefinitionVolumeFromArray{
-//							{
+//							&ecs.TaskDefinitionVolumeFromArgs{
 //								SourceContainer: pulumi.String("my-app"),
 //							},
 //						},
 //					},
 //				},
-//				Volumes: []ecs.TaskDefinitionVolumeArgs{
-//					{
-//						Host: {
+//				Volumes: ecs.TaskDefinitionVolumeArray{
+//					&ecs.TaskDefinitionVolumeArgs{
+//						Host: &ecs.TaskDefinitionHostVolumePropertiesArgs{
 //							SourcePath: pulumi.String("/var/lib/docker/vfs/dir/"),
 //						},
 //						Name: pulumi.String("my-vol"),
@@ -193,23 +193,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ecsTaskDefinitionResource, err := ecs.NewTaskDefinition(ctx, "ecsTaskDefinitionResource", &ecs.TaskDefinitionArgs{
-//				ContainerDefinitions: []ecs.TaskDefinitionContainerDefinitionArgs{
-//					{
+//				ContainerDefinitions: ecs.TaskDefinitionContainerDefinitionArray{
+//					&ecs.TaskDefinitionContainerDefinitionArgs{
 //						Name:      pulumi.String("first-run-task"),
 //						Image:     pulumi.String("httpd:2.4"),
 //						Essential: pulumi.Bool(true),
 //						PortMappings: ecs.TaskDefinitionPortMappingArray{
-//							{
+//							&ecs.TaskDefinitionPortMappingArgs{
 //								ContainerPort: pulumi.Int(80),
 //								Protocol:      pulumi.String("tcp"),
 //							},
 //						},
 //						Environment: ecs.TaskDefinitionKeyValuePairArray{
-//							{
+//							&ecs.TaskDefinitionKeyValuePairArgs{
 //								Name:  pulumi.String("entryPoint"),
 //								Value: pulumi.String("sh, -c"),
 //							},
-//							{
+//							&ecs.TaskDefinitionKeyValuePairArgs{
 //								Name:  pulumi.String("command"),
 //								Value: pulumi.String("/bin/sh -c \\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\""),
 //							},
@@ -245,23 +245,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ecsTaskDefinitionResource, err := ecs.NewTaskDefinition(ctx, "ecsTaskDefinitionResource", &ecs.TaskDefinitionArgs{
-//				ContainerDefinitions: []ecs.TaskDefinitionContainerDefinitionArgs{
-//					{
+//				ContainerDefinitions: ecs.TaskDefinitionContainerDefinitionArray{
+//					&ecs.TaskDefinitionContainerDefinitionArgs{
 //						Name:      pulumi.String("first-run-task"),
 //						Image:     pulumi.String("httpd:2.4"),
 //						Essential: pulumi.Bool(true),
 //						PortMappings: ecs.TaskDefinitionPortMappingArray{
-//							{
+//							&ecs.TaskDefinitionPortMappingArgs{
 //								ContainerPort: pulumi.Int(80),
 //								Protocol:      pulumi.String("tcp"),
 //							},
 //						},
 //						Environment: ecs.TaskDefinitionKeyValuePairArray{
-//							{
+//							&ecs.TaskDefinitionKeyValuePairArgs{
 //								Name:  pulumi.String("entryPoint"),
 //								Value: pulumi.String("sh, -c"),
 //							},
-//							{
+//							&ecs.TaskDefinitionKeyValuePairArgs{
 //								Name:  pulumi.String("command"),
 //								Value: pulumi.String("/bin/sh -c \\\"echo '<html> <head> <title>Amazon ECS Sample App</title> <style>body {margin-top: 40px; background-color: #333;} </style> </head><body> <div style=color:white;text-align:center> <h1>Amazon ECS Sample App</h1> <h2>Congratulations!</h2> <p>Your application is now running on a container in Amazon ECS.</p> </div></body></html>' >  /usr/local/apache2/htdocs/index.html && httpd-foreground\\\""),
 //							},

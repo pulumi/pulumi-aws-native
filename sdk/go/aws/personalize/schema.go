@@ -15,6 +15,58 @@ import (
 // Resource schema for AWS::Personalize::Schema.
 //
 // ## Example Usage
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/personalize"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := personalize.NewSchema(ctx, "mySchema", &personalize.SchemaArgs{
+//				Name:   pulumi.String("my-schema-name"),
+//				Schema: pulumi.String("{\"type\": \"record\",\"name\": \"Interactions\", \"namespace\": \"com.amazonaws.personalize.schema\", \"fields\": [ { \"name\": \"USER_ID\", \"type\": \"string\" }, { \"name\": \"ITEM_ID\", \"type\": \"string\" }, { \"name\": \"TIMESTAMP\", \"type\": \"long\"}], \"version\": \"1.0\"}"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/personalize"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := personalize.NewSchema(ctx, "mySchema", &personalize.SchemaArgs{
+//				Name:   pulumi.String("my-schema-name"),
+//				Schema: pulumi.String("{\"type\": \"record\",\"name\": \"Interactions\", \"namespace\": \"com.amazonaws.personalize.schema\", \"fields\": [ { \"name\": \"USER_ID\", \"type\": \"string\" }, { \"name\": \"ITEM_ID\", \"type\": \"string\" }, { \"name\": \"TIMESTAMP\", \"type\": \"long\"}], \"version\": \"1.0\"}"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Schema struct {
 	pulumi.CustomResourceState
 

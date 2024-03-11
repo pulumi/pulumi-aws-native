@@ -60,8 +60,8 @@ import (
 // },
 // },
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Location"),
 // Value: pulumi.String("Boston"),
 // },

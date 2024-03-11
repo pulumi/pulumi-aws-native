@@ -31,10 +31,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sso.NewInstanceAccessControlAttributeConfiguration(ctx, "abac", &sso.InstanceAccessControlAttributeConfigurationArgs{
 //				InstanceArn: pulumi.String("arn:aws:sso:::instance/ssoins-instanceId"),
-//				AccessControlAttributes: []sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{
-//					{
+//				AccessControlAttributes: sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArray{
+//					&sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{
 //						Key: pulumi.String("CostCenter"),
-//						Value: {
+//						Value: &sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs{
 //							Source: pulumi.StringArray{
 //								pulumi.String("${path:enterprise.costCenter}"),
 //							},
@@ -66,10 +66,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sso.NewInstanceAccessControlAttributeConfiguration(ctx, "abac", &sso.InstanceAccessControlAttributeConfigurationArgs{
 //				InstanceArn: pulumi.String("arn:aws:sso:::instance/ssoins-instanceId"),
-//				AccessControlAttributes: []sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{
-//					{
+//				AccessControlAttributes: sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArray{
+//					&sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs{
 //						Key: pulumi.String("CostCenter"),
-//						Value: {
+//						Value: &sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs{
 //							Source: pulumi.StringArray{
 //								pulumi.String("${path:enterprise.costCenter}"),
 //							},

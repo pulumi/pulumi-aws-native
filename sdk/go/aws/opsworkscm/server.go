@@ -42,12 +42,12 @@ import (
 // DisableAutomatedBackup: pulumi.Bool(false),
 // Engine: pulumi.String("ChefAutomate"),
 // EngineVersion: pulumi.String("2"),
-// EngineAttributes: []opsworkscm.ServerEngineAttributeArgs{
-// {
+// EngineAttributes: opsworkscm.ServerEngineAttributeArray{
+// &opsworkscm.ServerEngineAttributeArgs{
 // Name: pulumi.String("CHEF_AUTOMATE_PIVOTAL_KEY"),
 // Value: pulumi.String(pivotalKey),
 // },
-// {
+// &opsworkscm.ServerEngineAttributeArgs{
 // Name: pulumi.String("CHEF_AUTOMATE_ADMIN_PASSWORD"),
 // Value: pulumi.String(password),
 // },
@@ -58,12 +58,12 @@ import (
 // PreferredBackupWindow: pulumi.String("08:00"),
 // PreferredMaintenanceWindow: pulumi.String("Fri:08:00"),
 // ServiceRoleArn: pulumi.String("SERVICE-ROLE-ARN"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Stage"),
 // Value: pulumi.String("Production"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("Name"),
 // Value: pulumi.String("test-owcm-server"),
 // },

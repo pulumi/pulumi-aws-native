@@ -31,8 +31,8 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // channel, err := ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
 // Name: pulumi.String("MyChannel"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("MyKey"),
 // Value: pulumi.String("MyValue"),
 // },
@@ -44,8 +44,8 @@ import (
 // }
 // streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
 // ChannelArn: channel.ID(),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("MyKey"),
 // Value: pulumi.String("MyValue"),
 // },
@@ -79,8 +79,8 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // channel, err := ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
 // Name: pulumi.String("MyChannel"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("MyKey"),
 // Value: pulumi.String("MyValue"),
 // },
@@ -92,8 +92,8 @@ import (
 // }
 // streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
 // ChannelArn: channel.ID(),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("MyKey"),
 // Value: pulumi.String("MyValue"),
 // },

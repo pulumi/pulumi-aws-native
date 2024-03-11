@@ -26,25 +26,26 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
-// SyncName: pulumi.String("test-sync"),
-// SyncType: pulumi.String("SyncToDestination"),
-// S3Destination: interface{}{
-// BucketName: pulumi.String("test-bucket"),
-// BucketRegion: pulumi.String("us-east-2"),
-// SyncFormat: pulumi.String("JsonSerDe"),
-// BucketPrefix: pulumi.String("cfn"),
-// KmsKeyArn: pulumi.String("kmsKeyARN"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
+//				SyncName: pulumi.String("test-sync"),
+//				SyncType: pulumi.String("SyncToDestination"),
+//				S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
+//					BucketName:   pulumi.String("test-bucket"),
+//					BucketRegion: pulumi.String("us-east-2"),
+//					SyncFormat:   pulumi.String("JsonSerDe"),
+//					BucketPrefix: pulumi.String("cfn"),
+//					KmsKeyArn:    pulumi.String("kmsKeyARN"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -58,25 +59,26 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
-// SyncName: pulumi.String("test-sync"),
-// SyncType: pulumi.String("SyncToDestination"),
-// S3Destination: interface{}{
-// BucketName: pulumi.String("test-bucket"),
-// BucketRegion: pulumi.String("us-east-2"),
-// SyncFormat: pulumi.String("JsonSerDe"),
-// BucketPrefix: pulumi.String("cfn"),
-// KmsKeyArn: pulumi.String("kmsKeyARN"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
+//				SyncName: pulumi.String("test-sync"),
+//				SyncType: pulumi.String("SyncToDestination"),
+//				S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
+//					BucketName:   pulumi.String("test-bucket"),
+//					BucketRegion: pulumi.String("us-east-2"),
+//					SyncFormat:   pulumi.String("JsonSerDe"),
+//					BucketPrefix: pulumi.String("cfn"),
+//					KmsKeyArn:    pulumi.String("kmsKeyARN"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -90,27 +92,28 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
-// SyncName: pulumi.String("test-sync"),
-// SyncType: pulumi.String("SyncFromSource"),
-// SyncSource: interface{}{
-// SourceType: pulumi.String("SingleAccountMultiRegions"),
-// SourceRegions: pulumi.StringArray{
-// pulumi.String("us-east-1"),
-// pulumi.String("us-west-1"),
-// pulumi.String("us-west-2"),
-// },
-// IncludeFutureRegions: pulumi.Bool(false),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
+//				SyncName: pulumi.String("test-sync"),
+//				SyncType: pulumi.String("SyncFromSource"),
+//				SyncSource: &ssm.ResourceDataSyncSyncSourceArgs{
+//					SourceType: pulumi.String("SingleAccountMultiRegions"),
+//					SourceRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-west-1"),
+//						pulumi.String("us-west-2"),
+//					},
+//					IncludeFutureRegions: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -124,27 +127,28 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
-// SyncName: pulumi.String("test-sync"),
-// SyncType: pulumi.String("SyncFromSource"),
-// SyncSource: interface{}{
-// SourceType: pulumi.String("SingleAccountMultiRegions"),
-// SourceRegions: pulumi.StringArray{
-// pulumi.String("us-east-1"),
-// pulumi.String("us-west-1"),
-// pulumi.String("us-west-2"),
-// },
-// IncludeFutureRegions: pulumi.Bool(false),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
+//				SyncName: pulumi.String("test-sync"),
+//				SyncType: pulumi.String("SyncFromSource"),
+//				SyncSource: &ssm.ResourceDataSyncSyncSourceArgs{
+//					SourceType: pulumi.String("SingleAccountMultiRegions"),
+//					SourceRegions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-west-1"),
+//						pulumi.String("us-west-2"),
+//					},
+//					IncludeFutureRegions: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -158,28 +162,29 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
-// SyncName: pulumi.String("test-sync"),
-// SyncType: pulumi.String("SyncFromSource"),
-// SyncSource: interface{}{
-// SourceType: pulumi.String("AwsOrganizations"),
-// AwsOrganizationsSource: &ssm.ResourceDataSyncAwsOrganizationsSourceArgs{
-// OrganizationSourceType: pulumi.String("EntireOrganization"),
-// },
-// SourceRegions: pulumi.StringArray{
-// pulumi.String("us-west-1"),
-// },
-// IncludeFutureRegions: pulumi.Bool(false),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
+//				SyncName: pulumi.String("test-sync"),
+//				SyncType: pulumi.String("SyncFromSource"),
+//				SyncSource: &ssm.ResourceDataSyncSyncSourceArgs{
+//					SourceType: pulumi.String("AwsOrganizations"),
+//					AwsOrganizationsSource: &ssm.ResourceDataSyncAwsOrganizationsSourceArgs{
+//						OrganizationSourceType: pulumi.String("EntireOrganization"),
+//					},
+//					SourceRegions: pulumi.StringArray{
+//						pulumi.String("us-west-1"),
+//					},
+//					IncludeFutureRegions: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -193,28 +198,29 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
-// SyncName: pulumi.String("test-sync"),
-// SyncType: pulumi.String("SyncFromSource"),
-// SyncSource: interface{}{
-// SourceType: pulumi.String("AwsOrganizations"),
-// AwsOrganizationsSource: &ssm.ResourceDataSyncAwsOrganizationsSourceArgs{
-// OrganizationSourceType: pulumi.String("EntireOrganization"),
-// },
-// SourceRegions: pulumi.StringArray{
-// pulumi.String("us-west-1"),
-// },
-// IncludeFutureRegions: pulumi.Bool(false),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
+//				SyncName: pulumi.String("test-sync"),
+//				SyncType: pulumi.String("SyncFromSource"),
+//				SyncSource: &ssm.ResourceDataSyncSyncSourceArgs{
+//					SourceType: pulumi.String("AwsOrganizations"),
+//					AwsOrganizationsSource: &ssm.ResourceDataSyncAwsOrganizationsSourceArgs{
+//						OrganizationSourceType: pulumi.String("EntireOrganization"),
+//					},
+//					SourceRegions: pulumi.StringArray{
+//						pulumi.String("us-west-1"),
+//					},
+//					IncludeFutureRegions: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -228,31 +234,32 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
-// SyncName: pulumi.String("test-sync"),
-// SyncType: pulumi.String("SyncFromSource"),
-// SyncSource: interface{}{
-// SourceType: pulumi.String("AwsOrganizations"),
-// AwsOrganizationsSource: &ssm.ResourceDataSyncAwsOrganizationsSourceArgs{
-// OrganizationSourceType: pulumi.String("OrganizationalUnits"),
-// OrganizationalUnits: pulumi.StringArray{
-// pulumi.String("ou-12345"),
-// },
-// },
-// SourceRegions: pulumi.StringArray{
-// pulumi.String("us-west-1"),
-// },
-// IncludeFutureRegions: pulumi.Bool(false),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
+//				SyncName: pulumi.String("test-sync"),
+//				SyncType: pulumi.String("SyncFromSource"),
+//				SyncSource: &ssm.ResourceDataSyncSyncSourceArgs{
+//					SourceType: pulumi.String("AwsOrganizations"),
+//					AwsOrganizationsSource: &ssm.ResourceDataSyncAwsOrganizationsSourceArgs{
+//						OrganizationSourceType: pulumi.String("OrganizationalUnits"),
+//						OrganizationalUnits: pulumi.StringArray{
+//							pulumi.String("ou-12345"),
+//						},
+//					},
+//					SourceRegions: pulumi.StringArray{
+//						pulumi.String("us-west-1"),
+//					},
+//					IncludeFutureRegions: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -266,31 +273,32 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
-// SyncName: pulumi.String("test-sync"),
-// SyncType: pulumi.String("SyncFromSource"),
-// SyncSource: interface{}{
-// SourceType: pulumi.String("AwsOrganizations"),
-// AwsOrganizationsSource: &ssm.ResourceDataSyncAwsOrganizationsSourceArgs{
-// OrganizationSourceType: pulumi.String("OrganizationalUnits"),
-// OrganizationalUnits: pulumi.StringArray{
-// pulumi.String("ou-12345"),
-// },
-// },
-// SourceRegions: pulumi.StringArray{
-// pulumi.String("us-west-1"),
-// },
-// IncludeFutureRegions: pulumi.Bool(false),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewResourceDataSync(ctx, "basicResourceDataSync", &ssm.ResourceDataSyncArgs{
+//				SyncName: pulumi.String("test-sync"),
+//				SyncType: pulumi.String("SyncFromSource"),
+//				SyncSource: &ssm.ResourceDataSyncSyncSourceArgs{
+//					SourceType: pulumi.String("AwsOrganizations"),
+//					AwsOrganizationsSource: &ssm.ResourceDataSyncAwsOrganizationsSourceArgs{
+//						OrganizationSourceType: pulumi.String("OrganizationalUnits"),
+//						OrganizationalUnits: pulumi.StringArray{
+//							pulumi.String("ou-12345"),
+//						},
+//					},
+//					SourceRegions: pulumi.StringArray{
+//						pulumi.String("us-west-1"),
+//					},
+//					IncludeFutureRegions: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type ResourceDataSync struct {

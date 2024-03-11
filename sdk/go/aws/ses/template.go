@@ -14,6 +14,78 @@ import (
 // Resource Type definition for AWS::SES::Template
 //
 // ## Example Usage
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			templateName := cfg.Require("templateName")
+//			subjectPart := cfg.Require("subjectPart")
+//			textPart := cfg.Require("textPart")
+//			htmlPart := cfg.Require("htmlPart")
+//			_, err := ses.NewTemplate(ctx, "template", &ses.TemplateArgs{
+//				Template: &ses.TemplateTypeArgs{
+//					TemplateName: pulumi.String(templateName),
+//					SubjectPart:  pulumi.String(subjectPart),
+//					TextPart:     pulumi.String(textPart),
+//					HtmlPart:     pulumi.String(htmlPart),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			templateName := cfg.Require("templateName")
+//			subjectPart := cfg.Require("subjectPart")
+//			textPart := cfg.Require("textPart")
+//			htmlPart := cfg.Require("htmlPart")
+//			_, err := ses.NewTemplate(ctx, "template", &ses.TemplateArgs{
+//				Template: &ses.TemplateTypeArgs{
+//					TemplateName: pulumi.String(templateName),
+//					SubjectPart:  pulumi.String(subjectPart),
+//					TextPart:     pulumi.String(textPart),
+//					HtmlPart:     pulumi.String(htmlPart),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Template struct {
 	pulumi.CustomResourceState
 

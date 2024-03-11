@@ -27,30 +27,31 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewPipeline(ctx, "pipeline", &iotanalytics.PipelineArgs{
-// PipelineName: pulumi.String("SimplePipeline"),
-// PipelineActivities: iotanalytics.PipelineActivityArray{
-// interface{}{
-// Channel: &iotanalytics.PipelineChannelArgs{
-// Name: pulumi.String("ChannelActivity"),
-// ChannelName: pulumi.String("SimpleChannel"),
-// Next: pulumi.String("DatastoreActivity"),
-// },
-// Datastore: &iotanalytics.PipelineDatastoreArgs{
-// Name: pulumi.String("DatastoreActivity"),
-// DatastoreName: pulumi.String("SimpleDatastore"),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewPipeline(ctx, "pipeline", &iotanalytics.PipelineArgs{
+//				PipelineName: pulumi.String("SimplePipeline"),
+//				PipelineActivities: iotanalytics.PipelineActivityArray{
+//					&iotanalytics.PipelineActivityArgs{
+//						Channel: &iotanalytics.PipelineChannelArgs{
+//							Name:        pulumi.String("ChannelActivity"),
+//							ChannelName: pulumi.String("SimpleChannel"),
+//							Next:        pulumi.String("DatastoreActivity"),
+//						},
+//						Datastore: &iotanalytics.PipelineDatastoreArgs{
+//							Name:          pulumi.String("DatastoreActivity"),
+//							DatastoreName: pulumi.String("SimpleDatastore"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -64,30 +65,31 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewPipeline(ctx, "pipeline", &iotanalytics.PipelineArgs{
-// PipelineName: pulumi.String("SimplePipeline"),
-// PipelineActivities: iotanalytics.PipelineActivityArray{
-// interface{}{
-// Channel: &iotanalytics.PipelineChannelArgs{
-// Name: pulumi.String("ChannelActivity"),
-// ChannelName: pulumi.String("SimpleChannel"),
-// Next: pulumi.String("DatastoreActivity"),
-// },
-// Datastore: &iotanalytics.PipelineDatastoreArgs{
-// Name: pulumi.String("DatastoreActivity"),
-// DatastoreName: pulumi.String("SimpleDatastore"),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewPipeline(ctx, "pipeline", &iotanalytics.PipelineArgs{
+//				PipelineName: pulumi.String("SimplePipeline"),
+//				PipelineActivities: iotanalytics.PipelineActivityArray{
+//					&iotanalytics.PipelineActivityArgs{
+//						Channel: &iotanalytics.PipelineChannelArgs{
+//							Name:        pulumi.String("ChannelActivity"),
+//							ChannelName: pulumi.String("SimpleChannel"),
+//							Next:        pulumi.String("DatastoreActivity"),
+//						},
+//						Datastore: &iotanalytics.PipelineDatastoreArgs{
+//							Name:          pulumi.String("DatastoreActivity"),
+//							DatastoreName: pulumi.String("SimpleDatastore"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -101,85 +103,86 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewPipeline(ctx, "pipeline", &iotanalytics.PipelineArgs{
-// PipelineName: pulumi.String("ComplexPipeline"),
-// PipelineActivities: iotanalytics.PipelineActivityArray{
-// interface{}{
-// Channel: &iotanalytics.PipelineChannelArgs{
-// Name: pulumi.String("ChannelActivity"),
-// ChannelName: pulumi.String("Channel"),
-// Next: pulumi.String("LambdaActivity"),
-// },
-// Lambda: &iotanalytics.PipelineLambdaArgs{
-// Name: pulumi.String("LambdaActivity"),
-// LambdaName: pulumi.String("Lambda"),
-// BatchSize: pulumi.Int(1),
-// Next: pulumi.String("AddAttributesActivity"),
-// },
-// AddAttributes: &iotanalytics.PipelineAddAttributesArgs{
-// Name: pulumi.String("AddAttributesActivity"),
-// Attributes: pulumi.StringMap{
-// "key1": pulumi.String("attribute1"),
-// "key2": pulumi.String("attribute2"),
-// },
-// Next: pulumi.String("RemoveAttributesActivity"),
-// },
-// RemoveAttributes: &iotanalytics.PipelineRemoveAttributesArgs{
-// Name: pulumi.String("RemoveAttributesActivity"),
-// Attributes: pulumi.StringArray{
-// pulumi.String("attribute1"),
-// pulumi.String("attribute2"),
-// },
-// Next: pulumi.String("SelectAttributesActivity"),
-// },
-// SelectAttributes: &iotanalytics.PipelineSelectAttributesArgs{
-// Name: pulumi.String("SelectAttributesActivity"),
-// Attributes: pulumi.StringArray{
-// pulumi.String("attribute1"),
-// pulumi.String("attribute2"),
-// },
-// Next: pulumi.String("FilterActivity"),
-// },
-// Filter: &iotanalytics.PipelineFilterArgs{
-// Name: pulumi.String("FilterActivity"),
-// Filter: pulumi.String("attribute1 > 40 AND attribute2 < 20"),
-// Next: pulumi.String("MathActivity"),
-// },
-// Math: &iotanalytics.PipelineMathArgs{
-// Name: pulumi.String("MathActivity"),
-// Attribute: pulumi.String("attribute"),
-// Math: pulumi.String("attribute - 10"),
-// Next: pulumi.String("DeviceRegistryEnrichActivity"),
-// },
-// DeviceRegistryEnrich: &iotanalytics.PipelineDeviceRegistryEnrichArgs{
-// Name: pulumi.String("DeviceRegistryEnrichActivity"),
-// Attribute: pulumi.String("attribute"),
-// ThingName: pulumi.String("thingName"),
-// RoleArn: pulumi.String("arn:aws:iam::<your_Account_Id>:role/Enrich"),
-// Next: pulumi.String("DeviceShadowEnrichActivity"),
-// },
-// DeviceShadowEnrich: &iotanalytics.PipelineDeviceShadowEnrichArgs{
-// Name: pulumi.String("DeviceShadowEnrichActivity"),
-// Attribute: pulumi.String("attribute"),
-// ThingName: pulumi.String("thingName"),
-// RoleArn: pulumi.String("arn:aws:iam::<your_Account_Id>:role/Enrich"),
-// Next: pulumi.String("DatastoreActivity"),
-// },
-// Datastore: &iotanalytics.PipelineDatastoreArgs{
-// Name: pulumi.String("DatastoreActivity"),
-// DatastoreName: pulumi.String("Datastore"),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewPipeline(ctx, "pipeline", &iotanalytics.PipelineArgs{
+//				PipelineName: pulumi.String("ComplexPipeline"),
+//				PipelineActivities: iotanalytics.PipelineActivityArray{
+//					&iotanalytics.PipelineActivityArgs{
+//						Channel: &iotanalytics.PipelineChannelArgs{
+//							Name:        pulumi.String("ChannelActivity"),
+//							ChannelName: pulumi.String("Channel"),
+//							Next:        pulumi.String("LambdaActivity"),
+//						},
+//						Lambda: &iotanalytics.PipelineLambdaArgs{
+//							Name:       pulumi.String("LambdaActivity"),
+//							LambdaName: pulumi.String("Lambda"),
+//							BatchSize:  pulumi.Int(1),
+//							Next:       pulumi.String("AddAttributesActivity"),
+//						},
+//						AddAttributes: &iotanalytics.PipelineAddAttributesArgs{
+//							Name: pulumi.String("AddAttributesActivity"),
+//							Attributes: pulumi.StringMap{
+//								"key1": pulumi.String("attribute1"),
+//								"key2": pulumi.String("attribute2"),
+//							},
+//							Next: pulumi.String("RemoveAttributesActivity"),
+//						},
+//						RemoveAttributes: &iotanalytics.PipelineRemoveAttributesArgs{
+//							Name: pulumi.String("RemoveAttributesActivity"),
+//							Attributes: pulumi.StringArray{
+//								pulumi.String("attribute1"),
+//								pulumi.String("attribute2"),
+//							},
+//							Next: pulumi.String("SelectAttributesActivity"),
+//						},
+//						SelectAttributes: &iotanalytics.PipelineSelectAttributesArgs{
+//							Name: pulumi.String("SelectAttributesActivity"),
+//							Attributes: pulumi.StringArray{
+//								pulumi.String("attribute1"),
+//								pulumi.String("attribute2"),
+//							},
+//							Next: pulumi.String("FilterActivity"),
+//						},
+//						Filter: &iotanalytics.PipelineFilterArgs{
+//							Name:   pulumi.String("FilterActivity"),
+//							Filter: pulumi.String("attribute1 > 40 AND attribute2 < 20"),
+//							Next:   pulumi.String("MathActivity"),
+//						},
+//						Math: &iotanalytics.PipelineMathArgs{
+//							Name:      pulumi.String("MathActivity"),
+//							Attribute: pulumi.String("attribute"),
+//							Math:      pulumi.String("attribute - 10"),
+//							Next:      pulumi.String("DeviceRegistryEnrichActivity"),
+//						},
+//						DeviceRegistryEnrich: &iotanalytics.PipelineDeviceRegistryEnrichArgs{
+//							Name:      pulumi.String("DeviceRegistryEnrichActivity"),
+//							Attribute: pulumi.String("attribute"),
+//							ThingName: pulumi.String("thingName"),
+//							RoleArn:   pulumi.String("arn:aws:iam::<your_Account_Id>:role/Enrich"),
+//							Next:      pulumi.String("DeviceShadowEnrichActivity"),
+//						},
+//						DeviceShadowEnrich: &iotanalytics.PipelineDeviceShadowEnrichArgs{
+//							Name:      pulumi.String("DeviceShadowEnrichActivity"),
+//							Attribute: pulumi.String("attribute"),
+//							ThingName: pulumi.String("thingName"),
+//							RoleArn:   pulumi.String("arn:aws:iam::<your_Account_Id>:role/Enrich"),
+//							Next:      pulumi.String("DatastoreActivity"),
+//						},
+//						Datastore: &iotanalytics.PipelineDatastoreArgs{
+//							Name:          pulumi.String("DatastoreActivity"),
+//							DatastoreName: pulumi.String("Datastore"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -193,85 +196,86 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewPipeline(ctx, "pipeline", &iotanalytics.PipelineArgs{
-// PipelineName: pulumi.String("ComplexPipeline"),
-// PipelineActivities: iotanalytics.PipelineActivityArray{
-// interface{}{
-// Channel: &iotanalytics.PipelineChannelArgs{
-// Name: pulumi.String("ChannelActivity"),
-// ChannelName: pulumi.String("Channel"),
-// Next: pulumi.String("LambdaActivity"),
-// },
-// Lambda: &iotanalytics.PipelineLambdaArgs{
-// Name: pulumi.String("LambdaActivity"),
-// LambdaName: pulumi.String("Lambda"),
-// BatchSize: pulumi.Int(1),
-// Next: pulumi.String("AddAttributesActivity"),
-// },
-// AddAttributes: &iotanalytics.PipelineAddAttributesArgs{
-// Name: pulumi.String("AddAttributesActivity"),
-// Attributes: pulumi.StringMap{
-// "key1": pulumi.String("attribute1"),
-// "key2": pulumi.String("attribute2"),
-// },
-// Next: pulumi.String("RemoveAttributesActivity"),
-// },
-// RemoveAttributes: &iotanalytics.PipelineRemoveAttributesArgs{
-// Name: pulumi.String("RemoveAttributesActivity"),
-// Attributes: pulumi.StringArray{
-// pulumi.String("attribute1"),
-// pulumi.String("attribute2"),
-// },
-// Next: pulumi.String("SelectAttributesActivity"),
-// },
-// SelectAttributes: &iotanalytics.PipelineSelectAttributesArgs{
-// Name: pulumi.String("SelectAttributesActivity"),
-// Attributes: pulumi.StringArray{
-// pulumi.String("attribute1"),
-// pulumi.String("attribute2"),
-// },
-// Next: pulumi.String("FilterActivity"),
-// },
-// Filter: &iotanalytics.PipelineFilterArgs{
-// Name: pulumi.String("FilterActivity"),
-// Filter: pulumi.String("attribute1 > 40 AND attribute2 < 20"),
-// Next: pulumi.String("MathActivity"),
-// },
-// Math: &iotanalytics.PipelineMathArgs{
-// Name: pulumi.String("MathActivity"),
-// Attribute: pulumi.String("attribute"),
-// Math: pulumi.String("attribute - 10"),
-// Next: pulumi.String("DeviceRegistryEnrichActivity"),
-// },
-// DeviceRegistryEnrich: &iotanalytics.PipelineDeviceRegistryEnrichArgs{
-// Name: pulumi.String("DeviceRegistryEnrichActivity"),
-// Attribute: pulumi.String("attribute"),
-// ThingName: pulumi.String("thingName"),
-// RoleArn: pulumi.String("arn:aws:iam::<your_Account_Id>:role/Enrich"),
-// Next: pulumi.String("DeviceShadowEnrichActivity"),
-// },
-// DeviceShadowEnrich: &iotanalytics.PipelineDeviceShadowEnrichArgs{
-// Name: pulumi.String("DeviceShadowEnrichActivity"),
-// Attribute: pulumi.String("attribute"),
-// ThingName: pulumi.String("thingName"),
-// RoleArn: pulumi.String("arn:aws:iam::<your_Account_Id>:role/Enrich"),
-// Next: pulumi.String("DatastoreActivity"),
-// },
-// Datastore: &iotanalytics.PipelineDatastoreArgs{
-// Name: pulumi.String("DatastoreActivity"),
-// DatastoreName: pulumi.String("Datastore"),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewPipeline(ctx, "pipeline", &iotanalytics.PipelineArgs{
+//				PipelineName: pulumi.String("ComplexPipeline"),
+//				PipelineActivities: iotanalytics.PipelineActivityArray{
+//					&iotanalytics.PipelineActivityArgs{
+//						Channel: &iotanalytics.PipelineChannelArgs{
+//							Name:        pulumi.String("ChannelActivity"),
+//							ChannelName: pulumi.String("Channel"),
+//							Next:        pulumi.String("LambdaActivity"),
+//						},
+//						Lambda: &iotanalytics.PipelineLambdaArgs{
+//							Name:       pulumi.String("LambdaActivity"),
+//							LambdaName: pulumi.String("Lambda"),
+//							BatchSize:  pulumi.Int(1),
+//							Next:       pulumi.String("AddAttributesActivity"),
+//						},
+//						AddAttributes: &iotanalytics.PipelineAddAttributesArgs{
+//							Name: pulumi.String("AddAttributesActivity"),
+//							Attributes: pulumi.StringMap{
+//								"key1": pulumi.String("attribute1"),
+//								"key2": pulumi.String("attribute2"),
+//							},
+//							Next: pulumi.String("RemoveAttributesActivity"),
+//						},
+//						RemoveAttributes: &iotanalytics.PipelineRemoveAttributesArgs{
+//							Name: pulumi.String("RemoveAttributesActivity"),
+//							Attributes: pulumi.StringArray{
+//								pulumi.String("attribute1"),
+//								pulumi.String("attribute2"),
+//							},
+//							Next: pulumi.String("SelectAttributesActivity"),
+//						},
+//						SelectAttributes: &iotanalytics.PipelineSelectAttributesArgs{
+//							Name: pulumi.String("SelectAttributesActivity"),
+//							Attributes: pulumi.StringArray{
+//								pulumi.String("attribute1"),
+//								pulumi.String("attribute2"),
+//							},
+//							Next: pulumi.String("FilterActivity"),
+//						},
+//						Filter: &iotanalytics.PipelineFilterArgs{
+//							Name:   pulumi.String("FilterActivity"),
+//							Filter: pulumi.String("attribute1 > 40 AND attribute2 < 20"),
+//							Next:   pulumi.String("MathActivity"),
+//						},
+//						Math: &iotanalytics.PipelineMathArgs{
+//							Name:      pulumi.String("MathActivity"),
+//							Attribute: pulumi.String("attribute"),
+//							Math:      pulumi.String("attribute - 10"),
+//							Next:      pulumi.String("DeviceRegistryEnrichActivity"),
+//						},
+//						DeviceRegistryEnrich: &iotanalytics.PipelineDeviceRegistryEnrichArgs{
+//							Name:      pulumi.String("DeviceRegistryEnrichActivity"),
+//							Attribute: pulumi.String("attribute"),
+//							ThingName: pulumi.String("thingName"),
+//							RoleArn:   pulumi.String("arn:aws:iam::<your_Account_Id>:role/Enrich"),
+//							Next:      pulumi.String("DeviceShadowEnrichActivity"),
+//						},
+//						DeviceShadowEnrich: &iotanalytics.PipelineDeviceShadowEnrichArgs{
+//							Name:      pulumi.String("DeviceShadowEnrichActivity"),
+//							Attribute: pulumi.String("attribute"),
+//							ThingName: pulumi.String("thingName"),
+//							RoleArn:   pulumi.String("arn:aws:iam::<your_Account_Id>:role/Enrich"),
+//							Next:      pulumi.String("DatastoreActivity"),
+//						},
+//						Datastore: &iotanalytics.PipelineDatastoreArgs{
+//							Name:          pulumi.String("DatastoreActivity"),
+//							DatastoreName: pulumi.String("Datastore"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Pipeline struct {

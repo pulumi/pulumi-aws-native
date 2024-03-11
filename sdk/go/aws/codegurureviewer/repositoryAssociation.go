@@ -197,12 +197,12 @@ import (
 // _, err := codegurureviewer.NewRepositoryAssociation(ctx, "myRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
 // Name: pulumi.String("MyRepository"),
 // Type: codegurureviewer.RepositoryAssociationTypeCodeCommit,
-// Tags: []aws.CreateOnlyTagArgs{
-// {
+// Tags: aws.CreateOnlyTagArray{
+// &aws.CreateOnlyTagArgs{
 // Key: pulumi.String("tag1-key"),
 // Value: pulumi.String("tag1-value"),
 // },
-// {
+// &aws.CreateOnlyTagArgs{
 // Key: pulumi.String("tag2-key"),
 // Value: pulumi.String("tag2-value"),
 // },
@@ -233,12 +233,12 @@ import (
 // _, err := codegurureviewer.NewRepositoryAssociation(ctx, "myRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
 // Name: pulumi.String("MyRepository"),
 // Type: codegurureviewer.RepositoryAssociationTypeCodeCommit,
-// Tags: []aws.CreateOnlyTagArgs{
-// {
+// Tags: aws.CreateOnlyTagArray{
+// &aws.CreateOnlyTagArgs{
 // Key: pulumi.String("tag1-key"),
 // Value: pulumi.String("tag1-value"),
 // },
-// {
+// &aws.CreateOnlyTagArgs{
 // Key: pulumi.String("tag2-key"),
 // Value: pulumi.String("tag2-value"),
 // },

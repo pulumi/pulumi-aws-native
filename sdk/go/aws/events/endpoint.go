@@ -26,40 +26,41 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// sampleEndpoint, err := events.NewEndpoint(ctx, "sampleEndpoint", &events.EndpointArgs{
-// Name: pulumi.String("CreateExampleEndpoint"),
-// RoutingConfig: &events.EndpointRoutingConfigArgs{
-// FailoverConfig: &events.EndpointFailoverConfigArgs{
-// Primary: &events.EndpointPrimaryArgs{
-// HealthCheck: pulumi.String("arn:aws:route53:::healthcheck/0123456789abc"),
-// },
-// Secondary: &events.EndpointSecondaryArgs{
-// Route: pulumi.String("us-east-1"),
-// },
-// },
-// },
-// ReplicationConfig: interface{}{
-// State: events.EndpointReplicationStateEnabled,
-// },
-// RoleArn: pulumi.String("arn:aws:iam::123456789012:role/EndpointReplicationRole"),
-// EventBuses: events.EndpointEventBusArray{
-// &events.EndpointEventBusArgs{
-// EventBusArn: pulumi.String("arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus"),
-// },
-// &events.EndpointEventBusArgs{
-// EventBusArn: pulumi.String("arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("sampleEndpointName", sampleEndpoint.ID())
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			sampleEndpoint, err := events.NewEndpoint(ctx, "sampleEndpoint", &events.EndpointArgs{
+//				Name: pulumi.String("CreateExampleEndpoint"),
+//				RoutingConfig: &events.EndpointRoutingConfigArgs{
+//					FailoverConfig: &events.EndpointFailoverConfigArgs{
+//						Primary: &events.EndpointPrimaryArgs{
+//							HealthCheck: pulumi.String("arn:aws:route53:::healthcheck/0123456789abc"),
+//						},
+//						Secondary: &events.EndpointSecondaryArgs{
+//							Route: pulumi.String("us-east-1"),
+//						},
+//					},
+//				},
+//				ReplicationConfig: &events.EndpointReplicationConfigArgs{
+//					State: events.EndpointReplicationStateEnabled,
+//				},
+//				RoleArn: pulumi.String("arn:aws:iam::123456789012:role/EndpointReplicationRole"),
+//				EventBuses: events.EndpointEventBusArray{
+//					&events.EndpointEventBusArgs{
+//						EventBusArn: pulumi.String("arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus"),
+//					},
+//					&events.EndpointEventBusArgs{
+//						EventBusArn: pulumi.String("arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("sampleEndpointName", sampleEndpoint.ID())
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -73,39 +74,40 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// sampleEndpoint, err := events.NewEndpoint(ctx, "sampleEndpoint", &events.EndpointArgs{
-// Name: pulumi.String("CreateExampleEndpoint"),
-// RoutingConfig: &events.EndpointRoutingConfigArgs{
-// FailoverConfig: &events.EndpointFailoverConfigArgs{
-// Primary: &events.EndpointPrimaryArgs{
-// HealthCheck: pulumi.String("arn:aws:route53:::healthcheck/0123456789abc"),
-// },
-// Secondary: &events.EndpointSecondaryArgs{
-// Route: pulumi.String("us-east-1"),
-// },
-// },
-// },
-// ReplicationConfig: interface{}{
-// State: events.EndpointReplicationStateDisabled,
-// },
-// EventBuses: events.EndpointEventBusArray{
-// &events.EndpointEventBusArgs{
-// EventBusArn: pulumi.String("arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus"),
-// },
-// &events.EndpointEventBusArgs{
-// EventBusArn: pulumi.String("arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("sampleEndpointName", sampleEndpoint.ID())
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			sampleEndpoint, err := events.NewEndpoint(ctx, "sampleEndpoint", &events.EndpointArgs{
+//				Name: pulumi.String("CreateExampleEndpoint"),
+//				RoutingConfig: &events.EndpointRoutingConfigArgs{
+//					FailoverConfig: &events.EndpointFailoverConfigArgs{
+//						Primary: &events.EndpointPrimaryArgs{
+//							HealthCheck: pulumi.String("arn:aws:route53:::healthcheck/0123456789abc"),
+//						},
+//						Secondary: &events.EndpointSecondaryArgs{
+//							Route: pulumi.String("us-east-1"),
+//						},
+//					},
+//				},
+//				ReplicationConfig: &events.EndpointReplicationConfigArgs{
+//					State: events.EndpointReplicationStateDisabled,
+//				},
+//				EventBuses: events.EndpointEventBusArray{
+//					&events.EndpointEventBusArgs{
+//						EventBusArn: pulumi.String("arn:aws:events:us-west-2:123456789012:event-bus/ExampleEventBus"),
+//					},
+//					&events.EndpointEventBusArgs{
+//						EventBusArn: pulumi.String("arn:aws:events:us-east-1:123456789012:event-bus/ExampleEventBus"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("sampleEndpointName", sampleEndpoint.ID())
+//			return nil
+//		})
+//	}
 //
 // ```
 type Endpoint struct {

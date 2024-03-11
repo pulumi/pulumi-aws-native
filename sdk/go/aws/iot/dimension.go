@@ -36,8 +36,8 @@ import (
 // StringValues: pulumi.StringArray{
 // pulumi.String("device/+/auth"),
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Application"),
 // Value: pulumi.String("SmartHome"),
 // },

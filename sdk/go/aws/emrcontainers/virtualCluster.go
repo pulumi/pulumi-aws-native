@@ -41,8 +41,8 @@ import (
 // },
 // },
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Key1"),
 // Value: pulumi.String("Value1"),
 // },
@@ -82,8 +82,8 @@ import (
 // },
 // },
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Key1"),
 // Value: pulumi.String("Value1"),
 // },

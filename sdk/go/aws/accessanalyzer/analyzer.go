@@ -32,8 +32,8 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := accessanalyzer.NewAnalyzer(ctx, "analyzer", &accessanalyzer.AnalyzerArgs{
 // AnalyzerName: pulumi.String("DevAccountAnalyzer"),
-// ArchiveRules: []accessanalyzer.AnalyzerArchiveRuleArgs{
-// {
+// ArchiveRules: accessanalyzer.AnalyzerArchiveRuleArray{
+// &accessanalyzer.AnalyzerArchiveRuleArgs{
 // Filter: []accessanalyzer.AnalyzerFilterArgs{
 // {
 // Eq: pulumi.StringArray{
@@ -44,7 +44,7 @@ import (
 // },
 // RuleName: pulumi.String("ArchiveTrustedAccountAccess"),
 // },
-// {
+// &accessanalyzer.AnalyzerArchiveRuleArgs{
 // Filter: []accessanalyzer.AnalyzerFilterArgs{
 // {
 // Contains: pulumi.StringArray{
@@ -57,8 +57,8 @@ import (
 // RuleName: pulumi.String("ArchivePublicS3BucketsAccess"),
 // },
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Kind"),
 // Value: pulumi.String("Dev"),
 // },

@@ -31,8 +31,8 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := aps.NewWorkspace(ctx, "apsWorkspace", &aps.WorkspaceArgs{
 // Alias: pulumi.String("TestWorkspace"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("BusinessPurpose"),
 // Value: pulumi.String("LoadTesting"),
 // },
@@ -65,8 +65,8 @@ import (
 // LoggingConfiguration: &aps.WorkspaceLoggingConfigurationArgs{
 // LogGroupArn: pulumi.String("arn:aws:logs:{region}:{account}:log-group:test-log-group:*"),
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("BusinessPurpose"),
 // Value: pulumi.String("LoadTesting"),
 // },
@@ -99,8 +99,8 @@ import (
 // LoggingConfiguration: &aps.WorkspaceLoggingConfigurationArgs{
 // LogGroupArn: pulumi.String("arn:aws:logs:{region}:{account}:log-group:test-log-group:*"),
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("BusinessPurpose"),
 // Value: pulumi.String("LoadTesting"),
 // },

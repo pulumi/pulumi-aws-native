@@ -30,8 +30,8 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := ec2.NewInternetGateway(ctx, "myInternetGateway", &ec2.InternetGatewayArgs{
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("stack"),
 // Value: pulumi.String("production"),
 // },

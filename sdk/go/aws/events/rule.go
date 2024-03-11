@@ -43,13 +43,13 @@ import (
 //					},
 //				},
 //				Path: pulumi.String("/"),
-//				Policies: []iam.RolePolicyTypeArgs{
-//					{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("PutEventsDestinationBus"),
-//						PolicyDocument: {
+//						PolicyDocument: pulumi.Any{
 //							Version: "2012-10-17",
 //							Statement: []map[string]interface{}{
-//								{
+//								map[string]interface{}{
 //									"effect": "Allow",
 //									"action": []string{
 //										"events:PutEvents",
@@ -78,8 +78,8 @@ import (
 //						"MyTestAppDetail",
 //					},
 //				},
-//				Targets: []events.RuleTargetArgs{
-//					{
+//				Targets: events.RuleTargetArray{
+//					&events.RuleTargetArgs{
 //						Arn:     pulumi.String("arn:aws:events:us-east-1:123456789012:event-bus/CrossRegionDestinationBus"),
 //						Id:      pulumi.String(" CrossRegionDestinationBus"),
 //						RoleArn: eventBridgeIAMrole.Arn,

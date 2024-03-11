@@ -34,18 +34,18 @@ import (
 // PrefixListName: pulumi.String("vpc-1-servers"),
 // AddressFamily: ec2.PrefixListAddressFamilyIPv4,
 // MaxEntries: pulumi.Int(10),
-// Entries: []ec2.PrefixListEntryArgs{
-// {
+// Entries: ec2.PrefixListEntryArray{
+// &ec2.PrefixListEntryArgs{
 // Cidr: pulumi.String("10.0.0.5/32"),
 // Description: pulumi.String("Server 1"),
 // },
-// {
+// &ec2.PrefixListEntryArgs{
 // Cidr: pulumi.String("10.0.0.10/32"),
 // Description: pulumi.String("Server 2"),
 // },
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Name"),
 // Value: pulumi.String("VPC-1-Servers"),
 // },
@@ -77,18 +77,18 @@ import (
 // PrefixListName: pulumi.String("vpc-1-servers"),
 // AddressFamily: ec2.PrefixListAddressFamilyIPv4,
 // MaxEntries: pulumi.Int(10),
-// Entries: []ec2.PrefixListEntryArgs{
-// {
+// Entries: ec2.PrefixListEntryArray{
+// &ec2.PrefixListEntryArgs{
 // Cidr: pulumi.String("10.0.0.5/32"),
 // Description: pulumi.String("Server 1"),
 // },
-// {
+// &ec2.PrefixListEntryArgs{
 // Cidr: pulumi.String("10.0.0.10/32"),
 // Description: pulumi.String("Server 2"),
 // },
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Name"),
 // Value: pulumi.String("VPC-1-Servers"),
 // },

@@ -34,12 +34,12 @@ import (
 // Name: pulumi.String("MyCustomDataCatalog"),
 // Type: athena.DataCatalogTypeHive,
 // Description: pulumi.String("Custom Hive Catalog Description"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("key1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("key2"),
 // Value: pulumi.String("value2"),
 // },
@@ -74,12 +74,12 @@ import (
 // Name: pulumi.String("MyCustomDataCatalog"),
 // Type: athena.DataCatalogTypeHive,
 // Description: pulumi.String("Custom Hive Catalog Description"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("key1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("key2"),
 // Value: pulumi.String("value2"),
 // },

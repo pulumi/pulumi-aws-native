@@ -40,8 +40,8 @@ import (
 // LedgerName: pulumi.String("exampleLedger"),
 // RoleArn: pulumi.String("arn:aws:iam::123456789012:role/my-kinesis-stream-role"),
 // StreamName: pulumi.String("exampleLedger-stream"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Domain"),
 // Value: pulumi.String("Test"),
 // },
@@ -79,8 +79,8 @@ import (
 // LedgerName: pulumi.String("exampleLedger"),
 // RoleArn: pulumi.String("arn:aws:iam::123456789012:role/my-kinesis-stream-role"),
 // StreamName: pulumi.String("exampleLedger-stream"),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("Domain"),
 // Value: pulumi.String("Test"),
 // },

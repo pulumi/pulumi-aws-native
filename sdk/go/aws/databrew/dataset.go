@@ -32,21 +32,21 @@ import (
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := databrew.NewDataset(ctx, "testDataBrewDataset", &databrew.DatasetArgs{
 // Name: pulumi.String("cf-test-dataset1"),
-// Input: interface{}{
+// Input: &databrew.DatasetInputTypeArgs{
 // S3InputDefinition: &databrew.DatasetS3LocationArgs{
 // Bucket: pulumi.String("test-location"),
 // Key: pulumi.String("test.xlsx"),
 // },
 // },
-// FormatOptions: interface{}{
+// FormatOptions: &databrew.DatasetFormatOptionsArgs{
 // Excel: &databrew.DatasetExcelOptionsArgs{
 // SheetNames: pulumi.StringArray{
 // pulumi.String("test"),
 // },
 // },
 // },
-// Tags: []aws.CreateOnlyTagArgs{
-// {
+// Tags: aws.CreateOnlyTagArray{
+// &aws.CreateOnlyTagArgs{
 // Key: pulumi.String("key00AtCreate"),
 // Value: pulumi.String("value001AtCreate"),
 // },

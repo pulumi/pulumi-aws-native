@@ -43,13 +43,13 @@ import (
 //						},
 //					},
 //				},
-//				Policies: []iam.RolePolicyTypeArgs{
-//					{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
 //						PolicyName: pulumi.String("FISRoleEC2Actions"),
-//						PolicyDocument: {
+//						PolicyDocument: pulumi.Any{
 //							Version: "2012-10-17",
 //							Statement: []map[string]interface{}{
-//								{
+//								map[string]interface{}{
 //									"effect": "Allow",
 //									"action": []string{
 //										"ec2:RebootInstances",

@@ -478,7 +478,7 @@ class Bucket(pulumi.CustomResource):
         latest_ami_id = config.get("latestAmiId")
         if latest_ami_id is None:
             latest_ami_id = ""
-        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).apply(lambda invoke: invoke.value)
+        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).value
         git_hub_owner = config.require("gitHubOwner")
         git_hub_repo = config.require("gitHubRepo")
         git_hub_branch = config.require("gitHubBranch")
@@ -581,7 +581,7 @@ class Bucket(pulumi.CustomResource):
         latest_ami_id = config.get("latestAmiId")
         if latest_ami_id is None:
             latest_ami_id = ""
-        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).apply(lambda invoke: invoke.value)
+        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).value
         ssm_assoc_logs = aws_native.s3.Bucket("ssmAssocLogs")
         ssm_instance_role = aws_native.iam.Role("ssmInstanceRole",
             policies=[
@@ -681,7 +681,7 @@ class Bucket(pulumi.CustomResource):
         latest_ami_id = config.get("latestAmiId")
         if latest_ami_id is None:
             latest_ami_id = ""
-        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).apply(lambda invoke: invoke.value)
+        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).value
         ssm_assoc_logs = aws_native.s3.Bucket("ssmAssocLogs")
         nginx_install_automation = aws_native.ssm.Document("nginxInstallAutomation",
             document_type=aws_native.ssm.DocumentType.AUTOMATION,
@@ -1006,7 +1006,7 @@ class Bucket(pulumi.CustomResource):
         latest_ami_id = config.get("latestAmiId")
         if latest_ami_id is None:
             latest_ami_id = ""
-        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).apply(lambda invoke: invoke.value)
+        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).value
         git_hub_owner = config.require("gitHubOwner")
         git_hub_repo = config.require("gitHubRepo")
         git_hub_branch = config.require("gitHubBranch")
@@ -1109,7 +1109,7 @@ class Bucket(pulumi.CustomResource):
         latest_ami_id = config.get("latestAmiId")
         if latest_ami_id is None:
             latest_ami_id = ""
-        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).apply(lambda invoke: invoke.value)
+        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).value
         ssm_assoc_logs = aws_native.s3.Bucket("ssmAssocLogs")
         ssm_instance_role = aws_native.iam.Role("ssmInstanceRole",
             policies=[
@@ -1209,7 +1209,7 @@ class Bucket(pulumi.CustomResource):
         latest_ami_id = config.get("latestAmiId")
         if latest_ami_id is None:
             latest_ami_id = ""
-        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).apply(lambda invoke: invoke.value)
+        latest_ami_id_value = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" if latest_ami_id == "" else aws_native.get_ssm_parameter_string(name=latest_ami_id).value
         ssm_assoc_logs = aws_native.s3.Bucket("ssmAssocLogs")
         nginx_install_automation = aws_native.ssm.Document("nginxInstallAutomation",
             document_type=aws_native.ssm.DocumentType.AUTOMATION,

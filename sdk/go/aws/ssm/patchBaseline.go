@@ -26,95 +26,96 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewPatchBaseline(ctx, "myPatchBaseline", &ssm.PatchBaselineArgs{
-// Name: pulumi.String("myPatchBaseline"),
-// Description: pulumi.String("Baseline containing all updates approved for Windows instances"),
-// OperatingSystem: ssm.PatchBaselineOperatingSystemWindows,
-// PatchGroups: pulumi.StringArray{
-// pulumi.String("myPatchGroup"),
-// },
-// ApprovalRules: interface{}{
-// PatchRules: ssm.PatchBaselineRuleArray{
-// interface{}{
-// PatchFilterGroup: interface{}{
-// PatchFilters: ssm.PatchBaselinePatchFilterArray{
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("Critical"),
-// pulumi.String("Important"),
-// pulumi.String("Moderate"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyMsrcSeverity,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("SecurityUpdates"),
-// pulumi.String("CriticalUpdates"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyClassification,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("WindowsServer2019"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyProduct,
-// },
-// },
-// },
-// ApproveAfterDays: pulumi.Int(7),
-// ComplianceLevel: ssm.PatchBaselineRuleComplianceLevelCritical,
-// },
-// interface{}{
-// PatchFilterGroup: interface{}{
-// PatchFilters: ssm.PatchBaselinePatchFilterArray{
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("Critical"),
-// pulumi.String("Important"),
-// pulumi.String("Moderate"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyMsrcSeverity,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("*"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyClassification,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("APPLICATION"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyPatchSet,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("Active Directory Rights Management Services Client 2.0"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyProduct,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("Active Directory"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyProductFamily,
-// },
-// },
-// },
-// ApproveAfterDays: pulumi.Int(7),
-// ComplianceLevel: ssm.PatchBaselineRuleComplianceLevelCritical,
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewPatchBaseline(ctx, "myPatchBaseline", &ssm.PatchBaselineArgs{
+//				Name:            pulumi.String("myPatchBaseline"),
+//				Description:     pulumi.String("Baseline containing all updates approved for Windows instances"),
+//				OperatingSystem: ssm.PatchBaselineOperatingSystemWindows,
+//				PatchGroups: pulumi.StringArray{
+//					pulumi.String("myPatchGroup"),
+//				},
+//				ApprovalRules: &ssm.PatchBaselineRuleGroupArgs{
+//					PatchRules: ssm.PatchBaselineRuleArray{
+//						&ssm.PatchBaselineRuleArgs{
+//							PatchFilterGroup: &ssm.PatchBaselinePatchFilterGroupArgs{
+//								PatchFilters: ssm.PatchBaselinePatchFilterArray{
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("Critical"),
+//											pulumi.String("Important"),
+//											pulumi.String("Moderate"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyMsrcSeverity,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("SecurityUpdates"),
+//											pulumi.String("CriticalUpdates"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyClassification,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("WindowsServer2019"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyProduct,
+//									},
+//								},
+//							},
+//							ApproveAfterDays: pulumi.Int(7),
+//							ComplianceLevel:  ssm.PatchBaselineRuleComplianceLevelCritical,
+//						},
+//						&ssm.PatchBaselineRuleArgs{
+//							PatchFilterGroup: &ssm.PatchBaselinePatchFilterGroupArgs{
+//								PatchFilters: ssm.PatchBaselinePatchFilterArray{
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("Critical"),
+//											pulumi.String("Important"),
+//											pulumi.String("Moderate"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyMsrcSeverity,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("*"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyClassification,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("APPLICATION"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyPatchSet,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("Active Directory Rights Management Services Client 2.0"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyProduct,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("Active Directory"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyProductFamily,
+//									},
+//								},
+//							},
+//							ApproveAfterDays: pulumi.Int(7),
+//							ComplianceLevel:  ssm.PatchBaselineRuleComplianceLevelCritical,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -128,95 +129,96 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.NewPatchBaseline(ctx, "myPatchBaseline", &ssm.PatchBaselineArgs{
-// Name: pulumi.String("myPatchBaseline"),
-// Description: pulumi.String("Baseline containing all updates approved for Windows instances"),
-// OperatingSystem: ssm.PatchBaselineOperatingSystemWindows,
-// PatchGroups: pulumi.StringArray{
-// pulumi.String("myPatchGroup"),
-// },
-// ApprovalRules: interface{}{
-// PatchRules: ssm.PatchBaselineRuleArray{
-// interface{}{
-// PatchFilterGroup: interface{}{
-// PatchFilters: ssm.PatchBaselinePatchFilterArray{
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("Critical"),
-// pulumi.String("Important"),
-// pulumi.String("Moderate"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyMsrcSeverity,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("SecurityUpdates"),
-// pulumi.String("CriticalUpdates"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyClassification,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("WindowsServer2019"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyProduct,
-// },
-// },
-// },
-// ApproveAfterDays: pulumi.Int(7),
-// ComplianceLevel: ssm.PatchBaselineRuleComplianceLevelCritical,
-// },
-// interface{}{
-// PatchFilterGroup: interface{}{
-// PatchFilters: ssm.PatchBaselinePatchFilterArray{
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("Critical"),
-// pulumi.String("Important"),
-// pulumi.String("Moderate"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyMsrcSeverity,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("*"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyClassification,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("APPLICATION"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyPatchSet,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("Active Directory Rights Management Services Client 2.0"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyProduct,
-// },
-// &ssm.PatchBaselinePatchFilterArgs{
-// Values: pulumi.StringArray{
-// pulumi.String("Active Directory"),
-// },
-// Key: ssm.PatchBaselinePatchFilterKeyProductFamily,
-// },
-// },
-// },
-// ApproveAfterDays: pulumi.Int(7),
-// ComplianceLevel: ssm.PatchBaselineRuleComplianceLevelCritical,
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewPatchBaseline(ctx, "myPatchBaseline", &ssm.PatchBaselineArgs{
+//				Name:            pulumi.String("myPatchBaseline"),
+//				Description:     pulumi.String("Baseline containing all updates approved for Windows instances"),
+//				OperatingSystem: ssm.PatchBaselineOperatingSystemWindows,
+//				PatchGroups: pulumi.StringArray{
+//					pulumi.String("myPatchGroup"),
+//				},
+//				ApprovalRules: &ssm.PatchBaselineRuleGroupArgs{
+//					PatchRules: ssm.PatchBaselineRuleArray{
+//						&ssm.PatchBaselineRuleArgs{
+//							PatchFilterGroup: &ssm.PatchBaselinePatchFilterGroupArgs{
+//								PatchFilters: ssm.PatchBaselinePatchFilterArray{
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("Critical"),
+//											pulumi.String("Important"),
+//											pulumi.String("Moderate"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyMsrcSeverity,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("SecurityUpdates"),
+//											pulumi.String("CriticalUpdates"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyClassification,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("WindowsServer2019"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyProduct,
+//									},
+//								},
+//							},
+//							ApproveAfterDays: pulumi.Int(7),
+//							ComplianceLevel:  ssm.PatchBaselineRuleComplianceLevelCritical,
+//						},
+//						&ssm.PatchBaselineRuleArgs{
+//							PatchFilterGroup: &ssm.PatchBaselinePatchFilterGroupArgs{
+//								PatchFilters: ssm.PatchBaselinePatchFilterArray{
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("Critical"),
+//											pulumi.String("Important"),
+//											pulumi.String("Moderate"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyMsrcSeverity,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("*"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyClassification,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("APPLICATION"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyPatchSet,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("Active Directory Rights Management Services Client 2.0"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyProduct,
+//									},
+//									&ssm.PatchBaselinePatchFilterArgs{
+//										Values: pulumi.StringArray{
+//											pulumi.String("Active Directory"),
+//										},
+//										Key: ssm.PatchBaselinePatchFilterKeyProductFamily,
+//									},
+//								},
+//							},
+//							ApproveAfterDays: pulumi.Int(7),
+//							ComplianceLevel:  ssm.PatchBaselineRuleComplianceLevelCritical,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type PatchBaseline struct {

@@ -35,8 +35,8 @@ import (
 // Description: pulumi.String("flow module created using cfn"),
 // InstanceArn: pulumi.String("arn:aws:connect:region-name:aws-account-id:instance/instance-arn"),
 // Content: pulumi.String("ExampleFlowModule content(JSON) using Amazon Connect Flow Language."),
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("testkey"),
 // Value: pulumi.String("testValue"),
 // },

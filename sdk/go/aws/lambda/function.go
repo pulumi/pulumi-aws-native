@@ -188,14 +188,14 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// function, err := lambda.NewFunction(ctx, "function", &lambda.FunctionArgs{
-// Handler: pulumi.String("index.handler"),
-// Role: pulumi.String("arn:aws:iam::123456789012:role/lambda-role"),
-// Code: &lambda.FunctionCodeArgs{
 //
-//	ZipFile: pulumi.String(`exports.handler = async (event) => {
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			function, err := lambda.NewFunction(ctx, "function", &lambda.FunctionArgs{
+//				Handler: pulumi.String("index.handler"),
+//				Role:    pulumi.String("arn:aws:iam::123456789012:role/lambda-role"),
+//				Code: &lambda.FunctionCodeArgs{
+//					ZipFile: pulumi.String(`exports.handler = async (event) => {
 //	    console.log(JSON.stringify(event, null, 2));
 //	    const response = {
 //	        statusCode: 200,
@@ -205,28 +205,29 @@ import (
 //	};
 //
 // `),
-// },
-// Runtime: pulumi.String("nodejs18.x"),
-// TracingConfig: &lambda.FunctionTracingConfigArgs{
-// Mode: lambda.FunctionTracingConfigModeActive,
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = lambda.NewVersion(ctx, "version", &lambda.VersionArgs{
-// FunctionName: function.ID(),
-// Description: pulumi.String("v1"),
-// ProvisionedConcurrencyConfig: interface{}{
-// ProvisionedConcurrentExecutions: pulumi.Int(20),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//				},
+//				Runtime: pulumi.String("nodejs18.x"),
+//				TracingConfig: &lambda.FunctionTracingConfigArgs{
+//					Mode: lambda.FunctionTracingConfigModeActive,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewVersion(ctx, "version", &lambda.VersionArgs{
+//				FunctionName: function.ID(),
+//				Description:  pulumi.String("v1"),
+//				ProvisionedConcurrencyConfig: &lambda.VersionProvisionedConcurrencyConfigurationArgs{
+//					ProvisionedConcurrentExecutions: pulumi.Int(20),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Function struct {

@@ -27,18 +27,20 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotcoredeviceadvisor.NewSuiteDefinition(ctx, "testSuiteDefinition", &iotcoredeviceadvisor.SuiteDefinitionArgs{
-// SuiteDefinitionConfiguration: interface{}{
-// SuiteDefinitionName: pulumi.String("SuiteDefinitionName"),
-// DevicePermissionRoleArn: pulumi.String("arn:aws:iam::123456789012:role/RoleName"),
-// Devices: iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArray{
-// &iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs{
-// ThingArn: pulumi.String("arn:aws:iot:us-east-1:123456789012:thing/ThingName"),
-// },
-// },
-// RootGroup: pulumi.String(`{
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotcoredeviceadvisor.NewSuiteDefinition(ctx, "testSuiteDefinition", &iotcoredeviceadvisor.SuiteDefinitionArgs{
+//				SuiteDefinitionConfiguration: &iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs{
+//					SuiteDefinitionName:     pulumi.String("SuiteDefinitionName"),
+//					DevicePermissionRoleArn: pulumi.String("arn:aws:iam::123456789012:role/RoleName"),
+//					Devices: iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArray{
+//						&iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs{
+//							ThingArn: pulumi.String("arn:aws:iot:us-east-1:123456789012:thing/ThingName"),
+//						},
+//					},
+//					RootGroup: pulumi.String(`{
+//
 // "configuration": {},
 // "tests": [{
 // "name": "TestGroup",
@@ -57,15 +59,16 @@ import (
 // }]
 // }]
 // }`),
-// IntendedForQualification: pulumi.Bool(false),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//					IntendedForQualification: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -79,27 +82,28 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotcoredeviceadvisor.NewSuiteDefinition(ctx, "testSuiteDefinition", &iotcoredeviceadvisor.SuiteDefinitionArgs{
-// SuiteDefinitionConfiguration: interface{}{
-// SuiteDefinitionName: pulumi.String("SuiteDefinitionName"),
-// DevicePermissionRoleArn: pulumi.String("arn:aws:iam::123456789012:role/RoleName"),
-// Devices: iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArray{
-// &iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs{
-// ThingArn: pulumi.String("arn:aws:iot:us-east-1:123456789012:thing/ThingName"),
-// },
-// },
-// RootGroup: pulumi.String("{ \"configuration\": {}, \"tests\": [{ \"name\": \"TestGroup\", \"configuration\": { \"EXECUTION_TIMEOUT\": \"30\" }, \"tests\": [{ \"name\": \"MQTTPublishTest\", \"configuration\": { \"TOPIC_FOR_PUBLISH_VALIDATION\": \"target\" }, \"test\": { \"id\": \"MQTT_Publish\", \"version\": \"0.0.0\" } }] }] }"),
-// IntendedForQualification: pulumi.Bool(false),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotcoredeviceadvisor.NewSuiteDefinition(ctx, "testSuiteDefinition", &iotcoredeviceadvisor.SuiteDefinitionArgs{
+//				SuiteDefinitionConfiguration: &iotcoredeviceadvisor.SuiteDefinitionConfigurationPropertiesArgs{
+//					SuiteDefinitionName:     pulumi.String("SuiteDefinitionName"),
+//					DevicePermissionRoleArn: pulumi.String("arn:aws:iam::123456789012:role/RoleName"),
+//					Devices: iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArray{
+//						&iotcoredeviceadvisor.SuiteDefinitionDeviceUnderTestArgs{
+//							ThingArn: pulumi.String("arn:aws:iot:us-east-1:123456789012:thing/ThingName"),
+//						},
+//					},
+//					RootGroup:                pulumi.String("{ \"configuration\": {}, \"tests\": [{ \"name\": \"TestGroup\", \"configuration\": { \"EXECUTION_TIMEOUT\": \"30\" }, \"tests\": [{ \"name\": \"MQTTPublishTest\", \"configuration\": { \"TOPIC_FOR_PUBLISH_VALIDATION\": \"target\" }, \"test\": { \"id\": \"MQTT_Publish\", \"version\": \"0.0.0\" } }] }] }"),
+//					IntendedForQualification: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type SuiteDefinition struct {

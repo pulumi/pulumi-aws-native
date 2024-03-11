@@ -85,12 +85,12 @@ import (
 // Unlimited: pulumi.Bool(false),
 // NumberOfDays: pulumi.Int(10),
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },
@@ -124,12 +124,12 @@ import (
 // Unlimited: pulumi.Bool(false),
 // NumberOfDays: pulumi.Int(10),
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("keyname1"),
 // Value: pulumi.String("value1"),
 // },
-// {
+// &aws.TagArgs{
 // Key: pulumi.String("keyname2"),
 // Value: pulumi.String("value2"),
 // },

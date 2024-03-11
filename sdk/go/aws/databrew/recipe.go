@@ -34,8 +34,8 @@ import (
 // Name: pulumi.String("recipe-name"),
 // Description: pulumi.String("This is the recipe description."),
 // Steps: databrew.RecipeStepArray{
-// interface{}{
-// Action: interface{}{
+// &databrew.RecipeStepArgs{
+// Action: &databrew.RecipeActionArgs{
 // Operation: pulumi.String("EXTRACT_PATTERN"),
 // Parameters: pulumi.Any{
 // SourceColumn: pulumi.String("Consulate"),
@@ -52,8 +52,8 @@ import (
 // },
 // },
 // },
-// Tags: []aws.CreateOnlyTagArgs{
-// {
+// Tags: aws.CreateOnlyTagArray{
+// &aws.CreateOnlyTagArgs{
 // Key: pulumi.String("key00AtCreate"),
 // Value: pulumi.String("value001AtCreate"),
 // },

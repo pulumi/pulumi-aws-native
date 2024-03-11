@@ -15,6 +15,46 @@ import (
 // The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
 //
 // ## Example Usage
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecr.NewReplicationConfiguration(ctx, "myReplicationConfig", &ecr.ReplicationConfigurationArgs{
+//				ReplicationConfiguration: &ecr.ReplicationConfigurationTypeArgs{
+//					Rules: ecr.ReplicationConfigurationReplicationRuleArray{
+//						&ecr.ReplicationConfigurationReplicationRuleArgs{
+//							Destinations: ecr.ReplicationConfigurationReplicationDestinationArray{
+//								&ecr.ReplicationConfigurationReplicationDestinationArgs{
+//									Region:     pulumi.String("us-east-2"),
+//									RegistryId: pulumi.String("123456789012"),
+//								},
+//								&ecr.ReplicationConfigurationReplicationDestinationArgs{
+//									Region:     pulumi.String("us-west-1"),
+//									RegistryId: pulumi.String("123456789012"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 

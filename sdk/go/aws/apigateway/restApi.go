@@ -29,70 +29,44 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// contentHandling := cfg.Require("contentHandling")
-// operationName := "testoperationName";
-// if param := cfg.Get("operationName"); param != ""{
-// operationName = param
-// }
-// restApiName := "testrestApiName";
-// if param := cfg.Get("restApiName"); param != ""{
-// restApiName = param
-// }
-// validatorName := "testvalidatorName";
-// if param := cfg.Get("validatorName"); param != ""{
-// validatorName = param
-// }
-// validateRequestBody := "testvalidateRequestBody";
-// if param := cfg.Get("validateRequestBody"); param != ""{
-// validateRequestBody = param
-// }
-// validateRequestParameters := true;
-// if param := cfg.Get("validateRequestParameters"); param != ""{
-// validateRequestParameters = param
-// }
-// restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-// Name: pulumi.String(restApiName),
-// })
-// if err != nil {
-// return err
-// }
-// requestValidator, err := apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
-// Name: pulumi.String(validatorName),
-// RestApiId: restApi.ID(),
-// ValidateRequestBody: pulumi.String(validateRequestBody),
-// ValidateRequestParameters: pulumi.String(validateRequestParameters),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = apigateway.NewMethod(ctx, "method", &apigateway.MethodArgs{
-// HttpMethod: pulumi.String("POST"),
-// ResourceId: restApi.RootResourceId,
-// RestApiId: restApi.ID(),
-// AuthorizationType: apigateway.MethodAuthorizationTypeNone,
-// Integration: interface{}{
-// Type: apigateway.MethodIntegrationTypeMock,
-// ContentHandling: apigateway.MethodIntegrationContentHandling(contentHandling),
-// IntegrationResponses: apigateway.MethodIntegrationResponseArray{
-// &apigateway.MethodIntegrationResponseArgs{
-// ContentHandling: apigateway.MethodIntegrationResponseContentHandling(contentHandling),
-// StatusCode: pulumi.String("400"),
-// },
-// },
-// },
-// RequestValidatorId: requestValidator.ID(),
-// OperationName: pulumi.String(operationName),
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("rootResourceId", restApi.RootResourceId)
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			apiName := cfg.Require("apiName")
+//			description := cfg.Require("description")
+//			version := cfg.Require("version")
+//			_type := cfg.Require("type")
+//			property := cfg.Require("property")
+//			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
+//				Name: pulumi.String(apiName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			documentationPart, err := apigateway.NewDocumentationPart(ctx, "documentationPart", &apigateway.DocumentationPartArgs{
+//				Location: &apigateway.DocumentationPartLocationArgs{
+//					Type: apigateway.DocumentationPartLocationType(_type),
+//				},
+//				RestApiId:  restApi.ID(),
+//				Properties: pulumi.String(property),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewDocumentationVersion(ctx, "documentationVersion", &apigateway.DocumentationVersionArgs{
+//				Description:          pulumi.String(description),
+//				DocumentationVersion: pulumi.String(version),
+//				RestApiId:            restApi.ID(),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				documentationPart,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -107,70 +81,202 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// contentHandling := cfg.Require("contentHandling")
-// operationName := "testoperationName";
-// if param := cfg.Get("operationName"); param != ""{
-// operationName = param
-// }
-// restApiName := "testrestApiName";
-// if param := cfg.Get("restApiName"); param != ""{
-// restApiName = param
-// }
-// validatorName := "testvalidatorName";
-// if param := cfg.Get("validatorName"); param != ""{
-// validatorName = param
-// }
-// validateRequestBody := "testvalidateRequestBody";
-// if param := cfg.Get("validateRequestBody"); param != ""{
-// validateRequestBody = param
-// }
-// validateRequestParameters := true;
-// if param := cfg.Get("validateRequestParameters"); param != ""{
-// validateRequestParameters = param
-// }
-// restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-// Name: pulumi.String(restApiName),
-// })
-// if err != nil {
-// return err
-// }
-// requestValidator, err := apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
-// Name: pulumi.String(validatorName),
-// RestApiId: restApi.ID(),
-// ValidateRequestBody: pulumi.String(validateRequestBody),
-// ValidateRequestParameters: pulumi.String(validateRequestParameters),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = apigateway.NewMethod(ctx, "method", &apigateway.MethodArgs{
-// HttpMethod: pulumi.String("POST"),
-// ResourceId: restApi.RootResourceId,
-// RestApiId: restApi.ID(),
-// AuthorizationType: apigateway.MethodAuthorizationTypeNone,
-// Integration: interface{}{
-// Type: apigateway.MethodIntegrationTypeMock,
-// ContentHandling: apigateway.MethodIntegrationContentHandling(contentHandling),
-// IntegrationResponses: apigateway.MethodIntegrationResponseArray{
-// &apigateway.MethodIntegrationResponseArgs{
-// ContentHandling: apigateway.MethodIntegrationResponseContentHandling(contentHandling),
-// StatusCode: pulumi.String("400"),
-// },
-// },
-// },
-// RequestValidatorId: requestValidator.ID(),
-// OperationName: pulumi.String(operationName),
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("rootResourceId", restApi.RootResourceId)
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			apiName := cfg.Require("apiName")
+//			description := cfg.Require("description")
+//			version := cfg.Require("version")
+//			_type := cfg.Require("type")
+//			property := cfg.Require("property")
+//			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
+//				Name: pulumi.String(apiName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			documentationPart, err := apigateway.NewDocumentationPart(ctx, "documentationPart", &apigateway.DocumentationPartArgs{
+//				Location: &apigateway.DocumentationPartLocationArgs{
+//					Type: apigateway.DocumentationPartLocationType(_type),
+//				},
+//				RestApiId:  restApi.ID(),
+//				Properties: pulumi.String(property),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewDocumentationVersion(ctx, "documentationVersion", &apigateway.DocumentationVersionArgs{
+//				Description:          pulumi.String(description),
+//				DocumentationVersion: pulumi.String(version),
+//				RestApiId:            restApi.ID(),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				documentationPart,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			contentHandling := cfg.Require("contentHandling")
+//			operationName := "testoperationName"
+//			if param := cfg.Get("operationName"); param != "" {
+//				operationName = param
+//			}
+//			restApiName := "testrestApiName"
+//			if param := cfg.Get("restApiName"); param != "" {
+//				restApiName = param
+//			}
+//			validatorName := "testvalidatorName"
+//			if param := cfg.Get("validatorName"); param != "" {
+//				validatorName = param
+//			}
+//			validateRequestBody := "testvalidateRequestBody"
+//			if param := cfg.Get("validateRequestBody"); param != "" {
+//				validateRequestBody = param
+//			}
+//			validateRequestParameters := true
+//			if param := cfg.Get("validateRequestParameters"); param != "" {
+//				validateRequestParameters = param
+//			}
+//			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
+//				Name: pulumi.String(restApiName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			requestValidator, err := apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
+//				Name:                      pulumi.String(validatorName),
+//				RestApiId:                 restApi.ID(),
+//				ValidateRequestBody:       pulumi.String(validateRequestBody),
+//				ValidateRequestParameters: pulumi.String(validateRequestParameters),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewMethod(ctx, "method", &apigateway.MethodArgs{
+//				HttpMethod:        pulumi.String("POST"),
+//				ResourceId:        restApi.RootResourceId,
+//				RestApiId:         restApi.ID(),
+//				AuthorizationType: apigateway.MethodAuthorizationTypeNone,
+//				Integration: &apigateway.MethodIntegrationArgs{
+//					Type:            apigateway.MethodIntegrationTypeMock,
+//					ContentHandling: apigateway.MethodIntegrationContentHandling(contentHandling),
+//					IntegrationResponses: apigateway.MethodIntegrationResponseArray{
+//						&apigateway.MethodIntegrationResponseArgs{
+//							ContentHandling: apigateway.MethodIntegrationResponseContentHandling(contentHandling),
+//							StatusCode:      pulumi.String("400"),
+//						},
+//					},
+//				},
+//				RequestValidatorId: requestValidator.ID(),
+//				OperationName:      pulumi.String(operationName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("rootResourceId", restApi.RootResourceId)
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			contentHandling := cfg.Require("contentHandling")
+//			operationName := "testoperationName"
+//			if param := cfg.Get("operationName"); param != "" {
+//				operationName = param
+//			}
+//			restApiName := "testrestApiName"
+//			if param := cfg.Get("restApiName"); param != "" {
+//				restApiName = param
+//			}
+//			validatorName := "testvalidatorName"
+//			if param := cfg.Get("validatorName"); param != "" {
+//				validatorName = param
+//			}
+//			validateRequestBody := "testvalidateRequestBody"
+//			if param := cfg.Get("validateRequestBody"); param != "" {
+//				validateRequestBody = param
+//			}
+//			validateRequestParameters := true
+//			if param := cfg.Get("validateRequestParameters"); param != "" {
+//				validateRequestParameters = param
+//			}
+//			restApi, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
+//				Name: pulumi.String(restApiName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			requestValidator, err := apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
+//				Name:                      pulumi.String(validatorName),
+//				RestApiId:                 restApi.ID(),
+//				ValidateRequestBody:       pulumi.String(validateRequestBody),
+//				ValidateRequestParameters: pulumi.String(validateRequestParameters),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewMethod(ctx, "method", &apigateway.MethodArgs{
+//				HttpMethod:        pulumi.String("POST"),
+//				ResourceId:        restApi.RootResourceId,
+//				RestApiId:         restApi.ID(),
+//				AuthorizationType: apigateway.MethodAuthorizationTypeNone,
+//				Integration: &apigateway.MethodIntegrationArgs{
+//					Type:            apigateway.MethodIntegrationTypeMock,
+//					ContentHandling: apigateway.MethodIntegrationContentHandling(contentHandling),
+//					IntegrationResponses: apigateway.MethodIntegrationResponseArray{
+//						&apigateway.MethodIntegrationResponseArgs{
+//							ContentHandling: apigateway.MethodIntegrationResponseContentHandling(contentHandling),
+//							StatusCode:      pulumi.String("400"),
+//						},
+//					},
+//				},
+//				RequestValidatorId: requestValidator.ID(),
+//				OperationName:      pulumi.String(operationName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("rootResourceId", restApi.RootResourceId)
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example

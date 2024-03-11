@@ -30,8 +30,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "specificInstanceIdAssociation", &ssm.AssociationArgs{
 //				Name: pulumi.String("AWS-RunShellScript"),
-//				Targets: []ssm.AssociationTargetArgs{
-//					{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("i-1234567890abcdef0"),
@@ -71,8 +71,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewAssociation(ctx, "specificInstanceIdAssociation", &ssm.AssociationArgs{
 //				Name: pulumi.String("AWS-RunShellScript"),
-//				Targets: []ssm.AssociationTargetArgs{
-//					{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("i-1234567890abcdef0"),
@@ -114,8 +114,8 @@ import (
 //				AssociationName:    pulumi.String("UpdateSSMAgent"),
 //				Name:               pulumi.String("AWS-UpdateSSMAgent"),
 //				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
-//				Targets: []ssm.AssociationTargetArgs{
-//					{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("*"),
@@ -149,8 +149,8 @@ import (
 //				AssociationName:    pulumi.String("UpdateSSMAgent"),
 //				Name:               pulumi.String("AWS-UpdateSSMAgent"),
 //				ScheduleExpression: pulumi.String("cron(0 2 ? * SUN *)"),
-//				Targets: []ssm.AssociationTargetArgs{
-//					{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("InstanceIds"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("*"),
@@ -184,8 +184,8 @@ import (
 //				AssociationName:    pulumi.String("UpdateSSMAgent"),
 //				Name:               pulumi.String("AWS-UpdateSSMAgent"),
 //				ScheduleExpression: pulumi.String("rate(7 days)"),
-//				Targets: []ssm.AssociationTargetArgs{
-//					{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("tag:Environment"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("Production"),
@@ -219,8 +219,8 @@ import (
 //				AssociationName:    pulumi.String("UpdateSSMAgent"),
 //				Name:               pulumi.String("AWS-UpdateSSMAgent"),
 //				ScheduleExpression: pulumi.String("rate(7 days)"),
-//				Targets: []ssm.AssociationTargetArgs{
-//					{
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
 //						Key: pulumi.String("tag:Environment"),
 //						Values: pulumi.StringArray{
 //							pulumi.String("Production"),

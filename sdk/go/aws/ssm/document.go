@@ -130,8 +130,8 @@ import (
 //			_, err := ssm.NewDocument(ctx, "examplePackageDocument", &ssm.DocumentArgs{
 //				Content:      pulumi.Any("{\"files\": {\"NewPackage_WINDOWS.zip\": {\"checksums\": {\"sha256\": \"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\"}}}, \"publisher\": \"publisherName\", \"schemaVersion\": \"2.0\", \"packages\": {\"_any\": {\"_any\": {\"x86_64\": {\"file\": \"NewPackage_WINDOWS.zip\"}}}}, \"version\": \"1.0\"}"),
 //				DocumentType: ssm.DocumentTypePackage,
-//				Attachments: []ssm.DocumentAttachmentsSourceArgs{
-//					{
+//				Attachments: ssm.DocumentAttachmentsSourceArray{
+//					&ssm.DocumentAttachmentsSourceArgs{
 //						Key: ssm.DocumentAttachmentsSourceKeySourceUrl,
 //						Values: pulumi.StringArray{
 //							pulumi.String("s3://example-package-path/valid-package"),
@@ -164,8 +164,8 @@ import (
 //			_, err := ssm.NewDocument(ctx, "examplePackageDocument", &ssm.DocumentArgs{
 //				Content:      pulumi.Any("{\\\"files\\\": {\\\"NewPackage_WINDOWS.zip\\\": {\\\"checksums\\\": {\\\"sha256\\\": \\\"36aeb0ec2c706013cf8c68163459678f7f6daa9489cd3f91d52799331EXAMPLE\\\"}}}, \\\"publisher\\\": \\\"publisherName\\\", \\\"schemaVersion\\\": \\\"2.0\\\", \\\"packages\\\": {\\\"_any\\\": {\\\"_any\\\": {\\\"x86_64\\\": {\\\"file\\\": \\\"NewPackage_WINDOWS.zip\\\"}}}}, \\\"version\\\": \\\"1.0\\\"}"),
 //				DocumentType: ssm.DocumentTypePackage,
-//				Attachments: []ssm.DocumentAttachmentsSourceArgs{
-//					{
+//				Attachments: ssm.DocumentAttachmentsSourceArray{
+//					&ssm.DocumentAttachmentsSourceArgs{
 //						Key: ssm.DocumentAttachmentsSourceKeySourceUrl,
 //						Values: pulumi.StringArray{
 //							pulumi.String("s3://example-package-path/valid-package"),

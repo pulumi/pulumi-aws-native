@@ -48,8 +48,8 @@ import (
 // },
 // },
 // },
-// Tags: []aws.TagArgs{
-// {
+// Tags: aws.TagArray{
+// &aws.TagArgs{
 // Key: pulumi.String("tagKey"),
 // Value: pulumi.String("tagValue"),
 // },

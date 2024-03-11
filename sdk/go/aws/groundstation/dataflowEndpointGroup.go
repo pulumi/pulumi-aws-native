@@ -27,37 +27,38 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := groundstation.NewDataflowEndpointGroup(ctx, "myDataflowEndpointGroup", &groundstation.DataflowEndpointGroupArgs{
-// EndpointDetails: groundstation.DataflowEndpointGroupEndpointDetailsArray{
-// interface{}{
-// SecurityDetails: &groundstation.DataflowEndpointGroupSecurityDetailsArgs{
-// SubnetIds: pulumi.StringArray{
-// pulumi.String("subnet-6782e71e"),
-// },
-// SecurityGroupIds: pulumi.StringArray{
-// pulumi.String("sg-6979fe18"),
-// },
-// RoleArn: pulumi.String("arn:aws:iam::012345678910:role/groundstation-service-role-AWSServiceRoleForAmazonGroundStation-EXAMPLEBQ4PI"),
-// },
-// Endpoint: interface{}{
-// Name: pulumi.String("myEndpoint"),
-// Address: &groundstation.DataflowEndpointGroupSocketAddressArgs{
-// Name: pulumi.String("172.10.0.2"),
-// Port: pulumi.Int(44720),
-// },
-// Mtu: pulumi.Int(1500),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := groundstation.NewDataflowEndpointGroup(ctx, "myDataflowEndpointGroup", &groundstation.DataflowEndpointGroupArgs{
+//				EndpointDetails: groundstation.DataflowEndpointGroupEndpointDetailsArray{
+//					&groundstation.DataflowEndpointGroupEndpointDetailsArgs{
+//						SecurityDetails: &groundstation.DataflowEndpointGroupSecurityDetailsArgs{
+//							SubnetIds: pulumi.StringArray{
+//								pulumi.String("subnet-6782e71e"),
+//							},
+//							SecurityGroupIds: pulumi.StringArray{
+//								pulumi.String("sg-6979fe18"),
+//							},
+//							RoleArn: pulumi.String("arn:aws:iam::012345678910:role/groundstation-service-role-AWSServiceRoleForAmazonGroundStation-EXAMPLEBQ4PI"),
+//						},
+//						Endpoint: &groundstation.DataflowEndpointGroupDataflowEndpointArgs{
+//							Name: pulumi.String("myEndpoint"),
+//							Address: &groundstation.DataflowEndpointGroupSocketAddressArgs{
+//								Name: pulumi.String("172.10.0.2"),
+//								Port: pulumi.Int(44720),
+//							},
+//							Mtu: pulumi.Int(1500),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type DataflowEndpointGroup struct {
