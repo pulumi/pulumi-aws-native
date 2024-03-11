@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeCommit
     /// <summary>
     /// Resource Type definition for AWS::CodeCommit::Repository
     /// </summary>
-    [Obsolete(@"Repository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Repository is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codecommit:Repository")]
     public partial class Repository : global::Pulumi.CustomResource
     {

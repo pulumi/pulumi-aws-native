@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
     /// <summary>
     /// Definition of AWS::IoTFleetWise::Vehicle Resource Type
     /// </summary>
-    [Obsolete(@"Vehicle is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Vehicle is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotfleetwise:Vehicle")]
     public partial class Vehicle : global::Pulumi.CustomResource
     {

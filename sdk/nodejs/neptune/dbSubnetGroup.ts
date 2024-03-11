@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Neptune::DBSubnetGroup
  *
- * @deprecated DbSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated DbSubnetGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class DbSubnetGroup extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class DbSubnetGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DbSubnetGroup {
-        pulumi.log.warn("DbSubnetGroup is deprecated: DbSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("DbSubnetGroup is deprecated: DbSubnetGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new DbSubnetGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -53,9 +53,9 @@ export class DbSubnetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated DbSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated DbSubnetGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DbSubnetGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DbSubnetGroup is deprecated: DbSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("DbSubnetGroup is deprecated: DbSubnetGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

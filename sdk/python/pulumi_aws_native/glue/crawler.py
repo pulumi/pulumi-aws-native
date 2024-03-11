@@ -179,11 +179,11 @@ class CrawlerArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Crawler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Crawler is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Crawler(pulumi.CustomResource):
-    warnings.warn("""Crawler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Crawler is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -248,7 +248,7 @@ class Crawler(pulumi.CustomResource):
                  tags: Optional[Any] = None,
                  targets: Optional[pulumi.Input[pulumi.InputType['CrawlerTargetsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Crawler is deprecated: Crawler is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Crawler is deprecated: Crawler is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

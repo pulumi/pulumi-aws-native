@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DocDb
     /// <summary>
     /// Resource Type definition for AWS::DocDB::DBClusterParameterGroup
     /// </summary>
-    [Obsolete(@"DbClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DbClusterParameterGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:docdb:DbClusterParameterGroup")]
     public partial class DbClusterParameterGroup : global::Pulumi.CustomResource
     {

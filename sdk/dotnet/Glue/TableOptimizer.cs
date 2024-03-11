@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Glue
     /// <summary>
     /// Resource Type definition for AWS::Glue::TableOptimizer
     /// </summary>
-    [Obsolete(@"TableOptimizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"TableOptimizer is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:TableOptimizer")]
     public partial class TableOptimizer : global::Pulumi.CustomResource
     {

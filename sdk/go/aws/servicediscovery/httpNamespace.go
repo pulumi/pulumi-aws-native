@@ -14,7 +14,7 @@ import (
 
 // Resource Type definition for AWS::ServiceDiscovery::HttpNamespace
 //
-// Deprecated: HttpNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: HttpNamespace is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type HttpNamespace struct {
 	pulumi.CustomResourceState
 

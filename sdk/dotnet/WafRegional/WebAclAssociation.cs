@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.WafRegional
     /// <summary>
     /// Resource Type definition for AWS::WAFRegional::WebACLAssociation
     /// </summary>
-    [Obsolete(@"WebAclAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"WebAclAssociation is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:wafregional:WebAclAssociation")]
     public partial class WebAclAssociation : global::Pulumi.CustomResource
     {

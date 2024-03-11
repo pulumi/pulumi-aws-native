@@ -70,11 +70,11 @@ class WirelessDeviceImportTaskArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""WirelessDeviceImportTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""WirelessDeviceImportTask is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class WirelessDeviceImportTask(pulumi.CustomResource):
-    warnings.warn("""WirelessDeviceImportTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""WirelessDeviceImportTask is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -121,7 +121,7 @@ class WirelessDeviceImportTask(pulumi.CustomResource):
                  sidewalk: Optional[pulumi.Input[pulumi.InputType['SidewalkPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""WirelessDeviceImportTask is deprecated: WirelessDeviceImportTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""WirelessDeviceImportTask is deprecated: WirelessDeviceImportTask is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

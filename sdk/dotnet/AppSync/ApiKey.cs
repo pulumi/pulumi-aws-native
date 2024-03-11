@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppSync
     /// <summary>
     /// Resource Type definition for AWS::AppSync::ApiKey
     /// </summary>
-    [Obsolete(@"ApiKey is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ApiKey is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appsync:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource
     {

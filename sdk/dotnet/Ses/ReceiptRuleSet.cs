@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ses
     /// <summary>
     /// Resource Type definition for AWS::SES::ReceiptRuleSet
     /// </summary>
-    [Obsolete(@"ReceiptRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ReceiptRuleSet is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ses:ReceiptRuleSet")]
     public partial class ReceiptRuleSet : global::Pulumi.CustomResource
     {

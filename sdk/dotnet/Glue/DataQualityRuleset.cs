@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Glue
     /// <summary>
     /// Resource Type definition for AWS::Glue::DataQualityRuleset
     /// </summary>
-    [Obsolete(@"DataQualityRuleset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DataQualityRuleset is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:DataQualityRuleset")]
     public partial class DataQualityRuleset : global::Pulumi.CustomResource
     {

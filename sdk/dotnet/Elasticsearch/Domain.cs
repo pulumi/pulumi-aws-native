@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Elasticsearch
     /// <summary>
     /// Resource Type definition for AWS::Elasticsearch::Domain
     /// </summary>
-    [Obsolete(@"Domain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Domain is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticsearch:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {

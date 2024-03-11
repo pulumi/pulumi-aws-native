@@ -41,11 +41,11 @@ class TransitGatewayRouteTablePropagationArgs:
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
-warnings.warn("""TransitGatewayRouteTablePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""TransitGatewayRouteTablePropagation is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class TransitGatewayRouteTablePropagation(pulumi.CustomResource):
-    warnings.warn("""TransitGatewayRouteTablePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""TransitGatewayRouteTablePropagation is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -87,7 +87,7 @@ class TransitGatewayRouteTablePropagation(pulumi.CustomResource):
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""TransitGatewayRouteTablePropagation is deprecated: TransitGatewayRouteTablePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""TransitGatewayRouteTablePropagation is deprecated: TransitGatewayRouteTablePropagation is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

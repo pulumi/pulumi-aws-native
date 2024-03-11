@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// <summary>
     /// Resource Type definition for AWS::CloudFront::StreamingDistribution
     /// </summary>
-    [Obsolete(@"StreamingDistribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"StreamingDistribution is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudfront:StreamingDistribution")]
     public partial class StreamingDistribution : global::Pulumi.CustomResource
     {

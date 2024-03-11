@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Emr
     /// <summary>
     /// Schema for AWS::EMR::Step
     /// </summary>
-    [Obsolete(@"Step is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Step is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:Step")]
     public partial class Step : global::Pulumi.CustomResource
     {

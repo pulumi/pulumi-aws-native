@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Iam
     ///  For information about limits on the number of inline policies that you can embed in an identity, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
     ///    This resource does not support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html). The following
     /// </summary>
-    [Obsolete(@"Policy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Policy is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {

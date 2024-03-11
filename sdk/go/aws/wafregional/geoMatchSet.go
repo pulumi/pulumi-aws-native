@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::WAFRegional::GeoMatchSet
 //
-// Deprecated: GeoMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: GeoMatchSet is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type GeoMatchSet struct {
 	pulumi.CustomResourceState
 

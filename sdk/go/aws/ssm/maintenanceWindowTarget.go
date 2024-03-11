@@ -14,7 +14,7 @@ import (
 
 // Resource Type definition for AWS::SSM::MaintenanceWindowTarget
 //
-// Deprecated: MaintenanceWindowTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: MaintenanceWindowTarget is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type MaintenanceWindowTarget struct {
 	pulumi.CustomResourceState
 

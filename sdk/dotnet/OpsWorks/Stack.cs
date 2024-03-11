@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// <summary>
     /// Resource Type definition for AWS::OpsWorks::Stack
     /// </summary>
-    [Obsolete(@"Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Stack is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:Stack")]
     public partial class Stack : global::Pulumi.CustomResource
     {

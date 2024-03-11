@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
     /// <summary>
     /// Definition of AWS::IoTFleetWise::DecoderManifest Resource Type
     /// </summary>
-    [Obsolete(@"DecoderManifest is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DecoderManifest is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotfleetwise:DecoderManifest")]
     public partial class DecoderManifest : global::Pulumi.CustomResource
     {

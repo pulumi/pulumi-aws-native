@@ -14,7 +14,7 @@ import (
 
 // Resource Type definition for AWS::EC2::TransitGatewayRoute
 //
-// Deprecated: TransitGatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: TransitGatewayRoute is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type TransitGatewayRoute struct {
 	pulumi.CustomResourceState
 

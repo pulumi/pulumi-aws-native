@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// <summary>
     /// Resource Type definition for AWS::Greengrass::DeviceDefinitionVersion
     /// </summary>
-    [Obsolete(@"DeviceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DeviceDefinitionVersion is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:DeviceDefinitionVersion")]
     public partial class DeviceDefinitionVersion : global::Pulumi.CustomResource
     {

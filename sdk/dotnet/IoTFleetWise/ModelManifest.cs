@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
     /// <summary>
     /// Definition of AWS::IoTFleetWise::ModelManifest Resource Type
     /// </summary>
-    [Obsolete(@"ModelManifest is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ModelManifest is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotfleetwise:ModelManifest")]
     public partial class ModelManifest : global::Pulumi.CustomResource
     {

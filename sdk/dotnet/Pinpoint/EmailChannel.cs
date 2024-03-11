@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// <summary>
     /// Resource Type definition for AWS::Pinpoint::EmailChannel
     /// </summary>
-    [Obsolete(@"EmailChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"EmailChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:EmailChannel")]
     public partial class EmailChannel : global::Pulumi.CustomResource
     {

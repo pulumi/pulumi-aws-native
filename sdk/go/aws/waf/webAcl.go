@@ -14,7 +14,7 @@ import (
 
 // Resource Type definition for AWS::WAF::WebACL
 //
-// Deprecated: WebAcl is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: WebAcl is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type WebAcl struct {
 	pulumi.CustomResourceState
 

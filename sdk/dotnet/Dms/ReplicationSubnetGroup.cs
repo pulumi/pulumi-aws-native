@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Dms
     /// <summary>
     /// Resource Type definition for AWS::DMS::ReplicationSubnetGroup
     /// </summary>
-    [Obsolete(@"ReplicationSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ReplicationSubnetGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dms:ReplicationSubnetGroup")]
     public partial class ReplicationSubnetGroup : global::Pulumi.CustomResource
     {

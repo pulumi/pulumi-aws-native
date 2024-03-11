@@ -135,11 +135,11 @@ class TrafficMirrorFilterRuleArgs:
         pulumi.set(self, "source_port_range", value)
 
 
-warnings.warn("""TrafficMirrorFilterRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""TrafficMirrorFilterRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class TrafficMirrorFilterRule(pulumi.CustomResource):
-    warnings.warn("""TrafficMirrorFilterRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""TrafficMirrorFilterRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -197,7 +197,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                  traffic_direction: Optional[pulumi.Input[str]] = None,
                  traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""TrafficMirrorFilterRule is deprecated: TrafficMirrorFilterRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""TrafficMirrorFilterRule is deprecated: TrafficMirrorFilterRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

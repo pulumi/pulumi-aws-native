@@ -46,7 +46,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
-		DisplayName: "AWS Native",
+		DisplayName: "AWS Native Cloud Control",
 		Keywords: []string{
 			"pulumi",
 			"aws",
@@ -161,7 +161,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		},
 		Provider: pschema.ResourceSpec{
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
-				Description: "The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.",
+				Description: "The provider type for the AWS Native Cloud Control package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.",
 				Properties: map[string]pschema.PropertySpec{
 					"allowedAccountIds": {
 						Description: "List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.",
@@ -871,7 +871,7 @@ func (ctx *context) gatherResourceType() error {
 
 	var deprecationMessage string
 	if !ctx.isSupported {
-		deprecationMessage = fmt.Sprintf("%s is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.", resourceTypeName)
+		deprecationMessage = fmt.Sprintf("%s is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.", resourceTypeName)
 	}
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{

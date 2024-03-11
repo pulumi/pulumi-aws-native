@@ -55,11 +55,11 @@ class NodeArgs:
         pulumi.set(self, "member_id", value)
 
 
-warnings.warn("""Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Node is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Node(pulumi.CustomResource):
-    warnings.warn("""Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Node is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -103,7 +103,7 @@ class Node(pulumi.CustomResource):
                  network_id: Optional[pulumi.Input[str]] = None,
                  node_configuration: Optional[pulumi.Input[pulumi.InputType['NodeConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Node is deprecated: Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Node is deprecated: Node is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

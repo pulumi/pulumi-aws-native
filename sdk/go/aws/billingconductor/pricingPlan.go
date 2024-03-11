@@ -14,7 +14,7 @@ import (
 
 // Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
 //
-// Deprecated: PricingPlan is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: PricingPlan is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type PricingPlan struct {
 	pulumi.CustomResourceState
 

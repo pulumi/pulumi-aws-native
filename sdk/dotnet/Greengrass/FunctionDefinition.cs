@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// <summary>
     /// Resource Type definition for AWS::Greengrass::FunctionDefinition
     /// </summary>
-    [Obsolete(@"FunctionDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"FunctionDefinition is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:FunctionDefinition")]
     public partial class FunctionDefinition : global::Pulumi.CustomResource
     {

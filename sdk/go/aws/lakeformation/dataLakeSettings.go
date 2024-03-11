@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::LakeFormation::DataLakeSettings
 //
-// Deprecated: DataLakeSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: DataLakeSettings is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type DataLakeSettings struct {
 	pulumi.CustomResourceState
 

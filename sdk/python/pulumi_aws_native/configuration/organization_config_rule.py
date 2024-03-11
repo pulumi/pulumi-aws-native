@@ -81,11 +81,11 @@ class OrganizationConfigRuleArgs:
         pulumi.set(self, "organization_managed_rule_metadata", value)
 
 
-warnings.warn("""OrganizationConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""OrganizationConfigRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class OrganizationConfigRule(pulumi.CustomResource):
-    warnings.warn("""OrganizationConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""OrganizationConfigRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -133,7 +133,7 @@ class OrganizationConfigRule(pulumi.CustomResource):
                  organization_custom_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs']]] = None,
                  organization_managed_rule_metadata: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""OrganizationConfigRule is deprecated: OrganizationConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""OrganizationConfigRule is deprecated: OrganizationConfigRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

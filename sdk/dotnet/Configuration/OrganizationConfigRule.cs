@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Configuration
     /// <summary>
     /// Resource Type definition for AWS::Config::OrganizationConfigRule
     /// </summary>
-    [Obsolete(@"OrganizationConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"OrganizationConfigRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:configuration:OrganizationConfigRule")]
     public partial class OrganizationConfigRule : global::Pulumi.CustomResource
     {

@@ -14,7 +14,7 @@ import (
 
 // Resource Type definition for AWS::CloudFormation::CustomResource
 //
-// Deprecated: CustomResource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: CustomResource is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type CustomResource struct {
 	pulumi.CustomResourceState
 

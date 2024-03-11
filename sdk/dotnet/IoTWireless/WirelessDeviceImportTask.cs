@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// <summary>
     /// Wireless Device Import Tasks
     /// </summary>
-    [Obsolete(@"WirelessDeviceImportTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"WirelessDeviceImportTask is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotwireless:WirelessDeviceImportTask")]
     public partial class WirelessDeviceImportTask : global::Pulumi.CustomResource
     {

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Definition of AWS::IoTFleetWise::Vehicle Resource Type
  *
- * @deprecated Vehicle is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated Vehicle is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Vehicle extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class Vehicle extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Vehicle {
-        pulumi.log.warn("Vehicle is deprecated: Vehicle is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Vehicle is deprecated: Vehicle is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Vehicle(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,9 +57,9 @@ export class Vehicle extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Vehicle is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated Vehicle is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VehicleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Vehicle is deprecated: Vehicle is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Vehicle is deprecated: Vehicle is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

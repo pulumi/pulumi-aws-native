@@ -14,7 +14,7 @@ import (
 
 // Resource Type definition for AWS::Pinpoint::APNSVoipChannel
 //
-// Deprecated: ApnsVoipChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: ApnsVoipChannel is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ApnsVoipChannel struct {
 	pulumi.CustomResourceState
 

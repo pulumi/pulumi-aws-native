@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// <summary>
     /// Resource Type definition for AWS::OpsWorks::Instance
     /// </summary>
-    [Obsolete(@"Instance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Instance is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {

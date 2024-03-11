@@ -15,7 +15,7 @@ import (
 
 // A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
 //
-// Deprecated: PricingRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: PricingRule is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type PricingRule struct {
 	pulumi.CustomResourceState
 

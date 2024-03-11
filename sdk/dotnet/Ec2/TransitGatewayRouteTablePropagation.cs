@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Ec2
     /// <summary>
     /// Resource Type definition for AWS::EC2::TransitGatewayRouteTablePropagation
     /// </summary>
-    [Obsolete(@"TransitGatewayRouteTablePropagation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"TransitGatewayRouteTablePropagation is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayRouteTablePropagation")]
     public partial class TransitGatewayRouteTablePropagation : global::Pulumi.CustomResource
     {

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Wireless Device Import Tasks
  *
- * @deprecated WirelessDeviceImportTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated WirelessDeviceImportTask is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class WirelessDeviceImportTask extends pulumi.CustomResource {
     /**
@@ -22,7 +22,7 @@ export class WirelessDeviceImportTask extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WirelessDeviceImportTask {
-        pulumi.log.warn("WirelessDeviceImportTask is deprecated: WirelessDeviceImportTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("WirelessDeviceImportTask is deprecated: WirelessDeviceImportTask is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new WirelessDeviceImportTask(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,9 +96,9 @@ export class WirelessDeviceImportTask extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated WirelessDeviceImportTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated WirelessDeviceImportTask is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: WirelessDeviceImportTaskArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WirelessDeviceImportTask is deprecated: WirelessDeviceImportTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("WirelessDeviceImportTask is deprecated: WirelessDeviceImportTask is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Emr
     /// <summary>
     /// Resource Type definition for AWS::EMR::InstanceGroupConfig
     /// </summary>
-    [Obsolete(@"InstanceGroupConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"InstanceGroupConfig is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:InstanceGroupConfig")]
     public partial class InstanceGroupConfig : global::Pulumi.CustomResource
     {

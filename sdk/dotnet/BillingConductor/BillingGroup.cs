@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.BillingConductor
     /// <summary>
     /// A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.
     /// </summary>
-    [Obsolete(@"BillingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"BillingGroup is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:billingconductor:BillingGroup")]
     public partial class BillingGroup : global::Pulumi.CustomResource
     {

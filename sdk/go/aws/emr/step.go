@@ -14,7 +14,7 @@ import (
 
 // Schema for AWS::EMR::Step
 //
-// Deprecated: Step is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: Step is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Step struct {
 	pulumi.CustomResourceState
 

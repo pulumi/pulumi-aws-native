@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Dms
     /// <summary>
     /// Resource Type definition for AWS::DMS::ReplicationTask
     /// </summary>
-    [Obsolete(@"ReplicationTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ReplicationTask is not yet supported by AWS Native Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dms:ReplicationTask")]
     public partial class ReplicationTask : global::Pulumi.CustomResource
     {
