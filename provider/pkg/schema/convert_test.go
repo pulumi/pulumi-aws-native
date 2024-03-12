@@ -83,47 +83,83 @@ func TestSdkToCfnOneOf(t *testing.T) {
 }
 
 func TestDiffToPatch(t *testing.T) {
-	diff := resource.ObjectDiff{
-		Updates: map[resource.PropertyKey]resource.ValueDiff{
-			"desiredCount":         {New: resource.NewNumberProperty(2)},
-			"enableEcsManagedTags": {New: resource.NewBoolProperty(true)},
-			"loadBalancers": {
-				New: resource.NewArrayProperty([]resource.PropertyValue{
-					resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-						"containerName": "my-app",
-						"containerPort": 80,
-					})),
-				}),
-			},
-		},
-		Adds: map[resource.PropertyKey]resource.PropertyValue{
-			"launchType": resource.NewStringProperty("FARGATE"),
-		},
-		Deletes: map[resource.PropertyKey]resource.PropertyValue{
-			"platformVersion": resource.NewStringProperty("LATEST"),
-		},
+	test := func(t *testing.T, diff resource.ObjectDiff, expected []jsonpatch.JsonPatchOperation) {
+		res := sampleSchema.Resources["aws-native:ecs:Service"]
+		actual, err := DiffToPatch(&res, sampleSchema.Types, &diff)
+		assert.NoError(t, err)
+		sort.SliceStable(actual, func(i, j int) bool {
+			return actual[i].Path < actual[j].Path
+		})
+		assert.Equal(t, expected, actual)
+
 	}
-	two := int32(2)
-	expected := []jsonpatch.JsonPatchOperation{
-		jsonpatch.NewPatch("replace", "/DesiredCount", two),
-		jsonpatch.NewPatch("replace", "/EnableECSManagedTags", true),
-		jsonpatch.NewPatch("add", "/LaunchType", "FARGATE"),
-		jsonpatch.NewPatch("replace", "/LoadBalancers",
-			[]interface{}{
-				map[string]interface{}{
-					"ContainerName": "my-app",
-					"ContainerPort": 80.,
+
+	t.Run("add-delete-replace", func(t *testing.T) {
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"desiredCount":         {New: resource.NewNumberProperty(2)},
+				"enableEcsManagedTags": {New: resource.NewBoolProperty(true)},
+				"loadBalancers": {
+					New: resource.NewArrayProperty([]resource.PropertyValue{
+						resource.NewObjectProperty(resource.PropertyMap{
+							resource.PropertyKey("containerName"): resource.NewStringProperty("my-app"),
+							resource.PropertyKey("containerPort"): resource.NewNumberProperty(80),
+						}),
+					}),
 				},
-			}),
-		jsonpatch.NewPatch("remove", "/PlatformVersion", nil),
-	}
-	res := sampleSchema.Resources["aws-native:ecs:Service"]
-	actual, err := DiffToPatch(&res, sampleSchema.Types, &diff)
-	assert.NoError(t, err)
-	sort.SliceStable(actual, func(i, j int) bool {
-		return actual[i].Path < actual[j].Path
+			},
+			Adds: map[resource.PropertyKey]resource.PropertyValue{
+				"launchType": resource.NewStringProperty("FARGATE"),
+			},
+			Deletes: map[resource.PropertyKey]resource.PropertyValue{
+				"platformVersion": resource.NewStringProperty("LATEST"),
+			},
+		}
+		two := int32(2)
+		expected := []jsonpatch.JsonPatchOperation{
+			jsonpatch.NewPatch("replace", "/DesiredCount", two),
+			jsonpatch.NewPatch("replace", "/EnableECSManagedTags", true),
+			jsonpatch.NewPatch("add", "/LaunchType", "FARGATE"),
+			jsonpatch.NewPatch("replace", "/LoadBalancers",
+				[]interface{}{
+					map[string]interface{}{
+						"ContainerName": "my-app",
+						"ContainerPort": 80.,
+					},
+				}),
+			jsonpatch.NewPatch("remove", "/PlatformVersion", nil),
+		}
+		test(t, diff, expected)
 	})
-	assert.Equal(t, expected, actual)
+
+	t.Run("secrets", func(t *testing.T) {
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"cluster": {New: resource.MakeSecret(resource.NewStringProperty("mycluster"))},
+				"loadBalancers": {
+					New: resource.NewArrayProperty([]resource.PropertyValue{
+						resource.NewObjectProperty(resource.PropertyMap{
+							resource.PropertyKey("targetGroupArn"): resource.MakeSecret(resource.NewStringProperty("arn:mytargetgroup")),
+						}),
+					}),
+				},
+			},
+			Adds: map[resource.PropertyKey]resource.PropertyValue{
+				"schedulingStrategy": resource.MakeSecret(resource.NewStringProperty("REPLICA")),
+			},
+		}
+		expected := []jsonpatch.JsonPatchOperation{
+			jsonpatch.NewPatch("replace", "/Cluster", "mycluster"),
+			jsonpatch.NewPatch("replace", "/LoadBalancers",
+				[]interface{}{
+					map[string]interface{}{
+						"TargetGroupArn": "arn:mytargetgroup",
+					},
+				}),
+			jsonpatch.NewPatch("add", "/SchedulingStrategy", "REPLICA"),
+		}
+		test(t, diff, expected)
+	})
 }
 
 var cfnPayload = map[string]interface{}{

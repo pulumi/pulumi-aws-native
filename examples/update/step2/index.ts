@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws-native";
 
 const logGroup = new aws.s3.Bucket("bucket", {
@@ -7,6 +8,10 @@ const logGroup = new aws.s3.Bucket("bucket", {
     {
       key: "foo",
       value: "buzz", // <-- this value has changed
+    },
+    {
+      key: "secretfoo",
+      value: pulumi.secret("secretbuzz"), // <-- this value has changed
     },
   ],
 });

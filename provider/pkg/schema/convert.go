@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/mattbaird/jsonpatch"
+	"github.com/pulumi/pulumi-go-provider/resourcex"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
@@ -209,6 +210,8 @@ func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) ([]jsonpatch.
 func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.PropertySpec, value resource.PropertyValue) (*jsonpatch.JsonPatchOperation, error) {
 	op := jsonpatch.NewPatch(opName, "/"+propName, nil)
 	switch {
+	case value.IsSecret():
+		return c.valueToPatch(opName, propName, prop, value.SecretValue().Element)
 	case value.IsNumber() && prop.Type == "integer":
 		i := int32(value.NumberValue())
 		op.Value = i
@@ -219,8 +222,7 @@ func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.P
 	case value.IsString():
 		op.Value = value.StringValue()
 	default:
-		sdkObj := value.MapRepl(nil, nil)
-		cfnObj, err := c.sdkTypedValueToCfn(&prop.TypeSpec, sdkObj)
+		cfnObj, err := c.sdkTypedValueToCfn(&prop.TypeSpec, resourcex.DecodeValue(value))
 		if err != nil {
 			return nil, err
 		}
