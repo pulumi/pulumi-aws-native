@@ -54,6 +54,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
+	"github.com/pulumi/pulumi-go-provider/resourcex"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -811,7 +812,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	switch resourceToken {
 	case schema.ExtensionResourceToken:
 		// For a custom resource, both CF type and inputs shape are defined explicitly in the SDK.
-		inputsMap := inputs.Mappable()
+		inputsMap := resourcex.Decode(inputs)
 		if v, has := inputsMap["type"].(string); has {
 			cfType = v
 		} else {
@@ -830,7 +831,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		cfType = spec.CfType
 
 		// Convert SDK inputs to CFN payload.
-		payload, err = schema.SdkToCfn(&spec, p.resourceMap.Types, inputs.MapRepl(nil, mapReplStripSecrets))
+		payload, err = schema.SdkToCfn(&spec, p.resourceMap.Types, resourcex.Decode(inputs))
 		if err != nil {
 			return nil, fmt.Errorf("Failed to convert value for %s: %w", resourceToken, err)
 		}
@@ -1314,14 +1315,6 @@ func hasFinished(pi *types.ProgressEvent) (bool, error) {
 	default:
 		return true, errors.Errorf("unknown status %q: %+v", status, pi)
 	}
-}
-
-func mapReplStripSecrets(v resource.PropertyValue) (interface{}, bool) {
-	if v.IsSecret() {
-		return v.SecretValue().Element.MapRepl(nil, mapReplStripSecrets), true
-	}
-
-	return nil, false
 }
 
 // diffState extracts old and new inputs and calculates a diff between them.

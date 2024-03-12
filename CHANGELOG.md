@@ -4,6 +4,7 @@
 
 - [Fix multi-type resolutions](https://github.com/pulumi/pulumi-aws-native/pull/1383) includes fixes for inline role policies
 - [Include "id" resource properties as "awsId"](https://github.com/pulumi/pulumi-aws-native/pull/1387)
+- [Fix updates with secret values](https://github.com/pulumi/pulumi-aws-native/pull/1397)
 
 ## 0.98.0 (2024-02-29)
 

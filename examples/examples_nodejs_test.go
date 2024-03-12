@@ -37,6 +37,13 @@ func TestUpdate(t *testing.T) {
 				{
 					Dir:      filepath.Join(getCwd(t), "update", "step2"),
 					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+						// Check that the name of the updated secret is correct.
+						secretValue := stackInfo.Outputs["secretValue"].(string)
+						if secretValue != "secretbuzz" {
+							t.Errorf("Expected secretValue to be 'secretbuzz', got %q (%[1]T)", secretValue)
+						}
+					},
 				},
 			},
 		})
