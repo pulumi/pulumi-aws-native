@@ -3,7 +3,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws-native";
 
-const logGroup = new aws.s3.Bucket("bucket", {
+const bucket = new aws.s3.Bucket("bucket", {
   tags: [
     {
       key: "foo",
@@ -46,3 +46,5 @@ const func = new aws.lambda.Function("function", {
   `,
   },
 });
+
+export const secretValue = bucket.tags.apply((tags) => tags!.find((t) => t.key === "secretfoo")?.value);
