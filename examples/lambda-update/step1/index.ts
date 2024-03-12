@@ -53,7 +53,7 @@ export const layerCode = new aws.s3.BucketObject(
       ),
     }),
   },
-  { ignoreChanges: ["source"] }
+  { ignoreChanges: ["source", "versionId"] }
 );
 
 const graphqlPublicRole = new aws.iam.Role("lambda-role", {
