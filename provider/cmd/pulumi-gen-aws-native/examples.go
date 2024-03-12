@@ -102,29 +102,33 @@ func generateExample(yaml string, metadata *pschema.CloudAPIMetadata, languages 
 		return nil, errors.Errorf("parser diagnostic errors: %s", buf)
 	}
 
-	program, diags, err := pcl.BindProgram(parser.Files, bindOpts...)
-	if err != nil {
-		return nil, errors.Wrapf(err, "binding program")
-	}
-	if diags.HasErrors() {
-		buf := new(bytes.Buffer)
-		_ = program.NewDiagnosticWriter(buf, 0, false).WriteDiagnostics(diags)
-		return nil, errors.Errorf("bind diagnostic errors: %s", buf)
-	}
-
 	resourceType := ""
-	for _, node := range program.Nodes {
-		if res, ok := node.(*pcl.Resource); ok {
-			resourceType = res.Token
-			break
-		}
-	}
-	if resourceType == "" {
-		return nil, errors.New("no resource node found")
-	}
 
 	perLanguage := languageToExampleProgram{}
 	for _, target := range languages {
+
+		program, diags, err := pcl.BindProgram(parser.Files, bindOpts...)
+		if err != nil {
+			return nil, errors.Wrapf(err, "binding program")
+		}
+		if diags.HasErrors() {
+			buf := new(bytes.Buffer)
+			_ = program.NewDiagnosticWriter(buf, 0, false).WriteDiagnostics(diags)
+			return nil, errors.Errorf("bind diagnostic errors: %s", buf)
+		}
+
+		if resourceType == "" {
+			for _, node := range program.Nodes {
+				if res, ok := node.(*pcl.Resource); ok {
+					resourceType = res.Token
+					break
+				}
+			}
+		}
+		if resourceType == "" {
+			return nil, errors.New("no resource node found")
+		}
+
 		var files map[string][]byte
 		switch target {
 		case "dotnet":

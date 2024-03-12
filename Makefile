@@ -16,6 +16,9 @@ VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/ve
 
 CFN_SCHEMA_DIR  := aws-cloudformation-schema
 
+# Only use explicitly installed plugins - this is to avoid using any ambient plugins from the PATH
+export PULUMI_IGNORE_AMBIENT_PLUGINS = true
+
 init_submodules::
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
 		if [ ! -f "$$submodule/.git" ]; then \
@@ -39,10 +42,7 @@ ensure:: init_submodules
 	cd sdk/go && GO111MODULE=on go mod tidy
 	cd examples && GO111MODULE=on go mod tidy
 
-local_generate:: clean bin/pulumi-java-gen
-	$(WORKING_DIR)/bin/$(CODEGEN) nodejs,dotnet,python,go,schema $(CFN_SCHEMA_DIR) ${VERSION}
-	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
-	echo "Finished generating."
+local_generate:: generate_nodejs generate_python generate_dotnet generate_java generate_go
 
 generate_schema::
 	echo "Generating Pulumi schema..."
@@ -67,8 +67,16 @@ test_provider::
 lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
-generate_nodejs::
-	$(WORKING_DIR)/bin/$(CODEGEN) nodejs $(CFN_SCHEMA_DIR) ${VERSION}
+.pulumi/bin/pulumi: PULUMI_VERSION := $(shell cat .pulumi.version)
+.pulumi/bin/pulumi: HOME := $(WORKING_DIR)
+.pulumi/bin/pulumi: .pulumi.version
+	curl -fsSL https://get.pulumi.com | sh -s -- --version "$(PULUMI_VERSION)"
+
+generate_nodejs: .pulumi/bin/pulumi
+	rm -rf sdk/nodejs
+	mkdir sdk/nodejs
+	echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/nodejs/go.mod'
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language nodejs
 
 build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
@@ -78,11 +86,11 @@ build_nodejs::
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
-generate_python::
-	# Delete files not tracked in Git
-	cd sdk/python/ && git clean -fxd
-
-	$(WORKING_DIR)/bin/$(CODEGEN) python $(CFN_SCHEMA_DIR) ${VERSION}
+generate_python: .pulumi/bin/pulumi
+	rm -rf sdk/python
+	mkdir sdk/python
+	echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/python/go.mod'
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language python
 
 build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python::
@@ -98,8 +106,11 @@ build_python::
         cd ./bin && \
         ../venv/bin/python -m build .
 
-generate_dotnet::
-	$(WORKING_DIR)/bin/$(CODEGEN) dotnet $(CFN_SCHEMA_DIR) ${VERSION}
+generate_dotnet: .pulumi/bin/pulumi
+	rm -rf sdk/dotnet
+	mkdir sdk/dotnet
+	echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/dotnet/go.mod'
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language dotnet
 
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
@@ -107,17 +118,20 @@ build_dotnet::
 		echo "${PACK}\n${DOTNET_VERSION}" >version.txt && \
 		dotnet build /p:Version=${DOTNET_VERSION}
 
+generate_java:: bin/pulumi-java-gen
+	rm -rf sdk/java
+	mkdir sdk/java
+	echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/java/go.mod'
+	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+
 build_java:: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
 build_java::
 	cd ${PACKDIR}/java/ && \
 		gradle --console=plain build
 
-generate_java:: bin/pulumi-java-gen
-	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema $(WORKING_DIR)/provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
-
-generate_go::
+generate_go: .pulumi/bin/pulumi
 	rm -rf sdk/go && mkdir sdk/go
-	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_DIR) ${VERSION}
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language go
 
 build_go::
 	cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...

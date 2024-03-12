@@ -26,10 +26,6 @@ import (
 	"github.com/pkg/errors"
 	jsschema "github.com/pulumi/jsschema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
-	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
-	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
-	pythongen "github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -37,7 +33,7 @@ import (
 
 func main() {
 	flag.Usage = func() {
-		const usageFormat = "Usage: %s <languages> <schema-folder> <version> (<schema urls>)"
+		const usageFormat = "Usage: %s <operation> <schema-folder> <version> (<schema urls>)"
 		_, err := fmt.Fprintf(flag.CommandLine.Output(), usageFormat, os.Args[0])
 		contract.IgnoreError(err)
 		flag.PrintDefaults()
@@ -53,88 +49,76 @@ func main() {
 		return
 	}
 
-	languages, schemaFolder, version := args[0], args[1], args[2]
+	operation, schemaFolder, version := args[0], args[1], args[2]
 	genDir := filepath.Join(".", "provider", "cmd", "pulumi-gen-aws-native")
 	semanticsDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
 
-	if languages == "discovery" {
-		if len(args) < 4 {
+	switch operation {
+	case "discovery":
+		if len(args) != 4 {
+			fmt.Println("Error: discovery operation requires additional schema urls argument")
 			flag.Usage()
 			return
 		}
 		jsonSchemaUrls := strings.Split(args[3], ",")
 
 		if err := writeSupportedResourceTypes(genDir); err != nil {
-			panic(err)
+			panic(fmt.Errorf("error writing supported resource types: %v", err))
 		}
 		if err := downloadCloudFormationSchemas(jsonSchemaUrls, filepath.Join(".", schemaFolder)); err != nil {
-			panic(err)
+			panic(fmt.Errorf("error downloading CloudFormation schemas: %v", err))
 		}
-		return
-	}
 
-	supportedTypes := readSupportedResourceTypes(genDir)
-	jsonSchemas := readJsonSchemas(schemaFolder)
-	semanticsDocument, err := schema.GatherSemantics(semanticsDir)
-	if err != nil {
-		panic(fmt.Sprintf("error gathering semantics: %v", err))
-	}
-	fullSpec, _, _, err := schema.GatherPackage(supportedTypes, jsonSchemas, true, &semanticsDocument)
-	if err != nil {
-		panic(fmt.Sprintf("error generating schema: %v", err))
-	}
-	fullSpec.Version = version
-
-	for _, language := range strings.Split(languages, ",") {
-		fmt.Printf("Generating %s...\n", language)
-		switch language {
-		case "nodejs", "python", "dotnet", "go":
-			dir := filepath.Join(".", "sdk", language)
-			err = emitPackage(fullSpec, language, dir)
-		case "schema":
-			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
-			if err = writePulumiSchema(*fullSpec, cf2pulumiDir, "schema-full.json"); err != nil {
-				break
-			}
-
-			supportedSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument)
-			if err != nil {
-				panic(fmt.Sprintf("error generating schema: %v", err))
-			}
-
-			fmt.Println("Generating examples...")
-			err = generateExamples(supportedSpec, meta, []string{"nodejs", "python", "dotnet", "go"})
-			if err != nil {
-				panic(fmt.Sprintf("error generating examples: %v", err))
-			}
-			providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
-			if err = writePulumiSchema(*supportedSpec, providerDir, "schema.json"); err != nil {
-				break
-			}
-			if err = writePulumiSchema(*supportedSpec, "bin", "schema.json"); err != nil {
-				break
-			}
-
-			// Emit the resource metadata for cf2pulumi.
-			if err = writeMetadata(meta, cf2pulumiDir, "main", false); err != nil {
-				break
-			}
-			// Also, emit the resource metadata for the provider.
-			if err = writeMetadata(meta, providerDir, "main", true); err != nil {
-				break
-			}
-			// Also write to bin folder to be picked up as an asset for testing.
-			if err = writeMetadata(meta, "bin", "main", true); err != nil {
-				break
-			}
-			// Emit the reports for the provider.
-			reports.WriteToDirectory("reports")
-		default:
-			panic(fmt.Sprintf("Unrecognized language '%s'", language))
-		}
+	case "schema":
+		supportedTypes := readSupportedResourceTypes(genDir)
+		jsonSchemas := readJsonSchemas(schemaFolder)
+		semanticsDocument, err := schema.GatherSemantics(semanticsDir)
 		if err != nil {
-			panic(err)
+			panic(fmt.Errorf("error gathering semantics: %v", err))
 		}
+
+		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument)
+		if err != nil {
+			panic(fmt.Errorf("error generating schema: %v", err))
+		}
+
+		fmt.Println("Generating examples...")
+		err = generateExamples(packageSpec, meta, []string{"nodejs", "python", "dotnet", "go"})
+		if err != nil {
+			panic(fmt.Errorf("error generating examples: %v", err))
+		}
+		providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
+		if err = writePulumiSchema(*packageSpec, providerDir, true /* includeUncompressed */); err != nil {
+			panic(fmt.Errorf("error writing schema: %v", err))
+		}
+
+		cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
+		if err = writePulumiSchema(*packageSpec, cf2pulumiDir, false /* includeUncompressed */); err != nil {
+			panic(fmt.Errorf("error writing schema: %v", err))
+		}
+		if err = writePulumiSchema(*packageSpec, "bin", false /* includeUncompressed */); err != nil {
+			panic(fmt.Errorf("error writing schema: %v", err))
+		}
+
+		// Emit the resource metadata for cf2pulumi.
+		if err = writeMetadata(meta, cf2pulumiDir, false /* includeUncompressed */); err != nil {
+			panic(fmt.Errorf("error writing metadata: %v", err))
+		}
+		// Also, emit the resource metadata for the provider.
+		if err = writeMetadata(meta, providerDir, true /* includeUncompressed */); err != nil {
+			panic(fmt.Errorf("error writing metadata: %v", err))
+		}
+		// Also write to bin folder to be picked up as an asset for testing.
+		if err = writeMetadata(meta, "bin", true /* includeUncompressed */); err != nil {
+			panic(fmt.Errorf("error writing metadata: %v", err))
+		}
+		// Emit the reports for the provider.
+		if err := reports.WriteToDirectory("reports"); err != nil {
+			panic(fmt.Errorf("error writing reports: %v", err))
+		}
+
+	default:
+		panic(fmt.Sprintf("Unrecognized language '%s'", operation))
 	}
 }
 
@@ -172,7 +156,7 @@ const deprecatedResourcesFile = "deprecated-types.txt"
 
 func readSupportedResourceTypes(outDir string) []string {
 	path := filepath.Join(outDir, supportedResourcesFile)
-	bytes, err := ioutil.ReadFile(path)
+	bytes, err := os.ReadFile(path)
 	if err != nil {
 		panic(err)
 	}
@@ -286,45 +270,7 @@ func downloadCloudFormationSchemas(urls []string, outDir string) error {
 	return nil
 }
 
-func generate(ppkg *pschema.Package, language string) (map[string][]byte, error) {
-	toolDescription := "the Pulumi SDK Generator"
-	extraFiles := map[string][]byte{}
-	switch language {
-	case "nodejs":
-		return nodejsgen.GeneratePackage(toolDescription, ppkg, extraFiles)
-	case "python":
-		return pythongen.GeneratePackage(toolDescription, ppkg, extraFiles)
-	case "go":
-		return gogen.GeneratePackage(toolDescription, ppkg)
-	case "dotnet":
-		return dotnetgen.GeneratePackage(toolDescription, ppkg, extraFiles)
-	}
-
-	return nil, errors.Errorf("unknown language '%s'", language)
-}
-
-// emitPackage emits an entire package pack into the configured output directory with the configured settings.
-func emitPackage(pkgSpec *pschema.PackageSpec, language, outDir string) error {
-	ppkg, err := pschema.ImportSpec(*pkgSpec, nil)
-	if err != nil {
-		return errors.Wrap(err, "reading schema")
-	}
-
-	files, err := generate(ppkg, language)
-	if err != nil {
-		return errors.Wrapf(err, "generating %s package", language)
-	}
-
-	for f, contents := range files {
-		if err := emitFile(outDir, f, contents); err != nil {
-			return errors.Wrapf(err, "emitting file %v", f)
-		}
-	}
-
-	return nil
-}
-
-func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir, jsonFileName string) error {
+func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, includeUncompressed bool) error {
 	compressedSchema, err := schema.CompressSchema(pkgSpec)
 	if err != nil {
 		return errors.Wrap(err, "failed to compress schema")
@@ -334,19 +280,19 @@ func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir, jsonFileName string)
 		panic(errors.Wrap(err, "saving metadata"))
 	}
 
-	if jsonFileName != "" {
+	if includeUncompressed {
 		pkgSpec.Version = ""
 		schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 		if err != nil {
 			panic(errors.Wrap(err, "marshaling Pulumi schema"))
 		}
-		return emitFile(outdir, jsonFileName, schemaJSON)
+		return emitFile(outdir, "schema.json", schemaJSON)
 	}
 
 	return nil
 }
 
-func writeMetadata(metadata *schema.CloudAPIMetadata, outDir string, goPackageName string, emitJSON bool) error {
+func writeMetadata(metadata *schema.CloudAPIMetadata, outDir string, includeUncompressed bool) error {
 	compressedMeta := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedMeta)
 	err := json.NewEncoder(compressedWriter).Encode(metadata)
@@ -368,7 +314,7 @@ func writeMetadata(metadata *schema.CloudAPIMetadata, outDir string, goPackageNa
 		return err
 	}
 
-	if emitJSON {
+	if includeUncompressed {
 		err = emitFile(outDir, "metadata.json", formatted)
 		if err != nil {
 			return err
