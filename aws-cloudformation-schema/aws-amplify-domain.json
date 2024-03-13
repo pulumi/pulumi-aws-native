@@ -77,7 +77,7 @@
         },
         "CustomCertificateArn" : {
           "type" : "string",
-          "pattern" : "\"^arn:aws:acm:[a-z0-9-]+:\\d{12}:certificate\\/.+$\""
+          "pattern" : "^arn:aws:acm:[a-z0-9-]+:\\d{12}:certificate\\/.+$"
         }
       }
     },
