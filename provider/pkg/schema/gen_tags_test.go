@@ -14,18 +14,18 @@ import (
 
 func TestGetTagsStyle(t *testing.T) {
 	t.Run("defaults to unknown when typeSpec is nil", func(t *testing.T) {
-		ctx := &context{}
+		ctx := &cfSchemaContext{}
 		assert.Equal(t, TagsStyleUnknown, ctx.getTagsStyle("Tags", nil))
 	})
 	t.Run("untyped style", func(t *testing.T) {
-		ctx := &context{}
+		ctx := &cfSchemaContext{}
 		typeSpec := &schema.TypeSpec{
 			Ref: "pulumi.json#/Any",
 		}
 		assert.Equal(t, TagsStyleUntyped, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("string map style", func(t *testing.T) {
-		ctx := &context{}
+		ctx := &cfSchemaContext{}
 		typeSpec := &schema.TypeSpec{
 			AdditionalProperties: &schema.TypeSpec{
 				Type: "string",
@@ -34,7 +34,7 @@ func TestGetTagsStyle(t *testing.T) {
 		assert.Equal(t, TagsStyleStringMap, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("key value array style", func(t *testing.T) {
-		ctx := &context{
+		ctx := &cfSchemaContext{
 			pkg: &schema.PackageSpec{
 				Types: map[string]schema.ComplexTypeSpec{
 					"pulumi:types:input:common:ComponentResourceOptions:TagsEntry": {
@@ -56,7 +56,7 @@ func TestGetTagsStyle(t *testing.T) {
 		assert.Equal(t, TagsStyleKeyValueArray, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("not key value array style with extra field", func(t *testing.T) {
-		ctx := &context{
+		ctx := &cfSchemaContext{
 			pkg: &schema.PackageSpec{
 				Types: map[string]schema.ComplexTypeSpec{
 					"pulumi:types:input:common:ComponentResourceOptions:TagsEntry": {
@@ -79,7 +79,7 @@ func TestGetTagsStyle(t *testing.T) {
 		assert.Equal(t, TagsStyleKeyValueArrayWithExtraProperties, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("key value create-only array style if causes replacement", func(t *testing.T) {
-		ctx := &context{
+		ctx := &cfSchemaContext{
 			pkg: &schema.PackageSpec{
 				Types: map[string]schema.ComplexTypeSpec{
 					"pulumi:types:input:common:ComponentResourceOptions:TagsEntry": {
@@ -106,7 +106,7 @@ func TestGetTagsStyle(t *testing.T) {
 		assert.Equal(t, TagsStyleKeyValueArrayCreateOnly, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("key value array with alternate type style", func(t *testing.T) {
-		ctx := &context{
+		ctx := &cfSchemaContext{
 			pkg: &schema.PackageSpec{
 				Types: map[string]schema.ComplexTypeSpec{
 					"pulumi:types:input:common:ComponentResourceOptions:TagsEntry": {

@@ -25,7 +25,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 	test := func(tt PropertyTypeSpecTestCase) func(t *testing.T) {
 		return func(t *testing.T) {
 			t.Helper()
-			ctx := context{
+			ctx := cfSchemaContext{
 				pkg: &pschema.PackageSpec{
 					Types: map[string]pschema.ComplexTypeSpec{},
 				},
@@ -280,7 +280,7 @@ func TestEnumType(t *testing.T) {
 
 	for _, tt := range cases {
 
-		ctx := context{
+		ctx := cfSchemaContext{
 			pkg: &pschema.PackageSpec{
 				Types: map[string]pschema.ComplexTypeSpec{},
 			},
@@ -478,7 +478,7 @@ func TestMarkCreateOnlyProperties(t *testing.T) {
 	}
 
 	for _, tt := range cases {
-		ctx := context{
+		ctx := cfSchemaContext{
 			pkg: &pschema.PackageSpec{
 				Types: tt.types,
 			},

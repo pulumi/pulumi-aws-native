@@ -40,7 +40,7 @@ func (ts TagsStyle) IsKeyValueArray() bool {
 	return strings.HasPrefix(string(ts), tagStyleKeyValueArrayPrefix)
 }
 
-func (ctx *context) ApplyTagsTransformation(propName string, propertySpec *pschema.PropertySpec, spec *jsschema.Schema) TagsStyle {
+func (ctx *cfSchemaContext) ApplyTagsTransformation(propName string, propertySpec *pschema.PropertySpec, spec *jsschema.Schema) TagsStyle {
 	tagsStyle := ctx.getTagsStyle(propName, &propertySpec.TypeSpec)
 	switch tagsStyle {
 	case TagsStyleUntyped:
@@ -92,7 +92,7 @@ func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
 	return "", false
 }
 
-func (ctx *context) getTagsStyle(propName string, typeSpec *pschema.TypeSpec) TagsStyle {
+func (ctx *cfSchemaContext) getTagsStyle(propName string, typeSpec *pschema.TypeSpec) TagsStyle {
 	if typeSpec == nil {
 		return TagsStyleUnknown
 	}
@@ -117,7 +117,7 @@ func (ctx *context) getTagsStyle(propName string, typeSpec *pschema.TypeSpec) Ta
 	return TagsStyleUnknown
 }
 
-func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec) (bool, TagsStyle) {
+func (ctx *cfSchemaContext) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec) (bool, TagsStyle) {
 	if typeSpec == nil || typeSpec.Items == nil {
 		return false, TagsStyleUnknown
 	}
@@ -154,7 +154,7 @@ func (ctx *context) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.T
 	return false, TagsStyleUnknown
 }
 
-func (ctx *context) isPropCreateOnly(propName string) bool {
+func (ctx *cfSchemaContext) isPropCreateOnly(propName string) bool {
 	createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
 	return createOnlyProps.Has(ToSdkName(propName))
 }

@@ -464,7 +464,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			resourceName, resourceToken := typeToken(cfTypeName)
 			fullMod := moduleName(cfTypeName)
 			mod := strings.ToLower(fullMod)
-			ctx := &context{
+			ctx := &cfSchemaContext{
 				pkg:           &p,
 				metadata:      &metadata,
 				cfTypeName:    cfTypeName,
@@ -623,8 +623,8 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 	return &p, &metadata, reports, nil
 }
 
-// context holds shared information for a single CF JSON schema.
-type context struct {
+// cfSchemaContext holds shared information for a single CF JSON schema.
+type cfSchemaContext struct {
 	pkg           *pschema.PackageSpec
 	metadata      *CloudAPIMetadata
 	cfTypeName    string
@@ -638,7 +638,7 @@ type context struct {
 	reports       *Reports
 }
 
-func (ctx *context) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
+func (ctx *cfSchemaContext) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
 	errs := []error{}
 	for propPath, _ := range createOnlyProperties {
 		// each path in createOnlyProperties is delimited with "/"
@@ -660,7 +660,7 @@ func (ctx *context) markCreateOnlyProperties(createOnlyProperties codegen.String
 	return nil
 }
 
-func (ctx *context) markCreateOnlyProperty(propPath []string, property *pschema.PropertySpec) error {
+func (ctx *cfSchemaContext) markCreateOnlyProperty(propPath []string, property *pschema.PropertySpec) error {
 	// base case, just set the flag
 	if len(propPath) == 0 {
 		property.ReplaceOnChanges = true
@@ -690,7 +690,7 @@ func (ctx *context) markCreateOnlyProperty(propPath []string, property *pschema.
 	return errors.Errorf("Property is not a Ref or Array[Ref], can't traverse: %v", property)
 }
 
-func (ctx *context) markCreateOnlyPropertyOnType(propName, typeRef string, remainingPath []string) error {
+func (ctx *cfSchemaContext) markCreateOnlyPropertyOnType(propName, typeRef string, remainingPath []string) error {
 	ref := strings.TrimPrefix(typeRef, "#/types/")
 	propType, ok := ctx.pkg.Types[ref]
 	if !ok {
@@ -711,7 +711,7 @@ func (ctx *context) markCreateOnlyPropertyOnType(propName, typeRef string, remai
 	return nil
 }
 
-func (ctx *context) gatherInvoke() error {
+func (ctx *cfSchemaContext) gatherInvoke() error {
 	resourceTypeName := typeName(ctx.cfTypeName)
 	_, getterToken := getterToken(ctx.cfTypeName)
 
@@ -821,7 +821,7 @@ func readPropSdkNames(resourceSpec *jsschema.Schema, listName string) codegen.St
 }
 
 // gatherResourceType builds the schema for the resource type in the context.
-func (ctx *context) gatherResourceType() error {
+func (ctx *cfSchemaContext) gatherResourceType() error {
 	resourceTypeName := typeName(ctx.cfTypeName)
 
 	writeOnlyProperties := readPropSdkNames(ctx.resourceSpec, "writeOnlyProperties")
@@ -916,7 +916,7 @@ func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
 	}
 }
 
-func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resourceTypeName string, properties map[string]pschema.PropertySpec) *AutoNamingSpec {
+func (ctx *cfSchemaContext) createAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resourceTypeName string, properties map[string]pschema.PropertySpec) *AutoNamingSpec {
 	// ** Autonaming **
 	var autoNameSpec *AutoNamingSpec
 
@@ -957,7 +957,7 @@ func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.Prop
 	return autoNameSpec
 }
 
-func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
+func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
 	typeSpec, err := ctx.propertyTypeSpec(lowerAcronyms(propName), spec)
 	if err != nil {
 		return nil, err
@@ -982,7 +982,7 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 }
 
 // propertyTypeSpec converts a JSON type definition to a Pulumi type definition.
-func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
+func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
 	propSchema = NormaliseTypes(propSchema)
 
 	// References to other type definitions.
@@ -1240,7 +1240,7 @@ func parseJsonType(t jsschema.PrimitiveType) pschema.TypeSpec {
 	}
 }
 
-func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
+func (ctx *cfSchemaContext) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
 	specs := map[string]pschema.PropertySpec{}
 	requiredSpecs := codegen.NewStringSet()
 	irreversibleNames := map[string]string{}
@@ -1280,7 +1280,7 @@ func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema
 }
 
 // genEnumType generates the enum type for a given schema.
-func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
+func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
 	if len(propSchema.Type) == 0 {
 		return nil, nil
 	}
