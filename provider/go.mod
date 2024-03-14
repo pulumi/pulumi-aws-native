@@ -4,6 +4,7 @@ go 1.21
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
+	github.com/aws/aws-sdk-go v1.49.0
 	github.com/aws/aws-sdk-go-v2 v1.24.1
 	github.com/aws/aws-sdk-go-v2/config v1.26.6
 	github.com/aws/aws-sdk-go-v2/credentials v1.16.16
@@ -24,8 +25,8 @@ require (
 	github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54
 	github.com/pulumi/providertest v0.0.10
 	github.com/pulumi/pulumi-go-provider v0.14.1-0.20240312115843-96cd54a979b1
-	github.com/pulumi/pulumi/pkg/v3 v3.107.0
-	github.com/pulumi/pulumi/sdk/v3 v3.107.0
+	github.com/pulumi/pulumi/pkg/v3 v3.109.0
+	github.com/pulumi/pulumi/sdk/v3 v3.109.0
 	github.com/stretchr/testify v1.8.4
 	github.com/zclconf/go-cty v1.13.2
 	google.golang.org/grpc v1.59.0
@@ -57,7 +58,6 @@ require (
 	github.com/armon/go-metrics v0.4.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
-	github.com/aws/aws-sdk-go v1.49.0 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.14.11 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/configsources v1.2.10 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.5.10 // indirect

@@ -141,6 +141,8 @@ github.com/google/go-cmp v0.4.1/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
+github.com/google/uuid v1.4.0 h1:MtMxsa51/r9yyhkyLsVeVt0B+BGQZzpQiTQ4eHZ8bc4=
+github.com/google/uuid v1.4.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/gorilla/websocket v1.4.0/go.mod h1:E7qHFY5m1UJ88s3WnNqhKjPHQ0heANvMoAMk2YaljkQ=
 github.com/grpc-ecosystem/go-grpc-middleware v1.0.0/go.mod h1:FiyG127CGDf3tlThmgyCl78X/SZQqEOJBCDaAfeWzPs=
 github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0/go.mod h1:8NvIoxWQoOIhqOTXgfV/d3M/q6VIi02HzZEHgUlZvzk=
@@ -258,8 +260,8 @@ github.com/pulumi/esc v0.6.2/go.mod h1:jNnYNjzsOgVTjCp0LL24NsCk8ZJxq4IoLQdCT0X7l
 github.com/pulumi/pulumi-aws-native/sdk v0.1.0 h1:Zfa/SDa4X3reecAdZ43PFre0qAeDM9Ww54ak/2EprEU=
 github.com/pulumi/pulumi-aws-native/sdk v0.1.0/go.mod h1:O8mLoyUjOQcwJ1zfuZ0Y9yw61CYyJU3SZ5oevmGhA0o=
 github.com/pulumi/pulumi/sdk/v3 v3.12.0/go.mod h1:bxxmONw/K6M4KHRKWTwP/u77JbqDFnt96p0nSsrsHnQ=
-github.com/pulumi/pulumi/sdk/v3 v3.107.0 h1:bef+ayh9+4KkAqXih4EjlHfQXRY24NWPwWBIQhBxTjg=
-github.com/pulumi/pulumi/sdk/v3 v3.107.0/go.mod h1:Ml3rpGfyZlI4zQCG7LN2XDSmH4XUNYdyBwJ3yEr/OpI=
+github.com/pulumi/pulumi/sdk/v3 v3.109.0 h1:bcejf5DNcx2I66X1M2tYFKzZGvefPD44sGzOMr0UB00=
+github.com/pulumi/pulumi/sdk/v3 v3.109.0/go.mod h1:5A6GHUwAJlRY1SSLZh84aDIbsBShcrfcmHzI50ecSBg=
 github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.4.4 h1:8TfxU8dW6PdqD27gjM8MVNuicgxIjxpm4K7x4jp8sis=
