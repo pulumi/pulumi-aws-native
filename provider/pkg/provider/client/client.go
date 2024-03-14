@@ -6,9 +6,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strings"
 
+	"github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
+	"github.com/aws/smithy-go"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
@@ -23,7 +26,8 @@ type CloudControlClient interface {
 
 	// Read returns the current state of the specified resource. It deserializes
 	// the response from the service into a map of untyped values.
-	Read(ctx context.Context, typeName, identifier string) (map[string]interface{}, error)
+	// If the resource does not exist, no error is returned but the flag exists is set to false.
+	Read(ctx context.Context, typeName, identifier string) (resourceState map[string]interface{}, exists bool, err error)
 
 	// Update updates a resource of the specified type with the specified changeset.
 	// It awaits the operation until completion and returns a map of output property values.
@@ -101,8 +105,25 @@ func (c *clientImpl) Create(ctx context.Context, typeName string, desiredState m
 	return &id, outputs, nil
 }
 
-func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
-	return c.api.GetResource(ctx, typeName, identifier)
+func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (resourceState map[string]interface{}, exists bool, err error) {
+	resourceState, err = c.api.GetResource(ctx, typeName, identifier)
+	if err != nil {
+		var oe *smithy.OperationError
+		if errors.As(err, &oe) {
+			if re, ok := oe.Unwrap().(*http.ResponseError); ok {
+				statusCode := re.HTTPStatusCode()
+				errorMessage := re.Error()
+				isHttpNotFound := statusCode == 404
+				isResourceNotFound := statusCode == 400 && strings.Contains(errorMessage, "ResourceNotFoundException")
+				if isHttpNotFound || isResourceNotFound {
+					return nil, false, nil
+				}
+			}
+		}
+		return nil, false, err
+	}
+
+	return resourceState, true, nil
 }
 
 func (c *clientImpl) Update(ctx context.Context, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error) {

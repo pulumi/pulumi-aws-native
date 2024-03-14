@@ -33,7 +33,6 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/aws/ratelimit"
 	"github.com/aws/aws-sdk-go-v2/aws/retry"
-	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/credentials/stscreds"
@@ -43,7 +42,6 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 	ststypes "github.com/aws/aws-sdk-go-v2/service/sts/types"
-	"github.com/aws/smithy-go"
 	"github.com/aws/smithy-go/middleware"
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 	"github.com/golang/glog"
@@ -619,9 +617,12 @@ func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc
 		}
 		identifier := strings.Join(idParts, "|")
 		glog.V(9).Infof("%s invoking", cf.CfType)
-		outputs, err := p.ccc.Read(ctx, cf.CfType, identifier)
+		outputs, exists, err := p.ccc.Read(ctx, cf.CfType, identifier)
 		if err != nil {
 			return nil, err
+		}
+		if !exists {
+			return nil, errors.New("resource not found")
 		}
 		sdkOutput := schema.CfnToSdk(outputs)
 
@@ -920,22 +921,13 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceToken)
 	}
-	resourceState, err := p.ccc.Read(p.canceler.context, spec.CfType, id)
+	resourceState, exists, err := p.ccc.Read(p.canceler.context, spec.CfType, id)
 	if err != nil {
-		var oe *smithy.OperationError
-		if errors.As(err, &oe) {
-			if re, ok := oe.Unwrap().(*awshttp.ResponseError); ok {
-				statusCode := re.HTTPStatusCode()
-				errorMessage := re.Error()
-				isHttpNotFound := statusCode == 404
-				isResourceNotFound := statusCode == 400 && strings.Contains(errorMessage, "ResourceNotFoundException")
-				if isHttpNotFound || isResourceNotFound {
-					// ResourceNotFound means that the resource was deleted.
-					return &pulumirpc.ReadResponse{Id: ""}, nil
-				}
-			}
-		}
 		return nil, err
+	}
+	if !exists {
+		// Not Exists means that the resource was deleted.
+		return &pulumirpc.ReadResponse{Id: ""}, nil
 	}
 	newState := schema.CfnToSdk(resourceState)
 
