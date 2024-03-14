@@ -18,21 +18,21 @@
   },
   "handlers" : {
     "read" : {
-      "permissions" : [ "autoscaling:*", "managed-fleets:GetAutoScalingGroup" ]
+      "permissions" : [ "autoscaling:Describe*", "managed-fleets:Get*" ]
     },
     "create" : {
-      "permissions" : [ "autoscaling:*", "cloudwatch:PutMetricAlarm", "ec2:Describe*", "ec2:GetInstanceTypesFromInstanceRequirements", "ec2:RunInstances", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeTargetGroups", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:GetAutoScalingGroup", "managed-fleets:CreateAutoScalingGroup", "ssm:GetParameters" ],
+      "permissions" : [ "autoscaling:CreateAutoScalingGroup", "autoscaling:UpdateAutoScalingGroup", "autoscaling:CreateOrUpdateTags", "autoscaling:Describe*", "autoscaling:EnableMetricsCollection", "autoscaling:PutNotificationConfiguration", "cloudwatch:PutMetricAlarm", "ec2:Describe*", "ec2:Get*", "ec2:RunInstances", "elasticloadbalancing:Describe*", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:Get*", "managed-fleets:CreateAutoScalingGroup", "managed-fleets:UpdateAutoScalingGroup", "ssm:Get*" ],
       "timeoutInMinutes" : 360
     },
     "update" : {
-      "permissions" : [ "autoscaling:*", "cloudwatch:PutMetricAlarm", "ec2:Describe*", "ec2:GetInstanceTypesFromInstanceRequirements", "ec2:RunInstances", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeTargetGroups", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:GetAutoScalingGroup", "managed-fleets:RegisterAutoScalingGroup", "managed-fleets:DeregisterAutoScalingGroup", "managed-fleets:UpdateAutoScalingGroup", "ssm:GetParameters" ],
+      "permissions" : [ "autoscaling:UpdateAutoScalingGroup", "autoscaling:CreateOrUpdateTags", "autoscaling:DeleteTags", "autoscaling:Describe*", "autoscaling:EnableMetricsCollection", "autoscaling:DisableMetricsCollection", "autoscaling:PutNotificationConfiguration", "autoscaling:DeleteNotificationConfiguration", "autoscaling:DetachLoadBalancerTargetGroups", "autoscaling:AttachLoadBalancerTargetGroups", "autoscaling:AttachLoadBalancers", "autoscaling:DetachLoadBalancers", "autoscaling:AttachTrafficSources", "autoscaling:DetachTrafficSources", "autoscaling:DeleteLifecycleHook", "autoscaling:PutLifecycleHook", "cloudwatch:PutMetricAlarm", "ec2:Describe*", "ec2:Get*", "ec2:RunInstances", "elasticloadbalancing:Describe*", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:Get*", "managed-fleets:RegisterAutoScalingGroup", "managed-fleets:DeregisterAutoScalingGroup", "managed-fleets:UpdateAutoScalingGroup", "ssm:Get*" ],
       "timeoutInMinutes" : 660
     },
     "list" : {
-      "permissions" : [ "autoscaling:*" ]
+      "permissions" : [ "autoscaling:Describe*" ]
     },
     "delete" : {
-      "permissions" : [ "autoscaling:*", "managed-fleets:GetAutoScalingGroup", "managed-fleets:DeleteAutoScalingGroup" ],
+      "permissions" : [ "autoscaling:DeleteAutoScalingGroup", "autoscaling:UpdateAutoScalingGroup", "autoscaling:Describe*", "managed-fleets:Get*", "managed-fleets:DeleteAutoScalingGroup" ],
       "timeoutInMinutes" : 180
     }
   },

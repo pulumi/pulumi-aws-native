@@ -116,6 +116,15 @@
       "minLength" : 1,
       "pattern" : "^[a-zA-Z0-9_.-]+$"
     },
+    "LinkedAccountId" : {
+      "type" : "string",
+      "maxLength" : 12,
+      "minLength" : 12,
+      "pattern" : "^(\\d{12})$"
+    },
+    "IncludeLinkedAccounts" : {
+      "type" : "boolean"
+    },
     "ProcessingStatus" : {
       "$ref" : "#/definitions/MonitorProcessingStatusCode"
     },
@@ -178,7 +187,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/ModifiedAt", "/properties/MonitorArn", "/properties/ProcessingStatus", "/properties/ProcessingStatusInfo" ],
-  "writeOnlyProperties" : [ "/properties/ResourcesToAdd", "/properties/ResourcesToRemove" ],
+  "writeOnlyProperties" : [ "/properties/ResourcesToAdd", "/properties/ResourcesToRemove", "/properties/LinkedAccountId", "/properties/IncludeLinkedAccounts" ],
   "createOnlyProperties" : [ "/properties/MonitorName" ],
   "primaryIdentifier" : [ "/properties/MonitorName" ],
   "tagging" : {

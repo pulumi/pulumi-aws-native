@@ -347,6 +347,9 @@
         "Limit" : {
           "$ref" : "#/definitions/RateLimit"
         },
+        "EvaluationWindowSec" : {
+          "$ref" : "#/definitions/EvaluationWindowSec"
+        },
         "AggregateKeyType" : {
           "type" : "string",
           "enum" : [ "CONSTANT", "IP", "FORWARDED_IP", "CUSTOM_KEYS" ]
@@ -523,6 +526,10 @@
       "type" : "integer",
       "minimum" : 100,
       "maximum" : 2000000000
+    },
+    "EvaluationWindowSec" : {
+      "type" : "integer",
+      "enum" : [ 60, 120, 300, 600 ]
     },
     "RegexPatternSetReferenceStatement" : {
       "type" : "object",

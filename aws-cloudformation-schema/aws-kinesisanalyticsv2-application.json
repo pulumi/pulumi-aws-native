@@ -827,7 +827,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "RuntimeEnvironment", "ServiceExecutionRole" ],
-  "createOnlyProperties" : [ "/properties/ApplicationName", "/properties/ApplicationMode", "/properties/RuntimeEnvironment" ],
+  "createOnlyProperties" : [ "/properties/ApplicationName", "/properties/ApplicationMode" ],
   "writeOnlyProperties" : [ "/properties/RunConfiguration", "/properties/ApplicationConfiguration/EnvironmentProperties", "/properties/ApplicationConfiguration/ApplicationCodeConfiguration/CodeContent/ZipFileContent" ],
   "primaryIdentifier" : [ "/properties/ApplicationName" ],
   "handlers" : {
