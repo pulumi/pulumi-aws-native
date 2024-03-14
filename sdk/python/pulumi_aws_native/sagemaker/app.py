@@ -193,7 +193,7 @@ class App(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_profile_name'")
             __props__.__dict__["user_profile_name"] = user_profile_name
             __props__.__dict__["app_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_name", "app_type", "domain_id", "resource_spec", "tags[*]", "user_profile_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appName", "appType", "domainId", "resourceSpec", "tags[*]", "userProfileName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(App, __self__).__init__(
             'aws-native:sagemaker:App',

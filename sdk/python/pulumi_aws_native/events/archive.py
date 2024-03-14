@@ -146,7 +146,7 @@ class Archive(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_arn'")
             __props__.__dict__["source_arn"] = source_arn
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["archive_name", "source_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["archiveName", "sourceArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Archive, __self__).__init__(
             'aws-native:events:Archive',

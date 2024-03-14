@@ -302,7 +302,7 @@ class ReplicationConfig(pulumi.CustomResource):
             __props__.__dict__["table_mappings"] = table_mappings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_endpoint_arn"] = target_endpoint_arn
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReplicationConfig, __self__).__init__(
             'aws-native:dms:ReplicationConfig',

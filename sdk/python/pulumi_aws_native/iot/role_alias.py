@@ -128,7 +128,7 @@ class RoleAlias(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["role_alias_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["role_alias"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["roleAlias"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RoleAlias, __self__).__init__(
             'aws-native:iot:RoleAlias',

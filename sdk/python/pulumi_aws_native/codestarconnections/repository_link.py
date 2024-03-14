@@ -172,7 +172,7 @@ class RepositoryLink(pulumi.CustomResource):
             __props__.__dict__["provider_type"] = None
             __props__.__dict__["repository_link_arn"] = None
             __props__.__dict__["repository_link_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["owner_id", "repository_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ownerId", "repositoryName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RepositoryLink, __self__).__init__(
             'aws-native:codestarconnections:RepositoryLink',

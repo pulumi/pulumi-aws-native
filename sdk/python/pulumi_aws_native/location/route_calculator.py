@@ -153,7 +153,7 @@ class RouteCalculator(pulumi.CustomResource):
             __props__.__dict__["calculator_arn"] = None
             __props__.__dict__["create_time"] = None
             __props__.__dict__["update_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["calculator_name", "data_source"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["calculatorName", "dataSource"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RouteCalculator, __self__).__init__(
             'aws-native:location:RouteCalculator',

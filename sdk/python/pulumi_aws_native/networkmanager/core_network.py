@@ -161,7 +161,7 @@ class CoreNetwork(pulumi.CustomResource):
             __props__.__dict__["owner_account"] = None
             __props__.__dict__["segments"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["global_network_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["globalNetworkId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CoreNetwork, __self__).__init__(
             'aws-native:networkmanager:CoreNetwork',

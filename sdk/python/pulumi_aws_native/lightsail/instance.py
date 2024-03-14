@@ -299,7 +299,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["ssh_key_name"] = None
             __props__.__dict__["support_code"] = None
             __props__.__dict__["user_name"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "blueprint_id", "bundle_id", "instance_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "blueprintId", "bundleId", "instanceName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Instance, __self__).__init__(
             'aws-native:lightsail:Instance',

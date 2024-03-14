@@ -55,35 +55,36 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/databrew"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := databrew.NewProject(ctx, "myDataBrewProject", &databrew.ProjectArgs{
-// Name: pulumi.String("test-project"),
-// RecipeName: pulumi.String("test-project-recipe"),
-// DatasetName: pulumi.String("test-dataset"),
-// RoleArn: pulumi.String("arn:aws:iam::1234567891011:role/PassRoleAdmin"),
-// Sample: &databrew.ProjectSampleArgs{
-// Size: pulumi.Int(500),
-// Type: databrew.ProjectSampleTypeLastN,
-// },
-// Tags: aws.CreateOnlyTagArray{
-// &aws.CreateOnlyTagArgs{
-// Key: pulumi.String("key00AtCreate"),
-// Value: pulumi.String("value001AtCreate"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := databrew.NewProject(ctx, "myDataBrewProject", &databrew.ProjectArgs{
+//				Name:        pulumi.String("test-project"),
+//				RecipeName:  pulumi.String("test-project-recipe"),
+//				DatasetName: pulumi.String("test-dataset"),
+//				RoleArn:     pulumi.String("arn:aws:iam::1234567891011:role/PassRoleAdmin"),
+//				Sample: &databrew.ProjectSampleArgs{
+//					Size: pulumi.Int(500),
+//					Type: databrew.ProjectSampleTypeLastN,
+//				},
+//				Tags: aws.CreateOnlyTagArray{
+//					&aws.CreateOnlyTagArgs{
+//						Key:   pulumi.String("key00AtCreate"),
+//						Value: pulumi.String("value001AtCreate"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Project struct {

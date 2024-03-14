@@ -168,7 +168,7 @@ class StreamingImage(pulumi.CustomResource):
             __props__.__dict__["owner"] = None
             __props__.__dict__["platform"] = None
             __props__.__dict__["streaming_image_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_image_id", "studio_id", "tags.*"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2ImageId", "studioId", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StreamingImage, __self__).__init__(
             'aws-native:nimblestudio:StreamingImage',

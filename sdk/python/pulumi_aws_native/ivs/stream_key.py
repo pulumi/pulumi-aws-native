@@ -109,7 +109,7 @@ class StreamKey(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["value"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StreamKey, __self__).__init__(
             'aws-native:ivs:StreamKey',

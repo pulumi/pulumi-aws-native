@@ -321,7 +321,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["environment_arn"] = None
             __props__.__dict__["environment_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "engine_type", "kms_key_id", "name", "publicly_accessible", "security_group_ids[*]", "storage_configurations[*]", "subnet_ids[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "engineType", "kmsKeyId", "name", "publiclyAccessible", "securityGroupIds[*]", "storageConfigurations[*]", "subnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:m2:Environment',

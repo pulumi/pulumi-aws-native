@@ -248,7 +248,7 @@ class Form(pulumi.CustomResource):
             __props__.__dict__["style"] = style
             __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_id", "environment_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appId", "environmentName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Form, __self__).__init__(
             'aws-native:amplifyuibuilder:Form',

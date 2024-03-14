@@ -203,7 +203,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["stats"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Domain, __self__).__init__(
             'aws-native:customerprofiles:Domain',

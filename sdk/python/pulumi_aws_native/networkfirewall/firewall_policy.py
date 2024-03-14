@@ -132,7 +132,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["firewall_policy_arn"] = None
             __props__.__dict__["firewall_policy_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewall_policy_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewallPolicyName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FirewallPolicy, __self__).__init__(
             'aws-native:networkfirewall:FirewallPolicy',

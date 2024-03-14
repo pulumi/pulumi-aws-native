@@ -374,7 +374,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["rotate_master_user_password"] = rotate_master_user_password
             __props__.__dict__["tags"] = tags
             __props__.__dict__["database_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "master_database_name", "master_username", "relational_database_blueprint_id", "relational_database_bundle_id", "relational_database_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "masterDatabaseName", "masterUsername", "relationalDatabaseBlueprintId", "relationalDatabaseBundleId", "relationalDatabaseName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Database, __self__).__init__(
             'aws-native:lightsail:Database',

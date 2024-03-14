@@ -179,7 +179,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["listener_identifier", "name", "service_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["listenerIdentifier", "name", "serviceIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Rule, __self__).__init__(
             'aws-native:vpclattice:Rule',

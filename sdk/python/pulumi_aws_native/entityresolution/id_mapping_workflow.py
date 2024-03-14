@@ -192,7 +192,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["updated_at"] = None
             __props__.__dict__["workflow_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["workflow_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["workflowName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IdMappingWorkflow, __self__).__init__(
             'aws-native:entityresolution:IdMappingWorkflow',

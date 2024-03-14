@@ -628,7 +628,7 @@ class Flow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'trigger_config'")
             __props__.__dict__["trigger_config"] = trigger_config
             __props__.__dict__["flow_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["flow_name", "kms_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["flowName", "kmsArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Flow, __self__).__init__(
             'aws-native:appflow:Flow',

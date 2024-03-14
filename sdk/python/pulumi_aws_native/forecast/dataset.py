@@ -198,7 +198,7 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["schema"] = schema
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dataset, __self__).__init__(
             'aws-native:forecast:Dataset',

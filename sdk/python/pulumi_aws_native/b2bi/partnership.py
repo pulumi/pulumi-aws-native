@@ -163,7 +163,7 @@ class Partnership(pulumi.CustomResource):
             __props__.__dict__["partnership_arn"] = None
             __props__.__dict__["partnership_id"] = None
             __props__.__dict__["trading_partner_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["email", "phone", "profile_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["email", "phone", "profileId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Partnership, __self__).__init__(
             'aws-native:b2bi:Partnership',

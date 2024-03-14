@@ -514,7 +514,7 @@ class ResourceDataSync(pulumi.CustomResource):
             __props__.__dict__["sync_name"] = sync_name
             __props__.__dict__["sync_source"] = sync_source
             __props__.__dict__["sync_type"] = sync_type
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket_name", "bucket_prefix", "bucket_region", "kms_key_arn", "s3_destination", "sync_format", "sync_name", "sync_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucketName", "bucketPrefix", "bucketRegion", "kmsKeyArn", "s3Destination", "syncFormat", "syncName", "syncType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourceDataSync, __self__).__init__(
             'aws-native:ssm:ResourceDataSync',

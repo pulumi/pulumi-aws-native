@@ -22,29 +22,30 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codestarconnections"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
-// ConnectionName: pulumi.String("MyConnection"),
-// ProviderType: pulumi.String("Bitbucket"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Project"),
-// Value: pulumi.String("ProjectB"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
+//				ConnectionName: pulumi.String("MyConnection"),
+//				ProviderType:   pulumi.String("Bitbucket"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Project"),
+//						Value: pulumi.String("ProjectB"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -54,29 +55,30 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codestarconnections"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
-// ConnectionName: pulumi.String("MyConnection"),
-// ProviderType: pulumi.String("Bitbucket"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Project"),
-// Value: pulumi.String("ProjectB"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
+//				ConnectionName: pulumi.String("MyConnection"),
+//				ProviderType:   pulumi.String("Bitbucket"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Project"),
+//						Value: pulumi.String("ProjectB"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -86,30 +88,31 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codestarconnections"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
-// ConnectionName: pulumi.String("MyConnection"),
-// ProviderType: pulumi.String("GitHubEnterpriseServer"),
-// HostArn: pulumi.String("arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Project"),
-// Value: pulumi.String("ProjectB"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
+//				ConnectionName: pulumi.String("MyConnection"),
+//				ProviderType:   pulumi.String("GitHubEnterpriseServer"),
+//				HostArn:        pulumi.String("arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Project"),
+//						Value: pulumi.String("ProjectB"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -119,30 +122,31 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codestarconnections"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
-// ConnectionName: pulumi.String("MyConnection"),
-// ProviderType: pulumi.String("GitHubEnterpriseServer"),
-// HostArn: pulumi.String("arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Project"),
-// Value: pulumi.String("ProjectB"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codestarconnections.NewConnection(ctx, "sampleConnection", &codestarconnections.ConnectionArgs{
+//				ConnectionName: pulumi.String("MyConnection"),
+//				ProviderType:   pulumi.String("GitHubEnterpriseServer"),
+//				HostArn:        pulumi.String("arn:aws:codestar-connections:us-west-2:123456789123:host/abc123-example"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Project"),
+//						Value: pulumi.String("ProjectB"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Connection struct {

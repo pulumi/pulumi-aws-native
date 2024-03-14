@@ -51,18 +51,18 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/stepfunctions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := stepfunctions.NewStateMachine(ctx, "myStateMachine", &stepfunctions.StateMachineArgs{
-// StateMachineName: pulumi.String("HelloWorld-StateMachine"),
-// StateMachineType: stepfunctions.StateMachineTypeStandard,
 //
-//	DefinitionString: pulumi.String(`{
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := stepfunctions.NewStateMachine(ctx, "myStateMachine", &stepfunctions.StateMachineArgs{
+//				StateMachineName: pulumi.String("HelloWorld-StateMachine"),
+//				StateMachineType: stepfunctions.StateMachineTypeStandard,
+//				DefinitionString: pulumi.String(`{
 //	    "StartAt": "HelloWorld",
 //	    "States" : {
 //	        "HelloWorld" : {
@@ -73,24 +73,24 @@ import (
 //	    }
 //	}`),
 //
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//				RoleArn: pulumi.String("arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -100,17 +100,17 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/stepfunctions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := stepfunctions.NewStateMachine(ctx, "myStateMachine", &stepfunctions.StateMachineArgs{
-// StateMachineName: pulumi.String("HelloWorld-StateMachine"),
 //
-//	DefinitionString: pulumi.String(`{
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := stepfunctions.NewStateMachine(ctx, "myStateMachine", &stepfunctions.StateMachineArgs{
+//				StateMachineName: pulumi.String("HelloWorld-StateMachine"),
+//				DefinitionString: pulumi.String(`{
 //	  "StartAt": "HelloWorld",
 //	  "States": {
 //	    "HelloWorld": {
@@ -121,24 +121,24 @@ import (
 //	  }
 //	}`),
 //
-// RoleArn: pulumi.String("arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//				RoleArn: pulumi.String("arn:aws:iam::111122223333:role/service-role/StatesExecutionRole-us-east-1"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example

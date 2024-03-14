@@ -207,7 +207,7 @@ class Multiplexprogram(pulumi.CustomResource):
             __props__.__dict__["pipeline_details"] = pipeline_details
             __props__.__dict__["preferred_channel_pipeline"] = preferred_channel_pipeline
             __props__.__dict__["program_name"] = program_name
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["multiplex_id", "program_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["multiplexId", "programName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Multiplexprogram, __self__).__init__(
             'aws-native:medialive:Multiplexprogram',

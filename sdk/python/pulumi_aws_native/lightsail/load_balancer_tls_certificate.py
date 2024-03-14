@@ -189,7 +189,7 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
             __props__.__dict__["load_balancer_name"] = load_balancer_name
             __props__.__dict__["load_balancer_tls_certificate_arn"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_alternative_names[*]", "certificate_domain_name", "certificate_name", "load_balancer_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificateAlternativeNames[*]", "certificateDomainName", "certificateName", "loadBalancerName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LoadBalancerTlsCertificate, __self__).__init__(
             'aws-native:lightsail:LoadBalancerTlsCertificate',

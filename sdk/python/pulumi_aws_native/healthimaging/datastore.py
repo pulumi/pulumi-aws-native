@@ -115,7 +115,7 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["datastore_id"] = None
             __props__.__dict__["datastore_status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastore_name", "kms_key_arn", "tags.*"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastoreName", "kmsKeyArn", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Datastore, __self__).__init__(
             'aws-native:healthimaging:Datastore',

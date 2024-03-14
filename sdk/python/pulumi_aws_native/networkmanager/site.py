@@ -153,7 +153,7 @@ class Site(pulumi.CustomResource):
             __props__.__dict__["site_arn"] = None
             __props__.__dict__["site_id"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["global_network_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["globalNetworkId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Site, __self__).__init__(
             'aws-native:networkmanager:Site',

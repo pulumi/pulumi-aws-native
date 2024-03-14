@@ -531,7 +531,7 @@ class Nodegroup(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ami_type", "capacity_type", "cluster_name", "disk_size", "instance_types[*]", "node_role", "nodegroup_name", "remote_access", "subnets[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amiType", "capacityType", "clusterName", "diskSize", "instanceTypes[*]", "nodeRole", "nodegroupName", "remoteAccess", "subnets[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Nodegroup, __self__).__init__(
             'aws-native:eks:Nodegroup',

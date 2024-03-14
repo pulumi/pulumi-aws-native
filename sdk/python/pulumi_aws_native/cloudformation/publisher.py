@@ -110,7 +110,7 @@ class Publisher(pulumi.CustomResource):
             __props__.__dict__["publisher_id"] = None
             __props__.__dict__["publisher_profile"] = None
             __props__.__dict__["publisher_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accept_terms_and_conditions", "connection_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["acceptTermsAndConditions", "connectionArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Publisher, __self__).__init__(
             'aws-native:cloudformation:Publisher',

@@ -175,7 +175,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["peer_account_id", "peer_region", "peer_transit_gateway_id", "transit_gateway_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["peerAccountId", "peerRegion", "peerTransitGatewayId", "transitGatewayId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayPeeringAttachment, __self__).__init__(
             'aws-native:ec2:TransitGatewayPeeringAttachment',

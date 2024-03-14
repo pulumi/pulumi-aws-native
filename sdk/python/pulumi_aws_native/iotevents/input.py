@@ -238,7 +238,7 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["input_description"] = input_description
             __props__.__dict__["input_name"] = input_name
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["input_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["inputName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Input, __self__).__init__(
             'aws-native:iotevents:Input',

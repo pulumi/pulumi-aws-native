@@ -114,7 +114,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             if logging_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'logging_configuration'")
             __props__.__dict__["logging_configuration"] = logging_configuration
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewall_arn", "firewall_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewallArn", "firewallName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LoggingConfiguration, __self__).__init__(
             'aws-native:networkfirewall:LoggingConfiguration',

@@ -470,7 +470,7 @@ class Simulation(pulumi.CustomResource):
             __props__.__dict__["schema_s3_location"] = schema_s3_location
             __props__.__dict__["snapshot_s3_location"] = snapshot_s3_location
             __props__.__dict__["describe_payload"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["maximum_duration", "name", "role_arn", "schema_s3_location", "snapshot_s3_location"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["maximumDuration", "name", "roleArn", "schemaS3Location", "snapshotS3Location"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Simulation, __self__).__init__(
             'aws-native:simspaceweaver:Simulation',

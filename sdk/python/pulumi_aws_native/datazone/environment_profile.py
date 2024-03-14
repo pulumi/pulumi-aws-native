@@ -238,7 +238,7 @@ class EnvironmentProfile(pulumi.CustomResource):
             __props__.__dict__["environment_blueprint_id"] = None
             __props__.__dict__["project_id"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_identifier", "environment_blueprint_identifier", "project_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "environmentBlueprintIdentifier", "projectIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EnvironmentProfile, __self__).__init__(
             'aws-native:datazone:EnvironmentProfile',

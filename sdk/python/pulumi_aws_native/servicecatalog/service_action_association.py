@@ -112,7 +112,7 @@ class ServiceActionAssociation(pulumi.CustomResource):
             if service_action_id is None and not opts.urn:
                 raise TypeError("Missing required property 'service_action_id'")
             __props__.__dict__["service_action_id"] = service_action_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["product_id", "provisioning_artifact_id", "service_action_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["productId", "provisioningArtifactId", "serviceActionId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServiceActionAssociation, __self__).__init__(
             'aws-native:servicecatalog:ServiceActionAssociation',

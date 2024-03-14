@@ -166,7 +166,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["default_version_number"] = None
             __props__.__dict__["latest_version_number"] = None
             __props__.__dict__["launch_template_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["launch_template_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["launchTemplateName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LaunchTemplate, __self__).__init__(
             'aws-native:ec2:LaunchTemplate',

@@ -95,7 +95,7 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
             if service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'service_id'")
             __props__.__dict__["service_id"] = service_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["service_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["serviceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcEndpointServicePermissions, __self__).__init__(
             'aws-native:ec2:VpcEndpointServicePermissions',

@@ -295,7 +295,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["single_sign_on_application_arn"] = None
             __props__.__dict__["single_sign_on_managed_application_instance_id"] = None
             __props__.__dict__["url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auth_mode", "domain_name", "domain_settings.r_studio_server_pro_domain_settings.default_resource_spec", "kms_key_id", "tags[*]", "vpc_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authMode", "domainName", "domainSettings.rStudioServerProDomainSettings.defaultResourceSpec", "kmsKeyId", "tags[*]", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Domain, __self__).__init__(
             'aws-native:sagemaker:Domain',

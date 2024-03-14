@@ -109,7 +109,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 raise TypeError("Missing required property 'event_destination'")
             __props__.__dict__["event_destination"] = event_destination
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration_set_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configurationSetName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationSetEventDestination, __self__).__init__(
             'aws-native:ses:ConfigurationSetEventDestination',

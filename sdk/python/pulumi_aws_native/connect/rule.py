@@ -215,7 +215,7 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'trigger_event_source'")
             __props__.__dict__["trigger_event_source"] = trigger_event_source
             __props__.__dict__["rule_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_arn", "trigger_event_source"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn", "triggerEventSource"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Rule, __self__).__init__(
             'aws-native:connect:Rule',

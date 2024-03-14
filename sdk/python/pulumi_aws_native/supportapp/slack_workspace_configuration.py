@@ -153,7 +153,7 @@ class SlackWorkspaceConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'team_id'")
             __props__.__dict__["team_id"] = team_id
             __props__.__dict__["version_id"] = version_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["team_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["teamId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SlackWorkspaceConfiguration, __self__).__init__(
             'aws-native:supportapp:SlackWorkspaceConfiguration',

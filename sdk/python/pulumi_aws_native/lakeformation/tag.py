@@ -126,7 +126,7 @@ class Tag(pulumi.CustomResource):
             if tag_values is None and not opts.urn:
                 raise TypeError("Missing required property 'tag_values'")
             __props__.__dict__["tag_values"] = tag_values
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog_id", "tag_key"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalogId", "tagKey"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Tag, __self__).__init__(
             'aws-native:lakeformation:Tag',

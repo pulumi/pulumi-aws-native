@@ -124,7 +124,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
             __props__.__dict__["arn"] = arn
             __props__.__dict__["module_name"] = module_name
             __props__.__dict__["version_id"] = version_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["arn", "module_name", "version_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["arn", "moduleName", "versionId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ModuleDefaultVersion, __self__).__init__(
             'aws-native:cloudformation:ModuleDefaultVersion',

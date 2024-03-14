@@ -113,7 +113,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
             __props__.__dict__["role_mappings"] = role_mappings
             __props__.__dict__["roles"] = roles
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identity_pool_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identityPoolId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IdentityPoolRoleAttachment, __self__).__init__(
             'aws-native:cognito:IdentityPoolRoleAttachment',

@@ -23,46 +23,47 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := appconfig.NewExtension(ctx, "basicExtension", &appconfig.ExtensionArgs{
-// Name: pulumi.String("My Test Extension"),
-// Description: pulumi.String("My test extension"),
-// LatestVersionNumber: pulumi.Int(0),
-// Actions: appconfig.ExtensionActionArrayMap{
-// "pre_create_hosted_configuration_version": appconfig.ExtensionActionArray{
-// &appconfig.ExtensionActionArgs{
-// Name: pulumi.String("My Test Action"),
-// Uri: pulumi.String("DependentLambda.Arn"),
-// RoleArn: pulumi.String("DependentRole.Arn"),
-// Description: pulumi.String("My test action point"),
-// },
-// },
-// },
-// Parameters: appconfig.ExtensionParameterMap{
-// "myTestParam": &appconfig.ExtensionParameterArgs{
-// Required: pulumi.Bool(false),
-// Description: pulumi.String("My test parameter"),
-// },
-// },
-// Tags: aws.CreateOnlyTagArray{
-// &aws.CreateOnlyTagArgs{
-// Key: pulumi.String("Ext"),
-// Value: pulumi.String("Test"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appconfig.NewExtension(ctx, "basicExtension", &appconfig.ExtensionArgs{
+//				Name:                pulumi.String("My Test Extension"),
+//				Description:         pulumi.String("My test extension"),
+//				LatestVersionNumber: pulumi.Int(0),
+//				Actions: appconfig.ExtensionActionArrayMap{
+//					"pre_create_hosted_configuration_version": appconfig.ExtensionActionArray{
+//						&appconfig.ExtensionActionArgs{
+//							Name:        pulumi.String("My Test Action"),
+//							Uri:         pulumi.String("DependentLambda.Arn"),
+//							RoleArn:     pulumi.String("DependentRole.Arn"),
+//							Description: pulumi.String("My test action point"),
+//						},
+//					},
+//				},
+//				Parameters: appconfig.ExtensionParameterMap{
+//					"myTestParam": &appconfig.ExtensionParameterArgs{
+//						Required:    pulumi.Bool(false),
+//						Description: pulumi.String("My test parameter"),
+//					},
+//				},
+//				Tags: aws.CreateOnlyTagArray{
+//					&aws.CreateOnlyTagArgs{
+//						Key:   pulumi.String("Ext"),
+//						Value: pulumi.String("Test"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Extension struct {

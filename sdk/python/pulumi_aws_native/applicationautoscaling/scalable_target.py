@@ -232,7 +232,7 @@ class ScalableTarget(pulumi.CustomResource):
             __props__.__dict__["service_namespace"] = service_namespace
             __props__.__dict__["suspended_state"] = suspended_state
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_id", "scalable_dimension", "service_namespace"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceId", "scalableDimension", "serviceNamespace"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ScalableTarget, __self__).__init__(
             'aws-native:applicationautoscaling:ScalableTarget',

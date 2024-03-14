@@ -150,7 +150,7 @@ class SchemaMapping(pulumi.CustomResource):
             __props__.__dict__["has_workflows"] = None
             __props__.__dict__["schema_arn"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["schema_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["schemaName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SchemaMapping, __self__).__init__(
             'aws-native:entityresolution:SchemaMapping',

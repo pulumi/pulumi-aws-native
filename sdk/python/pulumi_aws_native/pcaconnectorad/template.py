@@ -145,7 +145,7 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["reenroll_all_certificate_holders"] = reenroll_all_certificate_holders
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_arn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectorArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Template, __self__).__init__(
             'aws-native:pcaconnectorad:Template',

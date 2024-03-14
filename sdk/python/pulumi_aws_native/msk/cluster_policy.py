@@ -113,7 +113,7 @@ class ClusterPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
             __props__.__dict__["current_version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ClusterPolicy, __self__).__init__(
             'aws-native:msk:ClusterPolicy',

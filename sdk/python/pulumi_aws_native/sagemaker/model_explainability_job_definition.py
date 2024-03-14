@@ -251,7 +251,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["job_definition_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint_name", "job_definition_name", "job_resources", "model_explainability_app_specification", "model_explainability_baseline_config", "model_explainability_job_input", "model_explainability_job_output_config", "network_config", "role_arn", "stopping_condition", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpointName", "jobDefinitionName", "jobResources", "modelExplainabilityAppSpecification", "modelExplainabilityBaselineConfig", "modelExplainabilityJobInput", "modelExplainabilityJobOutputConfig", "networkConfig", "roleArn", "stoppingCondition", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ModelExplainabilityJobDefinition, __self__).__init__(
             'aws-native:sagemaker:ModelExplainabilityJobDefinition',

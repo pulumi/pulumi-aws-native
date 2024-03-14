@@ -275,7 +275,7 @@ class ComponentType(pulumi.CustomResource):
             __props__.__dict__["is_schema_initialized"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["update_date_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["component_type_id", "workspace_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["componentTypeId", "workspaceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ComponentType, __self__).__init__(
             'aws-native:iottwinmaker:ComponentType',

@@ -150,7 +150,7 @@ class ExtensionAssociation(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["extension_arn"] = None
             __props__.__dict__["resource_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["extension_identifier", "extension_version_number", "resource_identifier", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["extensionIdentifier", "extensionVersionNumber", "resourceIdentifier", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ExtensionAssociation, __self__).__init__(
             'aws-native:appconfig:ExtensionAssociation',

@@ -237,7 +237,7 @@ class Agent(pulumi.CustomResource):
             __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
             __props__.__dict__["agent_arn"] = None
             __props__.__dict__["endpoint_type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["activation_key", "security_group_arns[*]", "subnet_arns[*]", "vpc_endpoint_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["activationKey", "securityGroupArns[*]", "subnetArns[*]", "vpcEndpointId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Agent, __self__).__init__(
             'aws-native:datasync:Agent',

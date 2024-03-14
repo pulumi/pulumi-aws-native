@@ -96,7 +96,7 @@ class DirectoryRegistration(pulumi.CustomResource):
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["directory_registration_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["directory_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["directoryId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DirectoryRegistration, __self__).__init__(
             'aws-native:pcaconnectorad:DirectoryRegistration',

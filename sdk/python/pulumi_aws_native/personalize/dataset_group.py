@@ -186,7 +186,7 @@ class DatasetGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["dataset_group_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "kms_key_arn", "name", "role_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "kmsKeyArn", "name", "roleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DatasetGroup, __self__).__init__(
             'aws-native:personalize:DatasetGroup',

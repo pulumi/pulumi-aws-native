@@ -23,36 +23,37 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/qldb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := qldb.NewStream(ctx, "myQLDBStream", &qldb.StreamArgs{
-// ExclusiveEndTime: pulumi.String("2020-05-29T22:59:59Z"),
-// InclusiveStartTime: pulumi.String("2020-05-29T00:00:00Z"),
-// KinesisConfiguration: &qldb.StreamKinesisConfigurationArgs{
-// AggregationEnabled: pulumi.Bool(true),
-// StreamArn: pulumi.String("arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb"),
-// },
-// LedgerName: pulumi.String("exampleLedger"),
-// RoleArn: pulumi.String("arn:aws:iam::123456789012:role/my-kinesis-stream-role"),
-// StreamName: pulumi.String("exampleLedger-stream"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Domain"),
-// Value: pulumi.String("Test"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qldb.NewStream(ctx, "myQLDBStream", &qldb.StreamArgs{
+//				ExclusiveEndTime:   pulumi.String("2020-05-29T22:59:59Z"),
+//				InclusiveStartTime: pulumi.String("2020-05-29T00:00:00Z"),
+//				KinesisConfiguration: &qldb.StreamKinesisConfigurationArgs{
+//					AggregationEnabled: pulumi.Bool(true),
+//					StreamArn:          pulumi.String("arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb"),
+//				},
+//				LedgerName: pulumi.String("exampleLedger"),
+//				RoleArn:    pulumi.String("arn:aws:iam::123456789012:role/my-kinesis-stream-role"),
+//				StreamName: pulumi.String("exampleLedger-stream"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Domain"),
+//						Value: pulumi.String("Test"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -62,36 +63,37 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/qldb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := qldb.NewStream(ctx, "myQLDBStream", &qldb.StreamArgs{
-// ExclusiveEndTime: pulumi.String("2020-05-29T22:59:59Z"),
-// InclusiveStartTime: pulumi.String("2020-05-29T00:00:00Z"),
-// KinesisConfiguration: &qldb.StreamKinesisConfigurationArgs{
-// AggregationEnabled: pulumi.Bool(true),
-// StreamArn: pulumi.String("arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb"),
-// },
-// LedgerName: pulumi.String("exampleLedger"),
-// RoleArn: pulumi.String("arn:aws:iam::123456789012:role/my-kinesis-stream-role"),
-// StreamName: pulumi.String("exampleLedger-stream"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Domain"),
-// Value: pulumi.String("Test"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qldb.NewStream(ctx, "myQLDBStream", &qldb.StreamArgs{
+//				ExclusiveEndTime:   pulumi.String("2020-05-29T22:59:59Z"),
+//				InclusiveStartTime: pulumi.String("2020-05-29T00:00:00Z"),
+//				KinesisConfiguration: &qldb.StreamKinesisConfigurationArgs{
+//					AggregationEnabled: pulumi.Bool(true),
+//					StreamArn:          pulumi.String("arn:aws:kinesis:us-east-1:123456789012:stream/stream-for-qldb"),
+//				},
+//				LedgerName: pulumi.String("exampleLedger"),
+//				RoleArn:    pulumi.String("arn:aws:iam::123456789012:role/my-kinesis-stream-role"),
+//				StreamName: pulumi.String("exampleLedger-stream"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Domain"),
+//						Value: pulumi.String("Test"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Stream struct {

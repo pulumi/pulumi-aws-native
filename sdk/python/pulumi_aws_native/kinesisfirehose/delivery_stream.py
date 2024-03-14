@@ -295,7 +295,7 @@ class DeliveryStream(pulumi.CustomResource):
             __props__.__dict__["splunk_destination_configuration"] = splunk_destination_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_open_search_serverless_destination_configuration.vpc_configuration", "amazonopensearchservice_destination_configuration.vpc_configuration", "delivery_stream_name", "delivery_stream_type", "elasticsearch_destination_configuration.vpc_configuration", "kinesis_stream_source_configuration", "msk_source_configuration", "snowflake_destination_configuration.snowflake_vpc_configuration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryStream, __self__).__init__(
             'aws-native:kinesisfirehose:DeliveryStream',

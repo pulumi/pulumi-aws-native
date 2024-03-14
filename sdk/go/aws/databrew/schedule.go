@@ -23,32 +23,33 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/databrew"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := databrew.NewSchedule(ctx, "testDataBrewSchedule", &databrew.ScheduleArgs{
-// JobNames: pulumi.StringArray{
-// pulumi.String("job-name"),
-// },
-// Name: pulumi.String("schedule-name"),
-// CronExpression: pulumi.String("cron(0 0/1 ? * * *)"),
-// Tags: aws.CreateOnlyTagArray{
-// &aws.CreateOnlyTagArgs{
-// Key: pulumi.String("key00AtCreate"),
-// Value: pulumi.String("value001AtCreate"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := databrew.NewSchedule(ctx, "testDataBrewSchedule", &databrew.ScheduleArgs{
+//				JobNames: pulumi.StringArray{
+//					pulumi.String("job-name"),
+//				},
+//				Name:           pulumi.String("schedule-name"),
+//				CronExpression: pulumi.String("cron(0 0/1 ? * * *)"),
+//				Tags: aws.CreateOnlyTagArray{
+//					&aws.CreateOnlyTagArgs{
+//						Key:   pulumi.String("key00AtCreate"),
+//						Value: pulumi.String("value001AtCreate"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Schedule struct {

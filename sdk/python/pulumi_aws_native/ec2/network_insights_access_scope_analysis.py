@@ -106,7 +106,7 @@ class NetworkInsightsAccessScopeAnalysis(pulumi.CustomResource):
             __props__.__dict__["start_date"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["network_insights_access_scope_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["networkInsightsAccessScopeId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkInsightsAccessScopeAnalysis, __self__).__init__(
             'aws-native:ec2:NetworkInsightsAccessScopeAnalysis',

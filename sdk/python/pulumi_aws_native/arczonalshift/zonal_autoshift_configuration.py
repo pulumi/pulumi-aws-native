@@ -112,7 +112,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
             __props__.__dict__["practice_run_configuration"] = practice_run_configuration
             __props__.__dict__["resource_identifier"] = resource_identifier
             __props__.__dict__["zonal_autoshift_status"] = zonal_autoshift_status
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ZonalAutoshiftConfiguration, __self__).__init__(
             'aws-native:arczonalshift:ZonalAutoshiftConfiguration',

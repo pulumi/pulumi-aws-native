@@ -223,7 +223,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             __props__.__dict__["unmanagedv_cpus"] = unmanagedv_cpus
             __props__.__dict__["update_policy"] = update_policy
             __props__.__dict__["compute_environment_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compute_environment_name", "compute_resources.spot_iam_fleet_role", "eks_configuration", "tags.*", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["computeEnvironmentName", "computeResources.spotIamFleetRole", "eksConfiguration", "tags.*", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ComputeEnvironment, __self__).__init__(
             'aws-native:batch:ComputeEnvironment',

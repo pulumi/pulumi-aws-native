@@ -171,7 +171,7 @@ class SafetyRule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["safety_rule_arn"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["control_panel_arn", "rule_config", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["controlPanelArn", "ruleConfig", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SafetyRule, __self__).__init__(
             'aws-native:route53recoverycontrol:SafetyRule',

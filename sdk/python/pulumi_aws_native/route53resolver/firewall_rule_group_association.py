@@ -198,7 +198,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
             __props__.__dict__["modification_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewall_rule_group_id", "vpc_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["firewallRuleGroupId", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FirewallRuleGroupAssociation, __self__).__init__(
             'aws-native:route53resolver:FirewallRuleGroupAssociation',

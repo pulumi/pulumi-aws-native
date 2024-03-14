@@ -382,7 +382,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["throughput_mode"] = throughput_mode
             __props__.__dict__["arn"] = None
             __props__.__dict__["file_system_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone_name", "encrypted", "kms_key_id", "performance_mode"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZoneName", "encrypted", "kmsKeyId", "performanceMode"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FileSystem, __self__).__init__(
             'aws-native:efs:FileSystem',

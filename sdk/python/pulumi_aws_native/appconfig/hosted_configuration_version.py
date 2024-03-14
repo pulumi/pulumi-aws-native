@@ -209,7 +209,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             __props__.__dict__["latest_version_number"] = latest_version_number
             __props__.__dict__["version_label"] = version_label
             __props__.__dict__["version_number"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id", "configuration_profile_id", "content", "content_type", "description", "latest_version_number", "version_label"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationId", "configurationProfileId", "content", "contentType", "description", "latestVersionNumber", "versionLabel"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(HostedConfigurationVersion, __self__).__init__(
             'aws-native:appconfig:HostedConfigurationVersion',

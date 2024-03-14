@@ -22,30 +22,31 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ivschat"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// room, err := ivschat.NewRoom(ctx, "room", &ivschat.RoomArgs{
-// Name: pulumi.String("MyRoom"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("MyKey"),
-// Value: pulumi.String("MyValue"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("roomArn", room.ID())
-// ctx.Export("roomId", room.ID())
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			room, err := ivschat.NewRoom(ctx, "room", &ivschat.RoomArgs{
+//				Name: pulumi.String("MyRoom"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("MyKey"),
+//						Value: pulumi.String("MyValue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("roomArn", room.ID())
+//			ctx.Export("roomId", room.ID())
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -55,30 +56,31 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ivschat"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// room, err := ivschat.NewRoom(ctx, "room", &ivschat.RoomArgs{
-// Name: pulumi.String("MyRoom"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("MyKey"),
-// Value: pulumi.String("MyValue"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("roomArn", room.ID())
-// ctx.Export("roomId", room.ID())
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			room, err := ivschat.NewRoom(ctx, "room", &ivschat.RoomArgs{
+//				Name: pulumi.String("MyRoom"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("MyKey"),
+//						Value: pulumi.String("MyValue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("roomArn", room.ID())
+//			ctx.Export("roomId", room.ID())
+//			return nil
+//		})
+//	}
 //
 // ```
 type Room struct {

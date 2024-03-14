@@ -923,7 +923,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["time_to_live_specification"] = time_to_live_specification
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["import_source_specification", "table_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["importSourceSpecification", "tableName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Table, __self__).__init__(
             'aws-native:dynamodb:Table',

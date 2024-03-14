@@ -110,7 +110,7 @@ class CarrierGateway(pulumi.CustomResource):
             __props__.__dict__["carrier_gateway_id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["vpc_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CarrierGateway, __self__).__init__(
             'aws-native:ec2:CarrierGateway',

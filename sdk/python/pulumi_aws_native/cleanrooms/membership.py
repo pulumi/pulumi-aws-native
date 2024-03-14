@@ -155,7 +155,7 @@ class Membership(pulumi.CustomResource):
             __props__.__dict__["collaboration_arn"] = None
             __props__.__dict__["collaboration_creator_account_id"] = None
             __props__.__dict__["membership_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collaboration_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collaborationIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Membership, __self__).__init__(
             'aws-native:cleanrooms:Membership',

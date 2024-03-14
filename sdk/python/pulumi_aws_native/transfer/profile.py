@@ -151,7 +151,7 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["profile_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["profile_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["profileType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Profile, __self__).__init__(
             'aws-native:transfer:Profile',

@@ -22,45 +22,46 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ivs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// channel, err := ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
-// Name: pulumi.String("MyChannel"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("MyKey"),
-// Value: pulumi.String("MyValue"),
-// },
-// },
-// InsecureIngest: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
-// ChannelArn: channel.ID(),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("MyKey"),
-// Value: pulumi.String("MyValue"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("channelArn", channel.ID())
-// ctx.Export("channelIngestEndpoint", channel.IngestEndpoint)
-// ctx.Export("channelPlaybackUrl", channel.PlaybackUrl)
-// ctx.Export("streamKeyArn", streamKey.ID())
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			channel, err := ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
+//				Name: pulumi.String("MyChannel"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("MyKey"),
+//						Value: pulumi.String("MyValue"),
+//					},
+//				},
+//				InsecureIngest: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
+//				ChannelArn: channel.ID(),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("MyKey"),
+//						Value: pulumi.String("MyValue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("channelArn", channel.ID())
+//			ctx.Export("channelIngestEndpoint", channel.IngestEndpoint)
+//			ctx.Export("channelPlaybackUrl", channel.PlaybackUrl)
+//			ctx.Export("streamKeyArn", streamKey.ID())
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -70,45 +71,46 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ivs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// channel, err := ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
-// Name: pulumi.String("MyChannel"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("MyKey"),
-// Value: pulumi.String("MyValue"),
-// },
-// },
-// InsecureIngest: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
-// ChannelArn: channel.ID(),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("MyKey"),
-// Value: pulumi.String("MyValue"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("channelArn", channel.ID())
-// ctx.Export("channelIngestEndpoint", channel.IngestEndpoint)
-// ctx.Export("channelPlaybackUrl", channel.PlaybackUrl)
-// ctx.Export("streamKeyArn", streamKey.ID())
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			channel, err := ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
+//				Name: pulumi.String("MyChannel"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("MyKey"),
+//						Value: pulumi.String("MyValue"),
+//					},
+//				},
+//				InsecureIngest: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
+//				ChannelArn: channel.ID(),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("MyKey"),
+//						Value: pulumi.String("MyValue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("channelArn", channel.ID())
+//			ctx.Export("channelIngestEndpoint", channel.IngestEndpoint)
+//			ctx.Export("channelPlaybackUrl", channel.PlaybackUrl)
+//			ctx.Export("streamKeyArn", streamKey.ID())
+//			return nil
+//		})
+//	}
 //
 // ```
 type Channel struct {

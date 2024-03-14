@@ -139,7 +139,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
             __props__.__dict__["organization_aggregation_source"] = organization_aggregation_source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["configuration_aggregator_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration_aggregator_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configurationAggregatorName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConfigurationAggregator, __self__).__init__(
             'aws-native:configuration:ConfigurationAggregator',

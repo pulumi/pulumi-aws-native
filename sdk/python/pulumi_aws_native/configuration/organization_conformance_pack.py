@@ -258,7 +258,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
             __props__.__dict__["organization_conformance_pack_name"] = organization_conformance_pack_name
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_s3_uri"] = template_s3_uri
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["organization_conformance_pack_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["organizationConformancePackName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OrganizationConformancePack, __self__).__init__(
             'aws-native:configuration:OrganizationConformancePack',

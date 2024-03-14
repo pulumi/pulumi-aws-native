@@ -108,7 +108,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
             __props__.__dict__["trust_store_arn"] = trust_store_arn
             __props__.__dict__["revocation_id"] = None
             __props__.__dict__["trust_store_revocations"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["revocation_contents[*]", "trust_store_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["revocationContents[*]", "trustStoreArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TrustStoreRevocation, __self__).__init__(
             'aws-native:elasticloadbalancingv2:TrustStoreRevocation',

@@ -117,7 +117,7 @@ class SoftwarePackage(pulumi.CustomResource):
             __props__.__dict__["package_name"] = package_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["package_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["package_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["packageName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SoftwarePackage, __self__).__init__(
             'aws-native:iot:SoftwarePackage',

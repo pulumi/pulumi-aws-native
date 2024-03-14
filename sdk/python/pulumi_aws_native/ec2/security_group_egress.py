@@ -279,7 +279,7 @@ class SecurityGroupEgress(pulumi.CustomResource):
             __props__.__dict__["ip_protocol"] = ip_protocol
             __props__.__dict__["to_port"] = to_port
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidr_ip", "cidr_ipv6", "destination_prefix_list_id", "destination_security_group_id", "from_port", "group_id", "ip_protocol", "to_port"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidrIp", "cidrIpv6", "destinationPrefixListId", "destinationSecurityGroupId", "fromPort", "groupId", "ipProtocol", "toPort"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityGroupEgress, __self__).__init__(
             'aws-native:ec2:SecurityGroupEgress',

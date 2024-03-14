@@ -145,7 +145,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             __props__.__dict__["rules_package_arns"] = rules_package_arns
             __props__.__dict__["user_attributes_for_findings"] = user_attributes_for_findings
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assessment_target_arn", "assessment_template_name", "duration_in_seconds", "rules_package_arns[*]", "user_attributes_for_findings[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assessmentTargetArn", "assessmentTemplateName", "durationInSeconds", "rulesPackageArns[*]", "userAttributesForFindings[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AssessmentTemplate, __self__).__init__(
             'aws-native:inspector:AssessmentTemplate',

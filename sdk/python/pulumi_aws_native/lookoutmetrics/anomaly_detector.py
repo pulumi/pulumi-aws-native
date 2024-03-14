@@ -170,7 +170,7 @@ class AnomalyDetector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'metric_set_list'")
             __props__.__dict__["metric_set_list"] = metric_set_list
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["anomaly_detector_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["anomalyDetectorName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnomalyDetector, __self__).__init__(
             'aws-native:lookoutmetrics:AnomalyDetector',

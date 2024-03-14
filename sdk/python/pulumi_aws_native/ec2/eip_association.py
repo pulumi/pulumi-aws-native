@@ -165,7 +165,7 @@ class EipAssociation(pulumi.CustomResource):
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["private_ip_address"] = private_ip_address
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocation_id", "eip", "instance_id", "network_interface_id", "private_ip_address"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocationId", "eip", "instanceId", "networkInterfaceId", "privateIpAddress"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EipAssociation, __self__).__init__(
             'aws-native:ec2:EipAssociation',

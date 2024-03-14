@@ -157,7 +157,7 @@ class GroupPolicy(pulumi.CustomResource):
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["group_name", "policy_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["groupName", "policyName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GroupPolicy, __self__).__init__(
             'aws-native:iam:GroupPolicy',

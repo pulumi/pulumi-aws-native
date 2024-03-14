@@ -167,7 +167,7 @@ class Protection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["protection_arn"] = None
             __props__.__dict__["protection_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "resource_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "resourceArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Protection, __self__).__init__(
             'aws-native:shield:Protection',

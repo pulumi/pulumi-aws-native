@@ -147,7 +147,7 @@ class PreparedStatement(pulumi.CustomResource):
             if work_group is None and not opts.urn:
                 raise TypeError("Missing required property 'work_group'")
             __props__.__dict__["work_group"] = work_group
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["statement_name", "work_group"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["statementName", "workGroup"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PreparedStatement, __self__).__init__(
             'aws-native:athena:PreparedStatement',

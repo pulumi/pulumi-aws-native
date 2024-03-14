@@ -236,7 +236,7 @@ class Vpc(pulumi.CustomResource):
             __props__.__dict__["default_security_group"] = None
             __props__.__dict__["ipv6_cidr_blocks"] = None
             __props__.__dict__["vpc_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidr_block", "ipv4_ipam_pool_id", "ipv4_netmask_length"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Vpc, __self__).__init__(
             'aws-native:ec2:Vpc',

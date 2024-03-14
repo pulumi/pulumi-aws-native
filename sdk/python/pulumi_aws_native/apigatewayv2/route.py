@@ -315,7 +315,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["route_response_selection_expression"] = route_response_selection_expression
             __props__.__dict__["target"] = target
             __props__.__dict__["route_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apiId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Route, __self__).__init__(
             'aws-native:apigatewayv2:Route',

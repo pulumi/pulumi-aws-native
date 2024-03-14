@@ -128,7 +128,7 @@ class DirectoryBucket(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location_name'")
             __props__.__dict__["location_name"] = location_name
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket_name", "data_redundancy", "location_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucketName", "dataRedundancy", "locationName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DirectoryBucket, __self__).__init__(
             'aws-native:s3express:DirectoryBucket',

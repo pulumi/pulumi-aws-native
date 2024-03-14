@@ -248,7 +248,7 @@ class NetworkProfile(pulumi.CustomResource):
             __props__.__dict__["uplink_jitter_ms"] = uplink_jitter_ms
             __props__.__dict__["uplink_loss_percent"] = uplink_loss_percent
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["project_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["projectArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkProfile, __self__).__init__(
             'aws-native:devicefarm:NetworkProfile',

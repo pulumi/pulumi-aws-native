@@ -238,7 +238,7 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["ssl_policy"] = ssl_policy
             __props__.__dict__["listener_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["load_balancer_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["loadBalancerArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Listener, __self__).__init__(
             'aws-native:elasticloadbalancingv2:Listener',

@@ -167,7 +167,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["identity_provider_config_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_name", "identity_provider_config_name", "oidc", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterName", "identityProviderConfigName", "oidc", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IdentityProviderConfig, __self__).__init__(
             'aws-native:eks:IdentityProviderConfig',

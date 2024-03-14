@@ -133,7 +133,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_group_name", "channel_name", "origin_endpoint_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName", "channelName", "originEndpointName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OriginEndpointPolicy, __self__).__init__(
             'aws-native:mediapackagev2:OriginEndpointPolicy',

@@ -231,7 +231,7 @@ class LocationS3(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["s3_bucket_arn", "s3_config", "s3_storage_class", "subdirectory"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["s3BucketArn", "s3Config", "s3StorageClass", "subdirectory"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocationS3, __self__).__init__(
             'aws-native:datasync:LocationS3',

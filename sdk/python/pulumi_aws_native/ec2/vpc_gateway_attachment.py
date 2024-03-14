@@ -126,7 +126,7 @@ class VpcGatewayAttachment(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
             __props__.__dict__["attachment_type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["vpc_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcGatewayAttachment, __self__).__init__(
             'aws-native:ec2:VpcGatewayAttachment',

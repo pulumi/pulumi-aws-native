@@ -290,7 +290,7 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workgroup_name"] = workgroup_name
             __props__.__dict__["workgroup"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["namespace_name", "workgroup_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["namespaceName", "workgroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workgroup, __self__).__init__(
             'aws-native:redshiftserverless:Workgroup',

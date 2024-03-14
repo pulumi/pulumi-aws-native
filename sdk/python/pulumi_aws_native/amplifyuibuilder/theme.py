@@ -159,7 +159,7 @@ class Theme(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_id", "environment_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appId", "environmentName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Theme, __self__).__init__(
             'aws-native:amplifyuibuilder:Theme',

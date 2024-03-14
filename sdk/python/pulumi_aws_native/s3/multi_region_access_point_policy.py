@@ -115,7 +115,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
             __props__.__dict__["policy_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["mrap_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["mrapName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MultiRegionAccessPointPolicy, __self__).__init__(
             'aws-native:s3:MultiRegionAccessPointPolicy',

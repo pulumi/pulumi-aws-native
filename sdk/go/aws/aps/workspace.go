@@ -22,28 +22,29 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/aps"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := aps.NewWorkspace(ctx, "apsWorkspace", &aps.WorkspaceArgs{
-// Alias: pulumi.String("TestWorkspace"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("BusinessPurpose"),
-// Value: pulumi.String("LoadTesting"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aps.NewWorkspace(ctx, "apsWorkspace", &aps.WorkspaceArgs{
+//				Alias: pulumi.String("TestWorkspace"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("BusinessPurpose"),
+//						Value: pulumi.String("LoadTesting"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -53,31 +54,32 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/aps"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := aps.NewWorkspace(ctx, "apsWorkspace", &aps.WorkspaceArgs{
-// Alias: pulumi.String("TestWorkspace"),
-// LoggingConfiguration: &aps.WorkspaceLoggingConfigurationArgs{
-// LogGroupArn: pulumi.String("arn:aws:logs:{region}:{account}:log-group:test-log-group:*"),
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("BusinessPurpose"),
-// Value: pulumi.String("LoadTesting"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aps.NewWorkspace(ctx, "apsWorkspace", &aps.WorkspaceArgs{
+//				Alias: pulumi.String("TestWorkspace"),
+//				LoggingConfiguration: &aps.WorkspaceLoggingConfigurationArgs{
+//					LogGroupArn: pulumi.String("arn:aws:logs:{region}:{account}:log-group:test-log-group:*"),
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("BusinessPurpose"),
+//						Value: pulumi.String("LoadTesting"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -87,31 +89,32 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/aps"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := aps.NewWorkspace(ctx, "apsWorkspace", &aps.WorkspaceArgs{
-// Alias: pulumi.String("TestWorkspace"),
-// LoggingConfiguration: &aps.WorkspaceLoggingConfigurationArgs{
-// LogGroupArn: pulumi.String("arn:aws:logs:{region}:{account}:log-group:test-log-group:*"),
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("BusinessPurpose"),
-// Value: pulumi.String("LoadTesting"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aps.NewWorkspace(ctx, "apsWorkspace", &aps.WorkspaceArgs{
+//				Alias: pulumi.String("TestWorkspace"),
+//				LoggingConfiguration: &aps.WorkspaceLoggingConfigurationArgs{
+//					LogGroupArn: pulumi.String("arn:aws:logs:{region}:{account}:log-group:test-log-group:*"),
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("BusinessPurpose"),
+//						Value: pulumi.String("LoadTesting"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Workspace struct {

@@ -518,7 +518,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["target_group_arns"] = target_group_arns
             __props__.__dict__["termination_policies"] = termination_policies
             __props__.__dict__["vpc_zone_identifier"] = vpc_zone_identifier
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auto_scaling_group_name", "instance_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupName", "instanceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AutoScalingGroup, __self__).__init__(
             'aws-native:autoscaling:AutoScalingGroup',

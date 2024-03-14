@@ -126,7 +126,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["compute_platform"] = compute_platform
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name", "compute_platform"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationName", "computePlatform"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:codedeploy:Application',

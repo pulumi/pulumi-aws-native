@@ -210,7 +210,7 @@ class AccessGrant(pulumi.CustomResource):
             __props__.__dict__["access_grant_arn"] = None
             __props__.__dict__["access_grant_id"] = None
             __props__.__dict__["grant_scope"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["s3_prefix_type", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["s3PrefixType", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessGrant, __self__).__init__(
             'aws-native:s3:AccessGrant',

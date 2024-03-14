@@ -23,32 +23,33 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := connect.NewContactFlow(ctx, "flow", &connect.ContactFlowArgs{
-// Name: pulumi.String("ExampleFlow"),
-// Description: pulumi.String("flow created using cfn"),
-// InstanceArn: pulumi.String("arn:aws:connect:region-name:aws-account-id:instance/instance-arn"),
-// Type: connect.ContactFlowTypeContactFlow,
-// Content: pulumi.String("ExampleFlow content(JSON) using Amazon Connect Flow Language."),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("testkey"),
-// Value: pulumi.String("testValue"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewContactFlow(ctx, "flow", &connect.ContactFlowArgs{
+//				Name:        pulumi.String("ExampleFlow"),
+//				Description: pulumi.String("flow created using cfn"),
+//				InstanceArn: pulumi.String("arn:aws:connect:region-name:aws-account-id:instance/instance-arn"),
+//				Type:        connect.ContactFlowTypeContactFlow,
+//				Content:     pulumi.String("ExampleFlow content(JSON) using Amazon Connect Flow Language."),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("testkey"),
+//						Value: pulumi.String("testValue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type ContactFlow struct {

@@ -260,7 +260,7 @@ class Graph(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["graph_arn"] = None
             __props__.__dict__["graph_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["graph_name", "replica_count", "vector_search_configuration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["graphName", "replicaCount", "vectorSearchConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Graph, __self__).__init__(
             'aws-native:neptunegraph:Graph',

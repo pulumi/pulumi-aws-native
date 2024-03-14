@@ -140,7 +140,7 @@ class ReferenceStore(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["reference_store_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "name", "sse_config", "tags.*"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "name", "sseConfig", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReferenceStore, __self__).__init__(
             'aws-native:omics:ReferenceStore',

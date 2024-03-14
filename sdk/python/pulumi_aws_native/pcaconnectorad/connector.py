@@ -130,7 +130,7 @@ class Connector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_information'")
             __props__.__dict__["vpc_information"] = vpc_information
             __props__.__dict__["connector_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_authority_arn", "directory_id", "vpc_information"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificateAuthorityArn", "directoryId", "vpcInformation"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connector, __self__).__init__(
             'aws-native:pcaconnectorad:Connector',

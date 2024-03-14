@@ -176,7 +176,7 @@ class Discoverer(pulumi.CustomResource):
             __props__.__dict__["discoverer_arn"] = None
             __props__.__dict__["discoverer_id"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["source_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["sourceArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Discoverer, __self__).__init__(
             'aws-native:eventschemas:Discoverer',

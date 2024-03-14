@@ -201,7 +201,7 @@ class BotAlias(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["bot_alias_id"] = None
             __props__.__dict__["bot_alias_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bot_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["botId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BotAlias, __self__).__init__(
             'aws-native:lex:BotAlias',

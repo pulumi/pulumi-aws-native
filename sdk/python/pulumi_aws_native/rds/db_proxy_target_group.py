@@ -155,7 +155,7 @@ class DbProxyTargetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_group_name'")
             __props__.__dict__["target_group_name"] = target_group_name
             __props__.__dict__["target_group_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["db_proxy_name", "target_group_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dbProxyName", "targetGroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbProxyTargetGroup, __self__).__init__(
             'aws-native:rds:DbProxyTargetGroup',

@@ -169,7 +169,7 @@ class AutoScalingConfiguration(pulumi.CustomResource):
             __props__.__dict__["auto_scaling_configuration_arn"] = None
             __props__.__dict__["auto_scaling_configuration_revision"] = None
             __props__.__dict__["latest"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auto_scaling_configuration_name", "max_concurrency", "max_size", "min_size", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingConfigurationName", "maxConcurrency", "maxSize", "minSize", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AutoScalingConfiguration, __self__).__init__(
             'aws-native:apprunner:AutoScalingConfiguration',

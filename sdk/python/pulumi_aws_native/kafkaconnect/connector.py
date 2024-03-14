@@ -286,7 +286,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
             __props__.__dict__["worker_configuration"] = worker_configuration
             __props__.__dict__["connector_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_configuration.*", "connector_description", "connector_name", "kafka_cluster", "kafka_cluster_client_authentication", "kafka_cluster_encryption_in_transit", "kafka_connect_version", "log_delivery", "plugins[*]", "service_execution_role_arn", "worker_configuration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectorConfiguration.*", "connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connector, __self__).__init__(
             'aws-native:kafkaconnect:Connector',

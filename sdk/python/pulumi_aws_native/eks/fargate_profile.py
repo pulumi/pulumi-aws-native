@@ -182,7 +182,7 @@ class FargateProfile(pulumi.CustomResource):
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_name", "fargate_profile_name", "pod_execution_role_arn", "selectors[*]", "subnets[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterName", "fargateProfileName", "podExecutionRoleArn", "selectors[*]", "subnets[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FargateProfile, __self__).__init__(
             'aws-native:eks:FargateProfile',

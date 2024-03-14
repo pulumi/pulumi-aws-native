@@ -147,7 +147,7 @@ class EnabledBaseline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_identifier'")
             __props__.__dict__["target_identifier"] = target_identifier
             __props__.__dict__["enabled_baseline_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["baseline_identifier", "target_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["baselineIdentifier", "targetIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EnabledBaseline, __self__).__init__(
             'aws-native:controltower:EnabledBaseline',

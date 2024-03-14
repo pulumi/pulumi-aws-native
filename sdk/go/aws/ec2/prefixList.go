@@ -23,40 +23,41 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ec2.NewPrefixList(ctx, "newPrefixList", &ec2.PrefixListArgs{
-// PrefixListName: pulumi.String("vpc-1-servers"),
-// AddressFamily: ec2.PrefixListAddressFamilyIPv4,
-// MaxEntries: pulumi.Int(10),
-// Entries: ec2.PrefixListEntryArray{
-// &ec2.PrefixListEntryArgs{
-// Cidr: pulumi.String("10.0.0.5/32"),
-// Description: pulumi.String("Server 1"),
-// },
-// &ec2.PrefixListEntryArgs{
-// Cidr: pulumi.String("10.0.0.10/32"),
-// Description: pulumi.String("Server 2"),
-// },
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Name"),
-// Value: pulumi.String("VPC-1-Servers"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewPrefixList(ctx, "newPrefixList", &ec2.PrefixListArgs{
+//				PrefixListName: pulumi.String("vpc-1-servers"),
+//				AddressFamily:  ec2.PrefixListAddressFamilyIPv4,
+//				MaxEntries:     pulumi.Int(10),
+//				Entries: ec2.PrefixListEntryArray{
+//					&ec2.PrefixListEntryArgs{
+//						Cidr:        pulumi.String("10.0.0.5/32"),
+//						Description: pulumi.String("Server 1"),
+//					},
+//					&ec2.PrefixListEntryArgs{
+//						Cidr:        pulumi.String("10.0.0.10/32"),
+//						Description: pulumi.String("Server 2"),
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Name"),
+//						Value: pulumi.String("VPC-1-Servers"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -66,40 +67,41 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ec2.NewPrefixList(ctx, "newPrefixList", &ec2.PrefixListArgs{
-// PrefixListName: pulumi.String("vpc-1-servers"),
-// AddressFamily: ec2.PrefixListAddressFamilyIPv4,
-// MaxEntries: pulumi.Int(10),
-// Entries: ec2.PrefixListEntryArray{
-// &ec2.PrefixListEntryArgs{
-// Cidr: pulumi.String("10.0.0.5/32"),
-// Description: pulumi.String("Server 1"),
-// },
-// &ec2.PrefixListEntryArgs{
-// Cidr: pulumi.String("10.0.0.10/32"),
-// Description: pulumi.String("Server 2"),
-// },
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Name"),
-// Value: pulumi.String("VPC-1-Servers"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewPrefixList(ctx, "newPrefixList", &ec2.PrefixListArgs{
+//				PrefixListName: pulumi.String("vpc-1-servers"),
+//				AddressFamily:  ec2.PrefixListAddressFamilyIPv4,
+//				MaxEntries:     pulumi.Int(10),
+//				Entries: ec2.PrefixListEntryArray{
+//					&ec2.PrefixListEntryArgs{
+//						Cidr:        pulumi.String("10.0.0.5/32"),
+//						Description: pulumi.String("Server 1"),
+//					},
+//					&ec2.PrefixListEntryArgs{
+//						Cidr:        pulumi.String("10.0.0.10/32"),
+//						Description: pulumi.String("Server 2"),
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Name"),
+//						Value: pulumi.String("VPC-1-Servers"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type PrefixList struct {

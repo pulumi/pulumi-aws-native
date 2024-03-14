@@ -218,7 +218,7 @@ class DetectorModel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_model_name", "key"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detectorModelName", "key"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DetectorModel, __self__).__init__(
             'aws-native:iotevents:DetectorModel',

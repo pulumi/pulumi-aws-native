@@ -260,7 +260,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["registered_devices_count"] = None
             __props__.__dict__["software_set_compliance_status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["desktop_arn", "kms_key_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["desktopArn", "kmsKeyArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:workspacesthinclient:Environment',

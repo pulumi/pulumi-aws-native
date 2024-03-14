@@ -168,7 +168,7 @@ class Build(pulumi.CustomResource):
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["version"] = version
             __props__.__dict__["build_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["operating_system", "server_sdk_version", "storage_location"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["operatingSystem", "serverSdkVersion", "storageLocation"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Build, __self__).__init__(
             'aws-native:gamelift:Build',

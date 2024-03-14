@@ -134,7 +134,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
             __props__.__dict__["transit_gateway_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["options", "transport_transit_gateway_attachment_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["options", "transportTransitGatewayAttachmentId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayConnect, __self__).__init__(
             'aws-native:ec2:TransitGatewayConnect',

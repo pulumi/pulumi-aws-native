@@ -23,38 +23,39 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/emrcontainers"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := emrcontainers.NewVirtualCluster(ctx, "testVirtualCluster", &emrcontainers.VirtualClusterArgs{
-// Name: pulumi.String("VirtualClusterName"),
-// ContainerProvider: &emrcontainers.VirtualClusterContainerProviderArgs{
-// Type: pulumi.String("EKS"),
-// Id: pulumi.String("EKSClusterName"),
-// Info: &emrcontainers.VirtualClusterContainerInfoArgs{
-// EksInfo: &emrcontainers.VirtualClusterEksInfoArgs{
-// Namespace: pulumi.String("EKSNamespace"),
-// },
-// },
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Key1"),
-// Value: pulumi.String("Value1"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("primaryId", nil)
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emrcontainers.NewVirtualCluster(ctx, "testVirtualCluster", &emrcontainers.VirtualClusterArgs{
+//				Name: pulumi.String("VirtualClusterName"),
+//				ContainerProvider: &emrcontainers.VirtualClusterContainerProviderArgs{
+//					Type: pulumi.String("EKS"),
+//					Id:   pulumi.String("EKSClusterName"),
+//					Info: &emrcontainers.VirtualClusterContainerInfoArgs{
+//						EksInfo: &emrcontainers.VirtualClusterEksInfoArgs{
+//							Namespace: pulumi.String("EKSNamespace"),
+//						},
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Key1"),
+//						Value: pulumi.String("Value1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("primaryId", nil)
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -64,38 +65,39 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/emrcontainers"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// testVirtualCluster, err := emrcontainers.NewVirtualCluster(ctx, "testVirtualCluster", &emrcontainers.VirtualClusterArgs{
-// Name: pulumi.String("VirtualClusterName"),
-// ContainerProvider: &emrcontainers.VirtualClusterContainerProviderArgs{
-// Type: pulumi.String("EKS"),
-// Id: pulumi.String("EKSClusterName"),
-// Info: &emrcontainers.VirtualClusterContainerInfoArgs{
-// EksInfo: &emrcontainers.VirtualClusterEksInfoArgs{
-// Namespace: pulumi.String("EKSNamespace"),
-// },
-// },
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Key1"),
-// Value: pulumi.String("Value1"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("primaryId", testVirtualCluster.ID())
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testVirtualCluster, err := emrcontainers.NewVirtualCluster(ctx, "testVirtualCluster", &emrcontainers.VirtualClusterArgs{
+//				Name: pulumi.String("VirtualClusterName"),
+//				ContainerProvider: &emrcontainers.VirtualClusterContainerProviderArgs{
+//					Type: pulumi.String("EKS"),
+//					Id:   pulumi.String("EKSClusterName"),
+//					Info: &emrcontainers.VirtualClusterContainerInfoArgs{
+//						EksInfo: &emrcontainers.VirtualClusterEksInfoArgs{
+//							Namespace: pulumi.String("EKSNamespace"),
+//						},
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Key1"),
+//						Value: pulumi.String("Value1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("primaryId", testVirtualCluster.ID())
+//			return nil
+//		})
+//	}
 //
 // ```
 type VirtualCluster struct {

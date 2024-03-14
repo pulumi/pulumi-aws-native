@@ -103,7 +103,7 @@ class AuthPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_identifier'")
             __props__.__dict__["resource_identifier"] = resource_identifier
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AuthPolicy, __self__).__init__(
             'aws-native:vpclattice:AuthPolicy',

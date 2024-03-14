@@ -209,7 +209,7 @@ class VpcConnection(pulumi.CustomResource):
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["vpc_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_account_id", "vpc_connection_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["awsAccountId", "vpcConnectionId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcConnection, __self__).__init__(
             'aws-native:quicksight:VpcConnection',

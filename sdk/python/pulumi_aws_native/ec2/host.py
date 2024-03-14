@@ -226,7 +226,7 @@ class Host(pulumi.CustomResource):
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["outpost_arn"] = outpost_arn
             __props__.__dict__["host_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["asset_id", "availability_zone", "instance_family", "instance_type", "outpost_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assetId", "availabilityZone", "instanceFamily", "instanceType", "outpostArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Host, __self__).__init__(
             'aws-native:ec2:Host',

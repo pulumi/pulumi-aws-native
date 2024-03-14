@@ -165,7 +165,7 @@ class FhirDatastore(pulumi.CustomResource):
             __props__.__dict__["datastore_endpoint"] = None
             __props__.__dict__["datastore_id"] = None
             __props__.__dict__["datastore_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastore_name", "datastore_type_version", "identity_provider_configuration", "preload_data_config", "sse_configuration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastoreName", "datastoreTypeVersion", "identityProviderConfiguration", "preloadDataConfig", "sseConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FhirDatastore, __self__).__init__(
             'aws-native:healthlake:FhirDatastore',

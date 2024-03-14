@@ -310,7 +310,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["tier"] = tier
             __props__.__dict__["version_label"] = version_label
             __props__.__dict__["endpoint_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name", "cname_prefix", "environment_name", "solution_stack_name", "tier.name", "tier.type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationName", "cnamePrefix", "environmentName", "solutionStackName", "tier.name", "tier.type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:elasticbeanstalk:Environment',

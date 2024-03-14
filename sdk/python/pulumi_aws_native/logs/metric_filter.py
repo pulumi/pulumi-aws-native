@@ -150,7 +150,7 @@ class MetricFilter(pulumi.CustomResource):
             if metric_transformations is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_transformations'")
             __props__.__dict__["metric_transformations"] = metric_transformations
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["filter_name", "log_group_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["filterName", "logGroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MetricFilter, __self__).__init__(
             'aws-native:logs:MetricFilter',

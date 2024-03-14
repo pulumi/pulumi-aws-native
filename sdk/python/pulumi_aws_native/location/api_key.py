@@ -199,7 +199,7 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["key_arn"] = None
             __props__.__dict__["update_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["key_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["keyName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApiKey, __self__).__init__(
             'aws-native:location:ApiKey',

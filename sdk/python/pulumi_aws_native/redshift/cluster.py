@@ -1148,7 +1148,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_namespace_arn"] = None
             __props__.__dict__["defer_maintenance_identifier"] = None
             __props__.__dict__["master_password_secret_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_identifier", "cluster_subnet_group_name", "db_name", "master_username", "owner_account", "snapshot_cluster_identifier", "snapshot_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterIdentifier", "clusterSubnetGroupName", "dbName", "masterUsername", "ownerAccount", "snapshotClusterIdentifier", "snapshotIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:redshift:Cluster',

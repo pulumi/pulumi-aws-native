@@ -437,7 +437,7 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["model_package_arn"] = None
             __props__.__dict__["model_package_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_token", "domain", "drift_check_baselines", "inference_specification", "metadata_properties", "model_metrics", "model_package_description", "model_package_group_name", "sample_payload_url", "source_algorithm_specification", "task", "validation_specification"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "domain", "driftCheckBaselines", "inferenceSpecification", "metadataProperties", "modelMetrics", "modelPackageDescription", "modelPackageGroupName", "samplePayloadUrl", "sourceAlgorithmSpecification", "task", "validationSpecification"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ModelPackage, __self__).__init__(
             'aws-native:sagemaker:ModelPackage',

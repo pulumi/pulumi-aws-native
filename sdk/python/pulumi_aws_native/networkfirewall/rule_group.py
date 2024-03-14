@@ -163,7 +163,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["rule_group_arn"] = None
             __props__.__dict__["rule_group_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["capacity", "rule_group_name", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["capacity", "ruleGroupName", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RuleGroup, __self__).__init__(
             'aws-native:networkfirewall:RuleGroup',

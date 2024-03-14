@@ -274,7 +274,7 @@ class TypeActivation(pulumi.CustomResource):
             __props__.__dict__["type_name_alias"] = type_name_alias
             __props__.__dict__["version_bump"] = version_bump
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["logging_config"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["loggingConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TypeActivation, __self__).__init__(
             'aws-native:cloudformation:TypeActivation',

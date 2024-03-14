@@ -484,7 +484,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["associate_public_ip_address", "backup_id", "custom_certificate", "custom_domain", "custom_private_key", "engine", "engine_model", "engine_version", "instance_profile_arn", "instance_type", "key_pair", "security_group_ids[*]", "server_name", "service_role_arn", "subnet_ids[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["associatePublicIpAddress", "backupId", "customCertificate", "customDomain", "customPrivateKey", "engine", "engineModel", "engineVersion", "instanceProfileArn", "instanceType", "keyPair", "securityGroupIds[*]", "serverName", "serviceRoleArn", "subnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Server, __self__).__init__(
             'aws-native:opsworkscm:Server',

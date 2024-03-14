@@ -392,7 +392,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["saml_configuration_status"] = None
             __props__.__dict__["sso_client_id"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_token"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workspace, __self__).__init__(
             'aws-native:grafana:Workspace',

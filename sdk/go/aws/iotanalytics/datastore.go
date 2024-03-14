@@ -72,36 +72,37 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iotanalytics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewDatastore(ctx, "datastore", &iotanalytics.DatastoreArgs{
-// DatastoreName: pulumi.String("ComplexDatastore"),
-// RetentionPeriod: &iotanalytics.DatastoreRetentionPeriodArgs{
-// Unlimited: pulumi.Bool(false),
-// NumberOfDays: pulumi.Int(10),
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewDatastore(ctx, "datastore", &iotanalytics.DatastoreArgs{
+//				DatastoreName: pulumi.String("ComplexDatastore"),
+//				RetentionPeriod: &iotanalytics.DatastoreRetentionPeriodArgs{
+//					Unlimited:    pulumi.Bool(false),
+//					NumberOfDays: pulumi.Int(10),
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -111,36 +112,37 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iotanalytics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewDatastore(ctx, "datastore", &iotanalytics.DatastoreArgs{
-// DatastoreName: pulumi.String("ComplexDatastore"),
-// RetentionPeriod: &iotanalytics.DatastoreRetentionPeriodArgs{
-// Unlimited: pulumi.Bool(false),
-// NumberOfDays: pulumi.Int(10),
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewDatastore(ctx, "datastore", &iotanalytics.DatastoreArgs{
+//				DatastoreName: pulumi.String("ComplexDatastore"),
+//				RetentionPeriod: &iotanalytics.DatastoreRetentionPeriodArgs{
+//					Unlimited:    pulumi.Bool(false),
+//					NumberOfDays: pulumi.Int(10),
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Datastore struct {

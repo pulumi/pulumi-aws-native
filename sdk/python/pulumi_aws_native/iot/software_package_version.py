@@ -151,7 +151,7 @@ class SoftwarePackageVersion(pulumi.CustomResource):
             __props__.__dict__["error_reason"] = None
             __props__.__dict__["package_version_arn"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["package_name", "version_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["packageName", "versionName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SoftwarePackageVersion, __self__).__init__(
             'aws-native:iot:SoftwarePackageVersion',

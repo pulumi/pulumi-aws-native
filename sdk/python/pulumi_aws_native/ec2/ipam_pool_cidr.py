@@ -127,7 +127,7 @@ class IpamPoolCidr(pulumi.CustomResource):
             __props__.__dict__["netmask_length"] = netmask_length
             __props__.__dict__["ipam_pool_cidr_id"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidr", "ipam_pool_id", "netmask_length"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidr", "ipamPoolId", "netmaskLength"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpamPoolCidr, __self__).__init__(
             'aws-native:ec2:IpamPoolCidr',

@@ -254,7 +254,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["monitor_arn"] = None
             __props__.__dict__["processing_status"] = None
             __props__.__dict__["processing_status_info"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["monitor_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["monitorName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Monitor, __self__).__init__(
             'aws-native:internetmonitor:Monitor',

@@ -211,7 +211,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
             __props__.__dict__["network_insights_path_arn"] = None
             __props__.__dict__["network_insights_path_id"] = None
             __props__.__dict__["source_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination", "destination_ip", "destination_port", "filter_at_destination", "filter_at_source", "protocol", "source", "source_ip"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination", "destinationIp", "destinationPort", "filterAtDestination", "filterAtSource", "protocol", "source", "sourceIp"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkInsightsPath, __self__).__init__(
             'aws-native:ec2:NetworkInsightsPath',

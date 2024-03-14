@@ -127,7 +127,7 @@ class ReadinessCheck(pulumi.CustomResource):
             __props__.__dict__["resource_set_name"] = resource_set_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["readiness_check_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["readiness_check_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["readinessCheckName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReadinessCheck, __self__).__init__(
             'aws-native:route53recoveryreadiness:ReadinessCheck',

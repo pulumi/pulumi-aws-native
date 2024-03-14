@@ -23,44 +23,45 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := connect.NewHoursOfOperation(ctx, "hoursOfOperation", &connect.HoursOfOperationArgs{
-// Name: pulumi.String("ExampleHoursOfOperation"),
-// Description: pulumi.String("hours of operation created using cfn"),
-// InstanceArn: pulumi.String("arn:aws:connect:region-name:aws-account-id:instance/instance-arn"),
-// TimeZone: pulumi.String("Pacific/Midway"),
-// Config: connect.HoursOfOperationConfigArray{
-// &connect.HoursOfOperationConfigArgs{
-// Day: connect.HoursOfOperationConfigDaySunday,
-// EndTime: &connect.HoursOfOperationTimeSliceArgs{
-// Hours: pulumi.Int(11),
-// Minutes: pulumi.Int(59),
-// },
-// StartTime: &connect.HoursOfOperationTimeSliceArgs{
-// Hours: pulumi.Int(10),
-// Minutes: pulumi.Int(1),
-// },
-// },
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("tagKey"),
-// Value: pulumi.String("tagValue"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewHoursOfOperation(ctx, "hoursOfOperation", &connect.HoursOfOperationArgs{
+//				Name:        pulumi.String("ExampleHoursOfOperation"),
+//				Description: pulumi.String("hours of operation created using cfn"),
+//				InstanceArn: pulumi.String("arn:aws:connect:region-name:aws-account-id:instance/instance-arn"),
+//				TimeZone:    pulumi.String("Pacific/Midway"),
+//				Config: connect.HoursOfOperationConfigArray{
+//					&connect.HoursOfOperationConfigArgs{
+//						Day: connect.HoursOfOperationConfigDaySunday,
+//						EndTime: &connect.HoursOfOperationTimeSliceArgs{
+//							Hours:   pulumi.Int(11),
+//							Minutes: pulumi.Int(59),
+//						},
+//						StartTime: &connect.HoursOfOperationTimeSliceArgs{
+//							Hours:   pulumi.Int(10),
+//							Minutes: pulumi.Int(1),
+//						},
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tagKey"),
+//						Value: pulumi.String("tagValue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type HoursOfOperation struct {

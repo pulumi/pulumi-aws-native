@@ -86,7 +86,7 @@ class OrganizationAdmin(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["graph_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["account_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accountId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OrganizationAdmin, __self__).__init__(
             'aws-native:detective:OrganizationAdmin',

@@ -219,7 +219,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["service_id"] = None
             __props__.__dict__["service_url"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["encryption_configuration", "service_name", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["encryptionConfiguration", "serviceName", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Service, __self__).__init__(
             'aws-native:apprunner:Service',

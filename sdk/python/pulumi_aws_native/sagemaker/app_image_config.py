@@ -149,7 +149,7 @@ class AppImageConfig(pulumi.CustomResource):
             __props__.__dict__["kernel_gateway_image_config"] = kernel_gateway_image_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["app_image_config_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_image_config_name", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appImageConfigName", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AppImageConfig, __self__).__init__(
             'aws-native:sagemaker:AppImageConfig',

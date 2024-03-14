@@ -135,7 +135,7 @@ class ThingType(pulumi.CustomResource):
             __props__.__dict__["thing_type_properties"] = thing_type_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["thing_type_name", "thing_type_properties"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["thingTypeName", "thingTypeProperties"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ThingType, __self__).__init__(
             'aws-native:iot:ThingType',

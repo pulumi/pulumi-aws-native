@@ -23,48 +23,49 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/databrew"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := databrew.NewRecipe(ctx, "testDataBrewRecipe", &databrew.RecipeArgs{
-// Name: pulumi.String("recipe-name"),
-// Description: pulumi.String("This is the recipe description."),
-// Steps: databrew.RecipeStepArray{
-// &databrew.RecipeStepArgs{
-// Action: &databrew.RecipeActionArgs{
-// Operation: pulumi.String("EXTRACT_PATTERN"),
-// Parameters: pulumi.Any{
-// SourceColumn: pulumi.String("Consulate"),
-// Pattern: pulumi.String("A"),
-// TargetColumn: pulumi.String("extract_pattern"),
-// },
-// },
-// ConditionExpressions: databrew.RecipeConditionExpressionArray{
-// &databrew.RecipeConditionExpressionArgs{
-// Condition: pulumi.String("LESS_THAN_EQUAL"),
-// Value: pulumi.String("5"),
-// TargetColumn: pulumi.String("Target"),
-// },
-// },
-// },
-// },
-// Tags: aws.CreateOnlyTagArray{
-// &aws.CreateOnlyTagArgs{
-// Key: pulumi.String("key00AtCreate"),
-// Value: pulumi.String("value001AtCreate"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := databrew.NewRecipe(ctx, "testDataBrewRecipe", &databrew.RecipeArgs{
+//				Name:        pulumi.String("recipe-name"),
+//				Description: pulumi.String("This is the recipe description."),
+//				Steps: databrew.RecipeStepArray{
+//					&databrew.RecipeStepArgs{
+//						Action: &databrew.RecipeActionArgs{
+//							Operation: pulumi.String("EXTRACT_PATTERN"),
+//							Parameters: pulumi.Any{
+//								SourceColumn: pulumi.String("Consulate"),
+//								Pattern:      pulumi.String("A"),
+//								TargetColumn: pulumi.String("extract_pattern"),
+//							},
+//						},
+//						ConditionExpressions: databrew.RecipeConditionExpressionArray{
+//							&databrew.RecipeConditionExpressionArgs{
+//								Condition:    pulumi.String("LESS_THAN_EQUAL"),
+//								Value:        pulumi.String("5"),
+//								TargetColumn: pulumi.String("Target"),
+//							},
+//						},
+//					},
+//				},
+//				Tags: aws.CreateOnlyTagArray{
+//					&aws.CreateOnlyTagArgs{
+//						Key:   pulumi.String("key00AtCreate"),
+//						Value: pulumi.String("value001AtCreate"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Recipe struct {

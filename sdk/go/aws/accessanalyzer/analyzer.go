@@ -23,54 +23,55 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/accessanalyzer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := accessanalyzer.NewAnalyzer(ctx, "analyzer", &accessanalyzer.AnalyzerArgs{
-// AnalyzerName: pulumi.String("DevAccountAnalyzer"),
-// ArchiveRules: accessanalyzer.AnalyzerArchiveRuleArray{
-// &accessanalyzer.AnalyzerArchiveRuleArgs{
-// Filter: []accessanalyzer.AnalyzerFilterArgs{
-// {
-// Eq: pulumi.StringArray{
-// pulumi.String("123456789012"),
-// },
-// Property: pulumi.String("principal.AWS"),
-// },
-// },
-// RuleName: pulumi.String("ArchiveTrustedAccountAccess"),
-// },
-// &accessanalyzer.AnalyzerArchiveRuleArgs{
-// Filter: []accessanalyzer.AnalyzerFilterArgs{
-// {
-// Contains: pulumi.StringArray{
-// pulumi.String("arn:aws:s3:::docs-bucket"),
-// pulumi.String("arn:aws:s3:::clients-bucket"),
-// },
-// Property: pulumi.String("resource"),
-// },
-// },
-// RuleName: pulumi.String("ArchivePublicS3BucketsAccess"),
-// },
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Kind"),
-// Value: pulumi.String("Dev"),
-// },
-// },
-// Type: pulumi.String("ACCOUNT"),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := accessanalyzer.NewAnalyzer(ctx, "analyzer", &accessanalyzer.AnalyzerArgs{
+//				AnalyzerName: pulumi.String("DevAccountAnalyzer"),
+//				ArchiveRules: accessanalyzer.AnalyzerArchiveRuleArray{
+//					&accessanalyzer.AnalyzerArchiveRuleArgs{
+//						Filter: []accessanalyzer.AnalyzerFilterArgs{
+//							{
+//								Eq: pulumi.StringArray{
+//									pulumi.String("123456789012"),
+//								},
+//								Property: pulumi.String("principal.AWS"),
+//							},
+//						},
+//						RuleName: pulumi.String("ArchiveTrustedAccountAccess"),
+//					},
+//					&accessanalyzer.AnalyzerArchiveRuleArgs{
+//						Filter: []accessanalyzer.AnalyzerFilterArgs{
+//							{
+//								Contains: pulumi.StringArray{
+//									pulumi.String("arn:aws:s3:::docs-bucket"),
+//									pulumi.String("arn:aws:s3:::clients-bucket"),
+//								},
+//								Property: pulumi.String("resource"),
+//							},
+//						},
+//						RuleName: pulumi.String("ArchivePublicS3BucketsAccess"),
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Kind"),
+//						Value: pulumi.String("Dev"),
+//					},
+//				},
+//				Type: pulumi.String("ACCOUNT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Analyzer struct {

@@ -25,55 +25,56 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// fsId := cfg.Require("fsId")
-// draIdExportName := cfg.Require("draIdExportName")
-// fileSystemPath := cfg.Require("fileSystemPath")
-// importedFileChunkSize := cfg.Require("importedFileChunkSize")
-// testDRA, err := fsx.NewDataRepositoryAssociation(ctx, "testDRA", &fsx.DataRepositoryAssociationArgs{
-// FileSystemId: pulumi.String(fsId),
-// FileSystemPath: pulumi.String(fileSystemPath),
-// DataRepositoryPath: pulumi.String("s3://example-bucket"),
-// BatchImportMetaDataOnCreate: pulumi.Bool(true),
-// ImportedFileChunkSize: pulumi.String(importedFileChunkSize),
-// S3: &fsx.DataRepositoryAssociationS3Args{
-// AutoImportPolicy: &fsx.DataRepositoryAssociationAutoImportPolicyArgs{
-// Events: fsx.DataRepositoryAssociationEventTypeArray{
-// fsx.DataRepositoryAssociationEventTypeNew,
-// fsx.DataRepositoryAssociationEventTypeChanged,
-// fsx.DataRepositoryAssociationEventTypeDeleted,
-// },
-// },
-// AutoExportPolicy: &fsx.DataRepositoryAssociationAutoExportPolicyArgs{
-// Events: fsx.DataRepositoryAssociationEventTypeArray{
-// fsx.DataRepositoryAssociationEventTypeNew,
-// fsx.DataRepositoryAssociationEventTypeChanged,
-// fsx.DataRepositoryAssociationEventTypeDeleted,
-// },
-// },
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Location"),
-// Value: pulumi.String("Boston"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("draId", testDRA.ID())
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			fsId := cfg.Require("fsId")
+//			draIdExportName := cfg.Require("draIdExportName")
+//			fileSystemPath := cfg.Require("fileSystemPath")
+//			importedFileChunkSize := cfg.Require("importedFileChunkSize")
+//			testDRA, err := fsx.NewDataRepositoryAssociation(ctx, "testDRA", &fsx.DataRepositoryAssociationArgs{
+//				FileSystemId:                pulumi.String(fsId),
+//				FileSystemPath:              pulumi.String(fileSystemPath),
+//				DataRepositoryPath:          pulumi.String("s3://example-bucket"),
+//				BatchImportMetaDataOnCreate: pulumi.Bool(true),
+//				ImportedFileChunkSize:       pulumi.String(importedFileChunkSize),
+//				S3: &fsx.DataRepositoryAssociationS3Args{
+//					AutoImportPolicy: &fsx.DataRepositoryAssociationAutoImportPolicyArgs{
+//						Events: fsx.DataRepositoryAssociationEventTypeArray{
+//							fsx.DataRepositoryAssociationEventTypeNew,
+//							fsx.DataRepositoryAssociationEventTypeChanged,
+//							fsx.DataRepositoryAssociationEventTypeDeleted,
+//						},
+//					},
+//					AutoExportPolicy: &fsx.DataRepositoryAssociationAutoExportPolicyArgs{
+//						Events: fsx.DataRepositoryAssociationEventTypeArray{
+//							fsx.DataRepositoryAssociationEventTypeNew,
+//							fsx.DataRepositoryAssociationEventTypeChanged,
+//							fsx.DataRepositoryAssociationEventTypeDeleted,
+//						},
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Location"),
+//						Value: pulumi.String("Boston"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("draId", testDRA.ID())
+//			return nil
+//		})
+//	}
 //
 // ```
 type DataRepositoryAssociation struct {

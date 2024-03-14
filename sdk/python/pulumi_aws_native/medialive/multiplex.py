@@ -176,7 +176,7 @@ class Multiplex(pulumi.CustomResource):
             __props__.__dict__["pipelines_running_count"] = None
             __props__.__dict__["program_count"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zones[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZones[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Multiplex, __self__).__init__(
             'aws-native:medialive:Multiplex',

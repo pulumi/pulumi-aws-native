@@ -848,7 +848,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["snap_start_response"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["function_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["functionName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Function, __self__).__init__(
             'aws-native:lambda:Function',

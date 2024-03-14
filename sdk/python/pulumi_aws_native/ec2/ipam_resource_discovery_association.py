@@ -136,7 +136,7 @@ class IpamResourceDiscoveryAssociation(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["resource_discovery_status"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipam_id", "ipam_resource_discovery_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipamId", "ipamResourceDiscoveryId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpamResourceDiscoveryAssociation, __self__).__init__(
             'aws-native:ec2:IpamResourceDiscoveryAssociation',

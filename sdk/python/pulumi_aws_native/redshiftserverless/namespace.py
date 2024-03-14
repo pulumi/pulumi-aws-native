@@ -375,7 +375,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["redshift_idc_application_arn"] = redshift_idc_application_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["namespace"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["namespace_name", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["namespaceName", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Namespace, __self__).__init__(
             'aws-native:redshiftserverless:Namespace',

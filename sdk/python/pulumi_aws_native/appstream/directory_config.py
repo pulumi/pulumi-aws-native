@@ -129,7 +129,7 @@ class DirectoryConfig(pulumi.CustomResource):
             if service_account_credentials is None and not opts.urn:
                 raise TypeError("Missing required property 'service_account_credentials'")
             __props__.__dict__["service_account_credentials"] = service_account_credentials
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["directory_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["directoryName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DirectoryConfig, __self__).__init__(
             'aws-native:appstream:DirectoryConfig',

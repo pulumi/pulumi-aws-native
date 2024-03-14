@@ -190,7 +190,7 @@ class IntegrationAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'integration_type'")
             __props__.__dict__["integration_type"] = integration_type
             __props__.__dict__["integration_association_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_id", "integration_arn", "integration_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceId", "integrationArn", "integrationType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IntegrationAssociation, __self__).__init__(
             'aws-native:connect:IntegrationAssociation',

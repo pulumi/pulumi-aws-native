@@ -607,7 +607,7 @@ class CertificateAuthority(pulumi.CustomResource):
             __props__.__dict__["usage_mode"] = usage_mode
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate_signing_request"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["csr_extensions", "key_algorithm", "key_storage_security_standard", "signing_algorithm", "subject", "type", "usage_mode"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["csrExtensions", "keyAlgorithm", "keyStorageSecurityStandard", "signingAlgorithm", "subject", "type", "usageMode"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CertificateAuthority, __self__).__init__(
             'aws-native:acmpca:CertificateAuthority',

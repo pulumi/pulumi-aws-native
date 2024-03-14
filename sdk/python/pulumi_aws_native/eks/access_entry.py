@@ -212,7 +212,7 @@ class AccessEntry(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["username"] = username
             __props__.__dict__["access_entry_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_name", "principal_arn", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterName", "principalArn", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessEntry, __self__).__init__(
             'aws-native:eks:AccessEntry',

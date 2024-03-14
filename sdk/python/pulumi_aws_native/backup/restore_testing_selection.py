@@ -189,7 +189,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
             __props__.__dict__["restore_testing_plan_name"] = restore_testing_plan_name
             __props__.__dict__["restore_testing_selection_name"] = restore_testing_selection_name
             __props__.__dict__["validation_window_hours"] = validation_window_hours
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["protected_resource_type", "restore_testing_plan_name", "restore_testing_selection_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["protectedResourceType", "restoreTestingPlanName", "restoreTestingSelectionName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RestoreTestingSelection, __self__).__init__(
             'aws-native:backup:RestoreTestingSelection',

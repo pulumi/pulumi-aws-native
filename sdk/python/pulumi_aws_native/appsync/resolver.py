@@ -467,7 +467,7 @@ class Resolver(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type_name'")
             __props__.__dict__["type_name"] = type_name
             __props__.__dict__["resolver_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id", "field_name", "type_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apiId", "fieldName", "typeName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Resolver, __self__).__init__(
             'aws-native:appsync:Resolver',

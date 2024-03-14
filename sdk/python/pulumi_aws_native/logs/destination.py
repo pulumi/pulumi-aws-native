@@ -147,7 +147,7 @@ class Destination(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_arn'")
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Destination, __self__).__init__(
             'aws-native:logs:Destination',

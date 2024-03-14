@@ -22,73 +22,74 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// globalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "globalNetwork", nil)
-// if err != nil {
-// return err
-// }
-// site, err := networkmanager.NewSite(ctx, "site", &networkmanager.SiteArgs{
-// GlobalNetworkId: globalNetwork.ID(),
-// Location: &networkmanager.SiteLocationArgs{
-// Address: pulumi.String("227 W Monroe St, Chicago, IL 60606"),
-// Latitude: pulumi.String("41.8"),
-// Longitude: pulumi.String("-87.6"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// link, err := networkmanager.NewLink(ctx, "link", &networkmanager.LinkArgs{
-// Description: pulumi.String("Broadband link"),
-// GlobalNetworkId: globalNetwork.ID(),
-// SiteId: site.SiteId,
-// Bandwidth: &networkmanager.LinkBandwidthArgs{
-// DownloadSpeed: pulumi.Int(20),
-// UploadSpeed: pulumi.Int(20),
-// },
-// Provider: pulumi.String("AnyCompany"),
-// Type: pulumi.String("Broadband"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Name"),
-// Value: pulumi.String("broadband-link-1"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// device, err := networkmanager.NewDevice(ctx, "device", &networkmanager.DeviceArgs{
-// Description: pulumi.String("Chicago office device"),
-// GlobalNetworkId: globalNetwork.ID(),
-// SiteId: site.SiteId,
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Network"),
-// Value: pulumi.String("north-america"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = networkmanager.NewLinkAssociation(ctx, "linkAssociation", &networkmanager.LinkAssociationArgs{
-// GlobalNetworkId: globalNetwork.ID(),
-// LinkId: link.LinkId,
-// DeviceId: device.DeviceId,
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			globalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "globalNetwork", nil)
+//			if err != nil {
+//				return err
+//			}
+//			site, err := networkmanager.NewSite(ctx, "site", &networkmanager.SiteArgs{
+//				GlobalNetworkId: globalNetwork.ID(),
+//				Location: &networkmanager.SiteLocationArgs{
+//					Address:   pulumi.String("227 W Monroe St, Chicago, IL 60606"),
+//					Latitude:  pulumi.String("41.8"),
+//					Longitude: pulumi.String("-87.6"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			link, err := networkmanager.NewLink(ctx, "link", &networkmanager.LinkArgs{
+//				Description:     pulumi.String("Broadband link"),
+//				GlobalNetworkId: globalNetwork.ID(),
+//				SiteId:          site.SiteId,
+//				Bandwidth: &networkmanager.LinkBandwidthArgs{
+//					DownloadSpeed: pulumi.Int(20),
+//					UploadSpeed:   pulumi.Int(20),
+//				},
+//				Provider: pulumi.String("AnyCompany"),
+//				Type:     pulumi.String("Broadband"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Name"),
+//						Value: pulumi.String("broadband-link-1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			device, err := networkmanager.NewDevice(ctx, "device", &networkmanager.DeviceArgs{
+//				Description:     pulumi.String("Chicago office device"),
+//				GlobalNetworkId: globalNetwork.ID(),
+//				SiteId:          site.SiteId,
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Network"),
+//						Value: pulumi.String("north-america"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkmanager.NewLinkAssociation(ctx, "linkAssociation", &networkmanager.LinkAssociationArgs{
+//				GlobalNetworkId: globalNetwork.ID(),
+//				LinkId:          link.LinkId,
+//				DeviceId:        device.DeviceId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -98,73 +99,74 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// globalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "globalNetwork", nil)
-// if err != nil {
-// return err
-// }
-// site, err := networkmanager.NewSite(ctx, "site", &networkmanager.SiteArgs{
-// GlobalNetworkId: globalNetwork.ID(),
-// Location: &networkmanager.SiteLocationArgs{
-// Address: pulumi.String("227 W Monroe St, Chicago, IL 60606"),
-// Latitude: pulumi.String("41.8"),
-// Longitude: pulumi.String("-87.6"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// link, err := networkmanager.NewLink(ctx, "link", &networkmanager.LinkArgs{
-// Description: pulumi.String("Broadband link"),
-// GlobalNetworkId: globalNetwork.ID(),
-// SiteId: site.SiteId,
-// Bandwidth: &networkmanager.LinkBandwidthArgs{
-// DownloadSpeed: pulumi.Int(20),
-// UploadSpeed: pulumi.Int(20),
-// },
-// Provider: pulumi.String("AnyCompany"),
-// Type: pulumi.String("Broadband"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Name"),
-// Value: pulumi.String("broadband-link-1"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// device, err := networkmanager.NewDevice(ctx, "device", &networkmanager.DeviceArgs{
-// Description: pulumi.String("Chicago office device"),
-// GlobalNetworkId: globalNetwork.ID(),
-// SiteId: site.SiteId,
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Network"),
-// Value: pulumi.String("north-america"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = networkmanager.NewLinkAssociation(ctx, "linkAssociation", &networkmanager.LinkAssociationArgs{
-// GlobalNetworkId: globalNetwork.ID(),
-// LinkId: link.LinkId,
-// DeviceId: device.DeviceId,
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			globalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "globalNetwork", nil)
+//			if err != nil {
+//				return err
+//			}
+//			site, err := networkmanager.NewSite(ctx, "site", &networkmanager.SiteArgs{
+//				GlobalNetworkId: globalNetwork.ID(),
+//				Location: &networkmanager.SiteLocationArgs{
+//					Address:   pulumi.String("227 W Monroe St, Chicago, IL 60606"),
+//					Latitude:  pulumi.String("41.8"),
+//					Longitude: pulumi.String("-87.6"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			link, err := networkmanager.NewLink(ctx, "link", &networkmanager.LinkArgs{
+//				Description:     pulumi.String("Broadband link"),
+//				GlobalNetworkId: globalNetwork.ID(),
+//				SiteId:          site.SiteId,
+//				Bandwidth: &networkmanager.LinkBandwidthArgs{
+//					DownloadSpeed: pulumi.Int(20),
+//					UploadSpeed:   pulumi.Int(20),
+//				},
+//				Provider: pulumi.String("AnyCompany"),
+//				Type:     pulumi.String("Broadband"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Name"),
+//						Value: pulumi.String("broadband-link-1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			device, err := networkmanager.NewDevice(ctx, "device", &networkmanager.DeviceArgs{
+//				Description:     pulumi.String("Chicago office device"),
+//				GlobalNetworkId: globalNetwork.ID(),
+//				SiteId:          site.SiteId,
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Network"),
+//						Value: pulumi.String("north-america"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkmanager.NewLinkAssociation(ctx, "linkAssociation", &networkmanager.LinkAssociationArgs{
+//				GlobalNetworkId: globalNetwork.ID(),
+//				LinkId:          link.LinkId,
+//				DeviceId:        device.DeviceId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type GlobalNetwork struct {

@@ -278,7 +278,7 @@ class TaskSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'task_definition'")
             __props__.__dict__["task_definition"] = task_definition
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "external_id", "launch_type", "load_balancers[*]", "network_configuration", "platform_version", "service", "service_registries[*]", "task_definition"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "externalId", "launchType", "loadBalancers[*]", "networkConfiguration", "platformVersion", "service", "serviceRegistries[*]", "taskDefinition"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TaskSet, __self__).__init__(
             'aws-native:ecs:TaskSet',

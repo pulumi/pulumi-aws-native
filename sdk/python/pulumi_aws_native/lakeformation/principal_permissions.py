@@ -173,7 +173,7 @@ class PrincipalPermissions(pulumi.CustomResource):
             __props__.__dict__["resource"] = resource
             __props__.__dict__["principal_identifier"] = None
             __props__.__dict__["resource_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog", "permissions[*]", "permissions_with_grant_option[*]", "principal", "resource"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["catalog", "permissions[*]", "permissionsWithGrantOption[*]", "principal", "resource"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PrincipalPermissions, __self__).__init__(
             'aws-native:lakeformation:PrincipalPermissions',

@@ -165,7 +165,7 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["service_arn"] = None
             __props__.__dict__["service_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "port", "protocol", "service_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "port", "protocol", "serviceIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Listener, __self__).__init__(
             'aws-native:vpclattice:Listener',
