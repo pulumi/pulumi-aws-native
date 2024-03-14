@@ -50,8 +50,8 @@ import (
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
-	"github.com/google/uuid"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
@@ -110,11 +110,12 @@ type cfnProvider struct {
 
 	pulumiSchema []byte
 
-	cfn  *cloudformation.Client
-	cctl *cloudcontrol.Client
-	ec2  *ec2.Client
-	ssm  *ssm.Client
-	sts  *sts.Client
+	cfn     *cloudformation.Client
+	cctl    client.CloudControlApiClient
+	awaiter client.CloudControlAwaiter
+	ec2     *ec2.Client
+	ssm     *ssm.Client
+	sts     *sts.Client
 }
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
@@ -482,7 +483,8 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	p.cfn = cloudformation.NewFromConfig(cfg)
-	p.cctl = cloudcontrol.NewFromConfig(cfg)
+	p.cctl = client.NewCloudControlApiClient(cloudcontrol.NewFromConfig(cfg), p.roleArn)
+	p.awaiter = client.NewCloudControlAwaiter(p.cctl)
 	p.ec2 = ec2.NewFromConfig(cfg)
 	p.ssm = ssm.NewFromConfig(cfg)
 	p.sts = sts.NewFromConfig(cfg)
@@ -620,7 +622,7 @@ func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc
 		}
 		identifier := strings.Join(idParts, "|")
 		glog.V(9).Infof("%s invoking", cf.CfType)
-		outputs, err := p.readResourceState(ctx, cf.CfType, identifier)
+		outputs, err := p.cctl.GetResource(ctx, cf.CfType, identifier)
 		if err != nil {
 			return nil, err
 		}
@@ -845,18 +847,12 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	desiredState := string(jsonBytes)
 
 	// Create the resource with Cloud API.
-	clientToken := uuid.New().String()
-	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, cfType, clientToken, desiredState)
-	res, err := p.cctl.CreateResource(ctx, &cloudcontrol.CreateResourceInput{
-		ClientToken:  aws.String(clientToken),
-		TypeName:     aws.String(cfType),
-		DesiredState: aws.String(desiredState),
-		RoleArn:      p.roleArn,
-	})
+	glog.V(9).Infof("%s.CreateResource %q state %q", label, cfType, desiredState)
+	res, err := p.cctl.CreateResource(ctx, cfType, desiredState)
 	if err != nil {
 		return nil, errors.Wrapf(err, "creating resource")
 	}
-	pi, waitErr := p.waitForResourceOpCompletion(p.canceler.context, res.ProgressEvent)
+	pi, waitErr := p.awaiter.WaitForResourceOpCompletion(p.canceler.context, res)
 
 	// Read the state - even if there was a creation error but the progress event contains a resource ID.
 	var id string
@@ -867,7 +863,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		// Note that we do so even if creation hasn't succeeded but the identifier is assigned.
 		id = *pi.Identifier
 		glog.V(9).Infof("%s.GetResource %q id %q", label, cfType, id)
-		resourceState, err := p.readResourceState(ctx, cfType, id)
+		resourceState, err := p.cctl.GetResource(ctx, cfType, id)
 		if err != nil {
 			readErr = fmt.Errorf("reading resource state: %w", err)
 		} else {
@@ -964,7 +960,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceToken)
 	}
-	resourceState, err := p.readResourceState(p.canceler.context, spec.CfType, id)
+	resourceState, err := p.cctl.GetResource(p.canceler.context, spec.CfType, id)
 	if err != nil {
 		var oe *smithy.OperationError
 		if errors.As(err, &oe) {
@@ -1100,29 +1096,16 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, err
 	}
 
-	doc, err := json.Marshal(ops)
-	if err != nil {
-		return nil, errors.Wrapf(err, "serializing patch as json")
-	}
-
-	docAsString := string(doc)
-	clientToken := uuid.New().String()
-	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %+v", label, spec.CfType, id, clientToken, ops)
-	res, err := p.cctl.UpdateResource(p.canceler.context, &cloudcontrol.UpdateResourceInput{
-		ClientToken:   aws.String(clientToken),
-		TypeName:      aws.String(spec.CfType),
-		Identifier:    aws.String(id),
-		PatchDocument: &docAsString,
-		RoleArn:       p.roleArn,
-	})
+	glog.V(9).Infof("%s.UpdateResource %q id %q state %+v", label, spec.CfType, id, ops)
+	res, err := p.cctl.UpdateResource(p.canceler.context, spec.CfType, id, ops)
 	if err != nil {
 		return nil, err
 	}
-	if _, err = p.waitForResourceOpCompletion(p.canceler.context, res.ProgressEvent); err != nil {
+	if _, err = p.awaiter.WaitForResourceOpCompletion(p.canceler.context, res); err != nil {
 		return nil, err
 	}
 
-	resourceState, err := p.readResourceState(p.canceler.context, spec.CfType, id)
+	resourceState, err := p.cctl.GetResource(p.canceler.context, spec.CfType, id)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading resource state")
 	}
@@ -1180,18 +1163,12 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	}
 	id := req.GetId()
 
-	clientToken := uuid.New().String()
-	glog.V(9).Infof("%s.DeleteResource %q id %q token %q", label, cfType, id, clientToken)
-	res, err := p.cctl.DeleteResource(p.canceler.context, &cloudcontrol.DeleteResourceInput{
-		ClientToken: aws.String(clientToken),
-		TypeName:    aws.String(cfType),
-		Identifier:  aws.String(id),
-		RoleArn:     p.roleArn,
-	})
+	glog.V(9).Infof("%s.DeleteResource %q id %q", label, cfType, id)
+	res, err := p.cctl.DeleteResource(p.canceler.context, cfType, id)
 	if err != nil {
 		return nil, err
 	}
-	if pi, err := p.waitForResourceOpCompletion(ctx, res.ProgressEvent); err != nil {
+	if pi, err := p.awaiter.WaitForResourceOpCompletion(ctx, res); err != nil {
 		if pi != nil {
 			errorCode := pi.ErrorCode
 			if errorCode == types.HandlerErrorCodeNotFound {
@@ -1230,91 +1207,6 @@ func (p *cfnProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*pulumirpc
 func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
 	p.canceler.cancel()
 	return &pbempty.Empty{}, nil
-}
-
-func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
-	getRes, err := p.cctl.GetResource(ctx, &cloudcontrol.GetResourceInput{
-		TypeName:   aws.String(typeName),
-		Identifier: aws.String(identifier),
-		RoleArn:    p.roleArn,
-	})
-	if err != nil {
-		return nil, err
-	}
-	if getRes.ResourceDescription.Properties == nil {
-		return nil, errors.New("received nil properties")
-	}
-
-	properties := *getRes.ResourceDescription.Properties
-	var outputs map[string]interface{}
-	if err = json.Unmarshal([]byte(properties), &outputs); err != nil {
-		return nil, err
-	}
-
-	return outputs, nil
-}
-
-func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
-	retryBackoff := retry.NewExponentialJitterBackoff(30 * time.Second)
-	i := 0
-	for {
-		status := pi.OperationStatus
-		identifier := ""
-		if pi.Identifier != nil {
-			identifier = *pi.Identifier
-		}
-		glog.V(9).Infof("waiting for resource %q: attempt #%d status %q", identifier, i, status)
-
-		finished, err := hasFinished(pi)
-		if finished || err != nil {
-			return pi, err
-		}
-
-		var pause time.Duration
-		if pi.RetryAfter != nil && pi.RetryAfter.After(time.Now()) {
-			pause = pi.RetryAfter.Sub(time.Now())
-		} else {
-			pause, err = retryBackoff.BackoffDelay(i, err)
-			if err != nil {
-				return nil, err
-			}
-		}
-		glog.V(9).Infof("resource operation is in progress, pausing for %v", pause)
-		time.Sleep(pause)
-
-		select {
-		case <-ctx.Done():
-			return nil, ctx.Err()
-		default: // Continue to wait
-		}
-
-		output, err := p.cctl.GetResourceRequestStatus(ctx, &cloudcontrol.GetResourceRequestStatusInput{
-			RequestToken: pi.RequestToken,
-		})
-		if err != nil {
-			return nil, errors.Wrap(err, "getting resource request status")
-		}
-		i += 1
-		pi = output.ProgressEvent
-	}
-}
-
-func hasFinished(pi *types.ProgressEvent) (bool, error) {
-	status := pi.OperationStatus
-	switch status {
-	case "SUCCESS":
-		return true, nil
-	case "FAILED":
-		statusMessage := ""
-		if pi.StatusMessage != nil {
-			statusMessage = *pi.StatusMessage
-		}
-		return true, errors.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, statusMessage)
-	case "IN_PROGRESS", "PENDING":
-		return false, nil
-	default:
-		return true, errors.Errorf("unknown status %q: %+v", status, pi)
-	}
 }
 
 // diffState extracts old and new inputs and calculates a diff between them.
