@@ -51,7 +51,7 @@ import (
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider/awsclient"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
@@ -111,8 +111,8 @@ type cfnProvider struct {
 	pulumiSchema []byte
 
 	cfn     *cloudformation.Client
-	cctl    awsclient.CloudControlClient
-	awaiter awsclient.CloudControlAwaiter
+	cctl    client.CloudControlApiClient
+	awaiter client.CloudControlAwaiter
 	ec2     *ec2.Client
 	ssm     *ssm.Client
 	sts     *sts.Client
@@ -483,8 +483,8 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	p.cfn = cloudformation.NewFromConfig(cfg)
-	p.cctl = awsclient.NewCloudControlClient(cloudcontrol.NewFromConfig(cfg), p.roleArn)
-	p.awaiter = awsclient.NewCloudControlAwaiter(p.cctl)
+	p.cctl = client.NewCloudControlApiClient(cloudcontrol.NewFromConfig(cfg), p.roleArn)
+	p.awaiter = client.NewCloudControlAwaiter(p.cctl)
 	p.ec2 = ec2.NewFromConfig(cfg)
 	p.ssm = ssm.NewFromConfig(cfg)
 	p.sts = sts.NewFromConfig(cfg)

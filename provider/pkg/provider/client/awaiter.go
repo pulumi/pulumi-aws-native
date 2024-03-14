@@ -1,6 +1,6 @@
 // Copyright 2016-2024, Pulumi Corporation.
 
-package awsclient
+package client
 
 import (
 	"context"
@@ -21,14 +21,14 @@ type CloudControlAwaiter interface {
 	WaitForResourceOpCompletion(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error)
 }
 
-func NewCloudControlAwaiter(client CloudControlClient) CloudControlAwaiter {
+func NewCloudControlAwaiter(client CloudControlApiClient) CloudControlAwaiter {
 	return &ccAwaiterImpl{
 		client: client,
 	}
 }
 
 type ccAwaiterImpl struct {
-	client CloudControlClient
+	client CloudControlApiClient
 }
 
 func (a *ccAwaiterImpl) WaitForResourceOpCompletion(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {

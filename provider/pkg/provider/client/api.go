@@ -1,6 +1,6 @@
 // Copyright 2016-2024, Pulumi Corporation.
 
-package awsclient
+package client
 
 import (
 	"context"
@@ -15,8 +15,8 @@ import (
 	"github.com/mattbaird/jsonpatch"
 )
 
-// CloudControlClient is an interface that wraps around the AWS Cloud Control API.
-type CloudControlClient interface {
+// CloudControlApiClient is an interface that wraps around the AWS Cloud Control API.
+type CloudControlApiClient interface {
 	// CreateResource creates a resource of the specified type with the desired state.
 	// It returns a ProgressEvent which is the initial progress returned directly from the API call,
 	// without awaiting any long-running operations.
@@ -41,20 +41,20 @@ type CloudControlClient interface {
 	GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error)
 }
 
-// NewCloudControlClient creates a wrapper around the AWS SDK's Cloud Control client.
-func NewCloudControlClient(cctl *cloudcontrol.Client, roleArn *string) CloudControlClient {
-	return &ccClientImpl{
+// NewCloudControlApiClient creates a wrapper around the AWS SDK's Cloud Control client.
+func NewCloudControlApiClient(cctl *cloudcontrol.Client, roleArn *string) CloudControlApiClient {
+	return &ccApiClientImpl{
 		cctl:    cctl,
 		roleArn: roleArn,
 	}
 }
 
-type ccClientImpl struct {
+type ccApiClientImpl struct {
 	cctl    *cloudcontrol.Client
 	roleArn *string
 }
 
-func (client *ccClientImpl) CreateResource(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+func (client *ccApiClientImpl) CreateResource(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
 	clientToken := uuid.New().String()
 	res, err := client.cctl.CreateResource(ctx, &cloudcontrol.CreateResourceInput{
 		ClientToken:  aws.String(clientToken),
@@ -68,7 +68,7 @@ func (client *ccClientImpl) CreateResource(ctx context.Context, cfType, desiredS
 	return res.ProgressEvent, nil
 }
 
-func (client *ccClientImpl) UpdateResource(ctx context.Context, cfType, id string, patches []jsonpatch.JsonPatchOperation) (*types.ProgressEvent, error) {
+func (client *ccApiClientImpl) UpdateResource(ctx context.Context, cfType, id string, patches []jsonpatch.JsonPatchOperation) (*types.ProgressEvent, error) {
 	doc, err := json.Marshal(patches)
 	if err != nil {
 		return nil, fmt.Errorf("serializing patch as json: %w", err)
@@ -89,7 +89,7 @@ func (client *ccClientImpl) UpdateResource(ctx context.Context, cfType, id strin
 	return res.ProgressEvent, nil
 }
 
-func (client *ccClientImpl) DeleteResource(ctx context.Context, cfType, id string) (*types.ProgressEvent, error) {
+func (client *ccApiClientImpl) DeleteResource(ctx context.Context, cfType, id string) (*types.ProgressEvent, error) {
 	clientToken := uuid.New().String()
 	res, err := client.cctl.DeleteResource(ctx, &cloudcontrol.DeleteResourceInput{
 		ClientToken: aws.String(clientToken),
@@ -103,7 +103,7 @@ func (client *ccClientImpl) DeleteResource(ctx context.Context, cfType, id strin
 	return res.ProgressEvent, nil
 }
 
-func (client *ccClientImpl) GetResource(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
+func (client *ccApiClientImpl) GetResource(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
 	getRes, err := client.cctl.GetResource(ctx, &cloudcontrol.GetResourceInput{
 		TypeName:   aws.String(typeName),
 		Identifier: aws.String(identifier),
@@ -125,7 +125,7 @@ func (client *ccClientImpl) GetResource(ctx context.Context, typeName, identifie
 	return outputs, nil
 }
 
-func (client *ccClientImpl) GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error) {
+func (client *ccApiClientImpl) GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error) {
 	res, err := client.cctl.GetResourceRequestStatus(ctx, &cloudcontrol.GetResourceRequestStatusInput{
 		RequestToken: aws.String(requestToken),
 	})
