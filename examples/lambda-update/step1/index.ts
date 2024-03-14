@@ -75,7 +75,6 @@ export const layer = new awsNative.lambda.LayerVersion("layer", {
 });
 
 export const graphqlPublic = new awsNative.lambda.Function("sample", {
-  functionName: "fnname",
   role: graphqlPublicRole.arn,
   memorySize: 128,
   architectures: ["arm64"],
