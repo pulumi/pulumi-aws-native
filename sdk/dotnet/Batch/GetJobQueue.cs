@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Batch
     {
         public readonly ImmutableArray<Outputs.JobQueueComputeEnvironmentOrder> ComputeEnvironmentOrder;
         public readonly string? JobQueueArn;
+        public readonly ImmutableArray<Outputs.JobQueueJobStateTimeLimitAction> JobStateTimeLimitActions;
         public readonly int? Priority;
         public readonly string? SchedulingPolicyArn;
         public readonly Pulumi.AwsNative.Batch.JobQueueState? State;
@@ -63,6 +64,8 @@ namespace Pulumi.AwsNative.Batch
 
             string? jobQueueArn,
 
+            ImmutableArray<Outputs.JobQueueJobStateTimeLimitAction> jobStateTimeLimitActions,
+
             int? priority,
 
             string? schedulingPolicyArn,
@@ -71,6 +74,7 @@ namespace Pulumi.AwsNative.Batch
         {
             ComputeEnvironmentOrder = computeEnvironmentOrder;
             JobQueueArn = jobQueueArn;
+            JobStateTimeLimitActions = jobStateTimeLimitActions;
             Priority = priority;
             SchedulingPolicyArn = schedulingPolicyArn;
             State = state;

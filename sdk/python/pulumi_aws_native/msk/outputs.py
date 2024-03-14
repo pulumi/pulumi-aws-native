@@ -49,6 +49,7 @@ __all__ = [
     'ReplicatorKafkaCluster',
     'ReplicatorKafkaClusterClientVpcConfig',
     'ReplicatorReplicationInfo',
+    'ReplicatorReplicationStartingPosition',
     'ReplicatorTopicReplication',
     'ServerlessClusterClientAuthentication',
     'ServerlessClusterIam',
@@ -1305,6 +1306,25 @@ class ReplicatorReplicationInfo(dict):
 
 
 @pulumi.output_type
+class ReplicatorReplicationStartingPosition(dict):
+    """
+    Configuration for specifying the position in the topics to start replicating from.
+    """
+    def __init__(__self__, *,
+                 type: Optional['ReplicatorReplicationStartingPositionType'] = None):
+        """
+        Configuration for specifying the position in the topics to start replicating from.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['ReplicatorReplicationStartingPositionType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ReplicatorTopicReplication(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1317,6 +1337,8 @@ class ReplicatorTopicReplication(dict):
             suggest = "copy_topic_configurations"
         elif key == "detectAndCopyNewTopics":
             suggest = "detect_and_copy_new_topics"
+        elif key == "startingPosition":
+            suggest = "starting_position"
         elif key == "topicsToExclude":
             suggest = "topics_to_exclude"
 
@@ -1336,12 +1358,14 @@ class ReplicatorTopicReplication(dict):
                  copy_access_control_lists_for_topics: Optional[bool] = None,
                  copy_topic_configurations: Optional[bool] = None,
                  detect_and_copy_new_topics: Optional[bool] = None,
+                 starting_position: Optional['outputs.ReplicatorReplicationStartingPosition'] = None,
                  topics_to_exclude: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] topics_to_replicate: List of regular expression patterns indicating the topics to copy.
         :param bool copy_access_control_lists_for_topics: Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
         :param bool copy_topic_configurations: Whether to periodically configure remote topics to match their corresponding upstream topics.
         :param bool detect_and_copy_new_topics: Whether to periodically check for new topics and partitions.
+        :param 'ReplicatorReplicationStartingPosition' starting_position: Configuration for specifying the position in the topics to start replicating from.
         :param Sequence[str] topics_to_exclude: List of regular expression patterns indicating the topics that should not be replicated.
         """
         pulumi.set(__self__, "topics_to_replicate", topics_to_replicate)
@@ -1351,6 +1375,8 @@ class ReplicatorTopicReplication(dict):
             pulumi.set(__self__, "copy_topic_configurations", copy_topic_configurations)
         if detect_and_copy_new_topics is not None:
             pulumi.set(__self__, "detect_and_copy_new_topics", detect_and_copy_new_topics)
+        if starting_position is not None:
+            pulumi.set(__self__, "starting_position", starting_position)
         if topics_to_exclude is not None:
             pulumi.set(__self__, "topics_to_exclude", topics_to_exclude)
 
@@ -1385,6 +1411,14 @@ class ReplicatorTopicReplication(dict):
         Whether to periodically check for new topics and partitions.
         """
         return pulumi.get(self, "detect_and_copy_new_topics")
+
+    @property
+    @pulumi.getter(name="startingPosition")
+    def starting_position(self) -> Optional['outputs.ReplicatorReplicationStartingPosition']:
+        """
+        Configuration for specifying the position in the topics to start replicating from.
+        """
+        return pulumi.get(self, "starting_position")
 
     @property
     @pulumi.getter(name="topicsToExclude")

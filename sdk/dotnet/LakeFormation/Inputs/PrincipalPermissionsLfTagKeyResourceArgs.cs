@@ -10,16 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
+    /// <summary>
+    /// A structure containing an LF-tag key and values for a resource.
+    /// </summary>
     public sealed class PrincipalPermissionsLfTagKeyResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier for the GLUDC where the location is registered with GLUDC.
+        /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
+        /// <summary>
+        /// The key-name for the LF-tag.
+        /// </summary>
         [Input("tagKey", required: true)]
         public Input<string> TagKey { get; set; } = null!;
 
         [Input("tagValues", required: true)]
         private InputList<string>? _tagValues;
+
+        /// <summary>
+        /// A list of possible values for the corresponding ``TagKey`` of an LF-tag key-value pair.
+        /// </summary>
         public InputList<string> TagValues
         {
             get => _tagValues ?? (_tagValues = new InputList<string>());

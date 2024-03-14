@@ -24,6 +24,11 @@ class PrincipalPermissionsArgs:
                  catalog: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrincipalPermissions resource.
+        :param pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]] permissions: The permissions granted or revoked.
+        :param pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]] permissions_with_grant_option: Indicates the ability to grant permissions (as a subset of permissions granted).
+        :param pulumi.Input['PrincipalPermissionsDataLakePrincipalArgs'] principal: The principal to be granted a permission.
+        :param pulumi.Input['PrincipalPermissionsResourceArgs'] resource: The resource to be granted or revoked permissions.
+        :param pulumi.Input[str] catalog: The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "permissions_with_grant_option", permissions_with_grant_option)
@@ -35,6 +40,9 @@ class PrincipalPermissionsArgs:
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]:
+        """
+        The permissions granted or revoked.
+        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -44,6 +52,9 @@ class PrincipalPermissionsArgs:
     @property
     @pulumi.getter(name="permissionsWithGrantOption")
     def permissions_with_grant_option(self) -> pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]:
+        """
+        Indicates the ability to grant permissions (as a subset of permissions granted).
+        """
         return pulumi.get(self, "permissions_with_grant_option")
 
     @permissions_with_grant_option.setter
@@ -53,6 +64,9 @@ class PrincipalPermissionsArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input['PrincipalPermissionsDataLakePrincipalArgs']:
+        """
+        The principal to be granted a permission.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -62,6 +76,9 @@ class PrincipalPermissionsArgs:
     @property
     @pulumi.getter
     def resource(self) -> pulumi.Input['PrincipalPermissionsResourceArgs']:
+        """
+        The resource to be granted or revoked permissions.
+        """
         return pulumi.get(self, "resource")
 
     @resource.setter
@@ -71,6 +88,9 @@ class PrincipalPermissionsArgs:
     @property
     @pulumi.getter
     def catalog(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        """
         return pulumi.get(self, "catalog")
 
     @catalog.setter
@@ -90,10 +110,15 @@ class PrincipalPermissions(pulumi.CustomResource):
                  resource: Optional[pulumi.Input[pulumi.InputType['PrincipalPermissionsResourceArgs']]] = None,
                  __props__=None):
         """
-        A resource schema representing a Lake Formation Permission.
+        The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] catalog: The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        :param pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]] permissions: The permissions granted or revoked.
+        :param pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]] permissions_with_grant_option: Indicates the ability to grant permissions (as a subset of permissions granted).
+        :param pulumi.Input[pulumi.InputType['PrincipalPermissionsDataLakePrincipalArgs']] principal: The principal to be granted a permission.
+        :param pulumi.Input[pulumi.InputType['PrincipalPermissionsResourceArgs']] resource: The resource to be granted or revoked permissions.
         """
         ...
     @overload
@@ -102,7 +127,7 @@ class PrincipalPermissions(pulumi.CustomResource):
                  args: PrincipalPermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A resource schema representing a Lake Formation Permission.
+        The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.
 
         :param str resource_name: The name of the resource.
         :param PrincipalPermissionsArgs args: The arguments to use to populate this resource's properties.
@@ -184,21 +209,33 @@ class PrincipalPermissions(pulumi.CustomResource):
     @property
     @pulumi.getter
     def catalog(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        """
         return pulumi.get(self, "catalog")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Sequence['PrincipalPermissionsPermission']]:
+        """
+        The permissions granted or revoked.
+        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="permissionsWithGrantOption")
     def permissions_with_grant_option(self) -> pulumi.Output[Sequence['PrincipalPermissionsPermission']]:
+        """
+        Indicates the ability to grant permissions (as a subset of permissions granted).
+        """
         return pulumi.get(self, "permissions_with_grant_option")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output['outputs.PrincipalPermissionsDataLakePrincipal']:
+        """
+        The principal to be granted a permission.
+        """
         return pulumi.get(self, "principal")
 
     @property
@@ -209,6 +246,9 @@ class PrincipalPermissions(pulumi.CustomResource):
     @property
     @pulumi.getter
     def resource(self) -> pulumi.Output['outputs.PrincipalPermissionsResource']:
+        """
+        The resource to be granted or revoked permissions.
+        """
         return pulumi.get(self, "resource")
 
     @property

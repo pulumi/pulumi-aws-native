@@ -12,14 +12,23 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class InstanceLaunchTemplateSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+        /// </summary>
         [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
 
+        /// <summary>
+        /// The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+        /// </summary>
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        /// <summary>
+        /// The version number of the launch template.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public InstanceLaunchTemplateSpecificationArgs()
         {

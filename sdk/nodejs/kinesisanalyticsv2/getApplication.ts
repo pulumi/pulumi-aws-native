@@ -39,6 +39,10 @@ export interface GetApplicationResult {
      */
     readonly applicationMaintenanceConfiguration?: outputs.kinesisanalyticsv2.ApplicationMaintenanceConfiguration;
     /**
+     * The runtime environment for the application.
+     */
+    readonly runtimeEnvironment?: string;
+    /**
      * Specifies the IAM role that the application uses to access external resources.
      */
     readonly serviceExecutionRole?: string;

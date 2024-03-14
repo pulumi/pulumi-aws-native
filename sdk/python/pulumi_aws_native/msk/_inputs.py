@@ -48,6 +48,7 @@ __all__ = [
     'ReplicatorKafkaClusterClientVpcConfigArgs',
     'ReplicatorKafkaClusterArgs',
     'ReplicatorReplicationInfoArgs',
+    'ReplicatorReplicationStartingPositionArgs',
     'ReplicatorTopicReplicationArgs',
     'ServerlessClusterClientAuthenticationArgs',
     'ServerlessClusterIamArgs',
@@ -1148,18 +1149,40 @@ class ReplicatorReplicationInfoArgs:
 
 
 @pulumi.input_type
+class ReplicatorReplicationStartingPositionArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ReplicatorReplicationStartingPositionType']] = None):
+        """
+        Configuration for specifying the position in the topics to start replicating from.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ReplicatorReplicationStartingPositionType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ReplicatorReplicationStartingPositionType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class ReplicatorTopicReplicationArgs:
     def __init__(__self__, *,
                  topics_to_replicate: pulumi.Input[Sequence[pulumi.Input[str]]],
                  copy_access_control_lists_for_topics: Optional[pulumi.Input[bool]] = None,
                  copy_topic_configurations: Optional[pulumi.Input[bool]] = None,
                  detect_and_copy_new_topics: Optional[pulumi.Input[bool]] = None,
+                 starting_position: Optional[pulumi.Input['ReplicatorReplicationStartingPositionArgs']] = None,
                  topics_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics_to_replicate: List of regular expression patterns indicating the topics to copy.
         :param pulumi.Input[bool] copy_access_control_lists_for_topics: Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
         :param pulumi.Input[bool] copy_topic_configurations: Whether to periodically configure remote topics to match their corresponding upstream topics.
         :param pulumi.Input[bool] detect_and_copy_new_topics: Whether to periodically check for new topics and partitions.
+        :param pulumi.Input['ReplicatorReplicationStartingPositionArgs'] starting_position: Configuration for specifying the position in the topics to start replicating from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics_to_exclude: List of regular expression patterns indicating the topics that should not be replicated.
         """
         pulumi.set(__self__, "topics_to_replicate", topics_to_replicate)
@@ -1169,6 +1192,8 @@ class ReplicatorTopicReplicationArgs:
             pulumi.set(__self__, "copy_topic_configurations", copy_topic_configurations)
         if detect_and_copy_new_topics is not None:
             pulumi.set(__self__, "detect_and_copy_new_topics", detect_and_copy_new_topics)
+        if starting_position is not None:
+            pulumi.set(__self__, "starting_position", starting_position)
         if topics_to_exclude is not None:
             pulumi.set(__self__, "topics_to_exclude", topics_to_exclude)
 
@@ -1219,6 +1244,18 @@ class ReplicatorTopicReplicationArgs:
     @detect_and_copy_new_topics.setter
     def detect_and_copy_new_topics(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "detect_and_copy_new_topics", value)
+
+    @property
+    @pulumi.getter(name="startingPosition")
+    def starting_position(self) -> Optional[pulumi.Input['ReplicatorReplicationStartingPositionArgs']]:
+        """
+        Configuration for specifying the position in the topics to start replicating from.
+        """
+        return pulumi.get(self, "starting_position")
+
+    @starting_position.setter
+    def starting_position(self, value: Optional[pulumi.Input['ReplicatorReplicationStartingPositionArgs']]):
+        pulumi.set(self, "starting_position", value)
 
     @property
     @pulumi.getter(name="topicsToExclude")

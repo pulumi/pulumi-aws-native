@@ -25,7 +25,11 @@ class Namespace(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "adminUsername":
+        if key == "adminPasswordSecretArn":
+            suggest = "admin_password_secret_arn"
+        elif key == "adminPasswordSecretKmsKeyId":
+            suggest = "admin_password_secret_kms_key_id"
+        elif key == "adminUsername":
             suggest = "admin_username"
         elif key == "creationDate":
             suggest = "creation_date"
@@ -58,6 +62,8 @@ class Namespace(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 admin_password_secret_arn: Optional[str] = None,
+                 admin_password_secret_kms_key_id: Optional[str] = None,
                  admin_username: Optional[str] = None,
                  creation_date: Optional[str] = None,
                  db_name: Optional[str] = None,
@@ -69,6 +75,10 @@ class Namespace(dict):
                  namespace_id: Optional[str] = None,
                  namespace_name: Optional[str] = None,
                  status: Optional['NamespaceStatus'] = None):
+        if admin_password_secret_arn is not None:
+            pulumi.set(__self__, "admin_password_secret_arn", admin_password_secret_arn)
+        if admin_password_secret_kms_key_id is not None:
+            pulumi.set(__self__, "admin_password_secret_kms_key_id", admin_password_secret_kms_key_id)
         if admin_username is not None:
             pulumi.set(__self__, "admin_username", admin_username)
         if creation_date is not None:
@@ -91,6 +101,16 @@ class Namespace(dict):
             pulumi.set(__self__, "namespace_name", namespace_name)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="adminPasswordSecretArn")
+    def admin_password_secret_arn(self) -> Optional[str]:
+        return pulumi.get(self, "admin_password_secret_arn")
+
+    @property
+    @pulumi.getter(name="adminPasswordSecretKmsKeyId")
+    def admin_password_secret_kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "admin_password_secret_kms_key_id")
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -161,6 +181,8 @@ class Workgroup(dict):
             suggest = "creation_date"
         elif key == "enhancedVpcRouting":
             suggest = "enhanced_vpc_routing"
+        elif key == "maxCapacity":
+            suggest = "max_capacity"
         elif key == "namespaceName":
             suggest = "namespace_name"
         elif key == "publiclyAccessible":
@@ -193,6 +215,7 @@ class Workgroup(dict):
                  creation_date: Optional[str] = None,
                  endpoint: Optional['outputs.WorkgroupEndpoint'] = None,
                  enhanced_vpc_routing: Optional[bool] = None,
+                 max_capacity: Optional[int] = None,
                  namespace_name: Optional[str] = None,
                  publicly_accessible: Optional[bool] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
@@ -211,6 +234,8 @@ class Workgroup(dict):
             pulumi.set(__self__, "endpoint", endpoint)
         if enhanced_vpc_routing is not None:
             pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if publicly_accessible is not None:
@@ -252,6 +277,11 @@ class Workgroup(dict):
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[bool]:
         return pulumi.get(self, "enhanced_vpc_routing")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "max_capacity")
 
     @property
     @pulumi.getter(name="namespaceName")

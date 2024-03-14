@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Outputs
 {
 
+    /// <summary>
+    /// The LFlong principal.
+    /// </summary>
     [OutputType]
     public sealed class PrincipalPermissionsDataLakePrincipal
     {
+        /// <summary>
+        /// An identifier for the LFlong principal.
+        /// </summary>
         public readonly string? DataLakePrincipalIdentifier;
 
         [OutputConstructor]

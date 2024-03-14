@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2.Outputs
 {
 
+    /// <summary>
+    /// The ``JWTConfiguration`` property specifies the configuration of a JWT authorizer. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+    /// </summary>
     [OutputType]
     public sealed class AuthorizerJwtConfiguration
     {
+        /// <summary>
+        /// A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+        /// </summary>
         public readonly ImmutableArray<string> Audience;
+        /// <summary>
+        /// The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: ``https://cognito-idp.{region}.amazonaws.com/{userPoolId}``. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+        /// </summary>
         public readonly string? Issuer;
 
         [OutputConstructor]

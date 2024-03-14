@@ -16,12 +16,13 @@ import (
 type JobQueue struct {
 	pulumi.CustomResourceState
 
-	ComputeEnvironmentOrder JobQueueComputeEnvironmentOrderArrayOutput `pulumi:"computeEnvironmentOrder"`
-	JobQueueArn             pulumi.StringOutput                        `pulumi:"jobQueueArn"`
-	JobQueueName            pulumi.StringPtrOutput                     `pulumi:"jobQueueName"`
-	Priority                pulumi.IntOutput                           `pulumi:"priority"`
-	SchedulingPolicyArn     pulumi.StringPtrOutput                     `pulumi:"schedulingPolicyArn"`
-	State                   JobQueueStateEnumPtrOutput                 `pulumi:"state"`
+	ComputeEnvironmentOrder  JobQueueComputeEnvironmentOrderArrayOutput `pulumi:"computeEnvironmentOrder"`
+	JobQueueArn              pulumi.StringOutput                        `pulumi:"jobQueueArn"`
+	JobQueueName             pulumi.StringPtrOutput                     `pulumi:"jobQueueName"`
+	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayOutput `pulumi:"jobStateTimeLimitActions"`
+	Priority                 pulumi.IntOutput                           `pulumi:"priority"`
+	SchedulingPolicyArn      pulumi.StringPtrOutput                     `pulumi:"schedulingPolicyArn"`
+	State                    JobQueueStateEnumPtrOutput                 `pulumi:"state"`
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -77,22 +78,24 @@ func (JobQueueState) ElementType() reflect.Type {
 }
 
 type jobQueueArgs struct {
-	ComputeEnvironmentOrder []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrder"`
-	JobQueueName            *string                           `pulumi:"jobQueueName"`
-	Priority                int                               `pulumi:"priority"`
-	SchedulingPolicyArn     *string                           `pulumi:"schedulingPolicyArn"`
-	State                   *JobQueueStateEnum                `pulumi:"state"`
+	ComputeEnvironmentOrder  []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrder"`
+	JobQueueName             *string                           `pulumi:"jobQueueName"`
+	JobStateTimeLimitActions []JobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
+	Priority                 int                               `pulumi:"priority"`
+	SchedulingPolicyArn      *string                           `pulumi:"schedulingPolicyArn"`
+	State                    *JobQueueStateEnum                `pulumi:"state"`
 	// A key-value pair to associate with a resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobQueue resource.
 type JobQueueArgs struct {
-	ComputeEnvironmentOrder JobQueueComputeEnvironmentOrderArrayInput
-	JobQueueName            pulumi.StringPtrInput
-	Priority                pulumi.IntInput
-	SchedulingPolicyArn     pulumi.StringPtrInput
-	State                   JobQueueStateEnumPtrInput
+	ComputeEnvironmentOrder  JobQueueComputeEnvironmentOrderArrayInput
+	JobQueueName             pulumi.StringPtrInput
+	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayInput
+	Priority                 pulumi.IntInput
+	SchedulingPolicyArn      pulumi.StringPtrInput
+	State                    JobQueueStateEnumPtrInput
 	// A key-value pair to associate with a resource.
 	Tags pulumi.StringMapInput
 }
@@ -144,6 +147,10 @@ func (o JobQueueOutput) JobQueueArn() pulumi.StringOutput {
 
 func (o JobQueueOutput) JobQueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringPtrOutput { return v.JobQueueName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobQueueOutput) JobStateTimeLimitActions() JobQueueJobStateTimeLimitActionArrayOutput {
+	return o.ApplyT(func(v *JobQueue) JobQueueJobStateTimeLimitActionArrayOutput { return v.JobStateTimeLimitActions }).(JobQueueJobStateTimeLimitActionArrayOutput)
 }
 
 func (o JobQueueOutput) Priority() pulumi.IntOutput {

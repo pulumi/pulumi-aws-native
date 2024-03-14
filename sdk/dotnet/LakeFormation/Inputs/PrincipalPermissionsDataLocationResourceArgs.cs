@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
+    /// <summary>
+    /// A structure for a data location object where permissions are granted or revoked.
+    /// </summary>
     public sealed class PrincipalPermissionsDataLocationResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier for the GLUDC where the location is registered with LFlong.
+        /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 

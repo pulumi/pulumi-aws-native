@@ -40,6 +40,7 @@ export class JobQueue extends pulumi.CustomResource {
     public readonly computeEnvironmentOrder!: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[]>;
     public /*out*/ readonly jobQueueArn!: pulumi.Output<string>;
     public readonly jobQueueName!: pulumi.Output<string | undefined>;
+    public readonly jobStateTimeLimitActions!: pulumi.Output<outputs.batch.JobQueueJobStateTimeLimitAction[] | undefined>;
     public readonly priority!: pulumi.Output<number>;
     public readonly schedulingPolicyArn!: pulumi.Output<string | undefined>;
     public readonly state!: pulumi.Output<enums.batch.JobQueueState | undefined>;
@@ -67,6 +68,7 @@ export class JobQueue extends pulumi.CustomResource {
             }
             resourceInputs["computeEnvironmentOrder"] = args ? args.computeEnvironmentOrder : undefined;
             resourceInputs["jobQueueName"] = args ? args.jobQueueName : undefined;
+            resourceInputs["jobStateTimeLimitActions"] = args ? args.jobStateTimeLimitActions : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
@@ -76,6 +78,7 @@ export class JobQueue extends pulumi.CustomResource {
             resourceInputs["computeEnvironmentOrder"] = undefined /*out*/;
             resourceInputs["jobQueueArn"] = undefined /*out*/;
             resourceInputs["jobQueueName"] = undefined /*out*/;
+            resourceInputs["jobStateTimeLimitActions"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["schedulingPolicyArn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -94,6 +97,7 @@ export class JobQueue extends pulumi.CustomResource {
 export interface JobQueueArgs {
     computeEnvironmentOrder: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrderArgs>[]>;
     jobQueueName?: pulumi.Input<string>;
+    jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitActionArgs>[]>;
     priority: pulumi.Input<number>;
     schedulingPolicyArn?: pulumi.Input<string>;
     state?: pulumi.Input<enums.batch.JobQueueState>;

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.AppConfig.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("dynamic")]
+        public Input<bool>? Dynamic { get; set; }
+
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;
 

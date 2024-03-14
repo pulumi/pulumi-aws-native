@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class InstancePrivateIpAddressSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+        /// </summary>
         [Input("primary", required: true)]
         public Input<bool> Primary { get; set; } = null!;
 
+        /// <summary>
+        /// The private IPv4 addresses.
+        /// </summary>
         [Input("privateIpAddress", required: true)]
         public Input<string> PrivateIpAddress { get; set; } = null!;
 

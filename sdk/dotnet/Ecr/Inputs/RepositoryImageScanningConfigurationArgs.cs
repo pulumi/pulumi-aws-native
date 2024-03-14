@@ -11,10 +11,13 @@ namespace Pulumi.AwsNative.Ecr.Inputs
 {
 
     /// <summary>
-    /// The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+    /// The image scanning configuration for a repository.
     /// </summary>
     public sealed class RepositoryImageScanningConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
+        /// </summary>
         [Input("scanOnPush")]
         public Input<bool>? ScanOnPush { get; set; }
 

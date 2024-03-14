@@ -58,6 +58,10 @@ namespace Pulumi.AwsNative.RedshiftServerless
     public sealed class GetNamespaceResult
     {
         /// <summary>
+        /// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+        /// </summary>
+        public readonly string? AdminPasswordSecretKmsKeyId;
+        /// <summary>
         /// The user name associated with the admin user for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
         /// </summary>
         public readonly string? AdminUsername;
@@ -81,10 +85,21 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.RedshiftServerless.NamespaceLogExport> LogExports;
+        /// <summary>
+        /// Definition of Namespace resource.
+        /// </summary>
         public readonly Outputs.Namespace? NamespaceValue;
+        /// <summary>
+        /// The resource policy document that will be attached to the namespace.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? NamespaceResourcePolicy;
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string? adminPasswordSecretKmsKeyId,
+
             string? adminUsername,
 
             string? dbName,
@@ -97,8 +112,11 @@ namespace Pulumi.AwsNative.RedshiftServerless
 
             ImmutableArray<Pulumi.AwsNative.RedshiftServerless.NamespaceLogExport> logExports,
 
-            Outputs.Namespace? @namespace)
+            Outputs.Namespace? @namespace,
+
+            object? namespaceResourcePolicy)
         {
+            AdminPasswordSecretKmsKeyId = adminPasswordSecretKmsKeyId;
             AdminUsername = adminUsername;
             DbName = dbName;
             DefaultIamRoleArn = defaultIamRoleArn;
@@ -106,6 +124,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
             KmsKeyId = kmsKeyId;
             LogExports = logExports;
             NamespaceValue = @namespace;
+            NamespaceResourcePolicy = namespaceResourcePolicy;
         }
     }
 }

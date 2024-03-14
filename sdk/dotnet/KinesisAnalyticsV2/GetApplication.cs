@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// </summary>
         public readonly Outputs.ApplicationMaintenanceConfiguration? ApplicationMaintenanceConfiguration;
         /// <summary>
+        /// The runtime environment for the application.
+        /// </summary>
+        public readonly string? RuntimeEnvironment;
+        /// <summary>
         /// Specifies the IAM role that the application uses to access external resources.
         /// </summary>
         public readonly string? ServiceExecutionRole;
@@ -86,6 +90,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
 
             Outputs.ApplicationMaintenanceConfiguration? applicationMaintenanceConfiguration,
 
+            string? runtimeEnvironment,
+
             string? serviceExecutionRole,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -93,6 +99,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
             ApplicationConfiguration = applicationConfiguration;
             ApplicationDescription = applicationDescription;
             ApplicationMaintenanceConfiguration = applicationMaintenanceConfiguration;
+            RuntimeEnvironment = runtimeEnvironment;
             ServiceExecutionRole = serviceExecutionRole;
             Tags = tags;
         }

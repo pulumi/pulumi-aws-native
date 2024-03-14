@@ -430,7 +430,9 @@ func (o PrincipalPermissionsCatalogResourcePtrOutput) Elem() PrincipalPermission
 	}).(PrincipalPermissionsCatalogResourceOutput)
 }
 
+// A wildcard object, consisting of an optional list of excluded column names or indexes.
 type PrincipalPermissionsColumnWildcard struct {
+	// Excludes column names. Any column with this name will be excluded.
 	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
 }
 
@@ -445,7 +447,9 @@ type PrincipalPermissionsColumnWildcardInput interface {
 	ToPrincipalPermissionsColumnWildcardOutputWithContext(context.Context) PrincipalPermissionsColumnWildcardOutput
 }
 
+// A wildcard object, consisting of an optional list of excluded column names or indexes.
 type PrincipalPermissionsColumnWildcardArgs struct {
+	// Excludes column names. Any column with this name will be excluded.
 	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
 }
 
@@ -502,6 +506,7 @@ func (i *principalPermissionsColumnWildcardPtrType) ToPrincipalPermissionsColumn
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsColumnWildcardPtrOutput)
 }
 
+// A wildcard object, consisting of an optional list of excluded column names or indexes.
 type PrincipalPermissionsColumnWildcardOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsColumnWildcardOutput) ElementType() reflect.Type {
@@ -526,6 +531,7 @@ func (o PrincipalPermissionsColumnWildcardOutput) ToPrincipalPermissionsColumnWi
 	}).(PrincipalPermissionsColumnWildcardPtrOutput)
 }
 
+// Excludes column names. Any column with this name will be excluded.
 func (o PrincipalPermissionsColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrincipalPermissionsColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -554,6 +560,7 @@ func (o PrincipalPermissionsColumnWildcardPtrOutput) Elem() PrincipalPermissions
 	}).(PrincipalPermissionsColumnWildcardOutput)
 }
 
+// Excludes column names. Any column with this name will be excluded.
 func (o PrincipalPermissionsColumnWildcardPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsColumnWildcard) []string {
 		if v == nil {
@@ -563,11 +570,16 @@ func (o PrincipalPermissionsColumnWildcardPtrOutput) ExcludedColumnNames() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
+// A structure that describes certain columns on certain rows.
 type PrincipalPermissionsDataCellsFilterResource struct {
-	DatabaseName   string `pulumi:"databaseName"`
-	Name           string `pulumi:"name"`
+	// A database in the GLUDC.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name given by the user to the data filter cell.
+	Name string `pulumi:"name"`
+	// The ID of the catalog to which the table belongs.
 	TableCatalogId string `pulumi:"tableCatalogId"`
-	TableName      string `pulumi:"tableName"`
+	// The name of the table.
+	TableName string `pulumi:"tableName"`
 }
 
 // PrincipalPermissionsDataCellsFilterResourceInput is an input type that accepts PrincipalPermissionsDataCellsFilterResourceArgs and PrincipalPermissionsDataCellsFilterResourceOutput values.
@@ -581,11 +593,16 @@ type PrincipalPermissionsDataCellsFilterResourceInput interface {
 	ToPrincipalPermissionsDataCellsFilterResourceOutputWithContext(context.Context) PrincipalPermissionsDataCellsFilterResourceOutput
 }
 
+// A structure that describes certain columns on certain rows.
 type PrincipalPermissionsDataCellsFilterResourceArgs struct {
-	DatabaseName   pulumi.StringInput `pulumi:"databaseName"`
-	Name           pulumi.StringInput `pulumi:"name"`
+	// A database in the GLUDC.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name given by the user to the data filter cell.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the catalog to which the table belongs.
 	TableCatalogId pulumi.StringInput `pulumi:"tableCatalogId"`
-	TableName      pulumi.StringInput `pulumi:"tableName"`
+	// The name of the table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (PrincipalPermissionsDataCellsFilterResourceArgs) ElementType() reflect.Type {
@@ -641,6 +658,7 @@ func (i *principalPermissionsDataCellsFilterResourcePtrType) ToPrincipalPermissi
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataCellsFilterResourcePtrOutput)
 }
 
+// A structure that describes certain columns on certain rows.
 type PrincipalPermissionsDataCellsFilterResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsDataCellsFilterResourceOutput) ElementType() reflect.Type {
@@ -665,18 +683,22 @@ func (o PrincipalPermissionsDataCellsFilterResourceOutput) ToPrincipalPermission
 	}).(PrincipalPermissionsDataCellsFilterResourcePtrOutput)
 }
 
+// A database in the GLUDC.
 func (o PrincipalPermissionsDataCellsFilterResourceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDataCellsFilterResource) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name given by the user to the data filter cell.
 func (o PrincipalPermissionsDataCellsFilterResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDataCellsFilterResource) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ID of the catalog to which the table belongs.
 func (o PrincipalPermissionsDataCellsFilterResourceOutput) TableCatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDataCellsFilterResource) string { return v.TableCatalogId }).(pulumi.StringOutput)
 }
 
+// The name of the table.
 func (o PrincipalPermissionsDataCellsFilterResourceOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDataCellsFilterResource) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -705,6 +727,7 @@ func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) Elem() PrincipalPe
 	}).(PrincipalPermissionsDataCellsFilterResourceOutput)
 }
 
+// A database in the GLUDC.
 func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsDataCellsFilterResource) *string {
 		if v == nil {
@@ -714,6 +737,7 @@ func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) DatabaseName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name given by the user to the data filter cell.
 func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsDataCellsFilterResource) *string {
 		if v == nil {
@@ -723,6 +747,7 @@ func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) Name() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the catalog to which the table belongs.
 func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) TableCatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsDataCellsFilterResource) *string {
 		if v == nil {
@@ -732,6 +757,7 @@ func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) TableCatalogId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the table.
 func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsDataCellsFilterResource) *string {
 		if v == nil {
@@ -741,7 +767,9 @@ func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) TableName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The LFlong principal.
 type PrincipalPermissionsDataLakePrincipal struct {
+	// An identifier for the LFlong principal.
 	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
 }
 
@@ -756,7 +784,9 @@ type PrincipalPermissionsDataLakePrincipalInput interface {
 	ToPrincipalPermissionsDataLakePrincipalOutputWithContext(context.Context) PrincipalPermissionsDataLakePrincipalOutput
 }
 
+// The LFlong principal.
 type PrincipalPermissionsDataLakePrincipalArgs struct {
+	// An identifier for the LFlong principal.
 	DataLakePrincipalIdentifier pulumi.StringPtrInput `pulumi:"dataLakePrincipalIdentifier"`
 }
 
@@ -772,6 +802,7 @@ func (i PrincipalPermissionsDataLakePrincipalArgs) ToPrincipalPermissionsDataLak
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataLakePrincipalOutput)
 }
 
+// The LFlong principal.
 type PrincipalPermissionsDataLakePrincipalOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsDataLakePrincipalOutput) ElementType() reflect.Type {
@@ -786,12 +817,16 @@ func (o PrincipalPermissionsDataLakePrincipalOutput) ToPrincipalPermissionsDataL
 	return o
 }
 
+// An identifier for the LFlong principal.
 func (o PrincipalPermissionsDataLakePrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDataLakePrincipal) *string { return v.DataLakePrincipalIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// A structure for a data location object where permissions are granted or revoked.
 type PrincipalPermissionsDataLocationResource struct {
-	CatalogId   string `pulumi:"catalogId"`
+	// The identifier for the GLUDC where the location is registered with LFlong.
+	CatalogId string `pulumi:"catalogId"`
+	// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -806,8 +841,11 @@ type PrincipalPermissionsDataLocationResourceInput interface {
 	ToPrincipalPermissionsDataLocationResourceOutputWithContext(context.Context) PrincipalPermissionsDataLocationResourceOutput
 }
 
+// A structure for a data location object where permissions are granted or revoked.
 type PrincipalPermissionsDataLocationResourceArgs struct {
-	CatalogId   pulumi.StringInput `pulumi:"catalogId"`
+	// The identifier for the GLUDC where the location is registered with LFlong.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -864,6 +902,7 @@ func (i *principalPermissionsDataLocationResourcePtrType) ToPrincipalPermissions
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataLocationResourcePtrOutput)
 }
 
+// A structure for a data location object where permissions are granted or revoked.
 type PrincipalPermissionsDataLocationResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsDataLocationResourceOutput) ElementType() reflect.Type {
@@ -888,10 +927,12 @@ func (o PrincipalPermissionsDataLocationResourceOutput) ToPrincipalPermissionsDa
 	}).(PrincipalPermissionsDataLocationResourcePtrOutput)
 }
 
+// The identifier for the GLUDC where the location is registered with LFlong.
 func (o PrincipalPermissionsDataLocationResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDataLocationResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
 func (o PrincipalPermissionsDataLocationResourceOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDataLocationResource) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -920,6 +961,7 @@ func (o PrincipalPermissionsDataLocationResourcePtrOutput) Elem() PrincipalPermi
 	}).(PrincipalPermissionsDataLocationResourceOutput)
 }
 
+// The identifier for the GLUDC where the location is registered with LFlong.
 func (o PrincipalPermissionsDataLocationResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsDataLocationResource) *string {
 		if v == nil {
@@ -929,6 +971,7 @@ func (o PrincipalPermissionsDataLocationResourcePtrOutput) CatalogId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
 func (o PrincipalPermissionsDataLocationResourcePtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsDataLocationResource) *string {
 		if v == nil {
@@ -938,9 +981,12 @@ func (o PrincipalPermissionsDataLocationResourcePtrOutput) ResourceArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// A structure for the database object.
 type PrincipalPermissionsDatabaseResource struct {
+	// The identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
-	Name      string `pulumi:"name"`
+	// The name of the database resource. Unique to the Data Catalog.
+	Name string `pulumi:"name"`
 }
 
 // PrincipalPermissionsDatabaseResourceInput is an input type that accepts PrincipalPermissionsDatabaseResourceArgs and PrincipalPermissionsDatabaseResourceOutput values.
@@ -954,9 +1000,12 @@ type PrincipalPermissionsDatabaseResourceInput interface {
 	ToPrincipalPermissionsDatabaseResourceOutputWithContext(context.Context) PrincipalPermissionsDatabaseResourceOutput
 }
 
+// A structure for the database object.
 type PrincipalPermissionsDatabaseResourceArgs struct {
+	// The identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
-	Name      pulumi.StringInput `pulumi:"name"`
+	// The name of the database resource. Unique to the Data Catalog.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (PrincipalPermissionsDatabaseResourceArgs) ElementType() reflect.Type {
@@ -1012,6 +1061,7 @@ func (i *principalPermissionsDatabaseResourcePtrType) ToPrincipalPermissionsData
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDatabaseResourcePtrOutput)
 }
 
+// A structure for the database object.
 type PrincipalPermissionsDatabaseResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsDatabaseResourceOutput) ElementType() reflect.Type {
@@ -1036,10 +1086,12 @@ func (o PrincipalPermissionsDatabaseResourceOutput) ToPrincipalPermissionsDataba
 	}).(PrincipalPermissionsDatabaseResourcePtrOutput)
 }
 
+// The identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PrincipalPermissionsDatabaseResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDatabaseResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The name of the database resource. Unique to the Data Catalog.
 func (o PrincipalPermissionsDatabaseResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDatabaseResource) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1068,6 +1120,7 @@ func (o PrincipalPermissionsDatabaseResourcePtrOutput) Elem() PrincipalPermissio
 	}).(PrincipalPermissionsDatabaseResourceOutput)
 }
 
+// The identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PrincipalPermissionsDatabaseResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsDatabaseResource) *string {
 		if v == nil {
@@ -1077,6 +1130,7 @@ func (o PrincipalPermissionsDatabaseResourcePtrOutput) CatalogId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the database resource. Unique to the Data Catalog.
 func (o PrincipalPermissionsDatabaseResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsDatabaseResource) *string {
 		if v == nil {
@@ -1086,8 +1140,11 @@ func (o PrincipalPermissionsDatabaseResourcePtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The LF-tag key and values attached to a resource.
 type PrincipalPermissionsLfTag struct {
-	TagKey    *string  `pulumi:"tagKey"`
+	// The key-name for the LF-tag.
+	TagKey *string `pulumi:"tagKey"`
+	// A list of possible values of the corresponding ``TagKey`` of an LF-tag key-value pair.
 	TagValues []string `pulumi:"tagValues"`
 }
 
@@ -1102,8 +1159,11 @@ type PrincipalPermissionsLfTagInput interface {
 	ToPrincipalPermissionsLfTagOutputWithContext(context.Context) PrincipalPermissionsLfTagOutput
 }
 
+// The LF-tag key and values attached to a resource.
 type PrincipalPermissionsLfTagArgs struct {
-	TagKey    pulumi.StringPtrInput   `pulumi:"tagKey"`
+	// The key-name for the LF-tag.
+	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
+	// A list of possible values of the corresponding ``TagKey`` of an LF-tag key-value pair.
 	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
 }
 
@@ -1144,6 +1204,7 @@ func (i PrincipalPermissionsLfTagArray) ToPrincipalPermissionsLfTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagArrayOutput)
 }
 
+// The LF-tag key and values attached to a resource.
 type PrincipalPermissionsLfTagOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsLfTagOutput) ElementType() reflect.Type {
@@ -1158,10 +1219,12 @@ func (o PrincipalPermissionsLfTagOutput) ToPrincipalPermissionsLfTagOutputWithCo
 	return o
 }
 
+// The key-name for the LF-tag.
 func (o PrincipalPermissionsLfTagOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsLfTag) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
+// A list of possible values of the corresponding “TagKey“ of an LF-tag key-value pair.
 func (o PrincipalPermissionsLfTagOutput) TagValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrincipalPermissionsLfTag) []string { return v.TagValues }).(pulumi.StringArrayOutput)
 }
@@ -1186,9 +1249,13 @@ func (o PrincipalPermissionsLfTagArrayOutput) Index(i pulumi.IntInput) Principal
 	}).(PrincipalPermissionsLfTagOutput)
 }
 
+// A structure containing an LF-tag key and values for a resource.
 type PrincipalPermissionsLfTagKeyResource struct {
-	CatalogId string   `pulumi:"catalogId"`
-	TagKey    string   `pulumi:"tagKey"`
+	// The identifier for the GLUDC where the location is registered with GLUDC.
+	CatalogId string `pulumi:"catalogId"`
+	// The key-name for the LF-tag.
+	TagKey string `pulumi:"tagKey"`
+	// A list of possible values for the corresponding ``TagKey`` of an LF-tag key-value pair.
 	TagValues []string `pulumi:"tagValues"`
 }
 
@@ -1203,9 +1270,13 @@ type PrincipalPermissionsLfTagKeyResourceInput interface {
 	ToPrincipalPermissionsLfTagKeyResourceOutputWithContext(context.Context) PrincipalPermissionsLfTagKeyResourceOutput
 }
 
+// A structure containing an LF-tag key and values for a resource.
 type PrincipalPermissionsLfTagKeyResourceArgs struct {
-	CatalogId pulumi.StringInput      `pulumi:"catalogId"`
-	TagKey    pulumi.StringInput      `pulumi:"tagKey"`
+	// The identifier for the GLUDC where the location is registered with GLUDC.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// The key-name for the LF-tag.
+	TagKey pulumi.StringInput `pulumi:"tagKey"`
+	// A list of possible values for the corresponding ``TagKey`` of an LF-tag key-value pair.
 	TagValues pulumi.StringArrayInput `pulumi:"tagValues"`
 }
 
@@ -1262,6 +1333,7 @@ func (i *principalPermissionsLfTagKeyResourcePtrType) ToPrincipalPermissionsLfTa
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagKeyResourcePtrOutput)
 }
 
+// A structure containing an LF-tag key and values for a resource.
 type PrincipalPermissionsLfTagKeyResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsLfTagKeyResourceOutput) ElementType() reflect.Type {
@@ -1286,14 +1358,17 @@ func (o PrincipalPermissionsLfTagKeyResourceOutput) ToPrincipalPermissionsLfTagK
 	}).(PrincipalPermissionsLfTagKeyResourcePtrOutput)
 }
 
+// The identifier for the GLUDC where the location is registered with GLUDC.
 func (o PrincipalPermissionsLfTagKeyResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsLfTagKeyResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The key-name for the LF-tag.
 func (o PrincipalPermissionsLfTagKeyResourceOutput) TagKey() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsLfTagKeyResource) string { return v.TagKey }).(pulumi.StringOutput)
 }
 
+// A list of possible values for the corresponding “TagKey“ of an LF-tag key-value pair.
 func (o PrincipalPermissionsLfTagKeyResourceOutput) TagValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrincipalPermissionsLfTagKeyResource) []string { return v.TagValues }).(pulumi.StringArrayOutput)
 }
@@ -1322,6 +1397,7 @@ func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) Elem() PrincipalPermissio
 	}).(PrincipalPermissionsLfTagKeyResourceOutput)
 }
 
+// The identifier for the GLUDC where the location is registered with GLUDC.
 func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsLfTagKeyResource) *string {
 		if v == nil {
@@ -1331,6 +1407,7 @@ func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) CatalogId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The key-name for the LF-tag.
 func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsLfTagKeyResource) *string {
 		if v == nil {
@@ -1340,6 +1417,7 @@ func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) TagKey() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of possible values for the corresponding “TagKey“ of an LF-tag key-value pair.
 func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) TagValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsLfTagKeyResource) []string {
 		if v == nil {
@@ -1349,9 +1427,15 @@ func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) TagValues() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of LF-tag conditions that define a resource's LF-tag policy.
+//
+//	A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.
 type PrincipalPermissionsLfTagPolicyResource struct {
-	CatalogId    string                           `pulumi:"catalogId"`
-	Expression   []PrincipalPermissionsLfTag      `pulumi:"expression"`
+	// The identifier for the GLUDC. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+	CatalogId string `pulumi:"catalogId"`
+	// A list of LF-tag conditions that apply to the resource's LF-tag policy.
+	Expression []PrincipalPermissionsLfTag `pulumi:"expression"`
+	// The resource type for which the LF-tag policy applies.
 	ResourceType PrincipalPermissionsResourceType `pulumi:"resourceType"`
 }
 
@@ -1366,9 +1450,15 @@ type PrincipalPermissionsLfTagPolicyResourceInput interface {
 	ToPrincipalPermissionsLfTagPolicyResourceOutputWithContext(context.Context) PrincipalPermissionsLfTagPolicyResourceOutput
 }
 
+// A list of LF-tag conditions that define a resource's LF-tag policy.
+//
+//	A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.
 type PrincipalPermissionsLfTagPolicyResourceArgs struct {
-	CatalogId    pulumi.StringInput                    `pulumi:"catalogId"`
-	Expression   PrincipalPermissionsLfTagArrayInput   `pulumi:"expression"`
+	// The identifier for the GLUDC. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// A list of LF-tag conditions that apply to the resource's LF-tag policy.
+	Expression PrincipalPermissionsLfTagArrayInput `pulumi:"expression"`
+	// The resource type for which the LF-tag policy applies.
 	ResourceType PrincipalPermissionsResourceTypeInput `pulumi:"resourceType"`
 }
 
@@ -1425,6 +1515,9 @@ func (i *principalPermissionsLfTagPolicyResourcePtrType) ToPrincipalPermissionsL
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagPolicyResourcePtrOutput)
 }
 
+// A list of LF-tag conditions that define a resource's LF-tag policy.
+//
+//	A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.
 type PrincipalPermissionsLfTagPolicyResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsLfTagPolicyResourceOutput) ElementType() reflect.Type {
@@ -1449,14 +1542,17 @@ func (o PrincipalPermissionsLfTagPolicyResourceOutput) ToPrincipalPermissionsLfT
 	}).(PrincipalPermissionsLfTagPolicyResourcePtrOutput)
 }
 
+// The identifier for the GLUDC. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
 func (o PrincipalPermissionsLfTagPolicyResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsLfTagPolicyResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// A list of LF-tag conditions that apply to the resource's LF-tag policy.
 func (o PrincipalPermissionsLfTagPolicyResourceOutput) Expression() PrincipalPermissionsLfTagArrayOutput {
 	return o.ApplyT(func(v PrincipalPermissionsLfTagPolicyResource) []PrincipalPermissionsLfTag { return v.Expression }).(PrincipalPermissionsLfTagArrayOutput)
 }
 
+// The resource type for which the LF-tag policy applies.
 func (o PrincipalPermissionsLfTagPolicyResourceOutput) ResourceType() PrincipalPermissionsResourceTypeOutput {
 	return o.ApplyT(func(v PrincipalPermissionsLfTagPolicyResource) PrincipalPermissionsResourceType {
 		return v.ResourceType
@@ -1487,6 +1583,7 @@ func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) Elem() PrincipalPermis
 	}).(PrincipalPermissionsLfTagPolicyResourceOutput)
 }
 
+// The identifier for the GLUDC. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
 func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsLfTagPolicyResource) *string {
 		if v == nil {
@@ -1496,6 +1593,7 @@ func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) CatalogId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of LF-tag conditions that apply to the resource's LF-tag policy.
 func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) Expression() PrincipalPermissionsLfTagArrayOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsLfTagPolicyResource) []PrincipalPermissionsLfTag {
 		if v == nil {
@@ -1505,6 +1603,7 @@ func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) Expression() Principal
 	}).(PrincipalPermissionsLfTagArrayOutput)
 }
 
+// The resource type for which the LF-tag policy applies.
 func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) ResourceType() PrincipalPermissionsResourceTypePtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsLfTagPolicyResource) *PrincipalPermissionsResourceType {
 		if v == nil {
@@ -1514,14 +1613,23 @@ func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) ResourceType() Princip
 	}).(PrincipalPermissionsResourceTypePtrOutput)
 }
 
+// A structure for the resource.
 type PrincipalPermissionsResource struct {
-	Catalog          *PrincipalPermissionsCatalogResource          `pulumi:"catalog"`
-	DataCellsFilter  *PrincipalPermissionsDataCellsFilterResource  `pulumi:"dataCellsFilter"`
-	DataLocation     *PrincipalPermissionsDataLocationResource     `pulumi:"dataLocation"`
-	Database         *PrincipalPermissionsDatabaseResource         `pulumi:"database"`
-	LfTag            *PrincipalPermissionsLfTagKeyResource         `pulumi:"lfTag"`
-	LfTagPolicy      *PrincipalPermissionsLfTagPolicyResource      `pulumi:"lfTagPolicy"`
-	Table            *PrincipalPermissionsTableResource            `pulumi:"table"`
+	// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+	Catalog *PrincipalPermissionsCatalogResource `pulumi:"catalog"`
+	// A data cell filter.
+	DataCellsFilter *PrincipalPermissionsDataCellsFilterResource `pulumi:"dataCellsFilter"`
+	// The location of an Amazon S3 path where permissions are granted or revoked.
+	DataLocation *PrincipalPermissionsDataLocationResource `pulumi:"dataLocation"`
+	// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+	Database *PrincipalPermissionsDatabaseResource `pulumi:"database"`
+	// The LF-tag key and values attached to a resource.
+	LfTag *PrincipalPermissionsLfTagKeyResource `pulumi:"lfTag"`
+	// A list of LF-tag conditions that define a resource's LF-tag policy.
+	LfTagPolicy *PrincipalPermissionsLfTagPolicyResource `pulumi:"lfTagPolicy"`
+	// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	Table *PrincipalPermissionsTableResource `pulumi:"table"`
+	// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 	TableWithColumns *PrincipalPermissionsTableWithColumnsResource `pulumi:"tableWithColumns"`
 }
 
@@ -1536,14 +1644,23 @@ type PrincipalPermissionsResourceInput interface {
 	ToPrincipalPermissionsResourceOutputWithContext(context.Context) PrincipalPermissionsResourceOutput
 }
 
+// A structure for the resource.
 type PrincipalPermissionsResourceArgs struct {
-	Catalog          PrincipalPermissionsCatalogResourcePtrInput          `pulumi:"catalog"`
-	DataCellsFilter  PrincipalPermissionsDataCellsFilterResourcePtrInput  `pulumi:"dataCellsFilter"`
-	DataLocation     PrincipalPermissionsDataLocationResourcePtrInput     `pulumi:"dataLocation"`
-	Database         PrincipalPermissionsDatabaseResourcePtrInput         `pulumi:"database"`
-	LfTag            PrincipalPermissionsLfTagKeyResourcePtrInput         `pulumi:"lfTag"`
-	LfTagPolicy      PrincipalPermissionsLfTagPolicyResourcePtrInput      `pulumi:"lfTagPolicy"`
-	Table            PrincipalPermissionsTableResourcePtrInput            `pulumi:"table"`
+	// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+	Catalog PrincipalPermissionsCatalogResourcePtrInput `pulumi:"catalog"`
+	// A data cell filter.
+	DataCellsFilter PrincipalPermissionsDataCellsFilterResourcePtrInput `pulumi:"dataCellsFilter"`
+	// The location of an Amazon S3 path where permissions are granted or revoked.
+	DataLocation PrincipalPermissionsDataLocationResourcePtrInput `pulumi:"dataLocation"`
+	// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+	Database PrincipalPermissionsDatabaseResourcePtrInput `pulumi:"database"`
+	// The LF-tag key and values attached to a resource.
+	LfTag PrincipalPermissionsLfTagKeyResourcePtrInput `pulumi:"lfTag"`
+	// A list of LF-tag conditions that define a resource's LF-tag policy.
+	LfTagPolicy PrincipalPermissionsLfTagPolicyResourcePtrInput `pulumi:"lfTagPolicy"`
+	// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	Table PrincipalPermissionsTableResourcePtrInput `pulumi:"table"`
+	// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 	TableWithColumns PrincipalPermissionsTableWithColumnsResourcePtrInput `pulumi:"tableWithColumns"`
 }
 
@@ -1559,6 +1676,7 @@ func (i PrincipalPermissionsResourceArgs) ToPrincipalPermissionsResourceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsResourceOutput)
 }
 
+// A structure for the resource.
 type PrincipalPermissionsResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsResourceOutput) ElementType() reflect.Type {
@@ -1573,46 +1691,60 @@ func (o PrincipalPermissionsResourceOutput) ToPrincipalPermissionsResourceOutput
 	return o
 }
 
+// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
 func (o PrincipalPermissionsResourceOutput) Catalog() PrincipalPermissionsCatalogResourcePtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsCatalogResource { return v.Catalog }).(PrincipalPermissionsCatalogResourcePtrOutput)
 }
 
+// A data cell filter.
 func (o PrincipalPermissionsResourceOutput) DataCellsFilter() PrincipalPermissionsDataCellsFilterResourcePtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsDataCellsFilterResource {
 		return v.DataCellsFilter
 	}).(PrincipalPermissionsDataCellsFilterResourcePtrOutput)
 }
 
+// The location of an Amazon S3 path where permissions are granted or revoked.
 func (o PrincipalPermissionsResourceOutput) DataLocation() PrincipalPermissionsDataLocationResourcePtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsDataLocationResource { return v.DataLocation }).(PrincipalPermissionsDataLocationResourcePtrOutput)
 }
 
+// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
 func (o PrincipalPermissionsResourceOutput) Database() PrincipalPermissionsDatabaseResourcePtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsDatabaseResource { return v.Database }).(PrincipalPermissionsDatabaseResourcePtrOutput)
 }
 
+// The LF-tag key and values attached to a resource.
 func (o PrincipalPermissionsResourceOutput) LfTag() PrincipalPermissionsLfTagKeyResourcePtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLfTagKeyResource { return v.LfTag }).(PrincipalPermissionsLfTagKeyResourcePtrOutput)
 }
 
+// A list of LF-tag conditions that define a resource's LF-tag policy.
 func (o PrincipalPermissionsResourceOutput) LfTagPolicy() PrincipalPermissionsLfTagPolicyResourcePtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLfTagPolicyResource { return v.LfTagPolicy }).(PrincipalPermissionsLfTagPolicyResourcePtrOutput)
 }
 
+// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 func (o PrincipalPermissionsResourceOutput) Table() PrincipalPermissionsTableResourcePtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsTableResource { return v.Table }).(PrincipalPermissionsTableResourcePtrOutput)
 }
 
+// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 func (o PrincipalPermissionsResourceOutput) TableWithColumns() PrincipalPermissionsTableWithColumnsResourcePtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsTableWithColumnsResource {
 		return v.TableWithColumns
 	}).(PrincipalPermissionsTableWithColumnsResourcePtrOutput)
 }
 
+// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 type PrincipalPermissionsTableResource struct {
-	CatalogId     string                             `pulumi:"catalogId"`
-	DatabaseName  string                             `pulumi:"databaseName"`
-	Name          *string                            `pulumi:"name"`
+	// The identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId string `pulumi:"catalogId"`
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the table.
+	Name *string `pulumi:"name"`
+	// A wildcard object representing every table under a database.
+	//  At least one of ``TableResource$Name`` or ``TableResource$TableWildcard`` is required.
 	TableWildcard *PrincipalPermissionsTableWildcard `pulumi:"tableWildcard"`
 }
 
@@ -1627,10 +1759,16 @@ type PrincipalPermissionsTableResourceInput interface {
 	ToPrincipalPermissionsTableResourceOutputWithContext(context.Context) PrincipalPermissionsTableResourceOutput
 }
 
+// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 type PrincipalPermissionsTableResourceArgs struct {
-	CatalogId     pulumi.StringInput                        `pulumi:"catalogId"`
-	DatabaseName  pulumi.StringInput                        `pulumi:"databaseName"`
-	Name          pulumi.StringPtrInput                     `pulumi:"name"`
+	// The identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the table.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A wildcard object representing every table under a database.
+	//  At least one of ``TableResource$Name`` or ``TableResource$TableWildcard`` is required.
 	TableWildcard PrincipalPermissionsTableWildcardPtrInput `pulumi:"tableWildcard"`
 }
 
@@ -1687,6 +1825,7 @@ func (i *principalPermissionsTableResourcePtrType) ToPrincipalPermissionsTableRe
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableResourcePtrOutput)
 }
 
+// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 type PrincipalPermissionsTableResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsTableResourceOutput) ElementType() reflect.Type {
@@ -1711,18 +1850,24 @@ func (o PrincipalPermissionsTableResourceOutput) ToPrincipalPermissionsTableReso
 	}).(PrincipalPermissionsTableResourcePtrOutput)
 }
 
+// The identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PrincipalPermissionsTableResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsTableResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o PrincipalPermissionsTableResourceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsTableResource) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name of the table.
 func (o PrincipalPermissionsTableResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsTableResource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A wildcard object representing every table under a database.
+//
+//	At least one of ``TableResource$Name`` or ``TableResource$TableWildcard`` is required.
 func (o PrincipalPermissionsTableResourceOutput) TableWildcard() PrincipalPermissionsTableWildcardPtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsTableResource) *PrincipalPermissionsTableWildcard { return v.TableWildcard }).(PrincipalPermissionsTableWildcardPtrOutput)
 }
@@ -1751,6 +1896,7 @@ func (o PrincipalPermissionsTableResourcePtrOutput) Elem() PrincipalPermissionsT
 	}).(PrincipalPermissionsTableResourceOutput)
 }
 
+// The identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o PrincipalPermissionsTableResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsTableResource) *string {
 		if v == nil {
@@ -1760,6 +1906,7 @@ func (o PrincipalPermissionsTableResourcePtrOutput) CatalogId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o PrincipalPermissionsTableResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsTableResource) *string {
 		if v == nil {
@@ -1769,6 +1916,7 @@ func (o PrincipalPermissionsTableResourcePtrOutput) DatabaseName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the table.
 func (o PrincipalPermissionsTableResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsTableResource) *string {
 		if v == nil {
@@ -1778,6 +1926,9 @@ func (o PrincipalPermissionsTableResourcePtrOutput) Name() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A wildcard object representing every table under a database.
+//
+//	At least one of ``TableResource$Name`` or ``TableResource$TableWildcard`` is required.
 func (o PrincipalPermissionsTableResourcePtrOutput) TableWildcard() PrincipalPermissionsTableWildcardPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsTableResource) *PrincipalPermissionsTableWildcard {
 		if v == nil {
@@ -1905,12 +2056,20 @@ func (o PrincipalPermissionsTableWildcardPtrOutput) Elem() PrincipalPermissionsT
 	}).(PrincipalPermissionsTableWildcardOutput)
 }
 
+// A structure for a table with columns object. This object is only used when granting a SELECT permission.
+//
+//	This object must take a value for at least one of ``ColumnsNames``, ``ColumnsIndexes``, or ``ColumnsWildcard``.
 type PrincipalPermissionsTableWithColumnsResource struct {
-	CatalogId      string                              `pulumi:"catalogId"`
-	ColumnNames    []string                            `pulumi:"columnNames"`
+	// The identifier for the GLUDC where the location is registered with LFlong.
+	CatalogId string `pulumi:"catalogId"`
+	// The list of column names for the table. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+	ColumnNames []string `pulumi:"columnNames"`
+	// A wildcard specified by a ``ColumnWildcard`` object. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
 	ColumnWildcard *PrincipalPermissionsColumnWildcard `pulumi:"columnWildcard"`
-	DatabaseName   string                              `pulumi:"databaseName"`
-	Name           string                              `pulumi:"name"`
+	// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	Name string `pulumi:"name"`
 }
 
 // PrincipalPermissionsTableWithColumnsResourceInput is an input type that accepts PrincipalPermissionsTableWithColumnsResourceArgs and PrincipalPermissionsTableWithColumnsResourceOutput values.
@@ -1924,12 +2083,20 @@ type PrincipalPermissionsTableWithColumnsResourceInput interface {
 	ToPrincipalPermissionsTableWithColumnsResourceOutputWithContext(context.Context) PrincipalPermissionsTableWithColumnsResourceOutput
 }
 
+// A structure for a table with columns object. This object is only used when granting a SELECT permission.
+//
+//	This object must take a value for at least one of ``ColumnsNames``, ``ColumnsIndexes``, or ``ColumnsWildcard``.
 type PrincipalPermissionsTableWithColumnsResourceArgs struct {
-	CatalogId      pulumi.StringInput                         `pulumi:"catalogId"`
-	ColumnNames    pulumi.StringArrayInput                    `pulumi:"columnNames"`
+	// The identifier for the GLUDC where the location is registered with LFlong.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// The list of column names for the table. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	// A wildcard specified by a ``ColumnWildcard`` object. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
 	ColumnWildcard PrincipalPermissionsColumnWildcardPtrInput `pulumi:"columnWildcard"`
-	DatabaseName   pulumi.StringInput                         `pulumi:"databaseName"`
-	Name           pulumi.StringInput                         `pulumi:"name"`
+	// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (PrincipalPermissionsTableWithColumnsResourceArgs) ElementType() reflect.Type {
@@ -1985,6 +2152,9 @@ func (i *principalPermissionsTableWithColumnsResourcePtrType) ToPrincipalPermiss
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWithColumnsResourcePtrOutput)
 }
 
+// A structure for a table with columns object. This object is only used when granting a SELECT permission.
+//
+//	This object must take a value for at least one of ``ColumnsNames``, ``ColumnsIndexes``, or ``ColumnsWildcard``.
 type PrincipalPermissionsTableWithColumnsResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsTableWithColumnsResourceOutput) ElementType() reflect.Type {
@@ -2009,24 +2179,29 @@ func (o PrincipalPermissionsTableWithColumnsResourceOutput) ToPrincipalPermissio
 	}).(PrincipalPermissionsTableWithColumnsResourcePtrOutput)
 }
 
+// The identifier for the GLUDC where the location is registered with LFlong.
 func (o PrincipalPermissionsTableWithColumnsResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// The list of column names for the table. At least one of “ColumnNames“ or “ColumnWildcard“ is required.
 func (o PrincipalPermissionsTableWithColumnsResourceOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
+// A wildcard specified by a “ColumnWildcard“ object. At least one of “ColumnNames“ or “ColumnWildcard“ is required.
 func (o PrincipalPermissionsTableWithColumnsResourceOutput) ColumnWildcard() PrincipalPermissionsColumnWildcardPtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) *PrincipalPermissionsColumnWildcard {
 		return v.ColumnWildcard
 	}).(PrincipalPermissionsColumnWildcardPtrOutput)
 }
 
+// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o PrincipalPermissionsTableWithColumnsResourceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 func (o PrincipalPermissionsTableWithColumnsResourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsTableWithColumnsResource) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2055,6 +2230,7 @@ func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) Elem() PrincipalP
 	}).(PrincipalPermissionsTableWithColumnsResourceOutput)
 }
 
+// The identifier for the GLUDC where the location is registered with LFlong.
 func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) *string {
 		if v == nil {
@@ -2064,6 +2240,7 @@ func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) CatalogId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of column names for the table. At least one of “ColumnNames“ or “ColumnWildcard“ is required.
 func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) []string {
 		if v == nil {
@@ -2073,6 +2250,7 @@ func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ColumnNames() pul
 	}).(pulumi.StringArrayOutput)
 }
 
+// A wildcard specified by a “ColumnWildcard“ object. At least one of “ColumnNames“ or “ColumnWildcard“ is required.
 func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ColumnWildcard() PrincipalPermissionsColumnWildcardPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) *PrincipalPermissionsColumnWildcard {
 		if v == nil {
@@ -2082,6 +2260,7 @@ func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ColumnWildcard() 
 	}).(PrincipalPermissionsColumnWildcardPtrOutput)
 }
 
+// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) *string {
 		if v == nil {
@@ -2091,6 +2270,7 @@ func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) DatabaseName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsTableWithColumnsResource) *string {
 		if v == nil {

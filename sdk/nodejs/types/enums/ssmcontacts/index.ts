@@ -15,8 +15,6 @@ export type ContactChannelChannelType = (typeof ContactChannelChannelType)[keyof
 
 export const ContactType = {
     Personal: "PERSONAL",
-    Custom: "CUSTOM",
-    Service: "SERVICE",
     Escalation: "ESCALATION",
     OncallSchedule: "ONCALL_SCHEDULE",
 } as const;

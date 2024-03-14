@@ -11,15 +11,32 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// The session logging configuration for ExecuteCommand.
+    /// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
     /// </summary>
     [OutputType]
     public sealed class ClusterExecuteCommandLogConfiguration
     {
+        /// <summary>
+        /// Determines whether to use encryption on the CloudWatch logs. If not specified, encryption will be off.
+        /// </summary>
         public readonly bool? CloudWatchEncryptionEnabled;
+        /// <summary>
+        /// The name of the CloudWatch log group to send logs to.
+        ///   The CloudWatch log group must already be created.
+        /// </summary>
         public readonly string? CloudWatchLogGroupName;
+        /// <summary>
+        /// The name of the S3 bucket to send logs to.
+        ///   The S3 bucket must already be created.
+        /// </summary>
         public readonly string? S3BucketName;
+        /// <summary>
+        /// Determines whether to use encryption on the S3 logs. If not specified, encryption is not used.
+        /// </summary>
         public readonly bool? S3EncryptionEnabled;
+        /// <summary>
+        /// An optional folder in the S3 bucket to place logs in.
+        /// </summary>
         public readonly string? S3KeyPrefix;
 
         [OutputConstructor]

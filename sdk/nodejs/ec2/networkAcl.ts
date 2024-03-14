@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::NetworkAcl
+ * Specifies a network ACL for your VPC.
  */
 export class NetworkAcl extends pulumi.CustomResource {
     /**
@@ -39,11 +39,11 @@ export class NetworkAcl extends pulumi.CustomResource {
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * The tags to assign to the network ACL.
+     * The tags for the network ACL.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The ID of the VPC.
+     * The ID of the VPC for the network ACL.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -81,11 +81,11 @@ export class NetworkAcl extends pulumi.CustomResource {
  */
 export interface NetworkAclArgs {
     /**
-     * The tags to assign to the network ACL.
+     * The tags for the network ACL.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The ID of the VPC.
+     * The ID of the VPC for the network ACL.
      */
     vpcId: pulumi.Input<string>;
 }

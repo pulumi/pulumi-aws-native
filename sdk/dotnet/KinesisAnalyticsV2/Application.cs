@@ -96,7 +96,6 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
                 {
                     "applicationMode",
                     "applicationName",
-                    "runtimeEnvironment",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

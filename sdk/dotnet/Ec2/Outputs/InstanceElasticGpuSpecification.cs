@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class InstanceElasticGpuSpecification
     {
+        /// <summary>
+        /// The type of Elastic Graphics accelerator.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

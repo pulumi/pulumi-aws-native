@@ -6877,6 +6877,118 @@ func (o JobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) Job
 	}).(JobQueueComputeEnvironmentOrderOutput)
 }
 
+type JobQueueJobStateTimeLimitAction struct {
+	Action         JobQueueJobStateTimeLimitActionAction `pulumi:"action"`
+	MaxTimeSeconds int                                   `pulumi:"maxTimeSeconds"`
+	Reason         string                                `pulumi:"reason"`
+	State          JobQueueJobStateTimeLimitActionState  `pulumi:"state"`
+}
+
+// JobQueueJobStateTimeLimitActionInput is an input type that accepts JobQueueJobStateTimeLimitActionArgs and JobQueueJobStateTimeLimitActionOutput values.
+// You can construct a concrete instance of `JobQueueJobStateTimeLimitActionInput` via:
+//
+//	JobQueueJobStateTimeLimitActionArgs{...}
+type JobQueueJobStateTimeLimitActionInput interface {
+	pulumi.Input
+
+	ToJobQueueJobStateTimeLimitActionOutput() JobQueueJobStateTimeLimitActionOutput
+	ToJobQueueJobStateTimeLimitActionOutputWithContext(context.Context) JobQueueJobStateTimeLimitActionOutput
+}
+
+type JobQueueJobStateTimeLimitActionArgs struct {
+	Action         JobQueueJobStateTimeLimitActionActionInput `pulumi:"action"`
+	MaxTimeSeconds pulumi.IntInput                            `pulumi:"maxTimeSeconds"`
+	Reason         pulumi.StringInput                         `pulumi:"reason"`
+	State          JobQueueJobStateTimeLimitActionStateInput  `pulumi:"state"`
+}
+
+func (JobQueueJobStateTimeLimitActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueueJobStateTimeLimitAction)(nil)).Elem()
+}
+
+func (i JobQueueJobStateTimeLimitActionArgs) ToJobQueueJobStateTimeLimitActionOutput() JobQueueJobStateTimeLimitActionOutput {
+	return i.ToJobQueueJobStateTimeLimitActionOutputWithContext(context.Background())
+}
+
+func (i JobQueueJobStateTimeLimitActionArgs) ToJobQueueJobStateTimeLimitActionOutputWithContext(ctx context.Context) JobQueueJobStateTimeLimitActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueJobStateTimeLimitActionOutput)
+}
+
+// JobQueueJobStateTimeLimitActionArrayInput is an input type that accepts JobQueueJobStateTimeLimitActionArray and JobQueueJobStateTimeLimitActionArrayOutput values.
+// You can construct a concrete instance of `JobQueueJobStateTimeLimitActionArrayInput` via:
+//
+//	JobQueueJobStateTimeLimitActionArray{ JobQueueJobStateTimeLimitActionArgs{...} }
+type JobQueueJobStateTimeLimitActionArrayInput interface {
+	pulumi.Input
+
+	ToJobQueueJobStateTimeLimitActionArrayOutput() JobQueueJobStateTimeLimitActionArrayOutput
+	ToJobQueueJobStateTimeLimitActionArrayOutputWithContext(context.Context) JobQueueJobStateTimeLimitActionArrayOutput
+}
+
+type JobQueueJobStateTimeLimitActionArray []JobQueueJobStateTimeLimitActionInput
+
+func (JobQueueJobStateTimeLimitActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobQueueJobStateTimeLimitAction)(nil)).Elem()
+}
+
+func (i JobQueueJobStateTimeLimitActionArray) ToJobQueueJobStateTimeLimitActionArrayOutput() JobQueueJobStateTimeLimitActionArrayOutput {
+	return i.ToJobQueueJobStateTimeLimitActionArrayOutputWithContext(context.Background())
+}
+
+func (i JobQueueJobStateTimeLimitActionArray) ToJobQueueJobStateTimeLimitActionArrayOutputWithContext(ctx context.Context) JobQueueJobStateTimeLimitActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueJobStateTimeLimitActionArrayOutput)
+}
+
+type JobQueueJobStateTimeLimitActionOutput struct{ *pulumi.OutputState }
+
+func (JobQueueJobStateTimeLimitActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueueJobStateTimeLimitAction)(nil)).Elem()
+}
+
+func (o JobQueueJobStateTimeLimitActionOutput) ToJobQueueJobStateTimeLimitActionOutput() JobQueueJobStateTimeLimitActionOutput {
+	return o
+}
+
+func (o JobQueueJobStateTimeLimitActionOutput) ToJobQueueJobStateTimeLimitActionOutputWithContext(ctx context.Context) JobQueueJobStateTimeLimitActionOutput {
+	return o
+}
+
+func (o JobQueueJobStateTimeLimitActionOutput) Action() JobQueueJobStateTimeLimitActionActionOutput {
+	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) JobQueueJobStateTimeLimitActionAction { return v.Action }).(JobQueueJobStateTimeLimitActionActionOutput)
+}
+
+func (o JobQueueJobStateTimeLimitActionOutput) MaxTimeSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) int { return v.MaxTimeSeconds }).(pulumi.IntOutput)
+}
+
+func (o JobQueueJobStateTimeLimitActionOutput) Reason() pulumi.StringOutput {
+	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) string { return v.Reason }).(pulumi.StringOutput)
+}
+
+func (o JobQueueJobStateTimeLimitActionOutput) State() JobQueueJobStateTimeLimitActionStateOutput {
+	return o.ApplyT(func(v JobQueueJobStateTimeLimitAction) JobQueueJobStateTimeLimitActionState { return v.State }).(JobQueueJobStateTimeLimitActionStateOutput)
+}
+
+type JobQueueJobStateTimeLimitActionArrayOutput struct{ *pulumi.OutputState }
+
+func (JobQueueJobStateTimeLimitActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobQueueJobStateTimeLimitAction)(nil)).Elem()
+}
+
+func (o JobQueueJobStateTimeLimitActionArrayOutput) ToJobQueueJobStateTimeLimitActionArrayOutput() JobQueueJobStateTimeLimitActionArrayOutput {
+	return o
+}
+
+func (o JobQueueJobStateTimeLimitActionArrayOutput) ToJobQueueJobStateTimeLimitActionArrayOutputWithContext(ctx context.Context) JobQueueJobStateTimeLimitActionArrayOutput {
+	return o
+}
+
+func (o JobQueueJobStateTimeLimitActionArrayOutput) Index(i pulumi.IntInput) JobQueueJobStateTimeLimitActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobQueueJobStateTimeLimitAction {
+		return vs[0].([]JobQueueJobStateTimeLimitAction)[vs[1].(int)]
+	}).(JobQueueJobStateTimeLimitActionOutput)
+}
+
 // Fair Share Policy for the Job Queue.
 type SchedulingPolicyFairsharePolicy struct {
 	ComputeReservation *float64 `pulumi:"computeReservation"`
@@ -7240,6 +7352,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionVolumesHostPtrInput)(nil)).Elem(), JobDefinitionVolumesHostArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueComputeEnvironmentOrderInput)(nil)).Elem(), JobQueueComputeEnvironmentOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueComputeEnvironmentOrderArrayInput)(nil)).Elem(), JobQueueComputeEnvironmentOrderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionArrayInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairsharePolicyInput)(nil)).Elem(), SchedulingPolicyFairsharePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairsharePolicyPtrInput)(nil)).Elem(), SchedulingPolicyFairsharePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyShareAttributesInput)(nil)).Elem(), SchedulingPolicyShareAttributesArgs{})
@@ -7336,6 +7450,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionVolumesHostPtrOutput{})
 	pulumi.RegisterOutputType(JobQueueComputeEnvironmentOrderOutput{})
 	pulumi.RegisterOutputType(JobQueueComputeEnvironmentOrderArrayOutput{})
+	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionOutput{})
+	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionArrayOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairsharePolicyOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairsharePolicyPtrOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyShareAttributesOutput{})

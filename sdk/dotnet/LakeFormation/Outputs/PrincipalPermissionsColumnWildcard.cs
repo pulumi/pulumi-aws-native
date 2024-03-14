@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Outputs
 {
 
+    /// <summary>
+    /// A wildcard object, consisting of an optional list of excluded column names or indexes.
+    /// </summary>
     [OutputType]
     public sealed class PrincipalPermissionsColumnWildcard
     {
+        /// <summary>
+        /// Excludes column names. Any column with this name will be excluded.
+        /// </summary>
         public readonly ImmutableArray<string> ExcludedColumnNames;
 
         [OutputConstructor]

@@ -13,6 +13,8 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
     [OutputType]
     public sealed class Namespace
     {
+        public readonly string? AdminPasswordSecretArn;
+        public readonly string? AdminPasswordSecretKmsKeyId;
         public readonly string? AdminUsername;
         public readonly string? CreationDate;
         public readonly string? DbName;
@@ -27,6 +29,10 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
 
         [OutputConstructor]
         private Namespace(
+            string? adminPasswordSecretArn,
+
+            string? adminPasswordSecretKmsKeyId,
+
             string? adminUsername,
 
             string? creationDate,
@@ -49,6 +55,8 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
 
             Pulumi.AwsNative.RedshiftServerless.NamespaceStatus? status)
         {
+            AdminPasswordSecretArn = adminPasswordSecretArn;
+            AdminPasswordSecretKmsKeyId = adminPasswordSecretKmsKeyId;
             AdminUsername = adminUsername;
             CreationDate = creationDate;
             DbName = dbName;

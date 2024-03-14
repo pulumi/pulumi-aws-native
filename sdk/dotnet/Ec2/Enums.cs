@@ -760,6 +760,68 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceAffinity : IEquatable<InstanceAffinity>
+    {
+        private readonly string _value;
+
+        private InstanceAffinity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceAffinity Default { get; } = new InstanceAffinity("default");
+        public static InstanceAffinity Host { get; } = new InstanceAffinity("host");
+
+        public static bool operator ==(InstanceAffinity left, InstanceAffinity right) => left.Equals(right);
+        public static bool operator !=(InstanceAffinity left, InstanceAffinity right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceAffinity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceAffinity other && Equals(other);
+        public bool Equals(InstanceAffinity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstancePrivateDnsNameOptionsHostnameType : IEquatable<InstancePrivateDnsNameOptionsHostnameType>
+    {
+        private readonly string _value;
+
+        private InstancePrivateDnsNameOptionsHostnameType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstancePrivateDnsNameOptionsHostnameType IpName { get; } = new InstancePrivateDnsNameOptionsHostnameType("ip-name");
+        public static InstancePrivateDnsNameOptionsHostnameType ResourceName { get; } = new InstancePrivateDnsNameOptionsHostnameType("resource-name");
+
+        public static bool operator ==(InstancePrivateDnsNameOptionsHostnameType left, InstancePrivateDnsNameOptionsHostnameType right) => left.Equals(right);
+        public static bool operator !=(InstancePrivateDnsNameOptionsHostnameType left, InstancePrivateDnsNameOptionsHostnameType right) => !left.Equals(right);
+
+        public static explicit operator string(InstancePrivateDnsNameOptionsHostnameType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstancePrivateDnsNameOptionsHostnameType other && Equals(other);
+        public bool Equals(InstancePrivateDnsNameOptionsHostnameType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Limits which service in Amazon Web Services that the pool can be used in.
     /// </summary>
     [EnumType]

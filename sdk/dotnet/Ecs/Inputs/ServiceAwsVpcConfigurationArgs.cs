@@ -10,13 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// An object representing the networking details for a task or service. For example ``awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``
+    /// </summary>
     public sealed class ServiceAwsVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+        /// </summary>
         [Input("assignPublicIp")]
         public Input<Pulumi.AwsNative.Ecs.ServiceAwsVpcConfigurationAssignPublicIp>? AssignPublicIp { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
+
+        /// <summary>
+        /// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``AwsVpcConfiguration``.
+        ///   All specified security groups must be from the same VPC.
+        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -25,6 +36,11 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
         [Input("subnets")]
         private InputList<string>? _subnets;
+
+        /// <summary>
+        /// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``AwsVpcConfiguration``.
+        ///   All specified subnets must be from the same VPC.
+        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());

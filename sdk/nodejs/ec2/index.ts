@@ -400,6 +400,11 @@ export const getVpc: typeof import("./getVpc").getVpc = null as any;
 export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
 utilities.lazyLoad(exports, ["getVpc","getVpcOutput"], () => require("./getVpc"));
 
+export { GetVpcCidrBlockArgs, GetVpcCidrBlockResult, GetVpcCidrBlockOutputArgs } from "./getVpcCidrBlock";
+export const getVpcCidrBlock: typeof import("./getVpcCidrBlock").getVpcCidrBlock = null as any;
+export const getVpcCidrBlockOutput: typeof import("./getVpcCidrBlock").getVpcCidrBlockOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcCidrBlock","getVpcCidrBlockOutput"], () => require("./getVpcCidrBlock"));
+
 export { GetVpcEndpointArgs, GetVpcEndpointResult, GetVpcEndpointOutputArgs } from "./getVpcEndpoint";
 export const getVpcEndpoint: typeof import("./getVpcEndpoint").getVpcEndpoint = null as any;
 export const getVpcEndpointOutput: typeof import("./getVpcEndpoint").getVpcEndpointOutput = null as any;
@@ -725,6 +730,11 @@ export type Vpc = import("./vpc").Vpc;
 export const Vpc: typeof import("./vpc").Vpc = null as any;
 utilities.lazyLoad(exports, ["Vpc"], () => require("./vpc"));
 
+export { VpcCidrBlockArgs } from "./vpcCidrBlock";
+export type VpcCidrBlock = import("./vpcCidrBlock").VpcCidrBlock;
+export const VpcCidrBlock: typeof import("./vpcCidrBlock").VpcCidrBlock = null as any;
+utilities.lazyLoad(exports, ["VpcCidrBlock"], () => require("./vpcCidrBlock"));
+
 export { VpcEndpointArgs } from "./vpcEndpoint";
 export type VpcEndpoint = import("./vpcEndpoint").VpcEndpoint;
 export const VpcEndpoint: typeof import("./vpcEndpoint").VpcEndpoint = null as any;
@@ -921,6 +931,8 @@ const _module = {
                 return new VolumeAttachment(name, <any>undefined, { urn })
             case "aws-native:ec2:Vpc":
                 return new Vpc(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcCidrBlock":
+                return new VpcCidrBlock(name, <any>undefined, { urn })
             case "aws-native:ec2:VpcEndpoint":
                 return new VpcEndpoint(name, <any>undefined, { urn })
             case "aws-native:ec2:VpcEndpointConnectionNotification":

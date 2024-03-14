@@ -37,51 +37,190 @@ export class Instance extends pulumi.CustomResource {
         return obj['__pulumiType'] === Instance.__pulumiType;
     }
 
+    /**
+     * This property is reserved for internal use. If you use it, the stack fails with this error: Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX).
+     */
     public readonly additionalInfo!: pulumi.Output<string | undefined>;
-    public readonly affinity!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+     */
+    public readonly affinity!: pulumi.Output<enums.ec2.InstanceAffinity | undefined>;
+    /**
+     * The Availability Zone of the instance.
+     */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The block device mapping entries that defines the block devices to attach to the instance at launch.
+     */
     public readonly blockDeviceMappings!: pulumi.Output<outputs.ec2.InstanceBlockDeviceMapping[] | undefined>;
-    public readonly cpuOptions!: pulumi.Output<outputs.ec2.InstanceCpuOptions | undefined>;
-    public readonly creditSpecification!: pulumi.Output<outputs.ec2.InstanceCreditSpecification | undefined>;
+    /**
+     * The CPU options for the instance.
+     */
+    public readonly cpuOptions!: pulumi.Output<outputs.ec2.CpuOptionsProperties | undefined>;
+    /**
+     * The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+     */
+    public readonly creditSpecification!: pulumi.Output<outputs.ec2.CreditSpecificationProperties | undefined>;
+    /**
+     * If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+     */
     public readonly disableApiTermination!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether the instance is optimized for Amazon EBS I/O.
+     */
     public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
+    /**
+     * An elastic GPU to associate with the instance.
+     */
     public readonly elasticGpuSpecifications!: pulumi.Output<outputs.ec2.InstanceElasticGpuSpecification[] | undefined>;
+    /**
+     * An elastic inference accelerator to associate with the instance.
+     */
     public readonly elasticInferenceAccelerators!: pulumi.Output<outputs.ec2.InstanceElasticInferenceAccelerator[] | undefined>;
-    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.InstanceEnclaveOptions | undefined>;
-    public readonly hibernationOptions!: pulumi.Output<outputs.ec2.InstanceHibernationOptions | undefined>;
+    /**
+     * Indicates whether the instance is enabled for AWS Nitro Enclaves.
+     */
+    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.EnclaveOptionsProperties | undefined>;
+    /**
+     * Indicates whether an instance is enabled for hibernation.
+     */
+    public readonly hibernationOptions!: pulumi.Output<outputs.ec2.HibernationOptionsProperties | undefined>;
+    /**
+     * If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
+     */
     public readonly hostId!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+     */
     public readonly hostResourceGroupArn!: pulumi.Output<string | undefined>;
+    /**
+     * The IAM instance profile.
+     */
     public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the AMI. An AMI ID is required to launch an instance and must be specified here or in a launch template.
+     */
     public readonly imageId!: pulumi.Output<string | undefined>;
+    /**
+     * The EC2 Instance ID.
+     */
+    public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    /**
+     * Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+     */
     public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string | undefined>;
+    /**
+     * The instance type.
+     */
     public readonly instanceType!: pulumi.Output<string | undefined>;
+    /**
+     * [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     */
     public readonly ipv6AddressCount!: pulumi.Output<number | undefined>;
+    /**
+     * [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
+     */
     public readonly ipv6Addresses!: pulumi.Output<outputs.ec2.InstanceIpv6Address[] | undefined>;
+    /**
+     * The ID of the kernel.
+     */
     public readonly kernelId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the key pair.
+     */
     public readonly keyName!: pulumi.Output<string | undefined>;
+    /**
+     * The launch template to use to launch the instances.
+     */
     public readonly launchTemplate!: pulumi.Output<outputs.ec2.InstanceLaunchTemplateSpecification | undefined>;
+    /**
+     * The license configurations.
+     */
     public readonly licenseSpecifications!: pulumi.Output<outputs.ec2.InstanceLicenseSpecification[] | undefined>;
+    /**
+     * Specifies whether detailed monitoring is enabled for the instance.
+     */
     public readonly monitoring!: pulumi.Output<boolean | undefined>;
+    /**
+     * The network interfaces to associate with the instance.
+     */
     public readonly networkInterfaces!: pulumi.Output<outputs.ec2.InstanceNetworkInterface[] | undefined>;
+    /**
+     * The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
+     */
     public readonly placementGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The private DNS name of the specified instance. For example: ip-10-24-34-0.ec2.internal.
+     */
     public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
+    /**
+     * The options for the instance hostname.
+     */
     public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions | undefined>;
+    /**
+     * The private IP address of the specified instance. For example: 10.24.34.0.
+     */
     public /*out*/ readonly privateIp!: pulumi.Output<string>;
+    /**
+     * [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
+     */
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.
+     */
     public readonly propagateTagsToVolumeOnCreation!: pulumi.Output<boolean | undefined>;
+    /**
+     * The public DNS name of the specified instance. For example: ec2-107-20-50-45.compute-1.amazonaws.com.
+     */
     public /*out*/ readonly publicDnsName!: pulumi.Output<string>;
+    /**
+     * The public IP address of the specified instance. For example: 192.0.2.0.
+     */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
+    /**
+     * The ID of the RAM disk to select.
+     */
     public readonly ramdiskId!: pulumi.Output<string | undefined>;
+    /**
+     * The IDs of the security groups.
+     */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * the names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+     */
     public readonly securityGroups!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies whether to enable an instance launched in a VPC to perform NAT.
+     */
     public readonly sourceDestCheck!: pulumi.Output<boolean | undefined>;
+    /**
+     * The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+     */
     public readonly ssmAssociations!: pulumi.Output<outputs.ec2.InstanceSsmAssociation[] | undefined>;
+    /**
+     * [EC2-VPC] The ID of the subnet to launch the instance into.
+     */
     public readonly subnetId!: pulumi.Output<string | undefined>;
+    /**
+     * The tags to add to the instance.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+     */
     public readonly tenancy!: pulumi.Output<string | undefined>;
+    /**
+     * The user data to make available to the instance.
+     */
     public readonly userData!: pulumi.Output<string | undefined>;
+    /**
+     * The volumes to attach to the instance.
+     */
     public readonly volumes!: pulumi.Output<outputs.ec2.InstanceVolume[] | undefined>;
+    /**
+     * The ID of the VPC that the instance is running in.
+     */
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -134,16 +273,16 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tenancy"] = args ? args.tenancy : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
-            resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["privateDnsName"] = undefined /*out*/;
             resourceInputs["privateIp"] = undefined /*out*/;
             resourceInputs["publicDnsName"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         } else {
             resourceInputs["additionalInfo"] = undefined /*out*/;
             resourceInputs["affinity"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["blockDeviceMappings"] = undefined /*out*/;
             resourceInputs["cpuOptions"] = undefined /*out*/;
             resourceInputs["creditSpecification"] = undefined /*out*/;
@@ -157,6 +296,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["hostResourceGroupArn"] = undefined /*out*/;
             resourceInputs["iamInstanceProfile"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["instanceInitiatedShutdownBehavior"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["ipv6AddressCount"] = undefined /*out*/;
@@ -185,6 +325,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tenancy"] = undefined /*out*/;
             resourceInputs["userData"] = undefined /*out*/;
             resourceInputs["volumes"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "cpuOptions", "elasticGpuSpecifications[*]", "elasticInferenceAccelerators[*]", "enclaveOptions", "hibernationOptions", "hostResourceGroupArn", "imageId", "ipv6AddressCount", "ipv6Addresses[*]", "keyName", "launchTemplate", "licenseSpecifications[*]", "networkInterfaces[*]", "placementGroupName", "privateIpAddress", "securityGroups[*]", "subnetId"] };
@@ -197,44 +338,164 @@ export class Instance extends pulumi.CustomResource {
  * The set of arguments for constructing a Instance resource.
  */
 export interface InstanceArgs {
+    /**
+     * This property is reserved for internal use. If you use it, the stack fails with this error: Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX).
+     */
     additionalInfo?: pulumi.Input<string>;
-    affinity?: pulumi.Input<string>;
+    /**
+     * Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+     */
+    affinity?: pulumi.Input<enums.ec2.InstanceAffinity>;
+    /**
+     * The Availability Zone of the instance.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The block device mapping entries that defines the block devices to attach to the instance at launch.
+     */
     blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceBlockDeviceMappingArgs>[]>;
-    cpuOptions?: pulumi.Input<inputs.ec2.InstanceCpuOptionsArgs>;
-    creditSpecification?: pulumi.Input<inputs.ec2.InstanceCreditSpecificationArgs>;
+    /**
+     * The CPU options for the instance.
+     */
+    cpuOptions?: pulumi.Input<inputs.ec2.CpuOptionsPropertiesArgs>;
+    /**
+     * The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+     */
+    creditSpecification?: pulumi.Input<inputs.ec2.CreditSpecificationPropertiesArgs>;
+    /**
+     * If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+     */
     disableApiTermination?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the instance is optimized for Amazon EBS I/O.
+     */
     ebsOptimized?: pulumi.Input<boolean>;
+    /**
+     * An elastic GPU to associate with the instance.
+     */
     elasticGpuSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceElasticGpuSpecificationArgs>[]>;
+    /**
+     * An elastic inference accelerator to associate with the instance.
+     */
     elasticInferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceElasticInferenceAcceleratorArgs>[]>;
-    enclaveOptions?: pulumi.Input<inputs.ec2.InstanceEnclaveOptionsArgs>;
-    hibernationOptions?: pulumi.Input<inputs.ec2.InstanceHibernationOptionsArgs>;
+    /**
+     * Indicates whether the instance is enabled for AWS Nitro Enclaves.
+     */
+    enclaveOptions?: pulumi.Input<inputs.ec2.EnclaveOptionsPropertiesArgs>;
+    /**
+     * Indicates whether an instance is enabled for hibernation.
+     */
+    hibernationOptions?: pulumi.Input<inputs.ec2.HibernationOptionsPropertiesArgs>;
+    /**
+     * If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
+     */
     hostId?: pulumi.Input<string>;
+    /**
+     * The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+     */
     hostResourceGroupArn?: pulumi.Input<string>;
+    /**
+     * The IAM instance profile.
+     */
     iamInstanceProfile?: pulumi.Input<string>;
+    /**
+     * The ID of the AMI. An AMI ID is required to launch an instance and must be specified here or in a launch template.
+     */
     imageId?: pulumi.Input<string>;
+    /**
+     * Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+     */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
+    /**
+     * The instance type.
+     */
     instanceType?: pulumi.Input<string>;
+    /**
+     * [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+     */
     ipv6AddressCount?: pulumi.Input<number>;
+    /**
+     * [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
+     */
     ipv6Addresses?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceIpv6AddressArgs>[]>;
+    /**
+     * The ID of the kernel.
+     */
     kernelId?: pulumi.Input<string>;
+    /**
+     * The name of the key pair.
+     */
     keyName?: pulumi.Input<string>;
+    /**
+     * The launch template to use to launch the instances.
+     */
     launchTemplate?: pulumi.Input<inputs.ec2.InstanceLaunchTemplateSpecificationArgs>;
+    /**
+     * The license configurations.
+     */
     licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceLicenseSpecificationArgs>[]>;
+    /**
+     * Specifies whether detailed monitoring is enabled for the instance.
+     */
     monitoring?: pulumi.Input<boolean>;
+    /**
+     * The network interfaces to associate with the instance.
+     */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceNetworkInterfaceArgs>[]>;
+    /**
+     * The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
+     */
     placementGroupName?: pulumi.Input<string>;
+    /**
+     * The options for the instance hostname.
+     */
     privateDnsNameOptions?: pulumi.Input<inputs.ec2.InstancePrivateDnsNameOptionsArgs>;
+    /**
+     * [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
+     */
     privateIpAddress?: pulumi.Input<string>;
+    /**
+     * Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.
+     */
     propagateTagsToVolumeOnCreation?: pulumi.Input<boolean>;
+    /**
+     * The ID of the RAM disk to select.
+     */
     ramdiskId?: pulumi.Input<string>;
+    /**
+     * The IDs of the security groups.
+     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * the names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies whether to enable an instance launched in a VPC to perform NAT.
+     */
     sourceDestCheck?: pulumi.Input<boolean>;
+    /**
+     * The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+     */
     ssmAssociations?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceSsmAssociationArgs>[]>;
+    /**
+     * [EC2-VPC] The ID of the subnet to launch the instance into.
+     */
     subnetId?: pulumi.Input<string>;
+    /**
+     * The tags to add to the instance.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+     */
     tenancy?: pulumi.Input<string>;
+    /**
+     * The user data to make available to the instance.
+     */
     userData?: pulumi.Input<string>;
+    /**
+     * The volumes to attach to the instance.
+     */
     volumes?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceVolumeArgs>[]>;
 }

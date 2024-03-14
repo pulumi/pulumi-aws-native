@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A resource schema representing a Lake Formation Permission.
+ * The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.
  */
 export function getPrincipalPermissions(args: GetPrincipalPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPrincipalPermissionsResult> {
 
@@ -26,7 +26,7 @@ export interface GetPrincipalPermissionsResult {
     readonly resourceIdentifier?: string;
 }
 /**
- * A resource schema representing a Lake Formation Permission.
+ * The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.
  */
 export function getPrincipalPermissionsOutput(args: GetPrincipalPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrincipalPermissionsResult> {
     return pulumi.output(args).apply((a: any) => getPrincipalPermissions(a, opts))

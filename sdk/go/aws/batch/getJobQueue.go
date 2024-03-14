@@ -27,11 +27,12 @@ type LookupJobQueueArgs struct {
 }
 
 type LookupJobQueueResult struct {
-	ComputeEnvironmentOrder []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrder"`
-	JobQueueArn             *string                           `pulumi:"jobQueueArn"`
-	Priority                *int                              `pulumi:"priority"`
-	SchedulingPolicyArn     *string                           `pulumi:"schedulingPolicyArn"`
-	State                   *JobQueueStateEnum                `pulumi:"state"`
+	ComputeEnvironmentOrder  []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrder"`
+	JobQueueArn              *string                           `pulumi:"jobQueueArn"`
+	JobStateTimeLimitActions []JobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
+	Priority                 *int                              `pulumi:"priority"`
+	SchedulingPolicyArn      *string                           `pulumi:"schedulingPolicyArn"`
+	State                    *JobQueueStateEnum                `pulumi:"state"`
 }
 
 func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, opts ...pulumi.InvokeOption) LookupJobQueueResultOutput {
@@ -75,6 +76,10 @@ func (o LookupJobQueueResultOutput) ComputeEnvironmentOrder() JobQueueComputeEnv
 
 func (o LookupJobQueueResultOutput) JobQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) *string { return v.JobQueueArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupJobQueueResultOutput) JobStateTimeLimitActions() JobQueueJobStateTimeLimitActionArrayOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) []JobQueueJobStateTimeLimitAction { return v.JobStateTimeLimitActions }).(JobQueueJobStateTimeLimitActionArrayOutput)
 }
 
 func (o LookupJobQueueResultOutput) Priority() pulumi.IntPtrOutput {

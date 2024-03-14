@@ -10,9 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The ``NetworkConfiguration`` property specifies an object representing the network configuration for a task or service.
+    /// </summary>
     [OutputType]
     public sealed class ServiceNetworkConfiguration
     {
+        /// <summary>
+        /// The VPC subnets and security groups that are associated with a task.
+        ///   All specified subnets and security groups must be from the same VPC.
+        /// </summary>
         public readonly Outputs.ServiceAwsVpcConfiguration? AwsvpcConfiguration;
 
         [OutputConstructor]

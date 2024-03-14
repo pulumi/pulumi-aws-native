@@ -27,6 +27,10 @@ export interface GetNamespaceArgs {
 
 export interface GetNamespaceResult {
     /**
+     * The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+     */
+    readonly adminPasswordSecretKmsKeyId?: string;
+    /**
      * The user name associated with the admin user for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
      */
     readonly adminUsername?: string;
@@ -50,7 +54,16 @@ export interface GetNamespaceResult {
      * The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
      */
     readonly logExports?: enums.redshiftserverless.NamespaceLogExport[];
+    /**
+     * Definition of Namespace resource.
+     */
     readonly namespace?: outputs.redshiftserverless.Namespace;
+    /**
+     * The resource policy document that will be attached to the namespace.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+     */
+    readonly namespaceResourcePolicy?: any;
 }
 /**
  * Definition of AWS::RedshiftServerless::Namespace Resource Type

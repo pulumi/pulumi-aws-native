@@ -453,11 +453,16 @@ func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput) 
 	}).(ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput)
 }
 
-// A capacity provider strategy consists of one or more capacity providers along with the `base` and `weight` to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The PutClusterCapacityProviders API is used to associate a capacity provider with a cluster. Only capacity providers with an `ACTIVE` or `UPDATING` status can be used.
+// The “CapacityProviderStrategyItem“ property specifies the details of the default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 type ClusterCapacityProviderStrategyItem struct {
-	Base             *int    `pulumi:"base"`
+	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
+	Base *int `pulumi:"base"`
+	// The short name of the capacity provider.
 	CapacityProvider *string `pulumi:"capacityProvider"`
-	Weight           *int    `pulumi:"weight"`
+	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
+	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
+	//  An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
+	Weight *int `pulumi:"weight"`
 }
 
 // ClusterCapacityProviderStrategyItemInput is an input type that accepts ClusterCapacityProviderStrategyItemArgs and ClusterCapacityProviderStrategyItemOutput values.
@@ -471,11 +476,16 @@ type ClusterCapacityProviderStrategyItemInput interface {
 	ToClusterCapacityProviderStrategyItemOutputWithContext(context.Context) ClusterCapacityProviderStrategyItemOutput
 }
 
-// A capacity provider strategy consists of one or more capacity providers along with the `base` and `weight` to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The PutClusterCapacityProviders API is used to associate a capacity provider with a cluster. Only capacity providers with an `ACTIVE` or `UPDATING` status can be used.
+// The “CapacityProviderStrategyItem“ property specifies the details of the default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 type ClusterCapacityProviderStrategyItemArgs struct {
-	Base             pulumi.IntPtrInput    `pulumi:"base"`
+	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// The short name of the capacity provider.
 	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
-	Weight           pulumi.IntPtrInput    `pulumi:"weight"`
+	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
+	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
+	//  An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (ClusterCapacityProviderStrategyItemArgs) ElementType() reflect.Type {
@@ -515,7 +525,7 @@ func (i ClusterCapacityProviderStrategyItemArray) ToClusterCapacityProviderStrat
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProviderStrategyItemArrayOutput)
 }
 
-// A capacity provider strategy consists of one or more capacity providers along with the `base` and `weight` to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The PutClusterCapacityProviders API is used to associate a capacity provider with a cluster. Only capacity providers with an `ACTIVE` or `UPDATING` status can be used.
+// The “CapacityProviderStrategyItem“ property specifies the details of the default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
 type ClusterCapacityProviderStrategyItemOutput struct{ *pulumi.OutputState }
 
 func (ClusterCapacityProviderStrategyItemOutput) ElementType() reflect.Type {
@@ -530,14 +540,20 @@ func (o ClusterCapacityProviderStrategyItemOutput) ToClusterCapacityProviderStra
 	return o
 }
 
+// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of “0“ is used.
 func (o ClusterCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
+// The short name of the capacity provider.
 func (o ClusterCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *string { return v.CapacityProvider }).(pulumi.StringPtrOutput)
 }
 
+// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The “weight“ value is taken into consideration after the “base“ value, if defined, is satisfied.
+//
+//	If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
+//	An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
 func (o ClusterCapacityProviderStrategyItemOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -562,8 +578,9 @@ func (o ClusterCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 	}).(ClusterCapacityProviderStrategyItemOutput)
 }
 
-// The configurations to be set at cluster level.
+// The execute command configuration for the cluster.
 type ClusterConfiguration struct {
+	// The details of the execute command configuration.
 	ExecuteCommandConfiguration *ClusterExecuteCommandConfiguration `pulumi:"executeCommandConfiguration"`
 }
 
@@ -578,8 +595,9 @@ type ClusterConfigurationInput interface {
 	ToClusterConfigurationOutputWithContext(context.Context) ClusterConfigurationOutput
 }
 
-// The configurations to be set at cluster level.
+// The execute command configuration for the cluster.
 type ClusterConfigurationArgs struct {
+	// The details of the execute command configuration.
 	ExecuteCommandConfiguration ClusterExecuteCommandConfigurationPtrInput `pulumi:"executeCommandConfiguration"`
 }
 
@@ -636,7 +654,7 @@ func (i *clusterConfigurationPtrType) ToClusterConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationPtrOutput)
 }
 
-// The configurations to be set at cluster level.
+// The execute command configuration for the cluster.
 type ClusterConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterConfigurationOutput) ElementType() reflect.Type {
@@ -661,6 +679,7 @@ func (o ClusterConfigurationOutput) ToClusterConfigurationPtrOutputWithContext(c
 	}).(ClusterConfigurationPtrOutput)
 }
 
+// The details of the execute command configuration.
 func (o ClusterConfigurationOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterConfiguration) *ClusterExecuteCommandConfiguration { return v.ExecuteCommandConfiguration }).(ClusterExecuteCommandConfigurationPtrOutput)
 }
@@ -689,6 +708,7 @@ func (o ClusterConfigurationPtrOutput) Elem() ClusterConfigurationOutput {
 	}).(ClusterConfigurationOutput)
 }
 
+// The details of the execute command configuration.
 func (o ClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterConfiguration) *ClusterExecuteCommandConfiguration {
 		if v == nil {
@@ -698,11 +718,17 @@ func (o ClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterExec
 	}).(ClusterExecuteCommandConfigurationPtrOutput)
 }
 
-// The configuration for ExecuteCommand.
+// The details of the execute command configuration.
 type ClusterExecuteCommandConfiguration struct {
-	KmsKeyId         *string                                `pulumi:"kmsKeyId"`
+	// Specify an KMSlong key ID to encrypt the data between the local client and the container.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When ``logging=OVERRIDE`` is specified, a ``logConfiguration`` must be provided.
 	LogConfiguration *ClusterExecuteCommandLogConfiguration `pulumi:"logConfiguration"`
-	Logging          *string                                `pulumi:"logging"`
+	// The log setting to use for redirecting logs for your execute command results. The following log settings are available.
+	//   +   ``NONE``: The execute command session is not logged.
+	//   +   ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
+	//   +   ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
+	Logging *string `pulumi:"logging"`
 }
 
 // ClusterExecuteCommandConfigurationInput is an input type that accepts ClusterExecuteCommandConfigurationArgs and ClusterExecuteCommandConfigurationOutput values.
@@ -716,11 +742,17 @@ type ClusterExecuteCommandConfigurationInput interface {
 	ToClusterExecuteCommandConfigurationOutputWithContext(context.Context) ClusterExecuteCommandConfigurationOutput
 }
 
-// The configuration for ExecuteCommand.
+// The details of the execute command configuration.
 type ClusterExecuteCommandConfigurationArgs struct {
-	KmsKeyId         pulumi.StringPtrInput                         `pulumi:"kmsKeyId"`
+	// Specify an KMSlong key ID to encrypt the data between the local client and the container.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When ``logging=OVERRIDE`` is specified, a ``logConfiguration`` must be provided.
 	LogConfiguration ClusterExecuteCommandLogConfigurationPtrInput `pulumi:"logConfiguration"`
-	Logging          pulumi.StringPtrInput                         `pulumi:"logging"`
+	// The log setting to use for redirecting logs for your execute command results. The following log settings are available.
+	//   +   ``NONE``: The execute command session is not logged.
+	//   +   ``DEFAULT``: The ``awslogs`` configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no ``awslogs`` log driver is configured in the task definition, the output won't be logged.
+	//   +   ``OVERRIDE``: Specify the logging details as a part of ``logConfiguration``. If the ``OVERRIDE`` logging option is specified, the ``logConfiguration`` is required.
+	Logging pulumi.StringPtrInput `pulumi:"logging"`
 }
 
 func (ClusterExecuteCommandConfigurationArgs) ElementType() reflect.Type {
@@ -776,7 +808,7 @@ func (i *clusterExecuteCommandConfigurationPtrType) ToClusterExecuteCommandConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandConfigurationPtrOutput)
 }
 
-// The configuration for ExecuteCommand.
+// The details of the execute command configuration.
 type ClusterExecuteCommandConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterExecuteCommandConfigurationOutput) ElementType() reflect.Type {
@@ -801,16 +833,22 @@ func (o ClusterExecuteCommandConfigurationOutput) ToClusterExecuteCommandConfigu
 	}).(ClusterExecuteCommandConfigurationPtrOutput)
 }
 
+// Specify an KMSlong key ID to encrypt the data between the local client and the container.
 func (o ClusterExecuteCommandConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When “logging=OVERRIDE“ is specified, a “logConfiguration“ must be provided.
 func (o ClusterExecuteCommandConfigurationOutput) LogConfiguration() ClusterExecuteCommandLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandConfiguration) *ClusterExecuteCommandLogConfiguration {
 		return v.LogConfiguration
 	}).(ClusterExecuteCommandLogConfigurationPtrOutput)
 }
 
+// The log setting to use for redirecting logs for your execute command results. The following log settings are available.
+//   - “NONE“: The execute command session is not logged.
+//   - “DEFAULT“: The “awslogs“ configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no “awslogs“ log driver is configured in the task definition, the output won't be logged.
+//   - “OVERRIDE“: Specify the logging details as a part of “logConfiguration“. If the “OVERRIDE“ logging option is specified, the “logConfiguration“ is required.
 func (o ClusterExecuteCommandConfigurationOutput) Logging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandConfiguration) *string { return v.Logging }).(pulumi.StringPtrOutput)
 }
@@ -839,6 +877,7 @@ func (o ClusterExecuteCommandConfigurationPtrOutput) Elem() ClusterExecuteComman
 	}).(ClusterExecuteCommandConfigurationOutput)
 }
 
+// Specify an KMSlong key ID to encrypt the data between the local client and the container.
 func (o ClusterExecuteCommandConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) *string {
 		if v == nil {
@@ -848,6 +887,7 @@ func (o ClusterExecuteCommandConfigurationPtrOutput) KmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket. When “logging=OVERRIDE“ is specified, a “logConfiguration“ must be provided.
 func (o ClusterExecuteCommandConfigurationPtrOutput) LogConfiguration() ClusterExecuteCommandLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) *ClusterExecuteCommandLogConfiguration {
 		if v == nil {
@@ -857,6 +897,10 @@ func (o ClusterExecuteCommandConfigurationPtrOutput) LogConfiguration() ClusterE
 	}).(ClusterExecuteCommandLogConfigurationPtrOutput)
 }
 
+// The log setting to use for redirecting logs for your execute command results. The following log settings are available.
+//   - “NONE“: The execute command session is not logged.
+//   - “DEFAULT“: The “awslogs“ configuration in the task definition is used. If no logging parameter is specified, it defaults to this value. If no “awslogs“ log driver is configured in the task definition, the output won't be logged.
+//   - “OVERRIDE“: Specify the logging details as a part of “logConfiguration“. If the “OVERRIDE“ logging option is specified, the “logConfiguration“ is required.
 func (o ClusterExecuteCommandConfigurationPtrOutput) Logging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) *string {
 		if v == nil {
@@ -866,13 +910,20 @@ func (o ClusterExecuteCommandConfigurationPtrOutput) Logging() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The session logging configuration for ExecuteCommand.
+// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
 type ClusterExecuteCommandLogConfiguration struct {
-	CloudWatchEncryptionEnabled *bool   `pulumi:"cloudWatchEncryptionEnabled"`
-	CloudWatchLogGroupName      *string `pulumi:"cloudWatchLogGroupName"`
-	S3BucketName                *string `pulumi:"s3BucketName"`
-	S3EncryptionEnabled         *bool   `pulumi:"s3EncryptionEnabled"`
-	S3KeyPrefix                 *string `pulumi:"s3KeyPrefix"`
+	// Determines whether to use encryption on the CloudWatch logs. If not specified, encryption will be off.
+	CloudWatchEncryptionEnabled *bool `pulumi:"cloudWatchEncryptionEnabled"`
+	// The name of the CloudWatch log group to send logs to.
+	//   The CloudWatch log group must already be created.
+	CloudWatchLogGroupName *string `pulumi:"cloudWatchLogGroupName"`
+	// The name of the S3 bucket to send logs to.
+	//   The S3 bucket must already be created.
+	S3BucketName *string `pulumi:"s3BucketName"`
+	// Determines whether to use encryption on the S3 logs. If not specified, encryption is not used.
+	S3EncryptionEnabled *bool `pulumi:"s3EncryptionEnabled"`
+	// An optional folder in the S3 bucket to place logs in.
+	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
 // ClusterExecuteCommandLogConfigurationInput is an input type that accepts ClusterExecuteCommandLogConfigurationArgs and ClusterExecuteCommandLogConfigurationOutput values.
@@ -886,13 +937,20 @@ type ClusterExecuteCommandLogConfigurationInput interface {
 	ToClusterExecuteCommandLogConfigurationOutputWithContext(context.Context) ClusterExecuteCommandLogConfigurationOutput
 }
 
-// The session logging configuration for ExecuteCommand.
+// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
 type ClusterExecuteCommandLogConfigurationArgs struct {
-	CloudWatchEncryptionEnabled pulumi.BoolPtrInput   `pulumi:"cloudWatchEncryptionEnabled"`
-	CloudWatchLogGroupName      pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
-	S3BucketName                pulumi.StringPtrInput `pulumi:"s3BucketName"`
-	S3EncryptionEnabled         pulumi.BoolPtrInput   `pulumi:"s3EncryptionEnabled"`
-	S3KeyPrefix                 pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
+	// Determines whether to use encryption on the CloudWatch logs. If not specified, encryption will be off.
+	CloudWatchEncryptionEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchEncryptionEnabled"`
+	// The name of the CloudWatch log group to send logs to.
+	//   The CloudWatch log group must already be created.
+	CloudWatchLogGroupName pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
+	// The name of the S3 bucket to send logs to.
+	//   The S3 bucket must already be created.
+	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
+	// Determines whether to use encryption on the S3 logs. If not specified, encryption is not used.
+	S3EncryptionEnabled pulumi.BoolPtrInput `pulumi:"s3EncryptionEnabled"`
+	// An optional folder in the S3 bucket to place logs in.
+	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
 func (ClusterExecuteCommandLogConfigurationArgs) ElementType() reflect.Type {
@@ -948,7 +1006,7 @@ func (i *clusterExecuteCommandLogConfigurationPtrType) ToClusterExecuteCommandLo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandLogConfigurationPtrOutput)
 }
 
-// The session logging configuration for ExecuteCommand.
+// The log configuration for the results of the execute command actions. The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.
 type ClusterExecuteCommandLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterExecuteCommandLogConfigurationOutput) ElementType() reflect.Type {
@@ -973,22 +1031,31 @@ func (o ClusterExecuteCommandLogConfigurationOutput) ToClusterExecuteCommandLogC
 	}).(ClusterExecuteCommandLogConfigurationPtrOutput)
 }
 
+// Determines whether to use encryption on the CloudWatch logs. If not specified, encryption will be off.
 func (o ClusterExecuteCommandLogConfigurationOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *bool { return v.CloudWatchEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the CloudWatch log group to send logs to.
+//
+//	The CloudWatch log group must already be created.
 func (o ClusterExecuteCommandLogConfigurationOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *string { return v.CloudWatchLogGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the S3 bucket to send logs to.
+//
+//	The S3 bucket must already be created.
 func (o ClusterExecuteCommandLogConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
+// Determines whether to use encryption on the S3 logs. If not specified, encryption is not used.
 func (o ClusterExecuteCommandLogConfigurationOutput) S3EncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *bool { return v.S3EncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// An optional folder in the S3 bucket to place logs in.
 func (o ClusterExecuteCommandLogConfigurationOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -1017,6 +1084,7 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) Elem() ClusterExecuteCom
 	}).(ClusterExecuteCommandLogConfigurationOutput)
 }
 
+// Determines whether to use encryption on the CloudWatch logs. If not specified, encryption will be off.
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *bool {
 		if v == nil {
@@ -1026,6 +1094,9 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchEncryptionEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The name of the CloudWatch log group to send logs to.
+//
+//	The CloudWatch log group must already be created.
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *string {
 		if v == nil {
@@ -1035,6 +1106,9 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchLogGroupName()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the S3 bucket to send logs to.
+//
+//	The S3 bucket must already be created.
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *string {
 		if v == nil {
@@ -1044,6 +1118,7 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3BucketName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether to use encryption on the S3 logs. If not specified, encryption is not used.
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3EncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *bool {
 		if v == nil {
@@ -1053,6 +1128,7 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3EncryptionEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// An optional folder in the S3 bucket to place logs in.
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *string {
 		if v == nil {
@@ -1062,9 +1138,15 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service Connect Configuration default for all services or tasks within this cluster
+// Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the “enabled“ parameter to “true“ in the “ServiceConnectConfiguration“. You can set the namespace of each service individually in the “ServiceConnectConfiguration“ to override this default parameter.
+//
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterServiceConnectDefaults struct {
-	// Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+	//  If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
+	//  If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
+	//  If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
+	//  For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -1079,9 +1161,15 @@ type ClusterServiceConnectDefaultsInput interface {
 	ToClusterServiceConnectDefaultsOutputWithContext(context.Context) ClusterServiceConnectDefaultsOutput
 }
 
-// Service Connect Configuration default for all services or tasks within this cluster
+// Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the “enabled“ parameter to “true“ in the “ServiceConnectConfiguration“. You can set the namespace of each service individually in the “ServiceConnectConfiguration“ to override this default parameter.
+//
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterServiceConnectDefaultsArgs struct {
-	// Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+	//  If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
+	//  If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
+	//  If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
+	//  For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
@@ -1138,7 +1226,9 @@ func (i *clusterServiceConnectDefaultsPtrType) ToClusterServiceConnectDefaultsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
-// Service Connect Configuration default for all services or tasks within this cluster
+// Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the “enabled“ parameter to “true“ in the “ServiceConnectConfiguration“. You can set the namespace of each service individually in the “ServiceConnectConfiguration“ to override this default parameter.
+//
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ClusterServiceConnectDefaultsOutput struct{ *pulumi.OutputState }
 
 func (ClusterServiceConnectDefaultsOutput) ElementType() reflect.Type {
@@ -1163,7 +1253,12 @@ func (o ClusterServiceConnectDefaultsOutput) ToClusterServiceConnectDefaultsPtrO
 	}).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
-// Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+//
+//	If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
+//	If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
+//	If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
+//	For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
 func (o ClusterServiceConnectDefaultsOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterServiceConnectDefaults) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -1192,7 +1287,12 @@ func (o ClusterServiceConnectDefaultsPtrOutput) Elem() ClusterServiceConnectDefa
 	}).(ClusterServiceConnectDefaultsOutput)
 }
 
-// Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace that's used when you create a service and don't specify a Service Connect configuration. The namespace name can include up to 1024 characters. The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than (>), less than (<), or slash (/).
+//
+//	If you enter an existing namespace name or ARN, then that namespace will be used. Any namespace type is supported. The namespace must be in this account and this AWS Region.
+//	If you enter a new name, a CMAPlong namespace will be created. Amazon ECS creates a CMAP namespace with the "API calls" method of instance discovery only. This instance discovery method is the "HTTP" namespace type in the CLIlong. Other types of instance discovery aren't used by Service Connect.
+//	If you update the cluster with an empty string ``""`` for the namespace name, the cluster configuration for Service Connect is removed. Note that the namespace will remain in CMAP and must be deleted separately.
+//	For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
 func (o ClusterServiceConnectDefaultsPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterServiceConnectDefaults) *string {
 		if v == nil {
@@ -1202,9 +1302,12 @@ func (o ClusterServiceConnectDefaultsPtrOutput) Namespace() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
 type ClusterSettings struct {
-	Name  *string `pulumi:"name"`
+	// The name of the cluster setting. The value is ``containerInsights`` .
+	Name *string `pulumi:"name"`
+	// The value to set for the cluster setting. The supported values are ``enabled`` and ``disabled``.
+	//  If you set ``name`` to ``containerInsights`` and ``value`` to ``enabled``, CloudWatch Container Insights will be on for the cluster, otherwise it will be off unless the ``containerInsights`` account setting is turned on. If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
 	Value *string `pulumi:"value"`
 }
 
@@ -1219,9 +1322,12 @@ type ClusterSettingsInput interface {
 	ToClusterSettingsOutputWithContext(context.Context) ClusterSettingsOutput
 }
 
-// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
 type ClusterSettingsArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the cluster setting. The value is ``containerInsights`` .
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value to set for the cluster setting. The supported values are ``enabled`` and ``disabled``.
+	//  If you set ``name`` to ``containerInsights`` and ``value`` to ``enabled``, CloudWatch Container Insights will be on for the cluster, otherwise it will be off unless the ``containerInsights`` account setting is turned on. If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1262,7 +1368,7 @@ func (i ClusterSettingsArray) ToClusterSettingsArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSettingsArrayOutput)
 }
 
-// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
 type ClusterSettingsOutput struct{ *pulumi.OutputState }
 
 func (ClusterSettingsOutput) ElementType() reflect.Type {
@@ -1277,10 +1383,14 @@ func (o ClusterSettingsOutput) ToClusterSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
+// The name of the cluster setting. The value is “containerInsights“ .
 func (o ClusterSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The value to set for the cluster setting. The supported values are “enabled“ and “disabled“.
+//
+//	If you set ``name`` to ``containerInsights`` and ``value`` to ``enabled``, CloudWatch Container Insights will be on for the cluster, otherwise it will be off unless the ``containerInsights`` account setting is turned on. If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
 func (o ClusterSettingsOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterSettings) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1305,16 +1415,33 @@ func (o ClusterSettingsArrayOutput) Index(i pulumi.IntInput) ClusterSettingsOutp
 	}).(ClusterSettingsOutput)
 }
 
-// The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+//
+//	The following basic restrictions apply to tags:
+//	 +  Maximum number of tags per resource - 50
+//	 +  For each resource, each tag key must be unique, and each tag key can have only one value.
+//	 +  Maximum key length - 128 Unicode characters in UTF-8
+//	 +  Maximum value length - 256 Unicode characters in UTF-8
+//	 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+//	 +  Tag keys and values are case-sensitive.
+//	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 type ClusterTag struct {
-	Key   *string `pulumi:"key"`
+	// One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
+	Key *string `pulumi:"key"`
+	// The optional part of a key-value pair that make up a tag. A ``value`` acts as a descriptor within a tag category (key).
 	Value *string `pulumi:"value"`
 }
 
+// An object representing the networking details for a task or service. For example “awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}“
 type ServiceAwsVpcConfiguration struct {
+	// Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
 	AssignPublicIp *ServiceAwsVpcConfigurationAssignPublicIp `pulumi:"assignPublicIp"`
-	SecurityGroups []string                                  `pulumi:"securityGroups"`
-	Subnets        []string                                  `pulumi:"subnets"`
+	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``AwsVpcConfiguration``.
+	//   All specified security groups must be from the same VPC.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``AwsVpcConfiguration``.
+	//   All specified subnets must be from the same VPC.
+	Subnets []string `pulumi:"subnets"`
 }
 
 // ServiceAwsVpcConfigurationInput is an input type that accepts ServiceAwsVpcConfigurationArgs and ServiceAwsVpcConfigurationOutput values.
@@ -1328,10 +1455,16 @@ type ServiceAwsVpcConfigurationInput interface {
 	ToServiceAwsVpcConfigurationOutputWithContext(context.Context) ServiceAwsVpcConfigurationOutput
 }
 
+// An object representing the networking details for a task or service. For example “awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}“
 type ServiceAwsVpcConfigurationArgs struct {
+	// Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
 	AssignPublicIp ServiceAwsVpcConfigurationAssignPublicIpPtrInput `pulumi:"assignPublicIp"`
-	SecurityGroups pulumi.StringArrayInput                          `pulumi:"securityGroups"`
-	Subnets        pulumi.StringArrayInput                          `pulumi:"subnets"`
+	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``AwsVpcConfiguration``.
+	//   All specified security groups must be from the same VPC.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``AwsVpcConfiguration``.
+	//   All specified subnets must be from the same VPC.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (ServiceAwsVpcConfigurationArgs) ElementType() reflect.Type {
@@ -1387,6 +1520,7 @@ func (i *serviceAwsVpcConfigurationPtrType) ToServiceAwsVpcConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
+// An object representing the networking details for a task or service. For example “awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}“
 type ServiceAwsVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceAwsVpcConfigurationOutput) ElementType() reflect.Type {
@@ -1411,14 +1545,21 @@ func (o ServiceAwsVpcConfigurationOutput) ToServiceAwsVpcConfigurationPtrOutputW
 	}).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
+// Whether the task's elastic network interface receives a public IP address. The default value is “DISABLED“.
 func (o ServiceAwsVpcConfigurationOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp { return v.AssignPublicIp }).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
+// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per “AwsVpcConfiguration“.
+//
+//	All specified security groups must be from the same VPC.
 func (o ServiceAwsVpcConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per “AwsVpcConfiguration“.
+//
+//	All specified subnets must be from the same VPC.
 func (o ServiceAwsVpcConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -1447,6 +1588,7 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Elem() ServiceAwsVpcConfigurationOu
 	}).(ServiceAwsVpcConfigurationOutput)
 }
 
+// Whether the task's elastic network interface receives a public IP address. The default value is “DISABLED“.
 func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp {
 		if v == nil {
@@ -1456,6 +1598,9 @@ func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() ServiceAwsVpcConfi
 	}).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
+// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per “AwsVpcConfiguration“.
+//
+//	All specified security groups must be from the same VPC.
 func (o ServiceAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) []string {
 		if v == nil {
@@ -1465,6 +1610,9 @@ func (o ServiceAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+// The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per “AwsVpcConfiguration“.
+//
+//	All specified subnets must be from the same VPC.
 func (o ServiceAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) []string {
 		if v == nil {
@@ -1474,10 +1622,20 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+// The details of a capacity provider strategy. A capacity provider strategy can be set when using the “RunTask“ or “CreateService“ APIs or as the default capacity provider strategy for a cluster with the “CreateCluster“ API.
+//
+//	Only capacity providers that are already associated with a cluster and have an ``ACTIVE`` or ``UPDATING`` status can be used in a capacity provider strategy. The ``PutClusterCapacityProviders`` API is used to associate a capacity provider with a cluster.
+//	If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New Auto Scaling group capacity providers can be created with the ``CreateCapacityProvider`` API operation.
+//	To use an FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used in a capacity provider strategy.
 type ServiceCapacityProviderStrategyItem struct {
-	Base             *int    `pulumi:"base"`
+	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
+	Base *int `pulumi:"base"`
+	// The short name of the capacity provider.
 	CapacityProvider *string `pulumi:"capacityProvider"`
-	Weight           *int    `pulumi:"weight"`
+	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
+	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
+	//  An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
+	Weight *int `pulumi:"weight"`
 }
 
 // ServiceCapacityProviderStrategyItemInput is an input type that accepts ServiceCapacityProviderStrategyItemArgs and ServiceCapacityProviderStrategyItemOutput values.
@@ -1491,10 +1649,20 @@ type ServiceCapacityProviderStrategyItemInput interface {
 	ToServiceCapacityProviderStrategyItemOutputWithContext(context.Context) ServiceCapacityProviderStrategyItemOutput
 }
 
+// The details of a capacity provider strategy. A capacity provider strategy can be set when using the “RunTask“ or “CreateService“ APIs or as the default capacity provider strategy for a cluster with the “CreateCluster“ API.
+//
+//	Only capacity providers that are already associated with a cluster and have an ``ACTIVE`` or ``UPDATING`` status can be used in a capacity provider strategy. The ``PutClusterCapacityProviders`` API is used to associate a capacity provider with a cluster.
+//	If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New Auto Scaling group capacity providers can be created with the ``CreateCapacityProvider`` API operation.
+//	To use an FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used in a capacity provider strategy.
 type ServiceCapacityProviderStrategyItemArgs struct {
-	Base             pulumi.IntPtrInput    `pulumi:"base"`
+	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// The short name of the capacity provider.
 	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
-	Weight           pulumi.IntPtrInput    `pulumi:"weight"`
+	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
+	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
+	//  An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (ServiceCapacityProviderStrategyItemArgs) ElementType() reflect.Type {
@@ -1534,6 +1702,11 @@ func (i ServiceCapacityProviderStrategyItemArray) ToServiceCapacityProviderStrat
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCapacityProviderStrategyItemArrayOutput)
 }
 
+// The details of a capacity provider strategy. A capacity provider strategy can be set when using the “RunTask“ or “CreateService“ APIs or as the default capacity provider strategy for a cluster with the “CreateCluster“ API.
+//
+//	Only capacity providers that are already associated with a cluster and have an ``ACTIVE`` or ``UPDATING`` status can be used in a capacity provider strategy. The ``PutClusterCapacityProviders`` API is used to associate a capacity provider with a cluster.
+//	If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New Auto Scaling group capacity providers can be created with the ``CreateCapacityProvider`` API operation.
+//	To use an FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used in a capacity provider strategy.
 type ServiceCapacityProviderStrategyItemOutput struct{ *pulumi.OutputState }
 
 func (ServiceCapacityProviderStrategyItemOutput) ElementType() reflect.Type {
@@ -1548,14 +1721,20 @@ func (o ServiceCapacityProviderStrategyItemOutput) ToServiceCapacityProviderStra
 	return o
 }
 
+// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of “0“ is used.
 func (o ServiceCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
+// The short name of the capacity provider.
 func (o ServiceCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategyItem) *string { return v.CapacityProvider }).(pulumi.StringPtrOutput)
 }
 
+// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The “weight“ value is taken into consideration after the “base“ value, if defined, is satisfied.
+//
+//	If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
+//	An example scenario for using weights is defining a strategy that contains two capacity providers and both have a weight of ``1``, then when the ``base`` is satisfied, the tasks will be split evenly across the two capacity providers. Using that same logic, if you specify a weight of ``1`` for *capacityProviderA* and a weight of ``4`` for *capacityProviderB*, then for every one task that's run using *capacityProviderA*, four tasks would use *capacityProviderB*.
 func (o ServiceCapacityProviderStrategyItemOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -1580,9 +1759,18 @@ func (o ServiceCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 	}).(ServiceCapacityProviderStrategyItemOutput)
 }
 
+// Each alias ("endpoint") is a fully-qualified name and port number that other tasks ("clients") can use to connect to this service.
+//
+//	Each name and port mapping must be unique within the namespace.
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectClientAlias struct {
+	// The ``dnsName`` is the name that you use in the applications of client tasks to connect to this service. The name must be a valid DNS name but doesn't need to be fully-qualified. The name can include up to 127 characters. The name can include lowercase letters, numbers, underscores (_), hyphens (-), and periods (.). The name can't start with a hyphen.
+	//  If this parameter isn't specified, the default value of ``discoveryName.namespace`` is used. If the ``discoveryName`` isn't specified, the port mapping name from the task definition is used in ``portName.namespace``.
+	//  To avoid changing your applications in client Amazon ECS services, set this to the same name that the client application uses by default. For example, a few common names are ``database``, ``db``, or the lowercase name of a database, such as ``mysql`` or ``redis``. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 	DnsName *string `pulumi:"dnsName"`
-	Port    int     `pulumi:"port"`
+	// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+	//  To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+	Port int `pulumi:"port"`
 }
 
 // ServiceConnectClientAliasInput is an input type that accepts ServiceConnectClientAliasArgs and ServiceConnectClientAliasOutput values.
@@ -1596,9 +1784,18 @@ type ServiceConnectClientAliasInput interface {
 	ToServiceConnectClientAliasOutputWithContext(context.Context) ServiceConnectClientAliasOutput
 }
 
+// Each alias ("endpoint") is a fully-qualified name and port number that other tasks ("clients") can use to connect to this service.
+//
+//	Each name and port mapping must be unique within the namespace.
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectClientAliasArgs struct {
+	// The ``dnsName`` is the name that you use in the applications of client tasks to connect to this service. The name must be a valid DNS name but doesn't need to be fully-qualified. The name can include up to 127 characters. The name can include lowercase letters, numbers, underscores (_), hyphens (-), and periods (.). The name can't start with a hyphen.
+	//  If this parameter isn't specified, the default value of ``discoveryName.namespace`` is used. If the ``discoveryName`` isn't specified, the port mapping name from the task definition is used in ``portName.namespace``.
+	//  To avoid changing your applications in client Amazon ECS services, set this to the same name that the client application uses by default. For example, a few common names are ``database``, ``db``, or the lowercase name of a database, such as ``mysql`` or ``redis``. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
-	Port    pulumi.IntInput       `pulumi:"port"`
+	// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+	//  To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+	Port pulumi.IntInput `pulumi:"port"`
 }
 
 func (ServiceConnectClientAliasArgs) ElementType() reflect.Type {
@@ -1638,6 +1835,10 @@ func (i ServiceConnectClientAliasArray) ToServiceConnectClientAliasArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectClientAliasArrayOutput)
 }
 
+// Each alias ("endpoint") is a fully-qualified name and port number that other tasks ("clients") can use to connect to this service.
+//
+//	Each name and port mapping must be unique within the namespace.
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectClientAliasOutput struct{ *pulumi.OutputState }
 
 func (ServiceConnectClientAliasOutput) ElementType() reflect.Type {
@@ -1652,10 +1853,17 @@ func (o ServiceConnectClientAliasOutput) ToServiceConnectClientAliasOutputWithCo
 	return o
 }
 
+// The “dnsName“ is the name that you use in the applications of client tasks to connect to this service. The name must be a valid DNS name but doesn't need to be fully-qualified. The name can include up to 127 characters. The name can include lowercase letters, numbers, underscores (_), hyphens (-), and periods (.). The name can't start with a hyphen.
+//
+//	If this parameter isn't specified, the default value of ``discoveryName.namespace`` is used. If the ``discoveryName`` isn't specified, the port mapping name from the task definition is used in ``portName.namespace``.
+//	To avoid changing your applications in client Amazon ECS services, set this to the same name that the client application uses by default. For example, a few common names are ``database``, ``db``, or the lowercase name of a database, such as ``mysql`` or ``redis``. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o ServiceConnectClientAliasOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceConnectClientAlias) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
+// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+//
+//	To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o ServiceConnectClientAliasOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceConnectClientAlias) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1680,11 +1888,28 @@ func (o ServiceConnectClientAliasArrayOutput) Index(i pulumi.IntInput) ServiceCo
 	}).(ServiceConnectClientAliasOutput)
 }
 
+// The Service Connect configuration of your Amazon ECS service. The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
+//
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectConfiguration struct {
-	Enabled          bool                     `pulumi:"enabled"`
+	// Specifies whether to use Service Connect with this service.
+	Enabled bool `pulumi:"enabled"`
+	// The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
+	//  By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+	//  Understand the following when specifying a log configuration for your containers.
+	//   +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+	//       For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+	//       For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+	//   +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+	//   +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
 	LogConfiguration *ServiceLogConfiguration `pulumi:"logConfiguration"`
-	Namespace        *string                  `pulumi:"namespace"`
-	Services         []ServiceConnectService  `pulumi:"services"`
+	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace for use with Service Connect. The namespace must be in the same AWS Region as the Amazon ECS service and cluster. The type of namespace doesn't affect Service Connect. For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
+	Namespace *string `pulumi:"namespace"`
+	// The list of Service Connect service objects. These are names and aliases (also known as endpoints) that are used by other Amazon ECS services to connect to this service.
+	//  This field is not required for a "client" Amazon ECS service that's a member of a namespace only to connect to other services within the namespace. An example of this would be a frontend application that accepts incoming requests from either a load balancer that's attached to the service or by other means.
+	//  An object selects a port from the task definition, assigns a name for the CMAPlong service, and a list of aliases (endpoints) and ports for client applications to refer to this service.
+	Services []ServiceConnectService `pulumi:"services"`
 }
 
 // ServiceConnectConfigurationInput is an input type that accepts ServiceConnectConfigurationArgs and ServiceConnectConfigurationOutput values.
@@ -1698,11 +1923,28 @@ type ServiceConnectConfigurationInput interface {
 	ToServiceConnectConfigurationOutputWithContext(context.Context) ServiceConnectConfigurationOutput
 }
 
+// The Service Connect configuration of your Amazon ECS service. The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
+//
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectConfigurationArgs struct {
-	Enabled          pulumi.BoolInput                `pulumi:"enabled"`
+	// Specifies whether to use Service Connect with this service.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The log configuration for the container. This parameter maps to ``LogConfig`` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the ``--log-driver`` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
+	//  By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+	//  Understand the following when specifying a log configuration for your containers.
+	//   +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+	//       For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+	//       For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+	//   +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+	//   +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
 	LogConfiguration ServiceLogConfigurationPtrInput `pulumi:"logConfiguration"`
-	Namespace        pulumi.StringPtrInput           `pulumi:"namespace"`
-	Services         ServiceConnectServiceArrayInput `pulumi:"services"`
+	// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace for use with Service Connect. The namespace must be in the same AWS Region as the Amazon ECS service and cluster. The type of namespace doesn't affect Service Connect. For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// The list of Service Connect service objects. These are names and aliases (also known as endpoints) that are used by other Amazon ECS services to connect to this service.
+	//  This field is not required for a "client" Amazon ECS service that's a member of a namespace only to connect to other services within the namespace. An example of this would be a frontend application that accepts incoming requests from either a load balancer that's attached to the service or by other means.
+	//  An object selects a port from the task definition, assigns a name for the CMAPlong service, and a list of aliases (endpoints) and ports for client applications to refer to this service.
+	Services ServiceConnectServiceArrayInput `pulumi:"services"`
 }
 
 func (ServiceConnectConfigurationArgs) ElementType() reflect.Type {
@@ -1758,6 +2000,9 @@ func (i *serviceConnectConfigurationPtrType) ToServiceConnectConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectConfigurationPtrOutput)
 }
 
+// The Service Connect configuration of your Amazon ECS service. The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
+//
+//	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceConnectConfigurationOutput) ElementType() reflect.Type {
@@ -1782,18 +2027,34 @@ func (o ServiceConnectConfigurationOutput) ToServiceConnectConfigurationPtrOutpu
 	}).(ServiceConnectConfigurationPtrOutput)
 }
 
+// Specifies whether to use Service Connect with this service.
 func (o ServiceConnectConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceConnectConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The log configuration for the container. This parameter maps to “LogConfig“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--log-driver“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
+//
+//	By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+//	Understand the following when specifying a log configuration for your containers.
+//	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+//	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+//	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
 func (o ServiceConnectConfigurationOutput) LogConfiguration() ServiceLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceConnectConfiguration) *ServiceLogConfiguration { return v.LogConfiguration }).(ServiceLogConfigurationPtrOutput)
 }
 
+// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace for use with Service Connect. The namespace must be in the same AWS Region as the Amazon ECS service and cluster. The type of namespace doesn't affect Service Connect. For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
 func (o ServiceConnectConfigurationOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceConnectConfiguration) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
+// The list of Service Connect service objects. These are names and aliases (also known as endpoints) that are used by other Amazon ECS services to connect to this service.
+//
+//	This field is not required for a "client" Amazon ECS service that's a member of a namespace only to connect to other services within the namespace. An example of this would be a frontend application that accepts incoming requests from either a load balancer that's attached to the service or by other means.
+//	An object selects a port from the task definition, assigns a name for the CMAPlong service, and a list of aliases (endpoints) and ports for client applications to refer to this service.
 func (o ServiceConnectConfigurationOutput) Services() ServiceConnectServiceArrayOutput {
 	return o.ApplyT(func(v ServiceConnectConfiguration) []ServiceConnectService { return v.Services }).(ServiceConnectServiceArrayOutput)
 }
@@ -1822,6 +2083,7 @@ func (o ServiceConnectConfigurationPtrOutput) Elem() ServiceConnectConfiguration
 	}).(ServiceConnectConfigurationOutput)
 }
 
+// Specifies whether to use Service Connect with this service.
 func (o ServiceConnectConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectConfiguration) *bool {
 		if v == nil {
@@ -1831,6 +2093,16 @@ func (o ServiceConnectConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The log configuration for the container. This parameter maps to “LogConfig“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--log-driver“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
+//
+//	By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+//	Understand the following when specifying a log configuration for your containers.
+//	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+//	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+//	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
 func (o ServiceConnectConfigurationPtrOutput) LogConfiguration() ServiceLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectConfiguration) *ServiceLogConfiguration {
 		if v == nil {
@@ -1840,6 +2112,7 @@ func (o ServiceConnectConfigurationPtrOutput) LogConfiguration() ServiceLogConfi
 	}).(ServiceLogConfigurationPtrOutput)
 }
 
+// The namespace name or full Amazon Resource Name (ARN) of the CMAPlong namespace for use with Service Connect. The namespace must be in the same AWS Region as the Amazon ECS service and cluster. The type of namespace doesn't affect Service Connect. For more information about CMAPlong, see [Working with Services](https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html) in the *Developer Guide*.
 func (o ServiceConnectConfigurationPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectConfiguration) *string {
 		if v == nil {
@@ -1849,6 +2122,10 @@ func (o ServiceConnectConfigurationPtrOutput) Namespace() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of Service Connect service objects. These are names and aliases (also known as endpoints) that are used by other Amazon ECS services to connect to this service.
+//
+//	This field is not required for a "client" Amazon ECS service that's a member of a namespace only to connect to other services within the namespace. An example of this would be a frontend application that accepts incoming requests from either a load balancer that's attached to the service or by other means.
+//	An object selects a port from the task definition, assigns a name for the CMAPlong service, and a list of aliases (endpoints) and ports for client applications to refer to this service.
 func (o ServiceConnectConfigurationPtrOutput) Services() ServiceConnectServiceArrayOutput {
 	return o.ApplyT(func(v *ServiceConnectConfiguration) []ServiceConnectService {
 		if v == nil {
@@ -1858,13 +2135,26 @@ func (o ServiceConnectConfigurationPtrOutput) Services() ServiceConnectServiceAr
 	}).(ServiceConnectServiceArrayOutput)
 }
 
+// The Service Connect service object configuration. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectService struct {
-	ClientAliases       []ServiceConnectClientAlias     `pulumi:"clientAliases"`
-	DiscoveryName       *string                         `pulumi:"discoveryName"`
-	IngressPortOverride *int                            `pulumi:"ingressPortOverride"`
-	PortName            string                          `pulumi:"portName"`
-	Timeout             *ServiceTimeoutConfiguration    `pulumi:"timeout"`
-	Tls                 *ServiceConnectTlsConfiguration `pulumi:"tls"`
+	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1.
+	//  Each alias ("endpoint") is a fully-qualified name and port number that other Amazon ECS tasks ("clients") can use to connect to this service.
+	//  Each name and port mapping must be unique within the namespace.
+	//  For each ``ServiceConnectService``, you must provide at least one ``clientAlias`` with one ``port``.
+	ClientAliases []ServiceConnectClientAlias `pulumi:"clientAliases"`
+	// The ``discoveryName`` is the name of the new CMAP service that Amazon ECS creates for this Amazon ECS service. This must be unique within the CMAP namespace. The name can contain up to 64 characters. The name can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
+	//  If the ``discoveryName`` isn't specified, the port mapping name from the task definition is used in ``portName.namespace``.
+	DiscoveryName *string `pulumi:"discoveryName"`
+	// The port number for the Service Connect proxy to listen on.
+	//  Use the value of this field to bypass the proxy for traffic on the port number specified in the named ``portMapping`` in the task definition of this application, and then use it in your VPC security groups to allow traffic into the proxy for this Amazon ECS service.
+	//  In ``awsvpc`` mode and Fargate, the default value is the container port number. The container port number is in the ``portMapping`` in the task definition. In bridge mode, the default value is the ephemeral port of the Service Connect proxy.
+	IngressPortOverride *int `pulumi:"ingressPortOverride"`
+	// The ``portName`` must match the name of one of the ``portMappings`` from all the containers in the task definition of this Amazon ECS service.
+	PortName string `pulumi:"portName"`
+	// A reference to an object that represents the configured timeouts for Service Connect.
+	Timeout *ServiceTimeoutConfiguration `pulumi:"timeout"`
+	// A reference to an object that represents a Transport Layer Security (TLS) configuration.
+	Tls *ServiceConnectTlsConfiguration `pulumi:"tls"`
 }
 
 // ServiceConnectServiceInput is an input type that accepts ServiceConnectServiceArgs and ServiceConnectServiceOutput values.
@@ -1878,13 +2168,26 @@ type ServiceConnectServiceInput interface {
 	ToServiceConnectServiceOutputWithContext(context.Context) ServiceConnectServiceOutput
 }
 
+// The Service Connect service object configuration. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectServiceArgs struct {
-	ClientAliases       ServiceConnectClientAliasArrayInput    `pulumi:"clientAliases"`
-	DiscoveryName       pulumi.StringPtrInput                  `pulumi:"discoveryName"`
-	IngressPortOverride pulumi.IntPtrInput                     `pulumi:"ingressPortOverride"`
-	PortName            pulumi.StringInput                     `pulumi:"portName"`
-	Timeout             ServiceTimeoutConfigurationPtrInput    `pulumi:"timeout"`
-	Tls                 ServiceConnectTlsConfigurationPtrInput `pulumi:"tls"`
+	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1.
+	//  Each alias ("endpoint") is a fully-qualified name and port number that other Amazon ECS tasks ("clients") can use to connect to this service.
+	//  Each name and port mapping must be unique within the namespace.
+	//  For each ``ServiceConnectService``, you must provide at least one ``clientAlias`` with one ``port``.
+	ClientAliases ServiceConnectClientAliasArrayInput `pulumi:"clientAliases"`
+	// The ``discoveryName`` is the name of the new CMAP service that Amazon ECS creates for this Amazon ECS service. This must be unique within the CMAP namespace. The name can contain up to 64 characters. The name can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
+	//  If the ``discoveryName`` isn't specified, the port mapping name from the task definition is used in ``portName.namespace``.
+	DiscoveryName pulumi.StringPtrInput `pulumi:"discoveryName"`
+	// The port number for the Service Connect proxy to listen on.
+	//  Use the value of this field to bypass the proxy for traffic on the port number specified in the named ``portMapping`` in the task definition of this application, and then use it in your VPC security groups to allow traffic into the proxy for this Amazon ECS service.
+	//  In ``awsvpc`` mode and Fargate, the default value is the container port number. The container port number is in the ``portMapping`` in the task definition. In bridge mode, the default value is the ephemeral port of the Service Connect proxy.
+	IngressPortOverride pulumi.IntPtrInput `pulumi:"ingressPortOverride"`
+	// The ``portName`` must match the name of one of the ``portMappings`` from all the containers in the task definition of this Amazon ECS service.
+	PortName pulumi.StringInput `pulumi:"portName"`
+	// A reference to an object that represents the configured timeouts for Service Connect.
+	Timeout ServiceTimeoutConfigurationPtrInput `pulumi:"timeout"`
+	// A reference to an object that represents a Transport Layer Security (TLS) configuration.
+	Tls ServiceConnectTlsConfigurationPtrInput `pulumi:"tls"`
 }
 
 func (ServiceConnectServiceArgs) ElementType() reflect.Type {
@@ -1924,6 +2227,7 @@ func (i ServiceConnectServiceArray) ToServiceConnectServiceArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectServiceArrayOutput)
 }
 
+// The Service Connect service object configuration. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceConnectServiceOutput) ElementType() reflect.Type {
@@ -1938,26 +2242,41 @@ func (o ServiceConnectServiceOutput) ToServiceConnectServiceOutputWithContext(ct
 	return o
 }
 
+// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1.
+//
+//	Each alias ("endpoint") is a fully-qualified name and port number that other Amazon ECS tasks ("clients") can use to connect to this service.
+//	Each name and port mapping must be unique within the namespace.
+//	For each ``ServiceConnectService``, you must provide at least one ``clientAlias`` with one ``port``.
 func (o ServiceConnectServiceOutput) ClientAliases() ServiceConnectClientAliasArrayOutput {
 	return o.ApplyT(func(v ServiceConnectService) []ServiceConnectClientAlias { return v.ClientAliases }).(ServiceConnectClientAliasArrayOutput)
 }
 
+// The “discoveryName“ is the name of the new CMAP service that Amazon ECS creates for this Amazon ECS service. This must be unique within the CMAP namespace. The name can contain up to 64 characters. The name can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
+//
+//	If the ``discoveryName`` isn't specified, the port mapping name from the task definition is used in ``portName.namespace``.
 func (o ServiceConnectServiceOutput) DiscoveryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceConnectService) *string { return v.DiscoveryName }).(pulumi.StringPtrOutput)
 }
 
+// The port number for the Service Connect proxy to listen on.
+//
+//	Use the value of this field to bypass the proxy for traffic on the port number specified in the named ``portMapping`` in the task definition of this application, and then use it in your VPC security groups to allow traffic into the proxy for this Amazon ECS service.
+//	In ``awsvpc`` mode and Fargate, the default value is the container port number. The container port number is in the ``portMapping`` in the task definition. In bridge mode, the default value is the ephemeral port of the Service Connect proxy.
 func (o ServiceConnectServiceOutput) IngressPortOverride() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceConnectService) *int { return v.IngressPortOverride }).(pulumi.IntPtrOutput)
 }
 
+// The “portName“ must match the name of one of the “portMappings“ from all the containers in the task definition of this Amazon ECS service.
 func (o ServiceConnectServiceOutput) PortName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceConnectService) string { return v.PortName }).(pulumi.StringOutput)
 }
 
+// A reference to an object that represents the configured timeouts for Service Connect.
 func (o ServiceConnectServiceOutput) Timeout() ServiceTimeoutConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceConnectService) *ServiceTimeoutConfiguration { return v.Timeout }).(ServiceTimeoutConfigurationPtrOutput)
 }
 
+// A reference to an object that represents a Transport Layer Security (TLS) configuration.
 func (o ServiceConnectServiceOutput) Tls() ServiceConnectTlsConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceConnectService) *ServiceConnectTlsConfiguration { return v.Tls }).(ServiceConnectTlsConfigurationPtrOutput)
 }
@@ -1982,7 +2301,9 @@ func (o ServiceConnectServiceArrayOutput) Index(i pulumi.IntInput) ServiceConnec
 	}).(ServiceConnectServiceOutput)
 }
 
+// An object that represents the AWS Private Certificate Authority certificate.
 type ServiceConnectTlsCertificateAuthority struct {
+	// The ARN of the AWS Private Certificate Authority certificate.
 	AwsPcaAuthorityArn *string `pulumi:"awsPcaAuthorityArn"`
 }
 
@@ -1997,7 +2318,9 @@ type ServiceConnectTlsCertificateAuthorityInput interface {
 	ToServiceConnectTlsCertificateAuthorityOutputWithContext(context.Context) ServiceConnectTlsCertificateAuthorityOutput
 }
 
+// An object that represents the AWS Private Certificate Authority certificate.
 type ServiceConnectTlsCertificateAuthorityArgs struct {
+	// The ARN of the AWS Private Certificate Authority certificate.
 	AwsPcaAuthorityArn pulumi.StringPtrInput `pulumi:"awsPcaAuthorityArn"`
 }
 
@@ -2054,6 +2377,7 @@ func (i *serviceConnectTlsCertificateAuthorityPtrType) ToServiceConnectTlsCertif
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsCertificateAuthorityPtrOutput)
 }
 
+// An object that represents the AWS Private Certificate Authority certificate.
 type ServiceConnectTlsCertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (ServiceConnectTlsCertificateAuthorityOutput) ElementType() reflect.Type {
@@ -2078,6 +2402,7 @@ func (o ServiceConnectTlsCertificateAuthorityOutput) ToServiceConnectTlsCertific
 	}).(ServiceConnectTlsCertificateAuthorityPtrOutput)
 }
 
+// The ARN of the AWS Private Certificate Authority certificate.
 func (o ServiceConnectTlsCertificateAuthorityOutput) AwsPcaAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceConnectTlsCertificateAuthority) *string { return v.AwsPcaAuthorityArn }).(pulumi.StringPtrOutput)
 }
@@ -2106,6 +2431,7 @@ func (o ServiceConnectTlsCertificateAuthorityPtrOutput) Elem() ServiceConnectTls
 	}).(ServiceConnectTlsCertificateAuthorityOutput)
 }
 
+// The ARN of the AWS Private Certificate Authority certificate.
 func (o ServiceConnectTlsCertificateAuthorityPtrOutput) AwsPcaAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectTlsCertificateAuthority) *string {
 		if v == nil {
@@ -2115,10 +2441,14 @@ func (o ServiceConnectTlsCertificateAuthorityPtrOutput) AwsPcaAuthorityArn() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object that represents the configuration for Service Connect TLS.
 type ServiceConnectTlsConfiguration struct {
+	// The signer certificate authority.
 	IssuerCertificateAuthority ServiceConnectTlsCertificateAuthority `pulumi:"issuerCertificateAuthority"`
-	KmsKey                     *string                               `pulumi:"kmsKey"`
-	RoleArn                    *string                               `pulumi:"roleArn"`
+	// The AWS Key Management Service key.
+	KmsKey *string `pulumi:"kmsKey"`
+	// The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // ServiceConnectTlsConfigurationInput is an input type that accepts ServiceConnectTlsConfigurationArgs and ServiceConnectTlsConfigurationOutput values.
@@ -2132,10 +2462,14 @@ type ServiceConnectTlsConfigurationInput interface {
 	ToServiceConnectTlsConfigurationOutputWithContext(context.Context) ServiceConnectTlsConfigurationOutput
 }
 
+// An object that represents the configuration for Service Connect TLS.
 type ServiceConnectTlsConfigurationArgs struct {
+	// The signer certificate authority.
 	IssuerCertificateAuthority ServiceConnectTlsCertificateAuthorityInput `pulumi:"issuerCertificateAuthority"`
-	KmsKey                     pulumi.StringPtrInput                      `pulumi:"kmsKey"`
-	RoleArn                    pulumi.StringPtrInput                      `pulumi:"roleArn"`
+	// The AWS Key Management Service key.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	// The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (ServiceConnectTlsConfigurationArgs) ElementType() reflect.Type {
@@ -2191,6 +2525,7 @@ func (i *serviceConnectTlsConfigurationPtrType) ToServiceConnectTlsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectTlsConfigurationPtrOutput)
 }
 
+// An object that represents the configuration for Service Connect TLS.
 type ServiceConnectTlsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceConnectTlsConfigurationOutput) ElementType() reflect.Type {
@@ -2215,16 +2550,19 @@ func (o ServiceConnectTlsConfigurationOutput) ToServiceConnectTlsConfigurationPt
 	}).(ServiceConnectTlsConfigurationPtrOutput)
 }
 
+// The signer certificate authority.
 func (o ServiceConnectTlsConfigurationOutput) IssuerCertificateAuthority() ServiceConnectTlsCertificateAuthorityOutput {
 	return o.ApplyT(func(v ServiceConnectTlsConfiguration) ServiceConnectTlsCertificateAuthority {
 		return v.IssuerCertificateAuthority
 	}).(ServiceConnectTlsCertificateAuthorityOutput)
 }
 
+// The AWS Key Management Service key.
 func (o ServiceConnectTlsConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceConnectTlsConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.
 func (o ServiceConnectTlsConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceConnectTlsConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2253,6 +2591,7 @@ func (o ServiceConnectTlsConfigurationPtrOutput) Elem() ServiceConnectTlsConfigu
 	}).(ServiceConnectTlsConfigurationOutput)
 }
 
+// The signer certificate authority.
 func (o ServiceConnectTlsConfigurationPtrOutput) IssuerCertificateAuthority() ServiceConnectTlsCertificateAuthorityPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectTlsConfiguration) *ServiceConnectTlsCertificateAuthority {
 		if v == nil {
@@ -2262,6 +2601,7 @@ func (o ServiceConnectTlsConfigurationPtrOutput) IssuerCertificateAuthority() Se
 	}).(ServiceConnectTlsCertificateAuthorityPtrOutput)
 }
 
+// The AWS Key Management Service key.
 func (o ServiceConnectTlsConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectTlsConfiguration) *string {
 		if v == nil {
@@ -2271,6 +2611,7 @@ func (o ServiceConnectTlsConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.
 func (o ServiceConnectTlsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectTlsConfiguration) *string {
 		if v == nil {
@@ -2280,10 +2621,18 @@ func (o ServiceConnectTlsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// One of the methods which provide a way for you to quickly identify when a deployment has failed, and then to optionally roll back the failure to the last working deployment.
+//
+//	When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback parameter to have Amazon ECS to roll back your service to the last completed deployment after a failure.
+//	You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS`` (rolling update).
+//	For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentAlarms struct {
+	// One or more CloudWatch alarm names. Use a "," to separate the alarms.
 	AlarmNames []string `pulumi:"alarmNames"`
-	Enable     bool     `pulumi:"enable"`
-	Rollback   bool     `pulumi:"rollback"`
+	// Determines whether to use the CloudWatch alarm option in the service deployment process.
+	Enable bool `pulumi:"enable"`
+	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	Rollback bool `pulumi:"rollback"`
 }
 
 // ServiceDeploymentAlarmsInput is an input type that accepts ServiceDeploymentAlarmsArgs and ServiceDeploymentAlarmsOutput values.
@@ -2297,10 +2646,18 @@ type ServiceDeploymentAlarmsInput interface {
 	ToServiceDeploymentAlarmsOutputWithContext(context.Context) ServiceDeploymentAlarmsOutput
 }
 
+// One of the methods which provide a way for you to quickly identify when a deployment has failed, and then to optionally roll back the failure to the last working deployment.
+//
+//	When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback parameter to have Amazon ECS to roll back your service to the last completed deployment after a failure.
+//	You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS`` (rolling update).
+//	For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentAlarmsArgs struct {
+	// One or more CloudWatch alarm names. Use a "," to separate the alarms.
 	AlarmNames pulumi.StringArrayInput `pulumi:"alarmNames"`
-	Enable     pulumi.BoolInput        `pulumi:"enable"`
-	Rollback   pulumi.BoolInput        `pulumi:"rollback"`
+	// Determines whether to use the CloudWatch alarm option in the service deployment process.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	Rollback pulumi.BoolInput `pulumi:"rollback"`
 }
 
 func (ServiceDeploymentAlarmsArgs) ElementType() reflect.Type {
@@ -2356,6 +2713,11 @@ func (i *serviceDeploymentAlarmsPtrType) ToServiceDeploymentAlarmsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentAlarmsPtrOutput)
 }
 
+// One of the methods which provide a way for you to quickly identify when a deployment has failed, and then to optionally roll back the failure to the last working deployment.
+//
+//	When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback parameter to have Amazon ECS to roll back your service to the last completed deployment after a failure.
+//	You can only use the ``DeploymentAlarms`` method to detect failures when the ``DeploymentController`` is set to ``ECS`` (rolling update).
+//	For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentAlarmsOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentAlarmsOutput) ElementType() reflect.Type {
@@ -2380,14 +2742,17 @@ func (o ServiceDeploymentAlarmsOutput) ToServiceDeploymentAlarmsPtrOutputWithCon
 	}).(ServiceDeploymentAlarmsPtrOutput)
 }
 
+// One or more CloudWatch alarm names. Use a "," to separate the alarms.
 func (o ServiceDeploymentAlarmsOutput) AlarmNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceDeploymentAlarms) []string { return v.AlarmNames }).(pulumi.StringArrayOutput)
 }
 
+// Determines whether to use the CloudWatch alarm option in the service deployment process.
 func (o ServiceDeploymentAlarmsOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentAlarms) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
+// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 func (o ServiceDeploymentAlarmsOutput) Rollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentAlarms) bool { return v.Rollback }).(pulumi.BoolOutput)
 }
@@ -2416,6 +2781,7 @@ func (o ServiceDeploymentAlarmsPtrOutput) Elem() ServiceDeploymentAlarmsOutput {
 	}).(ServiceDeploymentAlarmsOutput)
 }
 
+// One or more CloudWatch alarm names. Use a "," to separate the alarms.
 func (o ServiceDeploymentAlarmsPtrOutput) AlarmNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceDeploymentAlarms) []string {
 		if v == nil {
@@ -2425,6 +2791,7 @@ func (o ServiceDeploymentAlarmsPtrOutput) AlarmNames() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+// Determines whether to use the CloudWatch alarm option in the service deployment process.
 func (o ServiceDeploymentAlarmsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentAlarms) *bool {
 		if v == nil {
@@ -2434,6 +2801,7 @@ func (o ServiceDeploymentAlarmsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 func (o ServiceDeploymentAlarmsPtrOutput) Rollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentAlarms) *bool {
 		if v == nil {
@@ -2443,8 +2811,14 @@ func (o ServiceDeploymentAlarmsPtrOutput) Rollback() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
+//
+//	 The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentCircuitBreaker struct {
-	Enable   bool `pulumi:"enable"`
+	// Determines whether to use the deployment circuit breaker logic for the service.
+	Enable bool `pulumi:"enable"`
+	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 	Rollback bool `pulumi:"rollback"`
 }
 
@@ -2459,8 +2833,14 @@ type ServiceDeploymentCircuitBreakerInput interface {
 	ToServiceDeploymentCircuitBreakerOutputWithContext(context.Context) ServiceDeploymentCircuitBreakerOutput
 }
 
+// The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
+//
+//	 The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentCircuitBreakerArgs struct {
-	Enable   pulumi.BoolInput `pulumi:"enable"`
+	// Determines whether to use the deployment circuit breaker logic for the service.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 	Rollback pulumi.BoolInput `pulumi:"rollback"`
 }
 
@@ -2517,6 +2897,10 @@ func (i *serviceDeploymentCircuitBreakerPtrType) ToServiceDeploymentCircuitBreak
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
+// The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
+//
+//	 The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentCircuitBreakerOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentCircuitBreakerOutput) ElementType() reflect.Type {
@@ -2541,10 +2925,12 @@ func (o ServiceDeploymentCircuitBreakerOutput) ToServiceDeploymentCircuitBreaker
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
+// Determines whether to use the deployment circuit breaker logic for the service.
 func (o ServiceDeploymentCircuitBreakerOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
+// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 func (o ServiceDeploymentCircuitBreakerOutput) Rollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Rollback }).(pulumi.BoolOutput)
 }
@@ -2573,6 +2959,7 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Elem() ServiceDeploymentCircui
 	}).(ServiceDeploymentCircuitBreakerOutput)
 }
 
+// Determines whether to use the deployment circuit breaker logic for the service.
 func (o ServiceDeploymentCircuitBreakerPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *bool {
 		if v == nil {
@@ -2582,6 +2969,7 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Enable() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *bool {
 		if v == nil {
@@ -2591,11 +2979,28 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The “DeploymentConfiguration“ property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfiguration struct {
-	Alarms                   *ServiceDeploymentAlarms         `pulumi:"alarms"`
+	// Information about the CloudWatch alarms.
+	Alarms *ServiceDeploymentAlarms `pulumi:"alarms"`
+	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
+	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
-	MaximumPercent           *int                             `pulumi:"maximumPercent"`
-	MinimumHealthyPercent    *int                             `pulumi:"minimumHealthyPercent"`
+	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
+	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the *maximum percent* value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+	MaximumPercent *int `pulumi:"maximumPercent"`
+	// If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks.
+	//  For services that *do not* use a load balancer, the following should be noted:
+	//   +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
+	//   +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
+	//   +  If a task has one or more essential containers with a health check defined, the service scheduler will wait for the task to reach a healthy status before counting it towards the minimum healthy percent total. A task is considered healthy when all essential containers within the task have passed their health checks. The amount of time the service scheduler can wait for is determined by the container health check settings.
+	//
+	//  For services that *do* use a load balancer, the following should be noted:
+	//   +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
+	//   +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
+	//
+	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+	MinimumHealthyPercent *int `pulumi:"minimumHealthyPercent"`
 }
 
 // ServiceDeploymentConfigurationInput is an input type that accepts ServiceDeploymentConfigurationArgs and ServiceDeploymentConfigurationOutput values.
@@ -2609,11 +3014,28 @@ type ServiceDeploymentConfigurationInput interface {
 	ToServiceDeploymentConfigurationOutputWithContext(context.Context) ServiceDeploymentConfigurationOutput
 }
 
+// The “DeploymentConfiguration“ property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfigurationArgs struct {
-	Alarms                   ServiceDeploymentAlarmsPtrInput         `pulumi:"alarms"`
+	// Information about the CloudWatch alarms.
+	Alarms ServiceDeploymentAlarmsPtrInput `pulumi:"alarms"`
+	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
+	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
-	MaximumPercent           pulumi.IntPtrInput                      `pulumi:"maximumPercent"`
-	MinimumHealthyPercent    pulumi.IntPtrInput                      `pulumi:"minimumHealthyPercent"`
+	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
+	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the *maximum percent* value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
+	MaximumPercent pulumi.IntPtrInput `pulumi:"maximumPercent"`
+	// If a service is using the rolling update (``ECS``) deployment type, the ``minimumHealthyPercent`` represents a lower limit on the number of your service's tasks that must remain in the ``RUNNING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a ``desiredCount`` of four tasks and a ``minimumHealthyPercent`` of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks.
+	//  For services that *do not* use a load balancer, the following should be noted:
+	//   +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
+	//   +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
+	//   +  If a task has one or more essential containers with a health check defined, the service scheduler will wait for the task to reach a healthy status before counting it towards the minimum healthy percent total. A task is considered healthy when all essential containers within the task have passed their health checks. The amount of time the service scheduler can wait for is determined by the container health check settings.
+	//
+	//  For services that *do* use a load balancer, the following should be noted:
+	//   +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
+	//   +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
+	//
+	//  If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
+	MinimumHealthyPercent pulumi.IntPtrInput `pulumi:"minimumHealthyPercent"`
 }
 
 func (ServiceDeploymentConfigurationArgs) ElementType() reflect.Type {
@@ -2669,6 +3091,7 @@ func (i *serviceDeploymentConfigurationPtrType) ToServiceDeploymentConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationPtrOutput)
 }
 
+// The “DeploymentConfiguration“ property specifies optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentConfigurationOutput) ElementType() reflect.Type {
@@ -2693,20 +3116,39 @@ func (o ServiceDeploymentConfigurationOutput) ToServiceDeploymentConfigurationPt
 	}).(ServiceDeploymentConfigurationPtrOutput)
 }
 
+// Information about the CloudWatch alarms.
 func (o ServiceDeploymentConfigurationOutput) Alarms() ServiceDeploymentAlarmsPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentAlarms { return v.Alarms }).(ServiceDeploymentAlarmsPtrOutput)
 }
 
+// The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
+//
+//	The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 func (o ServiceDeploymentConfigurationOutput) DeploymentCircuitBreaker() ServiceDeploymentCircuitBreakerPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentCircuitBreaker {
 		return v.DeploymentCircuitBreaker
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
+// If a service is using the rolling update (“ECS“) deployment type, the “maximumPercent“ parameter represents an upper limit on the number of your service's tasks that are allowed in the “RUNNING“ or “PENDING“ state during a deployment, as a percentage of the “desiredCount“ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the “REPLICA“ service scheduler and has a “desiredCount“ of four tasks and a “maximumPercent“ value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default “maximumPercent“ value for a service using the “REPLICA“ service scheduler is 200%.
+//
+//	If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the *maximum percent* value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
 func (o ServiceDeploymentConfigurationOutput) MaximumPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.MaximumPercent }).(pulumi.IntPtrOutput)
 }
 
+// If a service is using the rolling update (“ECS“) deployment type, the “minimumHealthyPercent“ represents a lower limit on the number of your service's tasks that must remain in the “RUNNING“ state during a deployment, as a percentage of the “desiredCount“ (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a “desiredCount“ of four tasks and a “minimumHealthyPercent“ of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks.
+//
+//	For services that *do not* use a load balancer, the following should be noted:
+//	 +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
+//	 +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
+//	 +  If a task has one or more essential containers with a health check defined, the service scheduler will wait for the task to reach a healthy status before counting it towards the minimum healthy percent total. A task is considered healthy when all essential containers within the task have passed their health checks. The amount of time the service scheduler can wait for is determined by the container health check settings.
+//
+//	For services that *do* use a load balancer, the following should be noted:
+//	 +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
+//	 +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
+//
+//	If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
 func (o ServiceDeploymentConfigurationOutput) MinimumHealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.MinimumHealthyPercent }).(pulumi.IntPtrOutput)
 }
@@ -2735,6 +3177,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) Elem() ServiceDeploymentConfigu
 	}).(ServiceDeploymentConfigurationOutput)
 }
 
+// Information about the CloudWatch alarms.
 func (o ServiceDeploymentConfigurationPtrOutput) Alarms() ServiceDeploymentAlarmsPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentAlarms {
 		if v == nil {
@@ -2744,6 +3187,9 @@ func (o ServiceDeploymentConfigurationPtrOutput) Alarms() ServiceDeploymentAlarm
 	}).(ServiceDeploymentAlarmsPtrOutput)
 }
 
+// The deployment circuit breaker can only be used for services using the rolling update (“ECS“) deployment type.
+//
+//	The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() ServiceDeploymentCircuitBreakerPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentCircuitBreaker {
 		if v == nil {
@@ -2753,6 +3199,9 @@ func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() Serv
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
+// If a service is using the rolling update (“ECS“) deployment type, the “maximumPercent“ parameter represents an upper limit on the number of your service's tasks that are allowed in the “RUNNING“ or “PENDING“ state during a deployment, as a percentage of the “desiredCount“ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the “REPLICA“ service scheduler and has a “desiredCount“ of four tasks and a “maximumPercent“ value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default “maximumPercent“ value for a service using the “REPLICA“ service scheduler is 200%.
+//
+//	If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and tasks that use the EC2 launch type, the *maximum percent* value is set to the default value and is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If the tasks in the service use the Fargate launch type, the maximum percent value is not used, although it is returned when describing your service.
 func (o ServiceDeploymentConfigurationPtrOutput) MaximumPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *int {
 		if v == nil {
@@ -2762,6 +3211,18 @@ func (o ServiceDeploymentConfigurationPtrOutput) MaximumPercent() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// If a service is using the rolling update (“ECS“) deployment type, the “minimumHealthyPercent“ represents a lower limit on the number of your service's tasks that must remain in the “RUNNING“ state during a deployment, as a percentage of the “desiredCount“ (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a “desiredCount“ of four tasks and a “minimumHealthyPercent“ of 50%, the service scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks.
+//
+//	For services that *do not* use a load balancer, the following should be noted:
+//	 +  A service is considered healthy if all essential containers within the tasks in the service pass their health checks.
+//	 +  If a task has no essential containers with a health check defined, the service scheduler will wait for 40 seconds after a task reaches a ``RUNNING`` state before the task is counted towards the minimum healthy percent total.
+//	 +  If a task has one or more essential containers with a health check defined, the service scheduler will wait for the task to reach a healthy status before counting it towards the minimum healthy percent total. A task is considered healthy when all essential containers within the task have passed their health checks. The amount of time the service scheduler can wait for is determined by the container health check settings.
+//
+//	For services that *do* use a load balancer, the following should be noted:
+//	 +  If a task has no essential containers with a health check defined, the service scheduler will wait for the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
+//	 +  If a task has an essential container with a health check defined, the service scheduler will wait for both the task to reach a healthy status and the load balancer target group health check to return a healthy status before counting the task towards the minimum healthy percent total.
+//
+//	If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the EC2 launch type, the *minimum healthy percent* value is set to the default value and is used to define the lower limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state. If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
 func (o ServiceDeploymentConfigurationPtrOutput) MinimumHealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *int {
 		if v == nil {
@@ -2771,7 +3232,10 @@ func (o ServiceDeploymentConfigurationPtrOutput) MinimumHealthyPercent() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentController struct {
+	// The deployment controller type to use. There are three deployment controller types available:
+	//   + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
 	Type *ServiceDeploymentControllerType `pulumi:"type"`
 }
 
@@ -2786,7 +3250,10 @@ type ServiceDeploymentControllerInput interface {
 	ToServiceDeploymentControllerOutputWithContext(context.Context) ServiceDeploymentControllerOutput
 }
 
+// The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentControllerArgs struct {
+	// The deployment controller type to use. There are three deployment controller types available:
+	//   + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
 	Type ServiceDeploymentControllerTypePtrInput `pulumi:"type"`
 }
 
@@ -2843,6 +3310,7 @@ func (i *serviceDeploymentControllerPtrType) ToServiceDeploymentControllerPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentControllerPtrOutput)
 }
 
+// The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentControllerOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentControllerOutput) ElementType() reflect.Type {
@@ -2867,6 +3335,8 @@ func (o ServiceDeploymentControllerOutput) ToServiceDeploymentControllerPtrOutpu
 	}).(ServiceDeploymentControllerPtrOutput)
 }
 
+// The deployment controller type to use. There are three deployment controller types available:
+//   - ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
 func (o ServiceDeploymentControllerOutput) Type() ServiceDeploymentControllerTypePtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentController) *ServiceDeploymentControllerType { return v.Type }).(ServiceDeploymentControllerTypePtrOutput)
 }
@@ -2895,6 +3365,8 @@ func (o ServiceDeploymentControllerPtrOutput) Elem() ServiceDeploymentController
 	}).(ServiceDeploymentControllerOutput)
 }
 
+// The deployment controller type to use. There are three deployment controller types available:
+//   - ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
 func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentControllerTypePtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentController) *ServiceDeploymentControllerType {
 		if v == nil {
@@ -2904,10 +3376,17 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 	}).(ServiceDeploymentControllerTypePtrOutput)
 }
 
+// The tag specifications of an Amazon EBS volume.
 type ServiceEbsTagSpecification struct {
+	// Determines whether to propagate the tags from the task definition to
+	// the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in
+	// ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't
+	// propagated.
 	PropagateTags *ServiceEbsTagSpecificationPropagateTags `pulumi:"propagateTags"`
-	ResourceType  string                                   `pulumi:"resourceType"`
-	Tags          []ServiceTag                             `pulumi:"tags"`
+	// The type of volume resource.
+	ResourceType string `pulumi:"resourceType"`
+	// The tags applied to this Amazon EBS volume. ``AmazonECSCreated`` and ``AmazonECSManaged`` are reserved tags that can't be used.
+	Tags []ServiceTag `pulumi:"tags"`
 }
 
 // ServiceEbsTagSpecificationInput is an input type that accepts ServiceEbsTagSpecificationArgs and ServiceEbsTagSpecificationOutput values.
@@ -2921,10 +3400,17 @@ type ServiceEbsTagSpecificationInput interface {
 	ToServiceEbsTagSpecificationOutputWithContext(context.Context) ServiceEbsTagSpecificationOutput
 }
 
+// The tag specifications of an Amazon EBS volume.
 type ServiceEbsTagSpecificationArgs struct {
+	// Determines whether to propagate the tags from the task definition to
+	// the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in
+	// ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't
+	// propagated.
 	PropagateTags ServiceEbsTagSpecificationPropagateTagsPtrInput `pulumi:"propagateTags"`
-	ResourceType  pulumi.StringInput                              `pulumi:"resourceType"`
-	Tags          ServiceTagArrayInput                            `pulumi:"tags"`
+	// The type of volume resource.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// The tags applied to this Amazon EBS volume. ``AmazonECSCreated`` and ``AmazonECSManaged`` are reserved tags that can't be used.
+	Tags ServiceTagArrayInput `pulumi:"tags"`
 }
 
 func (ServiceEbsTagSpecificationArgs) ElementType() reflect.Type {
@@ -2964,6 +3450,7 @@ func (i ServiceEbsTagSpecificationArray) ToServiceEbsTagSpecificationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEbsTagSpecificationArrayOutput)
 }
 
+// The tag specifications of an Amazon EBS volume.
 type ServiceEbsTagSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ServiceEbsTagSpecificationOutput) ElementType() reflect.Type {
@@ -2978,14 +3465,20 @@ func (o ServiceEbsTagSpecificationOutput) ToServiceEbsTagSpecificationOutputWith
 	return o
 }
 
+// Determines whether to propagate the tags from the task definition to
+// the Amazon EBS volume. Tags can only propagate to a “SERVICE“ specified in
+// “ServiceVolumeConfiguration“. If no value is specified, the tags aren't
+// propagated.
 func (o ServiceEbsTagSpecificationOutput) PropagateTags() ServiceEbsTagSpecificationPropagateTagsPtrOutput {
 	return o.ApplyT(func(v ServiceEbsTagSpecification) *ServiceEbsTagSpecificationPropagateTags { return v.PropagateTags }).(ServiceEbsTagSpecificationPropagateTagsPtrOutput)
 }
 
+// The type of volume resource.
 func (o ServiceEbsTagSpecificationOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEbsTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
+// The tags applied to this Amazon EBS volume. “AmazonECSCreated“ and “AmazonECSManaged“ are reserved tags that can't be used.
 func (o ServiceEbsTagSpecificationOutput) Tags() ServiceTagArrayOutput {
 	return o.ApplyT(func(v ServiceEbsTagSpecification) []ServiceTag { return v.Tags }).(ServiceTagArrayOutput)
 }
@@ -3010,11 +3503,25 @@ func (o ServiceEbsTagSpecificationArrayOutput) Index(i pulumi.IntInput) ServiceE
 	}).(ServiceEbsTagSpecificationOutput)
 }
 
+// The “LoadBalancer“ property specifies details on a load balancer that is used with a service.
+//
+//	If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an ACDlong deployment group, you specify two target groups (referred to as a ``targetGroupPair``). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
+//	Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance``. Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 type ServiceLoadBalancer struct {
-	ContainerName    *string `pulumi:"containerName"`
-	ContainerPort    *int    `pulumi:"containerPort"`
+	// The name of the container (as it appears in a container definition) to associate with the load balancer.
+	//  You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
+	ContainerName *string `pulumi:"containerName"`
+	// The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
+	ContainerPort *int `pulumi:"containerPort"`
+	// The name of the load balancer to associate with the Amazon ECS service or task set.
+	//  If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 	LoadBalancerName *string `pulumi:"loadBalancerName"`
-	TargetGroupArn   *string `pulumi:"targetGroupArn"`
+	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
+	//  A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer.
+	//  For services using the ``ECS`` deployment controller, you can specify one or multiple target groups. For more information, see [Registering multiple target groups with a service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For services using the ``CODE_DEPLOY`` deployment controller, you're required to define two target groups for the load balancer. For more information, see [Blue/green deployment with CodeDeploy](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If your service's task definition uses the ``awsvpc`` network mode, you must choose ``ip`` as the target type, not ``instance``. Do this when creating your target groups because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance. This network mode is required for the Fargate launch type.
+	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
 
 // ServiceLoadBalancerInput is an input type that accepts ServiceLoadBalancerArgs and ServiceLoadBalancerOutput values.
@@ -3028,11 +3535,25 @@ type ServiceLoadBalancerInput interface {
 	ToServiceLoadBalancerOutputWithContext(context.Context) ServiceLoadBalancerOutput
 }
 
+// The “LoadBalancer“ property specifies details on a load balancer that is used with a service.
+//
+//	If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an ACDlong deployment group, you specify two target groups (referred to as a ``targetGroupPair``). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
+//	Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance``. Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 type ServiceLoadBalancerArgs struct {
-	ContainerName    pulumi.StringPtrInput `pulumi:"containerName"`
-	ContainerPort    pulumi.IntPtrInput    `pulumi:"containerPort"`
+	// The name of the container (as it appears in a container definition) to associate with the load balancer.
+	//  You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
+	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
+	// The name of the load balancer to associate with the Amazon ECS service or task set.
+	//  If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
-	TargetGroupArn   pulumi.StringPtrInput `pulumi:"targetGroupArn"`
+	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
+	//  A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer.
+	//  For services using the ``ECS`` deployment controller, you can specify one or multiple target groups. For more information, see [Registering multiple target groups with a service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For services using the ``CODE_DEPLOY`` deployment controller, you're required to define two target groups for the load balancer. For more information, see [Blue/green deployment with CodeDeploy](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If your service's task definition uses the ``awsvpc`` network mode, you must choose ``ip`` as the target type, not ``instance``. Do this when creating your target groups because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance. This network mode is required for the Fargate launch type.
+	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 }
 
 func (ServiceLoadBalancerArgs) ElementType() reflect.Type {
@@ -3072,6 +3593,10 @@ func (i ServiceLoadBalancerArray) ToServiceLoadBalancerArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadBalancerArrayOutput)
 }
 
+// The “LoadBalancer“ property specifies details on a load balancer that is used with a service.
+//
+//	If the service is using the ``CODE_DEPLOY`` deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When you are creating an ACDlong deployment group, you specify two target groups (referred to as a ``targetGroupPair``). Each target group binds to a separate task set in the deployment. The load balancer can also have up to two listeners, a required listener for production traffic and an optional listener that allows you to test new revisions of the service before routing production traffic to it.
+//	Services with tasks that use the ``awsvpc`` network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose ``ip`` as the target type, not ``instance``. Tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 type ServiceLoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (ServiceLoadBalancerOutput) ElementType() reflect.Type {
@@ -3086,18 +3611,31 @@ func (o ServiceLoadBalancerOutput) ToServiceLoadBalancerOutputWithContext(ctx co
 	return o
 }
 
+// The name of the container (as it appears in a container definition) to associate with the load balancer.
+//
+//	You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
 func (o ServiceLoadBalancerOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
+// The port on the container to associate with the load balancer. This port must correspond to a “containerPort“ in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the “hostPort“ of the port mapping.
 func (o ServiceLoadBalancerOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
+// The name of the load balancer to associate with the Amazon ECS service or task set.
+//
+//	If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 func (o ServiceLoadBalancerOutput) LoadBalancerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.LoadBalancerName }).(pulumi.StringPtrOutput)
 }
 
+// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
+//
+//	A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer.
+//	For services using the ``ECS`` deployment controller, you can specify one or multiple target groups. For more information, see [Registering multiple target groups with a service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For services using the ``CODE_DEPLOY`` deployment controller, you're required to define two target groups for the load balancer. For more information, see [Blue/green deployment with CodeDeploy](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 If your service's task definition uses the ``awsvpc`` network mode, you must choose ``ip`` as the target type, not ``instance``. Do this when creating your target groups because tasks that use the ``awsvpc`` network mode are associated with an elastic network interface, not an Amazon EC2 instance. This network mode is required for the Fargate launch type.
 func (o ServiceLoadBalancerOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -3122,10 +3660,28 @@ func (o ServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) ServiceLoadBala
 	}).(ServiceLoadBalancerOutput)
 }
 
+// The log configuration for the container. This parameter maps to “LogConfig“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--log-driver“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
+//
+//	By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+//	Understand the following when specifying a log configuration for your containers.
+//	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+//	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+//	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
 type ServiceLogConfiguration struct {
-	LogDriver     *string           `pulumi:"logDriver"`
-	Options       map[string]string `pulumi:"options"`
-	SecretOptions []ServiceSecret   `pulumi:"secretOptions"`
+	// The log driver to use for the container.
+	//  For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+	//  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+	//  For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
+	LogDriver *string `pulumi:"logDriver"`
+	// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+	Options map[string]string `pulumi:"options"`
+	// The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
+	SecretOptions []ServiceSecret `pulumi:"secretOptions"`
 }
 
 // ServiceLogConfigurationInput is an input type that accepts ServiceLogConfigurationArgs and ServiceLogConfigurationOutput values.
@@ -3139,9 +3695,27 @@ type ServiceLogConfigurationInput interface {
 	ToServiceLogConfigurationOutputWithContext(context.Context) ServiceLogConfigurationOutput
 }
 
+// The log configuration for the container. This parameter maps to “LogConfig“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--log-driver“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
+//
+//	By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+//	Understand the following when specifying a log configuration for your containers.
+//	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+//	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+//	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
 type ServiceLogConfigurationArgs struct {
-	LogDriver     pulumi.StringPtrInput   `pulumi:"logDriver"`
-	Options       pulumi.StringMapInput   `pulumi:"options"`
+	// The log driver to use for the container.
+	//  For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+	//  For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+	//  For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//  For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
+	LogDriver pulumi.StringPtrInput `pulumi:"logDriver"`
+	// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+	Options pulumi.StringMapInput `pulumi:"options"`
+	// The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
 	SecretOptions ServiceSecretArrayInput `pulumi:"secretOptions"`
 }
 
@@ -3198,6 +3772,16 @@ func (i *serviceLogConfigurationPtrType) ToServiceLogConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLogConfigurationPtrOutput)
 }
 
+// The log configuration for the container. This parameter maps to “LogConfig“ in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the “--log-driver“ option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/commandline/run/).
+//
+//	By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition. For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+//	Understand the following when specifying a log configuration for your containers.
+//	 +  Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon. Additional log drivers may be available in future releases of the Amazon ECS container agent.
+//	     For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+//	     For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	 +  This parameter requires version 1.18 of the Docker Remote API or greater on your container instance.
+//	 +  For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must register the available logging drivers with the ``ECS_AVAILABLE_LOGGING_DRIVERS`` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 +  For tasks that are on FARGATElong, because you don't have access to the underlying infrastructure your tasks are hosted on, any additional software needed must be installed outside of the task. For example, the Fluentd output aggregators or a remote host running Logstash to send Gelf logs to.
 type ServiceLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceLogConfigurationOutput) ElementType() reflect.Type {
@@ -3222,14 +3806,23 @@ func (o ServiceLogConfigurationOutput) ToServiceLogConfigurationPtrOutputWithCon
 	}).(ServiceLogConfigurationPtrOutput)
 }
 
+// The log driver to use for the container.
+//
+//	For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+//	For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 func (o ServiceLogConfigurationOutput) LogDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLogConfiguration) *string { return v.LogDriver }).(pulumi.StringPtrOutput)
 }
 
+// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: “sudo docker version --format '{{.Server.APIVersion}}'“
 func (o ServiceLogConfigurationOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceLogConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
+// The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o ServiceLogConfigurationOutput) SecretOptions() ServiceSecretArrayOutput {
 	return o.ApplyT(func(v ServiceLogConfiguration) []ServiceSecret { return v.SecretOptions }).(ServiceSecretArrayOutput)
 }
@@ -3258,6 +3851,13 @@ func (o ServiceLogConfigurationPtrOutput) Elem() ServiceLogConfigurationOutput {
 	}).(ServiceLogConfigurationOutput)
 }
 
+// The log driver to use for the container.
+//
+//	For tasks on FARGATElong, the supported log drivers are ``awslogs``, ``splunk``, and ``awsfirelens``.
+//	For tasks hosted on Amazon EC2 instances, the supported log drivers are ``awslogs``, ``fluentd``, ``gelf``, ``json-file``, ``journald``, ``logentries``,``syslog``, ``splunk``, and ``awsfirelens``.
+//	For more information about using the ``awslogs`` log driver, see [Using the awslogs log driver](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	For more information about using the ``awsfirelens`` log driver, see [Custom log routing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html) in the *Amazon Elastic Container Service Developer Guide*.
+//	 If you have a custom driver that isn't listed, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you would like to have included. However, we don't currently provide support for running modified copies of this software.
 func (o ServiceLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLogConfiguration) *string {
 		if v == nil {
@@ -3267,6 +3867,7 @@ func (o ServiceLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: “sudo docker version --format '{{.Server.APIVersion}}'“
 func (o ServiceLogConfigurationPtrOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceLogConfiguration) map[string]string {
 		if v == nil {
@@ -3276,6 +3877,7 @@ func (o ServiceLogConfigurationPtrOutput) Options() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o ServiceLogConfigurationPtrOutput) SecretOptions() ServiceSecretArrayOutput {
 	return o.ApplyT(func(v *ServiceLogConfiguration) []ServiceSecret {
 		if v == nil {
@@ -3285,17 +3887,53 @@ func (o ServiceLogConfigurationPtrOutput) SecretOptions() ServiceSecretArrayOutp
 	}).(ServiceSecretArrayOutput)
 }
 
+// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+//
+//	Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
 type ServiceManagedEbsVolumeConfiguration struct {
-	Encrypted         *bool                        `pulumi:"encrypted"`
-	FilesystemType    *string                      `pulumi:"filesystemType"`
-	Iops              *int                         `pulumi:"iops"`
-	KmsKeyId          *string                      `pulumi:"kmsKeyId"`
-	RoleArn           string                       `pulumi:"roleArn"`
-	SizeInGiB         *int                         `pulumi:"sizeInGiB"`
-	SnapshotId        *string                      `pulumi:"snapshotId"`
+	// Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+	//  The available filesystem types are
+	//  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+	FilesystemType *string `pulumi:"filesystemType"`
+	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	//  The following are the supported values for each volume type.
+	//   +   ``gp3``: 3,000 - 16,000 IOPS
+	//   +   ``io1``: 100 - 64,000 IOPS
+	//   +   ``io2``: 100 - 256,000 IOPS
+	//
+	//  This parameter is required for ``io1`` and ``io2`` volume types. The default for ``gp3`` volumes is ``3,000 IOPS``. This parameter is not supported for ``st1``, ``sc1``, or ``standard`` volume types.
+	//  This parameter maps 1:1 with the ``Iops`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	Iops *int `pulumi:"iops"`
+	// The Amazon Resource Name (ARN) identifier of the AWS Key Management Service key to use for Amazon EBS encryption. When encryption is turned on and no AWS Key Management Service key is specified, the default AWS managed key for Amazon EBS volumes is used. This parameter maps 1:1 with the ``KmsKeyId`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	//    AWS authenticates the AWS Key Management Service key asynchronously. Therefore, if you specify an ID, alias, or ARN that is invalid, the action can appear to complete, but eventually fails.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure. We recommend using the Amazon ECS-managed ``AmazonECSInfrastructureRolePolicyForVolumes`` IAM policy with this role. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide*.
+	RoleArn string `pulumi:"roleArn"`
+	// The size of the volume in GiB. You must specify either a volume size or a snapshot ID. If you specify a snapshot ID, the snapshot size is used for the volume size by default. You can optionally specify a volume size greater than or equal to the snapshot size. This parameter maps 1:1 with the ``Size`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	//  The following are the supported volume size values for each volume type.
+	//   +   ``gp2`` and ``gp3``: 1-16,384
+	//   +   ``io1`` and ``io2``: 4-16,384
+	//   +   ``st1`` and ``sc1``: 125-16,384
+	//   +   ``standard``: 1-1,024
+	SizeInGiB *int `pulumi:"sizeInGiB"`
+	// The snapshot that Amazon ECS uses to create the volume. You must specify either a snapshot ID or a volume size. This parameter maps 1:1 with the ``SnapshotId`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The tags to apply to the volume. Amazon ECS applies service-managed tags by default. This parameter maps 1:1 with the ``TagSpecifications.N`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	TagSpecifications []ServiceEbsTagSpecification `pulumi:"tagSpecifications"`
-	Throughput        *int                         `pulumi:"throughput"`
-	VolumeType        *string                      `pulumi:"volumeType"`
+	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	//   This parameter is only supported for the ``gp3`` volume type.
+	Throughput *int `pulumi:"throughput"`
+	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
+	//  The following are the supported volume types.
+	//   +  General Purpose SSD: ``gp2``|``gp3``
+	//   +  Provisioned IOPS SSD: ``io1``|``io2``
+	//   +  Throughput Optimized HDD: ``st1``
+	//   +  Cold HDD: ``sc1``
+	//   +  Magnetic: ``standard``
+	//        The magnetic volume type is not supported on Fargate.
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 // ServiceManagedEbsVolumeConfigurationInput is an input type that accepts ServiceManagedEbsVolumeConfigurationArgs and ServiceManagedEbsVolumeConfigurationOutput values.
@@ -3309,17 +3947,53 @@ type ServiceManagedEbsVolumeConfigurationInput interface {
 	ToServiceManagedEbsVolumeConfigurationOutputWithContext(context.Context) ServiceManagedEbsVolumeConfigurationOutput
 }
 
+// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+//
+//	Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
 type ServiceManagedEbsVolumeConfigurationArgs struct {
-	Encrypted         pulumi.BoolPtrInput                  `pulumi:"encrypted"`
-	FilesystemType    pulumi.StringPtrInput                `pulumi:"filesystemType"`
-	Iops              pulumi.IntPtrInput                   `pulumi:"iops"`
-	KmsKeyId          pulumi.StringPtrInput                `pulumi:"kmsKeyId"`
-	RoleArn           pulumi.StringInput                   `pulumi:"roleArn"`
-	SizeInGiB         pulumi.IntPtrInput                   `pulumi:"sizeInGiB"`
-	SnapshotId        pulumi.StringPtrInput                `pulumi:"snapshotId"`
+	// Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+	//  The available filesystem types are
+	//  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+	FilesystemType pulumi.StringPtrInput `pulumi:"filesystemType"`
+	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	//  The following are the supported values for each volume type.
+	//   +   ``gp3``: 3,000 - 16,000 IOPS
+	//   +   ``io1``: 100 - 64,000 IOPS
+	//   +   ``io2``: 100 - 256,000 IOPS
+	//
+	//  This parameter is required for ``io1`` and ``io2`` volume types. The default for ``gp3`` volumes is ``3,000 IOPS``. This parameter is not supported for ``st1``, ``sc1``, or ``standard`` volume types.
+	//  This parameter maps 1:1 with the ``Iops`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The Amazon Resource Name (ARN) identifier of the AWS Key Management Service key to use for Amazon EBS encryption. When encryption is turned on and no AWS Key Management Service key is specified, the default AWS managed key for Amazon EBS volumes is used. This parameter maps 1:1 with the ``KmsKeyId`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	//    AWS authenticates the AWS Key Management Service key asynchronously. Therefore, if you specify an ID, alias, or ARN that is invalid, the action can appear to complete, but eventually fails.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure. We recommend using the Amazon ECS-managed ``AmazonECSInfrastructureRolePolicyForVolumes`` IAM policy with this role. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide*.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The size of the volume in GiB. You must specify either a volume size or a snapshot ID. If you specify a snapshot ID, the snapshot size is used for the volume size by default. You can optionally specify a volume size greater than or equal to the snapshot size. This parameter maps 1:1 with the ``Size`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	//  The following are the supported volume size values for each volume type.
+	//   +   ``gp2`` and ``gp3``: 1-16,384
+	//   +   ``io1`` and ``io2``: 4-16,384
+	//   +   ``st1`` and ``sc1``: 125-16,384
+	//   +   ``standard``: 1-1,024
+	SizeInGiB pulumi.IntPtrInput `pulumi:"sizeInGiB"`
+	// The snapshot that Amazon ECS uses to create the volume. You must specify either a snapshot ID or a volume size. This parameter maps 1:1 with the ``SnapshotId`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The tags to apply to the volume. Amazon ECS applies service-managed tags by default. This parameter maps 1:1 with the ``TagSpecifications.N`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	TagSpecifications ServiceEbsTagSpecificationArrayInput `pulumi:"tagSpecifications"`
-	Throughput        pulumi.IntPtrInput                   `pulumi:"throughput"`
-	VolumeType        pulumi.StringPtrInput                `pulumi:"volumeType"`
+	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+	//   This parameter is only supported for the ``gp3`` volume type.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
+	//  The following are the supported volume types.
+	//   +  General Purpose SSD: ``gp2``|``gp3``
+	//   +  Provisioned IOPS SSD: ``io1``|``io2``
+	//   +  Throughput Optimized HDD: ``st1``
+	//   +  Cold HDD: ``sc1``
+	//   +  Magnetic: ``standard``
+	//        The magnetic volume type is not supported on Fargate.
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (ServiceManagedEbsVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -3375,6 +4049,9 @@ func (i *serviceManagedEbsVolumeConfigurationPtrType) ToServiceManagedEbsVolumeC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedEbsVolumeConfigurationPtrOutput)
 }
 
+// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+//
+//	Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
 type ServiceManagedEbsVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceManagedEbsVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -3399,42 +4076,81 @@ func (o ServiceManagedEbsVolumeConfigurationOutput) ToServiceManagedEbsVolumeCon
 	}).(ServiceManagedEbsVolumeConfigurationPtrOutput)
 }
 
+// Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the “Encrypted“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 func (o ServiceManagedEbsVolumeConfigurationOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+//
+//	The available filesystem types are
+//	``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
 func (o ServiceManagedEbsVolumeConfigurationOutput) FilesystemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.FilesystemType }).(pulumi.StringPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS). For “gp3“, “io1“, and “io2“ volumes, this represents the number of IOPS that are provisioned for the volume. For “gp2“ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+//
+//	The following are the supported values for each volume type.
+//	 +   ``gp3``: 3,000 - 16,000 IOPS
+//	 +   ``io1``: 100 - 64,000 IOPS
+//	 +   ``io2``: 100 - 256,000 IOPS
+//
+//	This parameter is required for ``io1`` and ``io2`` volume types. The default for ``gp3`` volumes is ``3,000 IOPS``. This parameter is not supported for ``st1``, ``sc1``, or ``standard`` volume types.
+//	This parameter maps 1:1 with the ``Iops`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 func (o ServiceManagedEbsVolumeConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) identifier of the AWS Key Management Service key to use for Amazon EBS encryption. When encryption is turned on and no AWS Key Management Service key is specified, the default AWS managed key for Amazon EBS volumes is used. This parameter maps 1:1 with the “KmsKeyId“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+//
+//	AWS authenticates the AWS Key Management Service key asynchronously. Therefore, if you specify an ID, alias, or ARN that is invalid, the action can appear to complete, but eventually fails.
 func (o ServiceManagedEbsVolumeConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure. We recommend using the Amazon ECS-managed “AmazonECSInfrastructureRolePolicyForVolumes“ IAM policy with this role. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide*.
 func (o ServiceManagedEbsVolumeConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The size of the volume in GiB. You must specify either a volume size or a snapshot ID. If you specify a snapshot ID, the snapshot size is used for the volume size by default. You can optionally specify a volume size greater than or equal to the snapshot size. This parameter maps 1:1 with the “Size“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+//
+//	The following are the supported volume size values for each volume type.
+//	 +   ``gp2`` and ``gp3``: 1-16,384
+//	 +   ``io1`` and ``io2``: 4-16,384
+//	 +   ``st1`` and ``sc1``: 125-16,384
+//	 +   ``standard``: 1-1,024
 func (o ServiceManagedEbsVolumeConfigurationOutput) SizeInGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.SizeInGiB }).(pulumi.IntPtrOutput)
 }
 
+// The snapshot that Amazon ECS uses to create the volume. You must specify either a snapshot ID or a volume size. This parameter maps 1:1 with the “SnapshotId“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 func (o ServiceManagedEbsVolumeConfigurationOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The tags to apply to the volume. Amazon ECS applies service-managed tags by default. This parameter maps 1:1 with the “TagSpecifications.N“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 func (o ServiceManagedEbsVolumeConfigurationOutput) TagSpecifications() ServiceEbsTagSpecificationArrayOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) []ServiceEbsTagSpecification { return v.TagSpecifications }).(ServiceEbsTagSpecificationArrayOutput)
 }
 
+// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the “Throughput“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+//
+//	This parameter is only supported for the ``gp3`` volume type.
 func (o ServiceManagedEbsVolumeConfigurationOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+// The volume type. This parameter maps 1:1 with the “VolumeType“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
+//
+//	The following are the supported volume types.
+//	 +  General Purpose SSD: ``gp2``|``gp3``
+//	 +  Provisioned IOPS SSD: ``io1``|``io2``
+//	 +  Throughput Optimized HDD: ``st1``
+//	 +  Cold HDD: ``sc1``
+//	 +  Magnetic: ``standard``
+//	      The magnetic volume type is not supported on Fargate.
 func (o ServiceManagedEbsVolumeConfigurationOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -3463,6 +4179,7 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Elem() ServiceManagedEbsV
 	}).(ServiceManagedEbsVolumeConfigurationOutput)
 }
 
+// Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the “Encrypted“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *bool {
 		if v == nil {
@@ -3472,6 +4189,10 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Encrypted() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+//
+//	The available filesystem types are
+//	``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) FilesystemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
 		if v == nil {
@@ -3481,6 +4202,15 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) FilesystemType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS). For “gp3“, “io1“, and “io2“ volumes, this represents the number of IOPS that are provisioned for the volume. For “gp2“ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+//
+//	The following are the supported values for each volume type.
+//	 +   ``gp3``: 3,000 - 16,000 IOPS
+//	 +   ``io1``: 100 - 64,000 IOPS
+//	 +   ``io2``: 100 - 256,000 IOPS
+//
+//	This parameter is required for ``io1`` and ``io2`` volume types. The default for ``gp3`` volumes is ``3,000 IOPS``. This parameter is not supported for ``st1``, ``sc1``, or ``standard`` volume types.
+//	This parameter maps 1:1 with the ``Iops`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
 		if v == nil {
@@ -3490,6 +4220,9 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Iops() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) identifier of the AWS Key Management Service key to use for Amazon EBS encryption. When encryption is turned on and no AWS Key Management Service key is specified, the default AWS managed key for Amazon EBS volumes is used. This parameter maps 1:1 with the “KmsKeyId“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+//
+//	AWS authenticates the AWS Key Management Service key asynchronously. Therefore, if you specify an ID, alias, or ARN that is invalid, the action can appear to complete, but eventually fails.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
 		if v == nil {
@@ -3499,6 +4232,7 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) KmsKeyId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure. We recommend using the Amazon ECS-managed “AmazonECSInfrastructureRolePolicyForVolumes“ IAM policy with this role. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide*.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
 		if v == nil {
@@ -3508,6 +4242,13 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) RoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The size of the volume in GiB. You must specify either a volume size or a snapshot ID. If you specify a snapshot ID, the snapshot size is used for the volume size by default. You can optionally specify a volume size greater than or equal to the snapshot size. This parameter maps 1:1 with the “Size“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+//
+//	The following are the supported volume size values for each volume type.
+//	 +   ``gp2`` and ``gp3``: 1-16,384
+//	 +   ``io1`` and ``io2``: 4-16,384
+//	 +   ``st1`` and ``sc1``: 125-16,384
+//	 +   ``standard``: 1-1,024
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) SizeInGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
 		if v == nil {
@@ -3517,6 +4258,7 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) SizeInGiB() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The snapshot that Amazon ECS uses to create the volume. You must specify either a snapshot ID or a volume size. This parameter maps 1:1 with the “SnapshotId“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
 		if v == nil {
@@ -3526,6 +4268,7 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) SnapshotId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The tags to apply to the volume. Amazon ECS applies service-managed tags by default. This parameter maps 1:1 with the “TagSpecifications.N“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) TagSpecifications() ServiceEbsTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) []ServiceEbsTagSpecification {
 		if v == nil {
@@ -3535,6 +4278,9 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) TagSpecifications() Servi
 	}).(ServiceEbsTagSpecificationArrayOutput)
 }
 
+// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the “Throughput“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
+//
+//	This parameter is only supported for the ``gp3`` volume type.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
 		if v == nil {
@@ -3544,6 +4290,15 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Throughput() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// The volume type. This parameter maps 1:1 with the “VolumeType“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
+//
+//	The following are the supported volume types.
+//	 +  General Purpose SSD: ``gp2``|``gp3``
+//	 +  Provisioned IOPS SSD: ``io1``|``io2``
+//	 +  Throughput Optimized HDD: ``st1``
+//	 +  Cold HDD: ``sc1``
+//	 +  Magnetic: ``standard``
+//	      The magnetic volume type is not supported on Fargate.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
 		if v == nil {
@@ -3553,7 +4308,10 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The “NetworkConfiguration“ property specifies an object representing the network configuration for a task or service.
 type ServiceNetworkConfiguration struct {
+	// The VPC subnets and security groups that are associated with a task.
+	//   All specified subnets and security groups must be from the same VPC.
 	AwsvpcConfiguration *ServiceAwsVpcConfiguration `pulumi:"awsvpcConfiguration"`
 }
 
@@ -3568,7 +4326,10 @@ type ServiceNetworkConfigurationInput interface {
 	ToServiceNetworkConfigurationOutputWithContext(context.Context) ServiceNetworkConfigurationOutput
 }
 
+// The “NetworkConfiguration“ property specifies an object representing the network configuration for a task or service.
 type ServiceNetworkConfigurationArgs struct {
+	// The VPC subnets and security groups that are associated with a task.
+	//   All specified subnets and security groups must be from the same VPC.
 	AwsvpcConfiguration ServiceAwsVpcConfigurationPtrInput `pulumi:"awsvpcConfiguration"`
 }
 
@@ -3625,6 +4386,7 @@ func (i *serviceNetworkConfigurationPtrType) ToServiceNetworkConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationPtrOutput)
 }
 
+// The “NetworkConfiguration“ property specifies an object representing the network configuration for a task or service.
 type ServiceNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -3649,6 +4411,9 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 	}).(ServiceNetworkConfigurationPtrOutput)
 }
 
+// The VPC subnets and security groups that are associated with a task.
+//
+//	All specified subnets and security groups must be from the same VPC.
 func (o ServiceNetworkConfigurationOutput) AwsvpcConfiguration() ServiceAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceAwsVpcConfiguration { return v.AwsvpcConfiguration }).(ServiceAwsVpcConfigurationPtrOutput)
 }
@@ -3677,6 +4442,9 @@ func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfiguration
 	}).(ServiceNetworkConfigurationOutput)
 }
 
+// The VPC subnets and security groups that are associated with a task.
+//
+//	All specified subnets and security groups must be from the same VPC.
 func (o ServiceNetworkConfigurationPtrOutput) AwsvpcConfiguration() ServiceAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceAwsVpcConfiguration {
 		if v == nil {
@@ -3686,9 +4454,12 @@ func (o ServiceNetworkConfigurationPtrOutput) AwsvpcConfiguration() ServiceAwsVp
 	}).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
+// The “PlacementConstraint“ property specifies an object representing a constraint on task placement in the task definition. For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServicePlacementConstraint struct {
-	Expression *string                        `pulumi:"expression"`
-	Type       ServicePlacementConstraintType `pulumi:"type"`
+	// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is ``distinctInstance``. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
+	Expression *string `pulumi:"expression"`
+	// The type of constraint. Use ``distinctInstance`` to ensure that each task in a particular group is running on a different container instance. Use ``memberOf`` to restrict the selection to a group of valid candidates.
+	Type ServicePlacementConstraintType `pulumi:"type"`
 }
 
 // ServicePlacementConstraintInput is an input type that accepts ServicePlacementConstraintArgs and ServicePlacementConstraintOutput values.
@@ -3702,9 +4473,12 @@ type ServicePlacementConstraintInput interface {
 	ToServicePlacementConstraintOutputWithContext(context.Context) ServicePlacementConstraintOutput
 }
 
+// The “PlacementConstraint“ property specifies an object representing a constraint on task placement in the task definition. For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServicePlacementConstraintArgs struct {
-	Expression pulumi.StringPtrInput               `pulumi:"expression"`
-	Type       ServicePlacementConstraintTypeInput `pulumi:"type"`
+	// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is ``distinctInstance``. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// The type of constraint. Use ``distinctInstance`` to ensure that each task in a particular group is running on a different container instance. Use ``memberOf`` to restrict the selection to a group of valid candidates.
+	Type ServicePlacementConstraintTypeInput `pulumi:"type"`
 }
 
 func (ServicePlacementConstraintArgs) ElementType() reflect.Type {
@@ -3744,6 +4518,7 @@ func (i ServicePlacementConstraintArray) ToServicePlacementConstraintArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementConstraintArrayOutput)
 }
 
+// The “PlacementConstraint“ property specifies an object representing a constraint on task placement in the task definition. For more information, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServicePlacementConstraintOutput struct{ *pulumi.OutputState }
 
 func (ServicePlacementConstraintOutput) ElementType() reflect.Type {
@@ -3758,10 +4533,12 @@ func (o ServicePlacementConstraintOutput) ToServicePlacementConstraintOutputWith
 	return o
 }
 
+// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is “distinctInstance“. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the *Amazon Elastic Container Service Developer Guide*.
 func (o ServicePlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
+// The type of constraint. Use “distinctInstance“ to ensure that each task in a particular group is running on a different container instance. Use “memberOf“ to restrict the selection to a group of valid candidates.
 func (o ServicePlacementConstraintOutput) Type() ServicePlacementConstraintTypeOutput {
 	return o.ApplyT(func(v ServicePlacementConstraint) ServicePlacementConstraintType { return v.Type }).(ServicePlacementConstraintTypeOutput)
 }
@@ -3786,9 +4563,12 @@ func (o ServicePlacementConstraintArrayOutput) Index(i pulumi.IntInput) ServiceP
 	}).(ServicePlacementConstraintOutput)
 }
 
+// The “PlacementStrategy“ property specifies the task placement strategy for a task or service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServicePlacementStrategy struct {
-	Field *string                      `pulumi:"field"`
-	Type  ServicePlacementStrategyType `pulumi:"type"`
+	// The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``CPU`` and ``MEMORY``. For the ``random`` placement strategy, this field is not used.
+	Field *string `pulumi:"field"`
+	// The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
+	Type ServicePlacementStrategyType `pulumi:"type"`
 }
 
 // ServicePlacementStrategyInput is an input type that accepts ServicePlacementStrategyArgs and ServicePlacementStrategyOutput values.
@@ -3802,9 +4582,12 @@ type ServicePlacementStrategyInput interface {
 	ToServicePlacementStrategyOutputWithContext(context.Context) ServicePlacementStrategyOutput
 }
 
+// The “PlacementStrategy“ property specifies the task placement strategy for a task or service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServicePlacementStrategyArgs struct {
-	Field pulumi.StringPtrInput             `pulumi:"field"`
-	Type  ServicePlacementStrategyTypeInput `pulumi:"type"`
+	// The field to apply the placement strategy against. For the ``spread`` placement strategy, valid values are ``instanceId`` (or ``host``, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as ``attribute:ecs.availability-zone``. For the ``binpack`` placement strategy, valid values are ``CPU`` and ``MEMORY``. For the ``random`` placement strategy, this field is not used.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
+	Type ServicePlacementStrategyTypeInput `pulumi:"type"`
 }
 
 func (ServicePlacementStrategyArgs) ElementType() reflect.Type {
@@ -3844,6 +4627,7 @@ func (i ServicePlacementStrategyArray) ToServicePlacementStrategyArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementStrategyArrayOutput)
 }
 
+// The “PlacementStrategy“ property specifies the task placement strategy for a task or service. For more information, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServicePlacementStrategyOutput struct{ *pulumi.OutputState }
 
 func (ServicePlacementStrategyOutput) ElementType() reflect.Type {
@@ -3858,10 +4642,12 @@ func (o ServicePlacementStrategyOutput) ToServicePlacementStrategyOutputWithCont
 	return o
 }
 
+// The field to apply the placement strategy against. For the “spread“ placement strategy, valid values are “instanceId“ (or “host“, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as “attribute:ecs.availability-zone“. For the “binpack“ placement strategy, valid values are “CPU“ and “MEMORY“. For the “random“ placement strategy, this field is not used.
 func (o ServicePlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
+// The type of placement strategy. The “random“ placement strategy randomly places tasks on available candidates. The “spread“ placement strategy spreads placement across available candidates evenly based on the “field“ parameter. The “binpack“ strategy places tasks on available candidates that have the least available amount of the resource that's specified with the “field“ parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
 func (o ServicePlacementStrategyOutput) Type() ServicePlacementStrategyTypeOutput {
 	return o.ApplyT(func(v ServicePlacementStrategy) ServicePlacementStrategyType { return v.Type }).(ServicePlacementStrategyTypeOutput)
 }
@@ -3886,11 +4672,16 @@ func (o ServicePlacementStrategyArrayOutput) Index(i pulumi.IntInput) ServicePla
 	}).(ServicePlacementStrategyOutput)
 }
 
+// The “ServiceRegistry“ property specifies details of the service registry. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceRegistry struct {
+	// The container name value to be used for your service discovery service. It's already specified in the task definition. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
 	ContainerName *string `pulumi:"containerName"`
-	ContainerPort *int    `pulumi:"containerPort"`
-	Port          *int    `pulumi:"port"`
-	RegistryArn   *string `pulumi:"registryArn"`
+	// The port value to be used for your service discovery service. It's already specified in the task definition. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
+	ContainerPort *int `pulumi:"containerPort"`
+	// The port value used if your service discovery service specified an SRV record. This field might be used if both the ``awsvpc`` network mode and SRV records are used.
+	Port *int `pulumi:"port"`
+	// The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is CMAP. For more information, see [CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html).
+	RegistryArn *string `pulumi:"registryArn"`
 }
 
 // ServiceRegistryInput is an input type that accepts ServiceRegistryArgs and ServiceRegistryOutput values.
@@ -3904,11 +4695,16 @@ type ServiceRegistryInput interface {
 	ToServiceRegistryOutputWithContext(context.Context) ServiceRegistryOutput
 }
 
+// The “ServiceRegistry“ property specifies details of the service registry. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceRegistryArgs struct {
+	// The container name value to be used for your service discovery service. It's already specified in the task definition. If the task definition that your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition that your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	ContainerPort pulumi.IntPtrInput    `pulumi:"containerPort"`
-	Port          pulumi.IntPtrInput    `pulumi:"port"`
-	RegistryArn   pulumi.StringPtrInput `pulumi:"registryArn"`
+	// The port value to be used for your service discovery service. It's already specified in the task definition. If the task definition your service task specifies uses the ``bridge`` or ``host`` network mode, you must specify a ``containerName`` and ``containerPort`` combination from the task definition. If the task definition your service task specifies uses the ``awsvpc`` network mode and a type SRV DNS record is used, you must specify either a ``containerName`` and ``containerPort`` combination or a ``port`` value. However, you can't specify both.
+	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
+	// The port value used if your service discovery service specified an SRV record. This field might be used if both the ``awsvpc`` network mode and SRV records are used.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is CMAP. For more information, see [CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html).
+	RegistryArn pulumi.StringPtrInput `pulumi:"registryArn"`
 }
 
 func (ServiceRegistryArgs) ElementType() reflect.Type {
@@ -3948,6 +4744,7 @@ func (i ServiceRegistryArray) ToServiceRegistryArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegistryArrayOutput)
 }
 
+// The “ServiceRegistry“ property specifies details of the service registry. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceRegistryOutput struct{ *pulumi.OutputState }
 
 func (ServiceRegistryOutput) ElementType() reflect.Type {
@@ -3962,18 +4759,22 @@ func (o ServiceRegistryOutput) ToServiceRegistryOutputWithContext(ctx context.Co
 	return o
 }
 
+// The container name value to be used for your service discovery service. It's already specified in the task definition. If the task definition that your service task specifies uses the “bridge“ or “host“ network mode, you must specify a “containerName“ and “containerPort“ combination from the task definition. If the task definition that your service task specifies uses the “awsvpc“ network mode and a type SRV DNS record is used, you must specify either a “containerName“ and “containerPort“ combination or a “port“ value. However, you can't specify both.
 func (o ServiceRegistryOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceRegistry) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
+// The port value to be used for your service discovery service. It's already specified in the task definition. If the task definition your service task specifies uses the “bridge“ or “host“ network mode, you must specify a “containerName“ and “containerPort“ combination from the task definition. If the task definition your service task specifies uses the “awsvpc“ network mode and a type SRV DNS record is used, you must specify either a “containerName“ and “containerPort“ combination or a “port“ value. However, you can't specify both.
 func (o ServiceRegistryOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceRegistry) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
+// The port value used if your service discovery service specified an SRV record. This field might be used if both the “awsvpc“ network mode and SRV records are used.
 func (o ServiceRegistryOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceRegistry) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is CMAP. For more information, see [CreateService](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html).
 func (o ServiceRegistryOutput) RegistryArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceRegistry) *string { return v.RegistryArn }).(pulumi.StringPtrOutput)
 }
@@ -3998,8 +4799,19 @@ func (o ServiceRegistryArrayOutput) Index(i pulumi.IntInput) ServiceRegistryOutp
 	}).(ServiceRegistryOutput)
 }
 
+// An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+//
+//   - To inject sensitive data into your containers as environment variables, use the “secrets“ container definition parameter.
+//
+//   - To reference sensitive information in the log configuration of a container, use the “secretOptions“ container definition parameter.
+//
+//     For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceSecret struct {
-	Name      string `pulumi:"name"`
+	// The name of the secret.
+	Name string `pulumi:"name"`
+	// The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store.
+	//  For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
 	ValueFrom string `pulumi:"valueFrom"`
 }
 
@@ -4014,8 +4826,19 @@ type ServiceSecretInput interface {
 	ToServiceSecretOutputWithContext(context.Context) ServiceSecretOutput
 }
 
+// An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+//
+//   - To inject sensitive data into your containers as environment variables, use the “secrets“ container definition parameter.
+//
+//   - To reference sensitive information in the log configuration of a container, use the “secretOptions“ container definition parameter.
+//
+//     For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceSecretArgs struct {
-	Name      pulumi.StringInput `pulumi:"name"`
+	// The name of the secret.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store.
+	//  For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
 	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
 }
 
@@ -4056,6 +4879,13 @@ func (i ServiceSecretArray) ToServiceSecretArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecretArrayOutput)
 }
 
+// An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
+//
+//   - To inject sensitive data into your containers as environment variables, use the “secrets“ container definition parameter.
+//
+//   - To reference sensitive information in the log configuration of a container, use the “secretOptions“ container definition parameter.
+//
+//     For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceSecretOutput struct{ *pulumi.OutputState }
 
 func (ServiceSecretOutput) ElementType() reflect.Type {
@@ -4070,10 +4900,15 @@ func (o ServiceSecretOutput) ToServiceSecretOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The name of the secret.
 func (o ServiceSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The secret to expose to the container. The supported values are either the full ARN of the ASMlong secret or the full ARN of the parameter in the SSM Parameter Store.
+//
+//	For information about the require IAMlong permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide*.
+//	 If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
 func (o ServiceSecretOutput) ValueFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
 }
@@ -4098,8 +4933,20 @@ func (o ServiceSecretArrayOutput) Index(i pulumi.IntInput) ServiceSecretOutput {
 	}).(ServiceSecretOutput)
 }
 
+// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+//
+//	The following basic restrictions apply to tags:
+//	 +  Maximum number of tags per resource - 50
+//	 +  For each resource, each tag key must be unique, and each tag key can have only one value.
+//	 +  Maximum key length - 128 Unicode characters in UTF-8
+//	 +  Maximum value length - 256 Unicode characters in UTF-8
+//	 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+//	 +  Tag keys and values are case-sensitive.
+//	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 type ServiceTag struct {
-	Key   *string `pulumi:"key"`
+	// One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
+	Key *string `pulumi:"key"`
+	// The optional part of a key-value pair that make up a tag. A ``value`` acts as a descriptor within a tag category (key).
 	Value *string `pulumi:"value"`
 }
 
@@ -4114,8 +4961,20 @@ type ServiceTagInput interface {
 	ToServiceTagOutputWithContext(context.Context) ServiceTagOutput
 }
 
+// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+//
+//	The following basic restrictions apply to tags:
+//	 +  Maximum number of tags per resource - 50
+//	 +  For each resource, each tag key must be unique, and each tag key can have only one value.
+//	 +  Maximum key length - 128 Unicode characters in UTF-8
+//	 +  Maximum value length - 256 Unicode characters in UTF-8
+//	 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+//	 +  Tag keys and values are case-sensitive.
+//	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 type ServiceTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The optional part of a key-value pair that make up a tag. A ``value`` acts as a descriptor within a tag category (key).
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4156,6 +5015,16 @@ func (i ServiceTagArray) ToServiceTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagArrayOutput)
 }
 
+// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+//
+//	The following basic restrictions apply to tags:
+//	 +  Maximum number of tags per resource - 50
+//	 +  For each resource, each tag key must be unique, and each tag key can have only one value.
+//	 +  Maximum key length - 128 Unicode characters in UTF-8
+//	 +  Maximum value length - 256 Unicode characters in UTF-8
+//	 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+//	 +  Tag keys and values are case-sensitive.
+//	 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 type ServiceTagOutput struct{ *pulumi.OutputState }
 
 func (ServiceTagOutput) ElementType() reflect.Type {
@@ -4170,10 +5039,12 @@ func (o ServiceTagOutput) ToServiceTagOutputWithContext(ctx context.Context) Ser
 	return o
 }
 
+// One part of a key-value pair that make up a tag. A “key“ is a general label that acts like a category for more specific tag values.
 func (o ServiceTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The optional part of a key-value pair that make up a tag. A “value“ acts as a descriptor within a tag category (key).
 func (o ServiceTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4198,8 +5069,15 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 	}).(ServiceTagOutput)
 }
 
+// An object that represents the timeout configurations for Service Connect.
+//
+//	If ``idleTimeout`` is set to a time that is less than ``perRequestTimeout``, the connection will close when the ``idleTimeout`` is reached and not the ``perRequestTimeout``.
 type ServiceTimeoutConfiguration struct {
-	IdleTimeoutSeconds       *int `pulumi:"idleTimeoutSeconds"`
+	// The amount of time in seconds a connection will stay active while idle. A value of ``0`` can be set to disable ``idleTimeout``.
+	//  The ``idleTimeout`` default for ``HTTP``/``HTTP2``/``GRPC`` is 5 minutes.
+	//  The ``idleTimeout`` default for ``TCP`` is 1 hour.
+	IdleTimeoutSeconds *int `pulumi:"idleTimeoutSeconds"`
+	// The amount of time waiting for the upstream to respond with a complete response per request. A value of ``0`` can be set to disable ``perRequestTimeout``. ``perRequestTimeout`` can only be set if Service Connect ``appProtocol`` isn't ``TCP``. Only ``idleTimeout`` is allowed for ``TCP`` ``appProtocol``.
 	PerRequestTimeoutSeconds *int `pulumi:"perRequestTimeoutSeconds"`
 }
 
@@ -4214,8 +5092,15 @@ type ServiceTimeoutConfigurationInput interface {
 	ToServiceTimeoutConfigurationOutputWithContext(context.Context) ServiceTimeoutConfigurationOutput
 }
 
+// An object that represents the timeout configurations for Service Connect.
+//
+//	If ``idleTimeout`` is set to a time that is less than ``perRequestTimeout``, the connection will close when the ``idleTimeout`` is reached and not the ``perRequestTimeout``.
 type ServiceTimeoutConfigurationArgs struct {
-	IdleTimeoutSeconds       pulumi.IntPtrInput `pulumi:"idleTimeoutSeconds"`
+	// The amount of time in seconds a connection will stay active while idle. A value of ``0`` can be set to disable ``idleTimeout``.
+	//  The ``idleTimeout`` default for ``HTTP``/``HTTP2``/``GRPC`` is 5 minutes.
+	//  The ``idleTimeout`` default for ``TCP`` is 1 hour.
+	IdleTimeoutSeconds pulumi.IntPtrInput `pulumi:"idleTimeoutSeconds"`
+	// The amount of time waiting for the upstream to respond with a complete response per request. A value of ``0`` can be set to disable ``perRequestTimeout``. ``perRequestTimeout`` can only be set if Service Connect ``appProtocol`` isn't ``TCP``. Only ``idleTimeout`` is allowed for ``TCP`` ``appProtocol``.
 	PerRequestTimeoutSeconds pulumi.IntPtrInput `pulumi:"perRequestTimeoutSeconds"`
 }
 
@@ -4272,6 +5157,9 @@ func (i *serviceTimeoutConfigurationPtrType) ToServiceTimeoutConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTimeoutConfigurationPtrOutput)
 }
 
+// An object that represents the timeout configurations for Service Connect.
+//
+//	If ``idleTimeout`` is set to a time that is less than ``perRequestTimeout``, the connection will close when the ``idleTimeout`` is reached and not the ``perRequestTimeout``.
 type ServiceTimeoutConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceTimeoutConfigurationOutput) ElementType() reflect.Type {
@@ -4296,10 +5184,15 @@ func (o ServiceTimeoutConfigurationOutput) ToServiceTimeoutConfigurationPtrOutpu
 	}).(ServiceTimeoutConfigurationPtrOutput)
 }
 
+// The amount of time in seconds a connection will stay active while idle. A value of “0“ can be set to disable “idleTimeout“.
+//
+//	The ``idleTimeout`` default for ``HTTP``/``HTTP2``/``GRPC`` is 5 minutes.
+//	The ``idleTimeout`` default for ``TCP`` is 1 hour.
 func (o ServiceTimeoutConfigurationOutput) IdleTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceTimeoutConfiguration) *int { return v.IdleTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The amount of time waiting for the upstream to respond with a complete response per request. A value of “0“ can be set to disable “perRequestTimeout“. “perRequestTimeout“ can only be set if Service Connect “appProtocol“ isn't “TCP“. Only “idleTimeout“ is allowed for “TCP“ “appProtocol“.
 func (o ServiceTimeoutConfigurationOutput) PerRequestTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceTimeoutConfiguration) *int { return v.PerRequestTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4328,6 +5221,10 @@ func (o ServiceTimeoutConfigurationPtrOutput) Elem() ServiceTimeoutConfiguration
 	}).(ServiceTimeoutConfigurationOutput)
 }
 
+// The amount of time in seconds a connection will stay active while idle. A value of “0“ can be set to disable “idleTimeout“.
+//
+//	The ``idleTimeout`` default for ``HTTP``/``HTTP2``/``GRPC`` is 5 minutes.
+//	The ``idleTimeout`` default for ``TCP`` is 1 hour.
 func (o ServiceTimeoutConfigurationPtrOutput) IdleTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceTimeoutConfiguration) *int {
 		if v == nil {
@@ -4337,6 +5234,7 @@ func (o ServiceTimeoutConfigurationPtrOutput) IdleTimeoutSeconds() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The amount of time waiting for the upstream to respond with a complete response per request. A value of “0“ can be set to disable “perRequestTimeout“. “perRequestTimeout“ can only be set if Service Connect “appProtocol“ isn't “TCP“. Only “idleTimeout“ is allowed for “TCP“ “appProtocol“.
 func (o ServiceTimeoutConfigurationPtrOutput) PerRequestTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceTimeoutConfiguration) *int {
 		if v == nil {
@@ -4346,9 +5244,12 @@ func (o ServiceTimeoutConfigurationPtrOutput) PerRequestTimeoutSeconds() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
 type ServiceVolumeConfiguration struct {
+	// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. The Amazon EBS volumes are visible in your account in the Amazon EC2 console once they are created.
 	ManagedEbsVolume *ServiceManagedEbsVolumeConfiguration `pulumi:"managedEbsVolume"`
-	Name             string                                `pulumi:"name"`
+	// The name of the volume. This value must match the volume name from the ``Volume`` object in the task definition.
+	Name string `pulumi:"name"`
 }
 
 // ServiceVolumeConfigurationInput is an input type that accepts ServiceVolumeConfigurationArgs and ServiceVolumeConfigurationOutput values.
@@ -4362,9 +5263,12 @@ type ServiceVolumeConfigurationInput interface {
 	ToServiceVolumeConfigurationOutputWithContext(context.Context) ServiceVolumeConfigurationOutput
 }
 
+// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
 type ServiceVolumeConfigurationArgs struct {
+	// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. The Amazon EBS volumes are visible in your account in the Amazon EC2 console once they are created.
 	ManagedEbsVolume ServiceManagedEbsVolumeConfigurationPtrInput `pulumi:"managedEbsVolume"`
-	Name             pulumi.StringInput                           `pulumi:"name"`
+	// The name of the volume. This value must match the volume name from the ``Volume`` object in the task definition.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (ServiceVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -4404,6 +5308,7 @@ func (i ServiceVolumeConfigurationArray) ToServiceVolumeConfigurationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationArrayOutput)
 }
 
+// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
 type ServiceVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -4418,10 +5323,12 @@ func (o ServiceVolumeConfigurationOutput) ToServiceVolumeConfigurationOutputWith
 	return o
 }
 
+// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. The Amazon EBS volumes are visible in your account in the Amazon EC2 console once they are created.
 func (o ServiceVolumeConfigurationOutput) ManagedEbsVolume() ServiceManagedEbsVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceVolumeConfiguration) *ServiceManagedEbsVolumeConfiguration { return v.ManagedEbsVolume }).(ServiceManagedEbsVolumeConfigurationPtrOutput)
 }
 
+// The name of the volume. This value must match the volume name from the “Volume“ object in the task definition.
 func (o ServiceVolumeConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceVolumeConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }

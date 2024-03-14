@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetInstanceArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The EC2 Instance ID.
+        /// </summary>
+        [Input("instanceId", required: true)]
+        public string InstanceId { get; set; } = null!;
 
         public GetInstanceArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The EC2 Instance ID.
+        /// </summary>
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
 
         public GetInstanceInvokeArgs()
         {
@@ -51,43 +57,118 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetInstanceResult
     {
-        public readonly string? AdditionalInfo;
-        public readonly string? Affinity;
+        /// <summary>
+        /// Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ec2.InstanceAffinity? Affinity;
+        /// <summary>
+        /// The block device mapping entries that defines the block devices to attach to the instance at launch.
+        /// </summary>
         public readonly ImmutableArray<Outputs.InstanceBlockDeviceMapping> BlockDeviceMappings;
-        public readonly Outputs.InstanceCreditSpecification? CreditSpecification;
+        /// <summary>
+        /// The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+        /// </summary>
+        public readonly Outputs.CreditSpecificationProperties? CreditSpecification;
+        /// <summary>
+        /// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+        /// </summary>
         public readonly bool? DisableApiTermination;
+        /// <summary>
+        /// Indicates whether the instance is optimized for Amazon EBS I/O.
+        /// </summary>
         public readonly bool? EbsOptimized;
+        /// <summary>
+        /// If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
+        /// </summary>
         public readonly string? HostId;
+        /// <summary>
+        /// The IAM instance profile.
+        /// </summary>
         public readonly string? IamInstanceProfile;
-        public readonly string? Id;
+        /// <summary>
+        /// The EC2 Instance ID.
+        /// </summary>
+        public readonly string? InstanceId;
+        /// <summary>
+        /// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+        /// </summary>
         public readonly string? InstanceInitiatedShutdownBehavior;
+        /// <summary>
+        /// The instance type.
+        /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// The ID of the kernel.
+        /// </summary>
         public readonly string? KernelId;
+        /// <summary>
+        /// Specifies whether detailed monitoring is enabled for the instance.
+        /// </summary>
         public readonly bool? Monitoring;
+        /// <summary>
+        /// The private DNS name of the specified instance. For example: ip-10-24-34-0.ec2.internal.
+        /// </summary>
         public readonly string? PrivateDnsName;
+        /// <summary>
+        /// The options for the instance hostname.
+        /// </summary>
         public readonly Outputs.InstancePrivateDnsNameOptions? PrivateDnsNameOptions;
+        /// <summary>
+        /// The private IP address of the specified instance. For example: 10.24.34.0.
+        /// </summary>
         public readonly string? PrivateIp;
-        public readonly bool? PropagateTagsToVolumeOnCreation;
+        /// <summary>
+        /// The public DNS name of the specified instance. For example: ec2-107-20-50-45.compute-1.amazonaws.com.
+        /// </summary>
         public readonly string? PublicDnsName;
+        /// <summary>
+        /// The public IP address of the specified instance. For example: 192.0.2.0.
+        /// </summary>
         public readonly string? PublicIp;
+        /// <summary>
+        /// The ID of the RAM disk to select.
+        /// </summary>
         public readonly string? RamdiskId;
+        /// <summary>
+        /// The IDs of the security groups.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// Specifies whether to enable an instance launched in a VPC to perform NAT.
+        /// </summary>
         public readonly bool? SourceDestCheck;
+        /// <summary>
+        /// The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+        /// </summary>
         public readonly ImmutableArray<Outputs.InstanceSsmAssociation> SsmAssociations;
+        /// <summary>
+        /// The tags to add to the instance.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+        /// </summary>
         public readonly string? Tenancy;
+        /// <summary>
+        /// The user data to make available to the instance.
+        /// </summary>
         public readonly string? UserData;
+        /// <summary>
+        /// The volumes to attach to the instance.
+        /// </summary>
         public readonly ImmutableArray<Outputs.InstanceVolume> Volumes;
+        /// <summary>
+        /// The ID of the VPC that the instance is running in.
+        /// </summary>
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetInstanceResult(
-            string? additionalInfo,
-
-            string? affinity,
+            Pulumi.AwsNative.Ec2.InstanceAffinity? affinity,
 
             ImmutableArray<Outputs.InstanceBlockDeviceMapping> blockDeviceMappings,
 
-            Outputs.InstanceCreditSpecification? creditSpecification,
+            Outputs.CreditSpecificationProperties? creditSpecification,
 
             bool? disableApiTermination,
 
@@ -97,7 +178,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? iamInstanceProfile,
 
-            string? id,
+            string? instanceId,
 
             string? instanceInitiatedShutdownBehavior,
 
@@ -112,8 +193,6 @@ namespace Pulumi.AwsNative.Ec2
             Outputs.InstancePrivateDnsNameOptions? privateDnsNameOptions,
 
             string? privateIp,
-
-            bool? propagateTagsToVolumeOnCreation,
 
             string? publicDnsName,
 
@@ -133,9 +212,10 @@ namespace Pulumi.AwsNative.Ec2
 
             string? userData,
 
-            ImmutableArray<Outputs.InstanceVolume> volumes)
+            ImmutableArray<Outputs.InstanceVolume> volumes,
+
+            string? vpcId)
         {
-            AdditionalInfo = additionalInfo;
             Affinity = affinity;
             BlockDeviceMappings = blockDeviceMappings;
             CreditSpecification = creditSpecification;
@@ -143,7 +223,7 @@ namespace Pulumi.AwsNative.Ec2
             EbsOptimized = ebsOptimized;
             HostId = hostId;
             IamInstanceProfile = iamInstanceProfile;
-            Id = id;
+            InstanceId = instanceId;
             InstanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
             InstanceType = instanceType;
             KernelId = kernelId;
@@ -151,7 +231,6 @@ namespace Pulumi.AwsNative.Ec2
             PrivateDnsName = privateDnsName;
             PrivateDnsNameOptions = privateDnsNameOptions;
             PrivateIp = privateIp;
-            PropagateTagsToVolumeOnCreation = propagateTagsToVolumeOnCreation;
             PublicDnsName = publicDnsName;
             PublicIp = publicIp;
             RamdiskId = ramdiskId;
@@ -162,6 +241,7 @@ namespace Pulumi.AwsNative.Ec2
             Tenancy = tenancy;
             UserData = userData;
             Volumes = volumes;
+            VpcId = vpcId;
         }
     }
 }

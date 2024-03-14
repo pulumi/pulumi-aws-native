@@ -10,13 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// Indicates whether an instance is enabled for hibernation.
+    /// </summary>
     [OutputType]
-    public sealed class InstanceHibernationOptions
+    public sealed class HibernationOptionsProperties
     {
+        /// <summary>
+        /// If you set this parameter to true, your instance is enabled for hibernation.
+        /// </summary>
         public readonly bool? Configured;
 
         [OutputConstructor]
-        private InstanceHibernationOptions(bool? configured)
+        private HibernationOptionsProperties(bool? configured)
         {
             Configured = configured;
         }

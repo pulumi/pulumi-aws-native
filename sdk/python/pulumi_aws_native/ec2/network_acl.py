@@ -20,8 +20,8 @@ class NetworkAclArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkAcl resource.
-        :param pulumi.Input[str] vpc_id: The ID of the VPC.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the network ACL.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC for the network ACL.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the network ACL.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if tags is not None:
@@ -31,7 +31,7 @@ class NetworkAclArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
         """
-        The ID of the VPC.
+        The ID of the VPC for the network ACL.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -43,7 +43,7 @@ class NetworkAclArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tags to assign to the network ACL.
+        The tags for the network ACL.
         """
         return pulumi.get(self, "tags")
 
@@ -61,12 +61,12 @@ class NetworkAcl(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::NetworkAcl
+        Specifies a network ACL for your VPC.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to assign to the network ACL.
-        :param pulumi.Input[str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the network ACL.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC for the network ACL.
         """
         ...
     @overload
@@ -75,7 +75,7 @@ class NetworkAcl(pulumi.CustomResource):
                  args: NetworkAclArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::NetworkAcl
+        Specifies a network ACL for your VPC.
 
         :param str resource_name: The name of the resource.
         :param NetworkAclArgs args: The arguments to use to populate this resource's properties.
@@ -146,7 +146,7 @@ class NetworkAcl(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tags to assign to the network ACL.
+        The tags for the network ACL.
         """
         return pulumi.get(self, "tags")
 
@@ -154,7 +154,7 @@ class NetworkAcl(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
-        The ID of the VPC.
+        The ID of the VPC for the network ACL.
         """
         return pulumi.get(self, "vpc_id")
 

@@ -13,18 +13,57 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class InstanceNetworkInterface
     {
+        /// <summary>
+        /// Not currently supported by AWS CloudFormation.
+        /// </summary>
         public readonly bool? AssociateCarrierIpAddress;
+        /// <summary>
+        /// Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
+        /// </summary>
         public readonly bool? AssociatePublicIpAddress;
+        /// <summary>
+        /// If set to true, the interface is deleted when the instance is terminated.
+        /// </summary>
         public readonly bool? DeleteOnTermination;
+        /// <summary>
+        /// The description of the network interface.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+        /// </summary>
         public readonly string DeviceIndex;
+        /// <summary>
+        /// The IDs of the security groups for the network interface.
+        /// </summary>
         public readonly ImmutableArray<string> GroupSet;
+        /// <summary>
+        /// A number of IPv6 addresses to assign to the network interface.
+        /// </summary>
         public readonly int? Ipv6AddressCount;
+        /// <summary>
+        /// The IPv6 addresses associated with the network interface.
+        /// </summary>
         public readonly ImmutableArray<Outputs.InstanceIpv6Address> Ipv6Addresses;
+        /// <summary>
+        /// The ID of the network interface.
+        /// </summary>
         public readonly string? NetworkInterfaceId;
+        /// <summary>
+        /// The private IPv4 address of the network interface.
+        /// </summary>
         public readonly string? PrivateIpAddress;
+        /// <summary>
+        /// One or more private IPv4 addresses to assign to the network interface.
+        /// </summary>
         public readonly ImmutableArray<Outputs.InstancePrivateIpAddressSpecification> PrivateIpAddresses;
+        /// <summary>
+        /// The number of secondary private IPv4 addresses.
+        /// </summary>
         public readonly int? SecondaryPrivateIpAddressCount;
+        /// <summary>
+        /// The ID of the subnet.
+        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

@@ -13,9 +13,18 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class InstanceLaunchTemplateSpecification
     {
+        /// <summary>
+        /// The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+        /// </summary>
         public readonly string? LaunchTemplateId;
+        /// <summary>
+        /// The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+        /// </summary>
         public readonly string? LaunchTemplateName;
-        public readonly string Version;
+        /// <summary>
+        /// The version number of the launch template.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private InstanceLaunchTemplateSpecification(
@@ -23,7 +32,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             string? launchTemplateName,
 
-            string version)
+            string? version)
         {
             LaunchTemplateId = launchTemplateId;
             LaunchTemplateName = launchTemplateName;

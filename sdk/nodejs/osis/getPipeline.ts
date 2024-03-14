@@ -46,7 +46,7 @@ export interface GetPipelineResult {
      */
     readonly pipelineArn?: string;
     /**
-     * The Data Prepper pipeline configuration in YAML format.
+     * The Data Prepper pipeline configuration.
      */
     readonly pipelineConfigurationBody?: string;
     /**

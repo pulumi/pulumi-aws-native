@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::NetworkAcl
+ * Specifies a network ACL for your VPC.
  */
 export function getNetworkAcl(args: GetNetworkAclArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclResult> {
 
@@ -25,12 +25,12 @@ export interface GetNetworkAclArgs {
 export interface GetNetworkAclResult {
     readonly id?: string;
     /**
-     * The tags to assign to the network ACL.
+     * The tags for the network ACL.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::EC2::NetworkAcl
+ * Specifies a network ACL for your VPC.
  */
 export function getNetworkAclOutput(args: GetNetworkAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAclResult> {
     return pulumi.output(args).apply((a: any) => getNetworkAcl(a, opts))

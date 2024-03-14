@@ -20,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobQueueResult:
-    def __init__(__self__, compute_environment_order=None, job_queue_arn=None, priority=None, scheduling_policy_arn=None, state=None):
+    def __init__(__self__, compute_environment_order=None, job_queue_arn=None, job_state_time_limit_actions=None, priority=None, scheduling_policy_arn=None, state=None):
         if compute_environment_order and not isinstance(compute_environment_order, list):
             raise TypeError("Expected argument 'compute_environment_order' to be a list")
         pulumi.set(__self__, "compute_environment_order", compute_environment_order)
         if job_queue_arn and not isinstance(job_queue_arn, str):
             raise TypeError("Expected argument 'job_queue_arn' to be a str")
         pulumi.set(__self__, "job_queue_arn", job_queue_arn)
+        if job_state_time_limit_actions and not isinstance(job_state_time_limit_actions, list):
+            raise TypeError("Expected argument 'job_state_time_limit_actions' to be a list")
+        pulumi.set(__self__, "job_state_time_limit_actions", job_state_time_limit_actions)
         if priority and not isinstance(priority, int):
             raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
@@ -46,6 +49,11 @@ class GetJobQueueResult:
     @pulumi.getter(name="jobQueueArn")
     def job_queue_arn(self) -> Optional[str]:
         return pulumi.get(self, "job_queue_arn")
+
+    @property
+    @pulumi.getter(name="jobStateTimeLimitActions")
+    def job_state_time_limit_actions(self) -> Optional[Sequence['outputs.JobQueueJobStateTimeLimitAction']]:
+        return pulumi.get(self, "job_state_time_limit_actions")
 
     @property
     @pulumi.getter
@@ -71,6 +79,7 @@ class AwaitableGetJobQueueResult(GetJobQueueResult):
         return GetJobQueueResult(
             compute_environment_order=self.compute_environment_order,
             job_queue_arn=self.job_queue_arn,
+            job_state_time_limit_actions=self.job_state_time_limit_actions,
             priority=self.priority,
             scheduling_policy_arn=self.scheduling_policy_arn,
             state=self.state)
@@ -89,6 +98,7 @@ def get_job_queue(job_queue_arn: Optional[str] = None,
     return AwaitableGetJobQueueResult(
         compute_environment_order=pulumi.get(__ret__, 'compute_environment_order'),
         job_queue_arn=pulumi.get(__ret__, 'job_queue_arn'),
+        job_state_time_limit_actions=pulumi.get(__ret__, 'job_state_time_limit_actions'),
         priority=pulumi.get(__ret__, 'priority'),
         scheduling_policy_arn=pulumi.get(__ret__, 'scheduling_policy_arn'),
         state=pulumi.get(__ret__, 'state'))

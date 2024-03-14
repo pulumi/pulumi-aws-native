@@ -425,12 +425,15 @@ func (o ReplicationConfigurationRepositoryFilterArrayOutput) Index(i pulumi.IntI
 
 // The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 //
-// By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
-//
-// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+//	By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+//	For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
 type RepositoryEncryptionConfiguration struct {
+	// The encryption type to use.
+	//  If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an key stored in (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide*.
+	//  If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Ama
 	EncryptionType RepositoryEncryptionType `pulumi:"encryptionType"`
-	KmsKey         *string                  `pulumi:"kmsKey"`
+	// If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
+	KmsKey *string `pulumi:"kmsKey"`
 }
 
 // RepositoryEncryptionConfigurationInput is an input type that accepts RepositoryEncryptionConfigurationArgs and RepositoryEncryptionConfigurationOutput values.
@@ -446,12 +449,15 @@ type RepositoryEncryptionConfigurationInput interface {
 
 // The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 //
-// By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
-//
-// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+//	By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+//	For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
 type RepositoryEncryptionConfigurationArgs struct {
+	// The encryption type to use.
+	//  If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an key stored in (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide*.
+	//  If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Ama
 	EncryptionType RepositoryEncryptionTypeInput `pulumi:"encryptionType"`
-	KmsKey         pulumi.StringPtrInput         `pulumi:"kmsKey"`
+	// If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (RepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -509,9 +515,8 @@ func (i *repositoryEncryptionConfigurationPtrType) ToRepositoryEncryptionConfigu
 
 // The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 //
-// By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
-//
-// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+//	By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+//	For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
 type RepositoryEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -536,10 +541,15 @@ func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigura
 	}).(RepositoryEncryptionConfigurationPtrOutput)
 }
 
+// The encryption type to use.
+//
+//	If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an key stored in (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide*.
+//	If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Ama
 func (o RepositoryEncryptionConfigurationOutput) EncryptionType() RepositoryEncryptionTypeOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) RepositoryEncryptionType { return v.EncryptionType }).(RepositoryEncryptionTypeOutput)
 }
 
+// If you use the “KMS“ encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
 func (o RepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -568,6 +578,10 @@ func (o RepositoryEncryptionConfigurationPtrOutput) Elem() RepositoryEncryptionC
 	}).(RepositoryEncryptionConfigurationOutput)
 }
 
+// The encryption type to use.
+//
+//	If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an key stored in (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide*.
+//	If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Ama
 func (o RepositoryEncryptionConfigurationPtrOutput) EncryptionType() RepositoryEncryptionTypePtrOutput {
 	return o.ApplyT(func(v *RepositoryEncryptionConfiguration) *RepositoryEncryptionType {
 		if v == nil {
@@ -577,6 +591,7 @@ func (o RepositoryEncryptionConfigurationPtrOutput) EncryptionType() RepositoryE
 	}).(RepositoryEncryptionTypePtrOutput)
 }
 
+// If you use the “KMS“ encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
 func (o RepositoryEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryEncryptionConfiguration) *string {
 		if v == nil {
@@ -586,8 +601,9 @@ func (o RepositoryEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+// The image scanning configuration for a repository.
 type RepositoryImageScanningConfiguration struct {
+	// The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
 	ScanOnPush *bool `pulumi:"scanOnPush"`
 }
 
@@ -602,8 +618,9 @@ type RepositoryImageScanningConfigurationInput interface {
 	ToRepositoryImageScanningConfigurationOutputWithContext(context.Context) RepositoryImageScanningConfigurationOutput
 }
 
-// The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+// The image scanning configuration for a repository.
 type RepositoryImageScanningConfigurationArgs struct {
+	// The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
 	ScanOnPush pulumi.BoolPtrInput `pulumi:"scanOnPush"`
 }
 
@@ -660,7 +677,7 @@ func (i *repositoryImageScanningConfigurationPtrType) ToRepositoryImageScanningC
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
-// The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+// The image scanning configuration for a repository.
 type RepositoryImageScanningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RepositoryImageScanningConfigurationOutput) ElementType() reflect.Type {
@@ -685,6 +702,7 @@ func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningCon
 	}).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
+// The setting that determines whether images are scanned after being pushed to a repository. If set to “true“, images will be scanned after being pushed. If this parameter is not specified, it will default to “false“ and images will not be scanned unless a scan is manually started.
 func (o RepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryImageScanningConfiguration) *bool { return v.ScanOnPush }).(pulumi.BoolPtrOutput)
 }
@@ -713,6 +731,7 @@ func (o RepositoryImageScanningConfigurationPtrOutput) Elem() RepositoryImageSca
 	}).(RepositoryImageScanningConfigurationOutput)
 }
 
+// The setting that determines whether images are scanned after being pushed to a repository. If set to “true“, images will be scanned after being pushed. If this parameter is not specified, it will default to “false“ and images will not be scanned unless a scan is manually started.
 func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryImageScanningConfiguration) *bool {
 		if v == nil {
@@ -722,10 +741,13 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+// The “LifecyclePolicy“ property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
 type RepositoryLifecyclePolicy struct {
+	// The JSON repository policy text to apply to the repository.
 	LifecyclePolicyText *string `pulumi:"lifecyclePolicyText"`
-	RegistryId          *string `pulumi:"registryId"`
+	// The AWS account ID associated with the registry that contains the repository. If you do
+	//  not specify a registry, the default registry is assumed.
+	RegistryId *string `pulumi:"registryId"`
 }
 
 // RepositoryLifecyclePolicyInput is an input type that accepts RepositoryLifecyclePolicyArgs and RepositoryLifecyclePolicyOutput values.
@@ -739,10 +761,13 @@ type RepositoryLifecyclePolicyInput interface {
 	ToRepositoryLifecyclePolicyOutputWithContext(context.Context) RepositoryLifecyclePolicyOutput
 }
 
-// The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+// The “LifecyclePolicy“ property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
 type RepositoryLifecyclePolicyArgs struct {
+	// The JSON repository policy text to apply to the repository.
 	LifecyclePolicyText pulumi.StringPtrInput `pulumi:"lifecyclePolicyText"`
-	RegistryId          pulumi.StringPtrInput `pulumi:"registryId"`
+	// The AWS account ID associated with the registry that contains the repository. If you do
+	//  not specify a registry, the default registry is assumed.
+	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
 }
 
 func (RepositoryLifecyclePolicyArgs) ElementType() reflect.Type {
@@ -798,7 +823,7 @@ func (i *repositoryLifecyclePolicyPtrType) ToRepositoryLifecyclePolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLifecyclePolicyPtrOutput)
 }
 
-// The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+// The “LifecyclePolicy“ property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
 type RepositoryLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -823,10 +848,14 @@ func (o RepositoryLifecyclePolicyOutput) ToRepositoryLifecyclePolicyPtrOutputWit
 	}).(RepositoryLifecyclePolicyPtrOutput)
 }
 
+// The JSON repository policy text to apply to the repository.
 func (o RepositoryLifecyclePolicyOutput) LifecyclePolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryLifecyclePolicy) *string { return v.LifecyclePolicyText }).(pulumi.StringPtrOutput)
 }
 
+// The AWS account ID associated with the registry that contains the repository. If you do
+//
+//	not specify a registry, the default registry is assumed.
 func (o RepositoryLifecyclePolicyOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryLifecyclePolicy) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
@@ -855,6 +884,7 @@ func (o RepositoryLifecyclePolicyPtrOutput) Elem() RepositoryLifecyclePolicyOutp
 	}).(RepositoryLifecyclePolicyOutput)
 }
 
+// The JSON repository policy text to apply to the repository.
 func (o RepositoryLifecyclePolicyPtrOutput) LifecyclePolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryLifecyclePolicy) *string {
 		if v == nil {
@@ -864,6 +894,9 @@ func (o RepositoryLifecyclePolicyPtrOutput) LifecyclePolicyText() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The AWS account ID associated with the registry that contains the repository. If you do
+//
+//	not specify a registry, the default registry is assumed.
 func (o RepositoryLifecyclePolicyPtrOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryLifecyclePolicy) *string {
 		if v == nil {
@@ -873,11 +906,11 @@ func (o RepositoryLifecyclePolicyPtrOutput) RegistryId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
+// The metadata to apply to a resource to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 type RepositoryTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// One part of a key-value pair that make up a tag. A ``key`` is a general label that acts like a category for more specific tag values.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A ``value`` acts as a descriptor within a tag category (key).
 	Value string `pulumi:"value"`
 }
 

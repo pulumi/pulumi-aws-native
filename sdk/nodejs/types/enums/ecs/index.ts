@@ -48,6 +48,9 @@ export const ServiceAwsVpcConfigurationAssignPublicIp = {
     Enabled: "ENABLED",
 } as const;
 
+/**
+ * Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+ */
 export type ServiceAwsVpcConfigurationAssignPublicIp = (typeof ServiceAwsVpcConfigurationAssignPublicIp)[keyof typeof ServiceAwsVpcConfigurationAssignPublicIp];
 
 export const ServiceDeploymentControllerType = {
@@ -56,6 +59,10 @@ export const ServiceDeploymentControllerType = {
     External: "EXTERNAL",
 } as const;
 
+/**
+ * The deployment controller type to use. There are three deployment controller types available:
+ *   + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
+ */
 export type ServiceDeploymentControllerType = (typeof ServiceDeploymentControllerType)[keyof typeof ServiceDeploymentControllerType];
 
 export const ServiceEbsTagSpecificationPropagateTags = {
@@ -63,6 +70,12 @@ export const ServiceEbsTagSpecificationPropagateTags = {
     TaskDefinition: "TASK_DEFINITION",
 } as const;
 
+/**
+ * Determines whether to propagate the tags from the task definition to 
+ * the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
+ * ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
+ * propagated.
+ */
 export type ServiceEbsTagSpecificationPropagateTags = (typeof ServiceEbsTagSpecificationPropagateTags)[keyof typeof ServiceEbsTagSpecificationPropagateTags];
 
 export const ServiceLaunchType = {
@@ -71,6 +84,9 @@ export const ServiceLaunchType = {
     External: "EXTERNAL",
 } as const;
 
+/**
+ * The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+ */
 export type ServiceLaunchType = (typeof ServiceLaunchType)[keyof typeof ServiceLaunchType];
 
 export const ServicePlacementConstraintType = {
@@ -78,6 +94,9 @@ export const ServicePlacementConstraintType = {
     MemberOf: "memberOf",
 } as const;
 
+/**
+ * The type of constraint. Use ``distinctInstance`` to ensure that each task in a particular group is running on a different container instance. Use ``memberOf`` to restrict the selection to a group of valid candidates.
+ */
 export type ServicePlacementConstraintType = (typeof ServicePlacementConstraintType)[keyof typeof ServicePlacementConstraintType];
 
 export const ServicePlacementStrategyType = {
@@ -86,6 +105,9 @@ export const ServicePlacementStrategyType = {
     Spread: "spread",
 } as const;
 
+/**
+ * The type of placement strategy. The ``random`` placement strategy randomly places tasks on available candidates. The ``spread`` placement strategy spreads placement across available candidates evenly based on the ``field`` parameter. The ``binpack`` strategy places tasks on available candidates that have the least available amount of the resource that's specified with the ``field`` parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory but still enough to run the task.
+ */
 export type ServicePlacementStrategyType = (typeof ServicePlacementStrategyType)[keyof typeof ServicePlacementStrategyType];
 
 export const ServicePropagateTags = {
@@ -93,6 +115,10 @@ export const ServicePropagateTags = {
     TaskDefinition: "TASK_DEFINITION",
 } as const;
 
+/**
+ * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
+ *  The default is ``NONE``.
+ */
 export type ServicePropagateTags = (typeof ServicePropagateTags)[keyof typeof ServicePropagateTags];
 
 export const ServiceSchedulingStrategy = {
@@ -100,6 +126,13 @@ export const ServiceSchedulingStrategy = {
     Replica: "REPLICA",
 } as const;
 
+/**
+ * The scheduling strategy to use for the service. For more information, see [Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
+ *  There are two service scheduler strategies available:
+ *   +   ``REPLICA``-The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service uses the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types.
+ *   +   ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
+ *   Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
+ */
 export type ServiceSchedulingStrategy = (typeof ServiceSchedulingStrategy)[keyof typeof ServiceSchedulingStrategy];
 
 export const TaskDefinitionAuthorizationConfigIam = {

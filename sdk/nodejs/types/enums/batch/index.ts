@@ -2,6 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const JobQueueJobStateTimeLimitActionAction = {
+    Cancel: "CANCEL",
+} as const;
+
+export type JobQueueJobStateTimeLimitActionAction = (typeof JobQueueJobStateTimeLimitActionAction)[keyof typeof JobQueueJobStateTimeLimitActionAction];
+
+export const JobQueueJobStateTimeLimitActionState = {
+    Runnable: "RUNNABLE",
+} as const;
+
+export type JobQueueJobStateTimeLimitActionState = (typeof JobQueueJobStateTimeLimitActionState)[keyof typeof JobQueueJobStateTimeLimitActionState];
+
 export const JobQueueState = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",

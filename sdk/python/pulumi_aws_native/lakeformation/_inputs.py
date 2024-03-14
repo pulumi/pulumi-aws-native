@@ -109,12 +109,19 @@ class PrincipalPermissionsCatalogResourceArgs:
 class PrincipalPermissionsColumnWildcardArgs:
     def __init__(__self__, *,
                  excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        A wildcard object, consisting of an optional list of excluded column names or indexes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_column_names: Excludes column names. Any column with this name will be excluded.
+        """
         if excluded_column_names is not None:
             pulumi.set(__self__, "excluded_column_names", excluded_column_names)
 
     @property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Excludes column names. Any column with this name will be excluded.
+        """
         return pulumi.get(self, "excluded_column_names")
 
     @excluded_column_names.setter
@@ -129,6 +136,13 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
                  name: pulumi.Input[str],
                  table_catalog_id: pulumi.Input[str],
                  table_name: pulumi.Input[str]):
+        """
+        A structure that describes certain columns on certain rows.
+        :param pulumi.Input[str] database_name: A database in the GLUDC.
+        :param pulumi.Input[str] name: The name given by the user to the data filter cell.
+        :param pulumi.Input[str] table_catalog_id: The ID of the catalog to which the table belongs.
+        :param pulumi.Input[str] table_name: The name of the table.
+        """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "table_catalog_id", table_catalog_id)
@@ -137,6 +151,9 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
+        """
+        A database in the GLUDC.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -146,6 +163,9 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name given by the user to the data filter cell.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -155,6 +175,9 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
     @property
     @pulumi.getter(name="tableCatalogId")
     def table_catalog_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the catalog to which the table belongs.
+        """
         return pulumi.get(self, "table_catalog_id")
 
     @table_catalog_id.setter
@@ -164,6 +187,9 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the table.
+        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -175,12 +201,19 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
 class PrincipalPermissionsDataLakePrincipalArgs:
     def __init__(__self__, *,
                  data_lake_principal_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        The LFlong principal.
+        :param pulumi.Input[str] data_lake_principal_identifier: An identifier for the LFlong principal.
+        """
         if data_lake_principal_identifier is not None:
             pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
 
     @property
     @pulumi.getter(name="dataLakePrincipalIdentifier")
     def data_lake_principal_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identifier for the LFlong principal.
+        """
         return pulumi.get(self, "data_lake_principal_identifier")
 
     @data_lake_principal_identifier.setter
@@ -193,12 +226,20 @@ class PrincipalPermissionsDataLocationResourceArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  resource_arn: pulumi.Input[str]):
+        """
+        A structure for a data location object where permissions are granted or revoked.
+        :param pulumi.Input[str] catalog_id: The identifier for the GLUDC where the location is registered with LFlong.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for the GLUDC where the location is registered with LFlong.
+        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -208,6 +249,9 @@ class PrincipalPermissionsDataLocationResourceArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -220,12 +264,20 @@ class PrincipalPermissionsDatabaseResourceArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  name: pulumi.Input[str]):
+        """
+        A structure for the database object.
+        :param pulumi.Input[str] catalog_id: The identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param pulumi.Input[str] name: The name of the database resource. Unique to the Data Catalog.
+        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -235,6 +287,9 @@ class PrincipalPermissionsDatabaseResourceArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the database resource. Unique to the Data Catalog.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -248,6 +303,12 @@ class PrincipalPermissionsLfTagKeyResourceArgs:
                  catalog_id: pulumi.Input[str],
                  tag_key: pulumi.Input[str],
                  tag_values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        A structure containing an LF-tag key and values for a resource.
+        :param pulumi.Input[str] catalog_id: The identifier for the GLUDC where the location is registered with GLUDC.
+        :param pulumi.Input[str] tag_key: The key-name for the LF-tag.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tag_values: A list of possible values for the corresponding ``TagKey`` of an LF-tag key-value pair.
+        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "tag_key", tag_key)
         pulumi.set(__self__, "tag_values", tag_values)
@@ -255,6 +316,9 @@ class PrincipalPermissionsLfTagKeyResourceArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for the GLUDC where the location is registered with GLUDC.
+        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -264,6 +328,9 @@ class PrincipalPermissionsLfTagKeyResourceArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> pulumi.Input[str]:
+        """
+        The key-name for the LF-tag.
+        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -273,6 +340,9 @@ class PrincipalPermissionsLfTagKeyResourceArgs:
     @property
     @pulumi.getter(name="tagValues")
     def tag_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of possible values for the corresponding ``TagKey`` of an LF-tag key-value pair.
+        """
         return pulumi.get(self, "tag_values")
 
     @tag_values.setter
@@ -286,6 +356,13 @@ class PrincipalPermissionsLfTagPolicyResourceArgs:
                  catalog_id: pulumi.Input[str],
                  expression: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]],
                  resource_type: pulumi.Input['PrincipalPermissionsResourceType']):
+        """
+        A list of LF-tag conditions that define a resource's LF-tag policy.
+         A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.
+        :param pulumi.Input[str] catalog_id: The identifier for the GLUDC. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+        :param pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]] expression: A list of LF-tag conditions that apply to the resource's LF-tag policy.
+        :param pulumi.Input['PrincipalPermissionsResourceType'] resource_type: The resource type for which the LF-tag policy applies.
+        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -293,6 +370,9 @@ class PrincipalPermissionsLfTagPolicyResourceArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for the GLUDC. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -302,6 +382,9 @@ class PrincipalPermissionsLfTagPolicyResourceArgs:
     @property
     @pulumi.getter
     def expression(self) -> pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]]:
+        """
+        A list of LF-tag conditions that apply to the resource's LF-tag policy.
+        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -311,6 +394,9 @@ class PrincipalPermissionsLfTagPolicyResourceArgs:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input['PrincipalPermissionsResourceType']:
+        """
+        The resource type for which the LF-tag policy applies.
+        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -323,6 +409,11 @@ class PrincipalPermissionsLfTagArgs:
     def __init__(__self__, *,
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The LF-tag key and values attached to a resource.
+        :param pulumi.Input[str] tag_key: The key-name for the LF-tag.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tag_values: A list of possible values of the corresponding ``TagKey`` of an LF-tag key-value pair.
+        """
         if tag_key is not None:
             pulumi.set(__self__, "tag_key", tag_key)
         if tag_values is not None:
@@ -331,6 +422,9 @@ class PrincipalPermissionsLfTagArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key-name for the LF-tag.
+        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -340,6 +434,9 @@ class PrincipalPermissionsLfTagArgs:
     @property
     @pulumi.getter(name="tagValues")
     def tag_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of possible values of the corresponding ``TagKey`` of an LF-tag key-value pair.
+        """
         return pulumi.get(self, "tag_values")
 
     @tag_values.setter
@@ -358,6 +455,17 @@ class PrincipalPermissionsResourceArgs:
                  lf_tag_policy: Optional[pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgs']] = None,
                  table: Optional[pulumi.Input['PrincipalPermissionsTableResourceArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgs']] = None):
+        """
+        A structure for the resource.
+        :param pulumi.Input['PrincipalPermissionsCatalogResourceArgs'] catalog: The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+        :param pulumi.Input['PrincipalPermissionsDataCellsFilterResourceArgs'] data_cells_filter: A data cell filter.
+        :param pulumi.Input['PrincipalPermissionsDataLocationResourceArgs'] data_location: The location of an Amazon S3 path where permissions are granted or revoked.
+        :param pulumi.Input['PrincipalPermissionsDatabaseResourceArgs'] database: The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+        :param pulumi.Input['PrincipalPermissionsLfTagKeyResourceArgs'] lf_tag: The LF-tag key and values attached to a resource.
+        :param pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgs'] lf_tag_policy: A list of LF-tag conditions that define a resource's LF-tag policy.
+        :param pulumi.Input['PrincipalPermissionsTableResourceArgs'] table: The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        :param pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgs'] table_with_columns: The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
+        """
         if catalog is not None:
             pulumi.set(__self__, "catalog", catalog)
         if data_cells_filter is not None:
@@ -378,6 +486,9 @@ class PrincipalPermissionsResourceArgs:
     @property
     @pulumi.getter
     def catalog(self) -> Optional[pulumi.Input['PrincipalPermissionsCatalogResourceArgs']]:
+        """
+        The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your LFlong environment.
+        """
         return pulumi.get(self, "catalog")
 
     @catalog.setter
@@ -387,6 +498,9 @@ class PrincipalPermissionsResourceArgs:
     @property
     @pulumi.getter(name="dataCellsFilter")
     def data_cells_filter(self) -> Optional[pulumi.Input['PrincipalPermissionsDataCellsFilterResourceArgs']]:
+        """
+        A data cell filter.
+        """
         return pulumi.get(self, "data_cells_filter")
 
     @data_cells_filter.setter
@@ -396,6 +510,9 @@ class PrincipalPermissionsResourceArgs:
     @property
     @pulumi.getter(name="dataLocation")
     def data_location(self) -> Optional[pulumi.Input['PrincipalPermissionsDataLocationResourceArgs']]:
+        """
+        The location of an Amazon S3 path where permissions are granted or revoked.
+        """
         return pulumi.get(self, "data_location")
 
     @data_location.setter
@@ -405,6 +522,9 @@ class PrincipalPermissionsResourceArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input['PrincipalPermissionsDatabaseResourceArgs']]:
+        """
+        The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -414,6 +534,9 @@ class PrincipalPermissionsResourceArgs:
     @property
     @pulumi.getter(name="lfTag")
     def lf_tag(self) -> Optional[pulumi.Input['PrincipalPermissionsLfTagKeyResourceArgs']]:
+        """
+        The LF-tag key and values attached to a resource.
+        """
         return pulumi.get(self, "lf_tag")
 
     @lf_tag.setter
@@ -423,6 +546,9 @@ class PrincipalPermissionsResourceArgs:
     @property
     @pulumi.getter(name="lfTagPolicy")
     def lf_tag_policy(self) -> Optional[pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgs']]:
+        """
+        A list of LF-tag conditions that define a resource's LF-tag policy.
+        """
         return pulumi.get(self, "lf_tag_policy")
 
     @lf_tag_policy.setter
@@ -432,6 +558,9 @@ class PrincipalPermissionsResourceArgs:
     @property
     @pulumi.getter
     def table(self) -> Optional[pulumi.Input['PrincipalPermissionsTableResourceArgs']]:
+        """
+        The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
         return pulumi.get(self, "table")
 
     @table.setter
@@ -441,6 +570,9 @@ class PrincipalPermissionsResourceArgs:
     @property
     @pulumi.getter(name="tableWithColumns")
     def table_with_columns(self) -> Optional[pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgs']]:
+        """
+        The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
+        """
         return pulumi.get(self, "table_with_columns")
 
     @table_with_columns.setter
@@ -455,6 +587,14 @@ class PrincipalPermissionsTableResourceArgs:
                  database_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  table_wildcard: Optional[pulumi.Input['PrincipalPermissionsTableWildcardArgs']] = None):
+        """
+        A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        :param pulumi.Input[str] catalog_id: The identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param pulumi.Input[str] database_name: The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        :param pulumi.Input[str] name: The name of the table.
+        :param pulumi.Input['PrincipalPermissionsTableWildcardArgs'] table_wildcard: A wildcard object representing every table under a database.
+                At least one of ``TableResource$Name`` or ``TableResource$TableWildcard`` is required.
+        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
         if name is not None:
@@ -465,6 +605,9 @@ class PrincipalPermissionsTableResourceArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -474,6 +617,9 @@ class PrincipalPermissionsTableResourceArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -483,6 +629,9 @@ class PrincipalPermissionsTableResourceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the table.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -492,6 +641,10 @@ class PrincipalPermissionsTableResourceArgs:
     @property
     @pulumi.getter(name="tableWildcard")
     def table_wildcard(self) -> Optional[pulumi.Input['PrincipalPermissionsTableWildcardArgs']]:
+        """
+        A wildcard object representing every table under a database.
+         At least one of ``TableResource$Name`` or ``TableResource$TableWildcard`` is required.
+        """
         return pulumi.get(self, "table_wildcard")
 
     @table_wildcard.setter
@@ -513,6 +666,15 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
                  name: pulumi.Input[str],
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  column_wildcard: Optional[pulumi.Input['PrincipalPermissionsColumnWildcardArgs']] = None):
+        """
+        A structure for a table with columns object. This object is only used when granting a SELECT permission.
+         This object must take a value for at least one of ``ColumnsNames``, ``ColumnsIndexes``, or ``ColumnsWildcard``.
+        :param pulumi.Input[str] catalog_id: The identifier for the GLUDC where the location is registered with LFlong.
+        :param pulumi.Input[str] database_name: The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        :param pulumi.Input[str] name: The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: The list of column names for the table. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+        :param pulumi.Input['PrincipalPermissionsColumnWildcardArgs'] column_wildcard: A wildcard specified by a ``ColumnWildcard`` object. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
@@ -524,6 +686,9 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for the GLUDC where the location is registered with LFlong.
+        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -533,6 +698,9 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -542,6 +710,9 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -551,6 +722,9 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
     @property
     @pulumi.getter(name="columnNames")
     def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of column names for the table. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+        """
         return pulumi.get(self, "column_names")
 
     @column_names.setter
@@ -560,6 +734,9 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
     @property
     @pulumi.getter(name="columnWildcard")
     def column_wildcard(self) -> Optional[pulumi.Input['PrincipalPermissionsColumnWildcardArgs']]:
+        """
+        A wildcard specified by a ``ColumnWildcard`` object. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+        """
         return pulumi.get(self, "column_wildcard")
 
     @column_wildcard.setter

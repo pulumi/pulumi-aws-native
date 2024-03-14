@@ -36,7 +36,7 @@ class GetNetworkAclResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tags to assign to the network ACL.
+        The tags for the network ACL.
         """
         return pulumi.get(self, "tags")
 
@@ -54,7 +54,7 @@ class AwaitableGetNetworkAclResult(GetNetworkAclResult):
 def get_network_acl(id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkAclResult:
     """
-    Resource Type definition for AWS::EC2::NetworkAcl
+    Specifies a network ACL for your VPC.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -70,6 +70,6 @@ def get_network_acl(id: Optional[str] = None,
 def get_network_acl_output(id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkAclResult]:
     """
-    Resource Type definition for AWS::EC2::NetworkAcl
+    Specifies a network ACL for your VPC.
     """
     ...

@@ -31,7 +31,7 @@ class PipelineArgs:
         The set of arguments for constructing a Pipeline resource.
         :param pulumi.Input[int] max_units: The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[int] min_units: The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
-        :param pulumi.Input[str] pipeline_configuration_body: The Data Prepper pipeline configuration in YAML format.
+        :param pulumi.Input[str] pipeline_configuration_body: The Data Prepper pipeline configuration.
         :param pulumi.Input[str] pipeline_name: Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -79,7 +79,7 @@ class PipelineArgs:
     @pulumi.getter(name="pipelineConfigurationBody")
     def pipeline_configuration_body(self) -> pulumi.Input[str]:
         """
-        The Data Prepper pipeline configuration in YAML format.
+        The Data Prepper pipeline configuration.
         """
         return pulumi.get(self, "pipeline_configuration_body")
 
@@ -170,7 +170,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] max_units: The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
         :param pulumi.Input[int] min_units: The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
-        :param pulumi.Input[str] pipeline_configuration_body: The Data Prepper pipeline configuration in YAML format.
+        :param pulumi.Input[str] pipeline_configuration_body: The Data Prepper pipeline configuration.
         :param pulumi.Input[str] pipeline_name: Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -323,7 +323,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="pipelineConfigurationBody")
     def pipeline_configuration_body(self) -> pulumi.Output[str]:
         """
-        The Data Prepper pipeline configuration in YAML format.
+        The Data Prepper pipeline configuration.
         """
         return pulumi.get(self, "pipeline_configuration_body")
 

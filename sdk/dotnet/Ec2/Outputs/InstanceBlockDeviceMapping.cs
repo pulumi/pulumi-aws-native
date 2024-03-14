@@ -13,9 +13,15 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class InstanceBlockDeviceMapping
     {
+        /// <summary>
+        /// The device name (for example, /dev/sdh or xvdh).
+        /// </summary>
         public readonly string DeviceName;
+        /// <summary>
+        /// Parameters used to automatically set up EBS volumes when the instance is launched.
+        /// </summary>
         public readonly Outputs.InstanceEbs? Ebs;
-        public readonly Outputs.InstanceNoDevice? NoDevice;
+        public readonly object? NoDevice;
         public readonly string? VirtualName;
 
         [OutputConstructor]
@@ -24,7 +30,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             Outputs.InstanceEbs? ebs,
 
-            Outputs.InstanceNoDevice? noDevice,
+            object? noDevice,
 
             string? virtualName)
         {

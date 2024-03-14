@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html
+// The “AWS::ECR::Repository“ resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.
 func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryResult
@@ -24,17 +24,21 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 }
 
 type LookupRepositoryArgs struct {
-	// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
+	// The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+	//  The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	RepositoryName string `pulumi:"repositoryName"`
 }
 
 type LookupRepositoryResult struct {
-	Arn                        *string                               `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
-	// The image tag mutability setting for the repository.
+	// The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 	ImageTagMutability *RepositoryImageTagMutability `pulumi:"imageTagMutability"`
-	LifecyclePolicy    *RepositoryLifecyclePolicy    `pulumi:"lifecyclePolicy"`
-	// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide.
+	// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+	LifecyclePolicy *RepositoryLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	// The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
 	RepositoryPolicyText interface{} `pulumi:"repositoryPolicyText"`
@@ -57,7 +61,9 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 }
 
 type LookupRepositoryOutputArgs struct {
-	// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
+	// The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+	//  The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+	//   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 }
 
@@ -83,22 +89,24 @@ func (o LookupRepositoryResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 func (o LookupRepositoryResultOutput) ImageScanningConfiguration() RepositoryImageScanningConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *RepositoryImageScanningConfiguration {
 		return v.ImageScanningConfiguration
 	}).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
-// The image tag mutability setting for the repository.
+// The tag mutability setting for the repository. If this parameter is omitted, the default setting of “MUTABLE“ will be used which will allow image tags to be overwritten. If “IMMUTABLE“ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 func (o LookupRepositoryResultOutput) ImageTagMutability() RepositoryImageTagMutabilityPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *RepositoryImageTagMutability { return v.ImageTagMutability }).(RepositoryImageTagMutabilityPtrOutput)
 }
 
+// Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
 func (o LookupRepositoryResultOutput) LifecyclePolicy() RepositoryLifecyclePolicyPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *RepositoryLifecyclePolicy { return v.LifecyclePolicy }).(RepositoryLifecyclePolicyPtrOutput)
 }
 
-// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide.
+// The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
 //
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
 func (o LookupRepositoryResultOutput) RepositoryPolicyText() pulumi.AnyOutput {

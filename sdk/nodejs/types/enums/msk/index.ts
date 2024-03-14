@@ -39,6 +39,16 @@ export const ReplicatorReplicationInfoTargetCompressionType = {
  */
 export type ReplicatorReplicationInfoTargetCompressionType = (typeof ReplicatorReplicationInfoTargetCompressionType)[keyof typeof ReplicatorReplicationInfoTargetCompressionType];
 
+export const ReplicatorReplicationStartingPositionType = {
+    Latest: "LATEST",
+    Earliest: "EARLIEST",
+} as const;
+
+/**
+ * The type of replication starting position.
+ */
+export type ReplicatorReplicationStartingPositionType = (typeof ReplicatorReplicationStartingPositionType)[keyof typeof ReplicatorReplicationStartingPositionType];
+
 export const VpcConnectionAuthentication = {
     SaslIam: "SASL_IAM",
     SaslScram: "SASL_SCRAM",

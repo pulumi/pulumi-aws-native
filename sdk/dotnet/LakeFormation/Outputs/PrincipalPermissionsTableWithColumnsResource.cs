@@ -10,13 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Outputs
 {
 
+    /// <summary>
+    /// A structure for a table with columns object. This object is only used when granting a SELECT permission.
+    ///  This object must take a value for at least one of ``ColumnsNames``, ``ColumnsIndexes``, or ``ColumnsWildcard``.
+    /// </summary>
     [OutputType]
     public sealed class PrincipalPermissionsTableWithColumnsResource
     {
+        /// <summary>
+        /// The identifier for the GLUDC where the location is registered with LFlong.
+        /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// The list of column names for the table. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+        /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
+        /// <summary>
+        /// A wildcard specified by a ``ColumnWildcard`` object. At least one of ``ColumnNames`` or ``ColumnWildcard`` is required.
+        /// </summary>
         public readonly Outputs.PrincipalPermissionsColumnWildcard? ColumnWildcard;
+        /// <summary>
+        /// The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

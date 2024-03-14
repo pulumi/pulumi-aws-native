@@ -14,17 +14,19 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type NamespaceType struct {
-	AdminUsername     *string              `pulumi:"adminUsername"`
-	CreationDate      *string              `pulumi:"creationDate"`
-	DbName            *string              `pulumi:"dbName"`
-	DefaultIamRoleArn *string              `pulumi:"defaultIamRoleArn"`
-	IamRoles          []string             `pulumi:"iamRoles"`
-	KmsKeyId          *string              `pulumi:"kmsKeyId"`
-	LogExports        []NamespaceLogExport `pulumi:"logExports"`
-	NamespaceArn      *string              `pulumi:"namespaceArn"`
-	NamespaceId       *string              `pulumi:"namespaceId"`
-	NamespaceName     *string              `pulumi:"namespaceName"`
-	Status            *NamespaceStatus     `pulumi:"status"`
+	AdminPasswordSecretArn      *string              `pulumi:"adminPasswordSecretArn"`
+	AdminPasswordSecretKmsKeyId *string              `pulumi:"adminPasswordSecretKmsKeyId"`
+	AdminUsername               *string              `pulumi:"adminUsername"`
+	CreationDate                *string              `pulumi:"creationDate"`
+	DbName                      *string              `pulumi:"dbName"`
+	DefaultIamRoleArn           *string              `pulumi:"defaultIamRoleArn"`
+	IamRoles                    []string             `pulumi:"iamRoles"`
+	KmsKeyId                    *string              `pulumi:"kmsKeyId"`
+	LogExports                  []NamespaceLogExport `pulumi:"logExports"`
+	NamespaceArn                *string              `pulumi:"namespaceArn"`
+	NamespaceId                 *string              `pulumi:"namespaceId"`
+	NamespaceName               *string              `pulumi:"namespaceName"`
+	Status                      *NamespaceStatus     `pulumi:"status"`
 }
 
 type NamespaceTypeOutput struct{ *pulumi.OutputState }
@@ -39,6 +41,14 @@ func (o NamespaceTypeOutput) ToNamespaceTypeOutput() NamespaceTypeOutput {
 
 func (o NamespaceTypeOutput) ToNamespaceTypeOutputWithContext(ctx context.Context) NamespaceTypeOutput {
 	return o
+}
+
+func (o NamespaceTypeOutput) AdminPasswordSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceType) *string { return v.AdminPasswordSecretArn }).(pulumi.StringPtrOutput)
+}
+
+func (o NamespaceTypeOutput) AdminPasswordSecretKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceType) *string { return v.AdminPasswordSecretKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 func (o NamespaceTypeOutput) AdminUsername() pulumi.StringPtrOutput {
@@ -107,6 +117,24 @@ func (o NamespaceTypePtrOutput) Elem() NamespaceTypeOutput {
 		var ret NamespaceType
 		return ret
 	}).(NamespaceTypeOutput)
+}
+
+func (o NamespaceTypePtrOutput) AdminPasswordSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminPasswordSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NamespaceTypePtrOutput) AdminPasswordSecretKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminPasswordSecretKmsKeyId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o NamespaceTypePtrOutput) AdminUsername() pulumi.StringPtrOutput {
@@ -219,6 +247,7 @@ type WorkgroupType struct {
 	CreationDate       *string                    `pulumi:"creationDate"`
 	Endpoint           *WorkgroupEndpoint         `pulumi:"endpoint"`
 	EnhancedVpcRouting *bool                      `pulumi:"enhancedVpcRouting"`
+	MaxCapacity        *int                       `pulumi:"maxCapacity"`
 	NamespaceName      *string                    `pulumi:"namespaceName"`
 	PubliclyAccessible *bool                      `pulumi:"publiclyAccessible"`
 	SecurityGroupIds   []string                   `pulumi:"securityGroupIds"`
@@ -261,6 +290,10 @@ func (o WorkgroupTypeOutput) Endpoint() WorkgroupEndpointPtrOutput {
 
 func (o WorkgroupTypeOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *bool { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkgroupTypeOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkgroupType) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
 func (o WorkgroupTypeOutput) NamespaceName() pulumi.StringPtrOutput {
@@ -362,6 +395,15 @@ func (o WorkgroupTypePtrOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 		}
 		return v.EnhancedVpcRouting
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkgroupTypePtrOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkgroupType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o WorkgroupTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {

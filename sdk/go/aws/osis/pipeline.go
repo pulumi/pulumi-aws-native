@@ -28,7 +28,7 @@ type Pipeline struct {
 	MinUnits pulumi.IntOutput `pulumi:"minUnits"`
 	// The Amazon Resource Name (ARN) of the pipeline.
 	PipelineArn pulumi.StringOutput `pulumi:"pipelineArn"`
-	// The Data Prepper pipeline configuration in YAML format.
+	// The Data Prepper pipeline configuration.
 	PipelineConfigurationBody pulumi.StringOutput `pulumi:"pipelineConfigurationBody"`
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
@@ -99,7 +99,7 @@ type pipelineArgs struct {
 	MaxUnits int `pulumi:"maxUnits"`
 	// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MinUnits int `pulumi:"minUnits"`
-	// The Data Prepper pipeline configuration in YAML format.
+	// The Data Prepper pipeline configuration.
 	PipelineConfigurationBody string `pulumi:"pipelineConfigurationBody"`
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName *string `pulumi:"pipelineName"`
@@ -117,7 +117,7 @@ type PipelineArgs struct {
 	MaxUnits pulumi.IntInput
 	// The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MinUnits pulumi.IntInput
-	// The Data Prepper pipeline configuration in YAML format.
+	// The Data Prepper pipeline configuration.
 	PipelineConfigurationBody pulumi.StringInput
 	// Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	PipelineName pulumi.StringPtrInput
@@ -195,7 +195,7 @@ func (o PipelineOutput) PipelineArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineArn }).(pulumi.StringOutput)
 }
 
-// The Data Prepper pipeline configuration in YAML format.
+// The Data Prepper pipeline configuration.
 func (o PipelineOutput) PipelineConfigurationBody() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineConfigurationBody }).(pulumi.StringOutput)
 }

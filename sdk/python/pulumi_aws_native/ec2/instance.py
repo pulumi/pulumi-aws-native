@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['InstanceArgs', 'Instance']
@@ -19,17 +20,17 @@ __all__ = ['InstanceArgs', 'Instance']
 class InstanceArgs:
     def __init__(__self__, *,
                  additional_info: Optional[pulumi.Input[str]] = None,
-                 affinity: Optional[pulumi.Input[str]] = None,
+                 affinity: Optional[pulumi.Input['InstanceAffinity']] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceBlockDeviceMappingArgs']]]] = None,
-                 cpu_options: Optional[pulumi.Input['InstanceCpuOptionsArgs']] = None,
-                 credit_specification: Optional[pulumi.Input['InstanceCreditSpecificationArgs']] = None,
+                 cpu_options: Optional[pulumi.Input['CpuOptionsPropertiesArgs']] = None,
+                 credit_specification: Optional[pulumi.Input['CreditSpecificationPropertiesArgs']] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceElasticGpuSpecificationArgs']]]] = None,
                  elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceElasticInferenceAcceleratorArgs']]]] = None,
-                 enclave_options: Optional[pulumi.Input['InstanceEnclaveOptionsArgs']] = None,
-                 hibernation_options: Optional[pulumi.Input['InstanceHibernationOptionsArgs']] = None,
+                 enclave_options: Optional[pulumi.Input['EnclaveOptionsPropertiesArgs']] = None,
+                 hibernation_options: Optional[pulumi.Input['HibernationOptionsPropertiesArgs']] = None,
                  host_id: Optional[pulumi.Input[str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
@@ -60,6 +61,46 @@ class InstanceArgs:
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVolumeArgs']]]] = None):
         """
         The set of arguments for constructing a Instance resource.
+        :param pulumi.Input[str] additional_info: This property is reserved for internal use. If you use it, the stack fails with this error: Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX).
+        :param pulumi.Input['InstanceAffinity'] affinity: Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+        :param pulumi.Input[str] availability_zone: The Availability Zone of the instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceBlockDeviceMappingArgs']]] block_device_mappings: The block device mapping entries that defines the block devices to attach to the instance at launch.
+        :param pulumi.Input['CpuOptionsPropertiesArgs'] cpu_options: The CPU options for the instance.
+        :param pulumi.Input['CreditSpecificationPropertiesArgs'] credit_specification: The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+        :param pulumi.Input[bool] disable_api_termination: If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+        :param pulumi.Input[bool] ebs_optimized: Indicates whether the instance is optimized for Amazon EBS I/O.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceElasticGpuSpecificationArgs']]] elastic_gpu_specifications: An elastic GPU to associate with the instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceElasticInferenceAcceleratorArgs']]] elastic_inference_accelerators: An elastic inference accelerator to associate with the instance.
+        :param pulumi.Input['EnclaveOptionsPropertiesArgs'] enclave_options: Indicates whether the instance is enabled for AWS Nitro Enclaves.
+        :param pulumi.Input['HibernationOptionsPropertiesArgs'] hibernation_options: Indicates whether an instance is enabled for hibernation.
+        :param pulumi.Input[str] host_id: If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
+        :param pulumi.Input[str] host_resource_group_arn: The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+        :param pulumi.Input[str] iam_instance_profile: The IAM instance profile.
+        :param pulumi.Input[str] image_id: The ID of the AMI. An AMI ID is required to launch an instance and must be specified here or in a launch template.
+        :param pulumi.Input[str] instance_initiated_shutdown_behavior: Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+        :param pulumi.Input[str] instance_type: The instance type.
+        :param pulumi.Input[int] ipv6_address_count: [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]] ipv6_addresses: [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
+        :param pulumi.Input[str] kernel_id: The ID of the kernel.
+        :param pulumi.Input[str] key_name: The name of the key pair.
+        :param pulumi.Input['InstanceLaunchTemplateSpecificationArgs'] launch_template: The launch template to use to launch the instances.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceLicenseSpecificationArgs']]] license_specifications: The license configurations.
+        :param pulumi.Input[bool] monitoring: Specifies whether detailed monitoring is enabled for the instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: The network interfaces to associate with the instance.
+        :param pulumi.Input[str] placement_group_name: The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
+        :param pulumi.Input['InstancePrivateDnsNameOptionsArgs'] private_dns_name_options: The options for the instance hostname.
+        :param pulumi.Input[str] private_ip_address: [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
+        :param pulumi.Input[bool] propagate_tags_to_volume_on_creation: Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.
+        :param pulumi.Input[str] ramdisk_id: The ID of the RAM disk to select.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: the names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+        :param pulumi.Input[bool] source_dest_check: Specifies whether to enable an instance launched in a VPC to perform NAT.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceSsmAssociationArgs']]] ssm_associations: The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+        :param pulumi.Input[str] subnet_id: [EC2-VPC] The ID of the subnet to launch the instance into.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the instance.
+        :param pulumi.Input[str] tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+        :param pulumi.Input[str] user_data: The user data to make available to the instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceVolumeArgs']]] volumes: The volumes to attach to the instance.
         """
         if additional_info is not None:
             pulumi.set(__self__, "additional_info", additional_info)
@@ -145,6 +186,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="additionalInfo")
     def additional_info(self) -> Optional[pulumi.Input[str]]:
+        """
+        This property is reserved for internal use. If you use it, the stack fails with this error: Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX).
+        """
         return pulumi.get(self, "additional_info")
 
     @additional_info.setter
@@ -153,16 +197,22 @@ class InstanceArgs:
 
     @property
     @pulumi.getter
-    def affinity(self) -> Optional[pulumi.Input[str]]:
+    def affinity(self) -> Optional[pulumi.Input['InstanceAffinity']]:
+        """
+        Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+        """
         return pulumi.get(self, "affinity")
 
     @affinity.setter
-    def affinity(self, value: Optional[pulumi.Input[str]]):
+    def affinity(self, value: Optional[pulumi.Input['InstanceAffinity']]):
         pulumi.set(self, "affinity", value)
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Availability Zone of the instance.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -172,6 +222,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceBlockDeviceMappingArgs']]]]:
+        """
+        The block device mapping entries that defines the block devices to attach to the instance at launch.
+        """
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter
@@ -180,25 +233,34 @@ class InstanceArgs:
 
     @property
     @pulumi.getter(name="cpuOptions")
-    def cpu_options(self) -> Optional[pulumi.Input['InstanceCpuOptionsArgs']]:
+    def cpu_options(self) -> Optional[pulumi.Input['CpuOptionsPropertiesArgs']]:
+        """
+        The CPU options for the instance.
+        """
         return pulumi.get(self, "cpu_options")
 
     @cpu_options.setter
-    def cpu_options(self, value: Optional[pulumi.Input['InstanceCpuOptionsArgs']]):
+    def cpu_options(self, value: Optional[pulumi.Input['CpuOptionsPropertiesArgs']]):
         pulumi.set(self, "cpu_options", value)
 
     @property
     @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> Optional[pulumi.Input['InstanceCreditSpecificationArgs']]:
+    def credit_specification(self) -> Optional[pulumi.Input['CreditSpecificationPropertiesArgs']]:
+        """
+        The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+        """
         return pulumi.get(self, "credit_specification")
 
     @credit_specification.setter
-    def credit_specification(self, value: Optional[pulumi.Input['InstanceCreditSpecificationArgs']]):
+    def credit_specification(self, value: Optional[pulumi.Input['CreditSpecificationPropertiesArgs']]):
         pulumi.set(self, "credit_specification", value)
 
     @property
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+        """
         return pulumi.get(self, "disable_api_termination")
 
     @disable_api_termination.setter
@@ -208,6 +270,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the instance is optimized for Amazon EBS I/O.
+        """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
@@ -217,6 +282,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
     def elastic_gpu_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceElasticGpuSpecificationArgs']]]]:
+        """
+        An elastic GPU to associate with the instance.
+        """
         return pulumi.get(self, "elastic_gpu_specifications")
 
     @elastic_gpu_specifications.setter
@@ -226,6 +294,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="elasticInferenceAccelerators")
     def elastic_inference_accelerators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceElasticInferenceAcceleratorArgs']]]]:
+        """
+        An elastic inference accelerator to associate with the instance.
+        """
         return pulumi.get(self, "elastic_inference_accelerators")
 
     @elastic_inference_accelerators.setter
@@ -234,25 +305,34 @@ class InstanceArgs:
 
     @property
     @pulumi.getter(name="enclaveOptions")
-    def enclave_options(self) -> Optional[pulumi.Input['InstanceEnclaveOptionsArgs']]:
+    def enclave_options(self) -> Optional[pulumi.Input['EnclaveOptionsPropertiesArgs']]:
+        """
+        Indicates whether the instance is enabled for AWS Nitro Enclaves.
+        """
         return pulumi.get(self, "enclave_options")
 
     @enclave_options.setter
-    def enclave_options(self, value: Optional[pulumi.Input['InstanceEnclaveOptionsArgs']]):
+    def enclave_options(self, value: Optional[pulumi.Input['EnclaveOptionsPropertiesArgs']]):
         pulumi.set(self, "enclave_options", value)
 
     @property
     @pulumi.getter(name="hibernationOptions")
-    def hibernation_options(self) -> Optional[pulumi.Input['InstanceHibernationOptionsArgs']]:
+    def hibernation_options(self) -> Optional[pulumi.Input['HibernationOptionsPropertiesArgs']]:
+        """
+        Indicates whether an instance is enabled for hibernation.
+        """
         return pulumi.get(self, "hibernation_options")
 
     @hibernation_options.setter
-    def hibernation_options(self, value: Optional[pulumi.Input['InstanceHibernationOptionsArgs']]):
+    def hibernation_options(self, value: Optional[pulumi.Input['HibernationOptionsPropertiesArgs']]):
         pulumi.set(self, "hibernation_options", value)
 
     @property
     @pulumi.getter(name="hostId")
     def host_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
+        """
         return pulumi.get(self, "host_id")
 
     @host_id.setter
@@ -262,6 +342,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="hostResourceGroupArn")
     def host_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+        """
         return pulumi.get(self, "host_resource_group_arn")
 
     @host_resource_group_arn.setter
@@ -271,6 +354,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM instance profile.
+        """
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
@@ -280,6 +366,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AMI. An AMI ID is required to launch an instance and must be specified here or in a launch template.
+        """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
@@ -289,6 +378,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
     def instance_initiated_shutdown_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+        """
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @instance_initiated_shutdown_behavior.setter
@@ -298,6 +390,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type.
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -307,6 +402,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        """
         return pulumi.get(self, "ipv6_address_count")
 
     @ipv6_address_count.setter
@@ -316,6 +414,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]]]:
+        """
+        [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
+        """
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
@@ -325,6 +426,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the kernel.
+        """
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
@@ -334,6 +438,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the key pair.
+        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -343,6 +450,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional[pulumi.Input['InstanceLaunchTemplateSpecificationArgs']]:
+        """
+        The launch template to use to launch the instances.
+        """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
@@ -352,6 +462,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="licenseSpecifications")
     def license_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceLicenseSpecificationArgs']]]]:
+        """
+        The license configurations.
+        """
         return pulumi.get(self, "license_specifications")
 
     @license_specifications.setter
@@ -361,6 +474,9 @@ class InstanceArgs:
     @property
     @pulumi.getter
     def monitoring(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether detailed monitoring is enabled for the instance.
+        """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
@@ -370,6 +486,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]]:
+        """
+        The network interfaces to associate with the instance.
+        """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
@@ -379,6 +498,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="placementGroupName")
     def placement_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
+        """
         return pulumi.get(self, "placement_group_name")
 
     @placement_group_name.setter
@@ -388,6 +510,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="privateDnsNameOptions")
     def private_dns_name_options(self) -> Optional[pulumi.Input['InstancePrivateDnsNameOptionsArgs']]:
+        """
+        The options for the instance hostname.
+        """
         return pulumi.get(self, "private_dns_name_options")
 
     @private_dns_name_options.setter
@@ -397,6 +522,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -406,6 +534,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="propagateTagsToVolumeOnCreation")
     def propagate_tags_to_volume_on_creation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.
+        """
         return pulumi.get(self, "propagate_tags_to_volume_on_creation")
 
     @propagate_tags_to_volume_on_creation.setter
@@ -415,6 +546,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the RAM disk to select.
+        """
         return pulumi.get(self, "ramdisk_id")
 
     @ramdisk_id.setter
@@ -424,6 +558,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the security groups.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -433,6 +570,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        the names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -442,6 +582,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="sourceDestCheck")
     def source_dest_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable an instance launched in a VPC to perform NAT.
+        """
         return pulumi.get(self, "source_dest_check")
 
     @source_dest_check.setter
@@ -451,6 +594,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="ssmAssociations")
     def ssm_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceSsmAssociationArgs']]]]:
+        """
+        The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+        """
         return pulumi.get(self, "ssm_associations")
 
     @ssm_associations.setter
@@ -460,6 +606,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        [EC2-VPC] The ID of the subnet to launch the instance into.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -469,6 +618,9 @@ class InstanceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to add to the instance.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -478,6 +630,9 @@ class InstanceArgs:
     @property
     @pulumi.getter
     def tenancy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+        """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
@@ -487,6 +642,9 @@ class InstanceArgs:
     @property
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user data to make available to the instance.
+        """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
@@ -496,6 +654,9 @@ class InstanceArgs:
     @property
     @pulumi.getter
     def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVolumeArgs']]]]:
+        """
+        The volumes to attach to the instance.
+        """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
@@ -509,17 +670,17 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_info: Optional[pulumi.Input[str]] = None,
-                 affinity: Optional[pulumi.Input[str]] = None,
+                 affinity: Optional[pulumi.Input['InstanceAffinity']] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceBlockDeviceMappingArgs']]]]] = None,
-                 cpu_options: Optional[pulumi.Input[pulumi.InputType['InstanceCpuOptionsArgs']]] = None,
-                 credit_specification: Optional[pulumi.Input[pulumi.InputType['InstanceCreditSpecificationArgs']]] = None,
+                 cpu_options: Optional[pulumi.Input[pulumi.InputType['CpuOptionsPropertiesArgs']]] = None,
+                 credit_specification: Optional[pulumi.Input[pulumi.InputType['CreditSpecificationPropertiesArgs']]] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticGpuSpecificationArgs']]]]] = None,
                  elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticInferenceAcceleratorArgs']]]]] = None,
-                 enclave_options: Optional[pulumi.Input[pulumi.InputType['InstanceEnclaveOptionsArgs']]] = None,
-                 hibernation_options: Optional[pulumi.Input[pulumi.InputType['InstanceHibernationOptionsArgs']]] = None,
+                 enclave_options: Optional[pulumi.Input[pulumi.InputType['EnclaveOptionsPropertiesArgs']]] = None,
+                 hibernation_options: Optional[pulumi.Input[pulumi.InputType['HibernationOptionsPropertiesArgs']]] = None,
                  host_id: Optional[pulumi.Input[str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
@@ -554,6 +715,46 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] additional_info: This property is reserved for internal use. If you use it, the stack fails with this error: Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX).
+        :param pulumi.Input['InstanceAffinity'] affinity: Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+        :param pulumi.Input[str] availability_zone: The Availability Zone of the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceBlockDeviceMappingArgs']]]] block_device_mappings: The block device mapping entries that defines the block devices to attach to the instance at launch.
+        :param pulumi.Input[pulumi.InputType['CpuOptionsPropertiesArgs']] cpu_options: The CPU options for the instance.
+        :param pulumi.Input[pulumi.InputType['CreditSpecificationPropertiesArgs']] credit_specification: The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+        :param pulumi.Input[bool] disable_api_termination: If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+        :param pulumi.Input[bool] ebs_optimized: Indicates whether the instance is optimized for Amazon EBS I/O.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticGpuSpecificationArgs']]]] elastic_gpu_specifications: An elastic GPU to associate with the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticInferenceAcceleratorArgs']]]] elastic_inference_accelerators: An elastic inference accelerator to associate with the instance.
+        :param pulumi.Input[pulumi.InputType['EnclaveOptionsPropertiesArgs']] enclave_options: Indicates whether the instance is enabled for AWS Nitro Enclaves.
+        :param pulumi.Input[pulumi.InputType['HibernationOptionsPropertiesArgs']] hibernation_options: Indicates whether an instance is enabled for hibernation.
+        :param pulumi.Input[str] host_id: If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
+        :param pulumi.Input[str] host_resource_group_arn: The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+        :param pulumi.Input[str] iam_instance_profile: The IAM instance profile.
+        :param pulumi.Input[str] image_id: The ID of the AMI. An AMI ID is required to launch an instance and must be specified here or in a launch template.
+        :param pulumi.Input[str] instance_initiated_shutdown_behavior: Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+        :param pulumi.Input[str] instance_type: The instance type.
+        :param pulumi.Input[int] ipv6_address_count: [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceIpv6AddressArgs']]]] ipv6_addresses: [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
+        :param pulumi.Input[str] kernel_id: The ID of the kernel.
+        :param pulumi.Input[str] key_name: The name of the key pair.
+        :param pulumi.Input[pulumi.InputType['InstanceLaunchTemplateSpecificationArgs']] launch_template: The launch template to use to launch the instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceLicenseSpecificationArgs']]]] license_specifications: The license configurations.
+        :param pulumi.Input[bool] monitoring: Specifies whether detailed monitoring is enabled for the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]] network_interfaces: The network interfaces to associate with the instance.
+        :param pulumi.Input[str] placement_group_name: The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
+        :param pulumi.Input[pulumi.InputType['InstancePrivateDnsNameOptionsArgs']] private_dns_name_options: The options for the instance hostname.
+        :param pulumi.Input[str] private_ip_address: [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
+        :param pulumi.Input[bool] propagate_tags_to_volume_on_creation: Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.
+        :param pulumi.Input[str] ramdisk_id: The ID of the RAM disk to select.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: the names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+        :param pulumi.Input[bool] source_dest_check: Specifies whether to enable an instance launched in a VPC to perform NAT.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceSsmAssociationArgs']]]] ssm_associations: The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+        :param pulumi.Input[str] subnet_id: [EC2-VPC] The ID of the subnet to launch the instance into.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the instance.
+        :param pulumi.Input[str] tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+        :param pulumi.Input[str] user_data: The user data to make available to the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVolumeArgs']]]] volumes: The volumes to attach to the instance.
         """
         ...
     @overload
@@ -580,17 +781,17 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_info: Optional[pulumi.Input[str]] = None,
-                 affinity: Optional[pulumi.Input[str]] = None,
+                 affinity: Optional[pulumi.Input['InstanceAffinity']] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceBlockDeviceMappingArgs']]]]] = None,
-                 cpu_options: Optional[pulumi.Input[pulumi.InputType['InstanceCpuOptionsArgs']]] = None,
-                 credit_specification: Optional[pulumi.Input[pulumi.InputType['InstanceCreditSpecificationArgs']]] = None,
+                 cpu_options: Optional[pulumi.Input[pulumi.InputType['CpuOptionsPropertiesArgs']]] = None,
+                 credit_specification: Optional[pulumi.Input[pulumi.InputType['CreditSpecificationPropertiesArgs']]] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticGpuSpecificationArgs']]]]] = None,
                  elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceElasticInferenceAcceleratorArgs']]]]] = None,
-                 enclave_options: Optional[pulumi.Input[pulumi.InputType['InstanceEnclaveOptionsArgs']]] = None,
-                 hibernation_options: Optional[pulumi.Input[pulumi.InputType['InstanceHibernationOptionsArgs']]] = None,
+                 enclave_options: Optional[pulumi.Input[pulumi.InputType['EnclaveOptionsPropertiesArgs']]] = None,
+                 hibernation_options: Optional[pulumi.Input[pulumi.InputType['HibernationOptionsPropertiesArgs']]] = None,
                  host_id: Optional[pulumi.Input[str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
@@ -668,11 +869,12 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["volumes"] = volumes
-            __props__.__dict__["aws_id"] = None
+            __props__.__dict__["instance_id"] = None
             __props__.__dict__["private_dns_name"] = None
             __props__.__dict__["private_ip"] = None
             __props__.__dict__["public_dns_name"] = None
             __props__.__dict__["public_ip"] = None
+            __props__.__dict__["vpc_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "cpu_options", "elastic_gpu_specifications[*]", "elastic_inference_accelerators[*]", "enclave_options", "hibernation_options", "host_resource_group_arn", "image_id", "ipv6_address_count", "ipv6_addresses[*]", "key_name", "launch_template", "license_specifications[*]", "network_interfaces[*]", "placement_group_name", "private_ip_address", "security_groups[*]", "subnet_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Instance, __self__).__init__(
@@ -700,7 +902,6 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["additional_info"] = None
         __props__.__dict__["affinity"] = None
         __props__.__dict__["availability_zone"] = None
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["block_device_mappings"] = None
         __props__.__dict__["cpu_options"] = None
         __props__.__dict__["credit_specification"] = None
@@ -714,6 +915,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["host_resource_group_arn"] = None
         __props__.__dict__["iam_instance_profile"] = None
         __props__.__dict__["image_id"] = None
+        __props__.__dict__["instance_id"] = None
         __props__.__dict__["instance_initiated_shutdown_behavior"] = None
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["ipv6_address_count"] = None
@@ -742,230 +944,374 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["tenancy"] = None
         __props__.__dict__["user_data"] = None
         __props__.__dict__["volumes"] = None
+        __props__.__dict__["vpc_id"] = None
         return Instance(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="additionalInfo")
     def additional_info(self) -> pulumi.Output[Optional[str]]:
+        """
+        This property is reserved for internal use. If you use it, the stack fails with this error: Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX).
+        """
         return pulumi.get(self, "additional_info")
 
     @property
     @pulumi.getter
-    def affinity(self) -> pulumi.Output[Optional[str]]:
+    def affinity(self) -> pulumi.Output[Optional['InstanceAffinity']]:
+        """
+        Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+        """
         return pulumi.get(self, "affinity")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Availability Zone of the instance.
+        """
         return pulumi.get(self, "availability_zone")
-
-    @property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceBlockDeviceMapping']]]:
+        """
+        The block device mapping entries that defines the block devices to attach to the instance at launch.
+        """
         return pulumi.get(self, "block_device_mappings")
 
     @property
     @pulumi.getter(name="cpuOptions")
-    def cpu_options(self) -> pulumi.Output[Optional['outputs.InstanceCpuOptions']]:
+    def cpu_options(self) -> pulumi.Output[Optional['outputs.CpuOptionsProperties']]:
+        """
+        The CPU options for the instance.
+        """
         return pulumi.get(self, "cpu_options")
 
     @property
     @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> pulumi.Output[Optional['outputs.InstanceCreditSpecification']]:
+    def credit_specification(self) -> pulumi.Output[Optional['outputs.CreditSpecificationProperties']]:
+        """
+        The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+        """
         return pulumi.get(self, "credit_specification")
 
     @property
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+        """
         return pulumi.get(self, "disable_api_termination")
 
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the instance is optimized for Amazon EBS I/O.
+        """
         return pulumi.get(self, "ebs_optimized")
 
     @property
     @pulumi.getter(name="elasticGpuSpecifications")
     def elastic_gpu_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceElasticGpuSpecification']]]:
+        """
+        An elastic GPU to associate with the instance.
+        """
         return pulumi.get(self, "elastic_gpu_specifications")
 
     @property
     @pulumi.getter(name="elasticInferenceAccelerators")
     def elastic_inference_accelerators(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceElasticInferenceAccelerator']]]:
+        """
+        An elastic inference accelerator to associate with the instance.
+        """
         return pulumi.get(self, "elastic_inference_accelerators")
 
     @property
     @pulumi.getter(name="enclaveOptions")
-    def enclave_options(self) -> pulumi.Output[Optional['outputs.InstanceEnclaveOptions']]:
+    def enclave_options(self) -> pulumi.Output[Optional['outputs.EnclaveOptionsProperties']]:
+        """
+        Indicates whether the instance is enabled for AWS Nitro Enclaves.
+        """
         return pulumi.get(self, "enclave_options")
 
     @property
     @pulumi.getter(name="hibernationOptions")
-    def hibernation_options(self) -> pulumi.Output[Optional['outputs.InstanceHibernationOptions']]:
+    def hibernation_options(self) -> pulumi.Output[Optional['outputs.HibernationOptionsProperties']]:
+        """
+        Indicates whether an instance is enabled for hibernation.
+        """
         return pulumi.get(self, "hibernation_options")
 
     @property
     @pulumi.getter(name="hostId")
     def host_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
+        """
         return pulumi.get(self, "host_id")
 
     @property
     @pulumi.getter(name="hostResourceGroupArn")
     def host_resource_group_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the Tenancy parameter or set it to host.
+        """
         return pulumi.get(self, "host_resource_group_arn")
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IAM instance profile.
+        """
         return pulumi.get(self, "iam_instance_profile")
 
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the AMI. An AMI ID is required to launch an instance and must be specified here or in a launch template.
+        """
         return pulumi.get(self, "image_id")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Output[str]:
+        """
+        The EC2 Instance ID.
+        """
+        return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
     def instance_initiated_shutdown_behavior(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+        """
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The instance type.
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        [EC2-VPC] The number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        """
         return pulumi.get(self, "ipv6_address_count")
 
     @property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceIpv6Address']]]:
+        """
+        [EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary network interface.
+        """
         return pulumi.get(self, "ipv6_addresses")
 
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the kernel.
+        """
         return pulumi.get(self, "kernel_id")
 
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the key pair.
+        """
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Output[Optional['outputs.InstanceLaunchTemplateSpecification']]:
+        """
+        The launch template to use to launch the instances.
+        """
         return pulumi.get(self, "launch_template")
 
     @property
     @pulumi.getter(name="licenseSpecifications")
     def license_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceLicenseSpecification']]]:
+        """
+        The license configurations.
+        """
         return pulumi.get(self, "license_specifications")
 
     @property
     @pulumi.getter
     def monitoring(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether detailed monitoring is enabled for the instance.
+        """
         return pulumi.get(self, "monitoring")
 
     @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceNetworkInterface']]]:
+        """
+        The network interfaces to associate with the instance.
+        """
         return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter(name="placementGroupName")
     def placement_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of an existing placement group that you want to launch the instance into (cluster | partition | spread).
+        """
         return pulumi.get(self, "placement_group_name")
 
     @property
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> pulumi.Output[str]:
+        """
+        The private DNS name of the specified instance. For example: ip-10-24-34-0.ec2.internal.
+        """
         return pulumi.get(self, "private_dns_name")
 
     @property
     @pulumi.getter(name="privateDnsNameOptions")
     def private_dns_name_options(self) -> pulumi.Output[Optional['outputs.InstancePrivateDnsNameOptions']]:
+        """
+        The options for the instance hostname.
+        """
         return pulumi.get(self, "private_dns_name_options")
 
     @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> pulumi.Output[str]:
+        """
+        The private IP address of the specified instance. For example: 10.24.34.0.
+        """
         return pulumi.get(self, "private_ip")
 
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> pulumi.Output[Optional[str]]:
+        """
+        [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="propagateTagsToVolumeOnCreation")
     def propagate_tags_to_volume_on_creation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether to assign the tags from the instance to all of the volumes attached to the instance at launch. If you specify true and you assign tags to the instance, those tags are automatically assigned to all of the volumes that you attach to the instance at launch. If you specify false, those tags are not assigned to the attached volumes.
+        """
         return pulumi.get(self, "propagate_tags_to_volume_on_creation")
 
     @property
     @pulumi.getter(name="publicDnsName")
     def public_dns_name(self) -> pulumi.Output[str]:
+        """
+        The public DNS name of the specified instance. For example: ec2-107-20-50-45.compute-1.amazonaws.com.
+        """
         return pulumi.get(self, "public_dns_name")
 
     @property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> pulumi.Output[str]:
+        """
+        The public IP address of the specified instance. For example: 192.0.2.0.
+        """
         return pulumi.get(self, "public_ip")
 
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the RAM disk to select.
+        """
         return pulumi.get(self, "ramdisk_id")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The IDs of the security groups.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        the names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="sourceDestCheck")
     def source_dest_check(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to enable an instance launched in a VPC to perform NAT.
+        """
         return pulumi.get(self, "source_dest_check")
 
     @property
     @pulumi.getter(name="ssmAssociations")
     def ssm_associations(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceSsmAssociation']]]:
+        """
+        The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+        """
         return pulumi.get(self, "ssm_associations")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        [EC2-VPC] The ID of the subnet to launch the instance into.
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to add to the instance.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def tenancy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+        """
         return pulumi.get(self, "tenancy")
 
     @property
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user data to make available to the instance.
+        """
         return pulumi.get(self, "user_data")
 
     @property
     @pulumi.getter
     def volumes(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceVolume']]]:
+        """
+        The volumes to attach to the instance.
+        """
         return pulumi.get(self, "volumes")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC that the instance is running in.
+        """
+        return pulumi.get(self, "vpc_id")
 

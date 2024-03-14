@@ -17,6 +17,7 @@ const (
 	LinkResourceTypeAwsLogsLogGroup                   = LinkResourceType("AWS::Logs::LogGroup")
 	LinkResourceTypeAwsxRayTrace                      = LinkResourceType("AWS::XRay::Trace")
 	LinkResourceTypeAwsApplicationInsightsApplication = LinkResourceType("AWS::ApplicationInsights::Application")
+	LinkResourceTypeAwsInternetMonitorMonitor         = LinkResourceType("AWS::InternetMonitor::Monitor")
 )
 
 func (LinkResourceType) ElementType() reflect.Type {
@@ -145,6 +146,7 @@ func (o LinkResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //	LinkResourceTypeAwsLogsLogGroup
 //	LinkResourceTypeAwsxRayTrace
 //	LinkResourceTypeAwsApplicationInsightsApplication
+//	LinkResourceTypeAwsInternetMonitorMonitor
 type LinkResourceTypeInput interface {
 	pulumi.Input
 

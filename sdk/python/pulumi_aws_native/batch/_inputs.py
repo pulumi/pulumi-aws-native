@@ -57,6 +57,7 @@ __all__ = [
     'JobDefinitionVolumesHostArgs',
     'JobDefinitionVolumesArgs',
     'JobQueueComputeEnvironmentOrderArgs',
+    'JobQueueJobStateTimeLimitActionArgs',
     'SchedulingPolicyFairsharePolicyArgs',
     'SchedulingPolicyShareAttributesArgs',
 ]
@@ -2422,6 +2423,55 @@ class JobQueueComputeEnvironmentOrderArgs:
     @order.setter
     def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
+
+
+@pulumi.input_type
+class JobQueueJobStateTimeLimitActionArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['JobQueueJobStateTimeLimitActionAction'],
+                 max_time_seconds: pulumi.Input[int],
+                 reason: pulumi.Input[str],
+                 state: pulumi.Input['JobQueueJobStateTimeLimitActionState']):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "max_time_seconds", max_time_seconds)
+        pulumi.set(__self__, "reason", reason)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['JobQueueJobStateTimeLimitActionAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['JobQueueJobStateTimeLimitActionAction']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="maxTimeSeconds")
+    def max_time_seconds(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_time_seconds")
+
+    @max_time_seconds.setter
+    def max_time_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_time_seconds", value)
+
+    @property
+    @pulumi.getter
+    def reason(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "reason")
+
+    @reason.setter
+    def reason(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reason", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input['JobQueueJobStateTimeLimitActionState']:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input['JobQueueJobStateTimeLimitActionState']):
+        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type

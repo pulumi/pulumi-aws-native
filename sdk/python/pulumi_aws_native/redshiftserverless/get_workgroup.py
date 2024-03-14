@@ -37,21 +37,33 @@ class GetWorkgroupResult:
     @property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[bool]:
+        """
+        The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[int]:
+        """
+        The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[bool]:
+        """
+        A value that specifies whether the workgroup can be accessible from a public network.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @property
     @pulumi.getter
     def workgroup(self) -> Optional['outputs.Workgroup']:
+        """
+        Definition for workgroup resource
+        """
         return pulumi.get(self, "workgroup")
 
 
@@ -71,6 +83,9 @@ def get_workgroup(workgroup_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkgroupResult:
     """
     Definition of AWS::RedshiftServerless::Workgroup Resource Type
+
+
+    :param str workgroup_name: The name of the workgroup.
     """
     __args__ = dict()
     __args__['workgroupName'] = workgroup_name
@@ -89,5 +104,8 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkgroupResult]:
     """
     Definition of AWS::RedshiftServerless::Workgroup Resource Type
+
+
+    :param str workgroup_name: The name of the workgroup.
     """
     ...

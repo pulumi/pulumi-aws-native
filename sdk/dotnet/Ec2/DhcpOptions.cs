@@ -31,6 +31,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<string>> DomainNameServers { get; private set; } = null!;
 
         /// <summary>
+        /// The preferred Lease Time for ipV6 address in seconds.
+        /// </summary>
+        [Output("ipv6AddressPreferredLeaseTime")]
+        public Output<int?> Ipv6AddressPreferredLeaseTime { get; private set; } = null!;
+
+        /// <summary>
         /// The IPv4 addresses of up to four NetBIOS name servers.
         /// </summary>
         [Output("netbiosNameServers")]
@@ -81,6 +87,7 @@ namespace Pulumi.AwsNative.Ec2
                 {
                     "domainName",
                     "domainNameServers[*]",
+                    "ipv6AddressPreferredLeaseTime",
                     "netbiosNameServers[*]",
                     "netbiosNodeType",
                     "ntpServers[*]",
@@ -124,6 +131,12 @@ namespace Pulumi.AwsNative.Ec2
             get => _domainNameServers ?? (_domainNameServers = new InputList<string>());
             set => _domainNameServers = value;
         }
+
+        /// <summary>
+        /// The preferred Lease Time for ipV6 address in seconds.
+        /// </summary>
+        [Input("ipv6AddressPreferredLeaseTime")]
+        public Input<int>? Ipv6AddressPreferredLeaseTime { get; set; }
 
         [Input("netbiosNameServers")]
         private InputList<string>? _netbiosNameServers;

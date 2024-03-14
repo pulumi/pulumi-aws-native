@@ -53,7 +53,6 @@ func NewApplication(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"applicationMode",
 		"applicationName",
-		"runtimeEnvironment",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

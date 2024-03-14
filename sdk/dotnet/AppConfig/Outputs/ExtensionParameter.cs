@@ -20,15 +20,19 @@ namespace Pulumi.AwsNative.AppConfig.Outputs
         /// The description of the extension Parameter.
         /// </summary>
         public readonly string? Description;
+        public readonly bool? Dynamic;
         public readonly bool Required;
 
         [OutputConstructor]
         private ExtensionParameter(
             string? description,
 
+            bool? dynamic,
+
             bool required)
         {
             Description = description;
+            Dynamic = dynamic;
             Required = required;
         }
     }

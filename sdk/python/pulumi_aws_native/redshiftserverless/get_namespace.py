@@ -20,7 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetNamespaceResult:
-    def __init__(__self__, admin_username=None, db_name=None, default_iam_role_arn=None, iam_roles=None, kms_key_id=None, log_exports=None, namespace=None):
+    def __init__(__self__, admin_password_secret_kms_key_id=None, admin_username=None, db_name=None, default_iam_role_arn=None, iam_roles=None, kms_key_id=None, log_exports=None, namespace=None, namespace_resource_policy=None):
+        if admin_password_secret_kms_key_id and not isinstance(admin_password_secret_kms_key_id, str):
+            raise TypeError("Expected argument 'admin_password_secret_kms_key_id' to be a str")
+        pulumi.set(__self__, "admin_password_secret_kms_key_id", admin_password_secret_kms_key_id)
         if admin_username and not isinstance(admin_username, str):
             raise TypeError("Expected argument 'admin_username' to be a str")
         pulumi.set(__self__, "admin_username", admin_username)
@@ -42,6 +45,17 @@ class GetNamespaceResult:
         if namespace and not isinstance(namespace, dict):
             raise TypeError("Expected argument 'namespace' to be a dict")
         pulumi.set(__self__, "namespace", namespace)
+        if namespace_resource_policy and not isinstance(namespace_resource_policy, dict):
+            raise TypeError("Expected argument 'namespace_resource_policy' to be a dict")
+        pulumi.set(__self__, "namespace_resource_policy", namespace_resource_policy)
+
+    @property
+    @pulumi.getter(name="adminPasswordSecretKmsKeyId")
+    def admin_password_secret_kms_key_id(self) -> Optional[str]:
+        """
+        The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+        """
+        return pulumi.get(self, "admin_password_secret_kms_key_id")
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -94,7 +108,20 @@ class GetNamespaceResult:
     @property
     @pulumi.getter
     def namespace(self) -> Optional['outputs.Namespace']:
+        """
+        Definition of Namespace resource.
+        """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="namespaceResourcePolicy")
+    def namespace_resource_policy(self) -> Optional[Any]:
+        """
+        The resource policy document that will be attached to the namespace.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "namespace_resource_policy")
 
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
@@ -103,13 +130,15 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
         if False:
             yield self
         return GetNamespaceResult(
+            admin_password_secret_kms_key_id=self.admin_password_secret_kms_key_id,
             admin_username=self.admin_username,
             db_name=self.db_name,
             default_iam_role_arn=self.default_iam_role_arn,
             iam_roles=self.iam_roles,
             kms_key_id=self.kms_key_id,
             log_exports=self.log_exports,
-            namespace=self.namespace)
+            namespace=self.namespace,
+            namespace_resource_policy=self.namespace_resource_policy)
 
 
 def get_namespace(namespace_name: Optional[str] = None,
@@ -126,13 +155,15 @@ def get_namespace(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshiftserverless:getNamespace', __args__, opts=opts, typ=GetNamespaceResult).value
 
     return AwaitableGetNamespaceResult(
+        admin_password_secret_kms_key_id=pulumi.get(__ret__, 'admin_password_secret_kms_key_id'),
         admin_username=pulumi.get(__ret__, 'admin_username'),
         db_name=pulumi.get(__ret__, 'db_name'),
         default_iam_role_arn=pulumi.get(__ret__, 'default_iam_role_arn'),
         iam_roles=pulumi.get(__ret__, 'iam_roles'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         log_exports=pulumi.get(__ret__, 'log_exports'),
-        namespace=pulumi.get(__ret__, 'namespace'))
+        namespace=pulumi.get(__ret__, 'namespace'),
+        namespace_resource_policy=pulumi.get(__ret__, 'namespace_resource_policy'))
 
 
 @_utilities.lift_output_func(get_namespace)

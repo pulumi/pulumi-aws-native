@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Outputs
 {
 
+    /// <summary>
+    /// A structure for a data location object where permissions are granted or revoked.
+    /// </summary>
     [OutputType]
     public sealed class PrincipalPermissionsDataLocationResource
     {
+        /// <summary>
+        /// The identifier for the GLUDC where the location is registered with LFlong.
+        /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        /// </summary>
         public readonly string ResourceArn;
 
         [OutputConstructor]

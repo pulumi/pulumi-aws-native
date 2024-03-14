@@ -8,6 +8,60 @@ using Pulumi;
 namespace Pulumi.AwsNative.Batch
 {
     [EnumType]
+    public readonly struct JobQueueJobStateTimeLimitActionAction : IEquatable<JobQueueJobStateTimeLimitActionAction>
+    {
+        private readonly string _value;
+
+        private JobQueueJobStateTimeLimitActionAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobQueueJobStateTimeLimitActionAction Cancel { get; } = new JobQueueJobStateTimeLimitActionAction("CANCEL");
+
+        public static bool operator ==(JobQueueJobStateTimeLimitActionAction left, JobQueueJobStateTimeLimitActionAction right) => left.Equals(right);
+        public static bool operator !=(JobQueueJobStateTimeLimitActionAction left, JobQueueJobStateTimeLimitActionAction right) => !left.Equals(right);
+
+        public static explicit operator string(JobQueueJobStateTimeLimitActionAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobQueueJobStateTimeLimitActionAction other && Equals(other);
+        public bool Equals(JobQueueJobStateTimeLimitActionAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct JobQueueJobStateTimeLimitActionState : IEquatable<JobQueueJobStateTimeLimitActionState>
+    {
+        private readonly string _value;
+
+        private JobQueueJobStateTimeLimitActionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobQueueJobStateTimeLimitActionState Runnable { get; } = new JobQueueJobStateTimeLimitActionState("RUNNABLE");
+
+        public static bool operator ==(JobQueueJobStateTimeLimitActionState left, JobQueueJobStateTimeLimitActionState right) => left.Equals(right);
+        public static bool operator !=(JobQueueJobStateTimeLimitActionState left, JobQueueJobStateTimeLimitActionState right) => !left.Equals(right);
+
+        public static explicit operator string(JobQueueJobStateTimeLimitActionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobQueueJobStateTimeLimitActionState other && Equals(other);
+        public bool Equals(JobQueueJobStateTimeLimitActionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct JobQueueState : IEquatable<JobQueueState>
     {
         private readonly string _value;

@@ -18,6 +18,7 @@ __all__ = ['NamespaceArgs', 'Namespace']
 @pulumi.input_type
 class NamespaceArgs:
     def __init__(__self__, *,
+                 admin_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
@@ -27,11 +28,15 @@ class NamespaceArgs:
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
+                 manage_admin_password: Optional[pulumi.Input[bool]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 namespace_resource_policy: Optional[Any] = None,
+                 redshift_idc_application_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
-        :param pulumi.Input[str] admin_user_password: The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
+        :param pulumi.Input[str] admin_password_secret_kms_key_id: The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+        :param pulumi.Input[str] admin_user_password: The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
         :param pulumi.Input[str] admin_username: The user name associated with the admin user for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
         :param pulumi.Input[str] db_name: The database name associated for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
         :param pulumi.Input[str] default_iam_role_arn: The default IAM role ARN for the namespace that is being created.
@@ -40,9 +45,16 @@ class NamespaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of AWS Identity and Access Management (IAM) roles that can be used by the namespace to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. The Default role limit for each request is 10.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the namespace.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]] log_exports: The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
+        :param pulumi.Input[bool] manage_admin_password: If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
         :param pulumi.Input[str] namespace_name: A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
+        :param Any namespace_resource_policy: The resource policy document that will be attached to the namespace.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+        :param pulumi.Input[str] redshift_idc_application_arn: The ARN for the Redshift application that integrates with IAM Identity Center.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The list of tags for the namespace.
         """
+        if admin_password_secret_kms_key_id is not None:
+            pulumi.set(__self__, "admin_password_secret_kms_key_id", admin_password_secret_kms_key_id)
         if admin_user_password is not None:
             pulumi.set(__self__, "admin_user_password", admin_user_password)
         if admin_username is not None:
@@ -61,16 +73,34 @@ class NamespaceArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_exports is not None:
             pulumi.set(__self__, "log_exports", log_exports)
+        if manage_admin_password is not None:
+            pulumi.set(__self__, "manage_admin_password", manage_admin_password)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
+        if namespace_resource_policy is not None:
+            pulumi.set(__self__, "namespace_resource_policy", namespace_resource_policy)
+        if redshift_idc_application_arn is not None:
+            pulumi.set(__self__, "redshift_idc_application_arn", redshift_idc_application_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="adminPasswordSecretKmsKeyId")
+    def admin_password_secret_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+        """
+        return pulumi.get(self, "admin_password_secret_kms_key_id")
+
+    @admin_password_secret_kms_key_id.setter
+    def admin_password_secret_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_password_secret_kms_key_id", value)
 
     @property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
+        The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
         """
         return pulumi.get(self, "admin_user_password")
 
@@ -175,6 +205,18 @@ class NamespaceArgs:
         pulumi.set(self, "log_exports", value)
 
     @property
+    @pulumi.getter(name="manageAdminPassword")
+    def manage_admin_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
+        """
+        return pulumi.get(self, "manage_admin_password")
+
+    @manage_admin_password.setter
+    def manage_admin_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_admin_password", value)
+
+    @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -185,6 +227,32 @@ class NamespaceArgs:
     @namespace_name.setter
     def namespace_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="namespaceResourcePolicy")
+    def namespace_resource_policy(self) -> Optional[Any]:
+        """
+        The resource policy document that will be attached to the namespace.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "namespace_resource_policy")
+
+    @namespace_resource_policy.setter
+    def namespace_resource_policy(self, value: Optional[Any]):
+        pulumi.set(self, "namespace_resource_policy", value)
+
+    @property
+    @pulumi.getter(name="redshiftIdcApplicationArn")
+    def redshift_idc_application_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the Redshift application that integrates with IAM Identity Center.
+        """
+        return pulumi.get(self, "redshift_idc_application_arn")
+
+    @redshift_idc_application_arn.setter
+    def redshift_idc_application_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redshift_idc_application_arn", value)
 
     @property
     @pulumi.getter
@@ -204,6 +272,7 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
@@ -213,7 +282,10 @@ class Namespace(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
+                 manage_admin_password: Optional[pulumi.Input[bool]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 namespace_resource_policy: Optional[Any] = None,
+                 redshift_idc_application_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -221,7 +293,8 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] admin_user_password: The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
+        :param pulumi.Input[str] admin_password_secret_kms_key_id: The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+        :param pulumi.Input[str] admin_user_password: The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
         :param pulumi.Input[str] admin_username: The user name associated with the admin user for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
         :param pulumi.Input[str] db_name: The database name associated for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
         :param pulumi.Input[str] default_iam_role_arn: The default IAM role ARN for the namespace that is being created.
@@ -230,7 +303,12 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of AWS Identity and Access Management (IAM) roles that can be used by the namespace to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. The Default role limit for each request is 10.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the namespace.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]] log_exports: The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
+        :param pulumi.Input[bool] manage_admin_password: If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
         :param pulumi.Input[str] namespace_name: A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
+        :param Any namespace_resource_policy: The resource policy document that will be attached to the namespace.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+        :param pulumi.Input[str] redshift_idc_application_arn: The ARN for the Redshift application that integrates with IAM Identity Center.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The list of tags for the namespace.
         """
         ...
@@ -257,6 +335,7 @@ class Namespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  db_name: Optional[pulumi.Input[str]] = None,
@@ -266,7 +345,10 @@ class Namespace(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
+                 manage_admin_password: Optional[pulumi.Input[bool]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 namespace_resource_policy: Optional[Any] = None,
+                 redshift_idc_application_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -277,6 +359,7 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
+            __props__.__dict__["admin_password_secret_kms_key_id"] = admin_password_secret_kms_key_id
             __props__.__dict__["admin_user_password"] = admin_user_password
             __props__.__dict__["admin_username"] = admin_username
             __props__.__dict__["db_name"] = db_name
@@ -286,7 +369,10 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_exports"] = log_exports
+            __props__.__dict__["manage_admin_password"] = manage_admin_password
             __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["namespace_resource_policy"] = namespace_resource_policy
+            __props__.__dict__["redshift_idc_application_arn"] = redshift_idc_application_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["namespace"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["namespace_name", "tags[*]"])
@@ -313,6 +399,7 @@ class Namespace(pulumi.CustomResource):
 
         __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
+        __props__.__dict__["admin_password_secret_kms_key_id"] = None
         __props__.__dict__["admin_user_password"] = None
         __props__.__dict__["admin_username"] = None
         __props__.__dict__["db_name"] = None
@@ -322,16 +409,27 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["iam_roles"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["log_exports"] = None
+        __props__.__dict__["manage_admin_password"] = None
         __props__.__dict__["namespace"] = None
         __props__.__dict__["namespace_name"] = None
+        __props__.__dict__["namespace_resource_policy"] = None
+        __props__.__dict__["redshift_idc_application_arn"] = None
         __props__.__dict__["tags"] = None
         return Namespace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="adminPasswordSecretKmsKeyId")
+    def admin_password_secret_kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+        """
+        return pulumi.get(self, "admin_password_secret_kms_key_id")
 
     @property
     @pulumi.getter(name="adminUserPassword")
     def admin_user_password(self) -> pulumi.Output[Optional[str]]:
         """
-        The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
+        The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
         """
         return pulumi.get(self, "admin_user_password")
 
@@ -400,8 +498,19 @@ class Namespace(pulumi.CustomResource):
         return pulumi.get(self, "log_exports")
 
     @property
+    @pulumi.getter(name="manageAdminPassword")
+    def manage_admin_password(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
+        """
+        return pulumi.get(self, "manage_admin_password")
+
+    @property
     @pulumi.getter
     def namespace(self) -> pulumi.Output['outputs.Namespace']:
+        """
+        Definition of Namespace resource.
+        """
         return pulumi.get(self, "namespace")
 
     @property
@@ -411,6 +520,24 @@ class Namespace(pulumi.CustomResource):
         A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
         """
         return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter(name="namespaceResourcePolicy")
+    def namespace_resource_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The resource policy document that will be attached to the namespace.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "namespace_resource_policy")
+
+    @property
+    @pulumi.getter(name="redshiftIdcApplicationArn")
+    def redshift_idc_application_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN for the Redshift application that integrates with IAM Identity Center.
+        """
+        return pulumi.get(self, "redshift_idc_application_arn")
 
     @property
     @pulumi.getter

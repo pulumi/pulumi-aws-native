@@ -1796,6 +1796,8 @@ class RuleGroupRateBasedStatement(dict):
             suggest = "aggregate_key_type"
         elif key == "customKeys":
             suggest = "custom_keys"
+        elif key == "evaluationWindowSec":
+            suggest = "evaluation_window_sec"
         elif key == "forwardedIpConfig":
             suggest = "forwarded_ip_config"
         elif key == "scopeDownStatement":
@@ -1816,6 +1818,7 @@ class RuleGroupRateBasedStatement(dict):
                  aggregate_key_type: 'RuleGroupRateBasedStatementAggregateKeyType',
                  limit: int,
                  custom_keys: Optional[Sequence['outputs.RuleGroupRateBasedStatementCustomKey']] = None,
+                 evaluation_window_sec: Optional[int] = None,
                  forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None,
                  scope_down_statement: Optional['outputs.RuleGroupStatement'] = None):
         """
@@ -1825,6 +1828,8 @@ class RuleGroupRateBasedStatement(dict):
         pulumi.set(__self__, "limit", limit)
         if custom_keys is not None:
             pulumi.set(__self__, "custom_keys", custom_keys)
+        if evaluation_window_sec is not None:
+            pulumi.set(__self__, "evaluation_window_sec", evaluation_window_sec)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -1847,6 +1852,11 @@ class RuleGroupRateBasedStatement(dict):
         Specifies the aggregate keys to use in a rate-base rule.
         """
         return pulumi.get(self, "custom_keys")
+
+    @property
+    @pulumi.getter(name="evaluationWindowSec")
+    def evaluation_window_sec(self) -> Optional[int]:
+        return pulumi.get(self, "evaluation_window_sec")
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
@@ -4699,6 +4709,8 @@ class WebAclRateBasedStatement(dict):
             suggest = "aggregate_key_type"
         elif key == "customKeys":
             suggest = "custom_keys"
+        elif key == "evaluationWindowSec":
+            suggest = "evaluation_window_sec"
         elif key == "forwardedIpConfig":
             suggest = "forwarded_ip_config"
         elif key == "scopeDownStatement":
@@ -4719,6 +4731,7 @@ class WebAclRateBasedStatement(dict):
                  aggregate_key_type: 'WebAclRateBasedStatementAggregateKeyType',
                  limit: int,
                  custom_keys: Optional[Sequence['outputs.WebAclRateBasedStatementCustomKey']] = None,
+                 evaluation_window_sec: Optional[int] = None,
                  forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None,
                  scope_down_statement: Optional['outputs.WebAclStatement'] = None):
         """
@@ -4728,6 +4741,8 @@ class WebAclRateBasedStatement(dict):
         pulumi.set(__self__, "limit", limit)
         if custom_keys is not None:
             pulumi.set(__self__, "custom_keys", custom_keys)
+        if evaluation_window_sec is not None:
+            pulumi.set(__self__, "evaluation_window_sec", evaluation_window_sec)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -4750,6 +4765,11 @@ class WebAclRateBasedStatement(dict):
         Specifies the aggregate keys to use in a rate-base rule.
         """
         return pulumi.get(self, "custom_keys")
+
+    @property
+    @pulumi.getter(name="evaluationWindowSec")
+    def evaluation_window_sec(self) -> Optional[int]:
+        return pulumi.get(self, "evaluation_window_sec")
 
     @property
     @pulumi.getter(name="forwardedIpConfig")

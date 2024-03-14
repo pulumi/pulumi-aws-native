@@ -26,6 +26,10 @@ namespace Pulumi.AwsNative.Msk.Outputs
         /// </summary>
         public readonly bool? DetectAndCopyNewTopics;
         /// <summary>
+        /// Configuration for specifying the position in the topics to start replicating from.
+        /// </summary>
+        public readonly Outputs.ReplicatorReplicationStartingPosition? StartingPosition;
+        /// <summary>
         /// List of regular expression patterns indicating the topics that should not be replicated.
         /// </summary>
         public readonly ImmutableArray<string> TopicsToExclude;
@@ -42,6 +46,8 @@ namespace Pulumi.AwsNative.Msk.Outputs
 
             bool? detectAndCopyNewTopics,
 
+            Outputs.ReplicatorReplicationStartingPosition? startingPosition,
+
             ImmutableArray<string> topicsToExclude,
 
             ImmutableArray<string> topicsToReplicate)
@@ -49,6 +55,7 @@ namespace Pulumi.AwsNative.Msk.Outputs
             CopyAccessControlListsForTopics = copyAccessControlListsForTopics;
             CopyTopicConfigurations = copyTopicConfigurations;
             DetectAndCopyNewTopics = detectAndCopyNewTopics;
+            StartingPosition = startingPosition;
             TopicsToExclude = topicsToExclude;
             TopicsToReplicate = topicsToReplicate;
         }

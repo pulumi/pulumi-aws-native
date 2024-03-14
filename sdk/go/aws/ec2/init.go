@@ -159,6 +159,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VolumeAttachment{}
 	case "aws-native:ec2:Vpc":
 		r = &Vpc{}
+	case "aws-native:ec2:VpcCidrBlock":
+		r = &VpcCidrBlock{}
 	case "aws-native:ec2:VpcEndpoint":
 		r = &VpcEndpoint{}
 	case "aws-native:ec2:VpcEndpointConnectionNotification":

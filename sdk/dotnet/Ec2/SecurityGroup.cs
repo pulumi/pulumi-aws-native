@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:SecurityGroup")]
     public partial class SecurityGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The group name or group ID depending on whether the SG is created in default or specific VPC
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the security group.
+        /// </summary>
         [Output("groupDescription")]
         public Output<string> GroupDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The group ID of the specified security group.
+        /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the security group.
+        /// </summary>
         [Output("groupName")]
         public Output<string?> GroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        /// </summary>
         [Output("securityGroupEgress")]
         public Output<ImmutableArray<Outputs.SecurityGroupEgress>> SecurityGroupEgress { get; private set; } = null!;
 
+        /// <summary>
+        /// The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        /// </summary>
         [Output("securityGroupIngress")]
         public Output<ImmutableArray<Outputs.SecurityGroupIngress>> SecurityGroupIngress { get; private set; } = null!;
 
+        /// <summary>
+        /// Any tags assigned to the security group.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC for the security group.
+        /// </summary>
         [Output("vpcId")]
         public Output<string?> VpcId { get; private set; } = null!;
 
@@ -90,14 +114,24 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class SecurityGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description for the security group.
+        /// </summary>
         [Input("groupDescription", required: true)]
         public Input<string> GroupDescription { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the security group.
+        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
         [Input("securityGroupEgress")]
         private InputList<Inputs.SecurityGroupEgressArgs>? _securityGroupEgress;
+
+        /// <summary>
+        /// [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        /// </summary>
         public InputList<Inputs.SecurityGroupEgressArgs> SecurityGroupEgress
         {
             get => _securityGroupEgress ?? (_securityGroupEgress = new InputList<Inputs.SecurityGroupEgressArgs>());
@@ -106,6 +140,10 @@ namespace Pulumi.AwsNative.Ec2
 
         [Input("securityGroupIngress")]
         private InputList<Inputs.SecurityGroupIngressArgs>? _securityGroupIngress;
+
+        /// <summary>
+        /// The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        /// </summary>
         public InputList<Inputs.SecurityGroupIngressArgs> SecurityGroupIngress
         {
             get => _securityGroupIngress ?? (_securityGroupIngress = new InputList<Inputs.SecurityGroupIngressArgs>());
@@ -114,12 +152,19 @@ namespace Pulumi.AwsNative.Ec2
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the security group.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC for the security group.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

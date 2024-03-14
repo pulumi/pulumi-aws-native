@@ -185,7 +185,8 @@ class ExtensionParameter(dict):
     """
     def __init__(__self__, *,
                  required: bool,
-                 description: Optional[str] = None):
+                 description: Optional[str] = None,
+                 dynamic: Optional[bool] = None):
         """
         A parameter for the extension to send to a specific action.
         :param str description: The description of the extension Parameter.
@@ -193,6 +194,8 @@ class ExtensionParameter(dict):
         pulumi.set(__self__, "required", required)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if dynamic is not None:
+            pulumi.set(__self__, "dynamic", dynamic)
 
     @property
     @pulumi.getter
@@ -206,5 +209,10 @@ class ExtensionParameter(dict):
         The description of the extension Parameter.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def dynamic(self) -> Optional[bool]:
+        return pulumi.get(self, "dynamic")
 
 

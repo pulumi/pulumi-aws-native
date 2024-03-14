@@ -17,14 +17,22 @@ import (
 type SecurityGroup struct {
 	pulumi.CustomResourceState
 
-	AwsId                pulumi.StringOutput                 `pulumi:"awsId"`
-	GroupDescription     pulumi.StringOutput                 `pulumi:"groupDescription"`
-	GroupId              pulumi.StringOutput                 `pulumi:"groupId"`
-	GroupName            pulumi.StringPtrOutput              `pulumi:"groupName"`
-	SecurityGroupEgress  SecurityGroupEgressTypeArrayOutput  `pulumi:"securityGroupEgress"`
+	// The group name or group ID depending on whether the SG is created in default or specific VPC
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// A description for the security group.
+	GroupDescription pulumi.StringOutput `pulumi:"groupDescription"`
+	// The group ID of the specified security group.
+	GroupId pulumi.StringOutput `pulumi:"groupId"`
+	// The name of the security group.
+	GroupName pulumi.StringPtrOutput `pulumi:"groupName"`
+	// [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+	SecurityGroupEgress SecurityGroupEgressTypeArrayOutput `pulumi:"securityGroupEgress"`
+	// The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
 	SecurityGroupIngress SecurityGroupIngressTypeArrayOutput `pulumi:"securityGroupIngress"`
-	Tags                 aws.TagArrayOutput                  `pulumi:"tags"`
-	VpcId                pulumi.StringPtrOutput              `pulumi:"vpcId"`
+	// Any tags assigned to the security group.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC for the security group.
+	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
 // NewSecurityGroup registers a new resource with the given unique name, arguments, and options.
@@ -76,22 +84,34 @@ func (SecurityGroupState) ElementType() reflect.Type {
 }
 
 type securityGroupArgs struct {
-	GroupDescription     string                     `pulumi:"groupDescription"`
-	GroupName            *string                    `pulumi:"groupName"`
-	SecurityGroupEgress  []SecurityGroupEgressType  `pulumi:"securityGroupEgress"`
+	// A description for the security group.
+	GroupDescription string `pulumi:"groupDescription"`
+	// The name of the security group.
+	GroupName *string `pulumi:"groupName"`
+	// [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+	SecurityGroupEgress []SecurityGroupEgressType `pulumi:"securityGroupEgress"`
+	// The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
 	SecurityGroupIngress []SecurityGroupIngressType `pulumi:"securityGroupIngress"`
-	Tags                 []aws.Tag                  `pulumi:"tags"`
-	VpcId                *string                    `pulumi:"vpcId"`
+	// Any tags assigned to the security group.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC for the security group.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
-	GroupDescription     pulumi.StringInput
-	GroupName            pulumi.StringPtrInput
-	SecurityGroupEgress  SecurityGroupEgressTypeArrayInput
+	// A description for the security group.
+	GroupDescription pulumi.StringInput
+	// The name of the security group.
+	GroupName pulumi.StringPtrInput
+	// [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+	SecurityGroupEgress SecurityGroupEgressTypeArrayInput
+	// The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
 	SecurityGroupIngress SecurityGroupIngressTypeArrayInput
-	Tags                 aws.TagArrayInput
-	VpcId                pulumi.StringPtrInput
+	// Any tags assigned to the security group.
+	Tags aws.TagArrayInput
+	// The ID of the VPC for the security group.
+	VpcId pulumi.StringPtrInput
 }
 
 func (SecurityGroupArgs) ElementType() reflect.Type {
@@ -131,34 +151,42 @@ func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The group name or group ID depending on whether the SG is created in default or specific VPC
 func (o SecurityGroupOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// A description for the security group.
 func (o SecurityGroupOutput) GroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.GroupDescription }).(pulumi.StringOutput)
 }
 
+// The group ID of the specified security group.
 func (o SecurityGroupOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// The name of the security group.
 func (o SecurityGroupOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
+// [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
 func (o SecurityGroupOutput) SecurityGroupEgress() SecurityGroupEgressTypeArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupEgressTypeArrayOutput { return v.SecurityGroupEgress }).(SecurityGroupEgressTypeArrayOutput)
 }
 
+// The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
 func (o SecurityGroupOutput) SecurityGroupIngress() SecurityGroupIngressTypeArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupIngressTypeArrayOutput { return v.SecurityGroupIngress }).(SecurityGroupIngressTypeArrayOutput)
 }
 
+// Any tags assigned to the security group.
 func (o SecurityGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC for the security group.
 func (o SecurityGroupOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }

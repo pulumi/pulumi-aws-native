@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
         public readonly string? CreationDate;
         public readonly Outputs.WorkgroupEndpoint? Endpoint;
         public readonly bool? EnhancedVpcRouting;
+        public readonly int? MaxCapacity;
         public readonly string? NamespaceName;
         public readonly bool? PubliclyAccessible;
         public readonly ImmutableArray<string> SecurityGroupIds;
@@ -38,6 +39,8 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
             Outputs.WorkgroupEndpoint? endpoint,
 
             bool? enhancedVpcRouting,
+
+            int? maxCapacity,
 
             string? namespaceName,
 
@@ -60,6 +63,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
             CreationDate = creationDate;
             Endpoint = endpoint;
             EnhancedVpcRouting = enhancedVpcRouting;
+            MaxCapacity = maxCapacity;
             NamespaceName = namespaceName;
             PubliclyAccessible = publiclyAccessible;
             SecurityGroupIds = securityGroupIds;

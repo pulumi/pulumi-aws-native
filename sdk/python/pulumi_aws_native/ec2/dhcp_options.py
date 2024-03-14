@@ -18,6 +18,7 @@ class DhcpOptionsArgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[int]] = None,
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[int]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -26,6 +27,7 @@ class DhcpOptionsArgs:
         The set of arguments for constructing a DhcpOptions resource.
         :param pulumi.Input[str] domain_name: This value is used to complete unqualified DNS hostnames.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
+        :param pulumi.Input[int] ipv6_address_preferred_lease_time: The preferred Lease Time for ipV6 address in seconds.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: The IPv4 addresses of up to four NetBIOS name servers.
         :param pulumi.Input[int] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
@@ -35,6 +37,8 @@ class DhcpOptionsArgs:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_servers is not None:
             pulumi.set(__self__, "domain_name_servers", domain_name_servers)
+        if ipv6_address_preferred_lease_time is not None:
+            pulumi.set(__self__, "ipv6_address_preferred_lease_time", ipv6_address_preferred_lease_time)
         if netbios_name_servers is not None:
             pulumi.set(__self__, "netbios_name_servers", netbios_name_servers)
         if netbios_node_type is not None:
@@ -67,6 +71,18 @@ class DhcpOptionsArgs:
     @domain_name_servers.setter
     def domain_name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "domain_name_servers", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
+    def ipv6_address_preferred_lease_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The preferred Lease Time for ipV6 address in seconds.
+        """
+        return pulumi.get(self, "ipv6_address_preferred_lease_time")
+
+    @ipv6_address_preferred_lease_time.setter
+    def ipv6_address_preferred_lease_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_address_preferred_lease_time", value)
 
     @property
     @pulumi.getter(name="netbiosNameServers")
@@ -124,6 +140,7 @@ class DhcpOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[int]] = None,
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[int]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -136,6 +153,7 @@ class DhcpOptions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: This value is used to complete unqualified DNS hostnames.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
+        :param pulumi.Input[int] ipv6_address_preferred_lease_time: The preferred Lease Time for ipV6 address in seconds.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: The IPv4 addresses of up to four NetBIOS name servers.
         :param pulumi.Input[int] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
@@ -167,6 +185,7 @@ class DhcpOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[int]] = None,
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[int]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -182,12 +201,13 @@ class DhcpOptions(pulumi.CustomResource):
 
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_name_servers"] = domain_name_servers
+            __props__.__dict__["ipv6_address_preferred_lease_time"] = ipv6_address_preferred_lease_time
             __props__.__dict__["netbios_name_servers"] = netbios_name_servers
             __props__.__dict__["netbios_node_type"] = netbios_node_type
             __props__.__dict__["ntp_servers"] = ntp_servers
             __props__.__dict__["tags"] = tags
             __props__.__dict__["dhcp_options_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name", "domain_name_servers[*]", "netbios_name_servers[*]", "netbios_node_type", "ntp_servers[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name", "domain_name_servers[*]", "ipv6_address_preferred_lease_time", "netbios_name_servers[*]", "netbios_node_type", "ntp_servers[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DhcpOptions, __self__).__init__(
             'aws-native:ec2:DhcpOptions',
@@ -214,6 +234,7 @@ class DhcpOptions(pulumi.CustomResource):
         __props__.__dict__["dhcp_options_id"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["domain_name_servers"] = None
+        __props__.__dict__["ipv6_address_preferred_lease_time"] = None
         __props__.__dict__["netbios_name_servers"] = None
         __props__.__dict__["netbios_node_type"] = None
         __props__.__dict__["ntp_servers"] = None
@@ -240,6 +261,14 @@ class DhcpOptions(pulumi.CustomResource):
         The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
         """
         return pulumi.get(self, "domain_name_servers")
+
+    @property
+    @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
+    def ipv6_address_preferred_lease_time(self) -> pulumi.Output[Optional[int]]:
+        """
+        The preferred Lease Time for ipV6 address in seconds.
+        """
+        return pulumi.get(self, "ipv6_address_preferred_lease_time")
 
     @property
     @pulumi.getter(name="netbiosNameServers")

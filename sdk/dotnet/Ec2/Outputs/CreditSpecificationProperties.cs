@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+    /// </summary>
     [OutputType]
-    public sealed class InstanceCreditSpecification
+    public sealed class CreditSpecificationProperties
     {
         public readonly string? CpuCredits;
 
         [OutputConstructor]
-        private InstanceCreditSpecification(string? cpuCredits)
+        private CreditSpecificationProperties(string? cpuCredits)
         {
             CpuCredits = cpuCredits;
         }

@@ -445,9 +445,12 @@ func (o ApiCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The “JWTConfiguration“ property specifies the configuration of a JWT authorizer. Required for the “JWT“ authorizer type. Supported only for HTTP APIs.
 type AuthorizerJwtConfiguration struct {
+	// A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
 	Audience []string `pulumi:"audience"`
-	Issuer   *string  `pulumi:"issuer"`
+	// The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: ``https://cognito-idp.{region}.amazonaws.com/{userPoolId}``. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+	Issuer *string `pulumi:"issuer"`
 }
 
 // AuthorizerJwtConfigurationInput is an input type that accepts AuthorizerJwtConfigurationArgs and AuthorizerJwtConfigurationOutput values.
@@ -461,9 +464,12 @@ type AuthorizerJwtConfigurationInput interface {
 	ToAuthorizerJwtConfigurationOutputWithContext(context.Context) AuthorizerJwtConfigurationOutput
 }
 
+// The “JWTConfiguration“ property specifies the configuration of a JWT authorizer. Required for the “JWT“ authorizer type. Supported only for HTTP APIs.
 type AuthorizerJwtConfigurationArgs struct {
+	// A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
 	Audience pulumi.StringArrayInput `pulumi:"audience"`
-	Issuer   pulumi.StringPtrInput   `pulumi:"issuer"`
+	// The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: ``https://cognito-idp.{region}.amazonaws.com/{userPoolId}``. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 }
 
 func (AuthorizerJwtConfigurationArgs) ElementType() reflect.Type {
@@ -519,6 +525,7 @@ func (i *authorizerJwtConfigurationPtrType) ToAuthorizerJwtConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationPtrOutput)
 }
 
+// The “JWTConfiguration“ property specifies the configuration of a JWT authorizer. Required for the “JWT“ authorizer type. Supported only for HTTP APIs.
 type AuthorizerJwtConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizerJwtConfigurationOutput) ElementType() reflect.Type {
@@ -543,10 +550,12 @@ func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationPtrOutputW
 	}).(AuthorizerJwtConfigurationPtrOutput)
 }
 
+// A list of the intended recipients of the JWT. A valid JWT must provide an “aud“ that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the “JWT“ authorizer type. Supported only for HTTP APIs.
 func (o AuthorizerJwtConfigurationOutput) Audience() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthorizerJwtConfiguration) []string { return v.Audience }).(pulumi.StringArrayOutput)
 }
 
+// The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: “https://cognito-idp.{region}.amazonaws.com/{userPoolId}“. Required for the “JWT“ authorizer type. Supported only for HTTP APIs.
 func (o AuthorizerJwtConfigurationOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthorizerJwtConfiguration) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
@@ -575,6 +584,7 @@ func (o AuthorizerJwtConfigurationPtrOutput) Elem() AuthorizerJwtConfigurationOu
 	}).(AuthorizerJwtConfigurationOutput)
 }
 
+// A list of the intended recipients of the JWT. A valid JWT must provide an “aud“ that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the “JWT“ authorizer type. Supported only for HTTP APIs.
 func (o AuthorizerJwtConfigurationPtrOutput) Audience() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthorizerJwtConfiguration) []string {
 		if v == nil {
@@ -584,6 +594,7 @@ func (o AuthorizerJwtConfigurationPtrOutput) Audience() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: “https://cognito-idp.{region}.amazonaws.com/{userPoolId}“. Required for the “JWT“ authorizer type. Supported only for HTTP APIs.
 func (o AuthorizerJwtConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizerJwtConfiguration) *string {
 		if v == nil {

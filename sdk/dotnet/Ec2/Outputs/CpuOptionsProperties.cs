@@ -10,12 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// The CPU options for the instance.
+    /// </summary>
     [OutputType]
-    public sealed class InstanceNoDevice
+    public sealed class CpuOptionsProperties
     {
+        public readonly int? CoreCount;
+        public readonly int? ThreadsPerCore;
+
         [OutputConstructor]
-        private InstanceNoDevice()
+        private CpuOptionsProperties(
+            int? coreCount,
+
+            int? threadsPerCore)
         {
+            CoreCount = coreCount;
+            ThreadsPerCore = threadsPerCore;
         }
     }
 }

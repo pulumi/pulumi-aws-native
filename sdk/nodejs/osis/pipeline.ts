@@ -57,7 +57,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public /*out*/ readonly pipelineArn!: pulumi.Output<string>;
     /**
-     * The Data Prepper pipeline configuration in YAML format.
+     * The Data Prepper pipeline configuration.
      */
     public readonly pipelineConfigurationBody!: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export interface PipelineArgs {
      */
     minUnits: pulumi.Input<number>;
     /**
-     * The Data Prepper pipeline configuration in YAML format.
+     * The Data Prepper pipeline configuration.
      */
     pipelineConfigurationBody: pulumi.Input<string>;
     /**

@@ -24,37 +24,63 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 }
 
 type LookupInstanceArgs struct {
-	Id string `pulumi:"id"`
+	// The EC2 Instance ID.
+	InstanceId string `pulumi:"instanceId"`
 }
 
 type LookupInstanceResult struct {
-	AdditionalInfo                    *string                        `pulumi:"additionalInfo"`
-	Affinity                          *string                        `pulumi:"affinity"`
-	BlockDeviceMappings               []InstanceBlockDeviceMapping   `pulumi:"blockDeviceMappings"`
-	CreditSpecification               *InstanceCreditSpecification   `pulumi:"creditSpecification"`
-	DisableApiTermination             *bool                          `pulumi:"disableApiTermination"`
-	EbsOptimized                      *bool                          `pulumi:"ebsOptimized"`
-	HostId                            *string                        `pulumi:"hostId"`
-	IamInstanceProfile                *string                        `pulumi:"iamInstanceProfile"`
-	Id                                *string                        `pulumi:"id"`
-	InstanceInitiatedShutdownBehavior *string                        `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceType                      *string                        `pulumi:"instanceType"`
-	KernelId                          *string                        `pulumi:"kernelId"`
-	Monitoring                        *bool                          `pulumi:"monitoring"`
-	PrivateDnsName                    *string                        `pulumi:"privateDnsName"`
-	PrivateDnsNameOptions             *InstancePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
-	PrivateIp                         *string                        `pulumi:"privateIp"`
-	PropagateTagsToVolumeOnCreation   *bool                          `pulumi:"propagateTagsToVolumeOnCreation"`
-	PublicDnsName                     *string                        `pulumi:"publicDnsName"`
-	PublicIp                          *string                        `pulumi:"publicIp"`
-	RamdiskId                         *string                        `pulumi:"ramdiskId"`
-	SecurityGroupIds                  []string                       `pulumi:"securityGroupIds"`
-	SourceDestCheck                   *bool                          `pulumi:"sourceDestCheck"`
-	SsmAssociations                   []InstanceSsmAssociation       `pulumi:"ssmAssociations"`
-	Tags                              []aws.Tag                      `pulumi:"tags"`
-	Tenancy                           *string                        `pulumi:"tenancy"`
-	UserData                          *string                        `pulumi:"userData"`
-	Volumes                           []InstanceVolume               `pulumi:"volumes"`
+	// Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+	Affinity *InstanceAffinity `pulumi:"affinity"`
+	// The block device mapping entries that defines the block devices to attach to the instance at launch.
+	BlockDeviceMappings []InstanceBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	// The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+	CreditSpecification *CreditSpecificationProperties `pulumi:"creditSpecification"`
+	// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+	DisableApiTermination *bool `pulumi:"disableApiTermination"`
+	// Indicates whether the instance is optimized for Amazon EBS I/O.
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
+	HostId *string `pulumi:"hostId"`
+	// The IAM instance profile.
+	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
+	// The EC2 Instance ID.
+	InstanceId *string `pulumi:"instanceId"`
+	// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
+	// The instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// The ID of the kernel.
+	KernelId *string `pulumi:"kernelId"`
+	// Specifies whether detailed monitoring is enabled for the instance.
+	Monitoring *bool `pulumi:"monitoring"`
+	// The private DNS name of the specified instance. For example: ip-10-24-34-0.ec2.internal.
+	PrivateDnsName *string `pulumi:"privateDnsName"`
+	// The options for the instance hostname.
+	PrivateDnsNameOptions *InstancePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
+	// The private IP address of the specified instance. For example: 10.24.34.0.
+	PrivateIp *string `pulumi:"privateIp"`
+	// The public DNS name of the specified instance. For example: ec2-107-20-50-45.compute-1.amazonaws.com.
+	PublicDnsName *string `pulumi:"publicDnsName"`
+	// The public IP address of the specified instance. For example: 192.0.2.0.
+	PublicIp *string `pulumi:"publicIp"`
+	// The ID of the RAM disk to select.
+	RamdiskId *string `pulumi:"ramdiskId"`
+	// The IDs of the security groups.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// Specifies whether to enable an instance launched in a VPC to perform NAT.
+	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
+	// The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+	SsmAssociations []InstanceSsmAssociation `pulumi:"ssmAssociations"`
+	// The tags to add to the instance.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+	Tenancy *string `pulumi:"tenancy"`
+	// The user data to make available to the instance.
+	UserData *string `pulumi:"userData"`
+	// The volumes to attach to the instance.
+	Volumes []InstanceVolume `pulumi:"volumes"`
+	// The ID of the VPC that the instance is running in.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
@@ -71,7 +97,8 @@ func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, op
 }
 
 type LookupInstanceOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The EC2 Instance ID.
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 }
 
 func (LookupInstanceOutputArgs) ElementType() reflect.Type {
@@ -92,112 +119,134 @@ func (o LookupInstanceResultOutput) ToLookupInstanceResultOutputWithContext(ctx 
 	return o
 }
 
-func (o LookupInstanceResultOutput) AdditionalInfo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupInstanceResult) *string { return v.AdditionalInfo }).(pulumi.StringPtrOutput)
+// Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+func (o LookupInstanceResultOutput) Affinity() InstanceAffinityPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *InstanceAffinity { return v.Affinity }).(InstanceAffinityPtrOutput)
 }
 
-func (o LookupInstanceResultOutput) Affinity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Affinity }).(pulumi.StringPtrOutput)
-}
-
+// The block device mapping entries that defines the block devices to attach to the instance at launch.
 func (o LookupInstanceResultOutput) BlockDeviceMappings() InstanceBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []InstanceBlockDeviceMapping { return v.BlockDeviceMappings }).(InstanceBlockDeviceMappingArrayOutput)
 }
 
-func (o LookupInstanceResultOutput) CreditSpecification() InstanceCreditSpecificationPtrOutput {
-	return o.ApplyT(func(v LookupInstanceResult) *InstanceCreditSpecification { return v.CreditSpecification }).(InstanceCreditSpecificationPtrOutput)
+// The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+func (o LookupInstanceResultOutput) CreditSpecification() CreditSpecificationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *CreditSpecificationProperties { return v.CreditSpecification }).(CreditSpecificationPropertiesPtrOutput)
 }
 
+// If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
 func (o LookupInstanceResultOutput) DisableApiTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the instance is optimized for Amazon EBS I/O.
 func (o LookupInstanceResultOutput) EbsOptimized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
 }
 
+// If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
 func (o LookupInstanceResultOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
+// The IAM instance profile.
 func (o LookupInstanceResultOutput) IamInstanceProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.IamInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupInstanceResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The EC2 Instance ID.
+func (o LookupInstanceResultOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 func (o LookupInstanceResultOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
 }
 
+// The instance type.
 func (o LookupInstanceResultOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the kernel.
 func (o LookupInstanceResultOutput) KernelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.KernelId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether detailed monitoring is enabled for the instance.
 func (o LookupInstanceResultOutput) Monitoring() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.Monitoring }).(pulumi.BoolPtrOutput)
 }
 
+// The private DNS name of the specified instance. For example: ip-10-24-34-0.ec2.internal.
 func (o LookupInstanceResultOutput) PrivateDnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PrivateDnsName }).(pulumi.StringPtrOutput)
 }
 
+// The options for the instance hostname.
 func (o LookupInstanceResultOutput) PrivateDnsNameOptions() InstancePrivateDnsNameOptionsPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstancePrivateDnsNameOptions { return v.PrivateDnsNameOptions }).(InstancePrivateDnsNameOptionsPtrOutput)
 }
 
+// The private IP address of the specified instance. For example: 10.24.34.0.
 func (o LookupInstanceResultOutput) PrivateIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PrivateIp }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupInstanceResultOutput) PropagateTagsToVolumeOnCreation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.PropagateTagsToVolumeOnCreation }).(pulumi.BoolPtrOutput)
-}
-
+// The public DNS name of the specified instance. For example: ec2-107-20-50-45.compute-1.amazonaws.com.
 func (o LookupInstanceResultOutput) PublicDnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PublicDnsName }).(pulumi.StringPtrOutput)
 }
 
+// The public IP address of the specified instance. For example: 192.0.2.0.
 func (o LookupInstanceResultOutput) PublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.PublicIp }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the RAM disk to select.
 func (o LookupInstanceResultOutput) RamdiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.RamdiskId }).(pulumi.StringPtrOutput)
 }
 
+// The IDs of the security groups.
 func (o LookupInstanceResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// Specifies whether to enable an instance launched in a VPC to perform NAT.
 func (o LookupInstanceResultOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *bool { return v.SourceDestCheck }).(pulumi.BoolPtrOutput)
 }
 
+// The SSM document and parameter values in AWS Systems Manager to associate with this instance.
 func (o LookupInstanceResultOutput) SsmAssociations() InstanceSsmAssociationArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []InstanceSsmAssociation { return v.SsmAssociations }).(InstanceSsmAssociationArrayOutput)
 }
 
+// The tags to add to the instance.
 func (o LookupInstanceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
 func (o LookupInstanceResultOutput) Tenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
 }
 
+// The user data to make available to the instance.
 func (o LookupInstanceResultOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.UserData }).(pulumi.StringPtrOutput)
 }
 
+// The volumes to attach to the instance.
 func (o LookupInstanceResultOutput) Volumes() InstanceVolumeArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []InstanceVolume { return v.Volumes }).(InstanceVolumeArrayOutput)
+}
+
+// The ID of the VPC that the instance is running in.
+func (o LookupInstanceResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

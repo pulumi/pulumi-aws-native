@@ -17,7 +17,7 @@ class RegistryPolicyArgs:
                  policy_text: Any):
         """
         The set of arguments for constructing a RegistryPolicy resource.
-        :param Any policy_text: The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
+        :param Any policy_text: The JSON policy text for your registry.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
         """
@@ -27,7 +27,7 @@ class RegistryPolicyArgs:
     @pulumi.getter(name="policyText")
     def policy_text(self) -> Any:
         """
-        The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
+        The JSON policy text for your registry.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
         """
@@ -46,7 +46,8 @@ class RegistryPolicy(pulumi.CustomResource):
                  policy_text: Optional[Any] = None,
                  __props__=None):
         """
-        The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
+        The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.
+         A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
 
         ## Example Usage
         ### Example
@@ -75,7 +76,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any policy_text: The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
+        :param Any policy_text: The JSON policy text for your registry.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
         """
@@ -86,7 +87,8 @@ class RegistryPolicy(pulumi.CustomResource):
                  args: RegistryPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
+        The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.
+         A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
 
         ## Example Usage
         ### Example
@@ -172,7 +174,7 @@ class RegistryPolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyText")
     def policy_text(self) -> pulumi.Output[Any]:
         """
-        The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
+        The JSON policy text for your registry.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
         """

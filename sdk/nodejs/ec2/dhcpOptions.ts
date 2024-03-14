@@ -47,6 +47,10 @@ export class DhcpOptions extends pulumi.CustomResource {
      */
     public readonly domainNameServers!: pulumi.Output<string[] | undefined>;
     /**
+     * The preferred Lease Time for ipV6 address in seconds.
+     */
+    public readonly ipv6AddressPreferredLeaseTime!: pulumi.Output<number | undefined>;
+    /**
      * The IPv4 addresses of up to four NetBIOS name servers.
      */
     public readonly netbiosNameServers!: pulumi.Output<string[] | undefined>;
@@ -76,6 +80,7 @@ export class DhcpOptions extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainNameServers"] = args ? args.domainNameServers : undefined;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = args ? args.ipv6AddressPreferredLeaseTime : undefined;
             resourceInputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
             resourceInputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             resourceInputs["ntpServers"] = args ? args.ntpServers : undefined;
@@ -85,13 +90,14 @@ export class DhcpOptions extends pulumi.CustomResource {
             resourceInputs["dhcpOptionsId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainNameServers"] = undefined /*out*/;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = undefined /*out*/;
             resourceInputs["netbiosNameServers"] = undefined /*out*/;
             resourceInputs["netbiosNodeType"] = undefined /*out*/;
             resourceInputs["ntpServers"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainName", "domainNameServers[*]", "netbiosNameServers[*]", "netbiosNodeType", "ntpServers[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainName", "domainNameServers[*]", "ipv6AddressPreferredLeaseTime", "netbiosNameServers[*]", "netbiosNodeType", "ntpServers[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DhcpOptions.__pulumiType, name, resourceInputs, opts);
     }
@@ -109,6 +115,10 @@ export interface DhcpOptionsArgs {
      * The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
      */
     domainNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The preferred Lease Time for ipV6 address in seconds.
+     */
+    ipv6AddressPreferredLeaseTime?: pulumi.Input<number>;
     /**
      * The IPv4 addresses of up to four NetBIOS name servers.
      */

@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
+    /// <summary>
+    /// A structure for the database object.
+    /// </summary>
     public sealed class PrincipalPermissionsDatabaseResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier for the Data Catalog. By default, it is the account ID of the caller.
+        /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the database resource. Unique to the Data Catalog.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

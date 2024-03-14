@@ -1622,6 +1622,7 @@ class RuleGroupRateBasedStatementArgs:
                  aggregate_key_type: pulumi.Input['RuleGroupRateBasedStatementAggregateKeyType'],
                  limit: pulumi.Input[int],
                  custom_keys: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRateBasedStatementCustomKeyArgs']]]] = None,
+                 evaluation_window_sec: Optional[pulumi.Input[int]] = None,
                  forwarded_ip_config: Optional[pulumi.Input['RuleGroupForwardedIpConfigurationArgs']] = None,
                  scope_down_statement: Optional[pulumi.Input['RuleGroupStatementArgs']] = None):
         """
@@ -1631,6 +1632,8 @@ class RuleGroupRateBasedStatementArgs:
         pulumi.set(__self__, "limit", limit)
         if custom_keys is not None:
             pulumi.set(__self__, "custom_keys", custom_keys)
+        if evaluation_window_sec is not None:
+            pulumi.set(__self__, "evaluation_window_sec", evaluation_window_sec)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -1665,6 +1668,15 @@ class RuleGroupRateBasedStatementArgs:
     @custom_keys.setter
     def custom_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRateBasedStatementCustomKeyArgs']]]]):
         pulumi.set(self, "custom_keys", value)
+
+    @property
+    @pulumi.getter(name="evaluationWindowSec")
+    def evaluation_window_sec(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "evaluation_window_sec")
+
+    @evaluation_window_sec.setter
+    def evaluation_window_sec(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_window_sec", value)
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
@@ -4135,6 +4147,7 @@ class WebAclRateBasedStatementArgs:
                  aggregate_key_type: pulumi.Input['WebAclRateBasedStatementAggregateKeyType'],
                  limit: pulumi.Input[int],
                  custom_keys: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRateBasedStatementCustomKeyArgs']]]] = None,
+                 evaluation_window_sec: Optional[pulumi.Input[int]] = None,
                  forwarded_ip_config: Optional[pulumi.Input['WebAclForwardedIpConfigurationArgs']] = None,
                  scope_down_statement: Optional[pulumi.Input['WebAclStatementArgs']] = None):
         """
@@ -4144,6 +4157,8 @@ class WebAclRateBasedStatementArgs:
         pulumi.set(__self__, "limit", limit)
         if custom_keys is not None:
             pulumi.set(__self__, "custom_keys", custom_keys)
+        if evaluation_window_sec is not None:
+            pulumi.set(__self__, "evaluation_window_sec", evaluation_window_sec)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -4178,6 +4193,15 @@ class WebAclRateBasedStatementArgs:
     @custom_keys.setter
     def custom_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRateBasedStatementCustomKeyArgs']]]]):
         pulumi.set(self, "custom_keys", value)
+
+    @property
+    @pulumi.getter(name="evaluationWindowSec")
+    def evaluation_window_sec(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "evaluation_window_sec")
+
+    @evaluation_window_sec.setter
+    def evaluation_window_sec(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_window_sec", value)
 
     @property
     @pulumi.getter(name="forwardedIpConfig")

@@ -11,10 +11,13 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
     /// <summary>
-    /// The configurations to be set at cluster level.
+    /// The execute command configuration for the cluster.
     /// </summary>
     public sealed class ClusterConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The details of the execute command configuration.
+        /// </summary>
         [Input("executeCommandConfiguration")]
         public Input<Inputs.ClusterExecuteCommandConfigurationArgs>? ExecuteCommandConfiguration { get; set; }
 

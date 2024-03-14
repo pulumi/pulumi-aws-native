@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// An object that represents the AWS Private Certificate Authority certificate.
+    /// </summary>
     public sealed class ServiceConnectTlsCertificateAuthorityArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the AWS Private Certificate Authority certificate.
+        /// </summary>
         [Input("awsPcaAuthorityArn")]
         public Input<string>? AwsPcaAuthorityArn { get; set; }
 

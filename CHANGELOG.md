@@ -1,10 +1,25 @@
 # Change Log
 
-## Unreleased
+## 0.99.0 (2024-03-14)
 
 - [Fix multi-type resolutions](https://github.com/pulumi/pulumi-aws-native/pull/1383) includes fixes for inline role policies
 - [Include "id" resource properties as "awsId"](https://github.com/pulumi/pulumi-aws-native/pull/1387)
+- [Add more descriptive explanation for missing aws native region config](https://github.com/pulumi/pulumi-aws-native/pull/1355)
+- [Send unchanged write-only properties as adds on update](https://github.com/pulumi/pulumi-aws-native/pull/1395)
+- [Fix parsing provider config defaultTags](https://github.com/pulumi/pulumi-aws-native/pull/1393)
+- [Remove resources not supported by CloudControl from the SDK](https://github.com/pulumi/pulumi-aws-native/pull/1402)
 - [Fix updates with secret values](https://github.com/pulumi/pulumi-aws-native/pull/1397)
+
+### Breaking Changes
+
+EC2 Instance properties changed:
+
+- `Id` removed.
+- `Affinity` changed from `string` to `InstanceAffinity` enum.
+- `CpuOptions` type name changed from `InstanceCpuOptions` to `CpuOptionsProperties`.
+- `CreditSpecification` type name changed from `InstanceCreditSpecification` to `CreditSpecificationPropertiesArgs`.
+- `EnclaveOptions` type name changed from `InstanceHibernationOptions` to `HibernationOptionsProperties`.
+- `HibernationOptions` type name changed from `InstanceHibernationOptions` to `HibernationOptionsProperties`
 
 ## 0.98.0 (2024-02-29)
 

@@ -38,7 +38,11 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
+     * The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+     */
+    public readonly adminPasswordSecretKmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
      */
     public readonly adminUserPassword!: pulumi.Output<string | undefined>;
     /**
@@ -73,11 +77,28 @@ export class Namespace extends pulumi.CustomResource {
      * The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
      */
     public readonly logExports!: pulumi.Output<enums.redshiftserverless.NamespaceLogExport[] | undefined>;
+    /**
+     * If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
+     */
+    public readonly manageAdminPassword!: pulumi.Output<boolean | undefined>;
+    /**
+     * Definition of Namespace resource.
+     */
     public /*out*/ readonly namespace!: pulumi.Output<outputs.redshiftserverless.Namespace>;
     /**
      * A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
      */
     public readonly namespaceName!: pulumi.Output<string>;
+    /**
+     * The resource policy document that will be attached to the namespace.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+     */
+    public readonly namespaceResourcePolicy!: pulumi.Output<any | undefined>;
+    /**
+     * The ARN for the Redshift application that integrates with IAM Identity Center.
+     */
+    public readonly redshiftIdcApplicationArn!: pulumi.Output<string | undefined>;
     /**
      * The list of tags for the namespace.
      */
@@ -94,6 +115,7 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["adminPasswordSecretKmsKeyId"] = args ? args.adminPasswordSecretKmsKeyId : undefined;
             resourceInputs["adminUserPassword"] = args ? args.adminUserPassword : undefined;
             resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
             resourceInputs["dbName"] = args ? args.dbName : undefined;
@@ -103,10 +125,14 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logExports"] = args ? args.logExports : undefined;
+            resourceInputs["manageAdminPassword"] = args ? args.manageAdminPassword : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["namespaceResourcePolicy"] = args ? args.namespaceResourcePolicy : undefined;
+            resourceInputs["redshiftIdcApplicationArn"] = args ? args.redshiftIdcApplicationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["namespace"] = undefined /*out*/;
         } else {
+            resourceInputs["adminPasswordSecretKmsKeyId"] = undefined /*out*/;
             resourceInputs["adminUserPassword"] = undefined /*out*/;
             resourceInputs["adminUsername"] = undefined /*out*/;
             resourceInputs["dbName"] = undefined /*out*/;
@@ -116,8 +142,11 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["logExports"] = undefined /*out*/;
+            resourceInputs["manageAdminPassword"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["namespaceName"] = undefined /*out*/;
+            resourceInputs["namespaceResourcePolicy"] = undefined /*out*/;
+            resourceInputs["redshiftIdcApplicationArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -132,7 +161,11 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceArgs {
     /**
-     * The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
+     * The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+     */
+    adminPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    /**
+     * The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
      */
     adminUserPassword?: pulumi.Input<string>;
     /**
@@ -168,9 +201,23 @@ export interface NamespaceArgs {
      */
     logExports?: pulumi.Input<pulumi.Input<enums.redshiftserverless.NamespaceLogExport>[]>;
     /**
+     * If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
+     */
+    manageAdminPassword?: pulumi.Input<boolean>;
+    /**
      * A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
      */
     namespaceName?: pulumi.Input<string>;
+    /**
+     * The resource policy document that will be attached to the namespace.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+     */
+    namespaceResourcePolicy?: any;
+    /**
+     * The ARN for the Redshift application that integrates with IAM Identity Center.
+     */
+    redshiftIdcApplicationArn?: pulumi.Input<string>;
     /**
      * The list of tags for the namespace.
      */

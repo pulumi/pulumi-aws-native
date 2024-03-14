@@ -12,14 +12,20 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class InstanceBlockDeviceMappingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The device name (for example, /dev/sdh or xvdh).
+        /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
 
+        /// <summary>
+        /// Parameters used to automatically set up EBS volumes when the instance is launched.
+        /// </summary>
         [Input("ebs")]
         public Input<Inputs.InstanceEbsArgs>? Ebs { get; set; }
 
         [Input("noDevice")]
-        public Input<Inputs.InstanceNoDeviceArgs>? NoDevice { get; set; }
+        public Input<object>? NoDevice { get; set; }
 
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }

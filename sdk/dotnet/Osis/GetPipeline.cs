@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Osis
         /// </summary>
         public readonly string? PipelineArn;
         /// <summary>
-        /// The Data Prepper pipeline configuration in YAML format.
+        /// The Data Prepper pipeline configuration.
         /// </summary>
         public readonly string? PipelineConfigurationBody;
         /// <summary>

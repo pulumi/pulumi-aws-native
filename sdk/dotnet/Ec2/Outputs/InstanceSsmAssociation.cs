@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class InstanceSsmAssociation
     {
+        /// <summary>
+        /// The input parameter values to use with the associated SSM document.
+        /// </summary>
         public readonly ImmutableArray<Outputs.InstanceAssociationParameter> AssociationParameters;
+        /// <summary>
+        /// The name of an SSM document to associate with the instance.
+        /// </summary>
         public readonly string DocumentName;
 
         [OutputConstructor]

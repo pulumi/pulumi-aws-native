@@ -5965,10 +5965,11 @@ func (o RuleGroupOrStatementPtrOutput) Statements() RuleGroupStatementArrayOutpu
 type RuleGroupRateBasedStatement struct {
 	AggregateKeyType RuleGroupRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
 	// Specifies the aggregate keys to use in a rate-base rule.
-	CustomKeys         []RuleGroupRateBasedStatementCustomKey `pulumi:"customKeys"`
-	ForwardedIpConfig  *RuleGroupForwardedIpConfiguration     `pulumi:"forwardedIpConfig"`
-	Limit              int                                    `pulumi:"limit"`
-	ScopeDownStatement *RuleGroupStatement                    `pulumi:"scopeDownStatement"`
+	CustomKeys          []RuleGroupRateBasedStatementCustomKey `pulumi:"customKeys"`
+	EvaluationWindowSec *int                                   `pulumi:"evaluationWindowSec"`
+	ForwardedIpConfig   *RuleGroupForwardedIpConfiguration     `pulumi:"forwardedIpConfig"`
+	Limit               int                                    `pulumi:"limit"`
+	ScopeDownStatement  *RuleGroupStatement                    `pulumi:"scopeDownStatement"`
 }
 
 // RuleGroupRateBasedStatementInput is an input type that accepts RuleGroupRateBasedStatementArgs and RuleGroupRateBasedStatementOutput values.
@@ -5985,10 +5986,11 @@ type RuleGroupRateBasedStatementInput interface {
 type RuleGroupRateBasedStatementArgs struct {
 	AggregateKeyType RuleGroupRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
 	// Specifies the aggregate keys to use in a rate-base rule.
-	CustomKeys         RuleGroupRateBasedStatementCustomKeyArrayInput `pulumi:"customKeys"`
-	ForwardedIpConfig  RuleGroupForwardedIpConfigurationPtrInput      `pulumi:"forwardedIpConfig"`
-	Limit              pulumi.IntInput                                `pulumi:"limit"`
-	ScopeDownStatement RuleGroupStatementPtrInput                     `pulumi:"scopeDownStatement"`
+	CustomKeys          RuleGroupRateBasedStatementCustomKeyArrayInput `pulumi:"customKeys"`
+	EvaluationWindowSec pulumi.IntPtrInput                             `pulumi:"evaluationWindowSec"`
+	ForwardedIpConfig   RuleGroupForwardedIpConfigurationPtrInput      `pulumi:"forwardedIpConfig"`
+	Limit               pulumi.IntInput                                `pulumi:"limit"`
+	ScopeDownStatement  RuleGroupStatementPtrInput                     `pulumi:"scopeDownStatement"`
 }
 
 func (RuleGroupRateBasedStatementArgs) ElementType() reflect.Type {
@@ -6079,6 +6081,10 @@ func (o RuleGroupRateBasedStatementOutput) CustomKeys() RuleGroupRateBasedStatem
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) []RuleGroupRateBasedStatementCustomKey { return v.CustomKeys }).(RuleGroupRateBasedStatementCustomKeyArrayOutput)
 }
 
+func (o RuleGroupRateBasedStatementOutput) EvaluationWindowSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatement) *int { return v.EvaluationWindowSec }).(pulumi.IntPtrOutput)
+}
+
 func (o RuleGroupRateBasedStatementOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupForwardedIpConfiguration { return v.ForwardedIpConfig }).(RuleGroupForwardedIpConfigurationPtrOutput)
 }
@@ -6132,6 +6138,15 @@ func (o RuleGroupRateBasedStatementPtrOutput) CustomKeys() RuleGroupRateBasedSta
 		}
 		return v.CustomKeys
 	}).(RuleGroupRateBasedStatementCustomKeyArrayOutput)
+}
+
+func (o RuleGroupRateBasedStatementPtrOutput) EvaluationWindowSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationWindowSec
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
@@ -15785,10 +15800,11 @@ func (o WebAclOverrideActionPtrOutput) None() pulumi.AnyOutput {
 type WebAclRateBasedStatement struct {
 	AggregateKeyType WebAclRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
 	// Specifies the aggregate keys to use in a rate-base rule.
-	CustomKeys         []WebAclRateBasedStatementCustomKey `pulumi:"customKeys"`
-	ForwardedIpConfig  *WebAclForwardedIpConfiguration     `pulumi:"forwardedIpConfig"`
-	Limit              int                                 `pulumi:"limit"`
-	ScopeDownStatement *WebAclStatement                    `pulumi:"scopeDownStatement"`
+	CustomKeys          []WebAclRateBasedStatementCustomKey `pulumi:"customKeys"`
+	EvaluationWindowSec *int                                `pulumi:"evaluationWindowSec"`
+	ForwardedIpConfig   *WebAclForwardedIpConfiguration     `pulumi:"forwardedIpConfig"`
+	Limit               int                                 `pulumi:"limit"`
+	ScopeDownStatement  *WebAclStatement                    `pulumi:"scopeDownStatement"`
 }
 
 // WebAclRateBasedStatementInput is an input type that accepts WebAclRateBasedStatementArgs and WebAclRateBasedStatementOutput values.
@@ -15805,10 +15821,11 @@ type WebAclRateBasedStatementInput interface {
 type WebAclRateBasedStatementArgs struct {
 	AggregateKeyType WebAclRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
 	// Specifies the aggregate keys to use in a rate-base rule.
-	CustomKeys         WebAclRateBasedStatementCustomKeyArrayInput `pulumi:"customKeys"`
-	ForwardedIpConfig  WebAclForwardedIpConfigurationPtrInput      `pulumi:"forwardedIpConfig"`
-	Limit              pulumi.IntInput                             `pulumi:"limit"`
-	ScopeDownStatement WebAclStatementPtrInput                     `pulumi:"scopeDownStatement"`
+	CustomKeys          WebAclRateBasedStatementCustomKeyArrayInput `pulumi:"customKeys"`
+	EvaluationWindowSec pulumi.IntPtrInput                          `pulumi:"evaluationWindowSec"`
+	ForwardedIpConfig   WebAclForwardedIpConfigurationPtrInput      `pulumi:"forwardedIpConfig"`
+	Limit               pulumi.IntInput                             `pulumi:"limit"`
+	ScopeDownStatement  WebAclStatementPtrInput                     `pulumi:"scopeDownStatement"`
 }
 
 func (WebAclRateBasedStatementArgs) ElementType() reflect.Type {
@@ -15897,6 +15914,10 @@ func (o WebAclRateBasedStatementOutput) CustomKeys() WebAclRateBasedStatementCus
 	return o.ApplyT(func(v WebAclRateBasedStatement) []WebAclRateBasedStatementCustomKey { return v.CustomKeys }).(WebAclRateBasedStatementCustomKeyArrayOutput)
 }
 
+func (o WebAclRateBasedStatementOutput) EvaluationWindowSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WebAclRateBasedStatement) *int { return v.EvaluationWindowSec }).(pulumi.IntPtrOutput)
+}
+
 func (o WebAclRateBasedStatementOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatement) *WebAclForwardedIpConfiguration { return v.ForwardedIpConfig }).(WebAclForwardedIpConfigurationPtrOutput)
 }
@@ -15950,6 +15971,15 @@ func (o WebAclRateBasedStatementPtrOutput) CustomKeys() WebAclRateBasedStatement
 		}
 		return v.CustomKeys
 	}).(WebAclRateBasedStatementCustomKeyArrayOutput)
+}
+
+func (o WebAclRateBasedStatementPtrOutput) EvaluationWindowSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebAclRateBasedStatement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationWindowSec
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o WebAclRateBasedStatementPtrOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {

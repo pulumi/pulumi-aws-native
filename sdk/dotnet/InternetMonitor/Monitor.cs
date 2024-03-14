@@ -21,8 +21,14 @@ namespace Pulumi.AwsNative.InternetMonitor
         [Output("healthEventsConfig")]
         public Output<Outputs.MonitorHealthEventsConfig?> HealthEventsConfig { get; private set; } = null!;
 
+        [Output("includeLinkedAccounts")]
+        public Output<bool?> IncludeLinkedAccounts { get; private set; } = null!;
+
         [Output("internetMeasurementsLogDelivery")]
         public Output<Outputs.MonitorInternetMeasurementsLogDelivery?> InternetMeasurementsLogDelivery { get; private set; } = null!;
+
+        [Output("linkedAccountId")]
+        public Output<string?> LinkedAccountId { get; private set; } = null!;
 
         [Output("maxCityNetworksToMonitor")]
         public Output<int?> MaxCityNetworksToMonitor { get; private set; } = null!;
@@ -112,8 +118,14 @@ namespace Pulumi.AwsNative.InternetMonitor
         [Input("healthEventsConfig")]
         public Input<Inputs.MonitorHealthEventsConfigArgs>? HealthEventsConfig { get; set; }
 
+        [Input("includeLinkedAccounts")]
+        public Input<bool>? IncludeLinkedAccounts { get; set; }
+
         [Input("internetMeasurementsLogDelivery")]
         public Input<Inputs.MonitorInternetMeasurementsLogDeliveryArgs>? InternetMeasurementsLogDelivery { get; set; }
+
+        [Input("linkedAccountId")]
+        public Input<string>? LinkedAccountId { get; set; }
 
         [Input("maxCityNetworksToMonitor")]
         public Input<int>? MaxCityNetworksToMonitor { get; set; }

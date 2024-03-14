@@ -5,8 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'JobQueueJobStateTimeLimitActionAction',
+    'JobQueueJobStateTimeLimitActionState',
     'JobQueueState',
 ]
+
+
+class JobQueueJobStateTimeLimitActionAction(str, Enum):
+    CANCEL = "CANCEL"
+
+
+class JobQueueJobStateTimeLimitActionState(str, Enum):
+    RUNNABLE = "RUNNABLE"
 
 
 class JobQueueState(str, Enum):

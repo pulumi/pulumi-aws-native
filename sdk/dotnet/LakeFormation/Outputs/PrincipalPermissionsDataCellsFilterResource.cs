@@ -10,12 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Outputs
 {
 
+    /// <summary>
+    /// A structure that describes certain columns on certain rows.
+    /// </summary>
     [OutputType]
     public sealed class PrincipalPermissionsDataCellsFilterResource
     {
+        /// <summary>
+        /// A database in the GLUDC.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// The name given by the user to the data filter cell.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of the catalog to which the table belongs.
+        /// </summary>
         public readonly string TableCatalogId;
+        /// <summary>
+        /// The name of the table.
+        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]

@@ -20,6 +20,7 @@ class JobQueueArgs:
                  compute_environment_order: pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]],
                  priority: pulumi.Input[int],
                  job_queue_name: Optional[pulumi.Input[str]] = None,
+                 job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['JobQueueState']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -31,6 +32,8 @@ class JobQueueArgs:
         pulumi.set(__self__, "priority", priority)
         if job_queue_name is not None:
             pulumi.set(__self__, "job_queue_name", job_queue_name)
+        if job_state_time_limit_actions is not None:
+            pulumi.set(__self__, "job_state_time_limit_actions", job_state_time_limit_actions)
         if scheduling_policy_arn is not None:
             pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
         if state is not None:
@@ -64,6 +67,15 @@ class JobQueueArgs:
     @job_queue_name.setter
     def job_queue_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "job_queue_name", value)
+
+    @property
+    @pulumi.getter(name="jobStateTimeLimitActions")
+    def job_state_time_limit_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]]:
+        return pulumi.get(self, "job_state_time_limit_actions")
+
+    @job_state_time_limit_actions.setter
+    def job_state_time_limit_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]]):
+        pulumi.set(self, "job_state_time_limit_actions", value)
 
     @property
     @pulumi.getter(name="schedulingPolicyArn")
@@ -103,6 +115,7 @@ class JobQueue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueComputeEnvironmentOrderArgs']]]]] = None,
                  job_queue_name: Optional[pulumi.Input[str]] = None,
+                 job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueJobStateTimeLimitActionArgs']]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['JobQueueState']] = None,
@@ -141,6 +154,7 @@ class JobQueue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueComputeEnvironmentOrderArgs']]]]] = None,
                  job_queue_name: Optional[pulumi.Input[str]] = None,
+                 job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueJobStateTimeLimitActionArgs']]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['JobQueueState']] = None,
@@ -158,6 +172,7 @@ class JobQueue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'compute_environment_order'")
             __props__.__dict__["compute_environment_order"] = compute_environment_order
             __props__.__dict__["job_queue_name"] = job_queue_name
+            __props__.__dict__["job_state_time_limit_actions"] = job_state_time_limit_actions
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
@@ -192,6 +207,7 @@ class JobQueue(pulumi.CustomResource):
         __props__.__dict__["compute_environment_order"] = None
         __props__.__dict__["job_queue_arn"] = None
         __props__.__dict__["job_queue_name"] = None
+        __props__.__dict__["job_state_time_limit_actions"] = None
         __props__.__dict__["priority"] = None
         __props__.__dict__["scheduling_policy_arn"] = None
         __props__.__dict__["state"] = None
@@ -212,6 +228,11 @@ class JobQueue(pulumi.CustomResource):
     @pulumi.getter(name="jobQueueName")
     def job_queue_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "job_queue_name")
+
+    @property
+    @pulumi.getter(name="jobStateTimeLimitActions")
+    def job_state_time_limit_actions(self) -> pulumi.Output[Optional[Sequence['outputs.JobQueueJobStateTimeLimitAction']]]:
+        return pulumi.get(self, "job_state_time_limit_actions")
 
     @property
     @pulumi.getter

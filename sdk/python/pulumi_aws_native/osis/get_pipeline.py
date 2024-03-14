@@ -103,7 +103,7 @@ class GetPipelineResult:
     @pulumi.getter(name="pipelineConfigurationBody")
     def pipeline_configuration_body(self) -> Optional[str]:
         """
-        The Data Prepper pipeline configuration in YAML format.
+        The Data Prepper pipeline configuration.
         """
         return pulumi.get(self, "pipeline_configuration_body")
 

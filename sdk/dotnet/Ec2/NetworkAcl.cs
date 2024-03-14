@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::NetworkAcl
+    /// Specifies a network ACL for your VPC.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkAcl")]
     public partial class NetworkAcl : global::Pulumi.CustomResource
@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// The tags to assign to the network ACL.
+        /// The tags for the network ACL.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC.
+        /// The ID of the VPC for the network ACL.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags to assign to the network ACL.
+        /// The tags for the network ACL.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Ec2
         }
 
         /// <summary>
-        /// The ID of the VPC.
+        /// The ID of the VPC for the network ACL.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;

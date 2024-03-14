@@ -548,6 +548,293 @@ type CarrierGatewayTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// The CPU options for the instance.
+type CpuOptionsProperties struct {
+	CoreCount      *int `pulumi:"coreCount"`
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+}
+
+// CpuOptionsPropertiesInput is an input type that accepts CpuOptionsPropertiesArgs and CpuOptionsPropertiesOutput values.
+// You can construct a concrete instance of `CpuOptionsPropertiesInput` via:
+//
+//	CpuOptionsPropertiesArgs{...}
+type CpuOptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToCpuOptionsPropertiesOutput() CpuOptionsPropertiesOutput
+	ToCpuOptionsPropertiesOutputWithContext(context.Context) CpuOptionsPropertiesOutput
+}
+
+// The CPU options for the instance.
+type CpuOptionsPropertiesArgs struct {
+	CoreCount      pulumi.IntPtrInput `pulumi:"coreCount"`
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+}
+
+func (CpuOptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CpuOptionsProperties)(nil)).Elem()
+}
+
+func (i CpuOptionsPropertiesArgs) ToCpuOptionsPropertiesOutput() CpuOptionsPropertiesOutput {
+	return i.ToCpuOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i CpuOptionsPropertiesArgs) ToCpuOptionsPropertiesOutputWithContext(ctx context.Context) CpuOptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CpuOptionsPropertiesOutput)
+}
+
+func (i CpuOptionsPropertiesArgs) ToCpuOptionsPropertiesPtrOutput() CpuOptionsPropertiesPtrOutput {
+	return i.ToCpuOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CpuOptionsPropertiesArgs) ToCpuOptionsPropertiesPtrOutputWithContext(ctx context.Context) CpuOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CpuOptionsPropertiesOutput).ToCpuOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// CpuOptionsPropertiesPtrInput is an input type that accepts CpuOptionsPropertiesArgs, CpuOptionsPropertiesPtr and CpuOptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `CpuOptionsPropertiesPtrInput` via:
+//
+//	        CpuOptionsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CpuOptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCpuOptionsPropertiesPtrOutput() CpuOptionsPropertiesPtrOutput
+	ToCpuOptionsPropertiesPtrOutputWithContext(context.Context) CpuOptionsPropertiesPtrOutput
+}
+
+type cpuOptionsPropertiesPtrType CpuOptionsPropertiesArgs
+
+func CpuOptionsPropertiesPtr(v *CpuOptionsPropertiesArgs) CpuOptionsPropertiesPtrInput {
+	return (*cpuOptionsPropertiesPtrType)(v)
+}
+
+func (*cpuOptionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CpuOptionsProperties)(nil)).Elem()
+}
+
+func (i *cpuOptionsPropertiesPtrType) ToCpuOptionsPropertiesPtrOutput() CpuOptionsPropertiesPtrOutput {
+	return i.ToCpuOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *cpuOptionsPropertiesPtrType) ToCpuOptionsPropertiesPtrOutputWithContext(ctx context.Context) CpuOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CpuOptionsPropertiesPtrOutput)
+}
+
+// The CPU options for the instance.
+type CpuOptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CpuOptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CpuOptionsProperties)(nil)).Elem()
+}
+
+func (o CpuOptionsPropertiesOutput) ToCpuOptionsPropertiesOutput() CpuOptionsPropertiesOutput {
+	return o
+}
+
+func (o CpuOptionsPropertiesOutput) ToCpuOptionsPropertiesOutputWithContext(ctx context.Context) CpuOptionsPropertiesOutput {
+	return o
+}
+
+func (o CpuOptionsPropertiesOutput) ToCpuOptionsPropertiesPtrOutput() CpuOptionsPropertiesPtrOutput {
+	return o.ToCpuOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CpuOptionsPropertiesOutput) ToCpuOptionsPropertiesPtrOutputWithContext(ctx context.Context) CpuOptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CpuOptionsProperties) *CpuOptionsProperties {
+		return &v
+	}).(CpuOptionsPropertiesPtrOutput)
+}
+
+func (o CpuOptionsPropertiesOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CpuOptionsProperties) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+}
+
+func (o CpuOptionsPropertiesOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CpuOptionsProperties) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+type CpuOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CpuOptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CpuOptionsProperties)(nil)).Elem()
+}
+
+func (o CpuOptionsPropertiesPtrOutput) ToCpuOptionsPropertiesPtrOutput() CpuOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o CpuOptionsPropertiesPtrOutput) ToCpuOptionsPropertiesPtrOutputWithContext(ctx context.Context) CpuOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o CpuOptionsPropertiesPtrOutput) Elem() CpuOptionsPropertiesOutput {
+	return o.ApplyT(func(v *CpuOptionsProperties) CpuOptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CpuOptionsProperties
+		return ret
+	}).(CpuOptionsPropertiesOutput)
+}
+
+func (o CpuOptionsPropertiesPtrOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CpuOptionsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoreCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CpuOptionsPropertiesPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CpuOptionsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThreadsPerCore
+	}).(pulumi.IntPtrOutput)
+}
+
+// The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+type CreditSpecificationProperties struct {
+	CpuCredits *string `pulumi:"cpuCredits"`
+}
+
+// CreditSpecificationPropertiesInput is an input type that accepts CreditSpecificationPropertiesArgs and CreditSpecificationPropertiesOutput values.
+// You can construct a concrete instance of `CreditSpecificationPropertiesInput` via:
+//
+//	CreditSpecificationPropertiesArgs{...}
+type CreditSpecificationPropertiesInput interface {
+	pulumi.Input
+
+	ToCreditSpecificationPropertiesOutput() CreditSpecificationPropertiesOutput
+	ToCreditSpecificationPropertiesOutputWithContext(context.Context) CreditSpecificationPropertiesOutput
+}
+
+// The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+type CreditSpecificationPropertiesArgs struct {
+	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
+}
+
+func (CreditSpecificationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreditSpecificationProperties)(nil)).Elem()
+}
+
+func (i CreditSpecificationPropertiesArgs) ToCreditSpecificationPropertiesOutput() CreditSpecificationPropertiesOutput {
+	return i.ToCreditSpecificationPropertiesOutputWithContext(context.Background())
+}
+
+func (i CreditSpecificationPropertiesArgs) ToCreditSpecificationPropertiesOutputWithContext(ctx context.Context) CreditSpecificationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreditSpecificationPropertiesOutput)
+}
+
+func (i CreditSpecificationPropertiesArgs) ToCreditSpecificationPropertiesPtrOutput() CreditSpecificationPropertiesPtrOutput {
+	return i.ToCreditSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CreditSpecificationPropertiesArgs) ToCreditSpecificationPropertiesPtrOutputWithContext(ctx context.Context) CreditSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreditSpecificationPropertiesOutput).ToCreditSpecificationPropertiesPtrOutputWithContext(ctx)
+}
+
+// CreditSpecificationPropertiesPtrInput is an input type that accepts CreditSpecificationPropertiesArgs, CreditSpecificationPropertiesPtr and CreditSpecificationPropertiesPtrOutput values.
+// You can construct a concrete instance of `CreditSpecificationPropertiesPtrInput` via:
+//
+//	        CreditSpecificationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CreditSpecificationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCreditSpecificationPropertiesPtrOutput() CreditSpecificationPropertiesPtrOutput
+	ToCreditSpecificationPropertiesPtrOutputWithContext(context.Context) CreditSpecificationPropertiesPtrOutput
+}
+
+type creditSpecificationPropertiesPtrType CreditSpecificationPropertiesArgs
+
+func CreditSpecificationPropertiesPtr(v *CreditSpecificationPropertiesArgs) CreditSpecificationPropertiesPtrInput {
+	return (*creditSpecificationPropertiesPtrType)(v)
+}
+
+func (*creditSpecificationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreditSpecificationProperties)(nil)).Elem()
+}
+
+func (i *creditSpecificationPropertiesPtrType) ToCreditSpecificationPropertiesPtrOutput() CreditSpecificationPropertiesPtrOutput {
+	return i.ToCreditSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *creditSpecificationPropertiesPtrType) ToCreditSpecificationPropertiesPtrOutputWithContext(ctx context.Context) CreditSpecificationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreditSpecificationPropertiesPtrOutput)
+}
+
+// The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+type CreditSpecificationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CreditSpecificationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreditSpecificationProperties)(nil)).Elem()
+}
+
+func (o CreditSpecificationPropertiesOutput) ToCreditSpecificationPropertiesOutput() CreditSpecificationPropertiesOutput {
+	return o
+}
+
+func (o CreditSpecificationPropertiesOutput) ToCreditSpecificationPropertiesOutputWithContext(ctx context.Context) CreditSpecificationPropertiesOutput {
+	return o
+}
+
+func (o CreditSpecificationPropertiesOutput) ToCreditSpecificationPropertiesPtrOutput() CreditSpecificationPropertiesPtrOutput {
+	return o.ToCreditSpecificationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CreditSpecificationPropertiesOutput) ToCreditSpecificationPropertiesPtrOutputWithContext(ctx context.Context) CreditSpecificationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreditSpecificationProperties) *CreditSpecificationProperties {
+		return &v
+	}).(CreditSpecificationPropertiesPtrOutput)
+}
+
+func (o CreditSpecificationPropertiesOutput) CpuCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreditSpecificationProperties) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
+}
+
+type CreditSpecificationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CreditSpecificationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreditSpecificationProperties)(nil)).Elem()
+}
+
+func (o CreditSpecificationPropertiesPtrOutput) ToCreditSpecificationPropertiesPtrOutput() CreditSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o CreditSpecificationPropertiesPtrOutput) ToCreditSpecificationPropertiesPtrOutputWithContext(ctx context.Context) CreditSpecificationPropertiesPtrOutput {
+	return o
+}
+
+func (o CreditSpecificationPropertiesPtrOutput) Elem() CreditSpecificationPropertiesOutput {
+	return o.ApplyT(func(v *CreditSpecificationProperties) CreditSpecificationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CreditSpecificationProperties
+		return ret
+	}).(CreditSpecificationPropertiesOutput)
+}
+
+func (o CreditSpecificationPropertiesPtrOutput) CpuCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CreditSpecificationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCredits
+	}).(pulumi.StringPtrOutput)
+}
+
 type CustomerGatewayTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -4434,13 +4721,295 @@ type EipTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Indicates whether the instance is enabled for AWS Nitro Enclaves.
+type EnclaveOptionsProperties struct {
+	// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// EnclaveOptionsPropertiesInput is an input type that accepts EnclaveOptionsPropertiesArgs and EnclaveOptionsPropertiesOutput values.
+// You can construct a concrete instance of `EnclaveOptionsPropertiesInput` via:
+//
+//	EnclaveOptionsPropertiesArgs{...}
+type EnclaveOptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToEnclaveOptionsPropertiesOutput() EnclaveOptionsPropertiesOutput
+	ToEnclaveOptionsPropertiesOutputWithContext(context.Context) EnclaveOptionsPropertiesOutput
+}
+
+// Indicates whether the instance is enabled for AWS Nitro Enclaves.
+type EnclaveOptionsPropertiesArgs struct {
+	// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (EnclaveOptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnclaveOptionsProperties)(nil)).Elem()
+}
+
+func (i EnclaveOptionsPropertiesArgs) ToEnclaveOptionsPropertiesOutput() EnclaveOptionsPropertiesOutput {
+	return i.ToEnclaveOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i EnclaveOptionsPropertiesArgs) ToEnclaveOptionsPropertiesOutputWithContext(ctx context.Context) EnclaveOptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnclaveOptionsPropertiesOutput)
+}
+
+func (i EnclaveOptionsPropertiesArgs) ToEnclaveOptionsPropertiesPtrOutput() EnclaveOptionsPropertiesPtrOutput {
+	return i.ToEnclaveOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i EnclaveOptionsPropertiesArgs) ToEnclaveOptionsPropertiesPtrOutputWithContext(ctx context.Context) EnclaveOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnclaveOptionsPropertiesOutput).ToEnclaveOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// EnclaveOptionsPropertiesPtrInput is an input type that accepts EnclaveOptionsPropertiesArgs, EnclaveOptionsPropertiesPtr and EnclaveOptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `EnclaveOptionsPropertiesPtrInput` via:
+//
+//	        EnclaveOptionsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnclaveOptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToEnclaveOptionsPropertiesPtrOutput() EnclaveOptionsPropertiesPtrOutput
+	ToEnclaveOptionsPropertiesPtrOutputWithContext(context.Context) EnclaveOptionsPropertiesPtrOutput
+}
+
+type enclaveOptionsPropertiesPtrType EnclaveOptionsPropertiesArgs
+
+func EnclaveOptionsPropertiesPtr(v *EnclaveOptionsPropertiesArgs) EnclaveOptionsPropertiesPtrInput {
+	return (*enclaveOptionsPropertiesPtrType)(v)
+}
+
+func (*enclaveOptionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnclaveOptionsProperties)(nil)).Elem()
+}
+
+func (i *enclaveOptionsPropertiesPtrType) ToEnclaveOptionsPropertiesPtrOutput() EnclaveOptionsPropertiesPtrOutput {
+	return i.ToEnclaveOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *enclaveOptionsPropertiesPtrType) ToEnclaveOptionsPropertiesPtrOutputWithContext(ctx context.Context) EnclaveOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnclaveOptionsPropertiesPtrOutput)
+}
+
+// Indicates whether the instance is enabled for AWS Nitro Enclaves.
+type EnclaveOptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (EnclaveOptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnclaveOptionsProperties)(nil)).Elem()
+}
+
+func (o EnclaveOptionsPropertiesOutput) ToEnclaveOptionsPropertiesOutput() EnclaveOptionsPropertiesOutput {
+	return o
+}
+
+func (o EnclaveOptionsPropertiesOutput) ToEnclaveOptionsPropertiesOutputWithContext(ctx context.Context) EnclaveOptionsPropertiesOutput {
+	return o
+}
+
+func (o EnclaveOptionsPropertiesOutput) ToEnclaveOptionsPropertiesPtrOutput() EnclaveOptionsPropertiesPtrOutput {
+	return o.ToEnclaveOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o EnclaveOptionsPropertiesOutput) ToEnclaveOptionsPropertiesPtrOutputWithContext(ctx context.Context) EnclaveOptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnclaveOptionsProperties) *EnclaveOptionsProperties {
+		return &v
+	}).(EnclaveOptionsPropertiesPtrOutput)
+}
+
+// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+func (o EnclaveOptionsPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnclaveOptionsProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type EnclaveOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (EnclaveOptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnclaveOptionsProperties)(nil)).Elem()
+}
+
+func (o EnclaveOptionsPropertiesPtrOutput) ToEnclaveOptionsPropertiesPtrOutput() EnclaveOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o EnclaveOptionsPropertiesPtrOutput) ToEnclaveOptionsPropertiesPtrOutputWithContext(ctx context.Context) EnclaveOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o EnclaveOptionsPropertiesPtrOutput) Elem() EnclaveOptionsPropertiesOutput {
+	return o.ApplyT(func(v *EnclaveOptionsProperties) EnclaveOptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EnclaveOptionsProperties
+		return ret
+	}).(EnclaveOptionsPropertiesOutput)
+}
+
+// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+func (o EnclaveOptionsPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnclaveOptionsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type FlowLogTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
+// Indicates whether an instance is enabled for hibernation.
+type HibernationOptionsProperties struct {
+	// If you set this parameter to true, your instance is enabled for hibernation.
+	Configured *bool `pulumi:"configured"`
+}
+
+// HibernationOptionsPropertiesInput is an input type that accepts HibernationOptionsPropertiesArgs and HibernationOptionsPropertiesOutput values.
+// You can construct a concrete instance of `HibernationOptionsPropertiesInput` via:
+//
+//	HibernationOptionsPropertiesArgs{...}
+type HibernationOptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToHibernationOptionsPropertiesOutput() HibernationOptionsPropertiesOutput
+	ToHibernationOptionsPropertiesOutputWithContext(context.Context) HibernationOptionsPropertiesOutput
+}
+
+// Indicates whether an instance is enabled for hibernation.
+type HibernationOptionsPropertiesArgs struct {
+	// If you set this parameter to true, your instance is enabled for hibernation.
+	Configured pulumi.BoolPtrInput `pulumi:"configured"`
+}
+
+func (HibernationOptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HibernationOptionsProperties)(nil)).Elem()
+}
+
+func (i HibernationOptionsPropertiesArgs) ToHibernationOptionsPropertiesOutput() HibernationOptionsPropertiesOutput {
+	return i.ToHibernationOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i HibernationOptionsPropertiesArgs) ToHibernationOptionsPropertiesOutputWithContext(ctx context.Context) HibernationOptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HibernationOptionsPropertiesOutput)
+}
+
+func (i HibernationOptionsPropertiesArgs) ToHibernationOptionsPropertiesPtrOutput() HibernationOptionsPropertiesPtrOutput {
+	return i.ToHibernationOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i HibernationOptionsPropertiesArgs) ToHibernationOptionsPropertiesPtrOutputWithContext(ctx context.Context) HibernationOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HibernationOptionsPropertiesOutput).ToHibernationOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// HibernationOptionsPropertiesPtrInput is an input type that accepts HibernationOptionsPropertiesArgs, HibernationOptionsPropertiesPtr and HibernationOptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `HibernationOptionsPropertiesPtrInput` via:
+//
+//	        HibernationOptionsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type HibernationOptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToHibernationOptionsPropertiesPtrOutput() HibernationOptionsPropertiesPtrOutput
+	ToHibernationOptionsPropertiesPtrOutputWithContext(context.Context) HibernationOptionsPropertiesPtrOutput
+}
+
+type hibernationOptionsPropertiesPtrType HibernationOptionsPropertiesArgs
+
+func HibernationOptionsPropertiesPtr(v *HibernationOptionsPropertiesArgs) HibernationOptionsPropertiesPtrInput {
+	return (*hibernationOptionsPropertiesPtrType)(v)
+}
+
+func (*hibernationOptionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HibernationOptionsProperties)(nil)).Elem()
+}
+
+func (i *hibernationOptionsPropertiesPtrType) ToHibernationOptionsPropertiesPtrOutput() HibernationOptionsPropertiesPtrOutput {
+	return i.ToHibernationOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *hibernationOptionsPropertiesPtrType) ToHibernationOptionsPropertiesPtrOutputWithContext(ctx context.Context) HibernationOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HibernationOptionsPropertiesPtrOutput)
+}
+
+// Indicates whether an instance is enabled for hibernation.
+type HibernationOptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (HibernationOptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HibernationOptionsProperties)(nil)).Elem()
+}
+
+func (o HibernationOptionsPropertiesOutput) ToHibernationOptionsPropertiesOutput() HibernationOptionsPropertiesOutput {
+	return o
+}
+
+func (o HibernationOptionsPropertiesOutput) ToHibernationOptionsPropertiesOutputWithContext(ctx context.Context) HibernationOptionsPropertiesOutput {
+	return o
+}
+
+func (o HibernationOptionsPropertiesOutput) ToHibernationOptionsPropertiesPtrOutput() HibernationOptionsPropertiesPtrOutput {
+	return o.ToHibernationOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o HibernationOptionsPropertiesOutput) ToHibernationOptionsPropertiesPtrOutputWithContext(ctx context.Context) HibernationOptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HibernationOptionsProperties) *HibernationOptionsProperties {
+		return &v
+	}).(HibernationOptionsPropertiesPtrOutput)
+}
+
+// If you set this parameter to true, your instance is enabled for hibernation.
+func (o HibernationOptionsPropertiesOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HibernationOptionsProperties) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
+}
+
+type HibernationOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (HibernationOptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HibernationOptionsProperties)(nil)).Elem()
+}
+
+func (o HibernationOptionsPropertiesPtrOutput) ToHibernationOptionsPropertiesPtrOutput() HibernationOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o HibernationOptionsPropertiesPtrOutput) ToHibernationOptionsPropertiesPtrOutputWithContext(ctx context.Context) HibernationOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o HibernationOptionsPropertiesPtrOutput) Elem() HibernationOptionsPropertiesOutput {
+	return o.ApplyT(func(v *HibernationOptionsProperties) HibernationOptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HibernationOptionsProperties
+		return ret
+	}).(HibernationOptionsPropertiesOutput)
+}
+
+// If you set this parameter to true, your instance is enabled for hibernation.
+func (o HibernationOptionsPropertiesPtrOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HibernationOptionsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Configured
+	}).(pulumi.BoolPtrOutput)
+}
+
 type InstanceAssociationParameter struct {
-	Key   string   `pulumi:"key"`
+	// The name of an input parameter that is in the associated SSM document.
+	Key string `pulumi:"key"`
+	// The value of an input parameter.
 	Value []string `pulumi:"value"`
 }
 
@@ -4456,7 +5025,9 @@ type InstanceAssociationParameterInput interface {
 }
 
 type InstanceAssociationParameterArgs struct {
-	Key   pulumi.StringInput      `pulumi:"key"`
+	// The name of an input parameter that is in the associated SSM document.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of an input parameter.
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -4511,10 +5082,12 @@ func (o InstanceAssociationParameterOutput) ToInstanceAssociationParameterOutput
 	return o
 }
 
+// The name of an input parameter that is in the associated SSM document.
 func (o InstanceAssociationParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAssociationParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value of an input parameter.
 func (o InstanceAssociationParameterOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstanceAssociationParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
 }
@@ -4540,10 +5113,12 @@ func (o InstanceAssociationParameterArrayOutput) Index(i pulumi.IntInput) Instan
 }
 
 type InstanceBlockDeviceMapping struct {
-	DeviceName  string            `pulumi:"deviceName"`
-	Ebs         *InstanceEbs      `pulumi:"ebs"`
-	NoDevice    *InstanceNoDevice `pulumi:"noDevice"`
-	VirtualName *string           `pulumi:"virtualName"`
+	// The device name (for example, /dev/sdh or xvdh).
+	DeviceName string `pulumi:"deviceName"`
+	// Parameters used to automatically set up EBS volumes when the instance is launched.
+	Ebs         *InstanceEbs `pulumi:"ebs"`
+	NoDevice    interface{}  `pulumi:"noDevice"`
+	VirtualName *string      `pulumi:"virtualName"`
 }
 
 // InstanceBlockDeviceMappingInput is an input type that accepts InstanceBlockDeviceMappingArgs and InstanceBlockDeviceMappingOutput values.
@@ -4558,10 +5133,12 @@ type InstanceBlockDeviceMappingInput interface {
 }
 
 type InstanceBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringInput       `pulumi:"deviceName"`
-	Ebs         InstanceEbsPtrInput      `pulumi:"ebs"`
-	NoDevice    InstanceNoDevicePtrInput `pulumi:"noDevice"`
-	VirtualName pulumi.StringPtrInput    `pulumi:"virtualName"`
+	// The device name (for example, /dev/sdh or xvdh).
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// Parameters used to automatically set up EBS volumes when the instance is launched.
+	Ebs         InstanceEbsPtrInput   `pulumi:"ebs"`
+	NoDevice    pulumi.Input          `pulumi:"noDevice"`
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
 func (InstanceBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -4615,16 +5192,18 @@ func (o InstanceBlockDeviceMappingOutput) ToInstanceBlockDeviceMappingOutputWith
 	return o
 }
 
+// The device name (for example, /dev/sdh or xvdh).
 func (o InstanceBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
+// Parameters used to automatically set up EBS volumes when the instance is launched.
 func (o InstanceBlockDeviceMappingOutput) Ebs() InstanceEbsPtrOutput {
 	return o.ApplyT(func(v InstanceBlockDeviceMapping) *InstanceEbs { return v.Ebs }).(InstanceEbsPtrOutput)
 }
 
-func (o InstanceBlockDeviceMappingOutput) NoDevice() InstanceNoDevicePtrOutput {
-	return o.ApplyT(func(v InstanceBlockDeviceMapping) *InstanceNoDevice { return v.NoDevice }).(InstanceNoDevicePtrOutput)
+func (o InstanceBlockDeviceMappingOutput) NoDevice() pulumi.AnyOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) interface{} { return v.NoDevice }).(pulumi.AnyOutput)
 }
 
 func (o InstanceBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
@@ -4657,295 +5236,21 @@ type InstanceConnectEndpointTag struct {
 	Value string `pulumi:"value"`
 }
 
-type InstanceCpuOptions struct {
-	CoreCount      *int `pulumi:"coreCount"`
-	ThreadsPerCore *int `pulumi:"threadsPerCore"`
-}
-
-// InstanceCpuOptionsInput is an input type that accepts InstanceCpuOptionsArgs and InstanceCpuOptionsOutput values.
-// You can construct a concrete instance of `InstanceCpuOptionsInput` via:
-//
-//	InstanceCpuOptionsArgs{...}
-type InstanceCpuOptionsInput interface {
-	pulumi.Input
-
-	ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput
-	ToInstanceCpuOptionsOutputWithContext(context.Context) InstanceCpuOptionsOutput
-}
-
-type InstanceCpuOptionsArgs struct {
-	CoreCount      pulumi.IntPtrInput `pulumi:"coreCount"`
-	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
-}
-
-func (InstanceCpuOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceCpuOptions)(nil)).Elem()
-}
-
-func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput {
-	return i.ToInstanceCpuOptionsOutputWithContext(context.Background())
-}
-
-func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsOutputWithContext(ctx context.Context) InstanceCpuOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsOutput)
-}
-
-func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
-	return i.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsOutput).ToInstanceCpuOptionsPtrOutputWithContext(ctx)
-}
-
-// InstanceCpuOptionsPtrInput is an input type that accepts InstanceCpuOptionsArgs, InstanceCpuOptionsPtr and InstanceCpuOptionsPtrOutput values.
-// You can construct a concrete instance of `InstanceCpuOptionsPtrInput` via:
-//
-//	        InstanceCpuOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type InstanceCpuOptionsPtrInput interface {
-	pulumi.Input
-
-	ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput
-	ToInstanceCpuOptionsPtrOutputWithContext(context.Context) InstanceCpuOptionsPtrOutput
-}
-
-type instanceCpuOptionsPtrType InstanceCpuOptionsArgs
-
-func InstanceCpuOptionsPtr(v *InstanceCpuOptionsArgs) InstanceCpuOptionsPtrInput {
-	return (*instanceCpuOptionsPtrType)(v)
-}
-
-func (*instanceCpuOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceCpuOptions)(nil)).Elem()
-}
-
-func (i *instanceCpuOptionsPtrType) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
-	return i.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *instanceCpuOptionsPtrType) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsPtrOutput)
-}
-
-type InstanceCpuOptionsOutput struct{ *pulumi.OutputState }
-
-func (InstanceCpuOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceCpuOptions)(nil)).Elem()
-}
-
-func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput {
-	return o
-}
-
-func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsOutputWithContext(ctx context.Context) InstanceCpuOptionsOutput {
-	return o
-}
-
-func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
-	return o.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCpuOptions) *InstanceCpuOptions {
-		return &v
-	}).(InstanceCpuOptionsPtrOutput)
-}
-
-func (o InstanceCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InstanceCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
-}
-
-func (o InstanceCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InstanceCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
-}
-
-type InstanceCpuOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceCpuOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceCpuOptions)(nil)).Elem()
-}
-
-func (o InstanceCpuOptionsPtrOutput) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
-	return o
-}
-
-func (o InstanceCpuOptionsPtrOutput) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
-	return o
-}
-
-func (o InstanceCpuOptionsPtrOutput) Elem() InstanceCpuOptionsOutput {
-	return o.ApplyT(func(v *InstanceCpuOptions) InstanceCpuOptions {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceCpuOptions
-		return ret
-	}).(InstanceCpuOptionsOutput)
-}
-
-func (o InstanceCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InstanceCpuOptions) *int {
-		if v == nil {
-			return nil
-		}
-		return v.CoreCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o InstanceCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InstanceCpuOptions) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ThreadsPerCore
-	}).(pulumi.IntPtrOutput)
-}
-
-type InstanceCreditSpecification struct {
-	CpuCredits *string `pulumi:"cpuCredits"`
-}
-
-// InstanceCreditSpecificationInput is an input type that accepts InstanceCreditSpecificationArgs and InstanceCreditSpecificationOutput values.
-// You can construct a concrete instance of `InstanceCreditSpecificationInput` via:
-//
-//	InstanceCreditSpecificationArgs{...}
-type InstanceCreditSpecificationInput interface {
-	pulumi.Input
-
-	ToInstanceCreditSpecificationOutput() InstanceCreditSpecificationOutput
-	ToInstanceCreditSpecificationOutputWithContext(context.Context) InstanceCreditSpecificationOutput
-}
-
-type InstanceCreditSpecificationArgs struct {
-	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
-}
-
-func (InstanceCreditSpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceCreditSpecification)(nil)).Elem()
-}
-
-func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationOutput() InstanceCreditSpecificationOutput {
-	return i.ToInstanceCreditSpecificationOutputWithContext(context.Background())
-}
-
-func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationOutputWithContext(ctx context.Context) InstanceCreditSpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationOutput)
-}
-
-func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
-	return i.ToInstanceCreditSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationOutput).ToInstanceCreditSpecificationPtrOutputWithContext(ctx)
-}
-
-// InstanceCreditSpecificationPtrInput is an input type that accepts InstanceCreditSpecificationArgs, InstanceCreditSpecificationPtr and InstanceCreditSpecificationPtrOutput values.
-// You can construct a concrete instance of `InstanceCreditSpecificationPtrInput` via:
-//
-//	        InstanceCreditSpecificationArgs{...}
-//
-//	or:
-//
-//	        nil
-type InstanceCreditSpecificationPtrInput interface {
-	pulumi.Input
-
-	ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput
-	ToInstanceCreditSpecificationPtrOutputWithContext(context.Context) InstanceCreditSpecificationPtrOutput
-}
-
-type instanceCreditSpecificationPtrType InstanceCreditSpecificationArgs
-
-func InstanceCreditSpecificationPtr(v *InstanceCreditSpecificationArgs) InstanceCreditSpecificationPtrInput {
-	return (*instanceCreditSpecificationPtrType)(v)
-}
-
-func (*instanceCreditSpecificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceCreditSpecification)(nil)).Elem()
-}
-
-func (i *instanceCreditSpecificationPtrType) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
-	return i.ToInstanceCreditSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (i *instanceCreditSpecificationPtrType) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationPtrOutput)
-}
-
-type InstanceCreditSpecificationOutput struct{ *pulumi.OutputState }
-
-func (InstanceCreditSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceCreditSpecification)(nil)).Elem()
-}
-
-func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationOutput() InstanceCreditSpecificationOutput {
-	return o
-}
-
-func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationOutputWithContext(ctx context.Context) InstanceCreditSpecificationOutput {
-	return o
-}
-
-func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
-	return o.ToInstanceCreditSpecificationPtrOutputWithContext(context.Background())
-}
-
-func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCreditSpecification) *InstanceCreditSpecification {
-		return &v
-	}).(InstanceCreditSpecificationPtrOutput)
-}
-
-func (o InstanceCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
-}
-
-type InstanceCreditSpecificationPtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceCreditSpecificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceCreditSpecification)(nil)).Elem()
-}
-
-func (o InstanceCreditSpecificationPtrOutput) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
-	return o
-}
-
-func (o InstanceCreditSpecificationPtrOutput) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
-	return o
-}
-
-func (o InstanceCreditSpecificationPtrOutput) Elem() InstanceCreditSpecificationOutput {
-	return o.ApplyT(func(v *InstanceCreditSpecification) InstanceCreditSpecification {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceCreditSpecification
-		return ret
-	}).(InstanceCreditSpecificationOutput)
-}
-
-func (o InstanceCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InstanceCreditSpecification) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CpuCredits
-	}).(pulumi.StringPtrOutput)
-}
-
 type InstanceEbs struct {
-	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
-	Encrypted           *bool   `pulumi:"encrypted"`
-	Iops                *int    `pulumi:"iops"`
-	KmsKeyId            *string `pulumi:"kmsKeyId"`
-	SnapshotId          *string `pulumi:"snapshotId"`
-	VolumeSize          *int    `pulumi:"volumeSize"`
-	VolumeType          *string `pulumi:"volumeType"`
+	// Indicates whether the EBS volume is deleted on instance termination.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Indicates whether the volume should be encrypted.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS). For gp3, io1, and io2 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	Iops *int `pulumi:"iops"`
+	// The identifier of the AWS Key Management Service (AWS KMS) customer managed CMK to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If the encrypted state is true but you do not specify KmsKeyId, your AWS managed CMK for EBS is used.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The ID of the snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The volume type.
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 // InstanceEbsInput is an input type that accepts InstanceEbsArgs and InstanceEbsOutput values.
@@ -4960,13 +5265,20 @@ type InstanceEbsInput interface {
 }
 
 type InstanceEbsArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
-	KmsKeyId            pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
-	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+	// Indicates whether the EBS volume is deleted on instance termination.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// Indicates whether the volume should be encrypted.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS). For gp3, io1, and io2 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The identifier of the AWS Key Management Service (AWS KMS) customer managed CMK to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If the encrypted state is true but you do not specify KmsKeyId, your AWS managed CMK for EBS is used.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The ID of the snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The volume type.
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (InstanceEbsArgs) ElementType() reflect.Type {
@@ -5046,30 +5358,37 @@ func (o InstanceEbsOutput) ToInstanceEbsPtrOutputWithContext(ctx context.Context
 	}).(InstanceEbsPtrOutput)
 }
 
+// Indicates whether the EBS volume is deleted on instance termination.
 func (o InstanceEbsOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceEbs) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the volume should be encrypted.
 func (o InstanceEbsOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceEbs) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS). For gp3, io1, and io2 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 func (o InstanceEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+// The identifier of the AWS Key Management Service (AWS KMS) customer managed CMK to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If the encrypted state is true but you do not specify KmsKeyId, your AWS managed CMK for EBS is used.
 func (o InstanceEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the snapshot.
 func (o InstanceEbsOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
 func (o InstanceEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
+// The volume type.
 func (o InstanceEbsOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -5098,6 +5417,7 @@ func (o InstanceEbsPtrOutput) Elem() InstanceEbsOutput {
 	}).(InstanceEbsOutput)
 }
 
+// Indicates whether the EBS volume is deleted on instance termination.
 func (o InstanceEbsPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceEbs) *bool {
 		if v == nil {
@@ -5107,6 +5427,7 @@ func (o InstanceEbsPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether the volume should be encrypted.
 func (o InstanceEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceEbs) *bool {
 		if v == nil {
@@ -5116,6 +5437,7 @@ func (o InstanceEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of I/O operations per second (IOPS). For gp3, io1, and io2 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 func (o InstanceEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceEbs) *int {
 		if v == nil {
@@ -5125,6 +5447,7 @@ func (o InstanceEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The identifier of the AWS Key Management Service (AWS KMS) customer managed CMK to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If the encrypted state is true but you do not specify KmsKeyId, your AWS managed CMK for EBS is used.
 func (o InstanceEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceEbs) *string {
 		if v == nil {
@@ -5134,6 +5457,7 @@ func (o InstanceEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the snapshot.
 func (o InstanceEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceEbs) *string {
 		if v == nil {
@@ -5143,6 +5467,7 @@ func (o InstanceEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
 func (o InstanceEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InstanceEbs) *int {
 		if v == nil {
@@ -5152,6 +5477,7 @@ func (o InstanceEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The volume type.
 func (o InstanceEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceEbs) *string {
 		if v == nil {
@@ -5162,6 +5488,7 @@ func (o InstanceEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 }
 
 type InstanceElasticGpuSpecification struct {
+	// The type of Elastic Graphics accelerator.
 	Type string `pulumi:"type"`
 }
 
@@ -5177,6 +5504,7 @@ type InstanceElasticGpuSpecificationInput interface {
 }
 
 type InstanceElasticGpuSpecificationArgs struct {
+	// The type of Elastic Graphics accelerator.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5231,6 +5559,7 @@ func (o InstanceElasticGpuSpecificationOutput) ToInstanceElasticGpuSpecification
 	return o
 }
 
+// The type of Elastic Graphics accelerator.
 func (o InstanceElasticGpuSpecificationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceElasticGpuSpecification) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5256,8 +5585,10 @@ func (o InstanceElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) Ins
 }
 
 type InstanceElasticInferenceAccelerator struct {
-	Count *int   `pulumi:"count"`
-	Type  string `pulumi:"type"`
+	// The number of elastic inference accelerators to attach to the instance.
+	Count *int `pulumi:"count"`
+	// The type of elastic inference accelerator.
+	Type string `pulumi:"type"`
 }
 
 // InstanceElasticInferenceAcceleratorInput is an input type that accepts InstanceElasticInferenceAcceleratorArgs and InstanceElasticInferenceAcceleratorOutput values.
@@ -5272,8 +5603,10 @@ type InstanceElasticInferenceAcceleratorInput interface {
 }
 
 type InstanceElasticInferenceAcceleratorArgs struct {
+	// The number of elastic inference accelerators to attach to the instance.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	Type  pulumi.StringInput `pulumi:"type"`
+	// The type of elastic inference accelerator.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (InstanceElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
@@ -5327,10 +5660,12 @@ func (o InstanceElasticInferenceAcceleratorOutput) ToInstanceElasticInferenceAcc
 	return o
 }
 
+// The number of elastic inference accelerators to attach to the instance.
 func (o InstanceElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// The type of elastic inference accelerator.
 func (o InstanceElasticInferenceAcceleratorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5355,273 +5690,8 @@ func (o InstanceElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput)
 	}).(InstanceElasticInferenceAcceleratorOutput)
 }
 
-type InstanceEnclaveOptions struct {
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// InstanceEnclaveOptionsInput is an input type that accepts InstanceEnclaveOptionsArgs and InstanceEnclaveOptionsOutput values.
-// You can construct a concrete instance of `InstanceEnclaveOptionsInput` via:
-//
-//	InstanceEnclaveOptionsArgs{...}
-type InstanceEnclaveOptionsInput interface {
-	pulumi.Input
-
-	ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput
-	ToInstanceEnclaveOptionsOutputWithContext(context.Context) InstanceEnclaveOptionsOutput
-}
-
-type InstanceEnclaveOptionsArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (InstanceEnclaveOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
-}
-
-func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
-	return i.ToInstanceEnclaveOptionsOutputWithContext(context.Background())
-}
-
-func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput)
-}
-
-func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
-	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput).ToInstanceEnclaveOptionsPtrOutputWithContext(ctx)
-}
-
-// InstanceEnclaveOptionsPtrInput is an input type that accepts InstanceEnclaveOptionsArgs, InstanceEnclaveOptionsPtr and InstanceEnclaveOptionsPtrOutput values.
-// You can construct a concrete instance of `InstanceEnclaveOptionsPtrInput` via:
-//
-//	        InstanceEnclaveOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type InstanceEnclaveOptionsPtrInput interface {
-	pulumi.Input
-
-	ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput
-	ToInstanceEnclaveOptionsPtrOutputWithContext(context.Context) InstanceEnclaveOptionsPtrOutput
-}
-
-type instanceEnclaveOptionsPtrType InstanceEnclaveOptionsArgs
-
-func InstanceEnclaveOptionsPtr(v *InstanceEnclaveOptionsArgs) InstanceEnclaveOptionsPtrInput {
-	return (*instanceEnclaveOptionsPtrType)(v)
-}
-
-func (*instanceEnclaveOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
-}
-
-func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
-	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsPtrOutput)
-}
-
-type InstanceEnclaveOptionsOutput struct{ *pulumi.OutputState }
-
-func (InstanceEnclaveOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
-}
-
-func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
-	return o
-}
-
-func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
-	return o
-}
-
-func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
-	return o.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEnclaveOptions) *InstanceEnclaveOptions {
-		return &v
-	}).(InstanceEnclaveOptionsPtrOutput)
-}
-
-func (o InstanceEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v InstanceEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type InstanceEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceEnclaveOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
-}
-
-func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
-	return o
-}
-
-func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
-	return o
-}
-
-func (o InstanceEnclaveOptionsPtrOutput) Elem() InstanceEnclaveOptionsOutput {
-	return o.ApplyT(func(v *InstanceEnclaveOptions) InstanceEnclaveOptions {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceEnclaveOptions
-		return ret
-	}).(InstanceEnclaveOptionsOutput)
-}
-
-func (o InstanceEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *InstanceEnclaveOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type InstanceHibernationOptions struct {
-	Configured *bool `pulumi:"configured"`
-}
-
-// InstanceHibernationOptionsInput is an input type that accepts InstanceHibernationOptionsArgs and InstanceHibernationOptionsOutput values.
-// You can construct a concrete instance of `InstanceHibernationOptionsInput` via:
-//
-//	InstanceHibernationOptionsArgs{...}
-type InstanceHibernationOptionsInput interface {
-	pulumi.Input
-
-	ToInstanceHibernationOptionsOutput() InstanceHibernationOptionsOutput
-	ToInstanceHibernationOptionsOutputWithContext(context.Context) InstanceHibernationOptionsOutput
-}
-
-type InstanceHibernationOptionsArgs struct {
-	Configured pulumi.BoolPtrInput `pulumi:"configured"`
-}
-
-func (InstanceHibernationOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceHibernationOptions)(nil)).Elem()
-}
-
-func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsOutput() InstanceHibernationOptionsOutput {
-	return i.ToInstanceHibernationOptionsOutputWithContext(context.Background())
-}
-
-func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsOutputWithContext(ctx context.Context) InstanceHibernationOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceHibernationOptionsOutput)
-}
-
-func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
-	return i.ToInstanceHibernationOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceHibernationOptionsOutput).ToInstanceHibernationOptionsPtrOutputWithContext(ctx)
-}
-
-// InstanceHibernationOptionsPtrInput is an input type that accepts InstanceHibernationOptionsArgs, InstanceHibernationOptionsPtr and InstanceHibernationOptionsPtrOutput values.
-// You can construct a concrete instance of `InstanceHibernationOptionsPtrInput` via:
-//
-//	        InstanceHibernationOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type InstanceHibernationOptionsPtrInput interface {
-	pulumi.Input
-
-	ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput
-	ToInstanceHibernationOptionsPtrOutputWithContext(context.Context) InstanceHibernationOptionsPtrOutput
-}
-
-type instanceHibernationOptionsPtrType InstanceHibernationOptionsArgs
-
-func InstanceHibernationOptionsPtr(v *InstanceHibernationOptionsArgs) InstanceHibernationOptionsPtrInput {
-	return (*instanceHibernationOptionsPtrType)(v)
-}
-
-func (*instanceHibernationOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceHibernationOptions)(nil)).Elem()
-}
-
-func (i *instanceHibernationOptionsPtrType) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
-	return i.ToInstanceHibernationOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *instanceHibernationOptionsPtrType) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceHibernationOptionsPtrOutput)
-}
-
-type InstanceHibernationOptionsOutput struct{ *pulumi.OutputState }
-
-func (InstanceHibernationOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceHibernationOptions)(nil)).Elem()
-}
-
-func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsOutput() InstanceHibernationOptionsOutput {
-	return o
-}
-
-func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsOutputWithContext(ctx context.Context) InstanceHibernationOptionsOutput {
-	return o
-}
-
-func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
-	return o.ToInstanceHibernationOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceHibernationOptions) *InstanceHibernationOptions {
-		return &v
-	}).(InstanceHibernationOptionsPtrOutput)
-}
-
-func (o InstanceHibernationOptionsOutput) Configured() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v InstanceHibernationOptions) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
-}
-
-type InstanceHibernationOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceHibernationOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceHibernationOptions)(nil)).Elem()
-}
-
-func (o InstanceHibernationOptionsPtrOutput) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
-	return o
-}
-
-func (o InstanceHibernationOptionsPtrOutput) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
-	return o
-}
-
-func (o InstanceHibernationOptionsPtrOutput) Elem() InstanceHibernationOptionsOutput {
-	return o.ApplyT(func(v *InstanceHibernationOptions) InstanceHibernationOptions {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceHibernationOptions
-		return ret
-	}).(InstanceHibernationOptionsOutput)
-}
-
-func (o InstanceHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *InstanceHibernationOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Configured
-	}).(pulumi.BoolPtrOutput)
-}
-
 type InstanceIpv6Address struct {
+	// The IPv6 address.
 	Ipv6Address string `pulumi:"ipv6Address"`
 }
 
@@ -5637,6 +5707,7 @@ type InstanceIpv6AddressInput interface {
 }
 
 type InstanceIpv6AddressArgs struct {
+	// The IPv6 address.
 	Ipv6Address pulumi.StringInput `pulumi:"ipv6Address"`
 }
 
@@ -5691,6 +5762,7 @@ func (o InstanceIpv6AddressOutput) ToInstanceIpv6AddressOutputWithContext(ctx co
 	return o
 }
 
+// The IPv6 address.
 func (o InstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
 }
@@ -5716,9 +5788,12 @@ func (o InstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) InstanceIpv6Add
 }
 
 type InstanceLaunchTemplateSpecification struct {
-	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
+	// The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	Version            string  `pulumi:"version"`
+	// The version number of the launch template.
+	Version *string `pulumi:"version"`
 }
 
 // InstanceLaunchTemplateSpecificationInput is an input type that accepts InstanceLaunchTemplateSpecificationArgs and InstanceLaunchTemplateSpecificationOutput values.
@@ -5733,9 +5808,12 @@ type InstanceLaunchTemplateSpecificationInput interface {
 }
 
 type InstanceLaunchTemplateSpecificationArgs struct {
-	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	Version            pulumi.StringInput    `pulumi:"version"`
+	// The version number of the launch template.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (InstanceLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
@@ -5815,16 +5893,19 @@ func (o InstanceLaunchTemplateSpecificationOutput) ToInstanceLaunchTemplateSpeci
 	}).(InstanceLaunchTemplateSpecificationPtrOutput)
 }
 
+// The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
 func (o InstanceLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
 func (o InstanceLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
-func (o InstanceLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) string { return v.Version }).(pulumi.StringOutput)
+// The version number of the launch template.
+func (o InstanceLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type InstanceLaunchTemplateSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -5851,6 +5932,7 @@ func (o InstanceLaunchTemplateSpecificationPtrOutput) Elem() InstanceLaunchTempl
 	}).(InstanceLaunchTemplateSpecificationOutput)
 }
 
+// The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
 func (o InstanceLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -5860,6 +5942,7 @@ func (o InstanceLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
 func (o InstanceLaunchTemplateSpecificationPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -5869,16 +5952,18 @@ func (o InstanceLaunchTemplateSpecificationPtrOutput) LaunchTemplateName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version number of the launch template.
 func (o InstanceLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Version
+		return v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
 type InstanceLicenseSpecification struct {
+	// The Amazon Resource Name (ARN) of the license configuration.
 	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
 }
 
@@ -5894,6 +5979,7 @@ type InstanceLicenseSpecificationInput interface {
 }
 
 type InstanceLicenseSpecificationArgs struct {
+	// The Amazon Resource Name (ARN) of the license configuration.
 	LicenseConfigurationArn pulumi.StringInput `pulumi:"licenseConfigurationArn"`
 }
 
@@ -5948,6 +6034,7 @@ func (o InstanceLicenseSpecificationOutput) ToInstanceLicenseSpecificationOutput
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the license configuration.
 func (o InstanceLicenseSpecificationOutput) LicenseConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceLicenseSpecification) string { return v.LicenseConfigurationArn }).(pulumi.StringOutput)
 }
@@ -5973,19 +6060,32 @@ func (o InstanceLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) Instan
 }
 
 type InstanceNetworkInterface struct {
-	AssociateCarrierIpAddress      *bool                                   `pulumi:"associateCarrierIpAddress"`
-	AssociatePublicIpAddress       *bool                                   `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination            *bool                                   `pulumi:"deleteOnTermination"`
-	Description                    *string                                 `pulumi:"description"`
-	DeviceIndex                    string                                  `pulumi:"deviceIndex"`
-	GroupSet                       []string                                `pulumi:"groupSet"`
-	Ipv6AddressCount               *int                                    `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  []InstanceIpv6Address                   `pulumi:"ipv6Addresses"`
-	NetworkInterfaceId             *string                                 `pulumi:"networkInterfaceId"`
-	PrivateIpAddress               *string                                 `pulumi:"privateIpAddress"`
-	PrivateIpAddresses             []InstancePrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
-	SecondaryPrivateIpAddressCount *int                                    `pulumi:"secondaryPrivateIpAddressCount"`
-	SubnetId                       *string                                 `pulumi:"subnetId"`
+	// Not currently supported by AWS CloudFormation.
+	AssociateCarrierIpAddress *bool `pulumi:"associateCarrierIpAddress"`
+	// Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	// If set to true, the interface is deleted when the instance is terminated.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// The description of the network interface.
+	Description *string `pulumi:"description"`
+	// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+	DeviceIndex string `pulumi:"deviceIndex"`
+	// The IDs of the security groups for the network interface.
+	GroupSet []string `pulumi:"groupSet"`
+	// A number of IPv6 addresses to assign to the network interface.
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// The IPv6 addresses associated with the network interface.
+	Ipv6Addresses []InstanceIpv6Address `pulumi:"ipv6Addresses"`
+	// The ID of the network interface.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The private IPv4 address of the network interface.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// One or more private IPv4 addresses to assign to the network interface.
+	PrivateIpAddresses []InstancePrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
+	// The number of secondary private IPv4 addresses.
+	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
+	// The ID of the subnet.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 // InstanceNetworkInterfaceInput is an input type that accepts InstanceNetworkInterfaceArgs and InstanceNetworkInterfaceOutput values.
@@ -6000,19 +6100,32 @@ type InstanceNetworkInterfaceInput interface {
 }
 
 type InstanceNetworkInterfaceArgs struct {
-	AssociateCarrierIpAddress      pulumi.BoolPtrInput                             `pulumi:"associateCarrierIpAddress"`
-	AssociatePublicIpAddress       pulumi.BoolPtrInput                             `pulumi:"associatePublicIpAddress"`
-	DeleteOnTermination            pulumi.BoolPtrInput                             `pulumi:"deleteOnTermination"`
-	Description                    pulumi.StringPtrInput                           `pulumi:"description"`
-	DeviceIndex                    pulumi.StringInput                              `pulumi:"deviceIndex"`
-	GroupSet                       pulumi.StringArrayInput                         `pulumi:"groupSet"`
-	Ipv6AddressCount               pulumi.IntPtrInput                              `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  InstanceIpv6AddressArrayInput                   `pulumi:"ipv6Addresses"`
-	NetworkInterfaceId             pulumi.StringPtrInput                           `pulumi:"networkInterfaceId"`
-	PrivateIpAddress               pulumi.StringPtrInput                           `pulumi:"privateIpAddress"`
-	PrivateIpAddresses             InstancePrivateIpAddressSpecificationArrayInput `pulumi:"privateIpAddresses"`
-	SecondaryPrivateIpAddressCount pulumi.IntPtrInput                              `pulumi:"secondaryPrivateIpAddressCount"`
-	SubnetId                       pulumi.StringPtrInput                           `pulumi:"subnetId"`
+	// Not currently supported by AWS CloudFormation.
+	AssociateCarrierIpAddress pulumi.BoolPtrInput `pulumi:"associateCarrierIpAddress"`
+	// Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	// If set to true, the interface is deleted when the instance is terminated.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// The description of the network interface.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+	DeviceIndex pulumi.StringInput `pulumi:"deviceIndex"`
+	// The IDs of the security groups for the network interface.
+	GroupSet pulumi.StringArrayInput `pulumi:"groupSet"`
+	// A number of IPv6 addresses to assign to the network interface.
+	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
+	// The IPv6 addresses associated with the network interface.
+	Ipv6Addresses InstanceIpv6AddressArrayInput `pulumi:"ipv6Addresses"`
+	// The ID of the network interface.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// The private IPv4 address of the network interface.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// One or more private IPv4 addresses to assign to the network interface.
+	PrivateIpAddresses InstancePrivateIpAddressSpecificationArrayInput `pulumi:"privateIpAddresses"`
+	// The number of secondary private IPv4 addresses.
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput `pulumi:"secondaryPrivateIpAddressCount"`
+	// The ID of the subnet.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (InstanceNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -6066,54 +6179,67 @@ func (o InstanceNetworkInterfaceOutput) ToInstanceNetworkInterfaceOutputWithCont
 	return o
 }
 
+// Not currently supported by AWS CloudFormation.
 func (o InstanceNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.AssociateCarrierIpAddress }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
 func (o InstanceNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
 }
 
+// If set to true, the interface is deleted when the instance is terminated.
 func (o InstanceNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
+// The description of the network interface.
 func (o InstanceNetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The position of the network interface in the attachment order. A primary network interface has a device index of 0.
 func (o InstanceNetworkInterfaceOutput) DeviceIndex() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) string { return v.DeviceIndex }).(pulumi.StringOutput)
 }
 
+// The IDs of the security groups for the network interface.
 func (o InstanceNetworkInterfaceOutput) GroupSet() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) []string { return v.GroupSet }).(pulumi.StringArrayOutput)
 }
 
+// A number of IPv6 addresses to assign to the network interface.
 func (o InstanceNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
+// The IPv6 addresses associated with the network interface.
 func (o InstanceNetworkInterfaceOutput) Ipv6Addresses() InstanceIpv6AddressArrayOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) []InstanceIpv6Address { return v.Ipv6Addresses }).(InstanceIpv6AddressArrayOutput)
 }
 
+// The ID of the network interface.
 func (o InstanceNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// The private IPv4 address of the network interface.
 func (o InstanceNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// One or more private IPv4 addresses to assign to the network interface.
 func (o InstanceNetworkInterfaceOutput) PrivateIpAddresses() InstancePrivateIpAddressSpecificationArrayOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) []InstancePrivateIpAddressSpecification { return v.PrivateIpAddresses }).(InstancePrivateIpAddressSpecificationArrayOutput)
 }
 
+// The number of secondary private IPv4 addresses.
 func (o InstanceNetworkInterfaceOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the subnet.
 func (o InstanceNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -6138,128 +6264,13 @@ func (o InstanceNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) InstanceNe
 	}).(InstanceNetworkInterfaceOutput)
 }
 
-type InstanceNoDevice struct {
-}
-
-// InstanceNoDeviceInput is an input type that accepts InstanceNoDeviceArgs and InstanceNoDeviceOutput values.
-// You can construct a concrete instance of `InstanceNoDeviceInput` via:
-//
-//	InstanceNoDeviceArgs{...}
-type InstanceNoDeviceInput interface {
-	pulumi.Input
-
-	ToInstanceNoDeviceOutput() InstanceNoDeviceOutput
-	ToInstanceNoDeviceOutputWithContext(context.Context) InstanceNoDeviceOutput
-}
-
-type InstanceNoDeviceArgs struct {
-}
-
-func (InstanceNoDeviceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceNoDevice)(nil)).Elem()
-}
-
-func (i InstanceNoDeviceArgs) ToInstanceNoDeviceOutput() InstanceNoDeviceOutput {
-	return i.ToInstanceNoDeviceOutputWithContext(context.Background())
-}
-
-func (i InstanceNoDeviceArgs) ToInstanceNoDeviceOutputWithContext(ctx context.Context) InstanceNoDeviceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDeviceOutput)
-}
-
-func (i InstanceNoDeviceArgs) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
-	return i.ToInstanceNoDevicePtrOutputWithContext(context.Background())
-}
-
-func (i InstanceNoDeviceArgs) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDeviceOutput).ToInstanceNoDevicePtrOutputWithContext(ctx)
-}
-
-// InstanceNoDevicePtrInput is an input type that accepts InstanceNoDeviceArgs, InstanceNoDevicePtr and InstanceNoDevicePtrOutput values.
-// You can construct a concrete instance of `InstanceNoDevicePtrInput` via:
-//
-//	        InstanceNoDeviceArgs{...}
-//
-//	or:
-//
-//	        nil
-type InstanceNoDevicePtrInput interface {
-	pulumi.Input
-
-	ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput
-	ToInstanceNoDevicePtrOutputWithContext(context.Context) InstanceNoDevicePtrOutput
-}
-
-type instanceNoDevicePtrType InstanceNoDeviceArgs
-
-func InstanceNoDevicePtr(v *InstanceNoDeviceArgs) InstanceNoDevicePtrInput {
-	return (*instanceNoDevicePtrType)(v)
-}
-
-func (*instanceNoDevicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceNoDevice)(nil)).Elem()
-}
-
-func (i *instanceNoDevicePtrType) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
-	return i.ToInstanceNoDevicePtrOutputWithContext(context.Background())
-}
-
-func (i *instanceNoDevicePtrType) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDevicePtrOutput)
-}
-
-type InstanceNoDeviceOutput struct{ *pulumi.OutputState }
-
-func (InstanceNoDeviceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceNoDevice)(nil)).Elem()
-}
-
-func (o InstanceNoDeviceOutput) ToInstanceNoDeviceOutput() InstanceNoDeviceOutput {
-	return o
-}
-
-func (o InstanceNoDeviceOutput) ToInstanceNoDeviceOutputWithContext(ctx context.Context) InstanceNoDeviceOutput {
-	return o
-}
-
-func (o InstanceNoDeviceOutput) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
-	return o.ToInstanceNoDevicePtrOutputWithContext(context.Background())
-}
-
-func (o InstanceNoDeviceOutput) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceNoDevice) *InstanceNoDevice {
-		return &v
-	}).(InstanceNoDevicePtrOutput)
-}
-
-type InstanceNoDevicePtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceNoDevicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceNoDevice)(nil)).Elem()
-}
-
-func (o InstanceNoDevicePtrOutput) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
-	return o
-}
-
-func (o InstanceNoDevicePtrOutput) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
-	return o
-}
-
-func (o InstanceNoDevicePtrOutput) Elem() InstanceNoDeviceOutput {
-	return o.ApplyT(func(v *InstanceNoDevice) InstanceNoDevice {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceNoDevice
-		return ret
-	}).(InstanceNoDeviceOutput)
-}
-
 type InstancePrivateDnsNameOptions struct {
-	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
-	EnableResourceNameDnsAaaaRecord *bool   `pulumi:"enableResourceNameDnsAaaaRecord"`
-	HostnameType                    *string `pulumi:"hostnameType"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+	EnableResourceNameDnsARecord *bool `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+	EnableResourceNameDnsAaaaRecord *bool `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+	HostnameType *InstancePrivateDnsNameOptionsHostnameType `pulumi:"hostnameType"`
 }
 
 // InstancePrivateDnsNameOptionsInput is an input type that accepts InstancePrivateDnsNameOptionsArgs and InstancePrivateDnsNameOptionsOutput values.
@@ -6274,9 +6285,12 @@ type InstancePrivateDnsNameOptionsInput interface {
 }
 
 type InstancePrivateDnsNameOptionsArgs struct {
-	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
-	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAaaaRecord"`
-	HostnameType                    pulumi.StringPtrInput `pulumi:"hostnameType"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+	EnableResourceNameDnsARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+	HostnameType InstancePrivateDnsNameOptionsHostnameTypePtrInput `pulumi:"hostnameType"`
 }
 
 func (InstancePrivateDnsNameOptionsArgs) ElementType() reflect.Type {
@@ -6356,16 +6370,21 @@ func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsPtrO
 	}).(InstancePrivateDnsNameOptionsPtrOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
 func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
 func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
 }
 
-func (o InstancePrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
+// The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+func (o InstancePrivateDnsNameOptionsOutput) HostnameType() InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *InstancePrivateDnsNameOptionsHostnameType {
+		return v.HostnameType
+	}).(InstancePrivateDnsNameOptionsHostnameTypePtrOutput)
 }
 
 type InstancePrivateDnsNameOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -6392,6 +6411,7 @@ func (o InstancePrivateDnsNameOptionsPtrOutput) Elem() InstancePrivateDnsNameOpt
 	}).(InstancePrivateDnsNameOptionsOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
 func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *bool {
 		if v == nil {
@@ -6401,6 +6421,7 @@ func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsARecord() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
 func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *bool {
 		if v == nil {
@@ -6410,17 +6431,20 @@ func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAaaaRecord(
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o InstancePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *string {
+// The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+func (o InstancePrivateDnsNameOptionsPtrOutput) HostnameType() InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *InstancePrivateDnsNameOptionsHostnameType {
 		if v == nil {
 			return nil
 		}
 		return v.HostnameType
-	}).(pulumi.StringPtrOutput)
+	}).(InstancePrivateDnsNameOptionsHostnameTypePtrOutput)
 }
 
 type InstancePrivateIpAddressSpecification struct {
-	Primary          bool   `pulumi:"primary"`
+	// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+	Primary bool `pulumi:"primary"`
+	// The private IPv4 addresses.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 }
 
@@ -6436,7 +6460,9 @@ type InstancePrivateIpAddressSpecificationInput interface {
 }
 
 type InstancePrivateIpAddressSpecificationArgs struct {
-	Primary          pulumi.BoolInput   `pulumi:"primary"`
+	// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The private IPv4 addresses.
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 }
 
@@ -6491,10 +6517,12 @@ func (o InstancePrivateIpAddressSpecificationOutput) ToInstancePrivateIpAddressS
 	return o
 }
 
+// Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
 func (o InstancePrivateIpAddressSpecificationOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstancePrivateIpAddressSpecification) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
+// The private IPv4 addresses.
 func (o InstancePrivateIpAddressSpecificationOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v InstancePrivateIpAddressSpecification) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
@@ -6520,8 +6548,10 @@ func (o InstancePrivateIpAddressSpecificationArrayOutput) Index(i pulumi.IntInpu
 }
 
 type InstanceSsmAssociation struct {
+	// The input parameter values to use with the associated SSM document.
 	AssociationParameters []InstanceAssociationParameter `pulumi:"associationParameters"`
-	DocumentName          string                         `pulumi:"documentName"`
+	// The name of an SSM document to associate with the instance.
+	DocumentName string `pulumi:"documentName"`
 }
 
 // InstanceSsmAssociationInput is an input type that accepts InstanceSsmAssociationArgs and InstanceSsmAssociationOutput values.
@@ -6536,8 +6566,10 @@ type InstanceSsmAssociationInput interface {
 }
 
 type InstanceSsmAssociationArgs struct {
+	// The input parameter values to use with the associated SSM document.
 	AssociationParameters InstanceAssociationParameterArrayInput `pulumi:"associationParameters"`
-	DocumentName          pulumi.StringInput                     `pulumi:"documentName"`
+	// The name of an SSM document to associate with the instance.
+	DocumentName pulumi.StringInput `pulumi:"documentName"`
 }
 
 func (InstanceSsmAssociationArgs) ElementType() reflect.Type {
@@ -6591,10 +6623,12 @@ func (o InstanceSsmAssociationOutput) ToInstanceSsmAssociationOutputWithContext(
 	return o
 }
 
+// The input parameter values to use with the associated SSM document.
 func (o InstanceSsmAssociationOutput) AssociationParameters() InstanceAssociationParameterArrayOutput {
 	return o.ApplyT(func(v InstanceSsmAssociation) []InstanceAssociationParameter { return v.AssociationParameters }).(InstanceAssociationParameterArrayOutput)
 }
 
+// The name of an SSM document to associate with the instance.
 func (o InstanceSsmAssociationOutput) DocumentName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceSsmAssociation) string { return v.DocumentName }).(pulumi.StringOutput)
 }
@@ -6625,7 +6659,9 @@ type InstanceTag struct {
 }
 
 type InstanceVolume struct {
-	Device   string `pulumi:"device"`
+	// The device name (for example, /dev/sdh or xvdh).
+	Device string `pulumi:"device"`
+	// The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
 	VolumeId string `pulumi:"volumeId"`
 }
 
@@ -6641,7 +6677,9 @@ type InstanceVolumeInput interface {
 }
 
 type InstanceVolumeArgs struct {
-	Device   pulumi.StringInput `pulumi:"device"`
+	// The device name (for example, /dev/sdh or xvdh).
+	Device pulumi.StringInput `pulumi:"device"`
+	// The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
 	VolumeId pulumi.StringInput `pulumi:"volumeId"`
 }
 
@@ -6696,10 +6734,12 @@ func (o InstanceVolumeOutput) ToInstanceVolumeOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The device name (for example, /dev/sdh or xvdh).
 func (o InstanceVolumeOutput) Device() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceVolume) string { return v.Device }).(pulumi.StringOutput)
 }
 
+// The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
 func (o InstanceVolumeOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceVolume) string { return v.VolumeId }).(pulumi.StringOutput)
 }
@@ -15135,8 +15175,11 @@ type NatGatewayTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type NetworkAclTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -19201,6 +19244,7 @@ type SecurityGroupEgressType struct {
 	DestinationSecurityGroupId *string `pulumi:"destinationSecurityGroupId"`
 	FromPort                   *int    `pulumi:"fromPort"`
 	IpProtocol                 string  `pulumi:"ipProtocol"`
+	SourceSecurityGroupId      *string `pulumi:"sourceSecurityGroupId"`
 	ToPort                     *int    `pulumi:"toPort"`
 }
 
@@ -19223,6 +19267,7 @@ type SecurityGroupEgressTypeArgs struct {
 	DestinationSecurityGroupId pulumi.StringPtrInput `pulumi:"destinationSecurityGroupId"`
 	FromPort                   pulumi.IntPtrInput    `pulumi:"fromPort"`
 	IpProtocol                 pulumi.StringInput    `pulumi:"ipProtocol"`
+	SourceSecurityGroupId      pulumi.StringPtrInput `pulumi:"sourceSecurityGroupId"`
 	ToPort                     pulumi.IntPtrInput    `pulumi:"toPort"`
 }
 
@@ -19303,6 +19348,10 @@ func (o SecurityGroupEgressTypeOutput) FromPort() pulumi.IntPtrOutput {
 
 func (o SecurityGroupEgressTypeOutput) IpProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupEgressType) string { return v.IpProtocol }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupEgressTypeOutput) SourceSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.SourceSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
 func (o SecurityGroupEgressTypeOutput) ToPort() pulumi.IntPtrOutput {
@@ -27250,6 +27299,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagArrayInput)(nil)).Elem(), CapacityReservationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagSpecificationInput)(nil)).Elem(), CapacityReservationTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationTagSpecificationArrayInput)(nil)).Elem(), CapacityReservationTagSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CpuOptionsPropertiesInput)(nil)).Elem(), CpuOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CpuOptionsPropertiesPtrInput)(nil)).Elem(), CpuOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CreditSpecificationPropertiesInput)(nil)).Elem(), CreditSpecificationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CreditSpecificationPropertiesPtrInput)(nil)).Elem(), CreditSpecificationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationOptionsPropertiesInput)(nil)).Elem(), DestinationOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DestinationOptionsPropertiesPtrInput)(nil)).Elem(), DestinationOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetAcceleratorCountRequestInput)(nil)).Elem(), Ec2FleetAcceleratorCountRequestArgs{})
@@ -27295,24 +27348,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTotalLocalStorageGbRequestPtrInput)(nil)).Elem(), Ec2FleetTotalLocalStorageGbRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetVCpuCountRangeRequestInput)(nil)).Elem(), Ec2FleetVCpuCountRangeRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetVCpuCountRangeRequestPtrInput)(nil)).Elem(), Ec2FleetVCpuCountRangeRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnclaveOptionsPropertiesInput)(nil)).Elem(), EnclaveOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnclaveOptionsPropertiesPtrInput)(nil)).Elem(), EnclaveOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HibernationOptionsPropertiesInput)(nil)).Elem(), HibernationOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HibernationOptionsPropertiesPtrInput)(nil)).Elem(), HibernationOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAssociationParameterInput)(nil)).Elem(), InstanceAssociationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAssociationParameterArrayInput)(nil)).Elem(), InstanceAssociationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlockDeviceMappingInput)(nil)).Elem(), InstanceBlockDeviceMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlockDeviceMappingArrayInput)(nil)).Elem(), InstanceBlockDeviceMappingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCpuOptionsInput)(nil)).Elem(), InstanceCpuOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCpuOptionsPtrInput)(nil)).Elem(), InstanceCpuOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCreditSpecificationInput)(nil)).Elem(), InstanceCreditSpecificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCreditSpecificationPtrInput)(nil)).Elem(), InstanceCreditSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEbsInput)(nil)).Elem(), InstanceEbsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEbsPtrInput)(nil)).Elem(), InstanceEbsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceElasticGpuSpecificationInput)(nil)).Elem(), InstanceElasticGpuSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceElasticGpuSpecificationArrayInput)(nil)).Elem(), InstanceElasticGpuSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceElasticInferenceAcceleratorInput)(nil)).Elem(), InstanceElasticInferenceAcceleratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceElasticInferenceAcceleratorArrayInput)(nil)).Elem(), InstanceElasticInferenceAcceleratorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnclaveOptionsInput)(nil)).Elem(), InstanceEnclaveOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnclaveOptionsPtrInput)(nil)).Elem(), InstanceEnclaveOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceHibernationOptionsInput)(nil)).Elem(), InstanceHibernationOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceHibernationOptionsPtrInput)(nil)).Elem(), InstanceHibernationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIpv6AddressInput)(nil)).Elem(), InstanceIpv6AddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIpv6AddressArrayInput)(nil)).Elem(), InstanceIpv6AddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplateSpecificationInput)(nil)).Elem(), InstanceLaunchTemplateSpecificationArgs{})
@@ -27321,8 +27370,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLicenseSpecificationArrayInput)(nil)).Elem(), InstanceLicenseSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceInput)(nil)).Elem(), InstanceNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceArrayInput)(nil)).Elem(), InstanceNetworkInterfaceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNoDeviceInput)(nil)).Elem(), InstanceNoDeviceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNoDevicePtrInput)(nil)).Elem(), InstanceNoDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsInput)(nil)).Elem(), InstancePrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsPtrInput)(nil)).Elem(), InstancePrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateIpAddressSpecificationInput)(nil)).Elem(), InstancePrivateIpAddressSpecificationArgs{})
@@ -27562,6 +27609,10 @@ func init() {
 	pulumi.RegisterOutputType(CapacityReservationTagArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(CpuOptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(CpuOptionsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CreditSpecificationPropertiesOutput{})
+	pulumi.RegisterOutputType(CreditSpecificationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DestinationOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(DestinationOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetAcceleratorCountRequestOutput{})
@@ -27608,24 +27659,20 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetTotalLocalStorageGbRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetVCpuCountRangeRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetVCpuCountRangeRequestPtrOutput{})
+	pulumi.RegisterOutputType(EnclaveOptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(EnclaveOptionsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(HibernationOptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(HibernationOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAssociationParameterOutput{})
 	pulumi.RegisterOutputType(InstanceAssociationParameterArrayOutput{})
 	pulumi.RegisterOutputType(InstanceBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(InstanceBlockDeviceMappingArrayOutput{})
-	pulumi.RegisterOutputType(InstanceCpuOptionsOutput{})
-	pulumi.RegisterOutputType(InstanceCpuOptionsPtrOutput{})
-	pulumi.RegisterOutputType(InstanceCreditSpecificationOutput{})
-	pulumi.RegisterOutputType(InstanceCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEbsOutput{})
 	pulumi.RegisterOutputType(InstanceEbsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceElasticGpuSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceElasticGpuSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorOutput{})
 	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorArrayOutput{})
-	pulumi.RegisterOutputType(InstanceEnclaveOptionsOutput{})
-	pulumi.RegisterOutputType(InstanceEnclaveOptionsPtrOutput{})
-	pulumi.RegisterOutputType(InstanceHibernationOptionsOutput{})
-	pulumi.RegisterOutputType(InstanceHibernationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceIpv6AddressOutput{})
 	pulumi.RegisterOutputType(InstanceIpv6AddressArrayOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationOutput{})
@@ -27634,8 +27681,6 @@ func init() {
 	pulumi.RegisterOutputType(InstanceLicenseSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceArrayOutput{})
-	pulumi.RegisterOutputType(InstanceNoDeviceOutput{})
-	pulumi.RegisterOutputType(InstanceNoDevicePtrOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstancePrivateIpAddressSpecificationOutput{})

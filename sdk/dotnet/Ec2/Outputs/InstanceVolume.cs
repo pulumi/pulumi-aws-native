@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class InstanceVolume
     {
+        /// <summary>
+        /// The device name (for example, /dev/sdh or xvdh).
+        /// </summary>
         public readonly string Device;
+        /// <summary>
+        /// The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
+        /// </summary>
         public readonly string VolumeId;
 
         [OutputConstructor]

@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// An object that represents the configuration for Service Connect TLS.
+    /// </summary>
     public sealed class ServiceConnectTlsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The signer certificate authority.
+        /// </summary>
         [Input("issuerCertificateAuthority", required: true)]
         public Input<Inputs.ServiceConnectTlsCertificateAuthorityArgs> IssuerCertificateAuthority { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Key Management Service key.
+        /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that's associated with the Service Connect TLS.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

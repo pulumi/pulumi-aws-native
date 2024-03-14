@@ -4385,6 +4385,338 @@ func (in *flowLogTrafficTypePtr) ToFlowLogTrafficTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FlowLogTrafficTypePtrOutput)
 }
 
+// Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+type InstanceAffinity string
+
+const (
+	InstanceAffinityDefault = InstanceAffinity("default")
+	InstanceAffinityHost    = InstanceAffinity("host")
+)
+
+func (InstanceAffinity) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAffinity)(nil)).Elem()
+}
+
+func (e InstanceAffinity) ToInstanceAffinityOutput() InstanceAffinityOutput {
+	return pulumi.ToOutput(e).(InstanceAffinityOutput)
+}
+
+func (e InstanceAffinity) ToInstanceAffinityOutputWithContext(ctx context.Context) InstanceAffinityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceAffinityOutput)
+}
+
+func (e InstanceAffinity) ToInstanceAffinityPtrOutput() InstanceAffinityPtrOutput {
+	return e.ToInstanceAffinityPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceAffinity) ToInstanceAffinityPtrOutputWithContext(ctx context.Context) InstanceAffinityPtrOutput {
+	return InstanceAffinity(e).ToInstanceAffinityOutputWithContext(ctx).ToInstanceAffinityPtrOutputWithContext(ctx)
+}
+
+func (e InstanceAffinity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceAffinity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceAffinity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceAffinity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceAffinityOutput struct{ *pulumi.OutputState }
+
+func (InstanceAffinityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAffinity)(nil)).Elem()
+}
+
+func (o InstanceAffinityOutput) ToInstanceAffinityOutput() InstanceAffinityOutput {
+	return o
+}
+
+func (o InstanceAffinityOutput) ToInstanceAffinityOutputWithContext(ctx context.Context) InstanceAffinityOutput {
+	return o
+}
+
+func (o InstanceAffinityOutput) ToInstanceAffinityPtrOutput() InstanceAffinityPtrOutput {
+	return o.ToInstanceAffinityPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceAffinityOutput) ToInstanceAffinityPtrOutputWithContext(ctx context.Context) InstanceAffinityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceAffinity) *InstanceAffinity {
+		return &v
+	}).(InstanceAffinityPtrOutput)
+}
+
+func (o InstanceAffinityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceAffinityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceAffinity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceAffinityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceAffinityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceAffinity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceAffinityPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceAffinityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceAffinity)(nil)).Elem()
+}
+
+func (o InstanceAffinityPtrOutput) ToInstanceAffinityPtrOutput() InstanceAffinityPtrOutput {
+	return o
+}
+
+func (o InstanceAffinityPtrOutput) ToInstanceAffinityPtrOutputWithContext(ctx context.Context) InstanceAffinityPtrOutput {
+	return o
+}
+
+func (o InstanceAffinityPtrOutput) Elem() InstanceAffinityOutput {
+	return o.ApplyT(func(v *InstanceAffinity) InstanceAffinity {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceAffinity
+		return ret
+	}).(InstanceAffinityOutput)
+}
+
+func (o InstanceAffinityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceAffinityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceAffinity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceAffinityInput is an input type that accepts values of the InstanceAffinity enum
+// A concrete instance of `InstanceAffinityInput` can be one of the following:
+//
+//	InstanceAffinityDefault
+//	InstanceAffinityHost
+type InstanceAffinityInput interface {
+	pulumi.Input
+
+	ToInstanceAffinityOutput() InstanceAffinityOutput
+	ToInstanceAffinityOutputWithContext(context.Context) InstanceAffinityOutput
+}
+
+var instanceAffinityPtrType = reflect.TypeOf((**InstanceAffinity)(nil)).Elem()
+
+type InstanceAffinityPtrInput interface {
+	pulumi.Input
+
+	ToInstanceAffinityPtrOutput() InstanceAffinityPtrOutput
+	ToInstanceAffinityPtrOutputWithContext(context.Context) InstanceAffinityPtrOutput
+}
+
+type instanceAffinityPtr string
+
+func InstanceAffinityPtr(v string) InstanceAffinityPtrInput {
+	return (*instanceAffinityPtr)(&v)
+}
+
+func (*instanceAffinityPtr) ElementType() reflect.Type {
+	return instanceAffinityPtrType
+}
+
+func (in *instanceAffinityPtr) ToInstanceAffinityPtrOutput() InstanceAffinityPtrOutput {
+	return pulumi.ToOutput(in).(InstanceAffinityPtrOutput)
+}
+
+func (in *instanceAffinityPtr) ToInstanceAffinityPtrOutputWithContext(ctx context.Context) InstanceAffinityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceAffinityPtrOutput)
+}
+
+// The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+type InstancePrivateDnsNameOptionsHostnameType string
+
+const (
+	InstancePrivateDnsNameOptionsHostnameTypeIpName       = InstancePrivateDnsNameOptionsHostnameType("ip-name")
+	InstancePrivateDnsNameOptionsHostnameTypeResourceName = InstancePrivateDnsNameOptionsHostnameType("resource-name")
+)
+
+func (InstancePrivateDnsNameOptionsHostnameType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameType)(nil)).Elem()
+}
+
+func (e InstancePrivateDnsNameOptionsHostnameType) ToInstancePrivateDnsNameOptionsHostnameTypeOutput() InstancePrivateDnsNameOptionsHostnameTypeOutput {
+	return pulumi.ToOutput(e).(InstancePrivateDnsNameOptionsHostnameTypeOutput)
+}
+
+func (e InstancePrivateDnsNameOptionsHostnameType) ToInstancePrivateDnsNameOptionsHostnameTypeOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsHostnameTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstancePrivateDnsNameOptionsHostnameTypeOutput)
+}
+
+func (e InstancePrivateDnsNameOptionsHostnameType) ToInstancePrivateDnsNameOptionsHostnameTypePtrOutput() InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return e.ToInstancePrivateDnsNameOptionsHostnameTypePtrOutputWithContext(context.Background())
+}
+
+func (e InstancePrivateDnsNameOptionsHostnameType) ToInstancePrivateDnsNameOptionsHostnameTypePtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return InstancePrivateDnsNameOptionsHostnameType(e).ToInstancePrivateDnsNameOptionsHostnameTypeOutputWithContext(ctx).ToInstancePrivateDnsNameOptionsHostnameTypePtrOutputWithContext(ctx)
+}
+
+func (e InstancePrivateDnsNameOptionsHostnameType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstancePrivateDnsNameOptionsHostnameType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstancePrivateDnsNameOptionsHostnameType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstancePrivateDnsNameOptionsHostnameType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstancePrivateDnsNameOptionsHostnameTypeOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateDnsNameOptionsHostnameTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameType)(nil)).Elem()
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypeOutput) ToInstancePrivateDnsNameOptionsHostnameTypeOutput() InstancePrivateDnsNameOptionsHostnameTypeOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypeOutput) ToInstancePrivateDnsNameOptionsHostnameTypeOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsHostnameTypeOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypeOutput) ToInstancePrivateDnsNameOptionsHostnameTypePtrOutput() InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return o.ToInstancePrivateDnsNameOptionsHostnameTypePtrOutputWithContext(context.Background())
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypeOutput) ToInstancePrivateDnsNameOptionsHostnameTypePtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstancePrivateDnsNameOptionsHostnameType) *InstancePrivateDnsNameOptionsHostnameType {
+		return &v
+	}).(InstancePrivateDnsNameOptionsHostnameTypePtrOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstancePrivateDnsNameOptionsHostnameType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstancePrivateDnsNameOptionsHostnameType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstancePrivateDnsNameOptionsHostnameTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateDnsNameOptionsHostnameTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstancePrivateDnsNameOptionsHostnameType)(nil)).Elem()
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypePtrOutput) ToInstancePrivateDnsNameOptionsHostnameTypePtrOutput() InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypePtrOutput) ToInstancePrivateDnsNameOptionsHostnameTypePtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypePtrOutput) Elem() InstancePrivateDnsNameOptionsHostnameTypeOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptionsHostnameType) InstancePrivateDnsNameOptionsHostnameType {
+		if v != nil {
+			return *v
+		}
+		var ret InstancePrivateDnsNameOptionsHostnameType
+		return ret
+	}).(InstancePrivateDnsNameOptionsHostnameTypeOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstancePrivateDnsNameOptionsHostnameTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstancePrivateDnsNameOptionsHostnameType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstancePrivateDnsNameOptionsHostnameTypeInput is an input type that accepts values of the InstancePrivateDnsNameOptionsHostnameType enum
+// A concrete instance of `InstancePrivateDnsNameOptionsHostnameTypeInput` can be one of the following:
+//
+//	InstancePrivateDnsNameOptionsHostnameTypeIpName
+//	InstancePrivateDnsNameOptionsHostnameTypeResourceName
+type InstancePrivateDnsNameOptionsHostnameTypeInput interface {
+	pulumi.Input
+
+	ToInstancePrivateDnsNameOptionsHostnameTypeOutput() InstancePrivateDnsNameOptionsHostnameTypeOutput
+	ToInstancePrivateDnsNameOptionsHostnameTypeOutputWithContext(context.Context) InstancePrivateDnsNameOptionsHostnameTypeOutput
+}
+
+var instancePrivateDnsNameOptionsHostnameTypePtrType = reflect.TypeOf((**InstancePrivateDnsNameOptionsHostnameType)(nil)).Elem()
+
+type InstancePrivateDnsNameOptionsHostnameTypePtrInput interface {
+	pulumi.Input
+
+	ToInstancePrivateDnsNameOptionsHostnameTypePtrOutput() InstancePrivateDnsNameOptionsHostnameTypePtrOutput
+	ToInstancePrivateDnsNameOptionsHostnameTypePtrOutputWithContext(context.Context) InstancePrivateDnsNameOptionsHostnameTypePtrOutput
+}
+
+type instancePrivateDnsNameOptionsHostnameTypePtr string
+
+func InstancePrivateDnsNameOptionsHostnameTypePtr(v string) InstancePrivateDnsNameOptionsHostnameTypePtrInput {
+	return (*instancePrivateDnsNameOptionsHostnameTypePtr)(&v)
+}
+
+func (*instancePrivateDnsNameOptionsHostnameTypePtr) ElementType() reflect.Type {
+	return instancePrivateDnsNameOptionsHostnameTypePtrType
+}
+
+func (in *instancePrivateDnsNameOptionsHostnameTypePtr) ToInstancePrivateDnsNameOptionsHostnameTypePtrOutput() InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return pulumi.ToOutput(in).(InstancePrivateDnsNameOptionsHostnameTypePtrOutput)
+}
+
+func (in *instancePrivateDnsNameOptionsHostnameTypePtr) ToInstancePrivateDnsNameOptionsHostnameTypePtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsHostnameTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstancePrivateDnsNameOptionsHostnameTypePtrOutput)
+}
+
 // Limits which service in Amazon Web Services that the pool can be used in.
 type IpamPoolAwsService string
 
@@ -10249,6 +10581,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogResourceTypePtrInput)(nil)).Elem(), FlowLogResourceType("NetworkInterface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypeInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTrafficTypePtrInput)(nil)).Elem(), FlowLogTrafficType("ACCEPT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAffinityInput)(nil)).Elem(), InstanceAffinity("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAffinityPtrInput)(nil)).Elem(), InstanceAffinity("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypeInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypePtrInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolAwsServiceInput)(nil)).Elem(), IpamPoolAwsService("ec2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolAwsServicePtrInput)(nil)).Elem(), IpamPoolAwsService("ec2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolPublicIpSourceInput)(nil)).Elem(), IpamPoolPublicIpSource("byoip"))
@@ -10368,6 +10704,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowLogResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowLogTrafficTypeOutput{})
 	pulumi.RegisterOutputType(FlowLogTrafficTypePtrOutput{})
+	pulumi.RegisterOutputType(InstanceAffinityOutput{})
+	pulumi.RegisterOutputType(InstanceAffinityPtrOutput{})
+	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsHostnameTypeOutput{})
+	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsHostnameTypePtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolAwsServiceOutput{})
 	pulumi.RegisterOutputType(IpamPoolAwsServicePtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolIpamScopeTypeOutput{})

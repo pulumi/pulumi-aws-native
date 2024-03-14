@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class InstanceAssociationParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of an input parameter that is in the associated SSM document.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("value", required: true)]
         private InputList<string>? _value;
+
+        /// <summary>
+        /// The value of an input parameter.
+        /// </summary>
         public InputList<string> Value
         {
             get => _value ?? (_value = new InputList<string>());

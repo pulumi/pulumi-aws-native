@@ -11,13 +11,20 @@ namespace Pulumi.AwsNative.Ecr.Inputs
 {
 
     /// <summary>
-    /// The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+    /// The ``LifecyclePolicy`` property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
     /// </summary>
     public sealed class RepositoryLifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The JSON repository policy text to apply to the repository.
+        /// </summary>
         [Input("lifecyclePolicyText")]
         public Input<string>? LifecyclePolicyText { get; set; }
 
+        /// <summary>
+        /// The AWS account ID associated with the registry that contains the repository. If you do
+        ///  not specify a registry, the default registry is assumed.
+        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 

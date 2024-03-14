@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html
+ * The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.
  *
  * ## Example Usage
  * ### Example
@@ -80,20 +80,34 @@ export class Repository extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
+     */
     public readonly emptyOnDelete!: pulumi.Output<boolean | undefined>;
+    /**
+     * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+     */
     public readonly encryptionConfiguration!: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration | undefined>;
+    /**
+     * The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+     */
     public readonly imageScanningConfiguration!: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
     /**
-     * The image tag mutability setting for the repository.
+     * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
     public readonly imageTagMutability!: pulumi.Output<enums.ecr.RepositoryImageTagMutability | undefined>;
+    /**
+     * Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+     */
     public readonly lifecyclePolicy!: pulumi.Output<outputs.ecr.RepositoryLifecyclePolicy | undefined>;
     /**
-     * The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
+     * The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+     *  The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+     *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     public readonly repositoryName!: pulumi.Output<string | undefined>;
     /**
-     * The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
+     * The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
      */
@@ -148,20 +162,34 @@ export class Repository extends pulumi.CustomResource {
  * The set of arguments for constructing a Repository resource.
  */
 export interface RepositoryArgs {
+    /**
+     * If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
+     */
     emptyOnDelete?: pulumi.Input<boolean>;
+    /**
+     * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+     */
     encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryEncryptionConfigurationArgs>;
+    /**
+     * The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+     */
     imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfigurationArgs>;
     /**
-     * The image tag mutability setting for the repository.
+     * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
     imageTagMutability?: pulumi.Input<enums.ecr.RepositoryImageTagMutability>;
+    /**
+     * Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+     */
     lifecyclePolicy?: pulumi.Input<inputs.ecr.RepositoryLifecyclePolicyArgs>;
     /**
-     * The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
+     * The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+     *  The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+     *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     repositoryName?: pulumi.Input<string>;
     /**
-     * The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
+     * The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
      */

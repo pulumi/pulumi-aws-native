@@ -14,3 +14,4 @@ class LinkResourceType(str, Enum):
     AWS_LOGS_LOG_GROUP = "AWS::Logs::LogGroup"
     AWSX_RAY_TRACE = "AWS::XRay::Trace"
     AWS_APPLICATION_INSIGHTS_APPLICATION = "AWS::ApplicationInsights::Application"
+    AWS_INTERNET_MONITOR_MONITOR = "AWS::InternetMonitor::Monitor"

@@ -394,6 +394,7 @@ type ExtensionAssociationTag struct {
 type ExtensionParameter struct {
 	// The description of the extension Parameter.
 	Description *string `pulumi:"description"`
+	Dynamic     *bool   `pulumi:"dynamic"`
 	Required    bool    `pulumi:"required"`
 }
 
@@ -412,6 +413,7 @@ type ExtensionParameterInput interface {
 type ExtensionParameterArgs struct {
 	// The description of the extension Parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	Dynamic     pulumi.BoolPtrInput   `pulumi:"dynamic"`
 	Required    pulumi.BoolInput      `pulumi:"required"`
 }
 
@@ -470,6 +472,10 @@ func (o ExtensionParameterOutput) ToExtensionParameterOutputWithContext(ctx cont
 // The description of the extension Parameter.
 func (o ExtensionParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ExtensionParameterOutput) Dynamic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExtensionParameter) *bool { return v.Dynamic }).(pulumi.BoolPtrOutput)
 }
 
 func (o ExtensionParameterOutput) Required() pulumi.BoolOutput {

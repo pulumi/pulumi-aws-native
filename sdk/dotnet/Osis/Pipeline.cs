@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Osis
         public Output<string> PipelineArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Prepper pipeline configuration in YAML format.
+        /// The Data Prepper pipeline configuration.
         /// </summary>
         [Output("pipelineConfigurationBody")]
         public Output<string> PipelineConfigurationBody { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.AwsNative.Osis
         public Input<int> MinUnits { get; set; } = null!;
 
         /// <summary>
-        /// The Data Prepper pipeline configuration in YAML format.
+        /// The Data Prepper pipeline configuration.
         /// </summary>
         [Input("pipelineConfigurationBody", required: true)]
         public Input<string> PipelineConfigurationBody { get; set; } = null!;

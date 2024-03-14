@@ -22,6 +22,7 @@ class WorkgroupArgs:
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
@@ -31,6 +32,17 @@ class WorkgroupArgs:
                  workgroup_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
+        :param pulumi.Input[int] base_capacity: The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+        :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+        :param pulumi.Input[int] max_capacity: The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        :param pulumi.Input[str] namespace_name: The namespace the workgroup is associated with.
+        :param pulumi.Input[int] port: The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+        :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The map of the key-value pairs used to tag the workgroup.
+        :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
         if base_capacity is not None:
             pulumi.set(__self__, "base_capacity", base_capacity)
@@ -38,6 +50,8 @@ class WorkgroupArgs:
             pulumi.set(__self__, "config_parameters", config_parameters)
         if enhanced_vpc_routing is not None:
             pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if port is not None:
@@ -56,6 +70,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
@@ -65,6 +82,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="configParameters")
     def config_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]]:
+        """
+        A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+        """
         return pulumi.get(self, "config_parameters")
 
     @config_parameters.setter
@@ -74,6 +94,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+        """
         return pulumi.get(self, "enhanced_vpc_routing")
 
     @enhanced_vpc_routing.setter
@@ -81,8 +104,23 @@ class WorkgroupArgs:
         pulumi.set(self, "enhanced_vpc_routing", value)
 
     @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_capacity", value)
+
+    @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace the workgroup is associated with.
+        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -92,6 +130,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -101,6 +142,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that specifies whether the workgroup can be accessible from a public network.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
@@ -110,6 +154,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of security group IDs to associate with the workgroup.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -119,6 +166,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of subnet IDs the workgroup is associated with.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -128,6 +178,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The map of the key-value pairs used to tag the workgroup.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -137,6 +190,9 @@ class WorkgroupArgs:
     @property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the workgroup.
+        """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
@@ -152,6 +208,7 @@ class Workgroup(pulumi.CustomResource):
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
@@ -165,6 +222,17 @@ class Workgroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] base_capacity: The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]] config_parameters: A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+        :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+        :param pulumi.Input[int] max_capacity: The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        :param pulumi.Input[str] namespace_name: The namespace the workgroup is associated with.
+        :param pulumi.Input[int] port: The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+        :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The map of the key-value pairs used to tag the workgroup.
+        :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
         ...
     @overload
@@ -193,6 +261,7 @@ class Workgroup(pulumi.CustomResource):
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
@@ -212,6 +281,7 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["base_capacity"] = base_capacity
             __props__.__dict__["config_parameters"] = config_parameters
             __props__.__dict__["enhanced_vpc_routing"] = enhanced_vpc_routing
+            __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["port"] = port
             __props__.__dict__["publicly_accessible"] = publicly_accessible
@@ -247,6 +317,7 @@ class Workgroup(pulumi.CustomResource):
         __props__.__dict__["base_capacity"] = None
         __props__.__dict__["config_parameters"] = None
         __props__.__dict__["enhanced_vpc_routing"] = None
+        __props__.__dict__["max_capacity"] = None
         __props__.__dict__["namespace_name"] = None
         __props__.__dict__["port"] = None
         __props__.__dict__["publicly_accessible"] = None
@@ -260,55 +331,96 @@ class Workgroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="baseCapacity")
     def base_capacity(self) -> pulumi.Output[Optional[int]]:
+        """
+        The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        """
         return pulumi.get(self, "base_capacity")
 
     @property
     @pulumi.getter(name="configParameters")
     def config_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.WorkgroupConfigParameter']]]:
+        """
+        A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+        """
         return pulumi.get(self, "config_parameters")
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+        """
         return pulumi.get(self, "enhanced_vpc_routing")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> pulumi.Output[Optional[int]]:
+        """
+        The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+        """
+        return pulumi.get(self, "max_capacity")
 
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The namespace the workgroup is associated with.
+        """
         return pulumi.get(self, "namespace_name")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that specifies whether the workgroup can be accessible from a public network.
+        """
         return pulumi.get(self, "publicly_accessible")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of security group IDs to associate with the workgroup.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of subnet IDs the workgroup is associated with.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The map of the key-value pairs used to tag the workgroup.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def workgroup(self) -> pulumi.Output['outputs.Workgroup']:
+        """
+        Definition for workgroup resource
+        """
         return pulumi.get(self, "workgroup")
 
     @property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> pulumi.Output[str]:
+        """
+        The name of the workgroup.
+        """
         return pulumi.get(self, "workgroup_name")
 

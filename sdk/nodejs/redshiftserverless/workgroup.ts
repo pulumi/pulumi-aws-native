@@ -37,16 +37,53 @@ export class Workgroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workgroup.__pulumiType;
     }
 
+    /**
+     * The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+     */
     public readonly baseCapacity!: pulumi.Output<number | undefined>;
+    /**
+     * A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+     */
     public readonly configParameters!: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[] | undefined>;
+    /**
+     * The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+     */
     public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
+    /**
+     * The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+     */
+    public readonly maxCapacity!: pulumi.Output<number | undefined>;
+    /**
+     * The namespace the workgroup is associated with.
+     */
     public readonly namespaceName!: pulumi.Output<string | undefined>;
+    /**
+     * The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+     */
     public readonly port!: pulumi.Output<number | undefined>;
+    /**
+     * A value that specifies whether the workgroup can be accessible from a public network.
+     */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of security group IDs to associate with the workgroup.
+     */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * A list of subnet IDs the workgroup is associated with.
+     */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The map of the key-value pairs used to tag the workgroup.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Definition for workgroup resource
+     */
     public /*out*/ readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup>;
+    /**
+     * The name of the workgroup.
+     */
     public readonly workgroupName!: pulumi.Output<string>;
 
     /**
@@ -63,6 +100,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
             resourceInputs["configParameters"] = args ? args.configParameters : undefined;
             resourceInputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
@@ -75,6 +113,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["baseCapacity"] = undefined /*out*/;
             resourceInputs["configParameters"] = undefined /*out*/;
             resourceInputs["enhancedVpcRouting"] = undefined /*out*/;
+            resourceInputs["maxCapacity"] = undefined /*out*/;
             resourceInputs["namespaceName"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
@@ -95,14 +134,48 @@ export class Workgroup extends pulumi.CustomResource {
  * The set of arguments for constructing a Workgroup resource.
  */
 export interface WorkgroupArgs {
+    /**
+     * The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+     */
     baseCapacity?: pulumi.Input<number>;
+    /**
+     * A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+     */
     configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameterArgs>[]>;
+    /**
+     * The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+     */
     enhancedVpcRouting?: pulumi.Input<boolean>;
+    /**
+     * The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+     */
+    maxCapacity?: pulumi.Input<number>;
+    /**
+     * The namespace the workgroup is associated with.
+     */
     namespaceName?: pulumi.Input<string>;
+    /**
+     * The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+     */
     port?: pulumi.Input<number>;
+    /**
+     * A value that specifies whether the workgroup can be accessible from a public network.
+     */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * A list of security group IDs to associate with the workgroup.
+     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of subnet IDs the workgroup is associated with.
+     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The map of the key-value pairs used to tag the workgroup.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The name of the workgroup.
+     */
     workgroupName?: pulumi.Input<string>;
 }

@@ -23,14 +23,19 @@ func LookupWorkgroup(ctx *pulumi.Context, args *LookupWorkgroupArgs, opts ...pul
 }
 
 type LookupWorkgroupArgs struct {
+	// The name of the workgroup.
 	WorkgroupName string `pulumi:"workgroupName"`
 }
 
 type LookupWorkgroupResult struct {
-	EnhancedVpcRouting *bool          `pulumi:"enhancedVpcRouting"`
-	Port               *int           `pulumi:"port"`
-	PubliclyAccessible *bool          `pulumi:"publiclyAccessible"`
-	Workgroup          *WorkgroupType `pulumi:"workgroup"`
+	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+	Port *int `pulumi:"port"`
+	// A value that specifies whether the workgroup can be accessible from a public network.
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// Definition for workgroup resource
+	Workgroup *WorkgroupType `pulumi:"workgroup"`
 }
 
 func LookupWorkgroupOutput(ctx *pulumi.Context, args LookupWorkgroupOutputArgs, opts ...pulumi.InvokeOption) LookupWorkgroupResultOutput {
@@ -47,6 +52,7 @@ func LookupWorkgroupOutput(ctx *pulumi.Context, args LookupWorkgroupOutputArgs, 
 }
 
 type LookupWorkgroupOutputArgs struct {
+	// The name of the workgroup.
 	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`
 }
 
@@ -68,18 +74,22 @@ func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutputWithContext(ct
 	return o
 }
 
+// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 func (o LookupWorkgroupResultOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) *bool { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
 }
 
+// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 func (o LookupWorkgroupResultOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// A value that specifies whether the workgroup can be accessible from a public network.
 func (o LookupWorkgroupResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
+// Definition for workgroup resource
 func (o LookupWorkgroupResultOutput) Workgroup() WorkgroupTypePtrOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) *WorkgroupType { return v.Workgroup }).(WorkgroupTypePtrOutput)
 }

@@ -129,6 +129,37 @@ namespace Pulumi.AwsNative.Msk
     }
 
     /// <summary>
+    /// The type of replication starting position.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicatorReplicationStartingPositionType : IEquatable<ReplicatorReplicationStartingPositionType>
+    {
+        private readonly string _value;
+
+        private ReplicatorReplicationStartingPositionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicatorReplicationStartingPositionType Latest { get; } = new ReplicatorReplicationStartingPositionType("LATEST");
+        public static ReplicatorReplicationStartingPositionType Earliest { get; } = new ReplicatorReplicationStartingPositionType("EARLIEST");
+
+        public static bool operator ==(ReplicatorReplicationStartingPositionType left, ReplicatorReplicationStartingPositionType right) => left.Equals(right);
+        public static bool operator !=(ReplicatorReplicationStartingPositionType left, ReplicatorReplicationStartingPositionType right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicatorReplicationStartingPositionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicatorReplicationStartingPositionType other && Equals(other);
+        public bool Equals(ReplicatorReplicationStartingPositionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of private link authentication
     /// </summary>
     [EnumType]

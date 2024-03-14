@@ -10,7 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecr
 {
     /// <summary>
-    /// The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
+    /// The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.
+    ///  A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
     /// 
     /// ## Example Usage
     /// ### Example
@@ -57,7 +58,7 @@ namespace Pulumi.AwsNative.Ecr
     public partial class RegistryPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
+        /// The JSON policy text for your registry.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
         /// </summary>
@@ -113,7 +114,7 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class RegistryPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
+        /// The JSON policy text for your registry.
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::RegistryPolicy` for more information about the expected schema for this property.
         /// </summary>

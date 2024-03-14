@@ -10,12 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Outputs
 {
 
+    /// <summary>
+    /// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+    /// </summary>
     [OutputType]
     public sealed class PrincipalPermissionsTableResource
     {
+        /// <summary>
+        /// The identifier for the Data Catalog. By default, it is the account ID of the caller.
+        /// </summary>
         public readonly string CatalogId;
+        /// <summary>
+        /// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// The name of the table.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A wildcard object representing every table under a database.
+        ///  At least one of ``TableResource$Name`` or ``TableResource$TableWildcard`` is required.
+        /// </summary>
         public readonly Outputs.PrincipalPermissionsTableWildcard? TableWildcard;
 
         [OutputConstructor]

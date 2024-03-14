@@ -11,12 +11,19 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+    /// The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
     /// </summary>
     [OutputType]
     public sealed class ClusterSettings
     {
+        /// <summary>
+        /// The name of the cluster setting. The value is ``containerInsights`` .
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value to set for the cluster setting. The supported values are ``enabled`` and ``disabled``. 
+        ///  If you set ``name`` to ``containerInsights`` and ``value`` to ``enabled``, CloudWatch Container Insights will be on for the cluster, otherwise it will be off unless the ``containerInsights`` account setting is turned on. If a cluster value is specified, it will override the ``containerInsights`` value set with [PutAccountSetting](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html) or [PutAccountSettingDefault](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html).
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

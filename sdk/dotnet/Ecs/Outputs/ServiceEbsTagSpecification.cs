@@ -10,11 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// The tag specifications of an Amazon EBS volume.
+    /// </summary>
     [OutputType]
     public sealed class ServiceEbsTagSpecification
     {
+        /// <summary>
+        /// Determines whether to propagate the tags from the task definition to 
+        /// the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
+        /// ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
+        /// propagated.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ecs.ServiceEbsTagSpecificationPropagateTags? PropagateTags;
+        /// <summary>
+        /// The type of volume resource.
+        /// </summary>
         public readonly string ResourceType;
+        /// <summary>
+        /// The tags applied to this Amazon EBS volume. ``AmazonECSCreated`` and ``AmazonECSManaged`` are reserved tags that can't be used.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceTag> Tags;
 
         [OutputConstructor]

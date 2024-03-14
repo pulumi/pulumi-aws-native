@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_configuration=None, application_description=None, application_maintenance_configuration=None, service_execution_role=None, tags=None):
+    def __init__(__self__, application_configuration=None, application_description=None, application_maintenance_configuration=None, runtime_environment=None, service_execution_role=None, tags=None):
         if application_configuration and not isinstance(application_configuration, dict):
             raise TypeError("Expected argument 'application_configuration' to be a dict")
         pulumi.set(__self__, "application_configuration", application_configuration)
@@ -31,6 +31,9 @@ class GetApplicationResult:
         if application_maintenance_configuration and not isinstance(application_maintenance_configuration, dict):
             raise TypeError("Expected argument 'application_maintenance_configuration' to be a dict")
         pulumi.set(__self__, "application_maintenance_configuration", application_maintenance_configuration)
+        if runtime_environment and not isinstance(runtime_environment, str):
+            raise TypeError("Expected argument 'runtime_environment' to be a str")
+        pulumi.set(__self__, "runtime_environment", runtime_environment)
         if service_execution_role and not isinstance(service_execution_role, str):
             raise TypeError("Expected argument 'service_execution_role' to be a str")
         pulumi.set(__self__, "service_execution_role", service_execution_role)
@@ -63,6 +66,14 @@ class GetApplicationResult:
         return pulumi.get(self, "application_maintenance_configuration")
 
     @property
+    @pulumi.getter(name="runtimeEnvironment")
+    def runtime_environment(self) -> Optional[str]:
+        """
+        The runtime environment for the application.
+        """
+        return pulumi.get(self, "runtime_environment")
+
+    @property
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> Optional[str]:
         """
@@ -88,6 +99,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             application_configuration=self.application_configuration,
             application_description=self.application_description,
             application_maintenance_configuration=self.application_maintenance_configuration,
+            runtime_environment=self.runtime_environment,
             service_execution_role=self.service_execution_role,
             tags=self.tags)
 
@@ -109,6 +121,7 @@ def get_application(application_name: Optional[str] = None,
         application_configuration=pulumi.get(__ret__, 'application_configuration'),
         application_description=pulumi.get(__ret__, 'application_description'),
         application_maintenance_configuration=pulumi.get(__ret__, 'application_maintenance_configuration'),
+        runtime_environment=pulumi.get(__ret__, 'runtime_environment'),
         service_execution_role=pulumi.get(__ret__, 'service_execution_role'),
         tags=pulumi.get(__ret__, 'tags'))
 

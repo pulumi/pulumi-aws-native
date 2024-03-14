@@ -183,8 +183,6 @@ type ContactType string
 
 const (
 	ContactTypePersonal       = ContactType("PERSONAL")
-	ContactTypeCustom         = ContactType("CUSTOM")
-	ContactTypeService        = ContactType("SERVICE")
 	ContactTypeEscalation     = ContactType("ESCALATION")
 	ContactTypeOncallSchedule = ContactType("ONCALL_SCHEDULE")
 )
@@ -312,8 +310,6 @@ func (o ContactTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 // A concrete instance of `ContactTypeInput` can be one of the following:
 //
 //	ContactTypePersonal
-//	ContactTypeCustom
-//	ContactTypeService
 //	ContactTypeEscalation
 //	ContactTypeOncallSchedule
 type ContactTypeInput interface {

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class InstanceLicenseSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the license configuration.
+        /// </summary>
         [Input("licenseConfigurationArn", required: true)]
         public Input<string> LicenseConfigurationArn { get; set; } = null!;
 

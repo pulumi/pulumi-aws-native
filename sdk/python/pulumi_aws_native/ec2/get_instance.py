@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetInstanceResult',
@@ -20,10 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInstanceResult:
-    def __init__(__self__, additional_info=None, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, monitoring=None, private_dns_name=None, private_dns_name_options=None, private_ip=None, propagate_tags_to_volume_on_creation=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, tags=None, tenancy=None, user_data=None, volumes=None):
-        if additional_info and not isinstance(additional_info, str):
-            raise TypeError("Expected argument 'additional_info' to be a str")
-        pulumi.set(__self__, "additional_info", additional_info)
+    def __init__(__self__, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, instance_id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, monitoring=None, private_dns_name=None, private_dns_name_options=None, private_ip=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, tags=None, tenancy=None, user_data=None, volumes=None, vpc_id=None):
         if affinity and not isinstance(affinity, str):
             raise TypeError("Expected argument 'affinity' to be a str")
         pulumi.set(__self__, "affinity", affinity)
@@ -45,9 +43,9 @@ class GetInstanceResult:
         if iam_instance_profile and not isinstance(iam_instance_profile, str):
             raise TypeError("Expected argument 'iam_instance_profile' to be a str")
         pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+        if instance_id and not isinstance(instance_id, str):
+            raise TypeError("Expected argument 'instance_id' to be a str")
+        pulumi.set(__self__, "instance_id", instance_id)
         if instance_initiated_shutdown_behavior and not isinstance(instance_initiated_shutdown_behavior, str):
             raise TypeError("Expected argument 'instance_initiated_shutdown_behavior' to be a str")
         pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
@@ -69,9 +67,6 @@ class GetInstanceResult:
         if private_ip and not isinstance(private_ip, str):
             raise TypeError("Expected argument 'private_ip' to be a str")
         pulumi.set(__self__, "private_ip", private_ip)
-        if propagate_tags_to_volume_on_creation and not isinstance(propagate_tags_to_volume_on_creation, bool):
-            raise TypeError("Expected argument 'propagate_tags_to_volume_on_creation' to be a bool")
-        pulumi.set(__self__, "propagate_tags_to_volume_on_creation", propagate_tags_to_volume_on_creation)
         if public_dns_name and not isinstance(public_dns_name, str):
             raise TypeError("Expected argument 'public_dns_name' to be a str")
         pulumi.set(__self__, "public_dns_name", public_dns_name)
@@ -102,141 +97,217 @@ class GetInstanceResult:
         if volumes and not isinstance(volumes, list):
             raise TypeError("Expected argument 'volumes' to be a list")
         pulumi.set(__self__, "volumes", volumes)
-
-    @property
-    @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Optional[str]:
-        return pulumi.get(self, "additional_info")
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError("Expected argument 'vpc_id' to be a str")
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter
-    def affinity(self) -> Optional[str]:
+    def affinity(self) -> Optional['InstanceAffinity']:
+        """
+        Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+        """
         return pulumi.get(self, "affinity")
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[Sequence['outputs.InstanceBlockDeviceMapping']]:
+        """
+        The block device mapping entries that defines the block devices to attach to the instance at launch.
+        """
         return pulumi.get(self, "block_device_mappings")
 
     @property
     @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> Optional['outputs.InstanceCreditSpecification']:
+    def credit_specification(self) -> Optional['outputs.CreditSpecificationProperties']:
+        """
+        The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+        """
         return pulumi.get(self, "credit_specification")
 
     @property
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> Optional[bool]:
+        """
+        If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.
+        """
         return pulumi.get(self, "disable_api_termination")
 
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[bool]:
+        """
+        Indicates whether the instance is optimized for Amazon EBS I/O.
+        """
         return pulumi.get(self, "ebs_optimized")
 
     @property
     @pulumi.getter(name="hostId")
     def host_id(self) -> Optional[str]:
+        """
+        If you specify host for the Affinity property, the ID of a dedicated host that the instance is associated with. If you don't specify an ID, Amazon EC2 launches the instance onto any available, compatible dedicated host in your account.
+        """
         return pulumi.get(self, "host_id")
 
     @property
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional[str]:
+        """
+        The IAM instance profile.
+        """
         return pulumi.get(self, "iam_instance_profile")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[str]:
+        """
+        The EC2 Instance ID.
+        """
+        return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
     def instance_initiated_shutdown_behavior(self) -> Optional[str]:
+        """
+        Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+        """
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
+        """
+        The instance type.
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> Optional[str]:
+        """
+        The ID of the kernel.
+        """
         return pulumi.get(self, "kernel_id")
 
     @property
     @pulumi.getter
     def monitoring(self) -> Optional[bool]:
+        """
+        Specifies whether detailed monitoring is enabled for the instance.
+        """
         return pulumi.get(self, "monitoring")
 
     @property
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> Optional[str]:
+        """
+        The private DNS name of the specified instance. For example: ip-10-24-34-0.ec2.internal.
+        """
         return pulumi.get(self, "private_dns_name")
 
     @property
     @pulumi.getter(name="privateDnsNameOptions")
     def private_dns_name_options(self) -> Optional['outputs.InstancePrivateDnsNameOptions']:
+        """
+        The options for the instance hostname.
+        """
         return pulumi.get(self, "private_dns_name_options")
 
     @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[str]:
+        """
+        The private IP address of the specified instance. For example: 10.24.34.0.
+        """
         return pulumi.get(self, "private_ip")
-
-    @property
-    @pulumi.getter(name="propagateTagsToVolumeOnCreation")
-    def propagate_tags_to_volume_on_creation(self) -> Optional[bool]:
-        return pulumi.get(self, "propagate_tags_to_volume_on_creation")
 
     @property
     @pulumi.getter(name="publicDnsName")
     def public_dns_name(self) -> Optional[str]:
+        """
+        The public DNS name of the specified instance. For example: ec2-107-20-50-45.compute-1.amazonaws.com.
+        """
         return pulumi.get(self, "public_dns_name")
 
     @property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> Optional[str]:
+        """
+        The public IP address of the specified instance. For example: 192.0.2.0.
+        """
         return pulumi.get(self, "public_ip")
 
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> Optional[str]:
+        """
+        The ID of the RAM disk to select.
+        """
         return pulumi.get(self, "ramdisk_id")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The IDs of the security groups.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="sourceDestCheck")
     def source_dest_check(self) -> Optional[bool]:
+        """
+        Specifies whether to enable an instance launched in a VPC to perform NAT.
+        """
         return pulumi.get(self, "source_dest_check")
 
     @property
     @pulumi.getter(name="ssmAssociations")
     def ssm_associations(self) -> Optional[Sequence['outputs.InstanceSsmAssociation']]:
+        """
+        The SSM document and parameter values in AWS Systems Manager to associate with this instance.
+        """
         return pulumi.get(self, "ssm_associations")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the instance.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def tenancy(self) -> Optional[str]:
+        """
+        The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+        """
         return pulumi.get(self, "tenancy")
 
     @property
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[str]:
+        """
+        The user data to make available to the instance.
+        """
         return pulumi.get(self, "user_data")
 
     @property
     @pulumi.getter
     def volumes(self) -> Optional[Sequence['outputs.InstanceVolume']]:
+        """
+        The volumes to attach to the instance.
+        """
         return pulumi.get(self, "volumes")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        """
+        The ID of the VPC that the instance is running in.
+        """
+        return pulumi.get(self, "vpc_id")
 
 
 class AwaitableGetInstanceResult(GetInstanceResult):
@@ -245,7 +316,6 @@ class AwaitableGetInstanceResult(GetInstanceResult):
         if False:
             yield self
         return GetInstanceResult(
-            additional_info=self.additional_info,
             affinity=self.affinity,
             block_device_mappings=self.block_device_mappings,
             credit_specification=self.credit_specification,
@@ -253,7 +323,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             ebs_optimized=self.ebs_optimized,
             host_id=self.host_id,
             iam_instance_profile=self.iam_instance_profile,
-            id=self.id,
+            instance_id=self.instance_id,
             instance_initiated_shutdown_behavior=self.instance_initiated_shutdown_behavior,
             instance_type=self.instance_type,
             kernel_id=self.kernel_id,
@@ -261,7 +331,6 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             private_dns_name=self.private_dns_name,
             private_dns_name_options=self.private_dns_name_options,
             private_ip=self.private_ip,
-            propagate_tags_to_volume_on_creation=self.propagate_tags_to_volume_on_creation,
             public_dns_name=self.public_dns_name,
             public_ip=self.public_ip,
             ramdisk_id=self.ramdisk_id,
@@ -271,21 +340,24 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             tags=self.tags,
             tenancy=self.tenancy,
             user_data=self.user_data,
-            volumes=self.volumes)
+            volumes=self.volumes,
+            vpc_id=self.vpc_id)
 
 
-def get_instance(id: Optional[str] = None,
+def get_instance(instance_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
     Resource Type definition for AWS::EC2::Instance
+
+
+    :param str instance_id: The EC2 Instance ID.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['instanceId'] = instance_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
-        additional_info=pulumi.get(__ret__, 'additional_info'),
         affinity=pulumi.get(__ret__, 'affinity'),
         block_device_mappings=pulumi.get(__ret__, 'block_device_mappings'),
         credit_specification=pulumi.get(__ret__, 'credit_specification'),
@@ -293,7 +365,7 @@ def get_instance(id: Optional[str] = None,
         ebs_optimized=pulumi.get(__ret__, 'ebs_optimized'),
         host_id=pulumi.get(__ret__, 'host_id'),
         iam_instance_profile=pulumi.get(__ret__, 'iam_instance_profile'),
-        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
         instance_initiated_shutdown_behavior=pulumi.get(__ret__, 'instance_initiated_shutdown_behavior'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         kernel_id=pulumi.get(__ret__, 'kernel_id'),
@@ -301,7 +373,6 @@ def get_instance(id: Optional[str] = None,
         private_dns_name=pulumi.get(__ret__, 'private_dns_name'),
         private_dns_name_options=pulumi.get(__ret__, 'private_dns_name_options'),
         private_ip=pulumi.get(__ret__, 'private_ip'),
-        propagate_tags_to_volume_on_creation=pulumi.get(__ret__, 'propagate_tags_to_volume_on_creation'),
         public_dns_name=pulumi.get(__ret__, 'public_dns_name'),
         public_ip=pulumi.get(__ret__, 'public_ip'),
         ramdisk_id=pulumi.get(__ret__, 'ramdisk_id'),
@@ -311,13 +382,17 @@ def get_instance(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenancy=pulumi.get(__ret__, 'tenancy'),
         user_data=pulumi.get(__ret__, 'user_data'),
-        volumes=pulumi.get(__ret__, 'volumes'))
+        volumes=pulumi.get(__ret__, 'volumes'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_instance)
-def get_instance_output(id: Optional[pulumi.Input[str]] = None,
+def get_instance_output(instance_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Resource Type definition for AWS::EC2::Instance
+
+
+    :param str instance_id: The EC2 Instance ID.
     """
     ...

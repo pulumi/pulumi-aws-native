@@ -24,15 +24,21 @@ func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opt
 }
 
 type LookupSecurityGroupArgs struct {
+	// The group name or group ID depending on whether the SG is created in default or specific VPC
 	Id string `pulumi:"id"`
 }
 
 type LookupSecurityGroupResult struct {
-	GroupId              *string                    `pulumi:"groupId"`
-	Id                   *string                    `pulumi:"id"`
-	SecurityGroupEgress  []SecurityGroupEgressType  `pulumi:"securityGroupEgress"`
+	// The group ID of the specified security group.
+	GroupId *string `pulumi:"groupId"`
+	// The group name or group ID depending on whether the SG is created in default or specific VPC
+	Id *string `pulumi:"id"`
+	// [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+	SecurityGroupEgress []SecurityGroupEgressType `pulumi:"securityGroupEgress"`
+	// The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
 	SecurityGroupIngress []SecurityGroupIngressType `pulumi:"securityGroupIngress"`
-	Tags                 []aws.Tag                  `pulumi:"tags"`
+	// Any tags assigned to the security group.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupResultOutput {
@@ -49,6 +55,7 @@ func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutp
 }
 
 type LookupSecurityGroupOutputArgs struct {
+	// The group name or group ID depending on whether the SG is created in default or specific VPC
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -70,22 +77,27 @@ func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutputWithCo
 	return o
 }
 
+// The group ID of the specified security group.
 func (o LookupSecurityGroupResultOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
+// The group name or group ID depending on whether the SG is created in default or specific VPC
 func (o LookupSecurityGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
 func (o LookupSecurityGroupResultOutput) SecurityGroupEgress() SecurityGroupEgressTypeArrayOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) []SecurityGroupEgressType { return v.SecurityGroupEgress }).(SecurityGroupEgressTypeArrayOutput)
 }
 
+// The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
 func (o LookupSecurityGroupResultOutput) SecurityGroupIngress() SecurityGroupIngressTypeArrayOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) []SecurityGroupIngressType { return v.SecurityGroupIngress }).(SecurityGroupIngressTypeArrayOutput)
 }
 
+// Any tags assigned to the security group.
 func (o LookupSecurityGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

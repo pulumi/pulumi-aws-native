@@ -28,6 +28,8 @@ type LookupNamespaceArgs struct {
 }
 
 type LookupNamespaceResult struct {
+	// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+	AdminPasswordSecretKmsKeyId *string `pulumi:"adminPasswordSecretKmsKeyId"`
 	// The user name associated with the admin user for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
 	AdminUsername *string `pulumi:"adminUsername"`
 	// The database name associated for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
@@ -40,7 +42,12 @@ type LookupNamespaceResult struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
 	LogExports []NamespaceLogExport `pulumi:"logExports"`
-	Namespace  *NamespaceType       `pulumi:"namespace"`
+	// Definition of Namespace resource.
+	Namespace *NamespaceType `pulumi:"namespace"`
+	// The resource policy document that will be attached to the namespace.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+	NamespaceResourcePolicy interface{} `pulumi:"namespaceResourcePolicy"`
 }
 
 func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
@@ -79,6 +86,11 @@ func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutputWithContext(ct
 	return o
 }
 
+// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+func (o LookupNamespaceResultOutput) AdminPasswordSecretKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.AdminPasswordSecretKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
 // The user name associated with the admin user for the namespace that is being created. Only alphanumeric characters and underscores are allowed. It should start with an alphabet.
 func (o LookupNamespaceResultOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) *string { return v.AdminUsername }).(pulumi.StringPtrOutput)
@@ -109,8 +121,16 @@ func (o LookupNamespaceResultOutput) LogExports() NamespaceLogExportArrayOutput 
 	return o.ApplyT(func(v LookupNamespaceResult) []NamespaceLogExport { return v.LogExports }).(NamespaceLogExportArrayOutput)
 }
 
+// Definition of Namespace resource.
 func (o LookupNamespaceResultOutput) Namespace() NamespaceTypePtrOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) *NamespaceType { return v.Namespace }).(NamespaceTypePtrOutput)
+}
+
+// The resource policy document that will be attached to the namespace.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+func (o LookupNamespaceResultOutput) NamespaceResourcePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) interface{} { return v.NamespaceResourcePolicy }).(pulumi.AnyOutput)
 }
 
 func init() {

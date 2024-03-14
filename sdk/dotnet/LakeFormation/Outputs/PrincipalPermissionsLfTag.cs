@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Outputs
 {
 
+    /// <summary>
+    /// The LF-tag key and values attached to a resource.
+    /// </summary>
     [OutputType]
     public sealed class PrincipalPermissionsLfTag
     {
+        /// <summary>
+        /// The key-name for the LF-tag.
+        /// </summary>
         public readonly string? TagKey;
+        /// <summary>
+        /// A list of possible values of the corresponding ``TagKey`` of an LF-tag key-value pair.
+        /// </summary>
         public readonly ImmutableArray<string> TagValues;
 
         [OutputConstructor]

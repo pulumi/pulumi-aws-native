@@ -18,7 +18,9 @@ type Monitor struct {
 
 	CreatedAt                       pulumi.StringOutput                             `pulumi:"createdAt"`
 	HealthEventsConfig              MonitorHealthEventsConfigPtrOutput              `pulumi:"healthEventsConfig"`
+	IncludeLinkedAccounts           pulumi.BoolPtrOutput                            `pulumi:"includeLinkedAccounts"`
 	InternetMeasurementsLogDelivery MonitorInternetMeasurementsLogDeliveryPtrOutput `pulumi:"internetMeasurementsLogDelivery"`
+	LinkedAccountId                 pulumi.StringPtrOutput                          `pulumi:"linkedAccountId"`
 	MaxCityNetworksToMonitor        pulumi.IntPtrOutput                             `pulumi:"maxCityNetworksToMonitor"`
 	ModifiedAt                      pulumi.StringOutput                             `pulumi:"modifiedAt"`
 	MonitorArn                      pulumi.StringOutput                             `pulumi:"monitorArn"`
@@ -78,7 +80,9 @@ func (MonitorState) ElementType() reflect.Type {
 
 type monitorArgs struct {
 	HealthEventsConfig              *MonitorHealthEventsConfig              `pulumi:"healthEventsConfig"`
+	IncludeLinkedAccounts           *bool                                   `pulumi:"includeLinkedAccounts"`
 	InternetMeasurementsLogDelivery *MonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
+	LinkedAccountId                 *string                                 `pulumi:"linkedAccountId"`
 	MaxCityNetworksToMonitor        *int                                    `pulumi:"maxCityNetworksToMonitor"`
 	MonitorName                     *string                                 `pulumi:"monitorName"`
 	Resources                       []string                                `pulumi:"resources"`
@@ -92,7 +96,9 @@ type monitorArgs struct {
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
 	HealthEventsConfig              MonitorHealthEventsConfigPtrInput
+	IncludeLinkedAccounts           pulumi.BoolPtrInput
 	InternetMeasurementsLogDelivery MonitorInternetMeasurementsLogDeliveryPtrInput
+	LinkedAccountId                 pulumi.StringPtrInput
 	MaxCityNetworksToMonitor        pulumi.IntPtrInput
 	MonitorName                     pulumi.StringPtrInput
 	Resources                       pulumi.StringArrayInput
@@ -148,10 +154,18 @@ func (o MonitorOutput) HealthEventsConfig() MonitorHealthEventsConfigPtrOutput {
 	return o.ApplyT(func(v *Monitor) MonitorHealthEventsConfigPtrOutput { return v.HealthEventsConfig }).(MonitorHealthEventsConfigPtrOutput)
 }
 
+func (o MonitorOutput) IncludeLinkedAccounts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.IncludeLinkedAccounts }).(pulumi.BoolPtrOutput)
+}
+
 func (o MonitorOutput) InternetMeasurementsLogDelivery() MonitorInternetMeasurementsLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *Monitor) MonitorInternetMeasurementsLogDeliveryPtrOutput {
 		return v.InternetMeasurementsLogDelivery
 	}).(MonitorInternetMeasurementsLogDeliveryPtrOutput)
+}
+
+func (o MonitorOutput) LinkedAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.LinkedAccountId }).(pulumi.StringPtrOutput)
 }
 
 func (o MonitorOutput) MaxCityNetworksToMonitor() pulumi.IntPtrOutput {

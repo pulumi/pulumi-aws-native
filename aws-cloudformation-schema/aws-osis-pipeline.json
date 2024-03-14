@@ -144,10 +144,10 @@
       "maximum" : 384
     },
     "PipelineConfigurationBody" : {
-      "description" : "The Data Prepper pipeline configuration in YAML format.",
+      "description" : "The Data Prepper pipeline configuration.",
       "type" : "string",
       "minLength" : 1,
-      "maxLength" : 12000
+      "maxLength" : 24000
     },
     "PipelineName" : {
       "description" : "Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.",

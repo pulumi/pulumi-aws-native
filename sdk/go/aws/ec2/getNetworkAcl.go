@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::NetworkAcl
+// Specifies a network ACL for your VPC.
 func LookupNetworkAcl(ctx *pulumi.Context, args *LookupNetworkAclArgs, opts ...pulumi.InvokeOption) (*LookupNetworkAclResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkAclResult
@@ -29,7 +29,7 @@ type LookupNetworkAclArgs struct {
 
 type LookupNetworkAclResult struct {
 	Id *string `pulumi:"id"`
-	// The tags to assign to the network ACL.
+	// The tags for the network ACL.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -72,7 +72,7 @@ func (o LookupNetworkAclResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkAclResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The tags to assign to the network ACL.
+// The tags for the network ACL.
 func (o LookupNetworkAclResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkAclResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

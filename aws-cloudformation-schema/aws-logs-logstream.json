@@ -21,7 +21,7 @@
   "primaryIdentifier" : [ "/properties/LogGroupName", "/properties/LogStreamName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "logs:CreateLogStream" ]
+      "permissions" : [ "logs:CreateLogStream", "logs:DescribeLogStreams" ]
     },
     "read" : {
       "permissions" : [ "logs:DescribeLogStreams" ]

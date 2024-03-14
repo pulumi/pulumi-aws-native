@@ -18,6 +18,11 @@ __all__ = [
 
 @pulumi.output_type
 class GroupPolicy(dict):
+    """
+    Contains information about an attached policy.
+     An attached policy is a managed policy that has been attached to a user, group, or role.
+     For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -41,6 +46,9 @@ class GroupPolicy(dict):
                  policy_document: Any,
                  policy_name: str):
         """
+        Contains information about an attached policy.
+         An attached policy is a managed policy that has been attached to a user, group, or role.
+         For more information about managed policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
         :param Any policy_document: The policy document.
         :param str policy_name: The friendly name (not ARN) identifying the policy.
         """

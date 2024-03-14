@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSecurityGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The group name or group ID depending on whether the SG is created in default or specific VPC
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The group name or group ID depending on whether the SG is created in default or specific VPC
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetSecurityGroupResult
     {
+        /// <summary>
+        /// The group ID of the specified security group.
+        /// </summary>
         public readonly string? GroupId;
+        /// <summary>
+        /// The group name or group ID depending on whether the SG is created in default or specific VPC
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SecurityGroupEgress> SecurityGroupEgress;
+        /// <summary>
+        /// The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SecurityGroupIngress> SecurityGroupIngress;
+        /// <summary>
+        /// Any tags assigned to the security group.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

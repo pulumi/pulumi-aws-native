@@ -16,17 +16,30 @@ import (
 type Workgroup struct {
 	pulumi.CustomResourceState
 
-	BaseCapacity       pulumi.IntPtrOutput                 `pulumi:"baseCapacity"`
-	ConfigParameters   WorkgroupConfigParameterArrayOutput `pulumi:"configParameters"`
-	EnhancedVpcRouting pulumi.BoolPtrOutput                `pulumi:"enhancedVpcRouting"`
-	NamespaceName      pulumi.StringPtrOutput              `pulumi:"namespaceName"`
-	Port               pulumi.IntPtrOutput                 `pulumi:"port"`
-	PubliclyAccessible pulumi.BoolPtrOutput                `pulumi:"publiclyAccessible"`
-	SecurityGroupIds   pulumi.StringArrayOutput            `pulumi:"securityGroupIds"`
-	SubnetIds          pulumi.StringArrayOutput            `pulumi:"subnetIds"`
-	Tags               aws.TagArrayOutput                  `pulumi:"tags"`
-	Workgroup          WorkgroupTypeOutput                 `pulumi:"workgroup"`
-	WorkgroupName      pulumi.StringOutput                 `pulumi:"workgroupName"`
+	// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity pulumi.IntPtrOutput `pulumi:"baseCapacity"`
+	// A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+	ConfigParameters WorkgroupConfigParameterArrayOutput `pulumi:"configParameters"`
+	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
+	// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	MaxCapacity pulumi.IntPtrOutput `pulumi:"maxCapacity"`
+	// The namespace the workgroup is associated with.
+	NamespaceName pulumi.StringPtrOutput `pulumi:"namespaceName"`
+	// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+	Port pulumi.IntPtrOutput `pulumi:"port"`
+	// A value that specifies whether the workgroup can be accessible from a public network.
+	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// A list of security group IDs to associate with the workgroup.
+	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs the workgroup is associated with.
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// The map of the key-value pairs used to tag the workgroup.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Definition for workgroup resource
+	Workgroup WorkgroupTypeOutput `pulumi:"workgroup"`
+	// The name of the workgroup.
+	WorkgroupName pulumi.StringOutput `pulumi:"workgroupName"`
 }
 
 // NewWorkgroup registers a new resource with the given unique name, arguments, and options.
@@ -74,30 +87,54 @@ func (WorkgroupState) ElementType() reflect.Type {
 }
 
 type workgroupArgs struct {
-	BaseCapacity       *int                       `pulumi:"baseCapacity"`
-	ConfigParameters   []WorkgroupConfigParameter `pulumi:"configParameters"`
-	EnhancedVpcRouting *bool                      `pulumi:"enhancedVpcRouting"`
-	NamespaceName      *string                    `pulumi:"namespaceName"`
-	Port               *int                       `pulumi:"port"`
-	PubliclyAccessible *bool                      `pulumi:"publiclyAccessible"`
-	SecurityGroupIds   []string                   `pulumi:"securityGroupIds"`
-	SubnetIds          []string                   `pulumi:"subnetIds"`
-	Tags               []aws.Tag                  `pulumi:"tags"`
-	WorkgroupName      *string                    `pulumi:"workgroupName"`
+	// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity *int `pulumi:"baseCapacity"`
+	// A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
+	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	MaxCapacity *int `pulumi:"maxCapacity"`
+	// The namespace the workgroup is associated with.
+	NamespaceName *string `pulumi:"namespaceName"`
+	// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+	Port *int `pulumi:"port"`
+	// A value that specifies whether the workgroup can be accessible from a public network.
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// A list of security group IDs to associate with the workgroup.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs the workgroup is associated with.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The map of the key-value pairs used to tag the workgroup.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The name of the workgroup.
+	WorkgroupName *string `pulumi:"workgroupName"`
 }
 
 // The set of arguments for constructing a Workgroup resource.
 type WorkgroupArgs struct {
-	BaseCapacity       pulumi.IntPtrInput
-	ConfigParameters   WorkgroupConfigParameterArrayInput
+	// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	BaseCapacity pulumi.IntPtrInput
+	// A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+	ConfigParameters WorkgroupConfigParameterArrayInput
+	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	EnhancedVpcRouting pulumi.BoolPtrInput
-	NamespaceName      pulumi.StringPtrInput
-	Port               pulumi.IntPtrInput
+	// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+	MaxCapacity pulumi.IntPtrInput
+	// The namespace the workgroup is associated with.
+	NamespaceName pulumi.StringPtrInput
+	// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+	Port pulumi.IntPtrInput
+	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
-	SecurityGroupIds   pulumi.StringArrayInput
-	SubnetIds          pulumi.StringArrayInput
-	Tags               aws.TagArrayInput
-	WorkgroupName      pulumi.StringPtrInput
+	// A list of security group IDs to associate with the workgroup.
+	SecurityGroupIds pulumi.StringArrayInput
+	// A list of subnet IDs the workgroup is associated with.
+	SubnetIds pulumi.StringArrayInput
+	// The map of the key-value pairs used to tag the workgroup.
+	Tags aws.TagArrayInput
+	// The name of the workgroup.
+	WorkgroupName pulumi.StringPtrInput
 }
 
 func (WorkgroupArgs) ElementType() reflect.Type {
@@ -137,46 +174,62 @@ func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) Workg
 	return o
 }
 
+// The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
 func (o WorkgroupOutput) BaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.IntPtrOutput { return v.BaseCapacity }).(pulumi.IntPtrOutput)
 }
 
+// A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
 func (o WorkgroupOutput) ConfigParameters() WorkgroupConfigParameterArrayOutput {
 	return o.ApplyT(func(v *Workgroup) WorkgroupConfigParameterArrayOutput { return v.ConfigParameters }).(WorkgroupConfigParameterArrayOutput)
 }
 
+// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 func (o WorkgroupOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
 }
 
+// The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+func (o WorkgroupOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.IntPtrOutput { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+}
+
+// The namespace the workgroup is associated with.
 func (o WorkgroupOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
+// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 func (o WorkgroupOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// A value that specifies whether the workgroup can be accessible from a public network.
 func (o WorkgroupOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
+// A list of security group IDs to associate with the workgroup.
 func (o WorkgroupOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of subnet IDs the workgroup is associated with.
 func (o WorkgroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The map of the key-value pairs used to tag the workgroup.
 func (o WorkgroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Workgroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Definition for workgroup resource
 func (o WorkgroupOutput) Workgroup() WorkgroupTypeOutput {
 	return o.ApplyT(func(v *Workgroup) WorkgroupTypeOutput { return v.Workgroup }).(WorkgroupTypeOutput)
 }
 
+// The name of the workgroup.
 func (o WorkgroupOutput) WorkgroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.WorkgroupName }).(pulumi.StringOutput)
 }

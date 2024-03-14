@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
+    /// <summary>
+    /// A wildcard object, consisting of an optional list of excluded column names or indexes.
+    /// </summary>
     public sealed class PrincipalPermissionsColumnWildcardArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludedColumnNames")]
         private InputList<string>? _excludedColumnNames;
+
+        /// <summary>
+        /// Excludes column names. Any column with this name will be excluded.
+        /// </summary>
         public InputList<string> ExcludedColumnNames
         {
             get => _excludedColumnNames ?? (_excludedColumnNames = new InputList<string>());

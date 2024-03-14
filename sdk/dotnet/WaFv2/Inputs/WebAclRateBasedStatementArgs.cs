@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
             set => _customKeys = value;
         }
 
+        [Input("evaluationWindowSec")]
+        public Input<int>? EvaluationWindowSec { get; set; }
+
         [Input("forwardedIpConfig")]
         public Input<Inputs.WebAclForwardedIpConfigurationArgs>? ForwardedIpConfig { get; set; }
 

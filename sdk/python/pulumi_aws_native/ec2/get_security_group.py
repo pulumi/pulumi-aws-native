@@ -40,26 +40,41 @@ class GetSecurityGroupResult:
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[str]:
+        """
+        The group ID of the specified security group.
+        """
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The group name or group ID depending on whether the SG is created in default or specific VPC
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="securityGroupEgress")
     def security_group_egress(self) -> Optional[Sequence['outputs.SecurityGroupEgress']]:
+        """
+        [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        """
         return pulumi.get(self, "security_group_egress")
 
     @property
     @pulumi.getter(name="securityGroupIngress")
     def security_group_ingress(self) -> Optional[Sequence['outputs.SecurityGroupIngress']]:
+        """
+        The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        """
         return pulumi.get(self, "security_group_ingress")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Any tags assigned to the security group.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -80,6 +95,9 @@ def get_security_group(id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupResult:
     """
     Resource Type definition for AWS::EC2::SecurityGroup
+
+
+    :param str id: The group name or group ID depending on whether the SG is created in default or specific VPC
     """
     __args__ = dict()
     __args__['id'] = id
@@ -99,5 +117,8 @@ def get_security_group_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupResult]:
     """
     Resource Type definition for AWS::EC2::SecurityGroup
+
+
+    :param str id: The group name or group ID depending on whether the SG is created in default or specific VPC
     """
     ...

@@ -26,6 +26,12 @@ class SecurityGroupArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityGroup resource.
+        :param pulumi.Input[str] group_description: A description for the security group.
+        :param pulumi.Input[str] group_name: The name of the security group.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]] security_group_egress: [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]] security_group_ingress: The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the security group.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC for the security group.
         """
         pulumi.set(__self__, "group_description", group_description)
         if group_name is not None:
@@ -42,6 +48,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter(name="groupDescription")
     def group_description(self) -> pulumi.Input[str]:
+        """
+        A description for the security group.
+        """
         return pulumi.get(self, "group_description")
 
     @group_description.setter
@@ -51,6 +60,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the security group.
+        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -60,6 +72,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter(name="securityGroupEgress")
     def security_group_egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]]:
+        """
+        [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        """
         return pulumi.get(self, "security_group_egress")
 
     @security_group_egress.setter
@@ -69,6 +84,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter(name="securityGroupIngress")
     def security_group_ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]]:
+        """
+        The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        """
         return pulumi.get(self, "security_group_ingress")
 
     @security_group_ingress.setter
@@ -78,6 +96,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        Any tags assigned to the security group.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -87,6 +108,9 @@ class SecurityGroupArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC for the security group.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -111,6 +135,12 @@ class SecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] group_description: A description for the security group.
+        :param pulumi.Input[str] group_name: The name of the security group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] security_group_egress: [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] security_group_ingress: The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Any tags assigned to the security group.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC for the security group.
         """
         ...
     @overload
@@ -198,40 +228,64 @@ class SecurityGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The group name or group ID depending on whether the SG is created in default or specific VPC
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="groupDescription")
     def group_description(self) -> pulumi.Output[str]:
+        """
+        A description for the security group.
+        """
         return pulumi.get(self, "group_description")
 
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[str]:
+        """
+        The group ID of the specified security group.
+        """
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the security group.
+        """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="securityGroupEgress")
     def security_group_egress(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityGroupEgress']]]:
+        """
+        [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        """
         return pulumi.get(self, "security_group_egress")
 
     @property
     @pulumi.getter(name="securityGroupIngress")
     def security_group_ingress(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityGroupIngress']]]:
+        """
+        The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+        """
         return pulumi.get(self, "security_group_ingress")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        Any tags assigned to the security group.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the VPC for the security group.
+        """
         return pulumi.get(self, "vpc_id")
 

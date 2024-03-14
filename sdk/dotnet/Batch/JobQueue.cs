@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("jobQueueName")]
         public Output<string?> JobQueueName { get; private set; } = null!;
 
+        [Output("jobStateTimeLimitActions")]
+        public Output<ImmutableArray<Outputs.JobQueueJobStateTimeLimitAction>> JobStateTimeLimitActions { get; private set; } = null!;
+
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
@@ -99,6 +102,14 @@ namespace Pulumi.AwsNative.Batch
 
         [Input("jobQueueName")]
         public Input<string>? JobQueueName { get; set; }
+
+        [Input("jobStateTimeLimitActions")]
+        private InputList<Inputs.JobQueueJobStateTimeLimitActionArgs>? _jobStateTimeLimitActions;
+        public InputList<Inputs.JobQueueJobStateTimeLimitActionArgs> JobStateTimeLimitActions
+        {
+            get => _jobStateTimeLimitActions ?? (_jobStateTimeLimitActions = new InputList<Inputs.JobQueueJobStateTimeLimitActionArgs>());
+            set => _jobStateTimeLimitActions = value;
+        }
 
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;

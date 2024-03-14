@@ -37,13 +37,37 @@ export class SecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroup.__pulumiType;
     }
 
+    /**
+     * The group name or group ID depending on whether the SG is created in default or specific VPC
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * A description for the security group.
+     */
     public readonly groupDescription!: pulumi.Output<string>;
+    /**
+     * The group ID of the specified security group.
+     */
     public /*out*/ readonly groupId!: pulumi.Output<string>;
+    /**
+     * The name of the security group.
+     */
     public readonly groupName!: pulumi.Output<string | undefined>;
+    /**
+     * [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+     */
     public readonly securityGroupEgress!: pulumi.Output<outputs.ec2.SecurityGroupEgress[] | undefined>;
+    /**
+     * The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+     */
     public readonly securityGroupIngress!: pulumi.Output<outputs.ec2.SecurityGroupIngress[] | undefined>;
+    /**
+     * Any tags assigned to the security group.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC for the security group.
+     */
     public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
@@ -89,10 +113,28 @@ export class SecurityGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a SecurityGroup resource.
  */
 export interface SecurityGroupArgs {
+    /**
+     * A description for the security group.
+     */
     groupDescription: pulumi.Input<string>;
+    /**
+     * The name of the security group.
+     */
     groupName?: pulumi.Input<string>;
+    /**
+     * [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+     */
     securityGroupEgress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgressArgs>[]>;
+    /**
+     * The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+     */
     securityGroupIngress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngressArgs>[]>;
+    /**
+     * Any tags assigned to the security group.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the VPC for the security group.
+     */
     vpcId?: pulumi.Input<string>;
 }

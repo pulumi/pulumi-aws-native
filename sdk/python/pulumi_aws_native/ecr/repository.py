@@ -29,9 +29,15 @@ class RepositoryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
-        :param pulumi.Input['RepositoryImageTagMutability'] image_tag_mutability: The image tag mutability setting for the repository.
-        :param pulumi.Input[str] repository_name: The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-        :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
+        :param pulumi.Input[bool] empty_on_delete: If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
+        :param pulumi.Input['RepositoryEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+        :param pulumi.Input['RepositoryImageScanningConfigurationArgs'] image_scanning_configuration: The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+        :param pulumi.Input['RepositoryImageTagMutability'] image_tag_mutability: The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+        :param pulumi.Input['RepositoryLifecyclePolicyArgs'] lifecycle_policy: Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+        :param pulumi.Input[str] repository_name: The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+                The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -56,6 +62,9 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="emptyOnDelete")
     def empty_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
+        """
         return pulumi.get(self, "empty_on_delete")
 
     @empty_on_delete.setter
@@ -65,6 +74,9 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']]:
+        """
+        The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -74,6 +86,9 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']]:
+        """
+        The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+        """
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
@@ -84,7 +99,7 @@ class RepositoryArgs:
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> Optional[pulumi.Input['RepositoryImageTagMutability']]:
         """
-        The image tag mutability setting for the repository.
+        The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         """
         return pulumi.get(self, "image_tag_mutability")
 
@@ -95,6 +110,9 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']]:
+        """
+        Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+        """
         return pulumi.get(self, "lifecycle_policy")
 
     @lifecycle_policy.setter
@@ -105,7 +123,9 @@ class RepositoryArgs:
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
+        The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+         The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+          If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "repository_name")
 
@@ -117,7 +137,7 @@ class RepositoryArgs:
     @pulumi.getter(name="repositoryPolicyText")
     def repository_policy_text(self) -> Optional[Any]:
         """
-        The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
+        The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
         """
@@ -155,7 +175,7 @@ class Repository(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html
+        The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.
 
         ## Example Usage
         ### Example
@@ -199,9 +219,15 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['RepositoryImageTagMutability'] image_tag_mutability: The image tag mutability setting for the repository.
-        :param pulumi.Input[str] repository_name: The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
-        :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
+        :param pulumi.Input[bool] empty_on_delete: If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
+        :param pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']] encryption_configuration: The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+        :param pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']] image_scanning_configuration: The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+        :param pulumi.Input['RepositoryImageTagMutability'] image_tag_mutability: The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+        :param pulumi.Input[pulumi.InputType['RepositoryLifecyclePolicyArgs']] lifecycle_policy: Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+        :param pulumi.Input[str] repository_name: The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+                The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -213,7 +239,7 @@ class Repository(pulumi.CustomResource):
                  args: Optional[RepositoryArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html
+        The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.
 
         ## Example Usage
         ### Example
@@ -341,36 +367,50 @@ class Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="emptyOnDelete")
     def empty_on_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
+        """
         return pulumi.get(self, "empty_on_delete")
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.RepositoryEncryptionConfiguration']]:
+        """
+        The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> pulumi.Output[Optional['outputs.RepositoryImageScanningConfiguration']]:
+        """
+        The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+        """
         return pulumi.get(self, "image_scanning_configuration")
 
     @property
     @pulumi.getter(name="imageTagMutability")
     def image_tag_mutability(self) -> pulumi.Output[Optional['RepositoryImageTagMutability']]:
         """
-        The image tag mutability setting for the repository.
+        The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
         """
         return pulumi.get(self, "image_tag_mutability")
 
     @property
     @pulumi.getter(name="lifecyclePolicy")
     def lifecycle_policy(self) -> pulumi.Output[Optional['outputs.RepositoryLifecyclePolicy']]:
+        """
+        Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+        """
         return pulumi.get(self, "lifecycle_policy")
 
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
+        The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+         The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
+          If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "repository_name")
 
@@ -378,7 +418,7 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter(name="repositoryPolicyText")
     def repository_policy_text(self) -> pulumi.Output[Optional[Any]]:
         """
-        The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
+        The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
         """

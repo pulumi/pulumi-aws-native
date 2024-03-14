@@ -53,8 +53,6 @@ namespace Pulumi.AwsNative.SsmContacts
         }
 
         public static ContactType Personal { get; } = new ContactType("PERSONAL");
-        public static ContactType Custom { get; } = new ContactType("CUSTOM");
-        public static ContactType Service { get; } = new ContactType("SERVICE");
         public static ContactType Escalation { get; } = new ContactType("ESCALATION");
         public static ContactType OncallSchedule { get; } = new ContactType("ONCALL_SCHEDULE");
 

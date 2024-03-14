@@ -10,7 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
-    public sealed class InstanceCpuOptionsArgs : global::Pulumi.ResourceArgs
+    /// <summary>
+    /// The CPU options for the instance.
+    /// </summary>
+    public sealed class CpuOptionsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("coreCount")]
         public Input<int>? CoreCount { get; set; }
@@ -18,9 +21,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("threadsPerCore")]
         public Input<int>? ThreadsPerCore { get; set; }
 
-        public InstanceCpuOptionsArgs()
+        public CpuOptionsPropertiesArgs()
         {
         }
-        public static new InstanceCpuOptionsArgs Empty => new InstanceCpuOptionsArgs();
+        public static new CpuOptionsPropertiesArgs Empty => new CpuOptionsPropertiesArgs();
     }
 }

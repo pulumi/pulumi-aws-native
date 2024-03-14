@@ -10,26 +10,41 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation
 {
     /// <summary>
-    /// A resource schema representing a Lake Formation Permission.
+    /// The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.
     /// </summary>
     [AwsNativeResourceType("aws-native:lakeformation:PrincipalPermissions")]
     public partial class PrincipalPermissions : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        /// </summary>
         [Output("catalog")]
         public Output<string?> Catalog { get; private set; } = null!;
 
+        /// <summary>
+        /// The permissions granted or revoked.
+        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Pulumi.AwsNative.LakeFormation.PrincipalPermissionsPermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates the ability to grant permissions (as a subset of permissions granted).
+        /// </summary>
         [Output("permissionsWithGrantOption")]
         public Output<ImmutableArray<Pulumi.AwsNative.LakeFormation.PrincipalPermissionsPermission>> PermissionsWithGrantOption { get; private set; } = null!;
 
+        /// <summary>
+        /// The principal to be granted a permission.
+        /// </summary>
         [Output("principal")]
         public Output<Outputs.PrincipalPermissionsDataLakePrincipal> Principal { get; private set; } = null!;
 
         [Output("principalIdentifier")]
         public Output<string> PrincipalIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The resource to be granted or revoked permissions.
+        /// </summary>
         [Output("resource")]
         public Output<Outputs.PrincipalPermissionsResource> Resource { get; private set; } = null!;
 
@@ -89,11 +104,18 @@ namespace Pulumi.AwsNative.LakeFormation
 
     public sealed class PrincipalPermissionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        /// </summary>
         [Input("catalog")]
         public Input<string>? Catalog { get; set; }
 
         [Input("permissions", required: true)]
         private InputList<Pulumi.AwsNative.LakeFormation.PrincipalPermissionsPermission>? _permissions;
+
+        /// <summary>
+        /// The permissions granted or revoked.
+        /// </summary>
         public InputList<Pulumi.AwsNative.LakeFormation.PrincipalPermissionsPermission> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Pulumi.AwsNative.LakeFormation.PrincipalPermissionsPermission>());
@@ -102,15 +124,25 @@ namespace Pulumi.AwsNative.LakeFormation
 
         [Input("permissionsWithGrantOption", required: true)]
         private InputList<Pulumi.AwsNative.LakeFormation.PrincipalPermissionsPermission>? _permissionsWithGrantOption;
+
+        /// <summary>
+        /// Indicates the ability to grant permissions (as a subset of permissions granted).
+        /// </summary>
         public InputList<Pulumi.AwsNative.LakeFormation.PrincipalPermissionsPermission> PermissionsWithGrantOption
         {
             get => _permissionsWithGrantOption ?? (_permissionsWithGrantOption = new InputList<Pulumi.AwsNative.LakeFormation.PrincipalPermissionsPermission>());
             set => _permissionsWithGrantOption = value;
         }
 
+        /// <summary>
+        /// The principal to be granted a permission.
+        /// </summary>
         [Input("principal", required: true)]
         public Input<Inputs.PrincipalPermissionsDataLakePrincipalArgs> Principal { get; set; } = null!;
 
+        /// <summary>
+        /// The resource to be granted or revoked permissions.
+        /// </summary>
         [Input("resource", required: true)]
         public Input<Inputs.PrincipalPermissionsResourceArgs> Resource { get; set; } = null!;
 

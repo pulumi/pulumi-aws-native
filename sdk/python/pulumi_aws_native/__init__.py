@@ -1388,6 +1388,7 @@ _utilities.register(
    "aws-native:ec2:Volume": "Volume",
    "aws-native:ec2:VolumeAttachment": "VolumeAttachment",
    "aws-native:ec2:Vpc": "Vpc",
+   "aws-native:ec2:VpcCidrBlock": "VpcCidrBlock",
    "aws-native:ec2:VpcEndpoint": "VpcEndpoint",
    "aws-native:ec2:VpcEndpointConnectionNotification": "VpcEndpointConnectionNotification",
    "aws-native:ec2:VpcEndpointService": "VpcEndpointService",

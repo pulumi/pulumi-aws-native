@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A resource schema representing a Lake Formation Permission.
+ * The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.
  */
 export class PrincipalPermissions extends pulumi.CustomResource {
     /**
@@ -37,11 +37,26 @@ export class PrincipalPermissions extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrincipalPermissions.__pulumiType;
     }
 
+    /**
+     * The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     */
     public readonly catalog!: pulumi.Output<string | undefined>;
+    /**
+     * The permissions granted or revoked.
+     */
     public readonly permissions!: pulumi.Output<enums.lakeformation.PrincipalPermissionsPermission[]>;
+    /**
+     * Indicates the ability to grant permissions (as a subset of permissions granted).
+     */
     public readonly permissionsWithGrantOption!: pulumi.Output<enums.lakeformation.PrincipalPermissionsPermission[]>;
+    /**
+     * The principal to be granted a permission.
+     */
     public readonly principal!: pulumi.Output<outputs.lakeformation.PrincipalPermissionsDataLakePrincipal>;
     public /*out*/ readonly principalIdentifier!: pulumi.Output<string>;
+    /**
+     * The resource to be granted or revoked permissions.
+     */
     public readonly resource!: pulumi.Output<outputs.lakeformation.PrincipalPermissionsResource>;
     public /*out*/ readonly resourceIdentifier!: pulumi.Output<string>;
 
@@ -95,9 +110,24 @@ export class PrincipalPermissions extends pulumi.CustomResource {
  * The set of arguments for constructing a PrincipalPermissions resource.
  */
 export interface PrincipalPermissionsArgs {
+    /**
+     * The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+     */
     catalog?: pulumi.Input<string>;
+    /**
+     * The permissions granted or revoked.
+     */
     permissions: pulumi.Input<pulumi.Input<enums.lakeformation.PrincipalPermissionsPermission>[]>;
+    /**
+     * Indicates the ability to grant permissions (as a subset of permissions granted).
+     */
     permissionsWithGrantOption: pulumi.Input<pulumi.Input<enums.lakeformation.PrincipalPermissionsPermission>[]>;
+    /**
+     * The principal to be granted a permission.
+     */
     principal: pulumi.Input<inputs.lakeformation.PrincipalPermissionsDataLakePrincipalArgs>;
+    /**
+     * The resource to be granted or revoked permissions.
+     */
     resource: pulumi.Input<inputs.lakeformation.PrincipalPermissionsResourceArgs>;
 }

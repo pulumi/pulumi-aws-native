@@ -19,13 +19,28 @@ export function getWorkgroup(args: GetWorkgroupArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetWorkgroupArgs {
+    /**
+     * The name of the workgroup.
+     */
     workgroupName: string;
 }
 
 export interface GetWorkgroupResult {
+    /**
+     * The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+     */
     readonly enhancedVpcRouting?: boolean;
+    /**
+     * The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+     */
     readonly port?: number;
+    /**
+     * A value that specifies whether the workgroup can be accessible from a public network.
+     */
     readonly publiclyAccessible?: boolean;
+    /**
+     * Definition for workgroup resource
+     */
     readonly workgroup?: outputs.redshiftserverless.Workgroup;
 }
 /**
@@ -36,5 +51,8 @@ export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.I
 }
 
 export interface GetWorkgroupOutputArgs {
+    /**
+     * The name of the workgroup.
+     */
     workgroupName: pulumi.Input<string>;
 }

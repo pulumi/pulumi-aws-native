@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
+    /// <summary>
+    /// An object that represents the AWS Private Certificate Authority certificate.
+    /// </summary>
     [OutputType]
     public sealed class ServiceConnectTlsCertificateAuthority
     {
+        /// <summary>
+        /// The ARN of the AWS Private Certificate Authority certificate.
+        /// </summary>
         public readonly string? AwsPcaAuthorityArn;
 
         [OutputConstructor]

@@ -200,6 +200,11 @@ class AuthorizerJwtConfigurationArgs:
     def __init__(__self__, *,
                  audience: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer: Optional[pulumi.Input[str]] = None):
+        """
+        The ``JWTConfiguration`` property specifies the configuration of a JWT authorizer. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audience: A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+        :param pulumi.Input[str] issuer: The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: ``https://cognito-idp.{region}.amazonaws.com/{userPoolId}``. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+        """
         if audience is not None:
             pulumi.set(__self__, "audience", audience)
         if issuer is not None:
@@ -208,6 +213,9 @@ class AuthorizerJwtConfigurationArgs:
     @property
     @pulumi.getter
     def audience(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+        """
         return pulumi.get(self, "audience")
 
     @audience.setter
@@ -217,6 +225,9 @@ class AuthorizerJwtConfigurationArgs:
     @property
     @pulumi.getter
     def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base domain of the identity provider that issues JSON Web Tokens. For example, an Amazon Cognito user pool has the following format: ``https://cognito-idp.{region}.amazonaws.com/{userPoolId}``. Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
+        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter

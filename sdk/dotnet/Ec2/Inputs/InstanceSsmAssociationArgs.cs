@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     {
         [Input("associationParameters")]
         private InputList<Inputs.InstanceAssociationParameterArgs>? _associationParameters;
+
+        /// <summary>
+        /// The input parameter values to use with the associated SSM document.
+        /// </summary>
         public InputList<Inputs.InstanceAssociationParameterArgs> AssociationParameters
         {
             get => _associationParameters ?? (_associationParameters = new InputList<Inputs.InstanceAssociationParameterArgs>());
             set => _associationParameters = value;
         }
 
+        /// <summary>
+        /// The name of an SSM document to associate with the instance.
+        /// </summary>
         [Input("documentName", required: true)]
         public Input<string> DocumentName { get; set; } = null!;
 

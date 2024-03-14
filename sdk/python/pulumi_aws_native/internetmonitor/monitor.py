@@ -20,7 +20,9 @@ __all__ = ['MonitorArgs', 'Monitor']
 class MonitorArgs:
     def __init__(__self__, *,
                  health_events_config: Optional[pulumi.Input['MonitorHealthEventsConfigArgs']] = None,
+                 include_linked_accounts: Optional[pulumi.Input[bool]] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input['MonitorInternetMeasurementsLogDeliveryArgs']] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -34,8 +36,12 @@ class MonitorArgs:
         """
         if health_events_config is not None:
             pulumi.set(__self__, "health_events_config", health_events_config)
+        if include_linked_accounts is not None:
+            pulumi.set(__self__, "include_linked_accounts", include_linked_accounts)
         if internet_measurements_log_delivery is not None:
             pulumi.set(__self__, "internet_measurements_log_delivery", internet_measurements_log_delivery)
+        if linked_account_id is not None:
+            pulumi.set(__self__, "linked_account_id", linked_account_id)
         if max_city_networks_to_monitor is not None:
             pulumi.set(__self__, "max_city_networks_to_monitor", max_city_networks_to_monitor)
         if monitor_name is not None:
@@ -63,6 +69,15 @@ class MonitorArgs:
         pulumi.set(self, "health_events_config", value)
 
     @property
+    @pulumi.getter(name="includeLinkedAccounts")
+    def include_linked_accounts(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_linked_accounts")
+
+    @include_linked_accounts.setter
+    def include_linked_accounts(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_linked_accounts", value)
+
+    @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
     def internet_measurements_log_delivery(self) -> Optional[pulumi.Input['MonitorInternetMeasurementsLogDeliveryArgs']]:
         return pulumi.get(self, "internet_measurements_log_delivery")
@@ -70,6 +85,15 @@ class MonitorArgs:
     @internet_measurements_log_delivery.setter
     def internet_measurements_log_delivery(self, value: Optional[pulumi.Input['MonitorInternetMeasurementsLogDeliveryArgs']]):
         pulumi.set(self, "internet_measurements_log_delivery", value)
+
+    @property
+    @pulumi.getter(name="linkedAccountId")
+    def linked_account_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "linked_account_id")
+
+    @linked_account_id.setter
+    def linked_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "linked_account_id", value)
 
     @property
     @pulumi.getter(name="maxCityNetworksToMonitor")
@@ -150,7 +174,9 @@ class Monitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  health_events_config: Optional[pulumi.Input[pulumi.InputType['MonitorHealthEventsConfigArgs']]] = None,
+                 include_linked_accounts: Optional[pulumi.Input[bool]] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['MonitorInternetMeasurementsLogDeliveryArgs']]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -191,7 +217,9 @@ class Monitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  health_events_config: Optional[pulumi.Input[pulumi.InputType['MonitorHealthEventsConfigArgs']]] = None,
+                 include_linked_accounts: Optional[pulumi.Input[bool]] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['MonitorInternetMeasurementsLogDeliveryArgs']]] = None,
+                 linked_account_id: Optional[pulumi.Input[str]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -210,7 +238,9 @@ class Monitor(pulumi.CustomResource):
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
             __props__.__dict__["health_events_config"] = health_events_config
+            __props__.__dict__["include_linked_accounts"] = include_linked_accounts
             __props__.__dict__["internet_measurements_log_delivery"] = internet_measurements_log_delivery
+            __props__.__dict__["linked_account_id"] = linked_account_id
             __props__.__dict__["max_city_networks_to_monitor"] = max_city_networks_to_monitor
             __props__.__dict__["monitor_name"] = monitor_name
             __props__.__dict__["resources"] = resources
@@ -250,7 +280,9 @@ class Monitor(pulumi.CustomResource):
 
         __props__.__dict__["created_at"] = None
         __props__.__dict__["health_events_config"] = None
+        __props__.__dict__["include_linked_accounts"] = None
         __props__.__dict__["internet_measurements_log_delivery"] = None
+        __props__.__dict__["linked_account_id"] = None
         __props__.__dict__["max_city_networks_to_monitor"] = None
         __props__.__dict__["modified_at"] = None
         __props__.__dict__["monitor_arn"] = None
@@ -276,9 +308,19 @@ class Monitor(pulumi.CustomResource):
         return pulumi.get(self, "health_events_config")
 
     @property
+    @pulumi.getter(name="includeLinkedAccounts")
+    def include_linked_accounts(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "include_linked_accounts")
+
+    @property
     @pulumi.getter(name="internetMeasurementsLogDelivery")
     def internet_measurements_log_delivery(self) -> pulumi.Output[Optional['outputs.MonitorInternetMeasurementsLogDelivery']]:
         return pulumi.get(self, "internet_measurements_log_delivery")
+
+    @property
+    @pulumi.getter(name="linkedAccountId")
+    def linked_account_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "linked_account_id")
 
     @property
     @pulumi.getter(name="maxCityNetworksToMonitor")

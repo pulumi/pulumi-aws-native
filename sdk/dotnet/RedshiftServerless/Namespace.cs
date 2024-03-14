@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.RedshiftServerless
     public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
+        /// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+        /// </summary>
+        [Output("adminPasswordSecretKmsKeyId")]
+        public Output<string?> AdminPasswordSecretKmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
         /// </summary>
         [Output("adminUserPassword")]
         public Output<string?> AdminUserPassword { get; private set; } = null!;
@@ -69,6 +75,15 @@ namespace Pulumi.AwsNative.RedshiftServerless
         [Output("logExports")]
         public Output<ImmutableArray<Pulumi.AwsNative.RedshiftServerless.NamespaceLogExport>> LogExports { get; private set; } = null!;
 
+        /// <summary>
+        /// If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
+        /// </summary>
+        [Output("manageAdminPassword")]
+        public Output<bool?> ManageAdminPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Definition of Namespace resource.
+        /// </summary>
         [Output("namespace")]
         public Output<Outputs.Namespace> NamespaceValue { get; private set; } = null!;
 
@@ -77,6 +92,20 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// </summary>
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource policy document that will be attached to the namespace.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+        /// </summary>
+        [Output("namespaceResourcePolicy")]
+        public Output<object?> NamespaceResourcePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN for the Redshift application that integrates with IAM Identity Center.
+        /// </summary>
+        [Output("redshiftIdcApplicationArn")]
+        public Output<string?> RedshiftIdcApplicationArn { get; private set; } = null!;
 
         /// <summary>
         /// The list of tags for the namespace.
@@ -135,7 +164,13 @@ namespace Pulumi.AwsNative.RedshiftServerless
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
+        /// The ID of the AWS Key Management Service (KMS) key used to encrypt and store the namespace's admin credentials secret. You can only use this parameter if manageAdminPassword is true.
+        /// </summary>
+        [Input("adminPasswordSecretKmsKeyId")]
+        public Input<string>? AdminPasswordSecretKmsKeyId { get; set; }
+
+        /// <summary>
+        /// The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit. You can't use adminUserPassword if manageAdminPassword is true.
         /// </summary>
         [Input("adminUserPassword")]
         public Input<string>? AdminUserPassword { get; set; }
@@ -201,10 +236,30 @@ namespace Pulumi.AwsNative.RedshiftServerless
         }
 
         /// <summary>
+        /// If true, Amazon Redshift uses AWS Secrets Manager to manage the namespace's admin credentials. You can't use adminUserPassword if manageAdminPassword is true. If manageAdminPassword is false or not set, Amazon Redshift uses adminUserPassword for the admin user account's password.
+        /// </summary>
+        [Input("manageAdminPassword")]
+        public Input<bool>? ManageAdminPassword { get; set; }
+
+        /// <summary>
         /// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
         /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
+
+        /// <summary>
+        /// The resource policy document that will be attached to the namespace.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RedshiftServerless::Namespace` for more information about the expected schema for this property.
+        /// </summary>
+        [Input("namespaceResourcePolicy")]
+        public Input<object>? NamespaceResourcePolicy { get; set; }
+
+        /// <summary>
+        /// The ARN for the Redshift application that integrates with IAM Identity Center.
+        /// </summary>
+        [Input("redshiftIdcApplicationArn")]
+        public Input<string>? RedshiftIdcApplicationArn { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;

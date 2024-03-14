@@ -19,14 +19,32 @@ export function getSecurityGroup(args: GetSecurityGroupArgs, opts?: pulumi.Invok
 }
 
 export interface GetSecurityGroupArgs {
+    /**
+     * The group name or group ID depending on whether the SG is created in default or specific VPC
+     */
     id: string;
 }
 
 export interface GetSecurityGroupResult {
+    /**
+     * The group ID of the specified security group.
+     */
     readonly groupId?: string;
+    /**
+     * The group name or group ID depending on whether the SG is created in default or specific VPC
+     */
     readonly id?: string;
+    /**
+     * [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+     */
     readonly securityGroupEgress?: outputs.ec2.SecurityGroupEgress[];
+    /**
+     * The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+     */
     readonly securityGroupIngress?: outputs.ec2.SecurityGroupIngress[];
+    /**
+     * Any tags assigned to the security group.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -37,5 +55,8 @@ export function getSecurityGroupOutput(args: GetSecurityGroupOutputArgs, opts?: 
 }
 
 export interface GetSecurityGroupOutputArgs {
+    /**
+     * The group name or group ID depending on whether the SG is created in default or specific VPC
+     */
     id: pulumi.Input<string>;
 }

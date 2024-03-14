@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class InstanceIpv6Address
     {
+        /// <summary>
+        /// The IPv6 address.
+        /// </summary>
         public readonly string Ipv6Address;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class InstanceLicenseSpecification
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the license configuration.
+        /// </summary>
         public readonly string LicenseConfigurationArn;
 
         [OutputConstructor]

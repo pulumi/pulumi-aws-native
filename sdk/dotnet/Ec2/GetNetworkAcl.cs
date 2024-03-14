@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetNetworkAcl
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::NetworkAcl
+        /// Specifies a network ACL for your VPC.
         /// </summary>
         public static Task<GetNetworkAclResult> InvokeAsync(GetNetworkAclArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclResult>("aws-native:ec2:getNetworkAcl", args ?? new GetNetworkAclArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::NetworkAcl
+        /// Specifies a network ACL for your VPC.
         /// </summary>
         public static Output<GetNetworkAclResult> Invoke(GetNetworkAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAclResult>("aws-native:ec2:getNetworkAcl", args ?? new GetNetworkAclInvokeArgs(), options.WithDefaults());
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Ec2
     {
         public readonly string? Id;
         /// <summary>
-        /// The tags to assign to the network ACL.
+        /// The tags for the network ACL.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

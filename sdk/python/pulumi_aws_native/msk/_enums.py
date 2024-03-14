@@ -9,6 +9,7 @@ __all__ = [
     'ClusterEnhancedMonitoring',
     'ClusterStorageMode',
     'ReplicatorReplicationInfoTargetCompressionType',
+    'ReplicatorReplicationStartingPositionType',
     'VpcConnectionAuthentication',
 ]
 
@@ -40,6 +41,14 @@ class ReplicatorReplicationInfoTargetCompressionType(str, Enum):
     SNAPPY = "SNAPPY"
     LZ4 = "LZ4"
     ZSTD = "ZSTD"
+
+
+class ReplicatorReplicationStartingPositionType(str, Enum):
+    """
+    The type of replication starting position.
+    """
+    LATEST = "LATEST"
+    EARLIEST = "EARLIEST"
 
 
 class VpcConnectionAuthentication(str, Enum):

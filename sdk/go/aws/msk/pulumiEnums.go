@@ -683,6 +683,172 @@ func (in *replicatorReplicationInfoTargetCompressionTypePtr) ToReplicatorReplica
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorReplicationInfoTargetCompressionTypePtrOutput)
 }
 
+// The type of replication starting position.
+type ReplicatorReplicationStartingPositionType string
+
+const (
+	ReplicatorReplicationStartingPositionTypeLatest   = ReplicatorReplicationStartingPositionType("LATEST")
+	ReplicatorReplicationStartingPositionTypeEarliest = ReplicatorReplicationStartingPositionType("EARLIEST")
+)
+
+func (ReplicatorReplicationStartingPositionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationStartingPositionType)(nil)).Elem()
+}
+
+func (e ReplicatorReplicationStartingPositionType) ToReplicatorReplicationStartingPositionTypeOutput() ReplicatorReplicationStartingPositionTypeOutput {
+	return pulumi.ToOutput(e).(ReplicatorReplicationStartingPositionTypeOutput)
+}
+
+func (e ReplicatorReplicationStartingPositionType) ToReplicatorReplicationStartingPositionTypeOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicatorReplicationStartingPositionTypeOutput)
+}
+
+func (e ReplicatorReplicationStartingPositionType) ToReplicatorReplicationStartingPositionTypePtrOutput() ReplicatorReplicationStartingPositionTypePtrOutput {
+	return e.ToReplicatorReplicationStartingPositionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorReplicationStartingPositionType) ToReplicatorReplicationStartingPositionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionTypePtrOutput {
+	return ReplicatorReplicationStartingPositionType(e).ToReplicatorReplicationStartingPositionTypeOutputWithContext(ctx).ToReplicatorReplicationStartingPositionTypePtrOutputWithContext(ctx)
+}
+
+func (e ReplicatorReplicationStartingPositionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorReplicationStartingPositionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorReplicationStartingPositionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorReplicationStartingPositionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicatorReplicationStartingPositionTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationStartingPositionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationStartingPositionType)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationStartingPositionTypeOutput) ToReplicatorReplicationStartingPositionTypeOutput() ReplicatorReplicationStartingPositionTypeOutput {
+	return o
+}
+
+func (o ReplicatorReplicationStartingPositionTypeOutput) ToReplicatorReplicationStartingPositionTypeOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionTypeOutput {
+	return o
+}
+
+func (o ReplicatorReplicationStartingPositionTypeOutput) ToReplicatorReplicationStartingPositionTypePtrOutput() ReplicatorReplicationStartingPositionTypePtrOutput {
+	return o.ToReplicatorReplicationStartingPositionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationStartingPositionTypeOutput) ToReplicatorReplicationStartingPositionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorReplicationStartingPositionType) *ReplicatorReplicationStartingPositionType {
+		return &v
+	}).(ReplicatorReplicationStartingPositionTypePtrOutput)
+}
+
+func (o ReplicatorReplicationStartingPositionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationStartingPositionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorReplicationStartingPositionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatorReplicationStartingPositionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationStartingPositionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorReplicationStartingPositionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorReplicationStartingPositionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationStartingPositionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationStartingPositionType)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationStartingPositionTypePtrOutput) ToReplicatorReplicationStartingPositionTypePtrOutput() ReplicatorReplicationStartingPositionTypePtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationStartingPositionTypePtrOutput) ToReplicatorReplicationStartingPositionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionTypePtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationStartingPositionTypePtrOutput) Elem() ReplicatorReplicationStartingPositionTypeOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationStartingPositionType) ReplicatorReplicationStartingPositionType {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorReplicationStartingPositionType
+		return ret
+	}).(ReplicatorReplicationStartingPositionTypeOutput)
+}
+
+func (o ReplicatorReplicationStartingPositionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationStartingPositionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicatorReplicationStartingPositionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicatorReplicationStartingPositionTypeInput is an input type that accepts values of the ReplicatorReplicationStartingPositionType enum
+// A concrete instance of `ReplicatorReplicationStartingPositionTypeInput` can be one of the following:
+//
+//	ReplicatorReplicationStartingPositionTypeLatest
+//	ReplicatorReplicationStartingPositionTypeEarliest
+type ReplicatorReplicationStartingPositionTypeInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationStartingPositionTypeOutput() ReplicatorReplicationStartingPositionTypeOutput
+	ToReplicatorReplicationStartingPositionTypeOutputWithContext(context.Context) ReplicatorReplicationStartingPositionTypeOutput
+}
+
+var replicatorReplicationStartingPositionTypePtrType = reflect.TypeOf((**ReplicatorReplicationStartingPositionType)(nil)).Elem()
+
+type ReplicatorReplicationStartingPositionTypePtrInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationStartingPositionTypePtrOutput() ReplicatorReplicationStartingPositionTypePtrOutput
+	ToReplicatorReplicationStartingPositionTypePtrOutputWithContext(context.Context) ReplicatorReplicationStartingPositionTypePtrOutput
+}
+
+type replicatorReplicationStartingPositionTypePtr string
+
+func ReplicatorReplicationStartingPositionTypePtr(v string) ReplicatorReplicationStartingPositionTypePtrInput {
+	return (*replicatorReplicationStartingPositionTypePtr)(&v)
+}
+
+func (*replicatorReplicationStartingPositionTypePtr) ElementType() reflect.Type {
+	return replicatorReplicationStartingPositionTypePtrType
+}
+
+func (in *replicatorReplicationStartingPositionTypePtr) ToReplicatorReplicationStartingPositionTypePtrOutput() ReplicatorReplicationStartingPositionTypePtrOutput {
+	return pulumi.ToOutput(in).(ReplicatorReplicationStartingPositionTypePtrOutput)
+}
+
+func (in *replicatorReplicationStartingPositionTypePtr) ToReplicatorReplicationStartingPositionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorReplicationStartingPositionTypePtrOutput)
+}
+
 // The type of private link authentication
 type VpcConnectionAuthentication string
 
@@ -860,6 +1026,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModePtrInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionTypeInput)(nil)).Elem(), ReplicatorReplicationInfoTargetCompressionType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionTypePtrInput)(nil)).Elem(), ReplicatorReplicationInfoTargetCompressionType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionTypeInput)(nil)).Elem(), ReplicatorReplicationStartingPositionType("LATEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionTypePtrInput)(nil)).Elem(), ReplicatorReplicationStartingPositionType("LATEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationPtrInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerOutput{})
@@ -870,6 +1038,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterStorageModePtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoTargetCompressionTypeOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoTargetCompressionTypePtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionTypeOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcConnectionAuthenticationOutput{})
 	pulumi.RegisterOutputType(VpcConnectionAuthenticationPtrOutput{})
 }

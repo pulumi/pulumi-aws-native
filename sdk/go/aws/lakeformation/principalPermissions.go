@@ -12,17 +12,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A resource schema representing a Lake Formation Permission.
+// The “AWS::LakeFormation::PrincipalPermissions“ resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a “PrincipalPermissions“ resource, the permissions are granted via the LFlong “GrantPermissions“ API operation. When you delete a “PrincipalPermissions“ resource, the permissions on principal-resource pair are revoked via the LFlong “RevokePermissions“ API operation.
 type PrincipalPermissions struct {
 	pulumi.CustomResourceState
 
-	Catalog                    pulumi.StringPtrOutput                      `pulumi:"catalog"`
-	Permissions                PrincipalPermissionsPermissionArrayOutput   `pulumi:"permissions"`
-	PermissionsWithGrantOption PrincipalPermissionsPermissionArrayOutput   `pulumi:"permissionsWithGrantOption"`
-	Principal                  PrincipalPermissionsDataLakePrincipalOutput `pulumi:"principal"`
-	PrincipalIdentifier        pulumi.StringOutput                         `pulumi:"principalIdentifier"`
-	Resource                   PrincipalPermissionsResourceOutput          `pulumi:"resource"`
-	ResourceIdentifier         pulumi.StringOutput                         `pulumi:"resourceIdentifier"`
+	// The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	Catalog pulumi.StringPtrOutput `pulumi:"catalog"`
+	// The permissions granted or revoked.
+	Permissions PrincipalPermissionsPermissionArrayOutput `pulumi:"permissions"`
+	// Indicates the ability to grant permissions (as a subset of permissions granted).
+	PermissionsWithGrantOption PrincipalPermissionsPermissionArrayOutput `pulumi:"permissionsWithGrantOption"`
+	// The principal to be granted a permission.
+	Principal           PrincipalPermissionsDataLakePrincipalOutput `pulumi:"principal"`
+	PrincipalIdentifier pulumi.StringOutput                         `pulumi:"principalIdentifier"`
+	// The resource to be granted or revoked permissions.
+	Resource           PrincipalPermissionsResourceOutput `pulumi:"resource"`
+	ResourceIdentifier pulumi.StringOutput                `pulumi:"resourceIdentifier"`
 }
 
 // NewPrincipalPermissions registers a new resource with the given unique name, arguments, and options.
@@ -85,20 +90,30 @@ func (PrincipalPermissionsState) ElementType() reflect.Type {
 }
 
 type principalPermissionsArgs struct {
-	Catalog                    *string                               `pulumi:"catalog"`
-	Permissions                []PrincipalPermissionsPermission      `pulumi:"permissions"`
-	PermissionsWithGrantOption []PrincipalPermissionsPermission      `pulumi:"permissionsWithGrantOption"`
-	Principal                  PrincipalPermissionsDataLakePrincipal `pulumi:"principal"`
-	Resource                   PrincipalPermissionsResource          `pulumi:"resource"`
+	// The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	Catalog *string `pulumi:"catalog"`
+	// The permissions granted or revoked.
+	Permissions []PrincipalPermissionsPermission `pulumi:"permissions"`
+	// Indicates the ability to grant permissions (as a subset of permissions granted).
+	PermissionsWithGrantOption []PrincipalPermissionsPermission `pulumi:"permissionsWithGrantOption"`
+	// The principal to be granted a permission.
+	Principal PrincipalPermissionsDataLakePrincipal `pulumi:"principal"`
+	// The resource to be granted or revoked permissions.
+	Resource PrincipalPermissionsResource `pulumi:"resource"`
 }
 
 // The set of arguments for constructing a PrincipalPermissions resource.
 type PrincipalPermissionsArgs struct {
-	Catalog                    pulumi.StringPtrInput
-	Permissions                PrincipalPermissionsPermissionArrayInput
+	// The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+	Catalog pulumi.StringPtrInput
+	// The permissions granted or revoked.
+	Permissions PrincipalPermissionsPermissionArrayInput
+	// Indicates the ability to grant permissions (as a subset of permissions granted).
 	PermissionsWithGrantOption PrincipalPermissionsPermissionArrayInput
-	Principal                  PrincipalPermissionsDataLakePrincipalInput
-	Resource                   PrincipalPermissionsResourceInput
+	// The principal to be granted a permission.
+	Principal PrincipalPermissionsDataLakePrincipalInput
+	// The resource to be granted or revoked permissions.
+	Resource PrincipalPermissionsResourceInput
 }
 
 func (PrincipalPermissionsArgs) ElementType() reflect.Type {
@@ -138,20 +153,24 @@ func (o PrincipalPermissionsOutput) ToPrincipalPermissionsOutputWithContext(ctx 
 	return o
 }
 
+// The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 func (o PrincipalPermissionsOutput) Catalog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissions) pulumi.StringPtrOutput { return v.Catalog }).(pulumi.StringPtrOutput)
 }
 
+// The permissions granted or revoked.
 func (o PrincipalPermissionsOutput) Permissions() PrincipalPermissionsPermissionArrayOutput {
 	return o.ApplyT(func(v *PrincipalPermissions) PrincipalPermissionsPermissionArrayOutput { return v.Permissions }).(PrincipalPermissionsPermissionArrayOutput)
 }
 
+// Indicates the ability to grant permissions (as a subset of permissions granted).
 func (o PrincipalPermissionsOutput) PermissionsWithGrantOption() PrincipalPermissionsPermissionArrayOutput {
 	return o.ApplyT(func(v *PrincipalPermissions) PrincipalPermissionsPermissionArrayOutput {
 		return v.PermissionsWithGrantOption
 	}).(PrincipalPermissionsPermissionArrayOutput)
 }
 
+// The principal to be granted a permission.
 func (o PrincipalPermissionsOutput) Principal() PrincipalPermissionsDataLakePrincipalOutput {
 	return o.ApplyT(func(v *PrincipalPermissions) PrincipalPermissionsDataLakePrincipalOutput { return v.Principal }).(PrincipalPermissionsDataLakePrincipalOutput)
 }
@@ -160,6 +179,7 @@ func (o PrincipalPermissionsOutput) PrincipalIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalPermissions) pulumi.StringOutput { return v.PrincipalIdentifier }).(pulumi.StringOutput)
 }
 
+// The resource to be granted or revoked permissions.
 func (o PrincipalPermissionsOutput) Resource() PrincipalPermissionsResourceOutput {
 	return o.ApplyT(func(v *PrincipalPermissions) PrincipalPermissionsResourceOutput { return v.Resource }).(PrincipalPermissionsResourceOutput)
 }

@@ -25,6 +25,7 @@ export interface GetJobQueueArgs {
 export interface GetJobQueueResult {
     readonly computeEnvironmentOrder?: outputs.batch.JobQueueComputeEnvironmentOrder[];
     readonly jobQueueArn?: string;
+    readonly jobStateTimeLimitActions?: outputs.batch.JobQueueJobStateTimeLimitAction[];
     readonly priority?: number;
     readonly schedulingPolicyArn?: string;
     readonly state?: enums.batch.JobQueueState;

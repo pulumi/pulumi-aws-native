@@ -28,7 +28,7 @@ class RepositoryEncryptionType(str, Enum):
 
 class RepositoryImageTagMutability(str, Enum):
     """
-    The image tag mutability setting for the repository.
+    The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
     """
     MUTABLE = "MUTABLE"
     IMMUTABLE = "IMMUTABLE"

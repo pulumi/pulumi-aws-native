@@ -100,7 +100,7 @@ export const ParameterType = {
 
 /**
  * The type of parameter.
- *   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating a ``SecureString`` parameter type.
+ *   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
  */
 export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 

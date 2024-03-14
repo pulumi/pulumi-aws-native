@@ -21,6 +21,8 @@ type DhcpOptions struct {
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
 	DomainNameServers pulumi.StringArrayOutput `pulumi:"domainNameServers"`
+	// The preferred Lease Time for ipV6 address in seconds.
+	Ipv6AddressPreferredLeaseTime pulumi.IntPtrOutput `pulumi:"ipv6AddressPreferredLeaseTime"`
 	// The IPv4 addresses of up to four NetBIOS name servers.
 	NetbiosNameServers pulumi.StringArrayOutput `pulumi:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8).
@@ -41,6 +43,7 @@ func NewDhcpOptions(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"domainName",
 		"domainNameServers[*]",
+		"ipv6AddressPreferredLeaseTime",
 		"netbiosNameServers[*]",
 		"netbiosNodeType",
 		"ntpServers[*]",
@@ -83,6 +86,8 @@ type dhcpOptionsArgs struct {
 	DomainName *string `pulumi:"domainName"`
 	// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
 	DomainNameServers []string `pulumi:"domainNameServers"`
+	// The preferred Lease Time for ipV6 address in seconds.
+	Ipv6AddressPreferredLeaseTime *int `pulumi:"ipv6AddressPreferredLeaseTime"`
 	// The IPv4 addresses of up to four NetBIOS name servers.
 	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8).
@@ -99,6 +104,8 @@ type DhcpOptionsArgs struct {
 	DomainName pulumi.StringPtrInput
 	// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
 	DomainNameServers pulumi.StringArrayInput
+	// The preferred Lease Time for ipV6 address in seconds.
+	Ipv6AddressPreferredLeaseTime pulumi.IntPtrInput
 	// The IPv4 addresses of up to four NetBIOS name servers.
 	NetbiosNameServers pulumi.StringArrayInput
 	// The NetBIOS node type (1, 2, 4, or 8).
@@ -158,6 +165,11 @@ func (o DhcpOptionsOutput) DomainName() pulumi.StringPtrOutput {
 // The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
 func (o DhcpOptionsOutput) DomainNameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DhcpOptions) pulumi.StringArrayOutput { return v.DomainNameServers }).(pulumi.StringArrayOutput)
+}
+
+// The preferred Lease Time for ipV6 address in seconds.
+func (o DhcpOptionsOutput) Ipv6AddressPreferredLeaseTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DhcpOptions) pulumi.IntPtrOutput { return v.Ipv6AddressPreferredLeaseTime }).(pulumi.IntPtrOutput)
 }
 
 // The IPv4 addresses of up to four NetBIOS name servers.

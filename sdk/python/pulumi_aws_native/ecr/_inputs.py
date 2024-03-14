@@ -149,10 +149,12 @@ class RepositoryEncryptionConfigurationArgs:
                  kms_key: Optional[pulumi.Input[str]] = None):
         """
         The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
-
-        By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
-
-        For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
+         By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+         For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
+        :param pulumi.Input['RepositoryEncryptionType'] encryption_type: The encryption type to use.
+                If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an key stored in (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide*.
+                If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Ama
+        :param pulumi.Input[str] kms_key: If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_key is not None:
@@ -161,6 +163,11 @@ class RepositoryEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input['RepositoryEncryptionType']:
+        """
+        The encryption type to use.
+         If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created. For more information, see [Protecting data using server-side encryption with an key stored in (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html) in the *Amazon Simple Storage Service Console Developer Guide*.
+         If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html) in the *Ama
+        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -170,6 +177,9 @@ class RepositoryEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
+        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -182,7 +192,8 @@ class RepositoryImageScanningConfigurationArgs:
     def __init__(__self__, *,
                  scan_on_push: Optional[pulumi.Input[bool]] = None):
         """
-        The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+        The image scanning configuration for a repository.
+        :param pulumi.Input[bool] scan_on_push: The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
         """
         if scan_on_push is not None:
             pulumi.set(__self__, "scan_on_push", scan_on_push)
@@ -190,6 +201,9 @@ class RepositoryImageScanningConfigurationArgs:
     @property
     @pulumi.getter(name="scanOnPush")
     def scan_on_push(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
+        """
         return pulumi.get(self, "scan_on_push")
 
     @scan_on_push.setter
@@ -203,7 +217,10 @@ class RepositoryLifecyclePolicyArgs:
                  lifecycle_policy_text: Optional[pulumi.Input[str]] = None,
                  registry_id: Optional[pulumi.Input[str]] = None):
         """
-        The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+        The ``LifecyclePolicy`` property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
+        :param pulumi.Input[str] lifecycle_policy_text: The JSON repository policy text to apply to the repository.
+        :param pulumi.Input[str] registry_id: The AWS account ID associated with the registry that contains the repository. If you do
+                not specify a registry, the default registry is assumed.
         """
         if lifecycle_policy_text is not None:
             pulumi.set(__self__, "lifecycle_policy_text", lifecycle_policy_text)
@@ -213,6 +230,9 @@ class RepositoryLifecyclePolicyArgs:
     @property
     @pulumi.getter(name="lifecyclePolicyText")
     def lifecycle_policy_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON repository policy text to apply to the repository.
+        """
         return pulumi.get(self, "lifecycle_policy_text")
 
     @lifecycle_policy_text.setter
@@ -222,6 +242,10 @@ class RepositoryLifecyclePolicyArgs:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID associated with the registry that contains the repository. If you do
+         not specify a registry, the default registry is assumed.
+        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter

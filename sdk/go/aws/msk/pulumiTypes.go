@@ -5060,6 +5060,144 @@ func (o ReplicatorReplicationInfoArrayOutput) Index(i pulumi.IntInput) Replicato
 	}).(ReplicatorReplicationInfoOutput)
 }
 
+// Configuration for specifying the position in the topics to start replicating from.
+type ReplicatorReplicationStartingPosition struct {
+	Type *ReplicatorReplicationStartingPositionType `pulumi:"type"`
+}
+
+// ReplicatorReplicationStartingPositionInput is an input type that accepts ReplicatorReplicationStartingPositionArgs and ReplicatorReplicationStartingPositionOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationStartingPositionInput` via:
+//
+//	ReplicatorReplicationStartingPositionArgs{...}
+type ReplicatorReplicationStartingPositionInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationStartingPositionOutput() ReplicatorReplicationStartingPositionOutput
+	ToReplicatorReplicationStartingPositionOutputWithContext(context.Context) ReplicatorReplicationStartingPositionOutput
+}
+
+// Configuration for specifying the position in the topics to start replicating from.
+type ReplicatorReplicationStartingPositionArgs struct {
+	Type ReplicatorReplicationStartingPositionTypePtrInput `pulumi:"type"`
+}
+
+func (ReplicatorReplicationStartingPositionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationStartingPosition)(nil)).Elem()
+}
+
+func (i ReplicatorReplicationStartingPositionArgs) ToReplicatorReplicationStartingPositionOutput() ReplicatorReplicationStartingPositionOutput {
+	return i.ToReplicatorReplicationStartingPositionOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationStartingPositionArgs) ToReplicatorReplicationStartingPositionOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationStartingPositionOutput)
+}
+
+func (i ReplicatorReplicationStartingPositionArgs) ToReplicatorReplicationStartingPositionPtrOutput() ReplicatorReplicationStartingPositionPtrOutput {
+	return i.ToReplicatorReplicationStartingPositionPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationStartingPositionArgs) ToReplicatorReplicationStartingPositionPtrOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationStartingPositionOutput).ToReplicatorReplicationStartingPositionPtrOutputWithContext(ctx)
+}
+
+// ReplicatorReplicationStartingPositionPtrInput is an input type that accepts ReplicatorReplicationStartingPositionArgs, ReplicatorReplicationStartingPositionPtr and ReplicatorReplicationStartingPositionPtrOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationStartingPositionPtrInput` via:
+//
+//	        ReplicatorReplicationStartingPositionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorReplicationStartingPositionPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationStartingPositionPtrOutput() ReplicatorReplicationStartingPositionPtrOutput
+	ToReplicatorReplicationStartingPositionPtrOutputWithContext(context.Context) ReplicatorReplicationStartingPositionPtrOutput
+}
+
+type replicatorReplicationStartingPositionPtrType ReplicatorReplicationStartingPositionArgs
+
+func ReplicatorReplicationStartingPositionPtr(v *ReplicatorReplicationStartingPositionArgs) ReplicatorReplicationStartingPositionPtrInput {
+	return (*replicatorReplicationStartingPositionPtrType)(v)
+}
+
+func (*replicatorReplicationStartingPositionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationStartingPosition)(nil)).Elem()
+}
+
+func (i *replicatorReplicationStartingPositionPtrType) ToReplicatorReplicationStartingPositionPtrOutput() ReplicatorReplicationStartingPositionPtrOutput {
+	return i.ToReplicatorReplicationStartingPositionPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorReplicationStartingPositionPtrType) ToReplicatorReplicationStartingPositionPtrOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationStartingPositionPtrOutput)
+}
+
+// Configuration for specifying the position in the topics to start replicating from.
+type ReplicatorReplicationStartingPositionOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationStartingPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationStartingPosition)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationStartingPositionOutput) ToReplicatorReplicationStartingPositionOutput() ReplicatorReplicationStartingPositionOutput {
+	return o
+}
+
+func (o ReplicatorReplicationStartingPositionOutput) ToReplicatorReplicationStartingPositionOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionOutput {
+	return o
+}
+
+func (o ReplicatorReplicationStartingPositionOutput) ToReplicatorReplicationStartingPositionPtrOutput() ReplicatorReplicationStartingPositionPtrOutput {
+	return o.ToReplicatorReplicationStartingPositionPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationStartingPositionOutput) ToReplicatorReplicationStartingPositionPtrOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorReplicationStartingPosition) *ReplicatorReplicationStartingPosition {
+		return &v
+	}).(ReplicatorReplicationStartingPositionPtrOutput)
+}
+
+func (o ReplicatorReplicationStartingPositionOutput) Type() ReplicatorReplicationStartingPositionTypePtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationStartingPosition) *ReplicatorReplicationStartingPositionType {
+		return v.Type
+	}).(ReplicatorReplicationStartingPositionTypePtrOutput)
+}
+
+type ReplicatorReplicationStartingPositionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationStartingPositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationStartingPosition)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationStartingPositionPtrOutput) ToReplicatorReplicationStartingPositionPtrOutput() ReplicatorReplicationStartingPositionPtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationStartingPositionPtrOutput) ToReplicatorReplicationStartingPositionPtrOutputWithContext(ctx context.Context) ReplicatorReplicationStartingPositionPtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationStartingPositionPtrOutput) Elem() ReplicatorReplicationStartingPositionOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationStartingPosition) ReplicatorReplicationStartingPosition {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorReplicationStartingPosition
+		return ret
+	}).(ReplicatorReplicationStartingPositionOutput)
+}
+
+func (o ReplicatorReplicationStartingPositionPtrOutput) Type() ReplicatorReplicationStartingPositionTypePtrOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationStartingPosition) *ReplicatorReplicationStartingPositionType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(ReplicatorReplicationStartingPositionTypePtrOutput)
+}
+
 type ReplicatorTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -5072,6 +5210,8 @@ type ReplicatorTopicReplication struct {
 	CopyTopicConfigurations *bool `pulumi:"copyTopicConfigurations"`
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics *bool `pulumi:"detectAndCopyNewTopics"`
+	// Configuration for specifying the position in the topics to start replicating from.
+	StartingPosition *ReplicatorReplicationStartingPosition `pulumi:"startingPosition"`
 	// List of regular expression patterns indicating the topics that should not be replicated.
 	TopicsToExclude []string `pulumi:"topicsToExclude"`
 	// List of regular expression patterns indicating the topics to copy.
@@ -5096,6 +5236,8 @@ type ReplicatorTopicReplicationArgs struct {
 	CopyTopicConfigurations pulumi.BoolPtrInput `pulumi:"copyTopicConfigurations"`
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics pulumi.BoolPtrInput `pulumi:"detectAndCopyNewTopics"`
+	// Configuration for specifying the position in the topics to start replicating from.
+	StartingPosition ReplicatorReplicationStartingPositionPtrInput `pulumi:"startingPosition"`
 	// List of regular expression patterns indicating the topics that should not be replicated.
 	TopicsToExclude pulumi.StringArrayInput `pulumi:"topicsToExclude"`
 	// List of regular expression patterns indicating the topics to copy.
@@ -5141,6 +5283,11 @@ func (o ReplicatorTopicReplicationOutput) CopyTopicConfigurations() pulumi.BoolP
 // Whether to periodically check for new topics and partitions.
 func (o ReplicatorTopicReplicationOutput) DetectAndCopyNewTopics() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReplicatorTopicReplication) *bool { return v.DetectAndCopyNewTopics }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration for specifying the position in the topics to start replicating from.
+func (o ReplicatorTopicReplicationOutput) StartingPosition() ReplicatorReplicationStartingPositionPtrOutput {
+	return o.ApplyT(func(v ReplicatorTopicReplication) *ReplicatorReplicationStartingPosition { return v.StartingPosition }).(ReplicatorReplicationStartingPositionPtrOutput)
 }
 
 // List of regular expression patterns indicating the topics that should not be replicated.
@@ -5471,6 +5618,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientVpcConfigInput)(nil)).Elem(), ReplicatorKafkaClusterClientVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoInput)(nil)).Elem(), ReplicatorReplicationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoArrayInput)(nil)).Elem(), ReplicatorReplicationInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionInput)(nil)).Elem(), ReplicatorReplicationStartingPositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionPtrInput)(nil)).Elem(), ReplicatorReplicationStartingPositionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTopicReplicationInput)(nil)).Elem(), ReplicatorTopicReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterIamInput)(nil)).Elem(), ServerlessClusterIamArgs{})
@@ -5548,6 +5697,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientVpcConfigOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorTopicReplicationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterIamOutput{})

@@ -27,7 +27,25 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[str] cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: The short name of one or more capacity providers to associate with the cluster. A capacity provider must be associated with a cluster before it can be included as part of the default capacity provider strategy of the cluster or used in a capacity provider strategy when calling the [CreateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html) or [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) actions.
+                If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must be created but not associated with another cluster. New Auto Scaling group capacity providers can be created with the [CreateCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html) API operation.
+                To use a FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+                The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+        :param pulumi.Input[str] cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]] cluster_settings: The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+        :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command configuration for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]] default_capacity_provider_strategy: The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
+        :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
+                Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+                The following basic restrictions apply to tags:
+                 +  Maximum number of tags per resource - 50
+                 +  For each resource, each tag key must be unique, and each tag key can have only one value.
+                 +  Maximum key length - 128 Unicode characters in UTF-8
+                 +  Maximum value length - 256 Unicode characters in UTF-8
+                 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+                 +  Tag keys and values are case-sensitive.
+                 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
         """
         if capacity_providers is not None:
             pulumi.set(__self__, "capacity_providers", capacity_providers)
@@ -47,6 +65,12 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The short name of one or more capacity providers to associate with the cluster. A capacity provider must be associated with a cluster before it can be included as part of the default capacity provider strategy of the cluster or used in a capacity provider strategy when calling the [CreateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html) or [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) actions.
+         If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must be created but not associated with another cluster. New Auto Scaling group capacity providers can be created with the [CreateCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html) API operation.
+         To use a FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+         The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+        """
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
@@ -57,7 +81,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
+        A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
         """
         return pulumi.get(self, "cluster_name")
 
@@ -68,6 +92,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="clusterSettings")
     def cluster_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]]]:
+        """
+        The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+        """
         return pulumi.get(self, "cluster_settings")
 
     @cluster_settings.setter
@@ -77,6 +104,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
+        """
+        The execute command configuration for the cluster.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -86,6 +116,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategy")
     def default_capacity_provider_strategy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]]:
+        """
+        The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
+        """
         return pulumi.get(self, "default_capacity_provider_strategy")
 
     @default_capacity_provider_strategy.setter
@@ -95,6 +128,10 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="serviceConnectDefaults")
     def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]:
+        """
+        Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
+         Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+        """
         return pulumi.get(self, "service_connect_defaults")
 
     @service_connect_defaults.setter
@@ -104,6 +141,17 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+         The following basic restrictions apply to tags:
+          +  Maximum number of tags per resource - 50
+          +  For each resource, each tag key must be unique, and each tag key can have only one value.
+          +  Maximum key length - 128 Unicode characters in UTF-8
+          +  Maximum value length - 256 Unicode characters in UTF-8
+          +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+          +  Tag keys and values are case-sensitive.
+          +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -125,11 +173,29 @@ class Cluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        Create an Elastic Container Service (ECS) cluster.
+        The ``AWS::ECS::Cluster`` resource creates an Amazon Elastic Container Service (Amazon ECS) cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: The short name of one or more capacity providers to associate with the cluster. A capacity provider must be associated with a cluster before it can be included as part of the default capacity provider strategy of the cluster or used in a capacity provider strategy when calling the [CreateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html) or [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) actions.
+                If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must be created but not associated with another cluster. New Auto Scaling group capacity providers can be created with the [CreateCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html) API operation.
+                To use a FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+                The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+        :param pulumi.Input[str] cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingsArgs']]]] cluster_settings: The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']] configuration: The execute command configuration for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]] default_capacity_provider_strategy: The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
+        :param pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']] service_connect_defaults: Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
+                Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+                The following basic restrictions apply to tags:
+                 +  Maximum number of tags per resource - 50
+                 +  For each resource, each tag key must be unique, and each tag key can have only one value.
+                 +  Maximum key length - 128 Unicode characters in UTF-8
+                 +  Maximum value length - 256 Unicode characters in UTF-8
+                 +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+                 +  Tag keys and values are case-sensitive.
+                 +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
         """
         ...
     @overload
@@ -138,7 +204,7 @@ class Cluster(pulumi.CustomResource):
                  args: Optional[ClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create an Elastic Container Service (ECS) cluster.
+        The ``AWS::ECS::Cluster`` resource creates an Amazon Elastic Container Service (Amazon ECS) cluster.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -216,46 +282,73 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon ECS cluster, such as arn:aws:ecs:us-east-2:123456789012:cluster/MyECSCluster.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The short name of one or more capacity providers to associate with the cluster. A capacity provider must be associated with a cluster before it can be included as part of the default capacity provider strategy of the cluster or used in a capacity provider strategy when calling the [CreateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html) or [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) actions.
+         If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must be created but not associated with another cluster. New Auto Scaling group capacity providers can be created with the [CreateCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html) API operation.
+         To use a FARGATElong capacity provider, specify either the ``FARGATE`` or ``FARGATE_SPOT`` capacity providers. The FARGATElong capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+         The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+        """
         return pulumi.get(self, "capacity_providers")
 
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[Optional[str]]:
         """
-        A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
+        A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
         """
         return pulumi.get(self, "cluster_name")
 
     @property
     @pulumi.getter(name="clusterSettings")
     def cluster_settings(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterSettings']]]:
+        """
+        The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights for a cluster.
+        """
         return pulumi.get(self, "cluster_settings")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.ClusterConfiguration']]:
+        """
+        The execute command configuration for the cluster.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategy")
     def default_capacity_provider_strategy(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterCapacityProviderStrategyItem']]]:
+        """
+        The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
+        """
         return pulumi.get(self, "default_capacity_provider_strategy")
 
     @property
     @pulumi.getter(name="serviceConnectDefaults")
     def service_connect_defaults(self) -> pulumi.Output[Optional['outputs.ClusterServiceConnectDefaults']]:
+        """
+        Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
+         Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+        """
         return pulumi.get(self, "service_connect_defaults")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
+         The following basic restrictions apply to tags:
+          +  Maximum number of tags per resource - 50
+          +  For each resource, each tag key must be unique, and each tag key can have only one value.
+          +  Maximum key length - 128 Unicode characters in UTF-8
+          +  Maximum value length - 256 Unicode characters in UTF-8
+          +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+          +  Tag keys and values are case-sensitive.
+          +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+        """
         return pulumi.get(self, "tags")
 

@@ -29,6 +29,8 @@ __all__ = [
     'FlowLogLogDestinationType',
     'FlowLogResourceType',
     'FlowLogTrafficType',
+    'InstanceAffinity',
+    'InstancePrivateDnsNameOptionsHostnameType',
     'IpamPoolAwsService',
     'IpamPoolIpamScopeType',
     'IpamPoolPublicIpSource',
@@ -265,6 +267,22 @@ class FlowLogTrafficType(str, Enum):
     ACCEPT = "ACCEPT"
     ALL = "ALL"
     REJECT = "REJECT"
+
+
+class InstanceAffinity(str, Enum):
+    """
+    Indicates whether the instance is associated with a dedicated host. If you want the instance to always restart on the same host on which it was launched, specify host. If you want the instance to restart on any available host, but try to launch onto the last host it ran on (on a best-effort basis), specify default.
+    """
+    DEFAULT = "default"
+    HOST = "host"
+
+
+class InstancePrivateDnsNameOptionsHostnameType(str, Enum):
+    """
+    The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+    """
+    IP_NAME = "ip-name"
+    RESOURCE_NAME = "resource-name"
 
 
 class IpamPoolAwsService(str, Enum):

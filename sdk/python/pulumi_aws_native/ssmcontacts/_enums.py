@@ -25,8 +25,6 @@ class ContactType(str, Enum):
     Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
     """
     PERSONAL = "PERSONAL"
-    CUSTOM = "CUSTOM"
-    SERVICE = "SERVICE"
     ESCALATION = "ESCALATION"
     ONCALL_SCHEDULE = "ONCALL_SCHEDULE"
 

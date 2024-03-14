@@ -16,6 +16,8 @@ __all__ = [
     'CapacityReservationFleetTagArgs',
     'CapacityReservationTagSpecificationArgs',
     'CapacityReservationTagArgs',
+    'CpuOptionsPropertiesArgs',
+    'CreditSpecificationPropertiesArgs',
     'DestinationOptionsPropertiesArgs',
     'Ec2FleetAcceleratorCountRequestArgs',
     'Ec2FleetAcceleratorTotalMemoryMiBRequestArgs',
@@ -39,20 +41,17 @@ __all__ = [
     'Ec2FleetTargetCapacitySpecificationRequestArgs',
     'Ec2FleetTotalLocalStorageGbRequestArgs',
     'Ec2FleetVCpuCountRangeRequestArgs',
+    'EnclaveOptionsPropertiesArgs',
+    'HibernationOptionsPropertiesArgs',
     'InstanceAssociationParameterArgs',
     'InstanceBlockDeviceMappingArgs',
-    'InstanceCpuOptionsArgs',
-    'InstanceCreditSpecificationArgs',
     'InstanceEbsArgs',
     'InstanceElasticGpuSpecificationArgs',
     'InstanceElasticInferenceAcceleratorArgs',
-    'InstanceEnclaveOptionsArgs',
-    'InstanceHibernationOptionsArgs',
     'InstanceIpv6AddressArgs',
     'InstanceLaunchTemplateSpecificationArgs',
     'InstanceLicenseSpecificationArgs',
     'InstanceNetworkInterfaceArgs',
-    'InstanceNoDeviceArgs',
     'InstancePrivateDnsNameOptionsArgs',
     'InstancePrivateIpAddressSpecificationArgs',
     'InstanceSsmAssociationArgs',
@@ -370,6 +369,58 @@ class CapacityReservationTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CpuOptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 core_count: Optional[pulumi.Input[int]] = None,
+                 threads_per_core: Optional[pulumi.Input[int]] = None):
+        """
+        The CPU options for the instance.
+        """
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "core_count")
+
+    @core_count.setter
+    def core_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "core_count", value)
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "threads_per_core")
+
+    @threads_per_core.setter
+    def threads_per_core(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threads_per_core", value)
+
+
+@pulumi.input_type
+class CreditSpecificationPropertiesArgs:
+    def __init__(__self__, *,
+                 cpu_credits: Optional[pulumi.Input[str]] = None):
+        """
+        The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+        """
+        if cpu_credits is not None:
+            pulumi.set(__self__, "cpu_credits", cpu_credits)
+
+    @property
+    @pulumi.getter(name="cpuCredits")
+    def cpu_credits(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cpu_credits")
+
+    @cpu_credits.setter
+    def cpu_credits(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_credits", value)
 
 
 @pulumi.input_type
@@ -1597,16 +1648,71 @@ class Ec2FleetVCpuCountRangeRequestArgs:
 
 
 @pulumi.input_type
+class EnclaveOptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Indicates whether the instance is enabled for AWS Nitro Enclaves.
+        :param pulumi.Input[bool] enabled: If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class HibernationOptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 configured: Optional[pulumi.Input[bool]] = None):
+        """
+        Indicates whether an instance is enabled for hibernation.
+        :param pulumi.Input[bool] configured: If you set this parameter to true, your instance is enabled for hibernation.
+        """
+        if configured is not None:
+            pulumi.set(__self__, "configured", configured)
+
+    @property
+    @pulumi.getter
+    def configured(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If you set this parameter to true, your instance is enabled for hibernation.
+        """
+        return pulumi.get(self, "configured")
+
+    @configured.setter
+    def configured(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "configured", value)
+
+
+@pulumi.input_type
 class InstanceAssociationParameterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: The name of an input parameter that is in the associated SSM document.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] value: The value of an input parameter.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The name of an input parameter that is in the associated SSM document.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1616,6 +1722,9 @@ class InstanceAssociationParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The value of an input parameter.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1628,8 +1737,12 @@ class InstanceBlockDeviceMappingArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  ebs: Optional[pulumi.Input['InstanceEbsArgs']] = None,
-                 no_device: Optional[pulumi.Input['InstanceNoDeviceArgs']] = None,
+                 no_device: Optional[Any] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] device_name: The device name (for example, /dev/sdh or xvdh).
+        :param pulumi.Input['InstanceEbsArgs'] ebs: Parameters used to automatically set up EBS volumes when the instance is launched.
+        """
         pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
             pulumi.set(__self__, "ebs", ebs)
@@ -1641,6 +1754,9 @@ class InstanceBlockDeviceMappingArgs:
     @property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[str]:
+        """
+        The device name (for example, /dev/sdh or xvdh).
+        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -1650,6 +1766,9 @@ class InstanceBlockDeviceMappingArgs:
     @property
     @pulumi.getter
     def ebs(self) -> Optional[pulumi.Input['InstanceEbsArgs']]:
+        """
+        Parameters used to automatically set up EBS volumes when the instance is launched.
+        """
         return pulumi.get(self, "ebs")
 
     @ebs.setter
@@ -1658,11 +1777,11 @@ class InstanceBlockDeviceMappingArgs:
 
     @property
     @pulumi.getter(name="noDevice")
-    def no_device(self) -> Optional[pulumi.Input['InstanceNoDeviceArgs']]:
+    def no_device(self) -> Optional[Any]:
         return pulumi.get(self, "no_device")
 
     @no_device.setter
-    def no_device(self, value: Optional[pulumi.Input['InstanceNoDeviceArgs']]):
+    def no_device(self, value: Optional[Any]):
         pulumi.set(self, "no_device", value)
 
     @property
@@ -1676,52 +1795,6 @@ class InstanceBlockDeviceMappingArgs:
 
 
 @pulumi.input_type
-class InstanceCpuOptionsArgs:
-    def __init__(__self__, *,
-                 core_count: Optional[pulumi.Input[int]] = None,
-                 threads_per_core: Optional[pulumi.Input[int]] = None):
-        if core_count is not None:
-            pulumi.set(__self__, "core_count", core_count)
-        if threads_per_core is not None:
-            pulumi.set(__self__, "threads_per_core", threads_per_core)
-
-    @property
-    @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "core_count")
-
-    @core_count.setter
-    def core_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "core_count", value)
-
-    @property
-    @pulumi.getter(name="threadsPerCore")
-    def threads_per_core(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "threads_per_core")
-
-    @threads_per_core.setter
-    def threads_per_core(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "threads_per_core", value)
-
-
-@pulumi.input_type
-class InstanceCreditSpecificationArgs:
-    def __init__(__self__, *,
-                 cpu_credits: Optional[pulumi.Input[str]] = None):
-        if cpu_credits is not None:
-            pulumi.set(__self__, "cpu_credits", cpu_credits)
-
-    @property
-    @pulumi.getter(name="cpuCredits")
-    def cpu_credits(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "cpu_credits")
-
-    @cpu_credits.setter
-    def cpu_credits(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cpu_credits", value)
-
-
-@pulumi.input_type
 class InstanceEbsArgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
@@ -1731,6 +1804,15 @@ class InstanceEbsArgs:
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] delete_on_termination: Indicates whether the EBS volume is deleted on instance termination.
+        :param pulumi.Input[bool] encrypted: Indicates whether the volume should be encrypted.
+        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS). For gp3, io1, and io2 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+        :param pulumi.Input[str] kms_key_id: The identifier of the AWS Key Management Service (AWS KMS) customer managed CMK to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If the encrypted state is true but you do not specify KmsKeyId, your AWS managed CMK for EBS is used.
+        :param pulumi.Input[str] snapshot_id: The ID of the snapshot.
+        :param pulumi.Input[int] volume_size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+        :param pulumi.Input[str] volume_type: The volume type.
+        """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -1749,6 +1831,9 @@ class InstanceEbsArgs:
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the EBS volume is deleted on instance termination.
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @delete_on_termination.setter
@@ -1758,6 +1843,9 @@ class InstanceEbsArgs:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the volume should be encrypted.
+        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -1767,6 +1855,9 @@ class InstanceEbsArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of I/O operations per second (IOPS). For gp3, io1, and io2 volumes, this represents the number of IOPS that are provisioned for the volume. For gp2 volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -1776,6 +1867,9 @@ class InstanceEbsArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the AWS Key Management Service (AWS KMS) customer managed CMK to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If the encrypted state is true but you do not specify KmsKeyId, your AWS managed CMK for EBS is used.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -1785,6 +1879,9 @@ class InstanceEbsArgs:
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the snapshot.
+        """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
@@ -1794,6 +1891,9 @@ class InstanceEbsArgs:
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
+        """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
@@ -1803,6 +1903,9 @@ class InstanceEbsArgs:
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The volume type.
+        """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
@@ -1814,11 +1917,17 @@ class InstanceEbsArgs:
 class InstanceElasticGpuSpecificationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] type: The type of Elastic Graphics accelerator.
+        """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of Elastic Graphics accelerator.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1831,6 +1940,10 @@ class InstanceElasticInferenceAcceleratorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type of elastic inference accelerator.
+        :param pulumi.Input[int] count: The number of elastic inference accelerators to attach to the instance.
+        """
         pulumi.set(__self__, "type", type)
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -1838,6 +1951,9 @@ class InstanceElasticInferenceAcceleratorArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of elastic inference accelerator.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1847,6 +1963,9 @@ class InstanceElasticInferenceAcceleratorArgs:
     @property
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of elastic inference accelerators to attach to the instance.
+        """
         return pulumi.get(self, "count")
 
     @count.setter
@@ -1855,48 +1974,20 @@ class InstanceElasticInferenceAcceleratorArgs:
 
 
 @pulumi.input_type
-class InstanceEnclaveOptionsArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-@pulumi.input_type
-class InstanceHibernationOptionsArgs:
-    def __init__(__self__, *,
-                 configured: Optional[pulumi.Input[bool]] = None):
-        if configured is not None:
-            pulumi.set(__self__, "configured", configured)
-
-    @property
-    @pulumi.getter
-    def configured(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "configured")
-
-    @configured.setter
-    def configured(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "configured", value)
-
-
-@pulumi.input_type
 class InstanceIpv6AddressArgs:
     def __init__(__self__, *,
                  ipv6_address: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] ipv6_address: The IPv6 address.
+        """
         pulumi.set(__self__, "ipv6_address", ipv6_address)
 
     @property
     @pulumi.getter(name="ipv6Address")
     def ipv6_address(self) -> pulumi.Input[str]:
+        """
+        The IPv6 address.
+        """
         return pulumi.get(self, "ipv6_address")
 
     @ipv6_address.setter
@@ -1907,27 +1998,27 @@ class InstanceIpv6AddressArgs:
 @pulumi.input_type
 class InstanceLaunchTemplateSpecificationArgs:
     def __init__(__self__, *,
-                 version: pulumi.Input[str],
                  launch_template_id: Optional[pulumi.Input[str]] = None,
-                 launch_template_name: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "version", version)
+                 launch_template_name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] launch_template_id: The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+        :param pulumi.Input[str] launch_template_name: The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+        :param pulumi.Input[str] version: The version number of the launch template.
+        """
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
             pulumi.set(__self__, "launch_template_name", launch_template_name)
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: pulumi.Input[str]):
-        pulumi.set(self, "version", value)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+        """
         return pulumi.get(self, "launch_template_id")
 
     @launch_template_id.setter
@@ -1937,22 +2028,43 @@ class InstanceLaunchTemplateSpecificationArgs:
     @property
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch template. You must specify the LaunchTemplateName or the LaunchTemplateId, but not both.
+        """
         return pulumi.get(self, "launch_template_name")
 
     @launch_template_name.setter
     def launch_template_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "launch_template_name", value)
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version number of the launch template.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
 
 @pulumi.input_type
 class InstanceLicenseSpecificationArgs:
     def __init__(__self__, *,
                  license_configuration_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] license_configuration_arn: The Amazon Resource Name (ARN) of the license configuration.
+        """
         pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
 
     @property
     @pulumi.getter(name="licenseConfigurationArn")
     def license_configuration_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the license configuration.
+        """
         return pulumi.get(self, "license_configuration_arn")
 
     @license_configuration_arn.setter
@@ -1976,6 +2088,21 @@ class InstanceNetworkInterfaceArgs:
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InstancePrivateIpAddressSpecificationArgs']]]] = None,
                  secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] device_index: The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+        :param pulumi.Input[bool] associate_carrier_ip_address: Not currently supported by AWS CloudFormation.
+        :param pulumi.Input[bool] associate_public_ip_address: Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
+        :param pulumi.Input[bool] delete_on_termination: If set to true, the interface is deleted when the instance is terminated.
+        :param pulumi.Input[str] description: The description of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_set: The IDs of the security groups for the network interface.
+        :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to assign to the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]] ipv6_addresses: The IPv6 addresses associated with the network interface.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface.
+        :param pulumi.Input[str] private_ip_address: The private IPv4 address of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['InstancePrivateIpAddressSpecificationArgs']]] private_ip_addresses: One or more private IPv4 addresses to assign to the network interface.
+        :param pulumi.Input[int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet.
+        """
         pulumi.set(__self__, "device_index", device_index)
         if associate_carrier_ip_address is not None:
             pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
@@ -2005,6 +2132,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> pulumi.Input[str]:
+        """
+        The position of the network interface in the attachment order. A primary network interface has a device index of 0.
+        """
         return pulumi.get(self, "device_index")
 
     @device_index.setter
@@ -2014,6 +2144,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="associateCarrierIpAddress")
     def associate_carrier_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Not currently supported by AWS CloudFormation.
+        """
         return pulumi.get(self, "associate_carrier_ip_address")
 
     @associate_carrier_ip_address.setter
@@ -2023,6 +2156,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to assign a public IPv4 address to an instance you launch in a VPC.
+        """
         return pulumi.get(self, "associate_public_ip_address")
 
     @associate_public_ip_address.setter
@@ -2032,6 +2168,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, the interface is deleted when the instance is terminated.
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @delete_on_termination.setter
@@ -2041,6 +2180,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the network interface.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -2050,6 +2192,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="groupSet")
     def group_set(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the security groups for the network interface.
+        """
         return pulumi.get(self, "group_set")
 
     @group_set.setter
@@ -2059,6 +2204,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        A number of IPv6 addresses to assign to the network interface.
+        """
         return pulumi.get(self, "ipv6_address_count")
 
     @ipv6_address_count.setter
@@ -2068,6 +2216,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]]]:
+        """
+        The IPv6 addresses associated with the network interface.
+        """
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
@@ -2077,6 +2228,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the network interface.
+        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -2086,6 +2240,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private IPv4 address of the network interface.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -2095,6 +2252,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="privateIpAddresses")
     def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstancePrivateIpAddressSpecificationArgs']]]]:
+        """
+        One or more private IPv4 addresses to assign to the network interface.
+        """
         return pulumi.get(self, "private_ip_addresses")
 
     @private_ip_addresses.setter
@@ -2104,6 +2264,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of secondary private IPv4 addresses.
+        """
         return pulumi.get(self, "secondary_private_ip_address_count")
 
     @secondary_private_ip_address_count.setter
@@ -2113,6 +2276,9 @@ class InstanceNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -2121,17 +2287,16 @@ class InstanceNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class InstanceNoDeviceArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class InstancePrivateDnsNameOptionsArgs:
     def __init__(__self__, *,
                  enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
-                 hostname_type: Optional[pulumi.Input[str]] = None):
+                 hostname_type: Optional[pulumi.Input['InstancePrivateDnsNameOptionsHostnameType']] = None):
+        """
+        :param pulumi.Input[bool] enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input['InstancePrivateDnsNameOptionsHostnameType'] hostname_type: The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+        """
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
         if enable_resource_name_dns_aaaa_record is not None:
@@ -2142,6 +2307,9 @@ class InstancePrivateDnsNameOptionsArgs:
     @property
     @pulumi.getter(name="enableResourceNameDnsARecord")
     def enable_resource_name_dns_a_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+        """
         return pulumi.get(self, "enable_resource_name_dns_a_record")
 
     @enable_resource_name_dns_a_record.setter
@@ -2151,6 +2319,9 @@ class InstancePrivateDnsNameOptionsArgs:
     @property
     @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
     def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+        """
         return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
 
     @enable_resource_name_dns_aaaa_record.setter
@@ -2159,11 +2330,14 @@ class InstancePrivateDnsNameOptionsArgs:
 
     @property
     @pulumi.getter(name="hostnameType")
-    def hostname_type(self) -> Optional[pulumi.Input[str]]:
+    def hostname_type(self) -> Optional[pulumi.Input['InstancePrivateDnsNameOptionsHostnameType']]:
+        """
+        The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. For more information, see Amazon EC2 instance hostname types in the Amazon Elastic Compute Cloud User Guide.
+        """
         return pulumi.get(self, "hostname_type")
 
     @hostname_type.setter
-    def hostname_type(self, value: Optional[pulumi.Input[str]]):
+    def hostname_type(self, value: Optional[pulumi.Input['InstancePrivateDnsNameOptionsHostnameType']]):
         pulumi.set(self, "hostname_type", value)
 
 
@@ -2172,12 +2346,19 @@ class InstancePrivateIpAddressSpecificationArgs:
     def __init__(__self__, *,
                  primary: pulumi.Input[bool],
                  private_ip_address: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] primary: Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+        :param pulumi.Input[str] private_ip_address: The private IPv4 addresses.
+        """
         pulumi.set(__self__, "primary", primary)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
 
     @property
     @pulumi.getter
     def primary(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -2187,6 +2368,9 @@ class InstancePrivateIpAddressSpecificationArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> pulumi.Input[str]:
+        """
+        The private IPv4 addresses.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -2199,6 +2383,10 @@ class InstanceSsmAssociationArgs:
     def __init__(__self__, *,
                  document_name: pulumi.Input[str],
                  association_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAssociationParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] document_name: The name of an SSM document to associate with the instance.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceAssociationParameterArgs']]] association_parameters: The input parameter values to use with the associated SSM document.
+        """
         pulumi.set(__self__, "document_name", document_name)
         if association_parameters is not None:
             pulumi.set(__self__, "association_parameters", association_parameters)
@@ -2206,6 +2394,9 @@ class InstanceSsmAssociationArgs:
     @property
     @pulumi.getter(name="documentName")
     def document_name(self) -> pulumi.Input[str]:
+        """
+        The name of an SSM document to associate with the instance.
+        """
         return pulumi.get(self, "document_name")
 
     @document_name.setter
@@ -2215,6 +2406,9 @@ class InstanceSsmAssociationArgs:
     @property
     @pulumi.getter(name="associationParameters")
     def association_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAssociationParameterArgs']]]]:
+        """
+        The input parameter values to use with the associated SSM document.
+        """
         return pulumi.get(self, "association_parameters")
 
     @association_parameters.setter
@@ -2227,12 +2421,19 @@ class InstanceVolumeArgs:
     def __init__(__self__, *,
                  device: pulumi.Input[str],
                  volume_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] device: The device name (for example, /dev/sdh or xvdh).
+        :param pulumi.Input[str] volume_id: The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
+        """
         pulumi.set(__self__, "device", device)
         pulumi.set(__self__, "volume_id", volume_id)
 
     @property
     @pulumi.getter
     def device(self) -> pulumi.Input[str]:
+        """
+        The device name (for example, /dev/sdh or xvdh).
+        """
         return pulumi.get(self, "device")
 
     @device.setter
@@ -2242,6 +2443,9 @@ class InstanceVolumeArgs:
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
+        """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
@@ -6272,6 +6476,7 @@ class SecurityGroupEgressArgs:
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  destination_security_group_id: Optional[pulumi.Input[str]] = None,
                  from_port: Optional[pulumi.Input[int]] = None,
+                 source_security_group_id: Optional[pulumi.Input[str]] = None,
                  to_port: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "ip_protocol", ip_protocol)
         if cidr_ip is not None:
@@ -6286,6 +6491,8 @@ class SecurityGroupEgressArgs:
             pulumi.set(__self__, "destination_security_group_id", destination_security_group_id)
         if from_port is not None:
             pulumi.set(__self__, "from_port", from_port)
+        if source_security_group_id is not None:
+            pulumi.set(__self__, "source_security_group_id", source_security_group_id)
         if to_port is not None:
             pulumi.set(__self__, "to_port", to_port)
 
@@ -6351,6 +6558,15 @@ class SecurityGroupEgressArgs:
     @from_port.setter
     def from_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="sourceSecurityGroupId")
+    def source_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_security_group_id")
+
+    @source_security_group_id.setter
+    def source_security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_security_group_id", value)
 
     @property
     @pulumi.getter(name="toPort")

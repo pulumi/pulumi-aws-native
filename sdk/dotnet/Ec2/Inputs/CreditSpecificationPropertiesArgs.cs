@@ -10,14 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
-    public sealed class InstanceCreditSpecificationArgs : global::Pulumi.ResourceArgs
+    /// <summary>
+    /// The credit option for CPU usage of the burstable performance instance. Valid values are standard and unlimited.
+    /// </summary>
+    public sealed class CreditSpecificationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("cpuCredits")]
         public Input<string>? CpuCredits { get; set; }
 
-        public InstanceCreditSpecificationArgs()
+        public CreditSpecificationPropertiesArgs()
         {
         }
-        public static new InstanceCreditSpecificationArgs Empty => new InstanceCreditSpecificationArgs();
+        public static new CreditSpecificationPropertiesArgs Empty => new CreditSpecificationPropertiesArgs();
     }
 }
