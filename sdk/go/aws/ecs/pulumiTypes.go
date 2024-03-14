@@ -3378,7 +3378,10 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 
 // The tag specifications of an Amazon EBS volume.
 type ServiceEbsTagSpecification struct {
-	// Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in  ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't  propagated.
+	// Determines whether to propagate the tags from the task definition to
+	// the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in
+	// ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't
+	// propagated.
 	PropagateTags *ServiceEbsTagSpecificationPropagateTags `pulumi:"propagateTags"`
 	// The type of volume resource.
 	ResourceType string `pulumi:"resourceType"`
@@ -3399,7 +3402,10 @@ type ServiceEbsTagSpecificationInput interface {
 
 // The tag specifications of an Amazon EBS volume.
 type ServiceEbsTagSpecificationArgs struct {
-	// Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in  ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't  propagated.
+	// Determines whether to propagate the tags from the task definition to
+	// the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in
+	// ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't
+	// propagated.
 	PropagateTags ServiceEbsTagSpecificationPropagateTagsPtrInput `pulumi:"propagateTags"`
 	// The type of volume resource.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
@@ -3459,7 +3465,10 @@ func (o ServiceEbsTagSpecificationOutput) ToServiceEbsTagSpecificationOutputWith
 	return o
 }
 
-// Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a “SERVICE“ specified in  “ServiceVolumeConfiguration“. If no value is specified, the tags aren't  propagated.
+// Determines whether to propagate the tags from the task definition to
+// the Amazon EBS volume. Tags can only propagate to a “SERVICE“ specified in
+// “ServiceVolumeConfiguration“. If no value is specified, the tags aren't
+// propagated.
 func (o ServiceEbsTagSpecificationOutput) PropagateTags() ServiceEbsTagSpecificationPropagateTagsPtrOutput {
 	return o.ApplyT(func(v ServiceEbsTagSpecification) *ServiceEbsTagSpecificationPropagateTags { return v.PropagateTags }).(ServiceEbsTagSpecificationPropagateTagsPtrOutput)
 }
@@ -3885,7 +3894,8 @@ type ServiceManagedEbsVolumeConfiguration struct {
 	// Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-	//  The available filesystem types are  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+	//  The available filesystem types are
+	//  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
 	FilesystemType *string `pulumi:"filesystemType"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 	//  The following are the supported values for each volume type.
@@ -3944,7 +3954,8 @@ type ServiceManagedEbsVolumeConfigurationArgs struct {
 	// Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-	//  The available filesystem types are  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+	//  The available filesystem types are
+	//  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
 	FilesystemType pulumi.StringPtrInput `pulumi:"filesystemType"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 	//  The following are the supported values for each volume type.
@@ -4072,7 +4083,8 @@ func (o ServiceManagedEbsVolumeConfigurationOutput) Encrypted() pulumi.BoolPtrOu
 
 // The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
 //
-//	The available filesystem types are  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+//	The available filesystem types are
+//	``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
 func (o ServiceManagedEbsVolumeConfigurationOutput) FilesystemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.FilesystemType }).(pulumi.StringPtrOutput)
 }
@@ -4179,7 +4191,8 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Encrypted() pulumi.BoolPt
 
 // The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
 //
-//	The available filesystem types are  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+//	The available filesystem types are
+//	``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) FilesystemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
 		if v == nil {

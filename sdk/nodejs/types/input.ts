@@ -12377,7 +12377,8 @@ export namespace ecr {
          */
         lifecyclePolicyText?: pulumi.Input<string>;
         /**
-         * The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+         * The AWS account ID associated with the registry that contains the repository. If you do
+         *  not specify a registry, the default registry is assumed.
          */
         registryId?: pulumi.Input<string>;
     }
@@ -12764,7 +12765,10 @@ export namespace ecs {
      */
     export interface ServiceEbsTagSpecificationArgs {
         /**
-         * Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in  ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't  propagated.
+         * Determines whether to propagate the tags from the task definition to 
+         * the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
+         * ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
+         * propagated.
          */
         propagateTags?: pulumi.Input<enums.ecs.ServiceEbsTagSpecificationPropagateTags>;
         /**
@@ -12849,7 +12853,8 @@ export namespace ecs {
         encrypted?: pulumi.Input<boolean>;
         /**
          * The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-         *  The available filesystem types are  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+         *  The available filesystem types are
+         *  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
          */
         filesystemType?: pulumi.Input<string>;
         /**

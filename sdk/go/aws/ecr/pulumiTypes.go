@@ -745,7 +745,8 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolP
 type RepositoryLifecyclePolicy struct {
 	// The JSON repository policy text to apply to the repository.
 	LifecyclePolicyText *string `pulumi:"lifecyclePolicyText"`
-	// The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+	// The AWS account ID associated with the registry that contains the repository. If you do
+	//  not specify a registry, the default registry is assumed.
 	RegistryId *string `pulumi:"registryId"`
 }
 
@@ -764,7 +765,8 @@ type RepositoryLifecyclePolicyInput interface {
 type RepositoryLifecyclePolicyArgs struct {
 	// The JSON repository policy text to apply to the repository.
 	LifecyclePolicyText pulumi.StringPtrInput `pulumi:"lifecyclePolicyText"`
-	// The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+	// The AWS account ID associated with the registry that contains the repository. If you do
+	//  not specify a registry, the default registry is assumed.
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
 }
 
@@ -851,7 +853,9 @@ func (o RepositoryLifecyclePolicyOutput) LifecyclePolicyText() pulumi.StringPtrO
 	return o.ApplyT(func(v RepositoryLifecyclePolicy) *string { return v.LifecyclePolicyText }).(pulumi.StringPtrOutput)
 }
 
-// The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+// The AWS account ID associated with the registry that contains the repository. If you do
+//
+//	not specify a registry, the default registry is assumed.
 func (o RepositoryLifecyclePolicyOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryLifecyclePolicy) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
@@ -890,7 +894,9 @@ func (o RepositoryLifecyclePolicyPtrOutput) LifecyclePolicyText() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+// The AWS account ID associated with the registry that contains the repository. If you do
+//
+//	not specify a registry, the default registry is assumed.
 func (o RepositoryLifecyclePolicyPtrOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryLifecyclePolicy) *string {
 		if v == nil {

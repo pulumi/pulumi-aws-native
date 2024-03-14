@@ -218,7 +218,10 @@ namespace Pulumi.AwsNative.Ecs
     }
 
     /// <summary>
-    /// Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in  ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't  propagated.
+    /// Determines whether to propagate the tags from the task definition to 
+    /// the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
+    /// ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
+    /// propagated.
     /// </summary>
     [EnumType]
     public readonly struct ServiceEbsTagSpecificationPropagateTags : IEquatable<ServiceEbsTagSpecificationPropagateTags>

@@ -1014,7 +1014,10 @@ func (in *serviceDeploymentControllerTypePtr) ToServiceDeploymentControllerTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceDeploymentControllerTypePtrOutput)
 }
 
-// Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a “SERVICE“ specified in  “ServiceVolumeConfiguration“. If no value is specified, the tags aren't  propagated.
+// Determines whether to propagate the tags from the task definition to
+// the Amazon EBS volume. Tags can only propagate to a “SERVICE“ specified in
+// “ServiceVolumeConfiguration“. If no value is specified, the tags aren't
+// propagated.
 type ServiceEbsTagSpecificationPropagateTags string
 
 const (

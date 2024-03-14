@@ -1236,7 +1236,10 @@ class ServiceEbsTagSpecificationArgs:
         """
         The tag specifications of an Amazon EBS volume.
         :param pulumi.Input[str] resource_type: The type of volume resource.
-        :param pulumi.Input['ServiceEbsTagSpecificationPropagateTags'] propagate_tags: Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in  ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't  propagated.
+        :param pulumi.Input['ServiceEbsTagSpecificationPropagateTags'] propagate_tags: Determines whether to propagate the tags from the task definition to 
+               the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
+               ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
+               propagated.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]] tags: The tags applied to this Amazon EBS volume. ``AmazonECSCreated`` and ``AmazonECSManaged`` are reserved tags that can't be used.
         """
         pulumi.set(__self__, "resource_type", resource_type)
@@ -1261,7 +1264,10 @@ class ServiceEbsTagSpecificationArgs:
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input['ServiceEbsTagSpecificationPropagateTags']]:
         """
-        Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in  ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't  propagated.
+        Determines whether to propagate the tags from the task definition to 
+        the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in 
+        ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't 
+        propagated.
         """
         return pulumi.get(self, "propagate_tags")
 
@@ -1461,7 +1467,8 @@ class ServiceManagedEbsVolumeConfigurationArgs:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure. We recommend using the Amazon ECS-managed ``AmazonECSInfrastructureRolePolicyForVolumes`` IAM policy with this role. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide*.
         :param pulumi.Input[bool] encrypted: Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
         :param pulumi.Input[str] filesystem_type: The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-                The available filesystem types are  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+                The available filesystem types are
+                ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
         :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
                 The following are the supported values for each volume type.
                  +   ``gp3``: 3,000 - 16,000 IOPS
@@ -1540,7 +1547,8 @@ class ServiceManagedEbsVolumeConfigurationArgs:
     def filesystem_type(self) -> Optional[pulumi.Input[str]]:
         """
         The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-         The available filesystem types are  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+         The available filesystem types are
+         ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
         """
         return pulumi.get(self, "filesystem_type")
 

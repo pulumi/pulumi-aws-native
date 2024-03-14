@@ -219,7 +219,8 @@ class RepositoryLifecyclePolicyArgs:
         """
         The ``LifecyclePolicy`` property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
         :param pulumi.Input[str] lifecycle_policy_text: The JSON repository policy text to apply to the repository.
-        :param pulumi.Input[str] registry_id: The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+        :param pulumi.Input[str] registry_id: The AWS account ID associated with the registry that contains the repository. If you do
+                not specify a registry, the default registry is assumed.
         """
         if lifecycle_policy_text is not None:
             pulumi.set(__self__, "lifecycle_policy_text", lifecycle_policy_text)
@@ -242,7 +243,8 @@ class RepositoryLifecyclePolicyArgs:
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+        The AWS account ID associated with the registry that contains the repository. If you do
+         not specify a registry, the default registry is assumed.
         """
         return pulumi.get(self, "registry_id")
 
