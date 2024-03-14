@@ -38,7 +38,6 @@ import (
 	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/credentials/stscreds"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol"
-	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
@@ -110,12 +109,11 @@ type cfnProvider struct {
 
 	pulumiSchema []byte
 
-	cfn     *cloudformation.Client
-	cctl    client.CloudControlApiClient
-	awaiter client.CloudControlAwaiter
-	ec2     *ec2.Client
-	ssm     *ssm.Client
-	sts     *sts.Client
+	cfn    *cloudformation.Client
+	client client.Client
+	ec2    *ec2.Client
+	ssm    *ssm.Client
+	sts    *sts.Client
 }
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
@@ -483,8 +481,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	p.cfn = cloudformation.NewFromConfig(cfg)
-	p.cctl = client.NewCloudControlApiClient(cloudcontrol.NewFromConfig(cfg), p.roleArn)
-	p.awaiter = client.NewCloudControlAwaiter(p.cctl)
+	p.client = client.NewClient(cloudcontrol.NewFromConfig(cfg), p.roleArn)
 	p.ec2 = ec2.NewFromConfig(cfg)
 	p.ssm = ssm.NewFromConfig(cfg)
 	p.sts = sts.NewFromConfig(cfg)
@@ -622,7 +619,7 @@ func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc
 		}
 		identifier := strings.Join(idParts, "|")
 		glog.V(9).Infof("%s invoking", cf.CfType)
-		outputs, err := p.cctl.GetResource(ctx, cf.CfType, identifier)
+		outputs, err := p.client.Read(ctx, cf.CfType, identifier)
 		if err != nil {
 			return nil, err
 		}
@@ -839,38 +836,14 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		}
 	}
 
-	// Serialize inputs as a desired state JSON.
-	jsonBytes, err := json.Marshal(payload)
-	if err != nil {
-		return nil, errors.Wrap(err, "failed to marshal as JSON")
-	}
-	desiredState := string(jsonBytes)
-
 	// Create the resource with Cloud API.
-	glog.V(9).Infof("%s.CreateResource %q state %q", label, cfType, desiredState)
-	res, err := p.cctl.CreateResource(ctx, cfType, desiredState)
-	if err != nil {
-		return nil, errors.Wrapf(err, "creating resource")
-	}
-	pi, waitErr := p.awaiter.WaitForResourceOpCompletion(p.canceler.context, res)
-
-	// Read the state - even if there was a creation error but the progress event contains a resource ID.
-	var id string
-	var outputs map[string]interface{}
-	var readErr error
-	if pi != nil && pi.Identifier != nil {
-		// Retrieve the resource state from AWS.
-		// Note that we do so even if creation hasn't succeeded but the identifier is assigned.
-		id = *pi.Identifier
-		glog.V(9).Infof("%s.GetResource %q id %q", label, cfType, id)
-		resourceState, err := p.cctl.GetResource(ctx, cfType, id)
-		if err != nil {
-			readErr = fmt.Errorf("reading resource state: %w", err)
-		} else {
-			outputs = schema.CfnToSdk(resourceState)
-		}
+	glog.V(9).Infof("%s.CreateResource %q", label, cfType)
+	id, resourceState, createErr := p.client.Create(ctx, cfType, payload)
+	if createErr != nil && (id == nil || resourceState == nil) {
+		return nil, errors.Wrapf(createErr, "creating resource")
 	}
 
+	outputs := schema.CfnToSdk(resourceState)
 	// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 	if hasSpec && len(spec.WriteOnly) > 0 {
 		inputsMap := inputs.Mappable()
@@ -884,16 +857,9 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		}
 	}
 
-	if waitErr != nil {
-		if id == "" {
-			return nil, waitErr
-		}
-
+	if createErr != nil {
 		// Resource was created but failed to fully initialize.
 		// If it has some state, return a partial error.
-		if readErr != nil {
-			return nil, fmt.Errorf("resource partially created but read failed. read error: %v, create error: %w", readErr, waitErr)
-		}
 		obj := checkpointObject(inputs, outputs)
 		checkpoint, err := plugin.MarshalProperties(
 			obj,
@@ -907,13 +873,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		if err != nil {
 			return nil, fmt.Errorf("marshalling currentResourceStateCheckpoint: %w", err)
 		}
-		return nil, partialError(id, waitErr, checkpoint, req.GetProperties())
-	}
-	if pi.Identifier == nil {
-		return nil, errors.New("received nil identifier while reading resource state")
-	}
-	if readErr != nil {
-		return nil, fmt.Errorf("reading resource state: %w", readErr)
+		return nil, partialError(*id, createErr, checkpoint, req.GetProperties())
 	}
 
 	switch resourceToken {
@@ -935,7 +895,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	return &pulumirpc.CreateResponse{
-		Id:         id,
+		Id:         *id,
 		Properties: checkpoint,
 	}, nil
 }
@@ -960,7 +920,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceToken)
 	}
-	resourceState, err := p.cctl.GetResource(p.canceler.context, spec.CfType, id)
+	resourceState, err := p.client.Read(p.canceler.context, spec.CfType, id)
 	if err != nil {
 		var oe *smithy.OperationError
 		if errors.As(err, &oe) {
@@ -1097,17 +1057,9 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	}
 
 	glog.V(9).Infof("%s.UpdateResource %q id %q state %+v", label, spec.CfType, id, ops)
-	res, err := p.cctl.UpdateResource(p.canceler.context, spec.CfType, id, ops)
+	resourceState, err := p.client.Update(p.canceler.context, spec.CfType, id, ops)
 	if err != nil {
 		return nil, err
-	}
-	if _, err = p.awaiter.WaitForResourceOpCompletion(p.canceler.context, res); err != nil {
-		return nil, err
-	}
-
-	resourceState, err := p.cctl.GetResource(p.canceler.context, spec.CfType, id)
-	if err != nil {
-		return nil, errors.Wrapf(err, "reading resource state")
 	}
 	outputs := schema.CfnToSdk(resourceState)
 
@@ -1164,18 +1116,8 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	id := req.GetId()
 
 	glog.V(9).Infof("%s.DeleteResource %q id %q", label, cfType, id)
-	res, err := p.cctl.DeleteResource(p.canceler.context, cfType, id)
+	err := p.client.Delete(p.canceler.context, cfType, id)
 	if err != nil {
-		return nil, err
-	}
-	if pi, err := p.awaiter.WaitForResourceOpCompletion(ctx, res); err != nil {
-		if pi != nil {
-			errorCode := pi.ErrorCode
-			if errorCode == types.HandlerErrorCodeNotFound {
-				// NotFound means that the resource was already deleted, so the operation can succeed.
-				return &pbempty.Empty{}, nil
-			}
-		}
 		return nil, err
 	}
 
