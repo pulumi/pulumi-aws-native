@@ -109,11 +109,11 @@ type cfnProvider struct {
 
 	pulumiSchema []byte
 
-	cfn    *cloudformation.Client
-	client client.Client
-	ec2    *ec2.Client
-	ssm    *ssm.Client
-	sts    *sts.Client
+	cfn *cloudformation.Client
+	ccc client.CloudControlClient
+	ec2 *ec2.Client
+	ssm *ssm.Client
+	sts *sts.Client
 }
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
@@ -481,7 +481,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	p.cfn = cloudformation.NewFromConfig(cfg)
-	p.client = client.NewClient(cloudcontrol.NewFromConfig(cfg), p.roleArn)
+	p.ccc = client.NewCloudControlClient(cloudcontrol.NewFromConfig(cfg), p.roleArn)
 	p.ec2 = ec2.NewFromConfig(cfg)
 	p.ssm = ssm.NewFromConfig(cfg)
 	p.sts = sts.NewFromConfig(cfg)
@@ -619,7 +619,7 @@ func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc
 		}
 		identifier := strings.Join(idParts, "|")
 		glog.V(9).Infof("%s invoking", cf.CfType)
-		outputs, err := p.client.Read(ctx, cf.CfType, identifier)
+		outputs, err := p.ccc.Read(ctx, cf.CfType, identifier)
 		if err != nil {
 			return nil, err
 		}
@@ -838,7 +838,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 
 	// Create the resource with Cloud API.
 	glog.V(9).Infof("%s.CreateResource %q", label, cfType)
-	id, resourceState, createErr := p.client.Create(ctx, cfType, payload)
+	id, resourceState, createErr := p.ccc.Create(ctx, cfType, payload)
 	if createErr != nil && (id == nil || resourceState == nil) {
 		return nil, errors.Wrapf(createErr, "creating resource")
 	}
@@ -859,7 +859,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 
 	if createErr != nil {
 		// Resource was created but failed to fully initialize.
-		// If it has some state, return a partial error.
+		// It has some state, so we return a partial error.
 		obj := checkpointObject(inputs, outputs)
 		checkpoint, err := plugin.MarshalProperties(
 			obj,
@@ -920,7 +920,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceToken)
 	}
-	resourceState, err := p.client.Read(p.canceler.context, spec.CfType, id)
+	resourceState, err := p.ccc.Read(p.canceler.context, spec.CfType, id)
 	if err != nil {
 		var oe *smithy.OperationError
 		if errors.As(err, &oe) {
@@ -1057,7 +1057,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	}
 
 	glog.V(9).Infof("%s.UpdateResource %q id %q state %+v", label, spec.CfType, id, ops)
-	resourceState, err := p.client.Update(p.canceler.context, spec.CfType, id, ops)
+	resourceState, err := p.ccc.Update(p.canceler.context, spec.CfType, id, ops)
 	if err != nil {
 		return nil, err
 	}
@@ -1116,7 +1116,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	id := req.GetId()
 
 	glog.V(9).Infof("%s.DeleteResource %q id %q", label, cfType, id)
-	err := p.client.Delete(p.canceler.context, cfType, id)
+	err := p.ccc.Delete(p.canceler.context, cfType, id)
 	if err != nil {
 		return nil, err
 	}

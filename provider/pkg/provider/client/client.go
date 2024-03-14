@@ -14,10 +14,23 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 )
 
-type Client interface {
+// CloudControlApiClient providers CRUD operations around Cloud Control API, with the mechanics of API calls abstracted away.
+// For instance, it serializes and deserializes wire data and follows the protocol of long-running operations.
+type CloudControlClient interface {
+	// Create creates a resource of the specified type with the desired state.
+	// It awaits the operation until completion and returns a map of output property values.
 	Create(ctx context.Context, typeName string, desiredState map[string]any) (identifier *string, resourceState map[string]any, err error)
+
+	// Read returns the current state of the specified resource. It deserializes
+	// the response from the service into a map of untyped values.
 	Read(ctx context.Context, typeName, identifier string) (map[string]interface{}, error)
+
+	// Update updates a resource of the specified type with the specified changeset.
+	// It awaits the operation until completion and returns a map of output property values.
 	Update(ctx context.Context, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error)
+
+	// Delete deletes a resource of the specified type with the given identifier.
+	// It awaits the operation until completion.
 	Delete(ctx context.Context, typeName, identifier string) error
 }
 
@@ -26,7 +39,7 @@ type clientImpl struct {
 	awaiter CloudControlAwaiter
 }
 
-func NewClient(cctl *cloudcontrol.Client, roleArn *string) Client {
+func NewCloudControlClient(cctl *cloudcontrol.Client, roleArn *string) CloudControlClient {
 	api := NewCloudControlApiClient(cctl, roleArn)
 	return &clientImpl{
 		api:     api,
