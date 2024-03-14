@@ -22,7 +22,7 @@ type CloudControlApiClient interface {
 	// without awaiting any long-running operations.
 	CreateResource(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error)
 
-	// UpdateResource updates a resource of the specified type with the desired state.
+	// UpdateResource updates a resource of the specified type with the specified changeset.
 	// It returns a ProgressEvent which is the initial progress returned directly from the API call,
 	// without awaiting any long-running operations.
 	// The changes to be applied are expressed as a list of JSON patch operations.
