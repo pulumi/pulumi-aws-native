@@ -103,7 +103,7 @@
     "Type" : {
       "description" : "Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.",
       "type" : "string",
-      "enum" : [ "PERSONAL", "CUSTOM", "SERVICE", "ESCALATION", "ONCALL_SCHEDULE" ]
+      "enum" : [ "PERSONAL", "ESCALATION", "ONCALL_SCHEDULE" ]
     },
     "Plan" : {
       "description" : "The stages that an escalation plan or engagement plan engages contacts and contact methods in.",
