@@ -42,7 +42,7 @@ ensure:: init_submodules
 	cd sdk/go && GO111MODULE=on go mod tidy
 	cd examples && GO111MODULE=on go mod tidy
 
-local_generate:: generate_nodejs generate_python generate_dotnet generate_java generate_go
+local_generate:: generate_schema generate_nodejs generate_python generate_dotnet generate_java generate_go
 
 generate_schema::
 	echo "Generating Pulumi schema..."
