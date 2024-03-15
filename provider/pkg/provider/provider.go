@@ -859,6 +859,9 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	if createErr != nil {
+		if id == nil {
+			return nil, fmt.Errorf("creating resource: %w", createErr)
+		}
 		// Resource was created but failed to fully initialize.
 		// It has some state, so we return a partial error.
 		obj := checkpointObject(inputs, outputs)
