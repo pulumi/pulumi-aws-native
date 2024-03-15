@@ -10,6 +10,11 @@ export const getGlobalReplicationGroup: typeof import("./getGlobalReplicationGro
 export const getGlobalReplicationGroupOutput: typeof import("./getGlobalReplicationGroup").getGlobalReplicationGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getGlobalReplicationGroup","getGlobalReplicationGroupOutput"], () => require("./getGlobalReplicationGroup"));
 
+export { GetParameterGroupArgs, GetParameterGroupResult, GetParameterGroupOutputArgs } from "./getParameterGroup";
+export const getParameterGroup: typeof import("./getParameterGroup").getParameterGroup = null as any;
+export const getParameterGroupOutput: typeof import("./getParameterGroup").getParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getParameterGroup","getParameterGroupOutput"], () => require("./getParameterGroup"));
+
 export { GetServerlessCacheArgs, GetServerlessCacheResult, GetServerlessCacheOutputArgs } from "./getServerlessCache";
 export const getServerlessCache: typeof import("./getServerlessCache").getServerlessCache = null as any;
 export const getServerlessCacheOutput: typeof import("./getServerlessCache").getServerlessCacheOutput = null as any;
@@ -34,6 +39,11 @@ export { GlobalReplicationGroupArgs } from "./globalReplicationGroup";
 export type GlobalReplicationGroup = import("./globalReplicationGroup").GlobalReplicationGroup;
 export const GlobalReplicationGroup: typeof import("./globalReplicationGroup").GlobalReplicationGroup = null as any;
 utilities.lazyLoad(exports, ["GlobalReplicationGroup"], () => require("./globalReplicationGroup"));
+
+export { ParameterGroupArgs } from "./parameterGroup";
+export type ParameterGroup = import("./parameterGroup").ParameterGroup;
+export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
+utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
 
 export { ServerlessCacheArgs } from "./serverlessCache";
 export type ServerlessCache = import("./serverlessCache").ServerlessCache;
@@ -65,6 +75,8 @@ const _module = {
         switch (type) {
             case "aws-native:elasticache:GlobalReplicationGroup":
                 return new GlobalReplicationGroup(name, <any>undefined, { urn })
+            case "aws-native:elasticache:ParameterGroup":
+                return new ParameterGroup(name, <any>undefined, { urn })
             case "aws-native:elasticache:ServerlessCache":
                 return new ServerlessCache(name, <any>undefined, { urn })
             case "aws-native:elasticache:SubnetGroup":

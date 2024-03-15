@@ -62,15 +62,22 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// Amazon Resource Name for the created Connector.
         /// </summary>
         public readonly string? ConnectorArn;
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConnectorResult(
             Outputs.ConnectorCapacity? capacity,
 
-            string? connectorArn)
+            string? connectorArn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Capacity = capacity;
             ConnectorArn = connectorArn;
+            Tags = tags;
         }
     }
 }

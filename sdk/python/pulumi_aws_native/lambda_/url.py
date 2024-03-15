@@ -26,7 +26,7 @@ class UrlArgs:
         The set of arguments for constructing a Url resource.
         :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
         :param pulumi.Input[str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
-        :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         :param pulumi.Input[str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         """
         pulumi.set(__self__, "auth_type", auth_type)
@@ -75,7 +75,7 @@ class UrlArgs:
     @pulumi.getter(name="invokeMode")
     def invoke_mode(self) -> Optional[pulumi.Input['UrlInvokeMode']]:
         """
-        The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         """
         return pulumi.get(self, "invoke_mode")
 
@@ -113,7 +113,7 @@ class Url(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
-        :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         :param pulumi.Input[str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         :param pulumi.Input[str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
         """
@@ -232,7 +232,7 @@ class Url(pulumi.CustomResource):
     @pulumi.getter(name="invokeMode")
     def invoke_mode(self) -> pulumi.Output[Optional['UrlInvokeMode']]:
         """
-        The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+        The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         """
         return pulumi.get(self, "invoke_mode")
 

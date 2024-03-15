@@ -31,6 +31,10 @@ export interface GetConnectorResult {
      * Amazon Resource Name for the created Connector.
      */
     readonly connectorArn?: string;
+    /**
+     * A collection of tags associated with a resource
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::KafkaConnect::Connector

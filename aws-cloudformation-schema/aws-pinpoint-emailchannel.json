@@ -3,17 +3,20 @@
   "description" : "Resource Type definition for AWS::Pinpoint::EmailChannel",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "ConfigurationSet" : {
       "type" : "string"
     },
     "FromAddress" : {
       "type" : "string"
     },
+    "OrchestrationSendingRoleArn" : {
+      "type" : "string"
+    },
     "Enabled" : {
       "type" : "boolean"
+    },
+    "Id" : {
+      "type" : "string"
     },
     "ApplicationId" : {
       "type" : "string"

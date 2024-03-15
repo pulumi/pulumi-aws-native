@@ -36,7 +36,6 @@ type LookupParameterResult struct {
 	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType *ParameterDataType `pulumi:"dataType"`
 	// The type of parameter.
-	//   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
 	Type *ParameterType `pulumi:"type"`
 	// The parameter value.
 	//   If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
@@ -86,8 +85,6 @@ func (o LookupParameterResultOutput) DataType() ParameterDataTypePtrOutput {
 }
 
 // The type of parameter.
-//
-//	Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
 func (o LookupParameterResultOutput) Type() ParameterTypePtrOutput {
 	return o.ApplyT(func(v LookupParameterResult) *ParameterType { return v.Type }).(ParameterTypePtrOutput)
 }

@@ -1774,6 +1774,11 @@ func (o ConnectorScaleOutPolicyPtrOutput) CpuUtilizationPercentage() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+type ConnectorTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Information about a VPC used with the connector.
 type ConnectorVpc struct {
 	// The AWS security groups to associate with the elastic network interfaces in order to specify what the connector has access to.

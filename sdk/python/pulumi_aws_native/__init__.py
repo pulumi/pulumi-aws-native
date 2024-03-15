@@ -1456,6 +1456,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.elasticache",
   "classes": {
    "aws-native:elasticache:GlobalReplicationGroup": "GlobalReplicationGroup",
+   "aws-native:elasticache:ParameterGroup": "ParameterGroup",
    "aws-native:elasticache:ServerlessCache": "ServerlessCache",
    "aws-native:elasticache:SubnetGroup": "SubnetGroup",
    "aws-native:elasticache:User": "User",

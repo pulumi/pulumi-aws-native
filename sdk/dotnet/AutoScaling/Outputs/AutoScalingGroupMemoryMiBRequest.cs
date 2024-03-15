@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Outputs
 {
 
+    /// <summary>
+    /// ``MemoryMiBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum instance memory size for an instance type, in MiB.
+    /// </summary>
     [OutputType]
     public sealed class AutoScalingGroupMemoryMiBRequest
     {
+        /// <summary>
+        /// The memory maximum in MiB.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// The memory minimum in MiB.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

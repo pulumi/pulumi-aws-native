@@ -27,6 +27,13 @@
     "ApplicationId" : {
       "type" : "string"
     },
+    "DynamicExtensionParameters" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/DynamicExtensionParameters"
+      }
+    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -36,6 +43,21 @@
     }
   },
   "definitions" : {
+    "DynamicExtensionParameters" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ExtensionReference" : {
+          "type" : "string"
+        },
+        "ParameterName" : {
+          "type" : "string"
+        },
+        "ParameterValue" : {
+          "type" : "string"
+        }
+      }
+    },
     "Tags" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -50,7 +72,7 @@
     }
   },
   "required" : [ "DeploymentStrategyId", "ConfigurationProfileId", "EnvironmentId", "ConfigurationVersion", "ApplicationId" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyIdentifier", "/properties/DeploymentStrategyId", "/properties/ConfigurationVersion", "/properties/ApplicationId", "/properties/ConfigurationProfileId", "/properties/Tags", "/properties/EnvironmentId", "/properties/Description" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyIdentifier", "/properties/DeploymentStrategyId", "/properties/ConfigurationVersion", "/properties/ApplicationId", "/properties/ConfigurationProfileId", "/properties/Tags", "/properties/EnvironmentId", "/properties/Description", "/properties/DynamicExtensionParameters" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

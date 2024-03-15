@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
+    /// <summary>
+    /// ``VCpuCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of vCPUs for an instance type.
+    /// </summary>
     public sealed class AutoScalingGroupVCpuCountRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of vCPUs.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// The minimum number of vCPUs.
+        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

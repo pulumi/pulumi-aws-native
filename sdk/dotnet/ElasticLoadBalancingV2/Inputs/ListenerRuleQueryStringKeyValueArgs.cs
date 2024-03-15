@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
+    /// <summary>
+    /// Information about a key/value pair.
+    /// </summary>
     public sealed class ListenerRuleQueryStringKeyValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key. You can omit the key.
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The value.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

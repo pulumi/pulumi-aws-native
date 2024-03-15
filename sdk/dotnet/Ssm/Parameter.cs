@@ -218,7 +218,6 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// The type of parameter.
-        ///   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Ssm.ParameterType> Type { get; private set; } = null!;
@@ -331,7 +330,6 @@ namespace Pulumi.AwsNative.Ssm
 
         /// <summary>
         /// The type of parameter.
-        ///   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Ssm.ParameterType> Type { get; set; } = null!;
