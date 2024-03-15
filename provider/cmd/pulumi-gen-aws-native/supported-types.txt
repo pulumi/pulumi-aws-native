@@ -368,6 +368,7 @@ AWS::EMR::WALWorkspace
 AWS::EMRContainers::VirtualCluster
 AWS::EMRServerless::Application
 AWS::ElastiCache::GlobalReplicationGroup
+AWS::ElastiCache::ParameterGroup
 AWS::ElastiCache::ServerlessCache
 AWS::ElastiCache::SubnetGroup
 AWS::ElastiCache::User
