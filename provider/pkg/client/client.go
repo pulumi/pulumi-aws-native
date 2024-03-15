@@ -14,7 +14,6 @@ import (
 	"github.com/aws/smithy-go"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 )
 
 // CloudControlApiClient providers CRUD operations around Cloud Control API, with the mechanics of API calls abstracted away.
@@ -68,17 +67,14 @@ func (c *clientImpl) Create(ctx context.Context, typeName string, desiredState m
 
 	// Read the state - even if there was a creation error but the progress event contains a resource ID.
 	var id string
-	var outputs map[string]interface{}
 	var readErr error
 	if pi != nil && pi.Identifier != nil {
 		// Retrieve the resource state from AWS.
 		// Note that we do so even if creation hasn't succeeded but the identifier is assigned.
 		id = *pi.Identifier
-		resourceState, err := c.api.GetResource(ctx, typeName, id)
+		resourceState, err = c.api.GetResource(ctx, typeName, id)
 		if err != nil {
 			readErr = fmt.Errorf("reading resource state: %w", err)
-		} else {
-			outputs = schema.CfnToSdk(resourceState)
 		}
 	}
 
@@ -93,7 +89,7 @@ func (c *clientImpl) Create(ctx context.Context, typeName string, desiredState m
 
 		// Resource was created but failed to fully initialize.
 		// If it has some state, return a partial error.
-		return &id, outputs, waitErr
+		return &id, resourceState, waitErr
 	}
 	if pi.Identifier == nil {
 		return nil, nil, errors.New("received nil identifier while reading resource state")
@@ -102,7 +98,7 @@ func (c *clientImpl) Create(ctx context.Context, typeName string, desiredState m
 		return nil, nil, fmt.Errorf("reading resource state: %w", readErr)
 	}
 
-	return &id, outputs, nil
+	return &id, resourceState, nil
 }
 
 func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (resourceState map[string]interface{}, exists bool, err error) {
