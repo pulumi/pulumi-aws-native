@@ -83,7 +83,7 @@ class ResourceGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_tags'")
             __props__.__dict__["resource_group_tags"] = resource_group_tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_group_tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceGroupTags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourceGroup, __self__).__init__(
             'aws-native:inspector:ResourceGroup',

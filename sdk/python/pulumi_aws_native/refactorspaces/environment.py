@@ -136,7 +136,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["environment_identifier"] = None
             __props__.__dict__["transit_gateway_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "name", "network_fabric_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "name", "networkFabricType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:refactorspaces:Environment',

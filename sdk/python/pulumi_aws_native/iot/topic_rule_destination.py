@@ -129,7 +129,7 @@ class TopicRuleDestination(pulumi.CustomResource):
             __props__.__dict__["vpc_properties"] = vpc_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["status_reason"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["http_url_properties", "vpc_properties"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["httpUrlProperties", "vpcProperties"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TopicRuleDestination, __self__).__init__(
             'aws-native:iot:TopicRuleDestination',

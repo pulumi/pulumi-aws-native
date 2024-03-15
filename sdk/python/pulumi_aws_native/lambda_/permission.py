@@ -254,7 +254,7 @@ class Permission(pulumi.CustomResource):
             __props__.__dict__["source_account"] = source_account
             __props__.__dict__["source_arn"] = source_arn
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action", "event_source_token", "function_name", "function_url_auth_type", "principal", "principal_org_id", "source_account", "source_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action", "eventSourceToken", "functionName", "functionUrlAuthType", "principal", "principalOrgId", "sourceAccount", "sourceArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Permission, __self__).__init__(
             'aws-native:lambda:Permission',

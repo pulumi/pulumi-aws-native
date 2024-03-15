@@ -106,7 +106,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
             if transit_gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_arn'")
             __props__.__dict__["transit_gateway_arn"] = transit_gateway_arn
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["global_network_id", "transit_gateway_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["globalNetworkId", "transitGatewayArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayRegistration, __self__).__init__(
             'aws-native:networkmanager:TransitGatewayRegistration',

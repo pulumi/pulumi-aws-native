@@ -140,7 +140,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
             __props__.__dict__["suggested_accounts"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["filter_in_arns[*]", "network_insights_path_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["filterInArns[*]", "networkInsightsPathId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkInsightsAnalysis, __self__).__init__(
             'aws-native:ec2:NetworkInsightsAnalysis',

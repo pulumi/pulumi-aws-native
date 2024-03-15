@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+
+- [Fix replaceOnChanges for Python programs with multi-word properties](https://github.com/pulumi/pulumi-aws-native/pull/1424)
+
 ## 0.99.0 (2024-03-14)
 
 - [Fix multi-type resolutions](https://github.com/pulumi/pulumi-aws-native/pull/1383) includes fixes for inline role policies

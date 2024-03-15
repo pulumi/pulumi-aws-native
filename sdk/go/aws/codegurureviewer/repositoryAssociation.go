@@ -187,33 +187,34 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := codegurureviewer.NewRepositoryAssociation(ctx, "myRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
-// Name: pulumi.String("MyRepository"),
-// Type: codegurureviewer.RepositoryAssociationTypeCodeCommit,
-// Tags: aws.CreateOnlyTagArray{
-// &aws.CreateOnlyTagArgs{
-// Key: pulumi.String("tag1-key"),
-// Value: pulumi.String("tag1-value"),
-// },
-// &aws.CreateOnlyTagArgs{
-// Key: pulumi.String("tag2-key"),
-// Value: pulumi.String("tag2-value"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codegurureviewer.NewRepositoryAssociation(ctx, "myRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
+//				Name: pulumi.String("MyRepository"),
+//				Type: codegurureviewer.RepositoryAssociationTypeCodeCommit,
+//				Tags: aws.CreateOnlyTagArray{
+//					&aws.CreateOnlyTagArgs{
+//						Key:   pulumi.String("tag1-key"),
+//						Value: pulumi.String("tag1-value"),
+//					},
+//					&aws.CreateOnlyTagArgs{
+//						Key:   pulumi.String("tag2-key"),
+//						Value: pulumi.String("tag2-value"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -223,33 +224,34 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codegurureviewer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := codegurureviewer.NewRepositoryAssociation(ctx, "myRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
-// Name: pulumi.String("MyRepository"),
-// Type: codegurureviewer.RepositoryAssociationTypeCodeCommit,
-// Tags: aws.CreateOnlyTagArray{
-// &aws.CreateOnlyTagArgs{
-// Key: pulumi.String("tag1-key"),
-// Value: pulumi.String("tag1-value"),
-// },
-// &aws.CreateOnlyTagArgs{
-// Key: pulumi.String("tag2-key"),
-// Value: pulumi.String("tag2-value"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codegurureviewer.NewRepositoryAssociation(ctx, "myRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
+//				Name: pulumi.String("MyRepository"),
+//				Type: codegurureviewer.RepositoryAssociationTypeCodeCommit,
+//				Tags: aws.CreateOnlyTagArray{
+//					&aws.CreateOnlyTagArgs{
+//						Key:   pulumi.String("tag1-key"),
+//						Value: pulumi.String("tag1-value"),
+//					},
+//					&aws.CreateOnlyTagArgs{
+//						Key:   pulumi.String("tag2-key"),
+//						Value: pulumi.String("tag2-value"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type RepositoryAssociation struct {

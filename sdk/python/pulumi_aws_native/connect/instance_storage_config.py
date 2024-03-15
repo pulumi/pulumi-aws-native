@@ -181,7 +181,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_type'")
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["association_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_arn", "resource_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn", "resourceType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceStorageConfig, __self__).__init__(
             'aws-native:connect:InstanceStorageConfig',

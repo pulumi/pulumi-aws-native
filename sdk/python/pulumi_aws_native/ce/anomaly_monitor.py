@@ -584,7 +584,7 @@ class AnomalyMonitor(pulumi.CustomResource):
             __props__.__dict__["last_evaluated_date"] = None
             __props__.__dict__["last_updated_date"] = None
             __props__.__dict__["monitor_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["monitor_dimension", "monitor_specification", "monitor_type", "resource_tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["monitorDimension", "monitorSpecification", "monitorType", "resourceTags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnomalyMonitor, __self__).__init__(
             'aws-native:ce:AnomalyMonitor',

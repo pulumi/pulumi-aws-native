@@ -162,7 +162,7 @@ class BackupVault(pulumi.CustomResource):
             __props__.__dict__["lock_configuration"] = lock_configuration
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["backup_vault_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backup_vault_name", "encryption_key_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupVaultName", "encryptionKeyArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BackupVault, __self__).__init__(
             'aws-native:backup:BackupVault',

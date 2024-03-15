@@ -142,7 +142,7 @@ class View(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["view_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["scope", "view_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["scope", "viewName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(View, __self__).__init__(
             'aws-native:resourceexplorer2:View',

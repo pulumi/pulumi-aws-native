@@ -216,7 +216,7 @@ class ConnectPeer(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["edge_location"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgp_options", "connect_attachment_id", "core_network_address", "inside_cidr_blocks[*]", "peer_address", "subnet_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgpOptions", "connectAttachmentId", "coreNetworkAddress", "insideCidrBlocks[*]", "peerAddress", "subnetArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConnectPeer, __self__).__init__(
             'aws-native:networkmanager:ConnectPeer',

@@ -23,111 +23,112 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/appflow"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := appflow.NewFlow(ctx, "testFlow", &appflow.FlowArgs{
-// FlowName: pulumi.String("MyEventFlow"),
-// Description: pulumi.String("Test event flow for CloudFormation from salesforce to s3"),
-// TriggerConfig: &appflow.FlowTriggerConfigArgs{
-// TriggerType: appflow.FlowTriggerTypeEvent,
-// },
-// SourceFlowConfig: &appflow.FlowSourceFlowConfigArgs{
-// ConnectorType: appflow.FlowConnectorTypeSalesforce,
-// ConnectorProfileName: pulumi.String("TestConnectorProfile"),
-// SourceConnectorProperties: &appflow.FlowSourceConnectorPropertiesArgs{
-// Salesforce: &appflow.FlowSalesforceSourcePropertiesArgs{
-// Object: pulumi.String("Account"),
-// EnableDynamicFieldUpdate: pulumi.Bool(false),
-// IncludeDeletedRecords: pulumi.Bool(true),
-// },
-// },
-// },
-// DestinationFlowConfigList: appflow.FlowDestinationFlowConfigArray{
-// &appflow.FlowDestinationFlowConfigArgs{
-// ConnectorType: appflow.FlowConnectorTypeS3,
-// DestinationConnectorProperties: &appflow.FlowDestinationConnectorPropertiesArgs{
-// S3: &appflow.FlowS3DestinationPropertiesArgs{
-// BucketName: pulumi.String("TestOutputBucket"),
-// S3OutputFormatConfig: &appflow.FlowS3OutputFormatConfigArgs{
-// FileType: appflow.FlowFileTypeJson,
-// AggregationConfig: &appflow.FlowAggregationConfigArgs{
-// AggregationType: appflow.FlowAggregationTypeNone,
-// },
-// },
-// },
-// },
-// },
-// },
-// Tasks: appflow.FlowTaskArray{
-// &appflow.FlowTaskArgs{
-// TaskType: appflow.FlowTaskTypeFilter,
-// SourceFields: pulumi.StringArray{
-// pulumi.String("Id"),
-// pulumi.String("Name"),
-// },
-// ConnectorOperator: &appflow.FlowConnectorOperatorArgs{
-// Salesforce: appflow.FlowSalesforceConnectorOperatorProjection,
-// },
-// },
-// &appflow.FlowTaskArgs{
-// TaskType: appflow.FlowTaskTypeMap,
-// SourceFields: pulumi.StringArray{
-// pulumi.String("Id"),
-// },
-// TaskProperties: appflow.FlowTaskPropertiesObjectArray{
-// &appflow.FlowTaskPropertiesObjectArgs{
-// Key: appflow.FlowOperatorPropertiesKeysSourceDataType,
-// Value: pulumi.String("id"),
-// },
-// &appflow.FlowTaskPropertiesObjectArgs{
-// Key: appflow.FlowOperatorPropertiesKeysDestinationDataType,
-// Value: pulumi.String("id"),
-// },
-// },
-// DestinationField: pulumi.String("Id"),
-// ConnectorOperator: &appflow.FlowConnectorOperatorArgs{
-// Salesforce: appflow.FlowSalesforceConnectorOperatorNoOp,
-// },
-// },
-// &appflow.FlowTaskArgs{
-// TaskType: appflow.FlowTaskTypeMap,
-// SourceFields: pulumi.StringArray{
-// pulumi.String("Name"),
-// },
-// TaskProperties: appflow.FlowTaskPropertiesObjectArray{
-// &appflow.FlowTaskPropertiesObjectArgs{
-// Key: appflow.FlowOperatorPropertiesKeysSourceDataType,
-// Value: pulumi.String("string"),
-// },
-// &appflow.FlowTaskPropertiesObjectArgs{
-// Key: appflow.FlowOperatorPropertiesKeysDestinationDataType,
-// Value: pulumi.String("string"),
-// },
-// },
-// DestinationField: pulumi.String("Name"),
-// ConnectorOperator: &appflow.FlowConnectorOperatorArgs{
-// Salesforce: appflow.FlowSalesforceConnectorOperatorNoOp,
-// },
-// },
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("testKey"),
-// Value: pulumi.String("testValue"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appflow.NewFlow(ctx, "testFlow", &appflow.FlowArgs{
+//				FlowName:    pulumi.String("MyEventFlow"),
+//				Description: pulumi.String("Test event flow for CloudFormation from salesforce to s3"),
+//				TriggerConfig: &appflow.FlowTriggerConfigArgs{
+//					TriggerType: appflow.FlowTriggerTypeEvent,
+//				},
+//				SourceFlowConfig: &appflow.FlowSourceFlowConfigArgs{
+//					ConnectorType:        appflow.FlowConnectorTypeSalesforce,
+//					ConnectorProfileName: pulumi.String("TestConnectorProfile"),
+//					SourceConnectorProperties: &appflow.FlowSourceConnectorPropertiesArgs{
+//						Salesforce: &appflow.FlowSalesforceSourcePropertiesArgs{
+//							Object:                   pulumi.String("Account"),
+//							EnableDynamicFieldUpdate: pulumi.Bool(false),
+//							IncludeDeletedRecords:    pulumi.Bool(true),
+//						},
+//					},
+//				},
+//				DestinationFlowConfigList: appflow.FlowDestinationFlowConfigArray{
+//					&appflow.FlowDestinationFlowConfigArgs{
+//						ConnectorType: appflow.FlowConnectorTypeS3,
+//						DestinationConnectorProperties: &appflow.FlowDestinationConnectorPropertiesArgs{
+//							S3: &appflow.FlowS3DestinationPropertiesArgs{
+//								BucketName: pulumi.String("TestOutputBucket"),
+//								S3OutputFormatConfig: &appflow.FlowS3OutputFormatConfigArgs{
+//									FileType: appflow.FlowFileTypeJson,
+//									AggregationConfig: &appflow.FlowAggregationConfigArgs{
+//										AggregationType: appflow.FlowAggregationTypeNone,
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Tasks: appflow.FlowTaskArray{
+//					&appflow.FlowTaskArgs{
+//						TaskType: appflow.FlowTaskTypeFilter,
+//						SourceFields: pulumi.StringArray{
+//							pulumi.String("Id"),
+//							pulumi.String("Name"),
+//						},
+//						ConnectorOperator: &appflow.FlowConnectorOperatorArgs{
+//							Salesforce: appflow.FlowSalesforceConnectorOperatorProjection,
+//						},
+//					},
+//					&appflow.FlowTaskArgs{
+//						TaskType: appflow.FlowTaskTypeMap,
+//						SourceFields: pulumi.StringArray{
+//							pulumi.String("Id"),
+//						},
+//						TaskProperties: appflow.FlowTaskPropertiesObjectArray{
+//							&appflow.FlowTaskPropertiesObjectArgs{
+//								Key:   appflow.FlowOperatorPropertiesKeysSourceDataType,
+//								Value: pulumi.String("id"),
+//							},
+//							&appflow.FlowTaskPropertiesObjectArgs{
+//								Key:   appflow.FlowOperatorPropertiesKeysDestinationDataType,
+//								Value: pulumi.String("id"),
+//							},
+//						},
+//						DestinationField: pulumi.String("Id"),
+//						ConnectorOperator: &appflow.FlowConnectorOperatorArgs{
+//							Salesforce: appflow.FlowSalesforceConnectorOperatorNoOp,
+//						},
+//					},
+//					&appflow.FlowTaskArgs{
+//						TaskType: appflow.FlowTaskTypeMap,
+//						SourceFields: pulumi.StringArray{
+//							pulumi.String("Name"),
+//						},
+//						TaskProperties: appflow.FlowTaskPropertiesObjectArray{
+//							&appflow.FlowTaskPropertiesObjectArgs{
+//								Key:   appflow.FlowOperatorPropertiesKeysSourceDataType,
+//								Value: pulumi.String("string"),
+//							},
+//							&appflow.FlowTaskPropertiesObjectArgs{
+//								Key:   appflow.FlowOperatorPropertiesKeysDestinationDataType,
+//								Value: pulumi.String("string"),
+//							},
+//						},
+//						DestinationField: pulumi.String("Name"),
+//						ConnectorOperator: &appflow.FlowConnectorOperatorArgs{
+//							Salesforce: appflow.FlowSalesforceConnectorOperatorNoOp,
+//						},
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("testKey"),
+//						Value: pulumi.String("testValue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example

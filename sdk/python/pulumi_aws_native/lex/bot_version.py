@@ -114,7 +114,7 @@ class BotVersion(pulumi.CustomResource):
             __props__.__dict__["bot_version_locale_specification"] = bot_version_locale_specification
             __props__.__dict__["description"] = description
             __props__.__dict__["bot_version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bot_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["botId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BotVersion, __self__).__init__(
             'aws-native:lex:BotVersion',

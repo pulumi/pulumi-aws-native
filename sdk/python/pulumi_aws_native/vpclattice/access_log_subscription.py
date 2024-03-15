@@ -116,7 +116,7 @@ class AccessLogSubscription(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["resource_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessLogSubscription, __self__).__init__(
             'aws-native:vpclattice:AccessLogSubscription',

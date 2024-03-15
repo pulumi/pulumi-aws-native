@@ -875,7 +875,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["public_dns_name"] = None
             __props__.__dict__["public_ip"] = None
             __props__.__dict__["vpc_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zone", "cpu_options", "elastic_gpu_specifications[*]", "elastic_inference_accelerators[*]", "enclave_options", "hibernation_options", "host_resource_group_arn", "image_id", "ipv6_address_count", "ipv6_addresses[*]", "key_name", "launch_template", "license_specifications[*]", "network_interfaces[*]", "placement_group_name", "private_ip_address", "security_groups[*]", "subnet_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "cpuOptions", "elasticGpuSpecifications[*]", "elasticInferenceAccelerators[*]", "enclaveOptions", "hibernationOptions", "hostResourceGroupArn", "imageId", "ipv6AddressCount", "ipv6Addresses[*]", "keyName", "launchTemplate", "licenseSpecifications[*]", "networkInterfaces[*]", "placementGroupName", "privateIpAddress", "securityGroups[*]", "subnetId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Instance, __self__).__init__(
             'aws-native:ec2:Instance',

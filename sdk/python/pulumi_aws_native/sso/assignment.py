@@ -191,7 +191,7 @@ class Assignment(pulumi.CustomResource):
             if target_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_arn", "permission_set_arn", "principal_id", "principal_type", "target_id", "target_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn", "permissionSetArn", "principalId", "principalType", "targetId", "targetType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Assignment, __self__).__init__(
             'aws-native:sso:Assignment',

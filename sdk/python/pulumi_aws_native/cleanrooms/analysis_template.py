@@ -193,7 +193,7 @@ class AnalysisTemplate(pulumi.CustomResource):
             __props__.__dict__["collaboration_identifier"] = None
             __props__.__dict__["membership_arn"] = None
             __props__.__dict__["schema"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analysis_parameters[*]", "format", "membership_identifier", "name", "source"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analysisParameters[*]", "format", "membershipIdentifier", "name", "source"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnalysisTemplate, __self__).__init__(
             'aws-native:cleanrooms:AnalysisTemplate',

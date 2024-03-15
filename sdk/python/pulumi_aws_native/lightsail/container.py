@@ -234,7 +234,7 @@ class Container(pulumi.CustomResource):
             __props__.__dict__["container_arn"] = None
             __props__.__dict__["principal_arn"] = None
             __props__.__dict__["url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["service_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["serviceName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Container, __self__).__init__(
             'aws-native:lightsail:Container',

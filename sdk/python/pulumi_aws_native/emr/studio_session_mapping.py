@@ -149,7 +149,7 @@ class StudioSessionMapping(pulumi.CustomResource):
             if studio_id is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identity_name", "identity_type", "studio_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identityName", "identityType", "studioId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StudioSessionMapping, __self__).__init__(
             'aws-native:emr:StudioSessionMapping',

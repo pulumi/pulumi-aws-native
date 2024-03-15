@@ -22,36 +22,39 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ivs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// playbackKeyPair, err := ivs.NewPlaybackKeyPair(ctx, "playbackKeyPair", &ivs.PlaybackKeyPairArgs{
-// PublicKeyMaterial: pulumi.String(`-----BEGIN PUBLIC KEY-----
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			playbackKeyPair, err := ivs.NewPlaybackKeyPair(ctx, "playbackKeyPair", &ivs.PlaybackKeyPairArgs{
+//				PublicKeyMaterial: pulumi.String(`-----BEGIN PUBLIC KEY-----
+//
 // MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEwOR43ETwEoWif1i14aL8GtDMNkT/kBQm
 // h4sas9P//bjCU988rmQQXVBfftKT9xngg+W6hzOEpeUlCRlAtz6b6U79naYYRaSk
 // K/UhYGWkXlbJlc9zn13imYWgVGe/BMFp
 // -----END PUBLIC KEY-----
 // `),
-// Name: pulumi.String("MyPlaybackKeyPair"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("MyKey"),
-// Value: pulumi.String("MyValue"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("playbackKeyPairArn", playbackKeyPair.ID())
-// ctx.Export("playbackKeyPairFingerprint", playbackKeyPair.Fingerprint)
-// return nil
-// })
-// }
+//
+//				Name: pulumi.String("MyPlaybackKeyPair"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("MyKey"),
+//						Value: pulumi.String("MyValue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("playbackKeyPairArn", playbackKeyPair.ID())
+//			ctx.Export("playbackKeyPairFingerprint", playbackKeyPair.Fingerprint)
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -61,36 +64,39 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ivs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// playbackKeyPair, err := ivs.NewPlaybackKeyPair(ctx, "playbackKeyPair", &ivs.PlaybackKeyPairArgs{
-// PublicKeyMaterial: pulumi.String(`-----BEGIN PUBLIC KEY-----
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			playbackKeyPair, err := ivs.NewPlaybackKeyPair(ctx, "playbackKeyPair", &ivs.PlaybackKeyPairArgs{
+//				PublicKeyMaterial: pulumi.String(`-----BEGIN PUBLIC KEY-----
+//
 // MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEwOR43ETwEoWif1i14aL8GtDMNkT/kBQm
 // h4sas9P//bjCU988rmQQXVBfftKT9xngg+W6hzOEpeUlCRlAtz6b6U79naYYRaSk
 // K/UhYGWkXlbJlc9zn13imYWgVGe/BMFp
 // -----END PUBLIC KEY-----
 // `),
-// Name: pulumi.String("MyPlaybackKeyPair"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("MyKey"),
-// Value: pulumi.String("MyValue"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("playbackKeyPairArn", playbackKeyPair.ID())
-// ctx.Export("playbackKeyPairFingerprint", playbackKeyPair.Fingerprint)
-// return nil
-// })
-// }
+//
+//				Name: pulumi.String("MyPlaybackKeyPair"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("MyKey"),
+//						Value: pulumi.String("MyValue"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("playbackKeyPairArn", playbackKeyPair.ID())
+//			ctx.Export("playbackKeyPairFingerprint", playbackKeyPair.Fingerprint)
+//			return nil
+//		})
+//	}
 //
 // ```
 type PlaybackKeyPair struct {

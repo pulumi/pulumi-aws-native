@@ -115,7 +115,7 @@ class UserPoolDomain(pulumi.CustomResource):
             __props__.__dict__["user_pool_id"] = user_pool_id
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["cloud_front_distribution"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "user_pool_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "userPoolId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolDomain, __self__).__init__(
             'aws-native:cognito:UserPoolDomain',

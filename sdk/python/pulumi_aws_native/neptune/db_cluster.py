@@ -656,7 +656,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["port"] = None
             __props__.__dict__["read_endpoint"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availability_zones[*]", "db_cluster_identifier", "db_subnet_group_name", "kms_key_id", "restore_to_time", "restore_type", "snapshot_identifier", "source_db_cluster_identifier", "storage_encrypted", "use_latest_restorable_time"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZones[*]", "dbClusterIdentifier", "dbSubnetGroupName", "kmsKeyId", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "storageEncrypted", "useLatestRestorableTime"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbCluster, __self__).__init__(
             'aws-native:neptune:DbCluster',

@@ -108,7 +108,7 @@ class AttributeGroupAssociation(pulumi.CustomResource):
             __props__.__dict__["attribute_group"] = attribute_group
             __props__.__dict__["application_arn"] = None
             __props__.__dict__["attribute_group_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application", "attribute_group"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application", "attributeGroup"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AttributeGroupAssociation, __self__).__init__(
             'aws-native:servicecatalogappregistry:AttributeGroupAssociation',

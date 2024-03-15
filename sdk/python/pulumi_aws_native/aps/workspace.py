@@ -266,7 +266,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["prometheus_endpoint"] = None
             __props__.__dict__["workspace_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workspace, __self__).__init__(
             'aws-native:aps:Workspace',

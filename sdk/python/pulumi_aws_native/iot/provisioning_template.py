@@ -192,7 +192,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
             __props__.__dict__["template_name"] = template_name
             __props__.__dict__["template_type"] = template_type
             __props__.__dict__["template_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["template_name", "template_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["templateName", "templateType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ProvisioningTemplate, __self__).__init__(
             'aws-native:iot:ProvisioningTemplate',

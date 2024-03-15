@@ -137,7 +137,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["transit_gateway_peering_attachment_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["core_network_id", "transit_gateway_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["coreNetworkId", "transitGatewayArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayPeering, __self__).__init__(
             'aws-native:networkmanager:TransitGatewayPeering',

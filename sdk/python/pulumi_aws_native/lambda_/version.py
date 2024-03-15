@@ -169,7 +169,7 @@ class Version(pulumi.CustomResource):
             __props__.__dict__["runtime_policy"] = runtime_policy
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["code_sha256", "description", "function_name", "provisioned_concurrency_config", "runtime_policy"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["codeSha256", "description", "functionName", "provisionedConcurrencyConfig", "runtimePolicy"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Version, __self__).__init__(
             'aws-native:lambda:Version',

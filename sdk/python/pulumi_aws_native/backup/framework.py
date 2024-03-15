@@ -153,7 +153,7 @@ class Framework(pulumi.CustomResource):
             __props__.__dict__["deployment_status"] = None
             __props__.__dict__["framework_arn"] = None
             __props__.__dict__["framework_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["framework_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["frameworkName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Framework, __self__).__init__(
             'aws-native:backup:Framework',

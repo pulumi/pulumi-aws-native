@@ -94,7 +94,7 @@ class ServicePrincipalName(pulumi.CustomResource):
 
             __props__.__dict__["connector_arn"] = connector_arn
             __props__.__dict__["directory_registration_arn"] = directory_registration_arn
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_arn", "directory_registration_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectorArn", "directoryRegistrationArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServicePrincipalName, __self__).__init__(
             'aws-native:pcaconnectorad:ServicePrincipalName',

@@ -248,7 +248,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tls_policy_name"] = tls_policy_name
             __props__.__dict__["load_balancer_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_port", "ip_address_type", "load_balancer_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instancePort", "ipAddressType", "loadBalancerName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LoadBalancer, __self__).__init__(
             'aws-native:lightsail:LoadBalancer',

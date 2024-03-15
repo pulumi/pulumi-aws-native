@@ -215,7 +215,7 @@ class Link(pulumi.CustomResource):
             __props__.__dict__["link_arn"] = None
             __props__.__dict__["link_id"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["global_network_id", "site_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["globalNetworkId", "siteId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Link, __self__).__init__(
             'aws-native:networkmanager:Link',

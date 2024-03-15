@@ -149,7 +149,7 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/s3"
@@ -158,161 +158,162 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// latestAmiId := "";
-// if param := cfg.Get("latestAmiId"); param != ""{
-// latestAmiId = param
-// }
-// var tmp0 string
-// if latestAmiId == "" {
-// tmp0 = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
-// } else {
-// tmp0 = aws-native.GetSsmParameterString(ctx, &aws.GetSsmParameterStringArgs{
-// Name: latestAmiId,
-// }, nil).Value
-// }
-// _ := tmp0;
-// gitHubOwner := cfg.Require("gitHubOwner")
-// gitHubRepo := cfg.Require("gitHubRepo")
-// gitHubBranch := cfg.Require("gitHubBranch")
-// _, err := s3.NewBucket(ctx, "ssmAssocLogs", nil)
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRole(ctx, "ssmInstanceRole", &iam.RoleArgs{
-// Policies: iam.RolePolicyTypeArray{
-// &iam.RolePolicyTypeArgs{
-// PolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "action": []string{
-// "s3:GetObject",
-// },
-// "resource": []string{
-// "arn:aws:s3:::aws-ssm-${AWS::Region}/*",
-// "arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
-// "arn:aws:s3:::amazon-ssm-${AWS::Region}/*",
-// "arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*",
-// "arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*",
-// "arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*",
-// },
-// "effect": "Allow",
-// },
-// },
-// },
-// PolicyName: pulumi.String("ssm-custom-s3-policy"),
-// },
-// &iam.RolePolicyTypeArgs{
-// PolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "action": []string{
-// "s3:GetObject",
-// "s3:PutObject",
-// "s3:PutObjectAcl",
-// "s3:ListBucket",
-// },
-// "resource": []string{
-// "arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
-// "arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
-// },
-// "effect": "Allow",
-// },
-// },
-// },
-// PolicyName: pulumi.String("s3-instance-bucket-policy"),
-// },
-// },
-// Path: pulumi.String("/"),
-// ManagedPolicyArns: pulumi.StringArray{
-// pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"),
-// },
-// AssumeRolePolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "effect": "Allow",
-// "principal": map[string]interface{}{
-// "service": []string{
-// "ec2.amazonaws.com",
-// "ssm.amazonaws.com",
-// },
-// },
-// "action": "sts:AssumeRole",
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewInstanceProfile(ctx, "ssmInstanceProfile", &iam.InstanceProfileArgs{
-// Roles: pulumi.StringArray{
-// pulumi.String("SSMInstanceRole"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
-// ImageId: pulumi.String("LatestAmiId"),
-// InstanceType: pulumi.String("t3.small"),
-// IamInstanceProfile: pulumi.String("SSMInstanceProfile"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = ssm.NewAssociation(ctx, "ansibleAssociation", &ssm.AssociationArgs{
-// Name: pulumi.String("AWS-ApplyAnsiblePlaybooks"),
-// Targets: ssm.AssociationTargetArray{
-// &ssm.AssociationTargetArgs{
-// Key: pulumi.String("InstanceIds"),
-// Values: pulumi.StringArray{
-// pulumi.String("EC2Instance"),
-// },
-// },
-// },
-// OutputLocation: &ssm.AssociationInstanceAssociationOutputLocationArgs{
-// S3Location: &ssm.AssociationS3OutputLocationArgs{
-// OutputS3BucketName: pulumi.String("SSMAssocLogs"),
-// OutputS3KeyPrefix: pulumi.String("logs/"),
-// },
-// },
-// Parameters: pulumi.StringArrayMap{
-// "sourceType": pulumi.StringArray{
-// pulumi.String("GitHub"),
-// },
-// "sourceInfo": pulumi.StringArray{
-// pulumi.String("{\"owner\":\"${GitHubOwner}\",\n\"repository\":\"${GitHubRepo}\",\n\"path\":\"\",\n\"getOptions\":\"branch:${GitHubBranch}\"}\n"),
-// },
-// "installDependencies": pulumi.StringArray{
-// pulumi.String("True"),
-// },
-// "playbookFile": pulumi.StringArray{
-// pulumi.String("playbook.yml"),
-// },
-// "extraVariables": pulumi.StringArray{
-// pulumi.String("SSM=True"),
-// },
-// "check": pulumi.StringArray{
-// pulumi.String("False"),
-// },
-// "verbose": pulumi.StringArray{
-// pulumi.String("-v"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("webServerPublic", "EC2Instance.PublicDnsName")
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			latestAmiId := ""
+//			if param := cfg.Get("latestAmiId"); param != "" {
+//				latestAmiId = param
+//			}
+//			var tmp0 string
+//			if latestAmiId == "" {
+//				tmp0 = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+//			} else {
+//				tmp0 = awsnative.GetSsmParameterString(ctx, &aws.GetSsmParameterStringArgs{
+//					Name: latestAmiId,
+//				}, nil).Value
+//			}
+//			_ := tmp0
+//			gitHubOwner := cfg.Require("gitHubOwner")
+//			gitHubRepo := cfg.Require("gitHubRepo")
+//			gitHubBranch := cfg.Require("gitHubBranch")
+//			_, err := s3.NewBucket(ctx, "ssmAssocLogs", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRole(ctx, "ssmInstanceRole", &iam.RoleArgs{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
+//						PolicyDocument: pulumi.Any{
+//							Version: "2012-10-17",
+//							Statement: []map[string]interface{}{
+//								map[string]interface{}{
+//									"action": []string{
+//										"s3:GetObject",
+//									},
+//									"resource": []string{
+//										"arn:aws:s3:::aws-ssm-${AWS::Region}/*",
+//										"arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
+//										"arn:aws:s3:::amazon-ssm-${AWS::Region}/*",
+//										"arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*",
+//										"arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*",
+//										"arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*",
+//									},
+//									"effect": "Allow",
+//								},
+//							},
+//						},
+//						PolicyName: pulumi.String("ssm-custom-s3-policy"),
+//					},
+//					&iam.RolePolicyTypeArgs{
+//						PolicyDocument: pulumi.Any{
+//							Version: "2012-10-17",
+//							Statement: []map[string]interface{}{
+//								map[string]interface{}{
+//									"action": []string{
+//										"s3:GetObject",
+//										"s3:PutObject",
+//										"s3:PutObjectAcl",
+//										"s3:ListBucket",
+//									},
+//									"resource": []string{
+//										"arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
+//										"arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
+//									},
+//									"effect": "Allow",
+//								},
+//							},
+//						},
+//						PolicyName: pulumi.String("s3-instance-bucket-policy"),
+//					},
+//				},
+//				Path: pulumi.String("/"),
+//				ManagedPolicyArns: pulumi.StringArray{
+//					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"),
+//				},
+//				AssumeRolePolicyDocument: pulumi.Any{
+//					Version: "2012-10-17",
+//					Statement: []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"ec2.amazonaws.com",
+//									"ssm.amazonaws.com",
+//								},
+//							},
+//							"action": "sts:AssumeRole",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewInstanceProfile(ctx, "ssmInstanceProfile", &iam.InstanceProfileArgs{
+//				Roles: pulumi.StringArray{
+//					pulumi.String("SSMInstanceRole"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
+//				ImageId:            pulumi.String("LatestAmiId"),
+//				InstanceType:       pulumi.String("t3.small"),
+//				IamInstanceProfile: pulumi.String("SSMInstanceProfile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewAssociation(ctx, "ansibleAssociation", &ssm.AssociationArgs{
+//				Name: pulumi.String("AWS-ApplyAnsiblePlaybooks"),
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
+//						Key: pulumi.String("InstanceIds"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("EC2Instance"),
+//						},
+//					},
+//				},
+//				OutputLocation: &ssm.AssociationInstanceAssociationOutputLocationArgs{
+//					S3Location: &ssm.AssociationS3OutputLocationArgs{
+//						OutputS3BucketName: pulumi.String("SSMAssocLogs"),
+//						OutputS3KeyPrefix:  pulumi.String("logs/"),
+//					},
+//				},
+//				Parameters: pulumi.StringArrayMap{
+//					"sourceType": pulumi.StringArray{
+//						pulumi.String("GitHub"),
+//					},
+//					"sourceInfo": pulumi.StringArray{
+//						pulumi.String("{\"owner\":\"${GitHubOwner}\",\n\"repository\":\"${GitHubRepo}\",\n\"path\":\"\",\n\"getOptions\":\"branch:${GitHubBranch}\"}\n"),
+//					},
+//					"installDependencies": pulumi.StringArray{
+//						pulumi.String("True"),
+//					},
+//					"playbookFile": pulumi.StringArray{
+//						pulumi.String("playbook.yml"),
+//					},
+//					"extraVariables": pulumi.StringArray{
+//						pulumi.String("SSM=True"),
+//					},
+//					"check": pulumi.StringArray{
+//						pulumi.String("False"),
+//					},
+//					"verbose": pulumi.StringArray{
+//						pulumi.String("-v"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("webServerPublic", "EC2Instance.PublicDnsName")
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -322,7 +323,7 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/s3"
@@ -331,149 +332,150 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// latestAmiId := "";
-// if param := cfg.Get("latestAmiId"); param != ""{
-// latestAmiId = param
-// }
-// var tmp0 string
-// if latestAmiId == "" {
-// tmp0 = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
-// } else {
-// tmp0 = aws-native.GetSsmParameterString(ctx, &aws.GetSsmParameterStringArgs{
-// Name: latestAmiId,
-// }, nil).Value
-// }
-// _ := tmp0;
-// _, err := s3.NewBucket(ctx, "ssmAssocLogs", nil)
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRole(ctx, "ssmInstanceRole", &iam.RoleArgs{
-// Policies: iam.RolePolicyTypeArray{
-// &iam.RolePolicyTypeArgs{
-// PolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "action": []string{
-// "s3:GetObject",
-// },
-// "resource": []string{
-// "arn:aws:s3:::aws-ssm-${AWS::Region}/*",
-// "arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
-// "arn:aws:s3:::amazon-ssm-${AWS::Region}/*",
-// "arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*",
-// "arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*",
-// "arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*",
-// },
-// "effect": "Allow",
-// },
-// },
-// },
-// PolicyName: pulumi.String("ssm-custom-s3-policy"),
-// },
-// &iam.RolePolicyTypeArgs{
-// PolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "action": []string{
-// "s3:GetObject",
-// "s3:PutObject",
-// "s3:PutObjectAcl",
-// "s3:ListBucket",
-// },
-// "resource": []string{
-// "arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
-// "arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
-// },
-// "effect": "Allow",
-// },
-// },
-// },
-// PolicyName: pulumi.String("s3-instance-bucket-policy"),
-// },
-// },
-// Path: pulumi.String("/"),
-// ManagedPolicyArns: pulumi.StringArray{
-// pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"),
-// pulumi.String("arn:${AWS::Partition}:iam::aws:policy/CloudWatchAgentServerPolicy"),
-// },
-// AssumeRolePolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "effect": "Allow",
-// "principal": map[string]interface{}{
-// "service": []string{
-// "ec2.amazonaws.com",
-// "ssm.amazonaws.com",
-// },
-// },
-// "action": "sts:AssumeRole",
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewInstanceProfile(ctx, "ssmInstanceProfile", &iam.InstanceProfileArgs{
-// Roles: pulumi.StringArray{
-// pulumi.String("SSMInstanceRole"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ec2Instance, err := ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
-// ImageId: pulumi.String("LatestAmiId"),
-// InstanceType: pulumi.String("t3.medium"),
-// IamInstanceProfile: pulumi.String("SSMInstanceProfile"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("nginx"),
-// Value: pulumi.String("yes"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = ssm.NewAssociation(ctx, "nginxAssociation", &ssm.AssociationArgs{
-// Name: pulumi.String("AWS-RunShellScript"),
-// Targets: ssm.AssociationTargetArray{
-// &ssm.AssociationTargetArgs{
-// Key: pulumi.String("tag:nginx"),
-// Values: pulumi.StringArray{
-// pulumi.String("yes"),
-// },
-// },
-// },
-// OutputLocation: &ssm.AssociationInstanceAssociationOutputLocationArgs{
-// S3Location: &ssm.AssociationS3OutputLocationArgs{
-// OutputS3BucketName: pulumi.String("SSMAssocLogs"),
-// OutputS3KeyPrefix: pulumi.String("logs/"),
-// },
-// },
-// Parameters: pulumi.StringArrayMap{
-// "commands": pulumi.StringArray{
-// pulumi.String("sudo amazon-linux-extras install nginx1 -y\nsudo service nginx start\n"),
-// },
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// ec2Instance,
-// }))
-// if err != nil {
-// return err
-// }
-// ctx.Export("webServerPublic", "EC2Instance.PublicDnsName")
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			latestAmiId := ""
+//			if param := cfg.Get("latestAmiId"); param != "" {
+//				latestAmiId = param
+//			}
+//			var tmp0 string
+//			if latestAmiId == "" {
+//				tmp0 = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+//			} else {
+//				tmp0 = awsnative.GetSsmParameterString(ctx, &aws.GetSsmParameterStringArgs{
+//					Name: latestAmiId,
+//				}, nil).Value
+//			}
+//			_ := tmp0
+//			_, err := s3.NewBucket(ctx, "ssmAssocLogs", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRole(ctx, "ssmInstanceRole", &iam.RoleArgs{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
+//						PolicyDocument: pulumi.Any{
+//							Version: "2012-10-17",
+//							Statement: []map[string]interface{}{
+//								map[string]interface{}{
+//									"action": []string{
+//										"s3:GetObject",
+//									},
+//									"resource": []string{
+//										"arn:aws:s3:::aws-ssm-${AWS::Region}/*",
+//										"arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
+//										"arn:aws:s3:::amazon-ssm-${AWS::Region}/*",
+//										"arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*",
+//										"arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*",
+//										"arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*",
+//									},
+//									"effect": "Allow",
+//								},
+//							},
+//						},
+//						PolicyName: pulumi.String("ssm-custom-s3-policy"),
+//					},
+//					&iam.RolePolicyTypeArgs{
+//						PolicyDocument: pulumi.Any{
+//							Version: "2012-10-17",
+//							Statement: []map[string]interface{}{
+//								map[string]interface{}{
+//									"action": []string{
+//										"s3:GetObject",
+//										"s3:PutObject",
+//										"s3:PutObjectAcl",
+//										"s3:ListBucket",
+//									},
+//									"resource": []string{
+//										"arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
+//										"arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
+//									},
+//									"effect": "Allow",
+//								},
+//							},
+//						},
+//						PolicyName: pulumi.String("s3-instance-bucket-policy"),
+//					},
+//				},
+//				Path: pulumi.String("/"),
+//				ManagedPolicyArns: pulumi.StringArray{
+//					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"),
+//					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/CloudWatchAgentServerPolicy"),
+//				},
+//				AssumeRolePolicyDocument: pulumi.Any{
+//					Version: "2012-10-17",
+//					Statement: []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"ec2.amazonaws.com",
+//									"ssm.amazonaws.com",
+//								},
+//							},
+//							"action": "sts:AssumeRole",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewInstanceProfile(ctx, "ssmInstanceProfile", &iam.InstanceProfileArgs{
+//				Roles: pulumi.StringArray{
+//					pulumi.String("SSMInstanceRole"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ec2Instance, err := ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
+//				ImageId:            pulumi.String("LatestAmiId"),
+//				InstanceType:       pulumi.String("t3.medium"),
+//				IamInstanceProfile: pulumi.String("SSMInstanceProfile"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("nginx"),
+//						Value: pulumi.String("yes"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewAssociation(ctx, "nginxAssociation", &ssm.AssociationArgs{
+//				Name: pulumi.String("AWS-RunShellScript"),
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
+//						Key: pulumi.String("tag:nginx"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("yes"),
+//						},
+//					},
+//				},
+//				OutputLocation: &ssm.AssociationInstanceAssociationOutputLocationArgs{
+//					S3Location: &ssm.AssociationS3OutputLocationArgs{
+//						OutputS3BucketName: pulumi.String("SSMAssocLogs"),
+//						OutputS3KeyPrefix:  pulumi.String("logs/"),
+//					},
+//				},
+//				Parameters: pulumi.StringArrayMap{
+//					"commands": pulumi.StringArray{
+//						pulumi.String("sudo amazon-linux-extras install nginx1 -y\nsudo service nginx start\n"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				ec2Instance,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("webServerPublic", "EC2Instance.PublicDnsName")
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -483,7 +485,7 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/s3"
@@ -492,60 +494,62 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// latestAmiId := "";
-// if param := cfg.Get("latestAmiId"); param != ""{
-// latestAmiId = param
-// }
-// var tmp0 string
-// if latestAmiId == "" {
-// tmp0 = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
-// } else {
-// tmp0 = aws-native.GetSsmParameterString(ctx, &aws.GetSsmParameterStringArgs{
-// Name: latestAmiId,
-// }, nil).Value
-// }
-// _ := tmp0;
-// _, err := s3.NewBucket(ctx, "ssmAssocLogs", nil)
-// if err != nil {
-// return err
-// }
-// _, err = ssm.NewDocument(ctx, "nginxInstallAutomation", &ssm.DocumentArgs{
-// DocumentType: ssm.DocumentTypeAutomation,
-// Content: pulumi.Any{
-// SchemaVersion: "0.3",
-// Description: "Updates AMI with Linux distribution packages and installs Nginx software",
-// AssumeRole: "{{AutomationAssumeRole}}",
-// Parameters: map[string]interface{}{
-// "instanceId": map[string]interface{}{
-// "description": "ID of the Instance.",
-// "type": "String",
-// },
-// "automationAssumeRole": map[string]interface{}{
-// "default": "",
-// "description": "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf.",
-// "type": "String",
-// },
-// },
-// MainSteps: []interface{}{
-// map[string]interface{}{
-// "name": "updateOSSoftware",
-// "action": "aws:runCommand",
-// "maxAttempts": 3,
-// "timeoutSeconds": 3600,
-// "inputs": map[string]interface{}{
-// "documentName": "AWS-RunShellScript",
-// "instanceIds": []string{
-// "{{InstanceId}}",
-// },
-// "cloudWatchOutputConfig": map[string]interface{}{
-// "cloudWatchOutputEnabled": "true",
-// },
-// "parameters": map[string]interface{}{
-// "commands": []string{
-// `#!/bin/bash
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			latestAmiId := ""
+//			if param := cfg.Get("latestAmiId"); param != "" {
+//				latestAmiId = param
+//			}
+//			var tmp0 string
+//			if latestAmiId == "" {
+//				tmp0 = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+//			} else {
+//				tmp0 = awsnative.GetSsmParameterString(ctx, &aws.GetSsmParameterStringArgs{
+//					Name: latestAmiId,
+//				}, nil).Value
+//			}
+//			_ := tmp0
+//			_, err := s3.NewBucket(ctx, "ssmAssocLogs", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewDocument(ctx, "nginxInstallAutomation", &ssm.DocumentArgs{
+//				DocumentType: ssm.DocumentTypeAutomation,
+//				Content: pulumi.Any{
+//					SchemaVersion: "0.3",
+//					Description:   "Updates AMI with Linux distribution packages and installs Nginx software",
+//					AssumeRole:    "{{AutomationAssumeRole}}",
+//					Parameters: map[string]interface{}{
+//						"instanceId": map[string]interface{}{
+//							"description": "ID of the Instance.",
+//							"type":        "String",
+//						},
+//						"automationAssumeRole": map[string]interface{}{
+//							"default":     "",
+//							"description": "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf.",
+//							"type":        "String",
+//						},
+//					},
+//					MainSteps: []interface{}{
+//						map[string]interface{}{
+//							"name":           "updateOSSoftware",
+//							"action":         "aws:runCommand",
+//							"maxAttempts":    3,
+//							"timeoutSeconds": 3600,
+//							"inputs": map[string]interface{}{
+//								"documentName": "AWS-RunShellScript",
+//								"instanceIds": []string{
+//									"{{InstanceId}}",
+//								},
+//								"cloudWatchOutputConfig": map[string]interface{}{
+//									"cloudWatchOutputEnabled": "true",
+//								},
+//								"parameters": map[string]interface{}{
+//									"commands": []string{
+//										`#!/bin/bash
+//
 // sudo yum update -y
 // needs-restarting -r
 // if [ $? -eq 1 ]
@@ -559,220 +563,221 @@ import (
 //
 // fi
 // `,
-// },
-// },
-// },
-// },
-// map[string]interface{}{
-// "name": "InstallNginx",
-// "action": "aws:runCommand",
-// "inputs": map[string]interface{}{
-// "documentName": "AWS-RunShellScript",
-// "instanceIds": []string{
-// "{{InstanceId}}",
-// },
-// "cloudWatchOutputConfig": map[string]interface{}{
-// "cloudWatchOutputEnabled": "true",
-// },
-// "parameters": map[string]interface{}{
-// "commands": []string{
-// "sudo amazon-linux-extras install nginx1 -y\nsudo service nginx start\n",
-// },
-// },
-// },
-// },
-// map[string]interface{}{
-// "name": "TestInstall",
-// "action": "aws:runCommand",
-// "maxAttempts": 3,
-// "timeoutSeconds": 3600,
-// "onFailure": "Abort",
-// "inputs": map[string]interface{}{
-// "documentName": "AWS-RunShellScript",
-// "instanceIds": []string{
-// "{{InstanceId}}",
-// },
-// "parameters": map[string]interface{}{
-// "commands": []string{
-// "curl localhost\n",
-// },
-// },
-// },
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRole(ctx, "ssmExecutionRole", &iam.RoleArgs{
-// Policies: iam.RolePolicyTypeArray{
-// &iam.RolePolicyTypeArgs{
-// PolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "action": []string{
-// "ssm:StartAssociationsOnce",
-// "ssm:CreateAssociation",
-// "ssm:CreateAssociationBatch",
-// "ssm:UpdateAssociation",
-// },
-// "resource": "*",
-// "effect": "Allow",
-// },
-// },
-// },
-// PolicyName: pulumi.String("ssm-association"),
-// },
-// },
-// Path: pulumi.String("/"),
-// ManagedPolicyArns: pulumi.StringArray{
-// pulumi.String("arn:${AWS::Partition}:iam::aws:policy/service-role/AmazonSSMAutomationRole"),
-// },
-// AssumeRolePolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "effect": "Allow",
-// "principal": map[string]interface{}{
-// "service": []string{
-// "ec2.amazonaws.com",
-// "ssm.amazonaws.com",
-// },
-// },
-// "action": "sts:AssumeRole",
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRole(ctx, "ssmInstanceRole", &iam.RoleArgs{
-// Policies: iam.RolePolicyTypeArray{
-// &iam.RolePolicyTypeArgs{
-// PolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "action": []string{
-// "s3:GetObject",
-// },
-// "resource": []string{
-// "arn:aws:s3:::aws-ssm-${AWS::Region}/*",
-// "arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
-// "arn:aws:s3:::amazon-ssm-${AWS::Region}/*",
-// "arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*",
-// "arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*",
-// "arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*",
-// },
-// "effect": "Allow",
-// },
-// },
-// },
-// PolicyName: pulumi.String("ssm-custom-s3-policy"),
-// },
-// &iam.RolePolicyTypeArgs{
-// PolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "action": []string{
-// "s3:GetObject",
-// "s3:PutObject",
-// "s3:PutObjectAcl",
-// "s3:ListBucket",
-// },
-// "resource": []string{
-// "arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
-// "arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
-// },
-// "effect": "Allow",
-// },
-// },
-// },
-// PolicyName: pulumi.String("s3-instance-bucket-policy"),
-// },
-// },
-// Path: pulumi.String("/"),
-// ManagedPolicyArns: pulumi.StringArray{
-// pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"),
-// pulumi.String("arn:${AWS::Partition}:iam::aws:policy/CloudWatchAgentServerPolicy"),
-// },
-// AssumeRolePolicyDocument: pulumi.Any{
-// Version: "2012-10-17",
-// Statement: []map[string]interface{}{
-// map[string]interface{}{
-// "effect": "Allow",
-// "principal": map[string]interface{}{
-// "service": []string{
-// "ec2.amazonaws.com",
-// "ssm.amazonaws.com",
-// },
-// },
-// "action": "sts:AssumeRole",
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewInstanceProfile(ctx, "ssmInstanceProfile", &iam.InstanceProfileArgs{
-// Roles: pulumi.StringArray{
-// pulumi.String("SSMInstanceRole"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// ec2Instance, err := ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
-// ImageId: pulumi.String("LatestAmiId"),
-// InstanceType: pulumi.String("t3.medium"),
-// IamInstanceProfile: pulumi.String("SSMInstanceProfile"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("nginx"),
-// Value: pulumi.String("true"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = ssm.NewAssociation(ctx, "nginxAssociation", &ssm.AssociationArgs{
-// Name: pulumi.String("nginxInstallAutomation"),
-// OutputLocation: &ssm.AssociationInstanceAssociationOutputLocationArgs{
-// S3Location: &ssm.AssociationS3OutputLocationArgs{
-// OutputS3BucketName: pulumi.String("SSMAssocLogs"),
-// OutputS3KeyPrefix: pulumi.String("logs/"),
-// },
-// },
-// AutomationTargetParameterName: pulumi.String("InstanceId"),
-// Parameters: pulumi.StringArrayMap{
-// "automationAssumeRole": pulumi.StringArray{
-// pulumi.String("SSMExecutionRole.Arn"),
-// },
-// },
-// Targets: ssm.AssociationTargetArray{
-// &ssm.AssociationTargetArgs{
-// Key: pulumi.String("tag:nginx"),
-// Values: pulumi.StringArray{
-// pulumi.String("true"),
-// },
-// },
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// ec2Instance,
-// }))
-// if err != nil {
-// return err
-// }
-// ctx.Export("webServerPublic", "EC2Instance.PublicDnsName")
-// return nil
-// })
-// }
+//
+//									},
+//								},
+//							},
+//						},
+//						map[string]interface{}{
+//							"name":   "InstallNginx",
+//							"action": "aws:runCommand",
+//							"inputs": map[string]interface{}{
+//								"documentName": "AWS-RunShellScript",
+//								"instanceIds": []string{
+//									"{{InstanceId}}",
+//								},
+//								"cloudWatchOutputConfig": map[string]interface{}{
+//									"cloudWatchOutputEnabled": "true",
+//								},
+//								"parameters": map[string]interface{}{
+//									"commands": []string{
+//										"sudo amazon-linux-extras install nginx1 -y\nsudo service nginx start\n",
+//									},
+//								},
+//							},
+//						},
+//						map[string]interface{}{
+//							"name":           "TestInstall",
+//							"action":         "aws:runCommand",
+//							"maxAttempts":    3,
+//							"timeoutSeconds": 3600,
+//							"onFailure":      "Abort",
+//							"inputs": map[string]interface{}{
+//								"documentName": "AWS-RunShellScript",
+//								"instanceIds": []string{
+//									"{{InstanceId}}",
+//								},
+//								"parameters": map[string]interface{}{
+//									"commands": []string{
+//										"curl localhost\n",
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRole(ctx, "ssmExecutionRole", &iam.RoleArgs{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
+//						PolicyDocument: pulumi.Any{
+//							Version: "2012-10-17",
+//							Statement: []map[string]interface{}{
+//								map[string]interface{}{
+//									"action": []string{
+//										"ssm:StartAssociationsOnce",
+//										"ssm:CreateAssociation",
+//										"ssm:CreateAssociationBatch",
+//										"ssm:UpdateAssociation",
+//									},
+//									"resource": "*",
+//									"effect":   "Allow",
+//								},
+//							},
+//						},
+//						PolicyName: pulumi.String("ssm-association"),
+//					},
+//				},
+//				Path: pulumi.String("/"),
+//				ManagedPolicyArns: pulumi.StringArray{
+//					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/service-role/AmazonSSMAutomationRole"),
+//				},
+//				AssumeRolePolicyDocument: pulumi.Any{
+//					Version: "2012-10-17",
+//					Statement: []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"ec2.amazonaws.com",
+//									"ssm.amazonaws.com",
+//								},
+//							},
+//							"action": "sts:AssumeRole",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRole(ctx, "ssmInstanceRole", &iam.RoleArgs{
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
+//						PolicyDocument: pulumi.Any{
+//							Version: "2012-10-17",
+//							Statement: []map[string]interface{}{
+//								map[string]interface{}{
+//									"action": []string{
+//										"s3:GetObject",
+//									},
+//									"resource": []string{
+//										"arn:aws:s3:::aws-ssm-${AWS::Region}/*",
+//										"arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
+//										"arn:aws:s3:::amazon-ssm-${AWS::Region}/*",
+//										"arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*",
+//										"arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*",
+//										"arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*",
+//									},
+//									"effect": "Allow",
+//								},
+//							},
+//						},
+//						PolicyName: pulumi.String("ssm-custom-s3-policy"),
+//					},
+//					&iam.RolePolicyTypeArgs{
+//						PolicyDocument: pulumi.Any{
+//							Version: "2012-10-17",
+//							Statement: []map[string]interface{}{
+//								map[string]interface{}{
+//									"action": []string{
+//										"s3:GetObject",
+//										"s3:PutObject",
+//										"s3:PutObjectAcl",
+//										"s3:ListBucket",
+//									},
+//									"resource": []string{
+//										"arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
+//										"arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
+//									},
+//									"effect": "Allow",
+//								},
+//							},
+//						},
+//						PolicyName: pulumi.String("s3-instance-bucket-policy"),
+//					},
+//				},
+//				Path: pulumi.String("/"),
+//				ManagedPolicyArns: pulumi.StringArray{
+//					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"),
+//					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/CloudWatchAgentServerPolicy"),
+//				},
+//				AssumeRolePolicyDocument: pulumi.Any{
+//					Version: "2012-10-17",
+//					Statement: []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string]interface{}{
+//								"service": []string{
+//									"ec2.amazonaws.com",
+//									"ssm.amazonaws.com",
+//								},
+//							},
+//							"action": "sts:AssumeRole",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewInstanceProfile(ctx, "ssmInstanceProfile", &iam.InstanceProfileArgs{
+//				Roles: pulumi.StringArray{
+//					pulumi.String("SSMInstanceRole"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ec2Instance, err := ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
+//				ImageId:            pulumi.String("LatestAmiId"),
+//				InstanceType:       pulumi.String("t3.medium"),
+//				IamInstanceProfile: pulumi.String("SSMInstanceProfile"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("nginx"),
+//						Value: pulumi.String("true"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewAssociation(ctx, "nginxAssociation", &ssm.AssociationArgs{
+//				Name: pulumi.String("nginxInstallAutomation"),
+//				OutputLocation: &ssm.AssociationInstanceAssociationOutputLocationArgs{
+//					S3Location: &ssm.AssociationS3OutputLocationArgs{
+//						OutputS3BucketName: pulumi.String("SSMAssocLogs"),
+//						OutputS3KeyPrefix:  pulumi.String("logs/"),
+//					},
+//				},
+//				AutomationTargetParameterName: pulumi.String("InstanceId"),
+//				Parameters: pulumi.StringArrayMap{
+//					"automationAssumeRole": pulumi.StringArray{
+//						pulumi.String("SSMExecutionRole.Arn"),
+//					},
+//				},
+//				Targets: ssm.AssociationTargetArray{
+//					&ssm.AssociationTargetArgs{
+//						Key: pulumi.String("tag:nginx"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("true"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				ec2Instance,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("webServerPublic", "EC2Instance.PublicDnsName")
+//			return nil
+//		})
+//	}
 //
 // ```
 type Bucket struct {

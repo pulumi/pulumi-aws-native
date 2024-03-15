@@ -173,7 +173,7 @@ class Model(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
             __props__.__dict__["model_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apiId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Model, __self__).__init__(
             'aws-native:apigatewayv2:Model',

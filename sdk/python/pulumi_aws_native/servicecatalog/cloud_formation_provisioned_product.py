@@ -253,7 +253,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["outputs"] = None
             __props__.__dict__["provisioned_product_id"] = None
             __props__.__dict__["record_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["notification_arns[*]", "provisioned_product_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["notificationArns[*]", "provisionedProductName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CloudFormationProvisionedProduct, __self__).__init__(
             'aws-native:servicecatalog:CloudFormationProvisionedProduct',

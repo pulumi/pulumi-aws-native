@@ -23,32 +23,33 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iot.NewDimension(ctx, "topicFilterForAuthMessagesDimension", &iot.DimensionArgs{
-// Name: pulumi.String("TopicFilterForAuthMessages"),
-// Type: iot.DimensionTypeTopicFilter,
-// StringValues: pulumi.StringArray{
-// pulumi.String("device/+/auth"),
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("Application"),
-// Value: pulumi.String("SmartHome"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iot.NewDimension(ctx, "topicFilterForAuthMessagesDimension", &iot.DimensionArgs{
+//				Name: pulumi.String("TopicFilterForAuthMessages"),
+//				Type: iot.DimensionTypeTopicFilter,
+//				StringValues: pulumi.StringArray{
+//					pulumi.String("device/+/auth"),
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("Application"),
+//						Value: pulumi.String("SmartHome"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Dimension struct {

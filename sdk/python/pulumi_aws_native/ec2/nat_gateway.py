@@ -260,7 +260,7 @@ class NatGateway(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["nat_gateway_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocation_id", "connectivity_type", "private_ip_address", "subnet_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocationId", "connectivityType", "privateIpAddress", "subnetId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NatGateway, __self__).__init__(
             'aws-native:ec2:NatGateway',

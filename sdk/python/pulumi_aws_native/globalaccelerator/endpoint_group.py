@@ -260,7 +260,7 @@ class EndpointGroup(pulumi.CustomResource):
             __props__.__dict__["threshold_count"] = threshold_count
             __props__.__dict__["traffic_dial_percentage"] = traffic_dial_percentage
             __props__.__dict__["endpoint_group_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint_group_region", "listener_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpointGroupRegion", "listenerArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EndpointGroup, __self__).__init__(
             'aws-native:globalaccelerator:EndpointGroup',

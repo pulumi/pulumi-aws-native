@@ -149,7 +149,7 @@ class VpcConnector(pulumi.CustomResource):
             __props__.__dict__["vpc_connector_name"] = vpc_connector_name
             __props__.__dict__["vpc_connector_arn"] = None
             __props__.__dict__["vpc_connector_revision"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["security_groups[*]", "subnets[*]", "tags[*]", "vpc_connector_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["securityGroups[*]", "subnets[*]", "tags[*]", "vpcConnectorName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcConnector, __self__).__init__(
             'aws-native:apprunner:VpcConnector',

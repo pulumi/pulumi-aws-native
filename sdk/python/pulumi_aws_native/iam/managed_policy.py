@@ -219,7 +219,7 @@ class ManagedPolicy(pulumi.CustomResource):
             __props__.__dict__["policy_arn"] = None
             __props__.__dict__["policy_id"] = None
             __props__.__dict__["update_date"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "managed_policy_name", "path"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "managedPolicyName", "path"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ManagedPolicy, __self__).__init__(
             'aws-native:iam:ManagedPolicy',

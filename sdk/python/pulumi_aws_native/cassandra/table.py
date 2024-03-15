@@ -1243,7 +1243,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["replica_specifications"] = replica_specifications
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_side_timestamps_enabled", "clustering_key_columns[*]", "keyspace_name", "partition_key_columns[*]", "table_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientSideTimestampsEnabled", "clusteringKeyColumns[*]", "keyspaceName", "partitionKeyColumns[*]", "tableName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Table, __self__).__init__(
             'aws-native:cassandra:Table',

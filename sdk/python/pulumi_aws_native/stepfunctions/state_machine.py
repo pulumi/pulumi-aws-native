@@ -415,7 +415,7 @@ class StateMachine(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["state_machine_revision_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["state_machine_name", "state_machine_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["stateMachineName", "stateMachineType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StateMachine, __self__).__init__(
             'aws-native:stepfunctions:StateMachine',

@@ -139,7 +139,7 @@ class Alias(pulumi.CustomResource):
             if target_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_key_id'")
             __props__.__dict__["target_key_id"] = target_key_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alias_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aliasName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Alias, __self__).__init__(
             'aws-native:kms:Alias',

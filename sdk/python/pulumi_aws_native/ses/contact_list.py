@@ -148,7 +148,7 @@ class ContactList(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topics"] = topics
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["contact_list_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["contactListName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContactList, __self__).__init__(
             'aws-native:ses:ContactList',

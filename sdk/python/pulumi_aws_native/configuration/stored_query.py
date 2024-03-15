@@ -135,7 +135,7 @@ class StoredQuery(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["query_arn"] = None
             __props__.__dict__["query_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["query_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["queryName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StoredQuery, __self__).__init__(
             'aws-native:configuration:StoredQuery',

@@ -163,7 +163,7 @@ class EventInvokeConfig(pulumi.CustomResource):
             if qualifier is None and not opts.urn:
                 raise TypeError("Missing required property 'qualifier'")
             __props__.__dict__["qualifier"] = qualifier
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["function_name", "qualifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["functionName", "qualifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventInvokeConfig, __self__).__init__(
             'aws-native:lambda:EventInvokeConfig',

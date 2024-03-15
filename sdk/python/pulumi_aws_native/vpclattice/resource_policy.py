@@ -101,7 +101,7 @@ class ResourcePolicy(pulumi.CustomResource):
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__.__dict__["resource_arn"] = resource_arn
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourcePolicy, __self__).__init__(
             'aws-native:vpclattice:ResourcePolicy',

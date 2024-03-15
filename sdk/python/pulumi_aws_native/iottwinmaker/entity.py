@@ -233,7 +233,7 @@ class Entity(pulumi.CustomResource):
             __props__.__dict__["has_child_entities"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["update_date_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["entity_id", "workspace_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["entityId", "workspaceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Entity, __self__).__init__(
             'aws-native:iottwinmaker:Entity',

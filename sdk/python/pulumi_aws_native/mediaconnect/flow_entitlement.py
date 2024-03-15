@@ -211,7 +211,7 @@ class FlowEntitlement(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
             __props__.__dict__["entitlement_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_transfer_subscriber_fee_percent", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataTransferSubscriberFeePercent", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FlowEntitlement, __self__).__init__(
             'aws-native:mediaconnect:FlowEntitlement',

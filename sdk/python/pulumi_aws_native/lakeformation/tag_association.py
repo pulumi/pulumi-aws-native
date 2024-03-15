@@ -110,7 +110,7 @@ class TagAssociation(pulumi.CustomResource):
             __props__.__dict__["resource"] = resource
             __props__.__dict__["resource_identifier"] = None
             __props__.__dict__["tags_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["lf_tags[*]", "resource"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["lfTags[*]", "resource"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TagAssociation, __self__).__init__(
             'aws-native:lakeformation:TagAssociation',

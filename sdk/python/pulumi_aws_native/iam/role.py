@@ -889,7 +889,7 @@ class Role(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["role_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["path", "role_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["path", "roleName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Role, __self__).__init__(
             'aws-native:iam:Role',

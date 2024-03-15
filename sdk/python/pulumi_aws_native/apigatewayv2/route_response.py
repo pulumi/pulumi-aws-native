@@ -196,7 +196,7 @@ class RouteResponse(pulumi.CustomResource):
                 raise TypeError("Missing required property 'route_response_key'")
             __props__.__dict__["route_response_key"] = route_response_key
             __props__.__dict__["route_response_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id", "route_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apiId", "routeId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RouteResponse, __self__).__init__(
             'aws-native:apigatewayv2:RouteResponse',

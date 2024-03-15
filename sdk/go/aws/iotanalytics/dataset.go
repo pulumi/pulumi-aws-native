@@ -103,59 +103,60 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iotanalytics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
-// DatasetName: pulumi.String("ComplexSQLDataset"),
-// Actions: iotanalytics.DatasetActionArray{
-// &iotanalytics.DatasetActionArgs{
-// ActionName: pulumi.String("SqlAction"),
-// QueryAction: &iotanalytics.DatasetQueryActionArgs{
-// SqlQuery: pulumi.String("select * from Datastore"),
-// Filters: iotanalytics.DatasetFilterArray{
-// &iotanalytics.DatasetFilterArgs{
-// DeltaTime: &iotanalytics.DatasetDeltaTimeArgs{
-// OffsetSeconds: pulumi.Int(1),
-// TimeExpression: pulumi.String("timestamp"),
-// },
-// },
-// },
-// },
-// },
-// },
-// Triggers: iotanalytics.DatasetTriggerArray{
-// &iotanalytics.DatasetTriggerArgs{
-// Schedule: &iotanalytics.DatasetScheduleArgs{
-// ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
-// },
-// },
-// },
-// RetentionPeriod: &iotanalytics.DatasetRetentionPeriodArgs{
-// Unlimited: pulumi.Bool(false),
-// NumberOfDays: pulumi.Int(10),
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
+//				DatasetName: pulumi.String("ComplexSQLDataset"),
+//				Actions: iotanalytics.DatasetActionArray{
+//					&iotanalytics.DatasetActionArgs{
+//						ActionName: pulumi.String("SqlAction"),
+//						QueryAction: &iotanalytics.DatasetQueryActionArgs{
+//							SqlQuery: pulumi.String("select * from Datastore"),
+//							Filters: iotanalytics.DatasetFilterArray{
+//								&iotanalytics.DatasetFilterArgs{
+//									DeltaTime: &iotanalytics.DatasetDeltaTimeArgs{
+//										OffsetSeconds:  pulumi.Int(1),
+//										TimeExpression: pulumi.String("timestamp"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Triggers: iotanalytics.DatasetTriggerArray{
+//					&iotanalytics.DatasetTriggerArgs{
+//						Schedule: &iotanalytics.DatasetScheduleArgs{
+//							ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
+//						},
+//					},
+//				},
+//				RetentionPeriod: &iotanalytics.DatasetRetentionPeriodArgs{
+//					Unlimited:    pulumi.Bool(false),
+//					NumberOfDays: pulumi.Int(10),
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -165,59 +166,60 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iotanalytics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
-// DatasetName: pulumi.String("ComplexSQLDataset"),
-// Actions: iotanalytics.DatasetActionArray{
-// &iotanalytics.DatasetActionArgs{
-// ActionName: pulumi.String("SqlAction"),
-// QueryAction: &iotanalytics.DatasetQueryActionArgs{
-// SqlQuery: pulumi.String("select * from Datastore"),
-// Filters: iotanalytics.DatasetFilterArray{
-// &iotanalytics.DatasetFilterArgs{
-// DeltaTime: &iotanalytics.DatasetDeltaTimeArgs{
-// OffsetSeconds: pulumi.Int(1),
-// TimeExpression: pulumi.String("timestamp"),
-// },
-// },
-// },
-// },
-// },
-// },
-// Triggers: iotanalytics.DatasetTriggerArray{
-// &iotanalytics.DatasetTriggerArgs{
-// Schedule: &iotanalytics.DatasetScheduleArgs{
-// ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
-// },
-// },
-// },
-// RetentionPeriod: &iotanalytics.DatasetRetentionPeriodArgs{
-// Unlimited: pulumi.Bool(false),
-// NumberOfDays: pulumi.Int(10),
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iotanalytics.NewDataset(ctx, "dataset", &iotanalytics.DatasetArgs{
+//				DatasetName: pulumi.String("ComplexSQLDataset"),
+//				Actions: iotanalytics.DatasetActionArray{
+//					&iotanalytics.DatasetActionArgs{
+//						ActionName: pulumi.String("SqlAction"),
+//						QueryAction: &iotanalytics.DatasetQueryActionArgs{
+//							SqlQuery: pulumi.String("select * from Datastore"),
+//							Filters: iotanalytics.DatasetFilterArray{
+//								&iotanalytics.DatasetFilterArgs{
+//									DeltaTime: &iotanalytics.DatasetDeltaTimeArgs{
+//										OffsetSeconds:  pulumi.Int(1),
+//										TimeExpression: pulumi.String("timestamp"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Triggers: iotanalytics.DatasetTriggerArray{
+//					&iotanalytics.DatasetTriggerArgs{
+//						Schedule: &iotanalytics.DatasetScheduleArgs{
+//							ScheduleExpression: pulumi.String("cron(0 12 * * ? *)"),
+//						},
+//					},
+//				},
+//				RetentionPeriod: &iotanalytics.DatasetRetentionPeriodArgs{
+//					Unlimited:    pulumi.Bool(false),
+//					NumberOfDays: pulumi.Int(10),
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Dataset struct {

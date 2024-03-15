@@ -166,7 +166,7 @@ class Url(pulumi.CustomResource):
             __props__.__dict__["target_function_arn"] = target_function_arn
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["function_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["qualifier", "target_function_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["qualifier", "targetFunctionArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Url, __self__).__init__(
             'aws-native:lambda:Url',

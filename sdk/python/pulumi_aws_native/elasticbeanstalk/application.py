@@ -126,7 +126,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["description"] = description
             __props__.__dict__["resource_lifecycle_config"] = resource_lifecycle_config
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:elasticbeanstalk:Application',

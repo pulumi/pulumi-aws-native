@@ -23,41 +23,42 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/databrew"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := databrew.NewDataset(ctx, "testDataBrewDataset", &databrew.DatasetArgs{
-// Name: pulumi.String("cf-test-dataset1"),
-// Input: &databrew.DatasetInputTypeArgs{
-// S3InputDefinition: &databrew.DatasetS3LocationArgs{
-// Bucket: pulumi.String("test-location"),
-// Key: pulumi.String("test.xlsx"),
-// },
-// },
-// FormatOptions: &databrew.DatasetFormatOptionsArgs{
-// Excel: &databrew.DatasetExcelOptionsArgs{
-// SheetNames: pulumi.StringArray{
-// pulumi.String("test"),
-// },
-// },
-// },
-// Tags: aws.CreateOnlyTagArray{
-// &aws.CreateOnlyTagArgs{
-// Key: pulumi.String("key00AtCreate"),
-// Value: pulumi.String("value001AtCreate"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := databrew.NewDataset(ctx, "testDataBrewDataset", &databrew.DatasetArgs{
+//				Name: pulumi.String("cf-test-dataset1"),
+//				Input: &databrew.DatasetInputTypeArgs{
+//					S3InputDefinition: &databrew.DatasetS3LocationArgs{
+//						Bucket: pulumi.String("test-location"),
+//						Key:    pulumi.String("test.xlsx"),
+//					},
+//				},
+//				FormatOptions: &databrew.DatasetFormatOptionsArgs{
+//					Excel: &databrew.DatasetExcelOptionsArgs{
+//						SheetNames: pulumi.StringArray{
+//							pulumi.String("test"),
+//						},
+//					},
+//				},
+//				Tags: aws.CreateOnlyTagArray{
+//					&aws.CreateOnlyTagArgs{
+//						Key:   pulumi.String("key00AtCreate"),
+//						Value: pulumi.String("value001AtCreate"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Dataset struct {

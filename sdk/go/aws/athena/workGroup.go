@@ -22,43 +22,44 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := athena.NewWorkGroup(ctx, "myAthenaWorkGroup", &athena.WorkGroupArgs{
-// Name: pulumi.String("MyCustomWorkGroup"),
-// Description: pulumi.String("My WorkGroup"),
-// State: athena.WorkGroupStateEnabled,
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("key1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("key2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// WorkGroupConfiguration: &athena.WorkGroupConfigurationArgs{
-// BytesScannedCutoffPerQuery: pulumi.Int(200000000),
-// EnforceWorkGroupConfiguration: pulumi.Bool(false),
-// PublishCloudWatchMetricsEnabled: pulumi.Bool(false),
-// RequesterPaysEnabled: pulumi.Bool(true),
-// ResultConfiguration: &athena.WorkGroupResultConfigurationArgs{
-// OutputLocation: pulumi.String("s3://path/to/my/bucket/"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewWorkGroup(ctx, "myAthenaWorkGroup", &athena.WorkGroupArgs{
+//				Name:        pulumi.String("MyCustomWorkGroup"),
+//				Description: pulumi.String("My WorkGroup"),
+//				State:       athena.WorkGroupStateEnabled,
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//				WorkGroupConfiguration: &athena.WorkGroupConfigurationArgs{
+//					BytesScannedCutoffPerQuery:      pulumi.Int(200000000),
+//					EnforceWorkGroupConfiguration:   pulumi.Bool(false),
+//					PublishCloudWatchMetricsEnabled: pulumi.Bool(false),
+//					RequesterPaysEnabled:            pulumi.Bool(true),
+//					ResultConfiguration: &athena.WorkGroupResultConfigurationArgs{
+//						OutputLocation: pulumi.String("s3://path/to/my/bucket/"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -68,43 +69,44 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := athena.NewWorkGroup(ctx, "myAthenaWorkGroup", &athena.WorkGroupArgs{
-// Name: pulumi.String("MyCustomWorkGroup"),
-// Description: pulumi.String("My WorkGroup"),
-// State: athena.WorkGroupStateEnabled,
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("key1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("key2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// WorkGroupConfiguration: &athena.WorkGroupConfigurationArgs{
-// BytesScannedCutoffPerQuery: pulumi.Int(200000000),
-// EnforceWorkGroupConfiguration: pulumi.Bool(false),
-// PublishCloudWatchMetricsEnabled: pulumi.Bool(false),
-// RequesterPaysEnabled: pulumi.Bool(true),
-// ResultConfiguration: &athena.WorkGroupResultConfigurationArgs{
-// OutputLocation: pulumi.String("s3://path/to/my/bucket/"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewWorkGroup(ctx, "myAthenaWorkGroup", &athena.WorkGroupArgs{
+//				Name:        pulumi.String("MyCustomWorkGroup"),
+//				Description: pulumi.String("My WorkGroup"),
+//				State:       athena.WorkGroupStateEnabled,
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//				WorkGroupConfiguration: &athena.WorkGroupConfigurationArgs{
+//					BytesScannedCutoffPerQuery:      pulumi.Int(200000000),
+//					EnforceWorkGroupConfiguration:   pulumi.Bool(false),
+//					PublishCloudWatchMetricsEnabled: pulumi.Bool(false),
+//					RequesterPaysEnabled:            pulumi.Bool(true),
+//					ResultConfiguration: &athena.WorkGroupResultConfigurationArgs{
+//						OutputLocation: pulumi.String("s3://path/to/my/bucket/"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -114,46 +116,47 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := athena.NewWorkGroup(ctx, "myAthenaWorkGroup", &athena.WorkGroupArgs{
-// Name: pulumi.String("MyCustomWorkGroup"),
-// Description: pulumi.String("My WorkGroup Updated"),
-// State: athena.WorkGroupStateDisabled,
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("key1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("key2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// WorkGroupConfigurationUpdates: &athena.WorkGroupConfigurationUpdatesArgs{
-// BytesScannedCutoffPerQuery: pulumi.Int(10000000),
-// EnforceWorkGroupConfiguration: pulumi.Bool(true),
-// PublishCloudWatchMetricsEnabled: pulumi.Bool(true),
-// RequesterPaysEnabled: pulumi.Bool(false),
-// ResultConfigurationUpdates: &athena.WorkGroupResultConfigurationUpdatesArgs{
-// EncryptionConfiguration: &athena.WorkGroupEncryptionConfigurationArgs{
-// EncryptionOption: athena.WorkGroupEncryptionOptionSseS3,
-// },
-// OutputLocation: pulumi.String("s3://path/to/my/bucket/updated/"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewWorkGroup(ctx, "myAthenaWorkGroup", &athena.WorkGroupArgs{
+//				Name:        pulumi.String("MyCustomWorkGroup"),
+//				Description: pulumi.String("My WorkGroup Updated"),
+//				State:       athena.WorkGroupStateDisabled,
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//				WorkGroupConfigurationUpdates: &athena.WorkGroupConfigurationUpdatesArgs{
+//					BytesScannedCutoffPerQuery:      pulumi.Int(10000000),
+//					EnforceWorkGroupConfiguration:   pulumi.Bool(true),
+//					PublishCloudWatchMetricsEnabled: pulumi.Bool(true),
+//					RequesterPaysEnabled:            pulumi.Bool(false),
+//					ResultConfigurationUpdates: &athena.WorkGroupResultConfigurationUpdatesArgs{
+//						EncryptionConfiguration: &athena.WorkGroupEncryptionConfigurationArgs{
+//							EncryptionOption: athena.WorkGroupEncryptionOptionSseS3,
+//						},
+//						OutputLocation: pulumi.String("s3://path/to/my/bucket/updated/"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -163,46 +166,47 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := athena.NewWorkGroup(ctx, "myAthenaWorkGroup", &athena.WorkGroupArgs{
-// Name: pulumi.String("MyCustomWorkGroup"),
-// Description: pulumi.String("My WorkGroup Updated"),
-// State: athena.WorkGroupStateDisabled,
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("key1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("key2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// WorkGroupConfigurationUpdates: &athena.WorkGroupConfigurationUpdatesArgs{
-// BytesScannedCutoffPerQuery: pulumi.Int(10000000),
-// EnforceWorkGroupConfiguration: pulumi.Bool(true),
-// PublishCloudWatchMetricsEnabled: pulumi.Bool(true),
-// RequesterPaysEnabled: pulumi.Bool(false),
-// ResultConfigurationUpdates: &athena.WorkGroupResultConfigurationUpdatesArgs{
-// EncryptionConfiguration: &athena.WorkGroupEncryptionConfigurationArgs{
-// EncryptionOption: athena.WorkGroupEncryptionOptionSseS3,
-// },
-// OutputLocation: pulumi.String("s3://path/to/my/bucket/updated/"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewWorkGroup(ctx, "myAthenaWorkGroup", &athena.WorkGroupArgs{
+//				Name:        pulumi.String("MyCustomWorkGroup"),
+//				Description: pulumi.String("My WorkGroup Updated"),
+//				State:       athena.WorkGroupStateDisabled,
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//				WorkGroupConfigurationUpdates: &athena.WorkGroupConfigurationUpdatesArgs{
+//					BytesScannedCutoffPerQuery:      pulumi.Int(10000000),
+//					EnforceWorkGroupConfiguration:   pulumi.Bool(true),
+//					PublishCloudWatchMetricsEnabled: pulumi.Bool(true),
+//					RequesterPaysEnabled:            pulumi.Bool(false),
+//					ResultConfigurationUpdates: &athena.WorkGroupResultConfigurationUpdatesArgs{
+//						EncryptionConfiguration: &athena.WorkGroupEncryptionConfigurationArgs{
+//							EncryptionOption: athena.WorkGroupEncryptionOptionSseS3,
+//						},
+//						OutputLocation: pulumi.String("s3://path/to/my/bucket/updated/"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type WorkGroup struct {

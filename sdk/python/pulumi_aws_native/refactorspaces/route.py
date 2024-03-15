@@ -186,7 +186,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["path_resource_to_id"] = None
             __props__.__dict__["route_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_identifier", "environment_identifier", "route_type", "service_identifier", "uri_path_route.append_source_path", "uri_path_route.include_child_paths", "uri_path_route.methods[*]", "uri_path_route.source_path"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationIdentifier", "environmentIdentifier", "routeType", "serviceIdentifier", "uriPathRoute.appendSourcePath", "uriPathRoute.includeChildPaths", "uriPathRoute.methods[*]", "uriPathRoute.sourcePath"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Route, __self__).__init__(
             'aws-native:refactorspaces:Route',

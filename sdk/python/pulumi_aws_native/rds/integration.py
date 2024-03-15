@@ -185,7 +185,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["create_time"] = None
             __props__.__dict__["integration_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_encryption_context.*", "integration_name", "kms_key_id", "source_arn", "target_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additionalEncryptionContext.*", "integrationName", "kmsKeyId", "sourceArn", "targetArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Integration, __self__).__init__(
             'aws-native:rds:Integration',

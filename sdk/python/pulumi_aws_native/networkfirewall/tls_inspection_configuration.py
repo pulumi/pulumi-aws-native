@@ -132,7 +132,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             __props__.__dict__["tls_inspection_configuration_name"] = tls_inspection_configuration_name
             __props__.__dict__["tls_inspection_configuration_arn"] = None
             __props__.__dict__["tls_inspection_configuration_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tls_inspection_configuration_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tlsInspectionConfigurationName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TlsInspectionConfiguration, __self__).__init__(
             'aws-native:networkfirewall:TlsInspectionConfiguration',

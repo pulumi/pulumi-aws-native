@@ -251,7 +251,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["job_definition_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_quality_app_specification", "data_quality_baseline_config", "data_quality_job_input", "data_quality_job_output_config", "endpoint_name", "job_definition_name", "job_resources", "network_config", "role_arn", "stopping_condition", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataQualityAppSpecification", "dataQualityBaselineConfig", "dataQualityJobInput", "dataQualityJobOutputConfig", "endpointName", "jobDefinitionName", "jobResources", "networkConfig", "roleArn", "stoppingCondition", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataQualityJobDefinition, __self__).__init__(
             'aws-native:sagemaker:DataQualityJobDefinition',

@@ -154,7 +154,7 @@ class EndpointAuthorization(pulumi.CustomResource):
             __props__.__dict__["grantee"] = None
             __props__.__dict__["grantor"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["account", "cluster_identifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["account", "clusterIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EndpointAuthorization, __self__).__init__(
             'aws-native:redshift:EndpointAuthorization',

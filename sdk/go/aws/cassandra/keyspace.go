@@ -22,32 +22,33 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/cassandra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := cassandra.NewKeyspace(ctx, "myNewKeyspace", &cassandra.KeyspaceArgs{
-// KeyspaceName: pulumi.String("MyNewKeyspace"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("tag1"),
-// Value: pulumi.String("val1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("tag2"),
-// Value: pulumi.String("val2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cassandra.NewKeyspace(ctx, "myNewKeyspace", &cassandra.KeyspaceArgs{
+//				KeyspaceName: pulumi.String("MyNewKeyspace"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag1"),
+//						Value: pulumi.String("val1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag2"),
+//						Value: pulumi.String("val2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example

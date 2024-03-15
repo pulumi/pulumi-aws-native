@@ -226,7 +226,7 @@ class LifecycleHook(pulumi.CustomResource):
             __props__.__dict__["notification_metadata"] = notification_metadata
             __props__.__dict__["notification_target_arn"] = notification_target_arn
             __props__.__dict__["role_arn"] = role_arn
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auto_scaling_group_name", "lifecycle_hook_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupName", "lifecycleHookName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LifecycleHook, __self__).__init__(
             'aws-native:autoscaling:LifecycleHook',

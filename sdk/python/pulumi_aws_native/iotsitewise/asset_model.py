@@ -231,7 +231,7 @@ class AssetModel(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["asset_model_arn"] = None
             __props__.__dict__["asset_model_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["asset_model_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assetModelType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AssetModel, __self__).__init__(
             'aws-native:iotsitewise:AssetModel',

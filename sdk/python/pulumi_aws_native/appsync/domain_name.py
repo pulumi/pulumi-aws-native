@@ -113,7 +113,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["app_sync_domain_name"] = None
             __props__.__dict__["hosted_zone_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_arn", "domain_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificateArn", "domainName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DomainName, __self__).__init__(
             'aws-native:appsync:DomainName',

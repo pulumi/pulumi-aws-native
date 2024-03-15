@@ -116,7 +116,7 @@ class TopicRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'topic_rule_payload'")
             __props__.__dict__["topic_rule_payload"] = topic_rule_payload
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rule_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ruleName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TopicRule, __self__).__init__(
             'aws-native:iot:TopicRule',

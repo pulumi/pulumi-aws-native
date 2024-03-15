@@ -566,7 +566,7 @@ class Document(pulumi.CustomResource):
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["update_method"] = update_method
             __props__.__dict__["version_name"] = version_name
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["document_type", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["documentType", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Document, __self__).__init__(
             'aws-native:ssm:Document',

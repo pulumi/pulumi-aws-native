@@ -80,7 +80,7 @@ class Project(pulumi.CustomResource):
 
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["project_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["projectName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Project, __self__).__init__(
             'aws-native:rekognition:Project',

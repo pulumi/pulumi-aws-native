@@ -259,7 +259,7 @@ class FeatureGroup(pulumi.CustomResource):
             __props__.__dict__["throughput_config"] = throughput_config
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["feature_group_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "event_time_feature_name", "feature_group_name", "offline_store_config", "record_identifier_feature_name", "role_arn", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "eventTimeFeatureName", "featureGroupName", "offlineStoreConfig", "recordIdentifierFeatureName", "roleArn", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(FeatureGroup, __self__).__init__(
             'aws-native:sagemaker:FeatureGroup',

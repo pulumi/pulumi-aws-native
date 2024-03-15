@@ -193,7 +193,7 @@ class ResolverRule(pulumi.CustomResource):
             __props__.__dict__["target_ips"] = target_ips
             __props__.__dict__["arn"] = None
             __props__.__dict__["resolver_rule_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rule_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ruleType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResolverRule, __self__).__init__(
             'aws-native:route53resolver:ResolverRule',

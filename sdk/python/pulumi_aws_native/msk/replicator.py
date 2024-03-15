@@ -213,7 +213,7 @@ class Replicator(pulumi.CustomResource):
             __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["replicator_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "kafka_clusters[*]", "replicator_name", "service_execution_role_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "kafkaClusters[*]", "replicatorName", "serviceExecutionRoleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Replicator, __self__).__init__(
             'aws-native:msk:Replicator',

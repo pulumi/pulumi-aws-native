@@ -150,7 +150,7 @@ class PolicyTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
             __props__.__dict__["policy_template_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_store_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policyStoreId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PolicyTemplate, __self__).__init__(
             'aws-native:verifiedpermissions:PolicyTemplate',

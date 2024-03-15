@@ -223,7 +223,7 @@ class NamedQuery(pulumi.CustomResource):
             __props__.__dict__["query_string"] = query_string
             __props__.__dict__["work_group"] = work_group
             __props__.__dict__["named_query_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["database", "description", "name", "query_string", "work_group"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["database", "description", "name", "queryString", "workGroup"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NamedQuery, __self__).__init__(
             'aws-native:athena:NamedQuery',

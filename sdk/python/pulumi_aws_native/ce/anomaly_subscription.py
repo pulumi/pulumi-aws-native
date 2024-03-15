@@ -421,7 +421,7 @@ class AnomalySubscription(pulumi.CustomResource):
             __props__.__dict__["threshold_expression"] = threshold_expression
             __props__.__dict__["account_id"] = None
             __props__.__dict__["subscription_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceTags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnomalySubscription, __self__).__init__(
             'aws-native:ce:AnomalySubscription',

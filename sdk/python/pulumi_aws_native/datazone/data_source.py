@@ -321,7 +321,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["project_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_identifier", "environment_identifier", "project_identifier", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "environmentIdentifier", "projectIdentifier", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataSource, __self__).__init__(
             'aws-native:datazone:DataSource',

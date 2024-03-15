@@ -120,7 +120,7 @@ class ChannelGroup(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["egress_domain"] = None
             __props__.__dict__["modified_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_group_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ChannelGroup, __self__).__init__(
             'aws-native:mediapackagev2:ChannelGroup',

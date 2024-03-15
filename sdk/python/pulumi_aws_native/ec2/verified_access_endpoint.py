@@ -361,7 +361,7 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["verified_access_endpoint_id"] = None
             __props__.__dict__["verified_access_instance_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_domain", "attachment_type", "domain_certificate_arn", "endpoint_domain_prefix", "endpoint_type", "load_balancer_options.load_balancer_arn", "network_interface_options.network_interface_id", "security_group_ids[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationDomain", "attachmentType", "domainCertificateArn", "endpointDomainPrefix", "endpointType", "loadBalancerOptions.loadBalancerArn", "networkInterfaceOptions.networkInterfaceId", "securityGroupIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VerifiedAccessEndpoint, __self__).__init__(
             'aws-native:ec2:VerifiedAccessEndpoint',

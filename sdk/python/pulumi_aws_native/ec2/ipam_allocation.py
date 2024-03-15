@@ -136,7 +136,7 @@ class IpamAllocation(pulumi.CustomResource):
             __props__.__dict__["ipam_pool_id"] = ipam_pool_id
             __props__.__dict__["netmask_length"] = netmask_length
             __props__.__dict__["ipam_pool_allocation_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidr", "description", "ipam_pool_id", "netmask_length"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidr", "description", "ipamPoolId", "netmaskLength"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IpamAllocation, __self__).__init__(
             'aws-native:ec2:IpamAllocation',

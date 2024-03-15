@@ -235,7 +235,7 @@ class Keyspace(pulumi.CustomResource):
             __props__.__dict__["keyspace_name"] = keyspace_name
             __props__.__dict__["replication_specification"] = replication_specification
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["keyspace_name", "replication_specification"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["keyspaceName", "replicationSpecification"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Keyspace, __self__).__init__(
             'aws-native:cassandra:Keyspace',

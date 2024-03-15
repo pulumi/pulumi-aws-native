@@ -166,7 +166,7 @@ class DeploymentConfig(pulumi.CustomResource):
             __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
             __props__.__dict__["traffic_routing_config"] = traffic_routing_config
             __props__.__dict__["zonal_config"] = zonal_config
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compute_platform", "deployment_config_name", "minimum_healthy_hosts", "traffic_routing_config", "zonal_config"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["computePlatform", "deploymentConfigName", "minimumHealthyHosts", "trafficRoutingConfig", "zonalConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeploymentConfig, __self__).__init__(
             'aws-native:codedeploy:DeploymentConfig',

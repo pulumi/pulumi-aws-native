@@ -234,7 +234,7 @@ class CustomActionType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["category", "configuration_properties[*]", "input_artifact_details", "output_artifact_details", "provider", "settings", "version"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["category", "configurationProperties[*]", "inputArtifactDetails", "outputArtifactDetails", "provider", "settings", "version"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomActionType, __self__).__init__(
             'aws-native:codepipeline:CustomActionType',

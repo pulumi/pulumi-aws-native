@@ -168,7 +168,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["client_token", "preserve_client_ip", "security_group_ids[*]", "subnet_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientToken", "preserveClientIp", "securityGroupIds[*]", "subnetId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceConnectEndpoint, __self__).__init__(
             'aws-native:ec2:InstanceConnectEndpoint',

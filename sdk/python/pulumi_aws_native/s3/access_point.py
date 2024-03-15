@@ -197,7 +197,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["alias"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["network_origin"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket", "bucket_account_id", "name", "vpc_configuration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket", "bucketAccountId", "name", "vpcConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AccessPoint, __self__).__init__(
             'aws-native:s3:AccessPoint',

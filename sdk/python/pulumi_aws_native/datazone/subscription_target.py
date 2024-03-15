@@ -261,7 +261,7 @@ class SubscriptionTarget(pulumi.CustomResource):
             __props__.__dict__["project_id"] = None
             __props__.__dict__["updated_at"] = None
             __props__.__dict__["updated_by"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_identifier", "environment_identifier", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "environmentIdentifier", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubscriptionTarget, __self__).__init__(
             'aws-native:datazone:SubscriptionTarget',

@@ -106,7 +106,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
             if vpn_connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_connection_id'")
             __props__.__dict__["vpn_connection_id"] = vpn_connection_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_cidr_block", "vpn_connection_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationCidrBlock", "vpnConnectionId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpnConnectionRoute, __self__).__init__(
             'aws-native:ec2:VpnConnectionRoute',

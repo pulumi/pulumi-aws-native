@@ -164,7 +164,7 @@ class PackageVersion(pulumi.CustomResource):
             __props__.__dict__["registered_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_description"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["owner_account", "package_id", "package_version", "patch_version"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ownerAccount", "packageId", "packageVersion", "patchVersion"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PackageVersion, __self__).__init__(
             'aws-native:panorama:PackageVersion',

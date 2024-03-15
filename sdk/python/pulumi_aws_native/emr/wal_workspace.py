@@ -106,7 +106,7 @@ class WalWorkspace(pulumi.CustomResource):
 
             __props__.__dict__["tags"] = tags
             __props__.__dict__["wal_workspace_name"] = wal_workspace_name
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["wal_workspace_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["walWorkspaceName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(WalWorkspace, __self__).__init__(
             'aws-native:emr:WalWorkspace',

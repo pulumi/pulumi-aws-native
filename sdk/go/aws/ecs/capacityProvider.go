@@ -23,37 +23,38 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ecs.NewCapacityProvider(ctx, "myCapacityProvider", &ecs.CapacityProviderArgs{
-// AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-// AutoScalingGroupArn: pulumi.String("arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup"),
-// ManagedScaling: &ecs.CapacityProviderManagedScalingArgs{
-// MaximumScalingStepSize: pulumi.Int(10),
-// MinimumScalingStepSize: pulumi.Int(1),
-// Status: ecs.CapacityProviderManagedScalingStatusEnabled,
-// TargetCapacity: pulumi.Int(100),
-// },
-// ManagedTerminationProtection: ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionEnabled,
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("environment"),
-// Value: pulumi.String("production"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewCapacityProvider(ctx, "myCapacityProvider", &ecs.CapacityProviderArgs{
+//				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
+//					AutoScalingGroupArn: pulumi.String("arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup"),
+//					ManagedScaling: &ecs.CapacityProviderManagedScalingArgs{
+//						MaximumScalingStepSize: pulumi.Int(10),
+//						MinimumScalingStepSize: pulumi.Int(1),
+//						Status:                 ecs.CapacityProviderManagedScalingStatusEnabled,
+//						TargetCapacity:         pulumi.Int(100),
+//					},
+//					ManagedTerminationProtection: ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionEnabled,
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("environment"),
+//						Value: pulumi.String("production"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -63,37 +64,38 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ecs.NewCapacityProvider(ctx, "myCapacityProvider", &ecs.CapacityProviderArgs{
-// AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-// AutoScalingGroupArn: pulumi.String("arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup"),
-// ManagedScaling: &ecs.CapacityProviderManagedScalingArgs{
-// MaximumScalingStepSize: pulumi.Int(10),
-// MinimumScalingStepSize: pulumi.Int(1),
-// Status: ecs.CapacityProviderManagedScalingStatusEnabled,
-// TargetCapacity: pulumi.Int(100),
-// },
-// ManagedTerminationProtection: ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionEnabled,
-// },
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("environment"),
-// Value: pulumi.String("production"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewCapacityProvider(ctx, "myCapacityProvider", &ecs.CapacityProviderArgs{
+//				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
+//					AutoScalingGroupArn: pulumi.String("arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup"),
+//					ManagedScaling: &ecs.CapacityProviderManagedScalingArgs{
+//						MaximumScalingStepSize: pulumi.Int(10),
+//						MinimumScalingStepSize: pulumi.Int(1),
+//						Status:                 ecs.CapacityProviderManagedScalingStatusEnabled,
+//						TargetCapacity:         pulumi.Int(100),
+//					},
+//					ManagedTerminationProtection: ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionEnabled,
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("environment"),
+//						Value: pulumi.String("production"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example

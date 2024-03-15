@@ -443,7 +443,7 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["versioning_configuration"] = versioning_configuration
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dataset, __self__).__init__(
             'aws-native:iotanalytics:Dataset',

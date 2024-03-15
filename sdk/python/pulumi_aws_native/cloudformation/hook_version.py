@@ -310,7 +310,7 @@ class HookVersion(pulumi.CustomResource):
             __props__.__dict__["type_arn"] = None
             __props__.__dict__["version_id"] = None
             __props__.__dict__["visibility"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["execution_role_arn", "logging_config", "schema_handler_package", "type_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["executionRoleArn", "loggingConfig", "schemaHandlerPackage", "typeName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(HookVersion, __self__).__init__(
             'aws-native:cloudformation:HookVersion',

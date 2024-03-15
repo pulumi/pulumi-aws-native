@@ -147,7 +147,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
             __props__.__dict__["service_id"] = service_id
             __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
             __props__.__dict__["vpc_endpoint_connection_notification_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["service_id", "vpc_endpoint_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["serviceId", "vpcEndpointId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcEndpointConnectionNotification, __self__).__init__(
             'aws-native:ec2:VpcEndpointConnectionNotification',

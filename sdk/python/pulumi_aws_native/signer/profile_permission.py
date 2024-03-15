@@ -143,7 +143,7 @@ class ProfilePermission(pulumi.CustomResource):
             if statement_id is None and not opts.urn:
                 raise TypeError("Missing required property 'statement_id'")
             __props__.__dict__["statement_id"] = statement_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action", "principal", "profile_name", "profile_version", "statement_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["action", "principal", "profileName", "profileVersion", "statementId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ProfilePermission, __self__).__init__(
             'aws-native:signer:ProfilePermission',

@@ -489,7 +489,7 @@ class Alarm(pulumi.CustomResource):
             __props__.__dict__["treat_missing_data"] = treat_missing_data
             __props__.__dict__["unit"] = unit
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alarm_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alarmName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Alarm, __self__).__init__(
             'aws-native:cloudwatch:Alarm',

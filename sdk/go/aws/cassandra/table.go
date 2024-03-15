@@ -87,88 +87,89 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/cassandra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := cassandra.NewTable(ctx, "myNewTable", &cassandra.TableArgs{
-// KeyspaceName: pulumi.String("my_keyspace"),
-// TableName: pulumi.String("my_table"),
-// PartitionKeyColumns: cassandra.TableColumnArray{
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("id"),
-// ColumnType: pulumi.String("ASCII"),
-// },
-// },
-// ClusteringKeyColumns: cassandra.TableClusteringKeyColumnArray{
-// &cassandra.TableClusteringKeyColumnArgs{
-// Column: &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("division"),
-// ColumnType: pulumi.String("ASCII"),
-// },
-// OrderBy: cassandra.TableClusteringKeyColumnOrderByAsc,
-// },
-// },
-// RegularColumns: cassandra.TableColumnArray{
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("name"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("region"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("project"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("role"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("pay_scale"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("vacation_hrs"),
-// ColumnType: pulumi.String("FLOAT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("manager_id"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// },
-// BillingMode: &cassandra.TableBillingModeArgs{
-// Mode: cassandra.TableModeProvisioned,
-// ProvisionedThroughput: &cassandra.TableProvisionedThroughputArgs{
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// },
-// ClientSideTimestampsEnabled: pulumi.Bool(true),
-// DefaultTimeToLive: pulumi.Int(63072000),
-// PointInTimeRecoveryEnabled: pulumi.Bool(true),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("tag1"),
-// Value: pulumi.String("val1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("tag2"),
-// Value: pulumi.String("val2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cassandra.NewTable(ctx, "myNewTable", &cassandra.TableArgs{
+//				KeyspaceName: pulumi.String("my_keyspace"),
+//				TableName:    pulumi.String("my_table"),
+//				PartitionKeyColumns: cassandra.TableColumnArray{
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("id"),
+//						ColumnType: pulumi.String("ASCII"),
+//					},
+//				},
+//				ClusteringKeyColumns: cassandra.TableClusteringKeyColumnArray{
+//					&cassandra.TableClusteringKeyColumnArgs{
+//						Column: &cassandra.TableColumnArgs{
+//							ColumnName: pulumi.String("division"),
+//							ColumnType: pulumi.String("ASCII"),
+//						},
+//						OrderBy: cassandra.TableClusteringKeyColumnOrderByAsc,
+//					},
+//				},
+//				RegularColumns: cassandra.TableColumnArray{
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("name"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("region"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("project"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("role"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("pay_scale"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("vacation_hrs"),
+//						ColumnType: pulumi.String("FLOAT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("manager_id"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//				},
+//				BillingMode: &cassandra.TableBillingModeArgs{
+//					Mode: cassandra.TableModeProvisioned,
+//					ProvisionedThroughput: &cassandra.TableProvisionedThroughputArgs{
+//						ReadCapacityUnits:  pulumi.Int(5),
+//						WriteCapacityUnits: pulumi.Int(5),
+//					},
+//				},
+//				ClientSideTimestampsEnabled: pulumi.Bool(true),
+//				DefaultTimeToLive:           pulumi.Int(63072000),
+//				PointInTimeRecoveryEnabled:  pulumi.Bool(true),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag1"),
+//						Value: pulumi.String("val1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag2"),
+//						Value: pulumi.String("val2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -178,88 +179,89 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/cassandra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := cassandra.NewTable(ctx, "myNewTable", &cassandra.TableArgs{
-// KeyspaceName: pulumi.String("my_keyspace"),
-// TableName: pulumi.String("my_table"),
-// PartitionKeyColumns: cassandra.TableColumnArray{
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("id"),
-// ColumnType: pulumi.String("ASCII"),
-// },
-// },
-// ClusteringKeyColumns: cassandra.TableClusteringKeyColumnArray{
-// &cassandra.TableClusteringKeyColumnArgs{
-// Column: &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("division"),
-// ColumnType: pulumi.String("ASCII"),
-// },
-// OrderBy: cassandra.TableClusteringKeyColumnOrderByAsc,
-// },
-// },
-// RegularColumns: cassandra.TableColumnArray{
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("name"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("region"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("project"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("role"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("pay_scale"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("vacation_hrs"),
-// ColumnType: pulumi.String("FLOAT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("manager_id"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// },
-// BillingMode: &cassandra.TableBillingModeArgs{
-// Mode: cassandra.TableModeProvisioned,
-// ProvisionedThroughput: &cassandra.TableProvisionedThroughputArgs{
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// },
-// ClientSideTimestampsEnabled: pulumi.Bool(true),
-// DefaultTimeToLive: pulumi.Int(63072000),
-// PointInTimeRecoveryEnabled: pulumi.Bool(true),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("tag1"),
-// Value: pulumi.String("val1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("tag2"),
-// Value: pulumi.String("val2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cassandra.NewTable(ctx, "myNewTable", &cassandra.TableArgs{
+//				KeyspaceName: pulumi.String("my_keyspace"),
+//				TableName:    pulumi.String("my_table"),
+//				PartitionKeyColumns: cassandra.TableColumnArray{
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("id"),
+//						ColumnType: pulumi.String("ASCII"),
+//					},
+//				},
+//				ClusteringKeyColumns: cassandra.TableClusteringKeyColumnArray{
+//					&cassandra.TableClusteringKeyColumnArgs{
+//						Column: &cassandra.TableColumnArgs{
+//							ColumnName: pulumi.String("division"),
+//							ColumnType: pulumi.String("ASCII"),
+//						},
+//						OrderBy: cassandra.TableClusteringKeyColumnOrderByAsc,
+//					},
+//				},
+//				RegularColumns: cassandra.TableColumnArray{
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("name"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("region"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("project"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("role"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("pay_scale"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("vacation_hrs"),
+//						ColumnType: pulumi.String("FLOAT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("manager_id"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//				},
+//				BillingMode: &cassandra.TableBillingModeArgs{
+//					Mode: cassandra.TableModeProvisioned,
+//					ProvisionedThroughput: &cassandra.TableProvisionedThroughputArgs{
+//						ReadCapacityUnits:  pulumi.Int(5),
+//						WriteCapacityUnits: pulumi.Int(5),
+//					},
+//				},
+//				ClientSideTimestampsEnabled: pulumi.Bool(true),
+//				DefaultTimeToLive:           pulumi.Int(63072000),
+//				PointInTimeRecoveryEnabled:  pulumi.Bool(true),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag1"),
+//						Value: pulumi.String("val1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag2"),
+//						Value: pulumi.String("val2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -269,91 +271,92 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/cassandra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := cassandra.NewTable(ctx, "myNewTable", &cassandra.TableArgs{
-// KeyspaceName: pulumi.String("my_keyspace"),
-// TableName: pulumi.String("my_table"),
-// PartitionKeyColumns: cassandra.TableColumnArray{
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("id"),
-// ColumnType: pulumi.String("ASCII"),
-// },
-// },
-// ClusteringKeyColumns: cassandra.TableClusteringKeyColumnArray{
-// &cassandra.TableClusteringKeyColumnArgs{
-// Column: &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("division"),
-// ColumnType: pulumi.String("ASCII"),
-// },
-// OrderBy: cassandra.TableClusteringKeyColumnOrderByAsc,
-// },
-// },
-// RegularColumns: cassandra.TableColumnArray{
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("name"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("region"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("project"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("role"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("pay_scale"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("vacation_hrs"),
-// ColumnType: pulumi.String("FLOAT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("manager_id"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// },
-// BillingMode: &cassandra.TableBillingModeArgs{
-// Mode: cassandra.TableModeProvisioned,
-// ProvisionedThroughput: &cassandra.TableProvisionedThroughputArgs{
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// },
-// DefaultTimeToLive: pulumi.Int(63072000),
-// EncryptionSpecification: &cassandra.TableEncryptionSpecificationArgs{
-// EncryptionType: cassandra.TableEncryptionTypeCustomerManagedKmsKey,
-// KmsKeyIdentifier: pulumi.String("arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111"),
-// },
-// PointInTimeRecoveryEnabled: pulumi.Bool(true),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("tag1"),
-// Value: pulumi.String("val1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("tag2"),
-// Value: pulumi.String("val2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cassandra.NewTable(ctx, "myNewTable", &cassandra.TableArgs{
+//				KeyspaceName: pulumi.String("my_keyspace"),
+//				TableName:    pulumi.String("my_table"),
+//				PartitionKeyColumns: cassandra.TableColumnArray{
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("id"),
+//						ColumnType: pulumi.String("ASCII"),
+//					},
+//				},
+//				ClusteringKeyColumns: cassandra.TableClusteringKeyColumnArray{
+//					&cassandra.TableClusteringKeyColumnArgs{
+//						Column: &cassandra.TableColumnArgs{
+//							ColumnName: pulumi.String("division"),
+//							ColumnType: pulumi.String("ASCII"),
+//						},
+//						OrderBy: cassandra.TableClusteringKeyColumnOrderByAsc,
+//					},
+//				},
+//				RegularColumns: cassandra.TableColumnArray{
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("name"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("region"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("project"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("role"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("pay_scale"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("vacation_hrs"),
+//						ColumnType: pulumi.String("FLOAT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("manager_id"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//				},
+//				BillingMode: &cassandra.TableBillingModeArgs{
+//					Mode: cassandra.TableModeProvisioned,
+//					ProvisionedThroughput: &cassandra.TableProvisionedThroughputArgs{
+//						ReadCapacityUnits:  pulumi.Int(5),
+//						WriteCapacityUnits: pulumi.Int(5),
+//					},
+//				},
+//				DefaultTimeToLive: pulumi.Int(63072000),
+//				EncryptionSpecification: &cassandra.TableEncryptionSpecificationArgs{
+//					EncryptionType:   cassandra.TableEncryptionTypeCustomerManagedKmsKey,
+//					KmsKeyIdentifier: pulumi.String("arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111"),
+//				},
+//				PointInTimeRecoveryEnabled: pulumi.Bool(true),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag1"),
+//						Value: pulumi.String("val1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag2"),
+//						Value: pulumi.String("val2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -363,91 +366,92 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/cassandra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := cassandra.NewTable(ctx, "myNewTable", &cassandra.TableArgs{
-// KeyspaceName: pulumi.String("my_keyspace"),
-// TableName: pulumi.String("my_table"),
-// PartitionKeyColumns: cassandra.TableColumnArray{
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("id"),
-// ColumnType: pulumi.String("ASCII"),
-// },
-// },
-// ClusteringKeyColumns: cassandra.TableClusteringKeyColumnArray{
-// &cassandra.TableClusteringKeyColumnArgs{
-// Column: &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("division"),
-// ColumnType: pulumi.String("ASCII"),
-// },
-// OrderBy: cassandra.TableClusteringKeyColumnOrderByAsc,
-// },
-// },
-// RegularColumns: cassandra.TableColumnArray{
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("name"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("region"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("project"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("role"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("pay_scale"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("vacation_hrs"),
-// ColumnType: pulumi.String("FLOAT"),
-// },
-// &cassandra.TableColumnArgs{
-// ColumnName: pulumi.String("manager_id"),
-// ColumnType: pulumi.String("TEXT"),
-// },
-// },
-// BillingMode: &cassandra.TableBillingModeArgs{
-// Mode: cassandra.TableModeProvisioned,
-// ProvisionedThroughput: &cassandra.TableProvisionedThroughputArgs{
-// ReadCapacityUnits: pulumi.Int(5),
-// WriteCapacityUnits: pulumi.Int(5),
-// },
-// },
-// DefaultTimeToLive: pulumi.Int(63072000),
-// EncryptionSpecification: &cassandra.TableEncryptionSpecificationArgs{
-// EncryptionType: cassandra.TableEncryptionTypeCustomerManagedKmsKey,
-// KmsKeyIdentifier: pulumi.String("arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111"),
-// },
-// PointInTimeRecoveryEnabled: pulumi.Bool(true),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("tag1"),
-// Value: pulumi.String("val1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("tag2"),
-// Value: pulumi.String("val2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cassandra.NewTable(ctx, "myNewTable", &cassandra.TableArgs{
+//				KeyspaceName: pulumi.String("my_keyspace"),
+//				TableName:    pulumi.String("my_table"),
+//				PartitionKeyColumns: cassandra.TableColumnArray{
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("id"),
+//						ColumnType: pulumi.String("ASCII"),
+//					},
+//				},
+//				ClusteringKeyColumns: cassandra.TableClusteringKeyColumnArray{
+//					&cassandra.TableClusteringKeyColumnArgs{
+//						Column: &cassandra.TableColumnArgs{
+//							ColumnName: pulumi.String("division"),
+//							ColumnType: pulumi.String("ASCII"),
+//						},
+//						OrderBy: cassandra.TableClusteringKeyColumnOrderByAsc,
+//					},
+//				},
+//				RegularColumns: cassandra.TableColumnArray{
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("name"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("region"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("project"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("role"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("pay_scale"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("vacation_hrs"),
+//						ColumnType: pulumi.String("FLOAT"),
+//					},
+//					&cassandra.TableColumnArgs{
+//						ColumnName: pulumi.String("manager_id"),
+//						ColumnType: pulumi.String("TEXT"),
+//					},
+//				},
+//				BillingMode: &cassandra.TableBillingModeArgs{
+//					Mode: cassandra.TableModeProvisioned,
+//					ProvisionedThroughput: &cassandra.TableProvisionedThroughputArgs{
+//						ReadCapacityUnits:  pulumi.Int(5),
+//						WriteCapacityUnits: pulumi.Int(5),
+//					},
+//				},
+//				DefaultTimeToLive: pulumi.Int(63072000),
+//				EncryptionSpecification: &cassandra.TableEncryptionSpecificationArgs{
+//					EncryptionType:   cassandra.TableEncryptionTypeCustomerManagedKmsKey,
+//					KmsKeyIdentifier: pulumi.String("arn:aws:kms:eu-west-1:5555555555555:key/11111111-1111-111-1111-111111111111"),
+//				},
+//				PointInTimeRecoveryEnabled: pulumi.Bool(true),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag1"),
+//						Value: pulumi.String("val1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag2"),
+//						Value: pulumi.String("val2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example

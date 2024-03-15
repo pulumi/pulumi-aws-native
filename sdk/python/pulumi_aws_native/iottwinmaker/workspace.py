@@ -170,7 +170,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_date_time"] = None
             __props__.__dict__["update_date_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["workspace_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["workspaceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Workspace, __self__).__init__(
             'aws-native:iottwinmaker:Workspace',

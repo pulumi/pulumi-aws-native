@@ -150,7 +150,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["config.ip_address_type", "config.lambda_event_structure_version", "config.port", "config.protocol", "config.protocol_version", "config.vpc_identifier", "name", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["config.ipAddressType", "config.lambdaEventStructureVersion", "config.port", "config.protocol", "config.protocolVersion", "config.vpcIdentifier", "name", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TargetGroup, __self__).__init__(
             'aws-native:vpclattice:TargetGroup',

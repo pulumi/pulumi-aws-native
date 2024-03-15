@@ -100,7 +100,7 @@ class BackupSelection(pulumi.CustomResource):
             __props__.__dict__["backup_selection"] = backup_selection
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["selection_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backup_plan_id", "backup_selection"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupPlanId", "backupSelection"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BackupSelection, __self__).__init__(
             'aws-native:backup:BackupSelection',

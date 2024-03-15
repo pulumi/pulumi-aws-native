@@ -172,7 +172,7 @@ class Hypervisor(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["username"] = username
             __props__.__dict__["hypervisor_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key_arn", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyArn", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Hypervisor, __self__).__init__(
             'aws-native:backupgateway:Hypervisor',

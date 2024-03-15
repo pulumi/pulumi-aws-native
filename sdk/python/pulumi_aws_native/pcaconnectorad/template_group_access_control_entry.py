@@ -129,7 +129,7 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
             __props__.__dict__["group_display_name"] = group_display_name
             __props__.__dict__["group_security_identifier"] = group_security_identifier
             __props__.__dict__["template_arn"] = template_arn
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["group_security_identifier", "template_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["groupSecurityIdentifier", "templateArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TemplateGroupAccessControlEntry, __self__).__init__(
             'aws-native:pcaconnectorad:TemplateGroupAccessControlEntry',

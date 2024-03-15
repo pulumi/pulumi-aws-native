@@ -130,7 +130,7 @@ class TransitGatewayMulticastDomainAssociation(pulumi.CustomResource):
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["resource_type"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subnet_id", "transit_gateway_attachment_id", "transit_gateway_multicast_domain_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subnetId", "transitGatewayAttachmentId", "transitGatewayMulticastDomainId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayMulticastDomainAssociation, __self__).__init__(
             'aws-native:ec2:TransitGatewayMulticastDomainAssociation',

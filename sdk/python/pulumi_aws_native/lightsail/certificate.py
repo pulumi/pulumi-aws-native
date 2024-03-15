@@ -149,7 +149,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["certificate_arn"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_name", "domain_name", "subject_alternative_names[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificateName", "domainName", "subjectAlternativeNames[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Certificate, __self__).__init__(
             'aws-native:lightsail:Certificate',

@@ -222,7 +222,7 @@ class DomainConfiguration(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_type"] = None
             __props__.__dict__["server_certificates"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_configuration_name", "domain_name", "server_certificate_arns[*]", "service_type", "validation_certificate_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainConfigurationName", "domainName", "serverCertificateArns[*]", "serviceType", "validationCertificateArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DomainConfiguration, __self__).__init__(
             'aws-native:iot:DomainConfiguration',

@@ -170,7 +170,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["environment_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:appconfig:Environment',

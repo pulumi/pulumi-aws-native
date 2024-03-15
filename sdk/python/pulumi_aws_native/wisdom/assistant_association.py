@@ -135,7 +135,7 @@ class AssistantAssociation(pulumi.CustomResource):
             __props__.__dict__["assistant_arn"] = None
             __props__.__dict__["assistant_association_arn"] = None
             __props__.__dict__["assistant_association_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assistant_id", "association", "association_type", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assistantId", "association", "associationType", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AssistantAssociation, __self__).__init__(
             'aws-native:wisdom:AssistantAssociation',

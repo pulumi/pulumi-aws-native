@@ -222,7 +222,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["provider"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_identifier", "environment_profile_identifier", "project_identifier", "user_parameters[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "environmentProfileIdentifier", "projectIdentifier", "userParameters[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:datazone:Environment',

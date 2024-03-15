@@ -295,7 +295,7 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastore_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datastoreName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Datastore, __self__).__init__(
             'aws-native:iotanalytics:Datastore',

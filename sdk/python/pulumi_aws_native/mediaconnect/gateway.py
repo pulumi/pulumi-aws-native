@@ -131,7 +131,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["networks"] = networks
             __props__.__dict__["gateway_arn"] = None
             __props__.__dict__["gateway_state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["egress_cidr_blocks[*]", "name", "networks[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["egressCidrBlocks[*]", "name", "networks[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Gateway, __self__).__init__(
             'aws-native:mediaconnect:Gateway',

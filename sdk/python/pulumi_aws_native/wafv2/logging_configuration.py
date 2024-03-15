@@ -150,7 +150,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_arn'")
             __props__.__dict__["resource_arn"] = resource_arn
             __props__.__dict__["managed_by_firewall_manager"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LoggingConfiguration, __self__).__init__(
             'aws-native:wafv2:LoggingConfiguration',

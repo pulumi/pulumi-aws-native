@@ -207,7 +207,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["source_type"] = source_type
             __props__.__dict__["subscription_name"] = subscription_name
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["sns_topic_arn", "subscription_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["snsTopicArn", "subscriptionName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EventSubscription, __self__).__init__(
             'aws-native:rds:EventSubscription',

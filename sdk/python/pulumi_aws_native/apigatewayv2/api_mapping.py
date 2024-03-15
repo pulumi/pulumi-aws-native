@@ -148,7 +148,7 @@ class ApiMapping(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stage'")
             __props__.__dict__["stage"] = stage
             __props__.__dict__["api_mapping_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApiMapping, __self__).__init__(
             'aws-native:apigatewayv2:ApiMapping',

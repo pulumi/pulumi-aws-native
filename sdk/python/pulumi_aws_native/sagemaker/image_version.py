@@ -236,7 +236,7 @@ class ImageVersion(pulumi.CustomResource):
             __props__.__dict__["image_arn"] = None
             __props__.__dict__["image_version_arn"] = None
             __props__.__dict__["version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["base_image", "image_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["baseImage", "imageName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImageVersion, __self__).__init__(
             'aws-native:sagemaker:ImageVersion',

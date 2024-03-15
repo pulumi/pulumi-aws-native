@@ -250,7 +250,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
             __props__.__dict__["teams_tenant_id"] = teams_tenant_id
             __props__.__dict__["user_role_required"] = user_role_required
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration_name", "team_id", "teams_tenant_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configurationName", "teamId", "teamsTenantId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MicrosoftTeamsChannelConfiguration, __self__).__init__(
             'aws-native:chatbot:MicrosoftTeamsChannelConfiguration',

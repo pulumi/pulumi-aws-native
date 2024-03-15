@@ -706,7 +706,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["visibility_timeout"] = visibility_timeout
             __props__.__dict__["arn"] = None
             __props__.__dict__["queue_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fifo_queue", "queue_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fifoQueue", "queueName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Queue, __self__).__init__(
             'aws-native:sqs:Queue',

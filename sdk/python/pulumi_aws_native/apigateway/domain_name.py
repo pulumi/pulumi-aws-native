@@ -276,7 +276,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["distribution_hosted_zone_id"] = None
             __props__.__dict__["regional_domain_name"] = None
             __props__.__dict__["regional_hosted_zone_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DomainName, __self__).__init__(
             'aws-native:apigateway:DomainName',

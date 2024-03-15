@@ -127,7 +127,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["resolver_rule_association_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "resolver_rule_id", "vpc_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "resolverRuleId", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResolverRuleAssociation, __self__).__init__(
             'aws-native:route53resolver:ResolverRuleAssociation',

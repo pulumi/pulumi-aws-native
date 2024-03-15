@@ -126,7 +126,7 @@ class DocumentationVersion(pulumi.CustomResource):
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["documentation_version", "rest_api_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["documentationVersion", "restApiId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DocumentationVersion, __self__).__init__(
             'aws-native:apigateway:DocumentationVersion',

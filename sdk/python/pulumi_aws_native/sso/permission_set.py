@@ -256,7 +256,7 @@ class PermissionSet(pulumi.CustomResource):
             __props__.__dict__["session_duration"] = session_duration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["permission_set_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_arn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PermissionSet, __self__).__init__(
             'aws-native:sso:PermissionSet',

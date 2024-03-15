@@ -128,7 +128,7 @@ class PredefinedAttribute(pulumi.CustomResource):
             if values is None and not opts.urn:
                 raise TypeError("Missing required property 'values'")
             __props__.__dict__["values"] = values
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_arn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PredefinedAttribute, __self__).__init__(
             'aws-native:connect:PredefinedAttribute',

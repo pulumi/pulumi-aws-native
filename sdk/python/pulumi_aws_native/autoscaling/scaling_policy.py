@@ -289,7 +289,7 @@ class ScalingPolicy(pulumi.CustomResource):
             __props__.__dict__["target_tracking_configuration"] = target_tracking_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy_name"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auto_scaling_group_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ScalingPolicy, __self__).__init__(
             'aws-native:autoscaling:ScalingPolicy',

@@ -149,7 +149,7 @@ class DatasetGroup(pulumi.CustomResource):
             __props__.__dict__["domain"] = domain
             __props__.__dict__["tags"] = tags
             __props__.__dict__["dataset_group_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_group_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetGroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DatasetGroup, __self__).__init__(
             'aws-native:forecast:DatasetGroup',

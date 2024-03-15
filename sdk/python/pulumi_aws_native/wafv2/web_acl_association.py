@@ -96,7 +96,7 @@ class WebAclAssociation(pulumi.CustomResource):
             if web_acl_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'web_acl_arn'")
             __props__.__dict__["web_acl_arn"] = web_acl_arn
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_arn", "web_acl_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceArn", "webAclArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(WebAclAssociation, __self__).__init__(
             'aws-native:wafv2:WebAclAssociation',

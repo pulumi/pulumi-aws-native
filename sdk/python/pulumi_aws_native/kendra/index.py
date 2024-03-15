@@ -248,7 +248,7 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["user_token_configurations"] = user_token_configurations
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["edition", "server_side_encryption_configuration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["edition", "serverSideEncryptionConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Index, __self__).__init__(
             'aws-native:kendra:Index',

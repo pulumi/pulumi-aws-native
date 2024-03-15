@@ -172,32 +172,33 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codeartifact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
-// DomainName: pulumi.String("my-domain"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
+//				DomainName: pulumi.String("my-domain"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -207,32 +208,33 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codeartifact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
-// DomainName: pulumi.String("my-domain"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
+//				DomainName: pulumi.String("my-domain"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -396,39 +398,40 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codeartifact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// myCodeArtifactDomain, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
-// DomainName: pulumi.String("my-domain"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = codeartifact.NewRepository(ctx, "myCodeArtifactRepository", &codeartifact.RepositoryArgs{
-// RepositoryName: pulumi.String("my-repo"),
-// DomainName: myCodeArtifactDomain.Name,
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myCodeArtifactDomain, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
+//				DomainName: pulumi.String("my-domain"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codeartifact.NewRepository(ctx, "myCodeArtifactRepository", &codeartifact.RepositoryArgs{
+//				RepositoryName: pulumi.String("my-repo"),
+//				DomainName:     myCodeArtifactDomain.Name,
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -438,39 +441,40 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/codeartifact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// myCodeArtifactDomain, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
-// DomainName: pulumi.String("my-domain"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = codeartifact.NewRepository(ctx, "myCodeArtifactRepository", &codeartifact.RepositoryArgs{
-// RepositoryName: pulumi.String("my-repo"),
-// DomainName: myCodeArtifactDomain.Name,
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("keyname1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("keyname2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myCodeArtifactDomain, err := codeartifact.NewDomain(ctx, "myCodeArtifactDomain", &codeartifact.DomainArgs{
+//				DomainName: pulumi.String("my-domain"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codeartifact.NewRepository(ctx, "myCodeArtifactRepository", &codeartifact.RepositoryArgs{
+//				RepositoryName: pulumi.String("my-repo"),
+//				DomainName:     myCodeArtifactDomain.Name,
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("keyname2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Domain struct {

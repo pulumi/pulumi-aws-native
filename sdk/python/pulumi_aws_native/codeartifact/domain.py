@@ -611,7 +611,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["owner"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name", "encryption_key"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainName", "encryptionKey"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Domain, __self__).__init__(
             'aws-native:codeartifact:Domain',

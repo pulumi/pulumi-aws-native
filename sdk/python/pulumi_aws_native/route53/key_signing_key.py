@@ -148,7 +148,7 @@ class KeySigningKey(pulumi.CustomResource):
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["hosted_zone_id", "key_management_service_arn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["hostedZoneId", "keyManagementServiceArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(KeySigningKey, __self__).__init__(
             'aws-native:route53:KeySigningKey',

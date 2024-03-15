@@ -229,7 +229,7 @@ class IntegrationResponse(pulumi.CustomResource):
             __props__.__dict__["response_templates"] = response_templates
             __props__.__dict__["template_selection_expression"] = template_selection_expression
             __props__.__dict__["integration_response_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id", "integration_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apiId", "integrationId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IntegrationResponse, __self__).__init__(
             'aws-native:apigatewayv2:IntegrationResponse',

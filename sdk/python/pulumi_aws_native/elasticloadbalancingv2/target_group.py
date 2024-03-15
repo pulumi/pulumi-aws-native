@@ -452,7 +452,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["target_group_arn"] = None
             __props__.__dict__["target_group_full_name"] = None
             __props__.__dict__["target_group_name"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ip_address_type", "name", "port", "protocol", "protocol_version", "target_type", "vpc_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ipAddressType", "name", "port", "protocol", "protocolVersion", "targetType", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TargetGroup, __self__).__init__(
             'aws-native:elasticloadbalancingv2:TargetGroup',

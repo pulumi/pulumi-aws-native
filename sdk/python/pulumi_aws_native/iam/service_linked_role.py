@@ -181,7 +181,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
             __props__.__dict__["custom_suffix"] = custom_suffix
             __props__.__dict__["description"] = description
             __props__.__dict__["role_name"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_service_name", "custom_suffix"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["awsServiceName", "customSuffix"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServiceLinkedRole, __self__).__init__(
             'aws-native:iam:ServiceLinkedRole',

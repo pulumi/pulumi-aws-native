@@ -174,7 +174,7 @@ class Filter(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["rank"] = rank
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detector_id", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["detectorId", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Filter, __self__).__init__(
             'aws-native:guardduty:Filter',

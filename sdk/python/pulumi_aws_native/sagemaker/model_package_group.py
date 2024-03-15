@@ -140,7 +140,7 @@ class ModelPackageGroup(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["model_package_group_arn"] = None
             __props__.__dict__["model_package_group_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["model_package_group_description", "model_package_group_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["modelPackageGroupDescription", "modelPackageGroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ModelPackageGroup, __self__).__init__(
             'aws-native:sagemaker:ModelPackageGroup',

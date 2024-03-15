@@ -250,7 +250,7 @@ class Dataset(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schema_arn'")
             __props__.__dict__["schema_arn"] = schema_arn
             __props__.__dict__["dataset_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_group_arn", "dataset_type", "name", "schema_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetGroupArn", "datasetType", "name", "schemaArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dataset, __self__).__init__(
             'aws-native:personalize:Dataset',

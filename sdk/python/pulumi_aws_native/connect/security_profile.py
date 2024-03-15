@@ -210,7 +210,7 @@ class SecurityProfile(pulumi.CustomResource):
             __props__.__dict__["tag_restricted_resources"] = tag_restricted_resources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["security_profile_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_arn", "security_profile_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn", "securityProfileName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityProfile, __self__).__init__(
             'aws-native:connect:SecurityProfile',

@@ -157,7 +157,7 @@ class EnclaveCertificateIamRoleAssociation(pulumi.CustomResource):
             __props__.__dict__["certificate_s3_bucket_name"] = None
             __props__.__dict__["certificate_s3_object_key"] = None
             __props__.__dict__["encryption_kms_key_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificate_arn", "role_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificateArn", "roleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(EnclaveCertificateIamRoleAssociation, __self__).__init__(
             'aws-native:ec2:EnclaveCertificateIamRoleAssociation',

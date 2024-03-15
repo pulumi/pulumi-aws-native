@@ -243,7 +243,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["verified_access_trust_provider_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["device_options", "device_trust_provider_type", "policy_reference_name", "trust_provider_type", "user_trust_provider_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["deviceOptions", "deviceTrustProviderType", "policyReferenceName", "trustProviderType", "userTrustProviderType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VerifiedAccessTrustProvider, __self__).__init__(
             'aws-native:ec2:VerifiedAccessTrustProvider',

@@ -189,7 +189,7 @@ class AppBlock(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "display_name", "name", "packaging_type", "post_setup_script_details", "setup_script_details", "source_s3_location"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "displayName", "name", "packagingType", "postSetupScriptDetails", "setupScriptDetails", "sourceS3Location"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AppBlock, __self__).__init__(
             'aws-native:appstream:AppBlock',

@@ -181,7 +181,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
             __props__.__dict__["application_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engine_type", "kms_key_id", "name", "role_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engineType", "kmsKeyId", "name", "roleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:m2:Application',

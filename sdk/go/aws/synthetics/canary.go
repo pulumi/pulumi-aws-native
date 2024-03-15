@@ -23,46 +23,47 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := synthetics.NewCanary(ctx, "syntheticsCanary", &synthetics.CanaryArgs{
-// Name: pulumi.String("samplecanary"),
-// ExecutionRoleArn: pulumi.String("arn:aws:iam::123456789012:role/my-lambda-execution-role-to-run-canary"),
-// Code: &synthetics.CanaryCodeArgs{
-// Handler: pulumi.String("pageLoadBlueprint.handler"),
-// S3Bucket: pulumi.String("aws-synthetics-code-myaccount-canary1"),
-// S3Key: pulumi.String("my-script-location"),
-// },
-// ArtifactS3Location: pulumi.String("s3://my-results-bucket"),
-// RuntimeVersion: pulumi.String("syn-nodejs-puppeteer-3.3"),
-// Schedule: &synthetics.CanaryScheduleArgs{
-// Expression: pulumi.String("rate(1 minute)"),
-// DurationInSeconds: pulumi.String("3600"),
-// },
-// RunConfig: &synthetics.CanaryRunConfigArgs{
-// TimeoutInSeconds: pulumi.Int(60),
-// },
-// FailureRetentionPeriod: pulumi.Int(30),
-// SuccessRetentionPeriod: pulumi.Int(30),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("key00AtCreate"),
-// Value: pulumi.String("value001AtCreate"),
-// },
-// },
-// StartCanaryAfterCreation: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewCanary(ctx, "syntheticsCanary", &synthetics.CanaryArgs{
+//				Name:             pulumi.String("samplecanary"),
+//				ExecutionRoleArn: pulumi.String("arn:aws:iam::123456789012:role/my-lambda-execution-role-to-run-canary"),
+//				Code: &synthetics.CanaryCodeArgs{
+//					Handler:  pulumi.String("pageLoadBlueprint.handler"),
+//					S3Bucket: pulumi.String("aws-synthetics-code-myaccount-canary1"),
+//					S3Key:    pulumi.String("my-script-location"),
+//				},
+//				ArtifactS3Location: pulumi.String("s3://my-results-bucket"),
+//				RuntimeVersion:     pulumi.String("syn-nodejs-puppeteer-3.3"),
+//				Schedule: &synthetics.CanaryScheduleArgs{
+//					Expression:        pulumi.String("rate(1 minute)"),
+//					DurationInSeconds: pulumi.String("3600"),
+//				},
+//				RunConfig: &synthetics.CanaryRunConfigArgs{
+//					TimeoutInSeconds: pulumi.Int(60),
+//				},
+//				FailureRetentionPeriod: pulumi.Int(30),
+//				SuccessRetentionPeriod: pulumi.Int(30),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key00AtCreate"),
+//						Value: pulumi.String("value001AtCreate"),
+//					},
+//				},
+//				StartCanaryAfterCreation: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -72,19 +73,21 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := synthetics.NewCanary(ctx, "syntheticsCanary", &synthetics.CanaryArgs{
-// Name: pulumi.String("samplecanary"),
-// ExecutionRoleArn: pulumi.String("arn:aws:iam::123456789012:role/my-lambda-execution-role-to-run-canary"),
-// Code: &synthetics.CanaryCodeArgs{
-// Handler: pulumi.String("pageLoadBlueprint.handler"),
-// Script: pulumi.String(`var synthetics = require('Synthetics');
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synthetics.NewCanary(ctx, "syntheticsCanary", &synthetics.CanaryArgs{
+//				Name:             pulumi.String("samplecanary"),
+//				ExecutionRoleArn: pulumi.String("arn:aws:iam::123456789012:role/my-lambda-execution-role-to-run-canary"),
+//				Code: &synthetics.CanaryCodeArgs{
+//					Handler: pulumi.String("pageLoadBlueprint.handler"),
+//					Script: pulumi.String(`var synthetics = require('Synthetics');
+//
 // const log = require('SyntheticsLogger');
 // const pageLoadBlueprint = async function () {
 // // INSERT URL here
@@ -109,32 +112,33 @@ import (
 // return await pageLoadBlueprint();
 // };
 // `),
-// },
-// ArtifactS3Location: pulumi.String("s3://my-results-bucket"),
-// RuntimeVersion: pulumi.String("syn-nodejs-puppeteer-3.3"),
-// Schedule: &synthetics.CanaryScheduleArgs{
-// Expression: pulumi.String("rate(1 minute)"),
-// DurationInSeconds: pulumi.String("3600"),
-// },
-// RunConfig: &synthetics.CanaryRunConfigArgs{
-// TimeoutInSeconds: pulumi.Int(60),
-// },
-// FailureRetentionPeriod: pulumi.Int(30),
-// SuccessRetentionPeriod: pulumi.Int(30),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("key00AtCreate"),
-// Value: pulumi.String("value001AtCreate"),
-// },
-// },
-// StartCanaryAfterCreation: pulumi.Bool(false),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//				},
+//				ArtifactS3Location: pulumi.String("s3://my-results-bucket"),
+//				RuntimeVersion:     pulumi.String("syn-nodejs-puppeteer-3.3"),
+//				Schedule: &synthetics.CanaryScheduleArgs{
+//					Expression:        pulumi.String("rate(1 minute)"),
+//					DurationInSeconds: pulumi.String("3600"),
+//				},
+//				RunConfig: &synthetics.CanaryRunConfigArgs{
+//					TimeoutInSeconds: pulumi.Int(60),
+//				},
+//				FailureRetentionPeriod: pulumi.Int(30),
+//				SuccessRetentionPeriod: pulumi.Int(30),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key00AtCreate"),
+//						Value: pulumi.String("value001AtCreate"),
+//					},
+//				},
+//				StartCanaryAfterCreation: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type Canary struct {

@@ -148,7 +148,7 @@ class PrivateGraphEndpoint(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["private_graph_endpoint_identifier"] = None
             __props__.__dict__["vpc_endpoint_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["graph_identifier", "security_group_ids[*]", "subnet_ids[*]", "vpc_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["graphIdentifier", "securityGroupIds[*]", "subnetIds[*]", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PrivateGraphEndpoint, __self__).__init__(
             'aws-native:neptunegraph:PrivateGraphEndpoint',

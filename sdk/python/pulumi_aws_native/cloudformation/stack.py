@@ -311,7 +311,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["root_id"] = None
             __props__.__dict__["stack_id"] = None
             __props__.__dict__["stack_status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["stack_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["stackName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stack, __self__).__init__(
             'aws-native:cloudformation:Stack',

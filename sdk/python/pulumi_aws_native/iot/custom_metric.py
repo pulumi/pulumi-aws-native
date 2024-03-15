@@ -177,7 +177,7 @@ class CustomMetric(pulumi.CustomResource):
             __props__.__dict__["metric_type"] = metric_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["metric_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["metric_name", "metric_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["metricName", "metricType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomMetric, __self__).__init__(
             'aws-native:iot:CustomMetric',

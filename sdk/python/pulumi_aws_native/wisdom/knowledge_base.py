@@ -177,7 +177,7 @@ class KnowledgeBase(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["knowledge_base_arn"] = None
             __props__.__dict__["knowledge_base_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "knowledge_base_type", "name", "server_side_encryption_configuration", "source_configuration", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "knowledgeBaseType", "name", "serverSideEncryptionConfiguration", "sourceConfiguration", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(KnowledgeBase, __self__).__init__(
             'aws-native:wisdom:KnowledgeBase',

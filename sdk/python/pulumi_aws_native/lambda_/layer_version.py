@@ -188,7 +188,7 @@ class LayerVersion(pulumi.CustomResource):
             __props__.__dict__["layer_name"] = layer_name
             __props__.__dict__["license_info"] = license_info
             __props__.__dict__["layer_version_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compatible_architectures[*]", "compatible_runtimes[*]", "content", "description", "layer_name", "license_info"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compatibleArchitectures[*]", "compatibleRuntimes[*]", "content", "description", "layerName", "licenseInfo"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LayerVersion, __self__).__init__(
             'aws-native:lambda:LayerVersion',

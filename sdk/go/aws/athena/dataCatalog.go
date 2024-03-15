@@ -23,37 +23,38 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := athena.NewDataCatalog(ctx, "myAthenaDataCatalog", &athena.DataCatalogArgs{
-// Name: pulumi.String("MyCustomDataCatalog"),
-// Type: athena.DataCatalogTypeHive,
-// Description: pulumi.String("Custom Hive Catalog Description"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("key1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("key2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// Parameters: pulumi.StringMap{
-// "metadata-function": pulumi.String("arn:aws:lambda:us-west-2:111122223333:function:lambdaname"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewDataCatalog(ctx, "myAthenaDataCatalog", &athena.DataCatalogArgs{
+//				Name:        pulumi.String("MyCustomDataCatalog"),
+//				Type:        athena.DataCatalogTypeHive,
+//				Description: pulumi.String("Custom Hive Catalog Description"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//				Parameters: pulumi.StringMap{
+//					"metadata-function": pulumi.String("arn:aws:lambda:us-west-2:111122223333:function:lambdaname"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 // ### Example
@@ -63,37 +64,38 @@ import (
 //
 // import (
 //
-//	aws-native "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 //	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := athena.NewDataCatalog(ctx, "myAthenaDataCatalog", &athena.DataCatalogArgs{
-// Name: pulumi.String("MyCustomDataCatalog"),
-// Type: athena.DataCatalogTypeHive,
-// Description: pulumi.String("Custom Hive Catalog Description"),
-// Tags: aws.TagArray{
-// &aws.TagArgs{
-// Key: pulumi.String("key1"),
-// Value: pulumi.String("value1"),
-// },
-// &aws.TagArgs{
-// Key: pulumi.String("key2"),
-// Value: pulumi.String("value2"),
-// },
-// },
-// Parameters: pulumi.StringMap{
-// "metadata-function": pulumi.String("arn:aws:lambda:us-west-2:111122223333:function:lambdaname"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewDataCatalog(ctx, "myAthenaDataCatalog", &athena.DataCatalogArgs{
+//				Name:        pulumi.String("MyCustomDataCatalog"),
+//				Type:        athena.DataCatalogTypeHive,
+//				Description: pulumi.String("Custom Hive Catalog Description"),
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key1"),
+//						Value: pulumi.String("value1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("key2"),
+//						Value: pulumi.String("value2"),
+//					},
+//				},
+//				Parameters: pulumi.StringMap{
+//					"metadata-function": pulumi.String("arn:aws:lambda:us-west-2:111122223333:function:lambdaname"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
 type DataCatalog struct {

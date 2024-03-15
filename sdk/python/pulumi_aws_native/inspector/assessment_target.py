@@ -95,7 +95,7 @@ class AssessmentTarget(pulumi.CustomResource):
             __props__.__dict__["assessment_target_name"] = assessment_target_name
             __props__.__dict__["resource_group_arn"] = resource_group_arn
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assessment_target_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assessmentTargetName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AssessmentTarget, __self__).__init__(
             'aws-native:inspector:AssessmentTarget',

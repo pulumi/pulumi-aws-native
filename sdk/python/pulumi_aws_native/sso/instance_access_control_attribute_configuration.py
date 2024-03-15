@@ -190,7 +190,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(InstanceAccessControlAttributeConfiguration, __self__).__init__(
             'aws-native:sso:InstanceAccessControlAttributeConfiguration',

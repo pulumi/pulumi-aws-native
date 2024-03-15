@@ -95,7 +95,7 @@ class BatchScramSecret(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_arn'")
             __props__.__dict__["cluster_arn"] = cluster_arn
             __props__.__dict__["secret_arn_list"] = secret_arn_list
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BatchScramSecret, __self__).__init__(
             'aws-native:msk:BatchScramSecret',

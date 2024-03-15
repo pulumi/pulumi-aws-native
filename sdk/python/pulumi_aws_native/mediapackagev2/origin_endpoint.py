@@ -244,7 +244,7 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_group_name", "channel_name", "origin_endpoint_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName", "channelName", "originEndpointName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OriginEndpoint, __self__).__init__(
             'aws-native:mediapackagev2:OriginEndpoint',

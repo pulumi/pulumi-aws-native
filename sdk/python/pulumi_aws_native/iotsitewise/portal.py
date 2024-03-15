@@ -234,7 +234,7 @@ class Portal(pulumi.CustomResource):
             __props__.__dict__["portal_client_id"] = None
             __props__.__dict__["portal_id"] = None
             __props__.__dict__["portal_start_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portal_auth_mode"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portalAuthMode"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Portal, __self__).__init__(
             'aws-native:iotsitewise:Portal',

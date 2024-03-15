@@ -166,7 +166,7 @@ class DeliveryDestination(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["delivery_destination_type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destination_resource_arn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationResourceArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryDestination, __self__).__init__(
             'aws-native:logs:DeliveryDestination',
