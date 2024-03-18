@@ -3,6 +3,7 @@
 ## Unreleased
 
 - [Fix replaceOnChanges for Python programs with multi-word properties](https://github.com/pulumi/pulumi-aws-native/pull/1424)
+- [Fix handling of AlreadyExists error while creating a resource](https://github.com/pulumi/pulumi-aws-native/pull/1439)
 
 ## 0.99.0 (2024-03-14)
 
