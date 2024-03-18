@@ -5,7 +5,7 @@
   "properties" : {
     "Type" : {
       "type" : "string",
-      "description" : "The type of parameter.\n  Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.",
+      "description" : "The type of parameter.",
       "enum" : [ "String", "StringList" ]
     },
     "Value" : {
