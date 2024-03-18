@@ -11,6 +11,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	jsschema "github.com/pulumi/jsschema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
@@ -30,8 +31,8 @@ func TestPropertyTypeSpec(t *testing.T) {
 					Types: map[string]pschema.ComplexTypeSpec{},
 				},
 				visitedTypes: codegen.NewStringSet(),
-				metadata: &CloudAPIMetadata{
-					Types: map[string]CloudAPIType{},
+				metadata: &metadata.CloudAPIMetadata{
+					Types: map[string]metadata.CloudAPIType{},
 				},
 				resourceSpec: &jsschema.Schema{
 					Definitions: map[string]*jsschema.Schema{
@@ -284,8 +285,8 @@ func TestEnumType(t *testing.T) {
 			pkg: &pschema.PackageSpec{
 				Types: map[string]pschema.ComplexTypeSpec{},
 			},
-			metadata: &CloudAPIMetadata{
-				Types: map[string]CloudAPIType{},
+			metadata: &metadata.CloudAPIMetadata{
+				Types: map[string]metadata.CloudAPIType{},
 			},
 		}
 		out, err := (&ctx).genEnumType(tt.name, tt.schema)

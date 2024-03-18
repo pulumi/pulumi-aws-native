@@ -1,6 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
-package schema
+package naming
 
 import (
 	"testing"

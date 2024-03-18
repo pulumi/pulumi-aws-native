@@ -13,7 +13,8 @@ import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -298,26 +299,25 @@ func (ctx *renderContext) renderJoin(name string, arg ast.Node) (model.Expressio
 // renderFunctionCall renders a call to an AWS intrinsic function. The way the function is rendered depends on the
 // function:
 //
-// - `Condition` is rendered as a reference to the equivalent condition variable
-// - `Fn::And` is rendered as the logical and operator
-// - `Fn::Base64` is rendered as a call to the `toBase64` function
-// - `Fn::Cidr` is rendered as an invocation of `aws-native::cidr`
-// - `Fn::Equals` is rendered as the equality operator
-// - `Fn::FindInMap` is rendered as a two index expressions
-// - `Fn::GetAtt` is rendered as a scope traversal expression on the referenced resource to fetch the referenced
-//   attribute
-// - `Fn::GetAZs` is rendered as an invocation of `aws-native::getAzs`
-// - `Fn::If` is rendered as the conditional operator
-// - `Fn::ImportValue` is rendered as an invocation of `aws-native::importValue`
-// - `Fn::Join` is rendered as either a template expression or a call to `join`
-// - `Fn::Not` is rendered as the logical not operator
-// - `Fn::Or` is rendered as the logical or operator
-// - `Fn::Select` is rendered as an index expressions
-// - `Fn::Split` is rendered as a call to `split`
-// - `Fn::Sub` is rendered as a template expression
-// - `Fn::Transform` is not supported
-// - `Ref` is rendered as a variable reference
-//
+//   - `Condition` is rendered as a reference to the equivalent condition variable
+//   - `Fn::And` is rendered as the logical and operator
+//   - `Fn::Base64` is rendered as a call to the `toBase64` function
+//   - `Fn::Cidr` is rendered as an invocation of `aws-native::cidr`
+//   - `Fn::Equals` is rendered as the equality operator
+//   - `Fn::FindInMap` is rendered as a two index expressions
+//   - `Fn::GetAtt` is rendered as a scope traversal expression on the referenced resource to fetch the referenced
+//     attribute
+//   - `Fn::GetAZs` is rendered as an invocation of `aws-native::getAzs`
+//   - `Fn::If` is rendered as the conditional operator
+//   - `Fn::ImportValue` is rendered as an invocation of `aws-native::importValue`
+//   - `Fn::Join` is rendered as either a template expression or a call to `join`
+//   - `Fn::Not` is rendered as the logical not operator
+//   - `Fn::Or` is rendered as the logical or operator
+//   - `Fn::Select` is rendered as an index expressions
+//   - `Fn::Split` is rendered as a call to `split`
+//   - `Fn::Sub` is rendered as a template expression
+//   - `Fn::Transform` is not supported
+//   - `Ref` is rendered as a variable reference
 func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.Expression, error) {
 	switch name {
 	case "Condition":
@@ -450,7 +450,7 @@ func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.E
 			}, nil
 		}
 
-		sdkName := schema.ToSdkName(attrName)
+		sdkName := naming.ToSdkName(attrName)
 		return &model.ScopeTraversalExpression{
 			Traversal: hcl.Traversal{
 				hcl.TraverseRoot{Name: resourceVar.Name},
@@ -1153,7 +1153,7 @@ func (ctx *renderContext) detectPseudoParameters(node ast.Node) {
 
 // RenderTemplate renders a parsed CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderTemplate(file *ast.File, metadata *schema.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
+func RenderTemplate(file *ast.File, metadata *metadata.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
 	var rootValues []*ast.MappingValueNode
 	switch len(file.Docs) {
 	case 0:
@@ -1309,7 +1309,7 @@ func RenderTemplate(file *ast.File, metadata *schema.CloudAPIMetadata) (*model.B
 
 // RenderFile parses and renders a CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderFile(path string, metadata *schema.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
+func RenderFile(path string, metadata *metadata.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
 	file, err := parser.ParseFile(path, parser.ParseComments)
 	if err != nil {
 		return nil, nil, fmt.Errorf("failed to parse %s: %w", path, err)
@@ -1319,7 +1319,7 @@ func RenderFile(path string, metadata *schema.CloudAPIMetadata) (*model.Body, hc
 
 // RenderText parses and renders a CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderText(yaml string, metadata *schema.CloudAPIMetadata) (body *model.Body, diagnostics hcl.Diagnostics, err error) {
+func RenderText(yaml string, metadata *metadata.CloudAPIMetadata) (body *model.Body, diagnostics hcl.Diagnostics, err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic recovered during YAML parsing: %v", r)

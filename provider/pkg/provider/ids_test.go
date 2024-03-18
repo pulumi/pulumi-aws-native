@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/require"
 )
@@ -68,7 +68,7 @@ func Test_getDefaultName(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			autoNamingSpec := &schema.AutoNamingSpec{
+			autoNamingSpec := &metadata.AutoNamingSpec{
 				SdkName:   "autoName",
 				MinLength: tt.minLength,
 				MaxLength: tt.maxLength,

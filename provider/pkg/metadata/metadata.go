@@ -1,8 +1,12 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
-package schema
+package metadata
 
-import pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+import (
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+)
 
 // CloudAPIMetadata is a collection of all resources and types in the AWS Cloud Control API.
 type CloudAPIMetadata struct {
@@ -22,14 +26,14 @@ type CloudAPIResource struct {
 	WriteOnly         []string                        `json:"writeOnly,omitempty"`
 	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
 	TagsProperty      string                          `json:"tagsProperty,omitempty"`
-	TagsStyle         TagsStyle                       `json:"tagsStyle,omitempty"`
+	TagsStyle         default_tags.TagsStyle          `json:"tagsStyle,omitempty"`
 }
 
 type AutoNamingSpec struct {
-	SdkName    string            `json:"sdkName"`
-	MinLength  int               `json:"minLength,omitempty"`
-	MaxLength  int               `json:"maxLength,omitempty"`
-	TriviaSpec *NamingTriviaSpec `json:"namingTriviaSpec,omitempty"`
+	SdkName    string                       `json:"sdkName"`
+	MinLength  int                          `json:"minLength,omitempty"`
+	MaxLength  int                          `json:"maxLength,omitempty"`
+	TriviaSpec *autonaming.NamingTriviaSpec `json:"namingTriviaSpec,omitempty"`
 }
 
 // CloudAPIType contains metadata for an auxiliary type.

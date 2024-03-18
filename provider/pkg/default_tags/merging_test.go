@@ -1,9 +1,8 @@
-package provider
+package default_tags
 
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 )
@@ -18,7 +17,7 @@ func TestDefaultTags(t *testing.T) {
 		expected := resource.NewPropertyValue(map[string]interface{}{
 			"defaultTag": "defaultTagValue",
 		})
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleStringMap)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleStringMap)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
@@ -28,7 +27,7 @@ func TestDefaultTags(t *testing.T) {
 		expected := resource.PropertyValue(resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
 			"defaultTag": "defaultTagValue",
 		})))
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleStringMap)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleStringMap)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
@@ -41,7 +40,7 @@ func TestDefaultTags(t *testing.T) {
 		expected := resource.NewPropertyValue(map[string]interface{}{
 			"localTag": "localTagValue",
 		})
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleStringMap)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleStringMap)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
@@ -53,7 +52,7 @@ func TestDefaultTags(t *testing.T) {
 		expected := resource.NewPropertyValue(map[string]interface{}{
 			"defaultTag": "localTagValue",
 		})
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleStringMap)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleStringMap)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
@@ -66,7 +65,7 @@ func TestDefaultTags(t *testing.T) {
 			"defaultTag": "defaultTagValue",
 			"localTag":   "localTagValue",
 		})
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleStringMap)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleStringMap)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
@@ -79,7 +78,7 @@ func TestDefaultTags(t *testing.T) {
 				"value": "defaultTagValue",
 			},
 		})
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleKeyValueArray)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleKeyValueArray)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
@@ -92,7 +91,7 @@ func TestDefaultTags(t *testing.T) {
 				"value": "defaultTagValue",
 			},
 		})
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleKeyValueArray)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleKeyValueArray)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
@@ -111,7 +110,7 @@ func TestDefaultTags(t *testing.T) {
 				"value": "localTagValue",
 			},
 		})
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleKeyValueArray)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleKeyValueArray)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
@@ -129,7 +128,7 @@ func TestDefaultTags(t *testing.T) {
 				"value": "localTagValue",
 			},
 		})
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleKeyValueArray)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleKeyValueArray)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
@@ -151,7 +150,7 @@ func TestDefaultTags(t *testing.T) {
 				"value": "defaultTagValue",
 			},
 		})
-		actual, err := mergeDefaultTags(tags, defaultTags, schema.TagsStyleKeyValueArray)
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleKeyValueArray)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})

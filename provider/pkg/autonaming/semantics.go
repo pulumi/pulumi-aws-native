@@ -1,6 +1,6 @@
 // Copyright 2016-2023, Pulumi Corporation.
 
-package schema
+package autonaming
 
 import (
 	"fmt"

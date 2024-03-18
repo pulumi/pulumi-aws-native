@@ -4,57 +4,26 @@ import (
 	"strings"
 
 	jsschema "github.com/pulumi/jsschema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
-type TagsStyle string
-
-const (
-	tagStyleKeyValueArrayPrefix = "keyValueArray"
-	// TagsStyleUnknown indicates we can't identify the style of tags.
-	TagsStyleUnknown TagsStyle = ""
-	// TagsStyleUntyped indicates the resource has no tags
-	TagsStyleNone TagsStyle = "none"
-	// TagsStyleUntyped is a style where the tags are represented as "Any" - without a schema.
-	TagsStyleUntyped TagsStyle = "untyped"
-	// TagsStyleStringMap is a style where the tags are represented as a map of strings.
-	TagsStyleStringMap TagsStyle = "stringMap"
-	// TagsStyleKeyValueArray is a style where the tags are represented as an array of key-value pairs.
-	TagsStyleKeyValueArray TagsStyle = tagStyleKeyValueArrayPrefix
-	// TagsStyleKeyValueArrayCreateOnly is a style where the tags are represented as an array of key-value pairs, but
-	// the tags are create-only.
-	TagsStyleKeyValueArrayCreateOnly TagsStyle = tagStyleKeyValueArrayPrefix + "CreateOnly"
-	// TagsStyleKeyValueArrayWithExtraProperties is a style where the tags are represented as an array of key-value pairs
-	// but can have extra properties.
-	TagsStyleKeyValueArrayWithExtraProperties TagsStyle = tagStyleKeyValueArrayPrefix + "WithExtraProperties"
-	// TagsStyleKeyValueArrayWithAlternateType is a style where the tags are represented as an array of key-value pairs
-	// but the value can also be of a different type.
-	TagsStyleKeyValueArrayWithAlternateType TagsStyle = tagStyleKeyValueArrayPrefix + "WithAlternateType"
-)
-
-func (ts TagsStyle) IsStringMap() bool {
-	return ts == TagsStyleStringMap
-}
-
-func (ts TagsStyle) IsKeyValueArray() bool {
-	return strings.HasPrefix(string(ts), tagStyleKeyValueArrayPrefix)
-}
-
-func (ctx *cfSchemaContext) ApplyTagsTransformation(propName string, propertySpec *pschema.PropertySpec, spec *jsschema.Schema) TagsStyle {
+func (ctx *cfSchemaContext) ApplyTagsTransformation(propName string, propertySpec *pschema.PropertySpec, spec *jsschema.Schema) default_tags.TagsStyle {
 	tagsStyle := ctx.getTagsStyle(propName, &propertySpec.TypeSpec)
 	switch tagsStyle {
-	case TagsStyleUntyped:
-	case TagsStyleStringMap:
+	case default_tags.TagsStyleUntyped:
+	case default_tags.TagsStyleStringMap:
 		// Nothing to do
-	case TagsStyleKeyValueArray:
+	case default_tags.TagsStyleKeyValueArray:
 		// Swap referenced type to shared definition and remove custom type.
 		propertySpec.TypeSpec.Items.Ref = "#/types/" + globalTagToken
-	case TagsStyleKeyValueArrayCreateOnly:
+	case default_tags.TagsStyleKeyValueArrayCreateOnly:
 		// Swap referenced type to shared definition and remove custom type.
 		propertySpec.TypeSpec.Items.Ref = "#/types/" + globalCreateOnlyTagToken
-	case TagsStyleKeyValueArrayWithExtraProperties:
+	case default_tags.TagsStyleKeyValueArrayWithExtraProperties:
 		// Keep custom type
-	case TagsStyleKeyValueArrayWithAlternateType:
+	case default_tags.TagsStyleKeyValueArrayWithAlternateType:
 		// Keep custom type
 	default: // Unknown
 		ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
@@ -92,48 +61,48 @@ func GetTagsProperty(originalSpec *jsschema.Schema) (string, bool) {
 	return "", false
 }
 
-func (ctx *cfSchemaContext) getTagsStyle(propName string, typeSpec *pschema.TypeSpec) TagsStyle {
+func (ctx *cfSchemaContext) getTagsStyle(propName string, typeSpec *pschema.TypeSpec) default_tags.TagsStyle {
 	if typeSpec == nil {
-		return TagsStyleUnknown
+		return default_tags.TagsStyleUnknown
 	}
 	// Check for "Any" ref
 	if typeSpec.Ref == "pulumi.json#/Any" {
-		return TagsStyleUntyped
+		return default_tags.TagsStyleUntyped
 	}
 
 	if typeSpec.AdditionalProperties != nil && typeSpec.AdditionalProperties.Type == "string" {
-		return TagsStyleStringMap
+		return default_tags.TagsStyleStringMap
 	}
 
 	if isKeyValueArray, style := ctx.tagStyleIsKeyValueArray(propName, typeSpec); isKeyValueArray {
-		if style == TagsStyleKeyValueArray && ctx.isPropCreateOnly(propName) {
-			return TagsStyleKeyValueArrayCreateOnly
+		if style == default_tags.TagsStyleKeyValueArray && ctx.isPropCreateOnly(propName) {
+			return default_tags.TagsStyleKeyValueArrayCreateOnly
 		}
-		if style != TagsStyleUnknown {
+		if style != default_tags.TagsStyleUnknown {
 			return style
 		}
 	}
 
-	return TagsStyleUnknown
+	return default_tags.TagsStyleUnknown
 }
 
-func (ctx *cfSchemaContext) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec) (bool, TagsStyle) {
+func (ctx *cfSchemaContext) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec) (bool, default_tags.TagsStyle) {
 	if typeSpec == nil || typeSpec.Items == nil {
-		return false, TagsStyleUnknown
+		return false, default_tags.TagsStyleUnknown
 	}
 
 	if typeSpec.Items.Ref != "" {
 		typeToken, hasPrefix := strings.CutPrefix(typeSpec.Items.Ref, "#/types/")
 		if !hasPrefix {
-			return false, TagsStyleUnknown
+			return false, default_tags.TagsStyleUnknown
 		}
 
 		if refType, ok := ctx.pkg.Types[typeToken]; ok {
 			if isKeyValue, hasAdditions := hasKeyValueStringPropertiesAndAdditions(&refType); isKeyValue {
 				if hasAdditions {
-					return true, TagsStyleKeyValueArrayWithExtraProperties
+					return true, default_tags.TagsStyleKeyValueArrayWithExtraProperties
 				}
-				return true, TagsStyleKeyValueArray
+				return true, default_tags.TagsStyleKeyValueArray
 			}
 		}
 	}
@@ -144,19 +113,19 @@ func (ctx *cfSchemaContext) tagStyleIsKeyValueArray(propName string, typeSpec *p
 			if typeToken != "" {
 				if refType, ok := ctx.pkg.Types[typeToken]; ok {
 					if isKeyValue, _ := hasKeyValueStringPropertiesAndAdditions(&refType); isKeyValue {
-						return true, TagsStyleKeyValueArrayWithAlternateType
+						return true, default_tags.TagsStyleKeyValueArrayWithAlternateType
 					}
 				}
 			}
 		}
 	}
 
-	return false, TagsStyleUnknown
+	return false, default_tags.TagsStyleUnknown
 }
 
 func (ctx *cfSchemaContext) isPropCreateOnly(propName string) bool {
 	createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
-	return createOnlyProps.Has(ToSdkName(propName))
+	return createOnlyProps.Has(naming.ToSdkName(propName))
 }
 
 func hasKeyValueStringPropertiesAndAdditions(typeSpec *pschema.ComplexTypeSpec) (hasKeyValueStringProperties bool, hasExtraProperties bool) {
