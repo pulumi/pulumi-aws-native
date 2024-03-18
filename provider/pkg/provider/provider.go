@@ -805,37 +805,9 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	resourceToken := string(urn.Type())
-	var spec schema.CloudAPIResource
-	var hasSpec bool
-	var cfType string
-	var payload map[string]interface{}
-	switch resourceToken {
-	case schema.ExtensionResourceToken:
-		// For a custom resource, both CF type and inputs shape are defined explicitly in the SDK.
-		inputsMap := resourcex.Decode(inputs)
-		if v, has := inputsMap["type"].(string); has {
-			cfType = v
-		} else {
-			return nil, errors.New("no 'type' property in extension resource inputs")
-		}
-		if v, has := inputsMap["properties"].(map[string]interface{}); has {
-			payload = v
-		} else {
-			return nil, errors.New("no 'properties' property in extension resource inputs")
-		}
-	default:
-		spec, hasSpec = p.resourceMap.Resources[resourceToken]
-		if !hasSpec {
-			return nil, errors.Errorf("Resource type %s not found", resourceToken)
-		}
-		cfType = spec.CfType
-
-		// Convert SDK inputs to CFN payload.
-		payload, err = schema.SdkToCfn(&spec, p.resourceMap.Types, resourcex.Decode(inputs))
-		if err != nil {
-			return nil, fmt.Errorf("Failed to convert value for %s: %w", resourceToken, err)
-		}
-	}
+	conv := p.MakeConverter(resourceToken)
+	inputsMap := resourcex.Decode(inputs)
+	cfType, payload := conv.Serialize(inputsMap)
 
 	// Create the resource with Cloud API.
 	glog.V(9).Infof("%s.CreateResource %q", label, cfType)
@@ -844,19 +816,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		return nil, errors.Wrapf(createErr, "creating resource")
 	}
 
-	outputs := schema.CfnToSdk(resourceState)
-	// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
-	if hasSpec && len(spec.WriteOnly) > 0 {
-		inputsMap := inputs.Mappable()
-		for _, writeOnlyProp := range spec.WriteOnly {
-			if _, ok := outputs[writeOnlyProp]; !ok {
-				inputValue, ok := inputsMap[writeOnlyProp]
-				if ok {
-					outputs[writeOnlyProp] = inputValue
-				}
-			}
-		}
-	}
+	outputs := conv.Deserialize(inputsMap, resourceState)
 
 	if createErr != nil {
 		// Resource was created but failed to fully initialize.
@@ -875,15 +835,6 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 			return nil, fmt.Errorf("marshalling currentResourceStateCheckpoint: %w", err)
 		}
 		return nil, partialError(*id, createErr, checkpoint, req.GetProperties())
-	}
-
-	switch resourceToken {
-	case schema.ExtensionResourceToken:
-		// Wrap all outputs into an explicit property so that they are available
-		// to SDK consumers as an untyped map.
-		outputs = map[string]interface{}{
-			"outputs": outputs,
-		}
 	}
 
 	// Store both outputs and inputs into the state.
@@ -1085,30 +1036,25 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	label := fmt.Sprintf("%s.Delete(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	resourceToken := string(urn.Type())
-	var cfType string
-	switch resourceToken {
-	case schema.ExtensionResourceToken:
-		// Retrieve the old state and inputs to fetch the CF type.
-		oldState, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.properties", label), SkipNulls: true,
-		})
-		if err != nil {
-			return nil, err
-		}
-		oldInputs := parseCheckpointObject(oldState).Mappable()
-		cfType = oldInputs["type"].(string)
-	default:
-		spec, ok := p.resourceMap.Resources[resourceToken]
-		if !ok {
-			return nil, errors.Errorf("Resource type %s not found", resourceToken)
-		}
-		cfType = spec.CfType
+	// Retrieve the old state and inputs to fetch the CF type.
+	oldInputs, err := plugin.UnmarshalProperties(req.GetOldInputs(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.properties", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
+	if err != nil {
+		return nil, errors.Wrapf(err, "failed to parse inputs for update")
 	}
+	oldInputsMap := resourcex.Decode(oldInputs)
+
+	resourceToken := string(urn.Type())
+	conv := p.MakeConverter(resourceToken)
+	cfType, _ := conv.Serialize(oldInputsMap)
 	id := req.GetId()
 
 	glog.V(9).Infof("%s.DeleteResource %q id %q", label, cfType, id)
-	err := p.ccc.Delete(p.canceler.context, cfType, id)
+	err = p.ccc.Delete(p.canceler.context, cfType, id)
 	if err != nil {
 		return nil, err
 	}
