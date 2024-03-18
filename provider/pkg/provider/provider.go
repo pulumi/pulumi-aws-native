@@ -48,7 +48,7 @@ import (
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
@@ -859,6 +859,9 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	if createErr != nil {
+		if id == nil {
+			return nil, fmt.Errorf("creating resource: %w", createErr)
+		}
 		// Resource was created but failed to fully initialize.
 		// It has some state, so we return a partial error.
 		obj := checkpointObject(inputs, outputs)
