@@ -127,7 +127,9 @@ func (ctx *renderContext) checkArgsArray(name string, v ast.Node, min, max int) 
 func (ctx *renderContext) renderRef(name string) (model.Expression, error) {
 	if pseudoParameters.Has(name) {
 		pseudoVar, ok := ctx.pseudoParameters[name]
-		contract.Assert(ok)
+		if !ok {
+			return nil, fmt.Errorf("unknown pseudo parameter '%v'", name)
+		}
 		return model.VariableReference(pseudoVar), nil
 	}
 
@@ -209,7 +211,9 @@ func (ctx *renderContext) renderSub(name string, value ast.Node) (model.Expressi
 	}
 	literals = append(literals, text[start:])
 
-	contract.Assert(len(literals) == len(refs)+1)
+	if len(literals) != len(refs)+1 {
+		return nil, fmt.Errorf("the number of literals must be exactly one more than the number of references in 'Fn::Sub'")
+	}
 
 	var parts []model.Expression
 	for i, l := range literals {
@@ -298,26 +302,25 @@ func (ctx *renderContext) renderJoin(name string, arg ast.Node) (model.Expressio
 // renderFunctionCall renders a call to an AWS intrinsic function. The way the function is rendered depends on the
 // function:
 //
-// - `Condition` is rendered as a reference to the equivalent condition variable
-// - `Fn::And` is rendered as the logical and operator
-// - `Fn::Base64` is rendered as a call to the `toBase64` function
-// - `Fn::Cidr` is rendered as an invocation of `aws-native::cidr`
-// - `Fn::Equals` is rendered as the equality operator
-// - `Fn::FindInMap` is rendered as a two index expressions
-// - `Fn::GetAtt` is rendered as a scope traversal expression on the referenced resource to fetch the referenced
-//   attribute
-// - `Fn::GetAZs` is rendered as an invocation of `aws-native::getAzs`
-// - `Fn::If` is rendered as the conditional operator
-// - `Fn::ImportValue` is rendered as an invocation of `aws-native::importValue`
-// - `Fn::Join` is rendered as either a template expression or a call to `join`
-// - `Fn::Not` is rendered as the logical not operator
-// - `Fn::Or` is rendered as the logical or operator
-// - `Fn::Select` is rendered as an index expressions
-// - `Fn::Split` is rendered as a call to `split`
-// - `Fn::Sub` is rendered as a template expression
-// - `Fn::Transform` is not supported
-// - `Ref` is rendered as a variable reference
-//
+//   - `Condition` is rendered as a reference to the equivalent condition variable
+//   - `Fn::And` is rendered as the logical and operator
+//   - `Fn::Base64` is rendered as a call to the `toBase64` function
+//   - `Fn::Cidr` is rendered as an invocation of `aws-native::cidr`
+//   - `Fn::Equals` is rendered as the equality operator
+//   - `Fn::FindInMap` is rendered as a two index expressions
+//   - `Fn::GetAtt` is rendered as a scope traversal expression on the referenced resource to fetch the referenced
+//     attribute
+//   - `Fn::GetAZs` is rendered as an invocation of `aws-native::getAzs`
+//   - `Fn::If` is rendered as the conditional operator
+//   - `Fn::ImportValue` is rendered as an invocation of `aws-native::importValue`
+//   - `Fn::Join` is rendered as either a template expression or a call to `join`
+//   - `Fn::Not` is rendered as the logical not operator
+//   - `Fn::Or` is rendered as the logical or operator
+//   - `Fn::Select` is rendered as an index expressions
+//   - `Fn::Split` is rendered as a call to `split`
+//   - `Fn::Sub` is rendered as a template expression
+//   - `Fn::Transform` is not supported
+//   - `Ref` is rendered as a variable reference
 func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.Expression, error) {
 	switch name {
 	case "Condition":
@@ -617,7 +620,9 @@ func (ctx *renderContext) renderValue(node ast.Node) (model.Expression, error) {
 		return ctx.renderValue(node.Value)
 	case *ast.MappingNode, *ast.MappingValueNode:
 		values, ok := mapValues(node)
-		contract.Assert(ok)
+		if !ok {
+			return nil, fmt.Errorf("mapping must be a mapping of key-value pairs")
+		}
 
 		if len(values) == 1 && functions.Has(keyString(values[0])) {
 			return ctx.renderFunctionCall(keyString(values[0]), values[0].Value)
@@ -753,12 +758,16 @@ func (ctx *renderContext) renderParameter(attr *ast.MappingValueNode) ([]model.B
 	}
 
 	paramRefVar, ok := ctx.parameters[keyString(attr)]
-	contract.Assert(ok)
+	if !ok {
+		return nil, fmt.Errorf("unknown parameter '%v'", name)
+	}
 
 	paramDefVar := paramRefVar
 	if isSSMParameter {
 		paramDefVar, ok = ctx.ssmParameters[keyString(attr)]
-		contract.Assert(ok)
+		if !ok {
+			return nil, fmt.Errorf("unknown SSM parameter '%v'", name)
+		}
 
 		typeExpr = "string"
 	}
@@ -829,7 +838,9 @@ func (ctx *renderContext) renderParameter(attr *ast.MappingValueNode) ([]model.B
 // renderMapping renders a CloudFormation mapping as a PCL local variable whose value is the value of the mapping.
 func (ctx *renderContext) renderMapping(attr *ast.MappingValueNode) (model.BodyItem, hcl.Diagnostics, error) {
 	v, ok := ctx.mappings[keyString(attr)]
-	contract.Assert(ok)
+	if !ok {
+		return nil, nil, fmt.Errorf("unknown mapping '%v'", keyString(attr))
+	}
 
 	m, err := ctx.renderValue(attr.Value)
 	if err != nil {
@@ -846,7 +857,9 @@ func (ctx *renderContext) renderMapping(attr *ast.MappingValueNode) (model.BodyI
 // condition.
 func (ctx *renderContext) renderCondition(attr *ast.MappingValueNode) (model.BodyItem, hcl.Diagnostics, error) {
 	v, ok := ctx.conditions[keyString(attr)]
-	contract.Assert(ok)
+	if !ok {
+		return nil, nil, fmt.Errorf("unknown condition '%v'", keyString(attr))
+	}
 
 	m, err := ctx.renderValue(attr.Value)
 	if err != nil {
@@ -868,7 +881,9 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 	}
 
 	resourceVar, ok := ctx.resources[name]
-	contract.Assert(ok)
+	if !ok {
+		return nil, nil, fmt.Errorf("unknown resource '%v'", name)
+	}
 
 	var token string
 	var items []model.BodyItem
@@ -971,7 +986,9 @@ func (ctx *renderContext) renderOutput(attr *ast.MappingValueNode) (model.BodyIt
 	}
 
 	outputVar, ok := ctx.outputs[name]
-	contract.Assert(ok)
+	if !ok {
+		return nil, nil, fmt.Errorf("unknown output '%v'", name)
+	}
 
 	// TODO: description, export
 
@@ -1135,7 +1152,7 @@ func (ctx *renderContext) detectPseudoParameters(node ast.Node) {
 		}
 	case *ast.MappingNode, *ast.MappingValueNode:
 		values, ok := mapValues(node)
-		contract.Assert(ok)
+		contract.Assertf(ok, "unexpected %T", node)
 
 		if len(values) == 1 && functions.Has(keyString(values[0])) {
 			ctx.detectFunctionPseudoParameters(keyString(values[0]), values[0].Value)
@@ -1224,7 +1241,9 @@ func RenderTemplate(file *ast.File, metadata *schema.CloudAPIMetadata) (*model.B
 	// Swap in SSM parameter value names for their config names.
 	for k, value := range ctx.ssmParameters {
 		config, ok := ctx.parameters[k]
-		contract.Assert(ok)
+		if !ok {
+			return nil, nil, fmt.Errorf("SSM parameter '%v' has no corresponding parameter", k)
+		}
 		ctx.parameters[k], ctx.ssmParameters[k] = value, config
 	}
 
