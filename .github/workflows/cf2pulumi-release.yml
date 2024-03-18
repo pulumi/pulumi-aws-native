@@ -54,7 +54,7 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v5
       with:
-        args: -p 1 -f .goreleaser.cf2pulumi.yml release --rm-dist --timeout 60m0s
+        args: -p 1 -f .goreleaser.cf2pulumi.yml release --clean --timeout 60m0s
         version: latest
     - name: Chocolatey Package Deployment
       run: |-
