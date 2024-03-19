@@ -14,6 +14,15 @@ import (
 type Reports struct {
 	// UnexpectedTagsShapes is a map of the resource token of resources which have a `Tags` field but don't match an expected pattern.
 	UnexpectedTagsShapes map[string]interface{}
+	// MissedAutonaming is a map of the resource token of resources we haven't identified as autonameable.
+	MissedAutonaming map[string]interface{}
+}
+
+func NewReports() *Reports {
+	return &Reports{
+		UnexpectedTagsShapes: make(map[string]interface{}),
+		MissedAutonaming:     make(map[string]interface{}),
+	}
 }
 
 func (r *Reports) WriteToDirectory(dir string) error {
@@ -38,6 +47,9 @@ func (r *Reports) WriteToDirectory(dir string) error {
 	}
 
 	if err = writeFile("unexpectedTagsShapes.json", r.UnexpectedTagsShapes); err != nil {
+		return err
+	}
+	if err = writeFile("missedAutonaming.json", r.MissedAutonaming); err != nil {
 		return err
 	}
 	return nil

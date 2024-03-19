@@ -454,9 +454,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 		Functions: map[string]metadata.CloudAPIFunction{},
 	}
 
-	reports := &Reports{
-		UnexpectedTagsShapes: map[string]interface{}{},
-	}
+	reports := NewReports()
 
 	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
 
@@ -871,6 +869,11 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 	// If a field can be auto-named, its no longer required.
 	if autoNamingSpec != nil {
 		delete(requiredInputs, autoNamingSpec.SdkName)
+	} else {
+		ctx.reports.MissedAutonaming[ctx.resourceToken] = map[string]any{
+			"cfTypeName": ctx.cfTypeName,
+			"properties": inputProperties,
+		}
 	}
 
 	var deprecationMessage string
