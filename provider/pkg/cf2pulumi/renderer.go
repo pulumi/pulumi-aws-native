@@ -13,7 +13,8 @@ import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -453,7 +454,7 @@ func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.E
 			}, nil
 		}
 
-		sdkName := schema.ToSdkName(attrName)
+		sdkName := naming.ToSdkName(attrName)
 		return &model.ScopeTraversalExpression{
 			Traversal: hcl.Traversal{
 				hcl.TraverseRoot{Name: resourceVar.Name},
@@ -1170,7 +1171,7 @@ func (ctx *renderContext) detectPseudoParameters(node ast.Node) {
 
 // RenderTemplate renders a parsed CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderTemplate(file *ast.File, metadata *schema.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
+func RenderTemplate(file *ast.File, metadata *metadata.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
 	var rootValues []*ast.MappingValueNode
 	switch len(file.Docs) {
 	case 0:
@@ -1328,7 +1329,7 @@ func RenderTemplate(file *ast.File, metadata *schema.CloudAPIMetadata) (*model.B
 
 // RenderFile parses and renders a CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderFile(path string, metadata *schema.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
+func RenderFile(path string, metadata *metadata.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
 	file, err := parser.ParseFile(path, parser.ParseComments)
 	if err != nil {
 		return nil, nil, fmt.Errorf("failed to parse %s: %w", path, err)
@@ -1338,7 +1339,7 @@ func RenderFile(path string, metadata *schema.CloudAPIMetadata) (*model.Body, hc
 
 // RenderText parses and renders a CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderText(yaml string, metadata *schema.CloudAPIMetadata) (body *model.Body, diagnostics hcl.Diagnostics, err error) {
+func RenderText(yaml string, metadata *metadata.CloudAPIMetadata) (body *model.Body, diagnostics hcl.Diagnostics, err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic recovered during YAML parsing: %v", r)

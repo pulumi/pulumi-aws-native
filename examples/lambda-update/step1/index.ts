@@ -31,7 +31,6 @@ export const graphqlPublicZip = new aws.s3.BucketObject(
   "lambda-source",
   {
     bucket: lambdaStore.id,
-    key: "samplefn",
     source: new pulumi.asset.AssetArchive({
       "index.js": new pulumi.asset.StringAsset(
         `module.exports = () => { console.log("placeholder"); return Promise.resolve(); }`
@@ -46,7 +45,6 @@ export const layerCode = new aws.s3.BucketObject(
   "layer-source",
   {
     bucket: lambdaStore.id,
-    key: "samplefn",
     source: new pulumi.asset.AssetArchive({
       "index.js": new pulumi.asset.StringAsset(
         `module.exports = () => { console.log("placeholder"); return Promise.resolve(); }`

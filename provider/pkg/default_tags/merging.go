@@ -1,13 +1,12 @@
-package provider
+package default_tags
 
 import (
 	"fmt"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
-func mergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string, tagsStyle schema.TagsStyle) (resource.PropertyValue, error) {
+func MergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string, tagsStyle TagsStyle) (resource.PropertyValue, error) {
 	if len(defaultTags) == 0 {
 		return tags, nil
 	}

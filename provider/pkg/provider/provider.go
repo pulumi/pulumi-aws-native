@@ -49,6 +49,10 @@ import (
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
@@ -99,7 +103,7 @@ type cfnProvider struct {
 	accountID           string
 	region              string
 	partition           partition
-	resourceMap         *schema.CloudAPIMetadata
+	resourceMap         *metadata.CloudAPIMetadata
 	roleArn             *string
 	allowedAccountIds   []string
 	forbiddenAccountIds []string
@@ -134,8 +138,8 @@ func NewAwsNativeProvider(host *provider.HostClient, name, version string,
 }
 
 // LoadMetadata deserializes the provided compressed json byte array into a CloudAPIMetadata struct.
-func LoadMetadata(metadataBytes []byte) (*schema.CloudAPIMetadata, error) {
-	var resourceMap schema.CloudAPIMetadata
+func LoadMetadata(metadataBytes []byte) (*metadata.CloudAPIMetadata, error) {
+	var resourceMap metadata.CloudAPIMetadata
 
 	uncompressed, err := gzip.NewReader(bytes.NewReader(metadataBytes))
 	if err != nil {
@@ -624,7 +628,7 @@ func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc
 		if !exists {
 			return nil, errors.New("resource not found")
 		}
-		sdkOutput := schema.CfnToSdk(outputs)
+		sdkOutput := naming.CfnToSdk(outputs)
 
 		return resource.NewPropertyMapFromMap(sdkOutput), nil
 	}, true
@@ -727,9 +731,9 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	}
 
 	// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
-	if len(p.defaultTags) > 0 && spec.TagsProperty != "" && spec.TagsStyle != schema.TagsStyleUnknown {
+	if len(p.defaultTags) > 0 && spec.TagsProperty != "" && spec.TagsStyle != default_tags.TagsStyleUnknown {
 		tagsKey := resource.PropertyKey(spec.TagsProperty)
-		val, err := mergeDefaultTags(newInputs[tagsKey], p.defaultTags, spec.TagsStyle)
+		val, err := default_tags.MergeDefaultTags(newInputs[tagsKey], p.defaultTags, spec.TagsStyle)
 		if err != nil {
 			return nil, err
 		}
@@ -737,7 +741,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	}
 
 	var checkFailures []*pulumirpc.CheckFailure
-	failures, err := schema.ValidateResource(&spec, p.resourceMap.Types, newInputs)
+	failures, err := resources.ValidateResource(&spec, p.resourceMap.Types, newInputs)
 	if err != nil {
 		return nil, err
 	}
@@ -805,7 +809,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	resourceToken := string(urn.Type())
-	var spec schema.CloudAPIResource
+	var spec metadata.CloudAPIResource
 	var hasSpec bool
 	var cfType string
 	var payload map[string]interface{}
@@ -831,7 +835,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		cfType = spec.CfType
 
 		// Convert SDK inputs to CFN payload.
-		payload, err = schema.SdkToCfn(&spec, p.resourceMap.Types, resourcex.Decode(inputs))
+		payload, err = naming.SdkToCfn(&spec, p.resourceMap.Types, resourcex.Decode(inputs))
 		if err != nil {
 			return nil, fmt.Errorf("Failed to convert value for %s: %w", resourceToken, err)
 		}
@@ -844,7 +848,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		return nil, errors.Wrapf(createErr, "creating resource")
 	}
 
-	outputs := schema.CfnToSdk(resourceState)
+	outputs := naming.CfnToSdk(resourceState)
 	// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 	if hasSpec && len(spec.WriteOnly) > 0 {
 		inputsMap := inputs.Mappable()
@@ -932,7 +936,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		// Not Exists means that the resource was deleted.
 		return &pulumirpc.ReadResponse{Id: ""}, nil
 	}
-	newState := schema.CfnToSdk(resourceState)
+	newState := naming.CfnToSdk(resourceState)
 
 	// Extract old inputs from the `__inputs` field of the old state.
 	inputs := parseCheckpointObject(oldState)
@@ -1046,7 +1050,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		}
 	}
 
-	ops, err := schema.DiffToPatch(&spec, p.resourceMap.Types, diff)
+	ops, err := naming.DiffToPatch(&spec, p.resourceMap.Types, diff)
 	if err != nil {
 		return nil, err
 	}
@@ -1056,7 +1060,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	if err != nil {
 		return nil, err
 	}
-	outputs := schema.CfnToSdk(resourceState)
+	outputs := naming.CfnToSdk(resourceState)
 
 	// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 	if len(spec.WriteOnly) > 0 {
