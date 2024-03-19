@@ -57,7 +57,10 @@ export class ExtensionResource extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["tagsProperty"] = args ? args.tagsProperty : undefined;
+            resourceInputs["tagsStyle"] = args ? args.tagsStyle : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["writeOnly"] = args ? args.writeOnly : undefined;
             resourceInputs["outputs"] = undefined /*out*/;
         } else {
             resourceInputs["outputs"] = undefined /*out*/;
@@ -72,11 +75,24 @@ export class ExtensionResource extends pulumi.CustomResource {
  */
 export interface ExtensionResourceArgs {
     /**
-     * Dictionary of the extension resource properties.
+     * Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.
      */
     properties: pulumi.Input<{[key: string]: any}>;
     /**
-     * CloudFormation type name.
+     * Optional name of the property containing the tags. Defaults to "Tags" if the `tagsStyle` is set to either "stringMap" or "keyValueArray". This is used to apply default tags to the resource and can be ignored if not using default tags.
+     */
+    tagsProperty?: pulumi.Input<string>;
+    /**
+     * Optional style of tags this resource uses. Valid values are "stringMap", "keyValueArray" or "none". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.
+     */
+    tagsStyle?: pulumi.Input<string>;
+    /**
+     * CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.
      */
     type: pulumi.Input<string>;
+    /**
+     * Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.
+     * In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+     */
+    writeOnly?: pulumi.Input<pulumi.Input<string>[]>;
 }
