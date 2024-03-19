@@ -1,0 +1,315 @@
+// Copyright 2024, Pulumi Corporation.
+
+package resources
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/mattbaird/jsonpatch"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	"github.com/pulumi/pulumi-go-provider/resourcex"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/wI2L/jsondiff"
+)
+
+type ExtensionResource struct {
+	Type         string
+	Properties   map[string]any
+	WriteOnly    []string
+	TagsProperty string
+	TagsStyle    default_tags.TagsStyle
+}
+
+type extensionResource struct {
+	client client.CloudControlClient
+}
+
+func NewExtensionResource(client client.CloudControlClient) *extensionResource {
+	return &extensionResource{
+		client: client,
+	}
+}
+
+func (r *extensionResource) Check(ctx context.Context, urn resource.URN, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
+	var extensionResource ExtensionResource
+	_, err := resourcex.Unmarshal(&extensionResource, inputs, resourcex.UnmarshalOptions{})
+	if err != nil {
+		return nil, nil, fmt.Errorf("failed to unmarshal inputs: %w", err)
+	}
+
+	var failures []ValidationFailure
+	extensionResource, failures = ApplyDefaults(extensionResource)
+
+	if len(failures) > 0 {
+		return nil, failures, nil
+	}
+
+	// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
+	if len(defaultTags) > 0 && extensionResource.TagsProperty != "" && extensionResource.TagsStyle != default_tags.TagsStyleUnknown {
+		tagsKey := resource.PropertyKey(extensionResource.TagsProperty)
+		inputProperties := resource.NewPropertyMapFromMap(extensionResource.Properties)
+		tagsStyle := extensionResource.TagsStyle
+		// When sending raw payloads to the CloudControl API we need to use the upper case version of the tags.
+		if tagsStyle.IsKeyValueArray() {
+			tagsStyle = default_tags.TagsStyleKeyValueArrayUpperCase
+		}
+		val, err := default_tags.MergeDefaultTags(inputProperties[tagsKey], defaultTags, tagsStyle)
+		if err != nil {
+			return nil, nil, err
+		}
+		inputProperties[tagsKey] = val
+		inputs[resource.PropertyKey("properties")] = resource.PropertyValue{V: inputProperties}
+	}
+
+	return inputs, nil, nil
+}
+
+func ApplyDefaults(r ExtensionResource) (ExtensionResource, []ValidationFailure) {
+	if !r.TagsStyle.IsValid() {
+		return r, []ValidationFailure{
+			{
+				Path:   "tagsStyle",
+				Reason: "tagsStyle is invalid, must be one of: stringMap, keyValueArray, none",
+			},
+		}
+	}
+
+	// If the tags style is unknown (unset) then we'll default to keyValueArray which is the most common style.
+	if r.TagsProperty != "" && r.TagsStyle == default_tags.TagsStyleUnknown {
+		r.TagsStyle = default_tags.TagsStyleKeyValueArray
+	}
+
+	// If the tags property is unset then we'll default to "Tags" which is the most common property name.
+	// Except if the tags style is explicitly set to none, in which case we'll ignore the tags property.
+	if r.TagsProperty == "" && r.TagsStyle != default_tags.TagsStyleNone && r.TagsStyle != default_tags.TagsStyleUnknown {
+		r.TagsProperty = "Tags"
+	}
+
+	return r, nil
+}
+
+func (r *extensionResource) Create(ctx context.Context, urn resource.URN, inputs resource.PropertyMap) (identifier *string, outputs map[string]any, err error) {
+	var extensionResource ExtensionResource
+	_, err = resourcex.Unmarshal(&extensionResource, inputs, resourcex.UnmarshalOptions{})
+	if err != nil {
+		return nil, nil, fmt.Errorf("failed to unmarshal inputs: %w", err)
+	}
+
+	id, resourceState, err := r.client.Create(ctx, extensionResource.Type, extensionResource.Properties)
+	if err != nil {
+		return nil, nil, fmt.Errorf("failed to create resource: %w", err)
+	}
+
+	return id, extensionResource.toOutputs(resourceState), nil
+}
+
+func (r *extensionResource) Read(ctx context.Context, urn resource.URN, id string, oldInputs, oldState resource.PropertyMap) (outputs map[string]any, inputs resource.PropertyMap, exists bool, err error) {
+	if len(oldState) == 0 {
+		// We can't yet support import because the type would not be known.
+		return nil, nil, false, fmt.Errorf("ExtensionResource import not implemented")
+	}
+	var extensionResource ExtensionResource
+	_, err = resourcex.Unmarshal(&extensionResource, oldInputs, resourcex.UnmarshalOptions{})
+	if err != nil {
+		return nil, nil, false, fmt.Errorf("failed to unmarshal old inputs: %w", err)
+	}
+
+	var oldOutputsMap resource.PropertyMap
+	if oldOutputsValue, ok := oldState[resource.PropertyKey("outputs")]; ok && oldOutputsValue.IsObject() {
+		oldOutputsMap = oldOutputsValue.ObjectValue()
+	}
+
+	resourceState, exists, err := r.client.Read(ctx, extensionResource.Type, id)
+	if err != nil {
+		return nil, nil, false, fmt.Errorf("failed to read resource: %w", err)
+	}
+	if !exists {
+		return nil, nil, false, nil
+	}
+
+	// Re-add write-only properties before calculating the inputs.
+	resourceState = extensionResource.AddWriteOnlyProps(resourceState)
+	oldProperties := resource.NewPropertyMapFromMap(extensionResource.Properties)
+	newOutputs := resource.NewPropertyMapFromMap(resourceState)
+	outputsDiff := oldOutputsMap.Diff(newOutputs)
+	newProperties := ApplyDiff(oldProperties, outputsDiff)
+
+	extensionResource.Properties = resourcex.Decode(newProperties)
+	newInputs := oldInputs.Copy()
+	newInputs[resource.PropertyKey("properties")] = resource.PropertyValue{V: newProperties}
+	return extensionResource.toOutputs(resourceState), newInputs, true, nil
+}
+
+func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap, oldInputs resource.PropertyMap) (map[string]any, error) {
+	var oldExtensionResource ExtensionResource
+	_, err := resourcex.Unmarshal(&oldExtensionResource, oldInputs, resourcex.UnmarshalOptions{})
+	if err != nil {
+		return nil, fmt.Errorf("failed to unmarshal old inputs: %w", err)
+	}
+
+	var newExtensionResource ExtensionResource
+	_, err = resourcex.Unmarshal(&newExtensionResource, inputs, resourcex.UnmarshalOptions{})
+	if err != nil {
+		return nil, fmt.Errorf("failed to unmarshal new inputs: %w", err)
+	}
+
+	if oldExtensionResource.Type != newExtensionResource.Type {
+		return nil, fmt.Errorf("changing the type of an extension resource is not supported")
+	}
+
+	jsonDiffPatch, err := jsondiff.Compare(oldExtensionResource.Properties, newExtensionResource.Properties)
+	if err != nil {
+		return nil, fmt.Errorf("failed to compare properties: %w", err)
+	}
+
+	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
+	// patch requests as adds to ensure the updated model validates.
+	for _, writeOnlyPropName := range newExtensionResource.WriteOnly {
+		newValue, ok := newExtensionResource.Properties[writeOnlyPropName]
+		if !ok {
+			continue
+		}
+		hasPatch := false
+		for _, op := range jsonDiffPatch {
+			if op.Path == writeOnlyPropName {
+				hasPatch = true
+				break
+			}
+		}
+		if !hasPatch {
+			jsonDiffPatch = append(jsonDiffPatch, jsondiff.Operation{
+				Type:  "add",
+				Path:  writeOnlyPropName,
+				Value: newValue,
+			})
+		}
+	}
+
+	jsonPatch := make([]jsonpatch.JsonPatchOperation, 0, len(jsonDiffPatch))
+	for _, op := range jsonDiffPatch {
+		jsonPatch = append(jsonPatch, jsonpatch.JsonPatchOperation{
+			Operation: op.Type,
+			Path:      op.Path,
+			Value:     op.Value,
+		})
+	}
+
+	resourceState, err := r.client.Update(ctx, newExtensionResource.Type, id, jsonPatch)
+	if err != nil {
+		return nil, fmt.Errorf("failed to update resource: %w", err)
+	}
+
+	return newExtensionResource.toOutputs(resourceState), nil
+}
+
+func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap) error {
+	var extensionResource ExtensionResource
+	_, err := resourcex.Unmarshal(&extensionResource, inputs, resourcex.UnmarshalOptions{})
+	if err != nil {
+		return fmt.Errorf("failed to unmarshal inputs: %w", err)
+	}
+
+	err = r.client.Delete(ctx, extensionResource.Type, id)
+	if err != nil {
+		return fmt.Errorf("failed to delete resource: %w", err)
+	}
+
+	return nil
+}
+
+func extensionResourceInputProperties() map[string]pschema.PropertySpec {
+	return map[string]pschema.PropertySpec{
+		"type": {
+			Description: "CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.",
+			TypeSpec: pschema.TypeSpec{
+				Type: "string",
+			},
+			ReplaceOnChanges: true,
+		},
+		"properties": {
+			Description: "Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.",
+			TypeSpec: pschema.TypeSpec{
+				Type: "object",
+				AdditionalProperties: &pschema.TypeSpec{
+					Ref: "pulumi.json#/Any",
+				},
+			},
+		},
+		"writeOnly": {
+			Description: "Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.\nIn the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).",
+			TypeSpec: pschema.TypeSpec{
+				Type: "array",
+				Items: &pschema.TypeSpec{
+					Type: "string",
+				},
+			},
+		},
+		"tagsProperty": {
+			Description: "Optional name of the property containing the tags. Defaults to \"Tags\" if the `tagsStyle` is set to either \"stringMap\" or \"keyValueArray\". This is used to apply default tags to the resource and can be ignored if not using default tags.",
+			TypeSpec: pschema.TypeSpec{
+				Type: "string",
+			},
+		},
+		"tagsStyle": {
+			Description: "Optional style of tags this resource uses. Valid values are \"stringMap\", \"keyValueArray\" or \"none\". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.",
+			TypeSpec: pschema.TypeSpec{
+				Type: "string",
+			},
+		},
+	}
+}
+
+func ExtensionResourceSpec() pschema.ResourceSpec {
+	return pschema.ResourceSpec{
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			Description: "A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.",
+			Properties:  extensionResourceOutputProperties(),
+			Required:    []string{"outputs"},
+		},
+		InputProperties: extensionResourceInputProperties(),
+		RequiredInputs:  []string{"type", "properties"},
+	}
+}
+
+func extensionResourceOutputProperties() map[string]pschema.PropertySpec {
+	properties := map[string]pschema.PropertySpec{}
+	properties["outputs"] = pschema.PropertySpec{
+		Description: "Dictionary of the extension resource attributes.",
+		TypeSpec: pschema.TypeSpec{
+			Type: "object",
+			AdditionalProperties: &pschema.TypeSpec{
+				Ref: "pulumi.json#/Any",
+			},
+		},
+	}
+	return properties
+}
+
+func (r *ExtensionResource) toOutputs(resourceState map[string]interface{}) map[string]any {
+	return map[string]interface{}{
+		"outputs": r.AddWriteOnlyProps(resourceState),
+	}
+}
+
+// AddWriteOnlyProps fills in the write-only properties from the old state as they won't be returned when reading.
+func (r *ExtensionResource) AddWriteOnlyProps(resourceState map[string]interface{}) map[string]interface{} {
+	if len(r.WriteOnly) == 0 {
+		return resourceState
+	}
+	appended := make(map[string]interface{}, len(resourceState)+len(r.WriteOnly))
+	for k, v := range resourceState {
+		appended[k] = v
+	}
+	for _, writeOnlyProp := range r.WriteOnly {
+		if _, ok := appended[writeOnlyProp]; !ok {
+			oldValue, ok := r.Properties[writeOnlyProp]
+			if ok {
+				appended[writeOnlyProp] = oldValue
+			}
+		}
+	}
+	return appended
+}

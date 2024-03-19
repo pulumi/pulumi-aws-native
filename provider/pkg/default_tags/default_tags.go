@@ -27,6 +27,8 @@ const (
 	// TagsStyleKeyValueArrayWithAlternateType is a style where the tags are represented as an array of key-value pairs
 	// but the value can also be of a different type.
 	TagsStyleKeyValueArrayWithAlternateType TagsStyle = tagStyleKeyValueArrayPrefix + "WithAlternateType"
+	// TagsStyleKeyValueArrayUpperCase is a style where the tags are represented as an array of key-value pairs but the "Key" and "Value" properties are uppercase.
+	TagsStyleKeyValueArrayUpperCase TagsStyle = tagStyleKeyValueArrayPrefix + "UpperCase"
 )
 
 func (ts TagsStyle) IsStringMap() bool {
@@ -35,4 +37,8 @@ func (ts TagsStyle) IsStringMap() bool {
 
 func (ts TagsStyle) IsKeyValueArray() bool {
 	return strings.HasPrefix(string(ts), tagStyleKeyValueArrayPrefix)
+}
+
+func (ts TagsStyle) IsValid() bool {
+	return ts == TagsStyleUnknown || ts == TagsStyleNone || ts == TagsStyleUntyped || ts.IsStringMap() || ts.IsKeyValueArray()
 }

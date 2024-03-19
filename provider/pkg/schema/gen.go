@@ -16,6 +16,7 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -369,41 +370,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 			},
 		},
 		Resources: map[string]pschema.ResourceSpec{
-			ExtensionResourceToken: {
-				ObjectTypeSpec: pschema.ObjectTypeSpec{
-					Description: "A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.",
-					Properties: map[string]pschema.PropertySpec{
-						"outputs": {
-							Description: "Dictionary of the extension resource attributes.",
-							TypeSpec: pschema.TypeSpec{
-								Type: "object",
-								AdditionalProperties: &pschema.TypeSpec{
-									Ref: "pulumi.json#/Any",
-								},
-							},
-						},
-					},
-					Required: []string{"outputs"},
-				},
-				InputProperties: map[string]pschema.PropertySpec{
-					"type": {
-						Description: "CloudFormation type name.",
-						TypeSpec: pschema.TypeSpec{
-							Type: "string",
-						},
-					},
-					"properties": {
-						Description: "Dictionary of the extension resource properties.",
-						TypeSpec: pschema.TypeSpec{
-							Type: "object",
-							AdditionalProperties: &pschema.TypeSpec{
-								Ref: "pulumi.json#/Any",
-							},
-						},
-					},
-				},
-				RequiredInputs: []string{"type", "properties"},
-			},
+			metadata.ExtensionResourceToken: resources.ExtensionResourceSpec(),
 		},
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]pschema.RawMessage{},
@@ -434,13 +401,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 	})
 
 	metadata := metadata.CloudAPIMetadata{
-		Resources: map[string]metadata.CloudAPIResource{
-			ExtensionResourceToken: {
-				Inputs:     p.Resources[ExtensionResourceToken].InputProperties,
-				Outputs:    p.Resources[ExtensionResourceToken].Properties,
-				CreateOnly: []string{"type", "properties"},
-			},
-		},
+		Resources: map[string]metadata.CloudAPIResource{},
 		Types: map[string]metadata.CloudAPIType{
 			globalTagToken: {
 				Type:       "object",
@@ -1446,5 +1407,3 @@ func GatherSemantics(schemaDir string) (autonaming.SemanticsSpecDocument, error)
 	}
 	return semanticsDocument, nil
 }
-
-var ExtensionResourceToken string = "aws-native:index:ExtensionResource"
