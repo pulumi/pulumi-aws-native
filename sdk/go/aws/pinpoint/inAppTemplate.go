@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,12 +30,9 @@ type InAppTemplate struct {
 func NewInAppTemplate(ctx *pulumi.Context,
 	name string, args *InAppTemplateArgs, opts ...pulumi.ResourceOption) (*InAppTemplate, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &InAppTemplateArgs{}
 	}
 
-	if args.TemplateName == nil {
-		return nil, errors.New("invalid value for required argument 'TemplateName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"templateName",
 	})
@@ -81,7 +77,7 @@ type inAppTemplateArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
 	Tags                interface{} `pulumi:"tags"`
 	TemplateDescription *string     `pulumi:"templateDescription"`
-	TemplateName        string      `pulumi:"templateName"`
+	TemplateName        *string     `pulumi:"templateName"`
 }
 
 // The set of arguments for constructing a InAppTemplate resource.
@@ -93,7 +89,7 @@ type InAppTemplateArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
 	Tags                pulumi.Input
 	TemplateDescription pulumi.StringPtrInput
-	TemplateName        pulumi.StringInput
+	TemplateName        pulumi.StringPtrInput
 }
 
 func (InAppTemplateArgs) ElementType() reflect.Type {

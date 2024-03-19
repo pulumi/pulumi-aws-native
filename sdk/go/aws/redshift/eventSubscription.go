@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -51,12 +50,9 @@ type EventSubscription struct {
 func NewEventSubscription(ctx *pulumi.Context,
 	name string, args *EventSubscriptionArgs, opts ...pulumi.ResourceOption) (*EventSubscription, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &EventSubscriptionArgs{}
 	}
 
-	if args.SubscriptionName == nil {
-		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"subscriptionName",
 	})
@@ -107,7 +103,7 @@ type eventSubscriptionArgs struct {
 	// The type of source that will be generating the events.
 	SourceType *EventSubscriptionSourceType `pulumi:"sourceType"`
 	// The name of the Amazon Redshift event notification subscription
-	SubscriptionName string `pulumi:"subscriptionName"`
+	SubscriptionName *string `pulumi:"subscriptionName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -127,7 +123,7 @@ type EventSubscriptionArgs struct {
 	// The type of source that will be generating the events.
 	SourceType EventSubscriptionSourceTypePtrInput
 	// The name of the Amazon Redshift event notification subscription
-	SubscriptionName pulumi.StringInput
+	SubscriptionName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }

@@ -58,13 +58,10 @@ export class GeofenceCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GeofenceCollectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: GeofenceCollectionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.collectionName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'collectionName'");
-            }
             resourceInputs["collectionName"] = args ? args.collectionName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -98,7 +95,7 @@ export class GeofenceCollection extends pulumi.CustomResource {
  * The set of arguments for constructing a GeofenceCollection resource.
  */
 export interface GeofenceCollectionArgs {
-    collectionName: pulumi.Input<string>;
+    collectionName?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<enums.location.GeofenceCollectionPricingPlan>;

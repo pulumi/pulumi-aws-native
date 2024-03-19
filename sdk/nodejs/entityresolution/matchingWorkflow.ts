@@ -77,9 +77,6 @@ export class MatchingWorkflow extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.workflowName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'workflowName'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
             resourceInputs["outputSourceConfig"] = args ? args.outputSourceConfig : undefined;
@@ -125,5 +122,5 @@ export interface MatchingWorkflowArgs {
     /**
      * The name of the MatchingWorkflow
      */
-    workflowName: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string>;
 }

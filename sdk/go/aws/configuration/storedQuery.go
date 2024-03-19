@@ -36,9 +36,6 @@ func NewStoredQuery(ctx *pulumi.Context,
 	if args.QueryExpression == nil {
 		return nil, errors.New("invalid value for required argument 'QueryExpression'")
 	}
-	if args.QueryName == nil {
-		return nil, errors.New("invalid value for required argument 'QueryName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"queryName",
 	})
@@ -78,7 +75,7 @@ func (StoredQueryState) ElementType() reflect.Type {
 type storedQueryArgs struct {
 	QueryDescription *string `pulumi:"queryDescription"`
 	QueryExpression  string  `pulumi:"queryExpression"`
-	QueryName        string  `pulumi:"queryName"`
+	QueryName        *string `pulumi:"queryName"`
 	// The tags for the stored query.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -87,7 +84,7 @@ type storedQueryArgs struct {
 type StoredQueryArgs struct {
 	QueryDescription pulumi.StringPtrInput
 	QueryExpression  pulumi.StringInput
-	QueryName        pulumi.StringInput
+	QueryName        pulumi.StringPtrInput
 	// The tags for the stored query.
 	Tags aws.TagArrayInput
 }

@@ -257,9 +257,6 @@ func NewAnomalySubscription(ctx *pulumi.Context,
 	if args.Subscribers == nil {
 		return nil, errors.New("invalid value for required argument 'Subscribers'")
 	}
-	if args.SubscriptionName == nil {
-		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"resourceTags[*]",
 	})
@@ -306,7 +303,7 @@ type anomalySubscriptionArgs struct {
 	// A list of subscriber
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// The name of the subscription.
-	SubscriptionName string `pulumi:"subscriptionName"`
+	SubscriptionName *string `pulumi:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold *float64 `pulumi:"threshold"`
 	// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
@@ -324,7 +321,7 @@ type AnomalySubscriptionArgs struct {
 	// A list of subscriber
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// The name of the subscription.
-	SubscriptionName pulumi.StringInput
+	SubscriptionName pulumi.StringPtrInput
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold pulumi.Float64PtrInput
 	// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.

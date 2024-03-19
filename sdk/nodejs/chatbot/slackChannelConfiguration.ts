@@ -82,9 +82,6 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'configurationName'");
-            }
             if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRoleArn'");
             }
@@ -128,7 +125,7 @@ export interface SlackChannelConfigurationArgs {
     /**
      * The name of the configuration
      */
-    configurationName: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string>;
     /**
      * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
      */

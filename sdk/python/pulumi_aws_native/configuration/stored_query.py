@@ -17,17 +17,18 @@ __all__ = ['StoredQueryArgs', 'StoredQuery']
 class StoredQueryArgs:
     def __init__(__self__, *,
                  query_expression: pulumi.Input[str],
-                 query_name: pulumi.Input[str],
                  query_description: Optional[pulumi.Input[str]] = None,
+                 query_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StoredQuery resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the stored query.
         """
         pulumi.set(__self__, "query_expression", query_expression)
-        pulumi.set(__self__, "query_name", query_name)
         if query_description is not None:
             pulumi.set(__self__, "query_description", query_description)
+        if query_name is not None:
+            pulumi.set(__self__, "query_name", query_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -41,15 +42,6 @@ class StoredQueryArgs:
         pulumi.set(self, "query_expression", value)
 
     @property
-    @pulumi.getter(name="queryName")
-    def query_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "query_name")
-
-    @query_name.setter
-    def query_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "query_name", value)
-
-    @property
     @pulumi.getter(name="queryDescription")
     def query_description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "query_description")
@@ -57,6 +49,15 @@ class StoredQueryArgs:
     @query_description.setter
     def query_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "query_description", value)
+
+    @property
+    @pulumi.getter(name="queryName")
+    def query_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "query_name")
+
+    @query_name.setter
+    def query_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_name", value)
 
     @property
     @pulumi.getter
@@ -129,8 +130,6 @@ class StoredQuery(pulumi.CustomResource):
             if query_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'query_expression'")
             __props__.__dict__["query_expression"] = query_expression
-            if query_name is None and not opts.urn:
-                raise TypeError("Missing required property 'query_name'")
             __props__.__dict__["query_name"] = query_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["query_arn"] = None

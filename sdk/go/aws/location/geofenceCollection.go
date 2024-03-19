@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -34,12 +33,9 @@ type GeofenceCollection struct {
 func NewGeofenceCollection(ctx *pulumi.Context,
 	name string, args *GeofenceCollectionArgs, opts ...pulumi.ResourceOption) (*GeofenceCollection, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &GeofenceCollectionArgs{}
 	}
 
-	if args.CollectionName == nil {
-		return nil, errors.New("invalid value for required argument 'CollectionName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"collectionName",
 		"kmsKeyId",
@@ -78,7 +74,7 @@ func (GeofenceCollectionState) ElementType() reflect.Type {
 }
 
 type geofenceCollectionArgs struct {
-	CollectionName        string                         `pulumi:"collectionName"`
+	CollectionName        *string                        `pulumi:"collectionName"`
 	Description           *string                        `pulumi:"description"`
 	KmsKeyId              *string                        `pulumi:"kmsKeyId"`
 	PricingPlan           *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
@@ -89,7 +85,7 @@ type geofenceCollectionArgs struct {
 
 // The set of arguments for constructing a GeofenceCollection resource.
 type GeofenceCollectionArgs struct {
-	CollectionName        pulumi.StringInput
+	CollectionName        pulumi.StringPtrInput
 	Description           pulumi.StringPtrInput
 	KmsKeyId              pulumi.StringPtrInput
 	PricingPlan           GeofenceCollectionPricingPlanPtrInput

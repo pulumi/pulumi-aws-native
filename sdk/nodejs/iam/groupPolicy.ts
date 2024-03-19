@@ -72,9 +72,6 @@ export class GroupPolicy extends pulumi.CustomResource {
             if ((!args || args.groupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.policyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
@@ -114,5 +111,5 @@ export interface GroupPolicyArgs {
      * The name of the policy document.
      *  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
 }

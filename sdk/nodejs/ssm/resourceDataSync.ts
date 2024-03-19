@@ -218,13 +218,10 @@ export class ResourceDataSync extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.syncName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'syncName'");
-            }
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
             resourceInputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
             resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
@@ -262,7 +259,7 @@ export interface ResourceDataSyncArgs {
     kmsKeyArn?: pulumi.Input<string>;
     s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3DestinationArgs>;
     syncFormat?: pulumi.Input<string>;
-    syncName: pulumi.Input<string>;
+    syncName?: pulumi.Input<string>;
     syncSource?: pulumi.Input<inputs.ssm.ResourceDataSyncSyncSourceArgs>;
     syncType?: pulumi.Input<string>;
 }

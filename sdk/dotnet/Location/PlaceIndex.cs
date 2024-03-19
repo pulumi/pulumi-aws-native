@@ -107,8 +107,8 @@ namespace Pulumi.AwsNative.Location
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("indexName", required: true)]
-        public Input<string> IndexName { get; set; } = null!;
+        [Input("indexName")]
+        public Input<string>? IndexName { get; set; }
 
         [Input("pricingPlan")]
         public Input<Pulumi.AwsNative.Location.PlaceIndexPricingPlan>? PricingPlan { get; set; }

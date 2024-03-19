@@ -139,8 +139,8 @@ namespace Pulumi.AwsNative.XRay
         /// <summary>
         /// The name of the resource policy. Must be unique within a specific AWS account.
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         public ResourcePolicyArgs()
         {

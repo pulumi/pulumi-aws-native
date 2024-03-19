@@ -1694,47 +1694,6 @@
       }
     }
   },
-  "aws-native:cognito:UserPoolUser": {
-    "cfTypeName": "AWS::Cognito::UserPoolUser",
-    "properties": {
-      "clientMetadata": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        }
-      },
-      "desiredDeliveryMediums": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "forceAliasCreation": {
-        "type": "boolean"
-      },
-      "messageAction": {
-        "type": "string"
-      },
-      "userAttributes": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:cognito:UserPoolUserAttributeType"
-        }
-      },
-      "userPoolId": {
-        "type": "string"
-      },
-      "username": {
-        "type": "string"
-      },
-      "validationData": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:cognito:UserPoolUserAttributeType"
-        }
-      }
-    }
-  },
   "aws-native:cognito:UserPoolUserToGroupAttachment": {
     "cfTypeName": "AWS::Cognito::UserPoolUserToGroupAttachment",
     "properties": {
@@ -1932,64 +1891,6 @@
       },
       "key": {
         "type": "string"
-      }
-    }
-  },
-  "aws-native:connect:User": {
-    "cfTypeName": "AWS::Connect::User",
-    "properties": {
-      "directoryUserId": {
-        "type": "string",
-        "description": "The identifier of the user account in the directory used for identity management."
-      },
-      "hierarchyGroupArn": {
-        "type": "string",
-        "description": "The identifier of the hierarchy group for the user."
-      },
-      "identityInfo": {
-        "$ref": "#/types/aws-native:connect:UserIdentityInfo",
-        "description": "The information about the identity of the user."
-      },
-      "instanceArn": {
-        "type": "string",
-        "description": "The identifier of the Amazon Connect instance."
-      },
-      "password": {
-        "type": "string",
-        "description": "The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password."
-      },
-      "phoneConfig": {
-        "$ref": "#/types/aws-native:connect:UserPhoneConfig",
-        "description": "The phone settings for the user."
-      },
-      "routingProfileArn": {
-        "type": "string",
-        "description": "The identifier of the routing profile for the user."
-      },
-      "securityProfileArns": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "One or more security profile arns for the user"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "One or more tags."
-      },
-      "userProficiencies": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:connect:UserProficiency"
-        },
-        "description": "One or more predefined attributes assigned to a user, with a level that indicates how skilled they are."
-      },
-      "username": {
-        "type": "string",
-        "description": "The user name for the account."
       }
     }
   },
@@ -7444,42 +7345,6 @@
       }
     }
   },
-  "aws-native:medialive:Multiplexprogram": {
-    "cfTypeName": "AWS::MediaLive::Multiplexprogram",
-    "properties": {
-      "channelId": {
-        "type": "string",
-        "description": "The MediaLive channel associated with the program."
-      },
-      "multiplexId": {
-        "type": "string",
-        "description": "The ID of the multiplex that the program belongs to."
-      },
-      "multiplexProgramSettings": {
-        "$ref": "#/types/aws-native:medialive:MultiplexprogramMultiplexProgramSettings",
-        "description": "The settings for this multiplex program."
-      },
-      "packetIdentifiersMap": {
-        "$ref": "#/types/aws-native:medialive:MultiplexprogramMultiplexProgramPacketIdentifiersMap",
-        "description": "The packet identifier map for this multiplex program."
-      },
-      "pipelineDetails": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:medialive:MultiplexprogramMultiplexProgramPipelineDetail"
-        },
-        "description": "Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time."
-      },
-      "preferredChannelPipeline": {
-        "$ref": "#/types/aws-native:medialive:MultiplexprogramPreferredChannelPipeline",
-        "description": "The settings for this multiplex program."
-      },
-      "programName": {
-        "type": "string",
-        "description": "The name of the multiplex program."
-      }
-    }
-  },
   "aws-native:mediapackage:Asset": {
     "cfTypeName": "AWS::MediaPackage::Asset",
     "properties": {
@@ -9910,6 +9775,56 @@
       "standardsArn": {
         "type": "string",
         "description": "The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation."
+      }
+    }
+  },
+  "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
+    "cfTypeName": "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
+    "properties": {
+      "acceptLanguage": {
+        "$ref": "#/types/aws-native:servicecatalog:CloudFormationProvisionedProductAcceptLanguage"
+      },
+      "notificationArns": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "pathId": {
+        "type": "string"
+      },
+      "pathName": {
+        "type": "string"
+      },
+      "productId": {
+        "type": "string"
+      },
+      "productName": {
+        "type": "string"
+      },
+      "provisionedProductName": {
+        "type": "string"
+      },
+      "provisioningArtifactId": {
+        "type": "string"
+      },
+      "provisioningArtifactName": {
+        "type": "string"
+      },
+      "provisioningParameters": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:servicecatalog:CloudFormationProvisionedProductProvisioningParameter"
+        }
+      },
+      "provisioningPreferences": {
+        "$ref": "#/types/aws-native:servicecatalog:CloudFormationProvisionedProductProvisioningPreferences"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },

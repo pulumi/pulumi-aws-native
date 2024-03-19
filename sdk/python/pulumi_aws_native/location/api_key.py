@@ -18,19 +18,18 @@ __all__ = ['ApiKeyArgs', 'ApiKey']
 @pulumi.input_type
 class ApiKeyArgs:
     def __init__(__self__, *,
-                 key_name: pulumi.Input[str],
                  restrictions: pulumi.Input['ApiKeyRestrictionsArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  expire_time: Optional[pulumi.Input[str]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_update: Optional[pulumi.Input[bool]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
                  no_expiry: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "restrictions", restrictions)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -40,19 +39,12 @@ class ApiKeyArgs:
             pulumi.set(__self__, "force_delete", force_delete)
         if force_update is not None:
             pulumi.set(__self__, "force_update", force_update)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
         if no_expiry is not None:
             pulumi.set(__self__, "no_expiry", no_expiry)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "key_name")
-
-    @key_name.setter
-    def key_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key_name", value)
 
     @property
     @pulumi.getter
@@ -98,6 +90,15 @@ class ApiKeyArgs:
     @force_update.setter
     def force_update(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_update", value)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
 
     @property
     @pulumi.getter(name="noExpiry")
@@ -187,8 +188,6 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["expire_time"] = expire_time
             __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["force_update"] = force_update
-            if key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_name'")
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["no_expiry"] = no_expiry
             if restrictions is None and not opts.urn:

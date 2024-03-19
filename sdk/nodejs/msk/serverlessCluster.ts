@@ -60,9 +60,6 @@ export class ServerlessCluster extends pulumi.CustomResource {
             if ((!args || args.clientAuthentication === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientAuthentication'");
             }
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.vpcConfigs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfigs'");
             }
@@ -90,7 +87,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
  */
 export interface ServerlessClusterArgs {
     clientAuthentication: pulumi.Input<inputs.msk.ServerlessClusterClientAuthenticationArgs>;
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * A key-value pair to associate with a resource.
      */

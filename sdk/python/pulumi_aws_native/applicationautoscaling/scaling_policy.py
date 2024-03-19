@@ -16,8 +16,8 @@ __all__ = ['ScalingPolicyArgs', 'ScalingPolicy']
 @pulumi.input_type
 class ScalingPolicyArgs:
     def __init__(__self__, *,
-                 policy_name: pulumi.Input[str],
                  policy_type: pulumi.Input[str],
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
                  scaling_target_id: Optional[pulumi.Input[str]] = None,
@@ -26,9 +26,6 @@ class ScalingPolicyArgs:
                  target_tracking_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ScalingPolicy resource.
-        :param pulumi.Input[str] policy_name: The name of the scaling policy.
-               
-               Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
         :param pulumi.Input[str] policy_type: The scaling policy type.
                
                The following policy types are supported:
@@ -36,6 +33,9 @@ class ScalingPolicyArgs:
                TargetTrackingScaling Not supported for Amazon EMR
                
                StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+        :param pulumi.Input[str] policy_name: The name of the scaling policy.
+               
+               Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
         :param pulumi.Input[str] resource_id: The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
         :param pulumi.Input[str] scalable_dimension: The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
         :param pulumi.Input[str] scaling_target_id: The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the AWS::ApplicationAutoScaling::ScalableTarget resource.
@@ -43,8 +43,9 @@ class ScalingPolicyArgs:
         :param pulumi.Input['ScalingPolicyStepScalingPolicyConfigurationArgs'] step_scaling_policy_configuration: A step scaling policy.
         :param pulumi.Input['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs'] target_tracking_scaling_policy_configuration: A target tracking scaling policy.
         """
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "policy_type", policy_type)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if scalable_dimension is not None:
@@ -57,20 +58,6 @@ class ScalingPolicyArgs:
             pulumi.set(__self__, "step_scaling_policy_configuration", step_scaling_policy_configuration)
         if target_tracking_scaling_policy_configuration is not None:
             pulumi.set(__self__, "target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
-
-    @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[str]:
-        """
-        The name of the scaling policy.
-
-        Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policy_name", value)
 
     @property
     @pulumi.getter(name="policyType")
@@ -89,6 +76,20 @@ class ScalingPolicyArgs:
     @policy_type.setter
     def policy_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the scaling policy.
+
+        Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -240,8 +241,6 @@ class ScalingPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScalingPolicyArgs.__new__(ScalingPolicyArgs)
 
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")

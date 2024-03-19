@@ -101,13 +101,10 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.subscriptionName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subscriptionName'");
-            }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
             resourceInputs["severity"] = args ? args.severity : undefined;
@@ -176,7 +173,7 @@ export interface EventSubscriptionArgs {
     /**
      * The name of the Amazon Redshift event notification subscription
      */
-    subscriptionName: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

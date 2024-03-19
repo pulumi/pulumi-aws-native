@@ -15,14 +15,15 @@ __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
 class ResourcePolicyArgs:
     def __init__(__self__, *,
                  policy_document: pulumi.Input[str],
-                 policy_name: pulumi.Input[str]):
+                 policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
         :param pulumi.Input[str] policy_document: The policy document
         :param pulumi.Input[str] policy_name: A name for resource policy
         """
         pulumi.set(__self__, "policy_document", policy_document)
-        pulumi.set(__self__, "policy_name", policy_name)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -38,14 +39,14 @@ class ResourcePolicyArgs:
 
     @property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[str]:
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
         """
         A name for resource policy
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_name", value)
 
 
@@ -103,8 +104,6 @@ class ResourcePolicy(pulumi.CustomResource):
             if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policyName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

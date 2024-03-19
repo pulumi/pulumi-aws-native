@@ -112,8 +112,8 @@ namespace Pulumi.AwsNative.Iam
         /// The name of the policy document.
         ///  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// The name of the role to associate the policy with.

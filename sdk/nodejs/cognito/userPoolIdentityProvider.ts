@@ -59,9 +59,6 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.providerName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'providerName'");
-            }
             if ((!args || args.providerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerType'");
             }
@@ -104,7 +101,7 @@ export interface UserPoolIdentityProviderArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
      */
     providerDetails?: any;
-    providerName: pulumi.Input<string>;
+    providerName?: pulumi.Input<string>;
     providerType: pulumi.Input<string>;
     userPoolId: pulumi.Input<string>;
 }

@@ -133,8 +133,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// The SSL/TLS certificate name.
         /// </summary>
-        [Input("certificateName", required: true)]
-        public Input<string> CertificateName { get; set; } = null!;
+        [Input("certificateName")]
+        public Input<string>? CertificateName { get; set; }
 
         /// <summary>
         /// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.

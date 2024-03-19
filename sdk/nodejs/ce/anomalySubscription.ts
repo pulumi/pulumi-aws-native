@@ -201,9 +201,6 @@ export class AnomalySubscription extends pulumi.CustomResource {
             if ((!args || args.subscribers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            if ((!args || args.subscriptionName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subscriptionName'");
-            }
             resourceInputs["frequency"] = args ? args.frequency : undefined;
             resourceInputs["monitorArnList"] = args ? args.monitorArnList : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
@@ -254,7 +251,7 @@ export interface AnomalySubscriptionArgs {
     /**
      * The name of the subscription.
      */
-    subscriptionName: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string>;
     /**
      * The dollar value that triggers a notification if the threshold is exceeded. 
      */

@@ -51,9 +51,6 @@ func NewScalingPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	if args.PolicyType == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyType'")
 	}
@@ -101,7 +98,7 @@ type scalingPolicyArgs struct {
 	// The name of the scaling policy.
 	//
 	// Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
-	PolicyName string `pulumi:"policyName"`
+	PolicyName *string `pulumi:"policyName"`
 	// The scaling policy type.
 	//
 	// The following policy types are supported:
@@ -129,7 +126,7 @@ type ScalingPolicyArgs struct {
 	// The name of the scaling policy.
 	//
 	// Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 	// The scaling policy type.
 	//
 	// The following policy types are supported:

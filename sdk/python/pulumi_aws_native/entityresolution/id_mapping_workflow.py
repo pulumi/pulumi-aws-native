@@ -23,23 +23,24 @@ class IdMappingWorkflowArgs:
                  input_source_config: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]],
                  output_source_config: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]],
                  role_arn: pulumi.Input[str],
-                 workflow_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 workflow_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IdMappingWorkflow resource.
-        :param pulumi.Input[str] workflow_name: The name of the IdMappingWorkflow
         :param pulumi.Input[str] description: The description of the IdMappingWorkflow
+        :param pulumi.Input[str] workflow_name: The name of the IdMappingWorkflow
         """
         pulumi.set(__self__, "id_mapping_techniques", id_mapping_techniques)
         pulumi.set(__self__, "input_source_config", input_source_config)
         pulumi.set(__self__, "output_source_config", output_source_config)
         pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "workflow_name", workflow_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workflow_name is not None:
+            pulumi.set(__self__, "workflow_name", workflow_name)
 
     @property
     @pulumi.getter(name="idMappingTechniques")
@@ -78,18 +79,6 @@ class IdMappingWorkflowArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="workflowName")
-    def workflow_name(self) -> pulumi.Input[str]:
-        """
-        The name of the IdMappingWorkflow
-        """
-        return pulumi.get(self, "workflow_name")
-
-    @workflow_name.setter
-    def workflow_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "workflow_name", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -109,6 +98,18 @@ class IdMappingWorkflowArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="workflowName")
+    def workflow_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IdMappingWorkflow
+        """
+        return pulumi.get(self, "workflow_name")
+
+    @workflow_name.setter
+    def workflow_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workflow_name", value)
 
 
 class IdMappingWorkflow(pulumi.CustomResource):
@@ -186,8 +187,6 @@ class IdMappingWorkflow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
-            if workflow_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workflow_name'")
             __props__.__dict__["workflow_name"] = workflow_name
             __props__.__dict__["created_at"] = None
             __props__.__dict__["updated_at"] = None

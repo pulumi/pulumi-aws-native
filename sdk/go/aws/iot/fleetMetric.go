@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -50,12 +49,9 @@ type FleetMetric struct {
 func NewFleetMetric(ctx *pulumi.Context,
 	name string, args *FleetMetricArgs, opts ...pulumi.ResourceOption) (*FleetMetric, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &FleetMetricArgs{}
 	}
 
-	if args.MetricName == nil {
-		return nil, errors.New("invalid value for required argument 'MetricName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"metricName",
 	})
@@ -101,7 +97,7 @@ type fleetMetricArgs struct {
 	// The index name of a fleet metric
 	IndexName *string `pulumi:"indexName"`
 	// The name of the fleet metric
-	MetricName string `pulumi:"metricName"`
+	MetricName *string `pulumi:"metricName"`
 	// The period of metric emission in seconds
 	Period *int `pulumi:"period"`
 	// The Fleet Indexing query used by a fleet metric
@@ -124,7 +120,7 @@ type FleetMetricArgs struct {
 	// The index name of a fleet metric
 	IndexName pulumi.StringPtrInput
 	// The name of the fleet metric
-	MetricName pulumi.StringInput
+	MetricName pulumi.StringPtrInput
 	// The period of metric emission in seconds
 	Period pulumi.IntPtrInput
 	// The Fleet Indexing query used by a fleet metric

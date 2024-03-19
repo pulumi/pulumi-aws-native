@@ -95,8 +95,8 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class RouteCalculatorArgs : global::Pulumi.ResourceArgs
     {
-        [Input("calculatorName", required: true)]
-        public Input<string> CalculatorName { get; set; } = null!;
+        [Input("calculatorName")]
+        public Input<string>? CalculatorName { get; set; }
 
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;

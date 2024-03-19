@@ -18,11 +18,11 @@ __all__ = ['FleetMetricArgs', 'FleetMetric']
 @pulumi.input_type
 class FleetMetricArgs:
     def __init__(__self__, *,
-                 metric_name: pulumi.Input[str],
                  aggregation_field: Optional[pulumi.Input[str]] = None,
                  aggregation_type: Optional[pulumi.Input['FleetMetricAggregationTypeArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_name: Optional[pulumi.Input[str]] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
                  period: Optional[pulumi.Input[int]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  query_version: Optional[pulumi.Input[str]] = None,
@@ -30,17 +30,16 @@ class FleetMetricArgs:
                  unit: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FleetMetric resource.
-        :param pulumi.Input[str] metric_name: The name of the fleet metric
         :param pulumi.Input[str] aggregation_field: The aggregation field to perform aggregation and metric emission
         :param pulumi.Input[str] description: The description of a fleet metric
         :param pulumi.Input[str] index_name: The index name of a fleet metric
+        :param pulumi.Input[str] metric_name: The name of the fleet metric
         :param pulumi.Input[int] period: The period of metric emission in seconds
         :param pulumi.Input[str] query_string: The Fleet Indexing query used by a fleet metric
         :param pulumi.Input[str] query_version: The version of a Fleet Indexing query used by a fleet metric
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource
         :param pulumi.Input[str] unit: The unit of data points emitted by a fleet metric
         """
-        pulumi.set(__self__, "metric_name", metric_name)
         if aggregation_field is not None:
             pulumi.set(__self__, "aggregation_field", aggregation_field)
         if aggregation_type is not None:
@@ -49,6 +48,8 @@ class FleetMetricArgs:
             pulumi.set(__self__, "description", description)
         if index_name is not None:
             pulumi.set(__self__, "index_name", index_name)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
         if period is not None:
             pulumi.set(__self__, "period", period)
         if query_string is not None:
@@ -59,18 +60,6 @@ class FleetMetricArgs:
             pulumi.set(__self__, "tags", tags)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
-
-    @property
-    @pulumi.getter(name="metricName")
-    def metric_name(self) -> pulumi.Input[str]:
-        """
-        The name of the fleet metric
-        """
-        return pulumi.get(self, "metric_name")
-
-    @metric_name.setter
-    def metric_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "metric_name", value)
 
     @property
     @pulumi.getter(name="aggregationField")
@@ -116,6 +105,18 @@ class FleetMetricArgs:
     @index_name.setter
     def index_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "index_name", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the fleet metric
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_name", value)
 
     @property
     @pulumi.getter
@@ -213,7 +214,7 @@ class FleetMetric(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FleetMetricArgs,
+                 args: Optional[FleetMetricArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An aggregated metric of certain devices in your fleet
@@ -256,8 +257,6 @@ class FleetMetric(pulumi.CustomResource):
             __props__.__dict__["aggregation_type"] = aggregation_type
             __props__.__dict__["description"] = description
             __props__.__dict__["index_name"] = index_name
-            if metric_name is None and not opts.urn:
-                raise TypeError("Missing required property 'metric_name'")
             __props__.__dict__["metric_name"] = metric_name
             __props__.__dict__["period"] = period
             __props__.__dict__["query_string"] = query_string

@@ -57,9 +57,6 @@ export class ResourcePolicy extends pulumi.CustomResource {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.policyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
         } else {
@@ -84,5 +81,5 @@ export interface ResourcePolicyArgs {
     /**
      * A name for resource policy
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
 }

@@ -36,9 +36,6 @@ func NewPreparedStatement(ctx *pulumi.Context,
 	if args.QueryStatement == nil {
 		return nil, errors.New("invalid value for required argument 'QueryStatement'")
 	}
-	if args.StatementName == nil {
-		return nil, errors.New("invalid value for required argument 'StatementName'")
-	}
 	if args.WorkGroup == nil {
 		return nil, errors.New("invalid value for required argument 'WorkGroup'")
 	}
@@ -85,7 +82,7 @@ type preparedStatementArgs struct {
 	// The query string for the prepared statement.
 	QueryStatement string `pulumi:"queryStatement"`
 	// The name of the prepared statement.
-	StatementName string `pulumi:"statementName"`
+	StatementName *string `pulumi:"statementName"`
 	// The name of the workgroup to which the prepared statement belongs.
 	WorkGroup string `pulumi:"workGroup"`
 }
@@ -97,7 +94,7 @@ type PreparedStatementArgs struct {
 	// The query string for the prepared statement.
 	QueryStatement pulumi.StringInput
 	// The name of the prepared statement.
-	StatementName pulumi.StringInput
+	StatementName pulumi.StringPtrInput
 	// The name of the workgroup to which the prepared statement belongs.
 	WorkGroup pulumi.StringInput
 }

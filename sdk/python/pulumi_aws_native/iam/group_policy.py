@@ -15,14 +15,12 @@ __all__ = ['GroupPolicyInitArgs', 'GroupPolicy']
 class GroupPolicyInitArgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[str],
-                 policy_name: pulumi.Input[str],
-                 policy_document: Optional[Any] = None):
+                 policy_document: Optional[Any] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GroupPolicy resource.
         :param pulumi.Input[str] group_name: The name of the group to associate the policy with.
                 This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
-        :param pulumi.Input[str] policy_name: The name of the policy document.
-                This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :param Any policy_document: The policy document.
                 You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
                 The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
@@ -31,11 +29,14 @@ class GroupPolicyInitArgs:
                  +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] policy_name: The name of the policy document.
+                This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         """
         pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "policy_name", policy_name)
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
 
     @property
     @pulumi.getter(name="groupName")
@@ -49,19 +50,6 @@ class GroupPolicyInitArgs:
     @group_name.setter
     def group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "group_name", value)
-
-    @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[str]:
-        """
-        The name of the policy document.
-         This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policy_name", value)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -81,6 +69,19 @@ class GroupPolicyInitArgs:
     @policy_document.setter
     def policy_document(self, value: Optional[Any]):
         pulumi.set(self, "policy_document", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy document.
+         This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
 
 
 class GroupPolicy(pulumi.CustomResource):
@@ -154,8 +155,6 @@ class GroupPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
             __props__.__dict__["policy_document"] = policy_document
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["groupName", "policyName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

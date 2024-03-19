@@ -15,21 +15,22 @@ __all__ = ['PreparedStatementArgs', 'PreparedStatement']
 class PreparedStatementArgs:
     def __init__(__self__, *,
                  query_statement: pulumi.Input[str],
-                 statement_name: pulumi.Input[str],
                  work_group: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 statement_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PreparedStatement resource.
         :param pulumi.Input[str] query_statement: The query string for the prepared statement.
-        :param pulumi.Input[str] statement_name: The name of the prepared statement.
         :param pulumi.Input[str] work_group: The name of the workgroup to which the prepared statement belongs.
         :param pulumi.Input[str] description: The description of the prepared statement.
+        :param pulumi.Input[str] statement_name: The name of the prepared statement.
         """
         pulumi.set(__self__, "query_statement", query_statement)
-        pulumi.set(__self__, "statement_name", statement_name)
         pulumi.set(__self__, "work_group", work_group)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if statement_name is not None:
+            pulumi.set(__self__, "statement_name", statement_name)
 
     @property
     @pulumi.getter(name="queryStatement")
@@ -42,18 +43,6 @@ class PreparedStatementArgs:
     @query_statement.setter
     def query_statement(self, value: pulumi.Input[str]):
         pulumi.set(self, "query_statement", value)
-
-    @property
-    @pulumi.getter(name="statementName")
-    def statement_name(self) -> pulumi.Input[str]:
-        """
-        The name of the prepared statement.
-        """
-        return pulumi.get(self, "statement_name")
-
-    @statement_name.setter
-    def statement_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "statement_name", value)
 
     @property
     @pulumi.getter(name="workGroup")
@@ -78,6 +67,18 @@ class PreparedStatementArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="statementName")
+    def statement_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the prepared statement.
+        """
+        return pulumi.get(self, "statement_name")
+
+    @statement_name.setter
+    def statement_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "statement_name", value)
 
 
 class PreparedStatement(pulumi.CustomResource):
@@ -141,8 +142,6 @@ class PreparedStatement(pulumi.CustomResource):
             if query_statement is None and not opts.urn:
                 raise TypeError("Missing required property 'query_statement'")
             __props__.__dict__["query_statement"] = query_statement
-            if statement_name is None and not opts.urn:
-                raise TypeError("Missing required property 'statement_name'")
             __props__.__dict__["statement_name"] = statement_name
             if work_group is None and not opts.urn:
                 raise TypeError("Missing required property 'work_group'")

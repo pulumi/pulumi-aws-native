@@ -104,9 +104,6 @@ func NewAccountPolicy(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	if args.PolicyType == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyType'")
 	}
@@ -157,7 +154,7 @@ type accountPolicyArgs struct {
 	// Length Constraints: Maximum length of 30720
 	PolicyDocument string `pulumi:"policyDocument"`
 	// The name of the account policy
-	PolicyName string `pulumi:"policyName"`
+	PolicyName *string `pulumi:"policyName"`
 	// Type of the policy.
 	PolicyType AccountPolicyPolicyType `pulumi:"policyType"`
 	// Scope for policy application
@@ -177,7 +174,7 @@ type AccountPolicyArgs struct {
 	// Length Constraints: Maximum length of 30720
 	PolicyDocument pulumi.StringInput
 	// The name of the account policy
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 	// Type of the policy.
 	PolicyType AccountPolicyPolicyTypeInput
 	// Scope for policy application

@@ -65,9 +65,6 @@ export class PlaceIndex extends pulumi.CustomResource {
             if ((!args || args.dataSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
-            if ((!args || args.indexName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'indexName'");
-            }
             resourceInputs["dataSource"] = args ? args.dataSource : undefined;
             resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -104,7 +101,7 @@ export interface PlaceIndexArgs {
     dataSource: pulumi.Input<string>;
     dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfigurationArgs>;
     description?: pulumi.Input<string>;
-    indexName: pulumi.Input<string>;
+    indexName?: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<enums.location.PlaceIndexPricingPlan>;
     /**
      * An array of key-value pairs to apply to this resource.

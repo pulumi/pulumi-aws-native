@@ -302,7 +302,7 @@ namespace Pulumi.AwsNative.Ssm
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ResourceDataSync(string name, ResourceDataSyncArgs args, CustomResourceOptions? options = null)
+        public ResourceDataSync(string name, ResourceDataSyncArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ssm:ResourceDataSync", name, args ?? new ResourceDataSyncArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -368,8 +368,8 @@ namespace Pulumi.AwsNative.Ssm
         [Input("syncFormat")]
         public Input<string>? SyncFormat { get; set; }
 
-        [Input("syncName", required: true)]
-        public Input<string> SyncName { get; set; } = null!;
+        [Input("syncName")]
+        public Input<string>? SyncName { get; set; }
 
         [Input("syncSource")]
         public Input<Inputs.ResourceDataSyncSyncSourceArgs>? SyncSource { get; set; }

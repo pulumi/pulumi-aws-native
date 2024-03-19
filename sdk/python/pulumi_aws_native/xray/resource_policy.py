@@ -15,18 +15,19 @@ __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
 class ResourcePolicyArgs:
     def __init__(__self__, *,
                  policy_document: pulumi.Input[str],
-                 policy_name: pulumi.Input[str],
-                 bypass_policy_lockout_check: Optional[pulumi.Input[bool]] = None):
+                 bypass_policy_lockout_check: Optional[pulumi.Input[bool]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
         :param pulumi.Input[str] policy_document: The resource policy document, which can be up to 5kb in size.
-        :param pulumi.Input[str] policy_name: The name of the resource policy. Must be unique within a specific AWS account.
         :param pulumi.Input[bool] bypass_policy_lockout_check: A flag to indicate whether to bypass the resource policy lockout safety check
+        :param pulumi.Input[str] policy_name: The name of the resource policy. Must be unique within a specific AWS account.
         """
         pulumi.set(__self__, "policy_document", policy_document)
-        pulumi.set(__self__, "policy_name", policy_name)
         if bypass_policy_lockout_check is not None:
             pulumi.set(__self__, "bypass_policy_lockout_check", bypass_policy_lockout_check)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -41,18 +42,6 @@ class ResourcePolicyArgs:
         pulumi.set(self, "policy_document", value)
 
     @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource policy. Must be unique within a specific AWS account.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policy_name", value)
-
-    @property
     @pulumi.getter(name="bypassPolicyLockoutCheck")
     def bypass_policy_lockout_check(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -63,6 +52,18 @@ class ResourcePolicyArgs:
     @bypass_policy_lockout_check.setter
     def bypass_policy_lockout_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "bypass_policy_lockout_check", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource policy. Must be unique within a specific AWS account.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
 
 
 class ResourcePolicy(pulumi.CustomResource):
@@ -175,8 +176,6 @@ class ResourcePolicy(pulumi.CustomResource):
             if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policyName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

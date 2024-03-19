@@ -93,9 +93,6 @@ export class ScalingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if ((!args || args.policyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
@@ -135,7 +132,7 @@ export interface ScalingPolicyArgs {
      *
      * Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * The scaling policy type.
      *

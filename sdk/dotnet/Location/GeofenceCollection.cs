@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Location
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GeofenceCollection(string name, GeofenceCollectionArgs args, CustomResourceOptions? options = null)
+        public GeofenceCollection(string name, GeofenceCollectionArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:location:GeofenceCollection", name, args ?? new GeofenceCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -98,8 +98,8 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class GeofenceCollectionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("collectionName", required: true)]
-        public Input<string> CollectionName { get; set; } = null!;
+        [Input("collectionName")]
+        public Input<string>? CollectionName { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }

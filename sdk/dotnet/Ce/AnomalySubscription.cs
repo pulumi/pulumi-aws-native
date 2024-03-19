@@ -336,8 +336,8 @@ namespace Pulumi.AwsNative.Ce
         /// <summary>
         /// The name of the subscription.
         /// </summary>
-        [Input("subscriptionName", required: true)]
-        public Input<string> SubscriptionName { get; set; } = null!;
+        [Input("subscriptionName")]
+        public Input<string>? SubscriptionName { get; set; }
 
         /// <summary>
         /// The dollar value that triggers a notification if the threshold is exceeded. 

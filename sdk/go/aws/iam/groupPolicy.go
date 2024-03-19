@@ -46,9 +46,6 @@ func NewGroupPolicy(ctx *pulumi.Context,
 	if args.GroupName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"groupName",
 		"policyName",
@@ -101,7 +98,7 @@ type groupPolicyArgs struct {
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The name of the policy document.
 	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	PolicyName string `pulumi:"policyName"`
+	PolicyName *string `pulumi:"policyName"`
 }
 
 // The set of arguments for constructing a GroupPolicy resource.
@@ -120,7 +117,7 @@ type GroupPolicyArgs struct {
 	PolicyDocument pulumi.Input
 	// The name of the policy document.
 	//  This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 }
 
 func (GroupPolicyArgs) ElementType() reflect.Type {
