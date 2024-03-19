@@ -692,43 +692,6 @@
       }
     }
   },
-  "aws-native:applicationautoscaling:ScalingPolicy": {
-    "cfTypeName": "AWS::ApplicationAutoScaling::ScalingPolicy",
-    "properties": {
-      "policyName": {
-        "type": "string",
-        "description": "The name of the scaling policy.\n\nUpdates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name."
-      },
-      "policyType": {
-        "type": "string",
-        "description": "The scaling policy type.\n\nThe following policy types are supported:\n\nTargetTrackingScaling Not supported for Amazon EMR\n\nStepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune."
-      },
-      "resourceId": {
-        "type": "string",
-        "description": "The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier."
-      },
-      "scalableDimension": {
-        "type": "string",
-        "description": "The scalable dimension. This string consists of the service namespace, resource type, and scaling property."
-      },
-      "scalingTargetId": {
-        "type": "string",
-        "description": "The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the AWS::ApplicationAutoScaling::ScalableTarget resource."
-      },
-      "serviceNamespace": {
-        "type": "string",
-        "description": "The namespace of the AWS service that provides the resource, or a custom-resource."
-      },
-      "stepScalingPolicyConfiguration": {
-        "$ref": "#/types/aws-native:applicationautoscaling:ScalingPolicyStepScalingPolicyConfiguration",
-        "description": "A step scaling policy."
-      },
-      "targetTrackingScalingPolicyConfiguration": {
-        "$ref": "#/types/aws-native:applicationautoscaling:ScalingPolicyTargetTrackingScalingPolicyConfiguration",
-        "description": "A target tracking scaling policy."
-      }
-    }
-  },
   "aws-native:applicationinsights:Application": {
     "cfTypeName": "AWS::ApplicationInsights::Application",
     "properties": {
@@ -999,27 +962,6 @@
       }
     }
   },
-  "aws-native:athena:PreparedStatement": {
-    "cfTypeName": "AWS::Athena::PreparedStatement",
-    "properties": {
-      "description": {
-        "type": "string",
-        "description": "The description of the prepared statement."
-      },
-      "queryStatement": {
-        "type": "string",
-        "description": "The query string for the prepared statement."
-      },
-      "statementName": {
-        "type": "string",
-        "description": "The name of the prepared statement."
-      },
-      "workGroup": {
-        "type": "string",
-        "description": "The name of the workgroup to which the prepared statement belongs."
-      }
-    }
-  },
   "aws-native:autoscaling:ScalingPolicy": {
     "cfTypeName": "AWS::AutoScaling::ScalingPolicy",
     "properties": {
@@ -1196,169 +1138,11 @@
       }
     }
   },
-  "aws-native:ce:AnomalyMonitor": {
-    "cfTypeName": "AWS::CE::AnomalyMonitor",
-    "properties": {
-      "monitorDimension": {
-        "$ref": "#/types/aws-native:ce:AnomalyMonitorMonitorDimension",
-        "description": "The dimensions to evaluate"
-      },
-      "monitorName": {
-        "type": "string",
-        "description": "The name of the monitor."
-      },
-      "monitorSpecification": {
-        "type": "string"
-      },
-      "monitorType": {
-        "$ref": "#/types/aws-native:ce:AnomalyMonitorMonitorType"
-      },
-      "resourceTags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:ce:AnomalyMonitorResourceTag"
-        },
-        "description": "Tags to assign to monitor."
-      }
-    }
-  },
-  "aws-native:ce:AnomalySubscription": {
-    "cfTypeName": "AWS::CE::AnomalySubscription",
-    "properties": {
-      "frequency": {
-        "$ref": "#/types/aws-native:ce:AnomalySubscriptionFrequency",
-        "description": "The frequency at which anomaly reports are sent over email. "
-      },
-      "monitorArnList": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "A list of cost anomaly monitors."
-      },
-      "resourceTags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:ce:AnomalySubscriptionResourceTag"
-        },
-        "description": "Tags to assign to subscription."
-      },
-      "subscribers": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:ce:AnomalySubscriptionSubscriber"
-        },
-        "description": "A list of subscriber"
-      },
-      "subscriptionName": {
-        "type": "string",
-        "description": "The name of the subscription."
-      },
-      "threshold": {
-        "type": "number",
-        "description": "The dollar value that triggers a notification if the threshold is exceeded. "
-      },
-      "thresholdExpression": {
-        "type": "string",
-        "description": "An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for."
-      }
-    }
-  },
   "aws-native:certificatemanager:Account": {
     "cfTypeName": "AWS::CertificateManager::Account",
     "properties": {
       "expiryEventsConfiguration": {
         "$ref": "#/types/aws-native:certificatemanager:AccountExpiryEventsConfiguration"
-      }
-    }
-  },
-  "aws-native:chatbot:MicrosoftTeamsChannelConfiguration": {
-    "cfTypeName": "AWS::Chatbot::MicrosoftTeamsChannelConfiguration",
-    "properties": {
-      "configurationName": {
-        "type": "string",
-        "description": "The name of the configuration"
-      },
-      "guardrailPolicies": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set."
-      },
-      "iamRoleArn": {
-        "type": "string",
-        "description": "The ARN of the IAM role that defines the permissions for AWS Chatbot"
-      },
-      "loggingLevel": {
-        "type": "string",
-        "description": "Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs"
-      },
-      "snsTopicArns": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications."
-      },
-      "teamId": {
-        "type": "string",
-        "description": "The id of the Microsoft Teams team"
-      },
-      "teamsChannelId": {
-        "type": "string",
-        "description": "The id of the Microsoft Teams channel"
-      },
-      "teamsTenantId": {
-        "type": "string",
-        "description": "The id of the Microsoft Teams tenant"
-      },
-      "userRoleRequired": {
-        "type": "boolean",
-        "description": "Enables use of a user role requirement in your chat configuration"
-      }
-    }
-  },
-  "aws-native:chatbot:SlackChannelConfiguration": {
-    "cfTypeName": "AWS::Chatbot::SlackChannelConfiguration",
-    "properties": {
-      "configurationName": {
-        "type": "string",
-        "description": "The name of the configuration"
-      },
-      "guardrailPolicies": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set."
-      },
-      "iamRoleArn": {
-        "type": "string",
-        "description": "The ARN of the IAM role that defines the permissions for AWS Chatbot"
-      },
-      "loggingLevel": {
-        "type": "string",
-        "description": "Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs"
-      },
-      "slackChannelId": {
-        "type": "string",
-        "description": "The id of the Slack channel"
-      },
-      "slackWorkspaceId": {
-        "type": "string",
-        "description": "The id of the Slack workspace"
-      },
-      "snsTopicArns": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications."
-      },
-      "userRoleRequired": {
-        "type": "boolean",
-        "description": "Enables use of a user role requirement in your chat configuration"
       }
     }
   },
@@ -1710,60 +1494,6 @@
       }
     }
   },
-  "aws-native:cloudwatch:CompositeAlarm": {
-    "cfTypeName": "AWS::CloudWatch::CompositeAlarm",
-    "properties": {
-      "actionsEnabled": {
-        "type": "boolean",
-        "description": "Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE."
-      },
-      "actionsSuppressor": {
-        "type": "string",
-        "description": "Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. "
-      },
-      "actionsSuppressorExtensionPeriod": {
-        "type": "integer",
-        "description": "Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds."
-      },
-      "actionsSuppressorWaitPeriod": {
-        "type": "integer",
-        "description": "Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds."
-      },
-      "alarmActions": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN)."
-      },
-      "alarmDescription": {
-        "type": "string",
-        "description": "The description of the alarm"
-      },
-      "alarmName": {
-        "type": "string",
-        "description": "The name of the Composite Alarm"
-      },
-      "alarmRule": {
-        "type": "string",
-        "description": "Expression which aggregates the state of other Alarms (Metric or Composite Alarms)"
-      },
-      "insufficientDataActions": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
-      },
-      "okActions": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN)."
-      }
-    }
-  },
   "aws-native:codepipeline:CustomActionType": {
     "cfTypeName": "AWS::CodePipeline::CustomActionType",
     "properties": {
@@ -1916,101 +1646,6 @@
       }
     }
   },
-  "aws-native:cognito:UserPoolClient": {
-    "cfTypeName": "AWS::Cognito::UserPoolClient",
-    "properties": {
-      "accessTokenValidity": {
-        "type": "integer"
-      },
-      "allowedOAuthFlows": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "allowedOAuthFlowsUserPoolClient": {
-        "type": "boolean"
-      },
-      "allowedOAuthScopes": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "analyticsConfiguration": {
-        "$ref": "#/types/aws-native:cognito:UserPoolClientAnalyticsConfiguration"
-      },
-      "authSessionValidity": {
-        "type": "integer"
-      },
-      "callbackUrls": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "clientName": {
-        "type": "string"
-      },
-      "defaultRedirectUri": {
-        "type": "string"
-      },
-      "enablePropagateAdditionalUserContextData": {
-        "type": "boolean"
-      },
-      "enableTokenRevocation": {
-        "type": "boolean"
-      },
-      "explicitAuthFlows": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "generateSecret": {
-        "type": "boolean"
-      },
-      "idTokenValidity": {
-        "type": "integer"
-      },
-      "logoutUrls": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "preventUserExistenceErrors": {
-        "type": "string"
-      },
-      "readAttributes": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "refreshTokenValidity": {
-        "type": "integer"
-      },
-      "supportedIdentityProviders": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "tokenValidityUnits": {
-        "$ref": "#/types/aws-native:cognito:UserPoolClientTokenValidityUnits"
-      },
-      "userPoolId": {
-        "type": "string"
-      },
-      "writeAttributes": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      }
-    }
-  },
   "aws-native:cognito:UserPoolDomain": {
     "cfTypeName": "AWS::Cognito::UserPoolDomain",
     "properties": {
@@ -2018,54 +1653,6 @@
         "$ref": "#/types/aws-native:cognito:UserPoolDomainCustomDomainConfigType"
       },
       "domain": {
-        "type": "string"
-      },
-      "userPoolId": {
-        "type": "string"
-      }
-    }
-  },
-  "aws-native:cognito:UserPoolGroup": {
-    "cfTypeName": "AWS::Cognito::UserPoolGroup",
-    "properties": {
-      "description": {
-        "type": "string"
-      },
-      "groupName": {
-        "type": "string"
-      },
-      "precedence": {
-        "type": "integer"
-      },
-      "roleArn": {
-        "type": "string"
-      },
-      "userPoolId": {
-        "type": "string"
-      }
-    }
-  },
-  "aws-native:cognito:UserPoolIdentityProvider": {
-    "cfTypeName": "AWS::Cognito::UserPoolIdentityProvider",
-    "properties": {
-      "attributeMapping": {
-        "$ref": "pulumi.json#/Any",
-        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property."
-      },
-      "idpIdentifiers": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "providerDetails": {
-        "$ref": "pulumi.json#/Any",
-        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property."
-      },
-      "providerName": {
-        "type": "string"
-      },
-      "providerType": {
         "type": "string"
       },
       "userPoolId": {
@@ -2179,27 +1766,6 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags for the AggregationAuthorization."
-      }
-    }
-  },
-  "aws-native:configuration:StoredQuery": {
-    "cfTypeName": "AWS::Config::StoredQuery",
-    "properties": {
-      "queryDescription": {
-        "type": "string"
-      },
-      "queryExpression": {
-        "type": "string"
-      },
-      "queryName": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "The tags for the stored query."
       }
     }
   },
@@ -3141,59 +2707,6 @@
       "targetEndpointArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration"
-      }
-    }
-  },
-  "aws-native:dynamodb:GlobalTable": {
-    "cfTypeName": "AWS::DynamoDB::GlobalTable",
-    "properties": {
-      "attributeDefinitions": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:dynamodb:GlobalTableAttributeDefinition"
-        }
-      },
-      "billingMode": {
-        "type": "string"
-      },
-      "globalSecondaryIndexes": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:dynamodb:GlobalTableGlobalSecondaryIndex"
-        }
-      },
-      "keySchema": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:dynamodb:GlobalTableKeySchema"
-        }
-      },
-      "localSecondaryIndexes": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:dynamodb:GlobalTableLocalSecondaryIndex"
-        }
-      },
-      "replicas": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:dynamodb:GlobalTableReplicaSpecification"
-        }
-      },
-      "sseSpecification": {
-        "$ref": "#/types/aws-native:dynamodb:GlobalTableSseSpecification"
-      },
-      "streamSpecification": {
-        "$ref": "#/types/aws-native:dynamodb:GlobalTableStreamSpecification"
-      },
-      "tableName": {
-        "type": "string"
-      },
-      "timeToLiveSpecification": {
-        "$ref": "#/types/aws-native:dynamodb:GlobalTableTimeToLiveSpecification"
-      },
-      "writeProvisionedThroughputSettings": {
-        "$ref": "#/types/aws-native:dynamodb:GlobalTableWriteProvisionedThroughputSettings"
       }
     }
   },
@@ -4552,44 +4065,6 @@
       "vpcId": {
         "type": "string",
         "description": "The ID of the VPC."
-      }
-    }
-  },
-  "aws-native:ec2:SecurityGroup": {
-    "cfTypeName": "AWS::EC2::SecurityGroup",
-    "properties": {
-      "groupDescription": {
-        "type": "string",
-        "description": "A description for the security group."
-      },
-      "groupName": {
-        "type": "string",
-        "description": "The name of the security group."
-      },
-      "securityGroupEgress": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:ec2:SecurityGroupEgress"
-        },
-        "description": "[VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group."
-      },
-      "securityGroupIngress": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:ec2:SecurityGroupIngress"
-        },
-        "description": "The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group."
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "Any tags assigned to the security group."
-      },
-      "vpcId": {
-        "type": "string",
-        "description": "The ID of the VPC for the security group."
       }
     }
   },
@@ -6338,80 +5813,6 @@
       }
     }
   },
-  "aws-native:entityresolution:IdMappingWorkflow": {
-    "cfTypeName": "AWS::EntityResolution::IdMappingWorkflow",
-    "properties": {
-      "description": {
-        "type": "string",
-        "description": "The description of the IdMappingWorkflow"
-      },
-      "idMappingTechniques": {
-        "$ref": "#/types/aws-native:entityresolution:IdMappingWorkflowIdMappingTechniques"
-      },
-      "inputSourceConfig": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:entityresolution:IdMappingWorkflowInputSource"
-        }
-      },
-      "outputSourceConfig": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:entityresolution:IdMappingWorkflowOutputSource"
-        }
-      },
-      "roleArn": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        }
-      },
-      "workflowName": {
-        "type": "string",
-        "description": "The name of the IdMappingWorkflow"
-      }
-    }
-  },
-  "aws-native:entityresolution:MatchingWorkflow": {
-    "cfTypeName": "AWS::EntityResolution::MatchingWorkflow",
-    "properties": {
-      "description": {
-        "type": "string",
-        "description": "The description of the MatchingWorkflow"
-      },
-      "inputSourceConfig": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:entityresolution:MatchingWorkflowInputSource"
-        }
-      },
-      "outputSourceConfig": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:entityresolution:MatchingWorkflowOutputSource"
-        }
-      },
-      "resolutionTechniques": {
-        "$ref": "#/types/aws-native:entityresolution:MatchingWorkflowResolutionTechniques"
-      },
-      "roleArn": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        }
-      },
-      "workflowName": {
-        "type": "string",
-        "description": "The name of the MatchingWorkflow"
-      }
-    }
-  },
   "aws-native:entityresolution:SchemaMapping": {
     "cfTypeName": "AWS::EntityResolution::SchemaMapping",
     "properties": {
@@ -6835,49 +6236,6 @@
       }
     }
   },
-  "aws-native:healthlake:FhirDatastore": {
-    "cfTypeName": "AWS::HealthLake::FHIRDatastore",
-    "properties": {
-      "datastoreName": {
-        "type": "string"
-      },
-      "datastoreTypeVersion": {
-        "$ref": "#/types/aws-native:healthlake:FhirDatastoreDatastoreTypeVersion"
-      },
-      "identityProviderConfiguration": {
-        "$ref": "#/types/aws-native:healthlake:FhirDatastoreIdentityProviderConfiguration"
-      },
-      "preloadDataConfig": {
-        "$ref": "#/types/aws-native:healthlake:FhirDatastorePreloadDataConfig"
-      },
-      "sseConfiguration": {
-        "$ref": "#/types/aws-native:healthlake:FhirDatastoreSseConfiguration"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        }
-      }
-    }
-  },
-  "aws-native:iam:GroupPolicy": {
-    "cfTypeName": "AWS::IAM::GroupPolicy",
-    "properties": {
-      "groupName": {
-        "type": "string",
-        "description": "The name of the group to associate the policy with.\n This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-."
-      },
-      "policyDocument": {
-        "$ref": "pulumi.json#/Any",
-        "description": "The policy document.\n You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.\n The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:\n  +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range\n  +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)\n  +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::GroupPolicy` for more information about the expected schema for this property."
-      },
-      "policyName": {
-        "type": "string",
-        "description": "The name of the policy document.\n This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-"
-      }
-    }
-  },
   "aws-native:iam:OidcProvider": {
     "cfTypeName": "AWS::IAM::OIDCProvider",
     "properties": {
@@ -6904,23 +6262,6 @@
       }
     }
   },
-  "aws-native:iam:RolePolicy": {
-    "cfTypeName": "AWS::IAM::RolePolicy",
-    "properties": {
-      "policyDocument": {
-        "$ref": "pulumi.json#/Any",
-        "description": "The policy document.\n You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.\n The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:\n  +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range\n  +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)\n  +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property."
-      },
-      "policyName": {
-        "type": "string",
-        "description": "The name of the policy document.\n This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-"
-      },
-      "roleName": {
-        "type": "string",
-        "description": "The name of the role to associate the policy with.\n This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-"
-      }
-    }
-  },
   "aws-native:iam:ServiceLinkedRole": {
     "cfTypeName": "AWS::IAM::ServiceLinkedRole",
     "properties": {
@@ -6935,23 +6276,6 @@
       "description": {
         "type": "string",
         "description": "The description of the role."
-      }
-    }
-  },
-  "aws-native:iam:UserPolicy": {
-    "cfTypeName": "AWS::IAM::UserPolicy",
-    "properties": {
-      "policyDocument": {
-        "$ref": "pulumi.json#/Any",
-        "description": "The policy document.\n You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.\n The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:\n  +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range\n  +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)\n  +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::UserPolicy` for more information about the expected schema for this property."
-      },
-      "policyName": {
-        "type": "string",
-        "description": "The name of the policy document.\n This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-"
-      },
-      "userName": {
-        "type": "string",
-        "description": "The name of the user to associate the policy with.\n This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-"
       }
     }
   },
@@ -7148,77 +6472,6 @@
       }
     }
   },
-  "aws-native:iot:CustomMetric": {
-    "cfTypeName": "AWS::IoT::CustomMetric",
-    "properties": {
-      "displayName": {
-        "type": "string",
-        "description": "Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined."
-      },
-      "metricName": {
-        "type": "string",
-        "description": "The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined."
-      },
-      "metricType": {
-        "$ref": "#/types/aws-native:iot:CustomMetricMetricType",
-        "description": "The type of the custom metric. Types include string-list, ip-address-list, number-list, and number."
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:iot:FleetMetric": {
-    "cfTypeName": "AWS::IoT::FleetMetric",
-    "properties": {
-      "aggregationField": {
-        "type": "string",
-        "description": "The aggregation field to perform aggregation and metric emission"
-      },
-      "aggregationType": {
-        "$ref": "#/types/aws-native:iot:FleetMetricAggregationType"
-      },
-      "description": {
-        "type": "string",
-        "description": "The description of a fleet metric"
-      },
-      "indexName": {
-        "type": "string",
-        "description": "The index name of a fleet metric"
-      },
-      "metricName": {
-        "type": "string",
-        "description": "The name of the fleet metric"
-      },
-      "period": {
-        "type": "integer",
-        "description": "The period of metric emission in seconds"
-      },
-      "queryString": {
-        "type": "string",
-        "description": "The Fleet Indexing query used by a fleet metric"
-      },
-      "queryVersion": {
-        "type": "string",
-        "description": "The version of a Fleet Indexing query used by a fleet metric"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource"
-      },
-      "unit": {
-        "type": "string",
-        "description": "The unit of data points emitted by a fleet metric"
-      }
-    }
-  },
   "aws-native:iot:JobTemplate": {
     "cfTypeName": "AWS::IoT::JobTemplate",
     "properties": {
@@ -7298,60 +6551,6 @@
       }
     }
   },
-  "aws-native:iot:MitigationAction": {
-    "cfTypeName": "AWS::IoT::MitigationAction",
-    "properties": {
-      "actionName": {
-        "type": "string",
-        "description": "A unique identifier for the mitigation action."
-      },
-      "actionParams": {
-        "$ref": "#/types/aws-native:iot:MitigationActionActionParams"
-      },
-      "roleArn": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:iot:ProvisioningTemplate": {
-    "cfTypeName": "AWS::IoT::ProvisioningTemplate",
-    "properties": {
-      "description": {
-        "type": "string"
-      },
-      "enabled": {
-        "type": "boolean"
-      },
-      "preProvisioningHook": {
-        "$ref": "#/types/aws-native:iot:ProvisioningTemplateProvisioningHook"
-      },
-      "provisioningRoleArn": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        }
-      },
-      "templateBody": {
-        "type": "string"
-      },
-      "templateName": {
-        "type": "string"
-      },
-      "templateType": {
-        "$ref": "#/types/aws-native:iot:ProvisioningTemplateTemplateType"
-      }
-    }
-  },
   "aws-native:iot:ResourceSpecificLogging": {
     "cfTypeName": "AWS::IoT::ResourceSpecificLogging",
     "properties": {
@@ -7391,68 +6590,6 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         }
-      }
-    }
-  },
-  "aws-native:iot:SoftwarePackage": {
-    "cfTypeName": "AWS::IoT::SoftwarePackage",
-    "properties": {
-      "description": {
-        "type": "string"
-      },
-      "packageName": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:iot:SoftwarePackageVersion": {
-    "cfTypeName": "AWS::IoT::SoftwarePackageVersion",
-    "properties": {
-      "attributes": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        }
-      },
-      "description": {
-        "type": "string"
-      },
-      "packageName": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      },
-      "versionName": {
-        "type": "string"
-      }
-    }
-  },
-  "aws-native:iot:TopicRule": {
-    "cfTypeName": "AWS::IoT::TopicRule",
-    "properties": {
-      "ruleName": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        }
-      },
-      "topicRulePayload": {
-        "$ref": "#/types/aws-native:iot:TopicRulePayload"
       }
     }
   },
@@ -8263,149 +7400,6 @@
       }
     }
   },
-  "aws-native:lightsail:LoadBalancerTlsCertificate": {
-    "cfTypeName": "AWS::Lightsail::LoadBalancerTlsCertificate",
-    "properties": {
-      "certificateAlternativeNames": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "An array of strings listing alternative domains and subdomains for your SSL/TLS certificate."
-      },
-      "certificateDomainName": {
-        "type": "string",
-        "description": "The domain name (e.g., example.com ) for your SSL/TLS certificate."
-      },
-      "certificateName": {
-        "type": "string",
-        "description": "The SSL/TLS certificate name."
-      },
-      "httpsRedirectionEnabled": {
-        "type": "boolean",
-        "description": "A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer."
-      },
-      "isAttached": {
-        "type": "boolean",
-        "description": "When true, the SSL/TLS certificate is attached to the Lightsail load balancer."
-      },
-      "loadBalancerName": {
-        "type": "string",
-        "description": "The name of your load balancer."
-      }
-    }
-  },
-  "aws-native:location:ApiKey": {
-    "cfTypeName": "AWS::Location::APIKey",
-    "properties": {
-      "description": {
-        "type": "string"
-      },
-      "expireTime": {
-        "type": "string"
-      },
-      "forceDelete": {
-        "type": "boolean"
-      },
-      "forceUpdate": {
-        "type": "boolean"
-      },
-      "keyName": {
-        "type": "string"
-      },
-      "noExpiry": {
-        "type": "boolean"
-      },
-      "restrictions": {
-        "$ref": "#/types/aws-native:location:ApiKeyRestrictions"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:location:GeofenceCollection": {
-    "cfTypeName": "AWS::Location::GeofenceCollection",
-    "properties": {
-      "collectionName": {
-        "type": "string"
-      },
-      "description": {
-        "type": "string"
-      },
-      "kmsKeyId": {
-        "type": "string"
-      },
-      "pricingPlan": {
-        "$ref": "#/types/aws-native:location:GeofenceCollectionPricingPlan"
-      },
-      "pricingPlanDataSource": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:location:PlaceIndex": {
-    "cfTypeName": "AWS::Location::PlaceIndex",
-    "properties": {
-      "dataSource": {
-        "type": "string"
-      },
-      "dataSourceConfiguration": {
-        "$ref": "#/types/aws-native:location:PlaceIndexDataSourceConfiguration"
-      },
-      "description": {
-        "type": "string"
-      },
-      "indexName": {
-        "type": "string"
-      },
-      "pricingPlan": {
-        "$ref": "#/types/aws-native:location:PlaceIndexPricingPlan"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:location:RouteCalculator": {
-    "cfTypeName": "AWS::Location::RouteCalculator",
-    "properties": {
-      "calculatorName": {
-        "type": "string"
-      },
-      "dataSource": {
-        "type": "string"
-      },
-      "description": {
-        "type": "string"
-      },
-      "pricingPlan": {
-        "$ref": "#/types/aws-native:location:RouteCalculatorPricingPlan"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
   "aws-native:location:TrackerConsumer": {
     "cfTypeName": "AWS::Location::TrackerConsumer",
     "properties": {
@@ -8414,31 +7408,6 @@
       },
       "trackerName": {
         "type": "string"
-      }
-    }
-  },
-  "aws-native:logs:AccountPolicy": {
-    "cfTypeName": "AWS::Logs::AccountPolicy",
-    "properties": {
-      "policyDocument": {
-        "type": "string",
-        "description": "The body of the policy document you want to use for this topic.\n\nYou can only add one policy per PolicyType.\n\nThe policy must be in JSON string format.\n\nLength Constraints: Maximum length of 30720"
-      },
-      "policyName": {
-        "type": "string",
-        "description": "The name of the account policy"
-      },
-      "policyType": {
-        "$ref": "#/types/aws-native:logs:AccountPolicyPolicyType",
-        "description": "Type of the policy."
-      },
-      "scope": {
-        "$ref": "#/types/aws-native:logs:AccountPolicyScope",
-        "description": "Scope for policy application"
-      },
-      "selectionCriteria": {
-        "type": "string",
-        "description": "Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes"
       }
     }
   },
@@ -8459,106 +7428,6 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags that have been assigned to this delivery."
-      }
-    }
-  },
-  "aws-native:logs:LogAnomalyDetector": {
-    "cfTypeName": "AWS::Logs::LogAnomalyDetector",
-    "properties": {
-      "accountId": {
-        "type": "string",
-        "description": "Account ID for owner of detector"
-      },
-      "anomalyVisibilityTime": {
-        "type": "number"
-      },
-      "detectorName": {
-        "type": "string",
-        "description": "Name of detector"
-      },
-      "evaluationFrequency": {
-        "$ref": "#/types/aws-native:logs:LogAnomalyDetectorEvaluationFrequency",
-        "description": "How often log group is evaluated"
-      },
-      "filterPattern": {
-        "type": "string"
-      },
-      "kmsKeyId": {
-        "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the CMK to use when encrypting log data."
-      },
-      "logGroupArnList": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "List of Arns for the given log group"
-      }
-    }
-  },
-  "aws-native:logs:MetricFilter": {
-    "cfTypeName": "AWS::Logs::MetricFilter",
-    "properties": {
-      "filterName": {
-        "type": "string",
-        "description": "A name for the metric filter."
-      },
-      "filterPattern": {
-        "type": "string",
-        "description": "Pattern that Logs follows to interpret each entry in a log."
-      },
-      "logGroupName": {
-        "type": "string",
-        "description": "Existing log group that you want to associate with this filter."
-      },
-      "metricTransformations": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:logs:MetricFilterMetricTransformation"
-        },
-        "description": "A collection of information that defines how metric data gets emitted."
-      }
-    }
-  },
-  "aws-native:logs:ResourcePolicy": {
-    "cfTypeName": "AWS::Logs::ResourcePolicy",
-    "properties": {
-      "policyDocument": {
-        "type": "string",
-        "description": "The policy document"
-      },
-      "policyName": {
-        "type": "string",
-        "description": "A name for resource policy"
-      }
-    }
-  },
-  "aws-native:logs:SubscriptionFilter": {
-    "cfTypeName": "AWS::Logs::SubscriptionFilter",
-    "properties": {
-      "destinationArn": {
-        "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the destination."
-      },
-      "distribution": {
-        "$ref": "#/types/aws-native:logs:SubscriptionFilterDistribution",
-        "description": "The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream."
-      },
-      "filterName": {
-        "type": "string",
-        "description": "The name of the filter generated by resource."
-      },
-      "filterPattern": {
-        "type": "string",
-        "description": "The filtering expressions that restrict what gets delivered to the destination AWS resource."
-      },
-      "logGroupName": {
-        "type": "string",
-        "description": "Existing log group that you want to associate with this filter."
-      },
-      "roleArn": {
-        "type": "string",
-        "description": "The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery."
       }
     }
   },
@@ -8873,30 +7742,6 @@
       "policy": {
         "$ref": "pulumi.json#/Any",
         "description": "A policy document containing permissions to add to the specified cluster.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MSK::ClusterPolicy` for more information about the expected schema for this property."
-      }
-    }
-  },
-  "aws-native:msk:ServerlessCluster": {
-    "cfTypeName": "AWS::MSK::ServerlessCluster",
-    "properties": {
-      "clientAuthentication": {
-        "$ref": "#/types/aws-native:msk:ServerlessClusterClientAuthentication"
-      },
-      "clusterName": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "A key-value pair to associate with a resource."
-      },
-      "vpcConfigs": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:msk:ServerlessClusterVpcConfig"
-        }
       }
     }
   },
@@ -9619,34 +8464,6 @@
       }
     }
   },
-  "aws-native:pinpoint:InAppTemplate": {
-    "cfTypeName": "AWS::Pinpoint::InAppTemplate",
-    "properties": {
-      "content": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:pinpoint:InAppTemplateInAppMessageContent"
-        }
-      },
-      "customConfig": {
-        "$ref": "pulumi.json#/Any",
-        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property."
-      },
-      "layout": {
-        "$ref": "#/types/aws-native:pinpoint:InAppTemplateLayout"
-      },
-      "tags": {
-        "$ref": "pulumi.json#/Any",
-        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property."
-      },
-      "templateDescription": {
-        "type": "string"
-      },
-      "templateName": {
-        "type": "string"
-      }
-    }
-  },
   "aws-native:proton:EnvironmentAccountConnection": {
     "cfTypeName": "AWS::Proton::EnvironmentAccountConnection",
     "properties": {
@@ -10336,48 +9153,6 @@
       }
     }
   },
-  "aws-native:rds:EventSubscription": {
-    "cfTypeName": "AWS::RDS::EventSubscription",
-    "properties": {
-      "enabled": {
-        "type": "boolean",
-        "description": "A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it."
-      },
-      "eventCategories": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType in the Events topic in the Amazon RDS User Guide or by using the DescribeEventCategories action."
-      },
-      "snsTopicArn": {
-        "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it."
-      },
-      "sourceIds": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "The list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens."
-      },
-      "sourceType": {
-        "type": "string",
-        "description": "The type of source that will be generating the events. For example, if you want to be notified of events generated by a DB instance, you would set this parameter to db-instance. if this value is not specified, all events are returned."
-      },
-      "subscriptionName": {
-        "type": "string",
-        "description": "The name of the subscription."
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
   "aws-native:rds:GlobalCluster": {
     "cfTypeName": "AWS::RDS::GlobalCluster",
     "properties": {
@@ -10629,37 +9404,6 @@
       }
     }
   },
-  "aws-native:redshift:ClusterParameterGroup": {
-    "cfTypeName": "AWS::Redshift::ClusterParameterGroup",
-    "properties": {
-      "description": {
-        "type": "string",
-        "description": "A description of the parameter group."
-      },
-      "parameterGroupFamily": {
-        "type": "string",
-        "description": "The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters."
-      },
-      "parameterGroupName": {
-        "type": "string",
-        "description": "The name of the cluster parameter group."
-      },
-      "parameters": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:redshift:ClusterParameterGroupParameter"
-        },
-        "description": "An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request."
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
   "aws-native:redshift:ClusterSubnetGroup": {
     "cfTypeName": "AWS::Redshift::ClusterSubnetGroup",
     "properties": {
@@ -10735,52 +9479,6 @@
       }
     }
   },
-  "aws-native:redshift:EventSubscription": {
-    "cfTypeName": "AWS::Redshift::EventSubscription",
-    "properties": {
-      "enabled": {
-        "type": "boolean",
-        "description": "A boolean value; set to true to activate the subscription, and set to false to create the subscription but not activate it."
-      },
-      "eventCategories": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:redshift:EventSubscriptionEventCategoriesItem"
-        },
-        "description": "Specifies the Amazon Redshift event categories to be published by the event notification subscription."
-      },
-      "severity": {
-        "$ref": "#/types/aws-native:redshift:EventSubscriptionSeverity",
-        "description": "Specifies the Amazon Redshift event severity to be published by the event notification subscription."
-      },
-      "snsTopicArn": {
-        "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications."
-      },
-      "sourceIds": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "A list of one or more identifiers of Amazon Redshift source objects."
-      },
-      "sourceType": {
-        "$ref": "#/types/aws-native:redshift:EventSubscriptionSourceType",
-        "description": "The type of source that will be generating the events."
-      },
-      "subscriptionName": {
-        "type": "string",
-        "description": "The name of the Amazon Redshift event notification subscription"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
   "aws-native:refactorspaces:Route": {
     "cfTypeName": "AWS::RefactorSpaces::Route",
     "properties": {
@@ -10823,39 +9521,6 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:resiliencehub:ResiliencyPolicy": {
-    "cfTypeName": "AWS::ResilienceHub::ResiliencyPolicy",
-    "properties": {
-      "dataLocationConstraint": {
-        "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyDataLocationConstraint",
-        "description": "Data Location Constraint of the Policy."
-      },
-      "policy": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyFailurePolicy"
-        }
-      },
-      "policyDescription": {
-        "type": "string",
-        "description": "Description of Resiliency Policy."
-      },
-      "policyName": {
-        "type": "string",
-        "description": "Name of Resiliency Policy."
-      },
-      "tags": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        }
-      },
-      "tier": {
-        "$ref": "#/types/aws-native:resiliencehub:ResiliencyPolicyTier",
-        "description": "Resiliency Policy Tier."
       }
     }
   },
@@ -11088,23 +9753,6 @@
       }
     }
   },
-  "aws-native:s3express:DirectoryBucket": {
-    "cfTypeName": "AWS::S3Express::DirectoryBucket",
-    "properties": {
-      "bucketName": {
-        "type": "string",
-        "description": "Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name."
-      },
-      "dataRedundancy": {
-        "$ref": "#/types/aws-native:s3express:DirectoryBucketDataRedundancy",
-        "description": "Specifies the number of Availability Zone that's used for redundancy for the bucket."
-      },
-      "locationName": {
-        "type": "string",
-        "description": "Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'."
-      }
-    }
-  },
   "aws-native:s3objectlambda:AccessPointPolicy": {
     "cfTypeName": "AWS::S3ObjectLambda::AccessPointPolicy",
     "properties": {
@@ -11157,49 +9805,6 @@
       "subnetId": {
         "type": "string",
         "description": "The ID of the subnet in the selected VPC. The subnet must belong to the Outpost."
-      }
-    }
-  },
-  "aws-native:sagemaker:DataQualityJobDefinition": {
-    "cfTypeName": "AWS::SageMaker::DataQualityJobDefinition",
-    "properties": {
-      "dataQualityAppSpecification": {
-        "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionDataQualityAppSpecification"
-      },
-      "dataQualityBaselineConfig": {
-        "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionDataQualityBaselineConfig"
-      },
-      "dataQualityJobInput": {
-        "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionDataQualityJobInput"
-      },
-      "dataQualityJobOutputConfig": {
-        "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionMonitoringOutputConfig"
-      },
-      "endpointName": {
-        "type": "string"
-      },
-      "jobDefinitionName": {
-        "type": "string"
-      },
-      "jobResources": {
-        "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionMonitoringResources"
-      },
-      "networkConfig": {
-        "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionNetworkConfig"
-      },
-      "roleArn": {
-        "type": "string",
-        "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf."
-      },
-      "stoppingCondition": {
-        "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionStoppingCondition"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:CreateOnlyTag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
@@ -11269,172 +9874,6 @@
       }
     }
   },
-  "aws-native:sagemaker:ModelBiasJobDefinition": {
-    "cfTypeName": "AWS::SageMaker::ModelBiasJobDefinition",
-    "properties": {
-      "endpointName": {
-        "type": "string"
-      },
-      "jobDefinitionName": {
-        "type": "string"
-      },
-      "jobResources": {
-        "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionMonitoringResources"
-      },
-      "modelBiasAppSpecification": {
-        "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionModelBiasAppSpecification"
-      },
-      "modelBiasBaselineConfig": {
-        "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionModelBiasBaselineConfig"
-      },
-      "modelBiasJobInput": {
-        "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionModelBiasJobInput"
-      },
-      "modelBiasJobOutputConfig": {
-        "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionMonitoringOutputConfig"
-      },
-      "networkConfig": {
-        "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionNetworkConfig"
-      },
-      "roleArn": {
-        "type": "string",
-        "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf."
-      },
-      "stoppingCondition": {
-        "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionStoppingCondition"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:CreateOnlyTag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:sagemaker:ModelExplainabilityJobDefinition": {
-    "cfTypeName": "AWS::SageMaker::ModelExplainabilityJobDefinition",
-    "properties": {
-      "endpointName": {
-        "type": "string"
-      },
-      "jobDefinitionName": {
-        "type": "string"
-      },
-      "jobResources": {
-        "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionMonitoringResources"
-      },
-      "modelExplainabilityAppSpecification": {
-        "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification"
-      },
-      "modelExplainabilityBaselineConfig": {
-        "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig"
-      },
-      "modelExplainabilityJobInput": {
-        "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionModelExplainabilityJobInput"
-      },
-      "modelExplainabilityJobOutputConfig": {
-        "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionMonitoringOutputConfig"
-      },
-      "networkConfig": {
-        "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionNetworkConfig"
-      },
-      "roleArn": {
-        "type": "string",
-        "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf."
-      },
-      "stoppingCondition": {
-        "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionStoppingCondition"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:CreateOnlyTag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:sagemaker:ModelQualityJobDefinition": {
-    "cfTypeName": "AWS::SageMaker::ModelQualityJobDefinition",
-    "properties": {
-      "endpointName": {
-        "type": "string"
-      },
-      "jobDefinitionName": {
-        "type": "string"
-      },
-      "jobResources": {
-        "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionMonitoringResources"
-      },
-      "modelQualityAppSpecification": {
-        "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionModelQualityAppSpecification"
-      },
-      "modelQualityBaselineConfig": {
-        "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionModelQualityBaselineConfig"
-      },
-      "modelQualityJobInput": {
-        "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionModelQualityJobInput"
-      },
-      "modelQualityJobOutputConfig": {
-        "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionMonitoringOutputConfig"
-      },
-      "networkConfig": {
-        "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionNetworkConfig"
-      },
-      "roleArn": {
-        "type": "string",
-        "description": "The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf."
-      },
-      "stoppingCondition": {
-        "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionStoppingCondition"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:CreateOnlyTag"
-        },
-        "description": "An array of key-value pairs to apply to this resource."
-      }
-    }
-  },
-  "aws-native:securityhub:AutomationRule": {
-    "cfTypeName": "AWS::SecurityHub::AutomationRule",
-    "properties": {
-      "actions": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:securityhub:AutomationRulesAction"
-        }
-      },
-      "criteria": {
-        "$ref": "#/types/aws-native:securityhub:AutomationRulesFindingFilters",
-        "description": "A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding."
-      },
-      "description": {
-        "type": "string"
-      },
-      "isTerminal": {
-        "type": "boolean"
-      },
-      "ruleName": {
-        "type": "string"
-      },
-      "ruleOrder": {
-        "type": "integer"
-      },
-      "ruleStatus": {
-        "$ref": "#/types/aws-native:securityhub:AutomationRuleRuleStatus",
-        "description": "Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created."
-      },
-      "tags": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        }
-      }
-    }
-  },
   "aws-native:securityhub:Hub": {
     "cfTypeName": "AWS::SecurityHub::Hub",
     "properties": {
@@ -11471,56 +9910,6 @@
       "standardsArn": {
         "type": "string",
         "description": "The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation."
-      }
-    }
-  },
-  "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
-    "cfTypeName": "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-    "properties": {
-      "acceptLanguage": {
-        "$ref": "#/types/aws-native:servicecatalog:CloudFormationProvisionedProductAcceptLanguage"
-      },
-      "notificationArns": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "pathId": {
-        "type": "string"
-      },
-      "pathName": {
-        "type": "string"
-      },
-      "productId": {
-        "type": "string"
-      },
-      "productName": {
-        "type": "string"
-      },
-      "provisionedProductName": {
-        "type": "string"
-      },
-      "provisioningArtifactId": {
-        "type": "string"
-      },
-      "provisioningArtifactName": {
-        "type": "string"
-      },
-      "provisioningParameters": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:servicecatalog:CloudFormationProvisionedProductProvisioningParameter"
-        }
-      },
-      "provisioningPreferences": {
-        "$ref": "#/types/aws-native:servicecatalog:CloudFormationProvisionedProductProvisioningPreferences"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        }
       }
     }
   },
@@ -11578,19 +9967,6 @@
       "eventDestination": {
         "$ref": "#/types/aws-native:ses:ConfigurationSetEventDestinationEventDestination",
         "description": "The event destination object."
-      }
-    }
-  },
-  "aws-native:ses:DedicatedIpPool": {
-    "cfTypeName": "AWS::SES::DedicatedIpPool",
-    "properties": {
-      "poolName": {
-        "type": "string",
-        "description": "The name of the dedicated IP pool."
-      },
-      "scalingMode": {
-        "type": "string",
-        "description": "Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD."
       }
     }
   },
@@ -11796,38 +10172,6 @@
       }
     }
   },
-  "aws-native:ssm:ResourceDataSync": {
-    "cfTypeName": "AWS::SSM::ResourceDataSync",
-    "properties": {
-      "bucketName": {
-        "type": "string"
-      },
-      "bucketPrefix": {
-        "type": "string"
-      },
-      "bucketRegion": {
-        "type": "string"
-      },
-      "kmsKeyArn": {
-        "type": "string"
-      },
-      "s3Destination": {
-        "$ref": "#/types/aws-native:ssm:ResourceDataSyncS3Destination"
-      },
-      "syncFormat": {
-        "type": "string"
-      },
-      "syncName": {
-        "type": "string"
-      },
-      "syncSource": {
-        "$ref": "#/types/aws-native:ssm:ResourceDataSyncSyncSource"
-      },
-      "syncType": {
-        "type": "string"
-      }
-    }
-  },
   "aws-native:ssm:ResourcePolicy": {
     "cfTypeName": "AWS::SSM::ResourcePolicy",
     "properties": {
@@ -11862,31 +10206,6 @@
       "type": {
         "$ref": "#/types/aws-native:ssmcontacts:ContactType",
         "description": "Contact type, which specify type of contact. Currently supported values: \"PERSONAL\", \"SHARED\", \"OTHER\"."
-      }
-    }
-  },
-  "aws-native:ssmcontacts:ContactChannel": {
-    "cfTypeName": "AWS::SSMContacts::ContactChannel",
-    "properties": {
-      "channelAddress": {
-        "type": "string",
-        "description": "The details that SSM Incident Manager uses when trying to engage the contact channel."
-      },
-      "channelName": {
-        "type": "string",
-        "description": "The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters."
-      },
-      "channelType": {
-        "$ref": "#/types/aws-native:ssmcontacts:ContactChannelChannelType",
-        "description": "Device type, which specify notification channel. Currently supported values: \"SMS\", \"VOICE\", \"EMAIL\", \"CHATBOT."
-      },
-      "contactId": {
-        "type": "string",
-        "description": "ARN of the contact resource"
-      },
-      "deferActivation": {
-        "type": "boolean",
-        "description": "If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated."
       }
     }
   },
@@ -12690,51 +11009,6 @@
       },
       "uploadAllowed": {
         "$ref": "#/types/aws-native:workspacesweb:UserSettingsEnabledType"
-      }
-    }
-  },
-  "aws-native:xray:ResourcePolicy": {
-    "cfTypeName": "AWS::XRay::ResourcePolicy",
-    "properties": {
-      "bypassPolicyLockoutCheck": {
-        "type": "boolean",
-        "description": "A flag to indicate whether to bypass the resource policy lockout safety check"
-      },
-      "policyDocument": {
-        "type": "string",
-        "description": "The resource policy document, which can be up to 5kb in size."
-      },
-      "policyName": {
-        "type": "string",
-        "description": "The name of the resource policy. Must be unique within a specific AWS account."
-      }
-    }
-  },
-  "aws-native:xray:SamplingRule": {
-    "cfTypeName": "AWS::XRay::SamplingRule",
-    "properties": {
-      "ruleName": {
-        "type": "string"
-      },
-      "samplingRule": {
-        "$ref": "#/types/aws-native:xray:SamplingRule",
-        "language": {
-          "csharp": {
-            "name": "SamplingRuleValue"
-          }
-        }
-      },
-      "samplingRuleRecord": {
-        "$ref": "#/types/aws-native:xray:SamplingRuleRecord"
-      },
-      "samplingRuleUpdate": {
-        "$ref": "#/types/aws-native:xray:SamplingRuleUpdate"
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "$ref": "#/types/aws-native:index:Tag"
-        }
       }
     }
   }

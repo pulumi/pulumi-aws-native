@@ -952,6 +952,18 @@ func (ctx *cfSchemaContext) createAutoNamingSpec(inputProperties map[string]psch
 	autoNamePropLookupFuncs := []func(map[string]pschema.PropertySpec){
 		lookForField("Name"),
 		lookForField(resourceTypeName + "Name"),
+		func(m map[string]pschema.PropertySpec) {
+			// Look for a property that ends with "*Name" where that prefix is also contained in the resource name.
+			// E.g. ScalingPolicy has a field "PolicyName".
+			for k := range m {
+				if before, ok := strings.CutSuffix(k, "Name"); ok {
+					cfKey := naming.ToCfnName(before, nil)
+					if strings.HasSuffix(resourceTypeName, cfKey) {
+						lookForField(naming.ToCfnName(k, nil))(m)
+					}
+				}
+			}
+		},
 	}
 
 	for _, fn := range autoNamePropLookupFuncs {
