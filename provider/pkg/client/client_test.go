@@ -99,9 +99,195 @@ func TestClientRead(t *testing.T) {
 	})
 }
 
+func TestClientCreate(t *testing.T) {
+	ctx := context.TODO()
+	typeName := "exampleType"
+	desiredState := map[string]interface{}{"input1": "value1"}
+
+	// Mock API implementation
+	mockAPI := &mockAPI{}
+	client := &clientImpl{
+		api:     mockAPI,
+		awaiter: mockAPI,
+	}
+
+	t.Run("Resource creation success", func(t *testing.T) {
+		resourceID := "exampleID"
+		resourceState := map[string]interface{}{"output1": "outvalue1"}
+		mockAPI.CreateResourceFunc = func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{
+				OperationStatus: types.OperationStatusSuccess,
+				Identifier:      &resourceID,
+			}, nil
+		}
+		mockAPI.WaitForResourceOpCompletionFunc = func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+			return pi, nil
+		}
+		mockAPI.GetResourceFunc = func(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
+			if identifier != resourceID {
+				return nil, errors.New("unexpected identifier")
+			}
+			return resourceState, nil
+		}
+
+		id, outputs, err := client.Create(ctx, typeName, desiredState)
+
+		assert.NoError(t, err)
+		assert.Equal(t, &resourceID, id)
+		assert.Equal(t, resourceState, outputs)
+	})
+
+	t.Run("Resource creation failure", func(t *testing.T) {
+		mockAPI.CreateResourceFunc = func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+			return nil, errors.New("creation failed")
+		}
+
+		id, outputs, err := client.Create(ctx, typeName, desiredState)
+
+		assert.Equal(t, "creating resource: creation failed", err.Error())
+		assert.Nil(t, id)
+		assert.Nil(t, outputs)
+	})
+
+	t.Run("Resource await failure no state", func(t *testing.T) {
+		resourceID := "exampleID"
+		mockAPI.CreateResourceFunc = func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{
+				OperationStatus: types.OperationStatusSuccess,
+				Identifier:      &resourceID,
+			}, nil
+		}
+		mockAPI.WaitForResourceOpCompletionFunc = func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+			return nil, errors.New("creation failed")
+		}
+
+		id, outputs, err := client.Create(ctx, typeName, desiredState)
+
+		assert.Equal(t, "creating resource (await): creation failed", err.Error())
+		assert.Nil(t, id)
+		assert.Nil(t, outputs)
+	})
+
+	t.Run("Resource await returns no identifier", func(t *testing.T) {
+		resourceID := "exampleID"
+		mockAPI.CreateResourceFunc = func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{
+				OperationStatus: types.OperationStatusSuccess,
+				Identifier:      &resourceID,
+			}, nil
+		}
+		mockAPI.WaitForResourceOpCompletionFunc = func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{Identifier: nil}, nil
+		}
+
+		id, outputs, err := client.Create(ctx, typeName, desiredState)
+
+		assert.Equal(t, "received nil identifier while awaiting completion", err.Error())
+		assert.Nil(t, id)
+		assert.Nil(t, outputs)
+	})
+
+	t.Run("Resource await and read errors, but with identifier", func(t *testing.T) {
+		resourceID := "exampleID"
+		mockAPI.CreateResourceFunc = func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{
+				OperationStatus: types.OperationStatusSuccess,
+				Identifier:      &resourceID,
+			}, nil
+		}
+		mockAPI.WaitForResourceOpCompletionFunc = func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{Identifier: &resourceID}, errors.New("await failed")
+		}
+		mockAPI.GetResourceFunc = func(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
+			if identifier != resourceID {
+				return nil, errors.New("unexpected identifier")
+			}
+			return nil, errors.New("read error")
+		}
+
+		id, outputs, err := client.Create(ctx, typeName, desiredState)
+
+		assert.Equal(t, "creating resource (await): await failed", err.Error())
+		assert.Nil(t, id)
+		assert.Nil(t, outputs)
+	})
+
+	t.Run("Resource read error", func(t *testing.T) {
+		resourceID := "exampleID"
+		mockAPI.CreateResourceFunc = func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{
+				OperationStatus: types.OperationStatusSuccess,
+				Identifier:      &resourceID,
+			}, nil
+		}
+		mockAPI.WaitForResourceOpCompletionFunc = func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{Identifier: &resourceID}, nil
+		}
+		mockAPI.GetResourceFunc = func(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
+			if identifier != resourceID {
+				return nil, errors.New("unexpected identifier")
+			}
+			return nil, errors.New("read error")
+		}
+
+		id, outputs, err := client.Create(ctx, typeName, desiredState)
+
+		assert.Equal(t, "reading resource state: read error", err.Error())
+		assert.Nil(t, id)
+		assert.Nil(t, outputs)
+	})
+
+	t.Run("Resource creation succeeds, including outputs, but await returned an error", func(t *testing.T) {
+		resourceID := "exampleID"
+		resourceState := map[string]interface{}{"output1": "outvalue1"}
+		mockAPI.CreateResourceFunc = func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{
+				OperationStatus: types.OperationStatusSuccess,
+				Identifier:      &resourceID,
+			}, nil
+		}
+		mockAPI.WaitForResourceOpCompletionFunc = func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{Identifier: &resourceID}, errors.New("await failed")
+		}
+		mockAPI.GetResourceFunc = func(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
+			if identifier != resourceID {
+				return nil, errors.New("unexpected identifier")
+			}
+			return resourceState, nil
+		}
+
+		id, outputs, err := client.Create(ctx, typeName, desiredState)
+
+		assert.Equal(t, "await failed", err.Error())
+		assert.Equal(t, &resourceID, id)
+		assert.Equal(t, resourceState, outputs)
+	})
+
+	t.Run("AlreadyExists returns no resource state despite its existence", func(t *testing.T) {
+		resourceID := "exampleID"
+		mockAPI.CreateResourceFunc = func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{
+				OperationStatus: types.OperationStatusSuccess,
+				Identifier:      &resourceID,
+			}, nil
+		}
+		mockAPI.WaitForResourceOpCompletionFunc = func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{Identifier: &resourceID, ErrorCode: "AlreadyExists"}, errors.New("resource with same id alteady exists")
+		}
+
+		id, outputs, err := client.Create(ctx, typeName, desiredState)
+
+		assert.Equal(t, "resource with same id alteady exists", err.Error())
+		assert.Nil(t, id)
+		assert.Nil(t, outputs)
+	})
+}
+
 // Mock API implementation
 type mockAPI struct {
-	GetResourceFunc func(ctx context.Context, typeName, identifier string) (map[string]interface{}, error)
+	GetResourceFunc                 func(ctx context.Context, typeName, identifier string) (map[string]interface{}, error)
+	CreateResourceFunc              func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error)
+	WaitForResourceOpCompletionFunc func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error)
 }
 
 func (m *mockAPI) GetResource(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
@@ -109,7 +295,7 @@ func (m *mockAPI) GetResource(ctx context.Context, typeName, identifier string) 
 }
 
 func (m *mockAPI) CreateResource(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
-	panic("not implemented")
+	return m.CreateResourceFunc(ctx, cfType, desiredState)
 }
 
 // UpdateResource updates a resource of the specified type with the specified changeset.
@@ -130,4 +316,8 @@ func (m *mockAPI) DeleteResource(ctx context.Context, cfType, id string) (*types
 // GetResourceRequestStatus returns the current status of a resource operation request.
 func (m *mockAPI) GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error) {
 	panic("not implemented")
+}
+
+func (m *mockAPI) WaitForResourceOpCompletion(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+	return m.WaitForResourceOpCompletionFunc(ctx, pi)
 }

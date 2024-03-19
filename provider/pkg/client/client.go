@@ -64,41 +64,34 @@ func (c *clientImpl) Create(ctx context.Context, typeName string, desiredState m
 	}
 
 	pi, waitErr := c.awaiter.WaitForResourceOpCompletion(ctx, res)
-
-	// Read the state - even if there was a creation error but the progress event contains a resource ID.
-	var id string
-	var readErr error
-	if pi != nil && pi.Identifier != nil {
-		// Retrieve the resource state from AWS.
-		// Note that we do so even if creation hasn't succeeded but the identifier is assigned.
-		id = *pi.Identifier
-		resourceState, err = c.api.GetResource(ctx, typeName, id)
-		if err != nil {
-			readErr = fmt.Errorf("reading resource state: %w", err)
-		}
-	}
-
 	if waitErr != nil {
-		if id == "" {
+		if pi == nil || pi.Identifier == nil {
+			return nil, nil, fmt.Errorf("creating resource (await): %w", waitErr)
+		}
+		if pi.ErrorCode == types.HandlerErrorCodeAlreadyExists {
+			// Already Exists is a special case because it's the scenario when we can't proceed to resource read
+			// to validate its existence. We should return immediately as a hard error.
 			return nil, nil, waitErr
 		}
-
-		if readErr != nil {
-			return nil, nil, fmt.Errorf("resource partially created but read failed. read error: %v, create error: %w", readErr, waitErr)
-		}
-
-		// Resource was created but failed to fully initialize.
-		// If it has some state, return a partial error.
-		return &id, resourceState, waitErr
 	}
 	if pi.Identifier == nil {
-		return nil, nil, errors.New("received nil identifier while reading resource state")
-	}
-	if readErr != nil {
-		return nil, nil, fmt.Errorf("reading resource state: %w", readErr)
+		return nil, nil, errors.New("received nil identifier while awaiting completion")
 	}
 
-	return &id, resourceState, nil
+	// Read the state - even if there was a creation error but the progress event contains a resource ID.
+	// Retrieve the resource state from AWS.
+	// Note that we do so even if creation hasn't succeeded but the identifier is assigned.
+	resourceState, err = c.api.GetResource(ctx, typeName, *pi.Identifier)
+	if err != nil {
+		if waitErr != nil {
+			// Both wait and read fail. Provisioning failed entirely, return the wait error as more informative.
+			return nil, nil, fmt.Errorf("creating resource (await): %w", waitErr)
+		}
+		// Creation succeeded but reading failed - return the read error.
+		return nil, nil, fmt.Errorf("reading resource state: %w", err)
+	}
+
+	return pi.Identifier, resourceState, waitErr
 }
 
 func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (resourceState map[string]interface{}, exists bool, err error) {
