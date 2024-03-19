@@ -182,7 +182,7 @@ func TestClientCreate(t *testing.T) {
 
 		id, outputs, err := client.Create(ctx, typeName, desiredState)
 
-		assert.Equal(t, "received nil identifier while reading resource state", err.Error())
+		assert.Equal(t, "received nil identifier while awaiting completion", err.Error())
 		assert.Nil(t, id)
 		assert.Nil(t, outputs)
 	})

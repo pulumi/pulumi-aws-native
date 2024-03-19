@@ -75,7 +75,7 @@ func (c *clientImpl) Create(ctx context.Context, typeName string, desiredState m
 		}
 	}
 	if pi.Identifier == nil {
-		return nil, nil, errors.New("received nil identifier while reading resource state")
+		return nil, nil, errors.New("received nil identifier while awaiting completion")
 	}
 
 	// Read the state - even if there was a creation error but the progress event contains a resource ID.
