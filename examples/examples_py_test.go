@@ -21,6 +21,27 @@ func TestSimplePython(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestUntypedPython(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "untyped-py", "step1"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join(getCwd(t), "untyped-py", "step2"),
+					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+						assert.Equal(t, "updatedValue", stackInfo.Outputs["outputs"].(map[string]interface{})["Value"])
+						assert.Equal(t,
+							map[string]interface{}{"defaultTag": "defaultTagValue", "localTag": "localTagValue"},
+							stackInfo.Outputs["outputs"].(map[string]interface{})["Tags"])
+					},
+				},
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestDefaultTagsPython(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{

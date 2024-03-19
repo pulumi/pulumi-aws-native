@@ -1,0 +1,3 @@
+name: untyped-py
+runtime: python
+description: An AWS Python Pulumi program exercising the ExtensionResource
