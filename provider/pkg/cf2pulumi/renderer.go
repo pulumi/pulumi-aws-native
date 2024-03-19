@@ -1251,7 +1251,7 @@ func RenderTemplate(file *ast.File, metadata *schema.CloudAPIMetadata) (*model.B
 	var diagnostics hcl.Diagnostics
 	for _, f := range rootValues {
 		switch keyString(f) {
-		case "AWSTemplateFormatVersion":
+		case "AWSTemplateFormatVersion", "Rules":
 			// Ignore this
 		case "Description":
 			if f.Value.Type() != ast.StringType {
