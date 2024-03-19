@@ -116,6 +116,8 @@ type cfnProvider struct {
 	ec2 *ec2.Client
 	ssm *ssm.Client
 	sts *sts.Client
+
+	customResources map[string]resources.CustomResource
 }
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
@@ -504,6 +506,10 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		}
 	}
 
+	p.customResources = map[string]resources.CustomResource{
+		metadata.ExtensionResourceToken: resources.NewExtensionResource(p.ccc),
+	}
+
 	p.configured = true
 
 	return &pulumirpc.ConfigureResponse{
@@ -694,12 +700,6 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	label := fmt.Sprintf("%s.Check(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	resourceToken := string(urn.Type())
-	spec, ok := p.resourceMap.Resources[resourceToken]
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceToken)
-	}
-
 	olds, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.olds", label), SkipNulls: true,
 	})
@@ -721,30 +721,44 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	// Filter null properties from the inputs.
 	newInputs = filterNullProperties(newInputs)
 
-	if autoNamingSpec := spec.AutoNamingSpec; autoNamingSpec != nil {
-		// Auto-name fields if not already specified
-		val, err := getDefaultName(req.RandomSeed, urn, autoNamingSpec, olds, newInputs)
+	var failures []resources.ValidationFailure
+	resourceToken := string(urn.Type())
+	if customResource, ok := p.customResources[resourceToken]; ok {
+		newInputs, failures, err = customResource.Check(ctx, urn, newInputs, olds, p.defaultTags)
+		if err != nil {
+			return nil, fmt.Errorf("failed to check custom resource %q: %w", resourceToken, err)
+		}
+	} else {
+		spec, ok := p.resourceMap.Resources[resourceToken]
+		if !ok {
+			return nil, errors.Errorf("Resource type %s not found", resourceToken)
+		}
+
+		if autoNamingSpec := spec.AutoNamingSpec; autoNamingSpec != nil {
+			// Auto-name fields if not already specified
+			val, err := getDefaultName(req.RandomSeed, urn, autoNamingSpec, olds, newInputs)
+			if err != nil {
+				return nil, err
+			}
+			newInputs[resource.PropertyKey(autoNamingSpec.SdkName)] = val
+		}
+
+		// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
+		if len(p.defaultTags) > 0 && spec.TagsProperty != "" && spec.TagsStyle != default_tags.TagsStyleUnknown {
+			tagsKey := resource.PropertyKey(spec.TagsProperty)
+			val, err := default_tags.MergeDefaultTags(newInputs[tagsKey], p.defaultTags, spec.TagsStyle)
+			if err != nil {
+				return nil, err
+			}
+			newInputs[tagsKey] = val
+		}
+
+		failures, err = resources.ValidateResource(&spec, p.resourceMap.Types, newInputs)
 		if err != nil {
 			return nil, err
 		}
-		newInputs[resource.PropertyKey(autoNamingSpec.SdkName)] = val
 	}
-
-	// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
-	if len(p.defaultTags) > 0 && spec.TagsProperty != "" && spec.TagsStyle != default_tags.TagsStyleUnknown {
-		tagsKey := resource.PropertyKey(spec.TagsProperty)
-		val, err := default_tags.MergeDefaultTags(newInputs[tagsKey], p.defaultTags, spec.TagsStyle)
-		if err != nil {
-			return nil, err
-		}
-		newInputs[tagsKey] = val
-	}
-
 	var checkFailures []*pulumirpc.CheckFailure
-	failures, err := resources.ValidateResource(&spec, p.resourceMap.Types, newInputs)
-	if err != nil {
-		return nil, err
-	}
 	for _, f := range failures {
 		checkFailures = append(checkFailures, &pulumirpc.CheckFailure{Property: f.Path, Reason: f.Reason})
 	}
@@ -809,54 +823,44 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	resourceToken := string(urn.Type())
-	var spec metadata.CloudAPIResource
-	var hasSpec bool
-	var cfType string
+	var id *string
+	var outputs map[string]interface{}
+	var createErr error
 	var payload map[string]interface{}
-	switch resourceToken {
-	case schema.ExtensionResourceToken:
-		// For a custom resource, both CF type and inputs shape are defined explicitly in the SDK.
-		inputsMap := resourcex.Decode(inputs)
-		if v, has := inputsMap["type"].(string); has {
-			cfType = v
-		} else {
-			return nil, errors.New("no 'type' property in extension resource inputs")
-		}
-		if v, has := inputsMap["properties"].(map[string]interface{}); has {
-			payload = v
-		} else {
-			return nil, errors.New("no 'properties' property in extension resource inputs")
-		}
-	default:
-		spec, hasSpec = p.resourceMap.Resources[resourceToken]
+	if customResource, ok := p.customResources[resourceToken]; ok {
+		id, outputs, createErr = customResource.Create(ctx, urn, inputs)
+	} else {
+		// Standard resource
+		spec, hasSpec := p.resourceMap.Resources[resourceToken]
 		if !hasSpec {
 			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
-		cfType = spec.CfType
+		cfType := spec.CfType
 
 		// Convert SDK inputs to CFN payload.
 		payload, err = naming.SdkToCfn(&spec, p.resourceMap.Types, resourcex.Decode(inputs))
 		if err != nil {
 			return nil, fmt.Errorf("Failed to convert value for %s: %w", resourceToken, err)
 		}
-	}
 
-	// Create the resource with Cloud API.
-	glog.V(9).Infof("%s.CreateResource %q", label, cfType)
-	id, resourceState, createErr := p.ccc.Create(ctx, cfType, payload)
-	if createErr != nil && (id == nil || resourceState == nil) {
-		return nil, errors.Wrapf(createErr, "creating resource")
-	}
+		// Create the resource with Cloud API.
+		glog.V(9).Infof("%s.CreateResource %q", label, cfType)
+		var resourceState map[string]interface{}
+		id, resourceState, createErr = p.ccc.Create(ctx, cfType, payload)
+		if createErr != nil && (id == nil || resourceState == nil) {
+			return nil, errors.Wrapf(createErr, "creating resource")
+		}
 
-	outputs := naming.CfnToSdk(resourceState)
-	// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
-	if hasSpec && len(spec.WriteOnly) > 0 {
-		inputsMap := inputs.Mappable()
-		for _, writeOnlyProp := range spec.WriteOnly {
-			if _, ok := outputs[writeOnlyProp]; !ok {
-				inputValue, ok := inputsMap[writeOnlyProp]
-				if ok {
-					outputs[writeOnlyProp] = inputValue
+		outputs = naming.CfnToSdk(resourceState)
+		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
+		if hasSpec && len(spec.WriteOnly) > 0 {
+			inputsMap := inputs.Mappable()
+			for _, writeOnlyProp := range spec.WriteOnly {
+				if _, ok := outputs[writeOnlyProp]; !ok {
+					inputValue, ok := inputsMap[writeOnlyProp]
+					if ok {
+						outputs[writeOnlyProp] = inputValue
+					}
 				}
 			}
 		}
@@ -882,15 +886,6 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 			return nil, fmt.Errorf("marshalling currentResourceStateCheckpoint: %w", err)
 		}
 		return nil, partialError(*id, createErr, checkpoint, req.GetProperties())
-	}
-
-	switch resourceToken {
-	case schema.ExtensionResourceToken:
-		// Wrap all outputs into an explicit property so that they are available
-		// to SDK consumers as an untyped map.
-		outputs = map[string]interface{}{
-			"outputs": outputs,
-		}
 	}
 
 	// Store both outputs and inputs into the state.
@@ -921,76 +916,91 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if err != nil {
 		return nil, err
 	}
+	// Extract old inputs from the `__inputs` field of the old state.
+	inputs := parseCheckpointObject(oldState)
 
 	// Read the resource state from AWS.
 	resourceToken := string(urn.Type())
-	spec, ok := p.resourceMap.Resources[resourceToken]
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceToken)
-	}
-	resourceState, exists, err := p.ccc.Read(p.canceler.context, spec.CfType, id)
-	if err != nil {
-		return nil, err
-	}
-	if !exists {
-		// Not Exists means that the resource was deleted.
-		return &pulumirpc.ReadResponse{Id: ""}, nil
-	}
-	newState := naming.CfnToSdk(resourceState)
-
-	// Extract old inputs from the `__inputs` field of the old state.
-	inputs := parseCheckpointObject(oldState)
-	if inputs == nil {
-		// There may be no old state (i.e., importing a new resource).
-		// Extract inputs from the response body.
-		newStateProps := resource.NewPropertyMapFromMap(newState)
-		inputs, err = schema.GetInputsFromState(&spec, newStateProps)
+	var newInputs resource.PropertyMap
+	var newState map[string]interface{}
+	var exists bool
+	if customResource, ok := p.customResources[resourceToken]; ok {
+		newState, newInputs, exists, err = customResource.Read(ctx, urn, id, inputs, oldState)
 		if err != nil {
 			return nil, err
 		}
-		if len(spec.WriteOnly) > 0 {
-			p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't import write-only properties: %s", strings.Join(spec.WriteOnly, ", ")))
+		if !exists {
+			// Not Exists means that the resource was deleted.
+			return &pulumirpc.ReadResponse{Id: ""}, nil
 		}
 	} else {
-		// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
-		// The current approach is complicated but it's aimed to minimize the noise while refreshing:
-		// 0. We have "old" inputs and outputs before refresh and "new" outputs read from AWS.
-		// 1. Project old outputs to their corresponding input shape (exclude attributes).
-		oldInputProjection, err := schema.GetInputsFromState(&spec, oldState)
+		// Standard resource
+		spec, ok := p.resourceMap.Resources[resourceToken]
+		if !ok {
+			return nil, errors.Errorf("Resource type %s not found", resourceToken)
+		}
+		var resourceState map[string]interface{}
+		resourceState, exists, err = p.ccc.Read(p.canceler.context, spec.CfType, id)
 		if err != nil {
 			return nil, err
 		}
-		oldStateMap := oldState.Mappable()
-		// Fill in the write-only properties from the old state as they won't included when reading.
-		if len(spec.WriteOnly) > 0 {
-			missingProps := make([]string, 0, len(spec.WriteOnly))
-			for _, writeOnlyProp := range spec.WriteOnly {
-				if _, ok := newState[writeOnlyProp]; !ok {
-					oldValue, ok := oldStateMap[writeOnlyProp]
-					missingProps = append(missingProps, writeOnlyProp)
-					if ok {
-						newState[writeOnlyProp] = oldValue
+		if !exists {
+			// Not Exists means that the resource was deleted.
+			return &pulumirpc.ReadResponse{Id: ""}, nil
+		}
+		newState = naming.CfnToSdk(resourceState)
+
+		if inputs == nil {
+			// There may be no old state (i.e., importing a new resource).
+			// Extract inputs from the response body.
+			newStateProps := resource.NewPropertyMapFromMap(newState)
+			inputs, err = schema.GetInputsFromState(&spec, newStateProps)
+			if err != nil {
+				return nil, err
+			}
+			if len(spec.WriteOnly) > 0 {
+				p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't import write-only properties: %s", strings.Join(spec.WriteOnly, ", ")))
+			}
+		} else {
+			// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
+			// The current approach is complicated but it's aimed to minimize the noise while refreshing:
+			// 0. We have "old" inputs and outputs before refresh and "new" outputs read from AWS.
+			// 1. Project old outputs to their corresponding input shape (exclude attributes).
+			oldInputProjection, err := schema.GetInputsFromState(&spec, oldState)
+			if err != nil {
+				return nil, err
+			}
+			oldStateMap := oldState.Mappable()
+			// Fill in the write-only properties from the old state as they won't included when reading.
+			if len(spec.WriteOnly) > 0 {
+				missingProps := make([]string, 0, len(spec.WriteOnly))
+				for _, writeOnlyProp := range spec.WriteOnly {
+					if _, ok := newState[writeOnlyProp]; !ok {
+						oldValue, ok := oldStateMap[writeOnlyProp]
+						missingProps = append(missingProps, writeOnlyProp)
+						if ok {
+							newState[writeOnlyProp] = oldValue
+						}
 					}
 				}
+				p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't refresh write-only properties: %s", strings.Join(missingProps, ", ")))
 			}
-			p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't refresh write-only properties: %s", strings.Join(missingProps, ", ")))
+			// 2. Project new outputs to their corresponding input shape (exclude attributes).
+			newStateProps := resource.NewPropertyMapFromMap(newState)
+			newInputProjection, err := schema.GetInputsFromState(&spec, newStateProps)
+			if err != nil {
+				return nil, err
+			}
+			// 3. Calculate the difference between two projections. This should give us actual significant changes
+			// that happened in AWS between the last resource update and its current state.
+			diff := oldInputProjection.Diff(newInputProjection)
+			// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
+			newInputs = resources.ApplyDiff(inputs, diff)
 		}
-		// 2. Project new outputs to their corresponding input shape (exclude attributes).
-		newStateProps := resource.NewPropertyMapFromMap(newState)
-		newInputProjection, err := schema.GetInputsFromState(&spec, newStateProps)
-		if err != nil {
-			return nil, err
-		}
-		// 3. Calculate the difference between two projections. This should give us actual significant changes
-		// that happened in AWS between the last resource update and its current state.
-		diff := oldInputProjection.Diff(newInputProjection)
-		// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
-		inputs = applyDiff(inputs, diff)
 	}
-
 	// Store both outputs and inputs into the state checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
-		checkpointObject(inputs, newState),
+		checkpointObject(newInputs, newState),
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
@@ -1017,15 +1027,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	label := fmt.Sprintf("%s.Update(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	id := req.GetId()
-	resourceToken := string(urn.Type())
-	spec, ok := p.resourceMap.Resources[resourceToken]
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceToken)
-	}
-
-	news := req.GetNews()
-	newInputs, err := plugin.UnmarshalProperties(news, plugin.MarshalOptions{
+	newInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.properties", label),
 		KeepUnknowns: true,
 		RejectAssets: true,
@@ -1035,46 +1037,73 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, errors.Wrapf(err, "failed to parse inputs for update")
 	}
 
-	diff, err := p.diffState(req.GetOlds(), newInputs, label)
+	oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.oldState", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs")
 	}
+	oldInputs := parseCheckpointObject(oldState)
 
-	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
-	// patch requests as adds to ensure the updated model validates.
-	for _, writeOnlyPropName := range spec.WriteOnly {
-		propKey := resource.PropertyKey(writeOnlyPropName)
-		if _, ok := diff.Sames[propKey]; ok {
-			delete(diff.Sames, propKey)
-			diff.Adds[propKey] = newInputs[propKey]
+	var outputs map[string]interface{}
+	id := req.GetId()
+	resourceToken := string(urn.Type())
+	if customResource, ok := p.customResources[resourceToken]; ok {
+		// Custom resource
+		outputs, err = customResource.Update(ctx, urn, id, newInputs, oldInputs)
+		if err != nil {
+			return nil, err
 		}
-	}
+	} else {
+		// Standard resource
+		spec, ok := p.resourceMap.Resources[resourceToken]
+		if !ok {
+			return nil, errors.Errorf("Resource type %s not found", resourceToken)
+		}
 
-	ops, err := naming.DiffToPatch(&spec, p.resourceMap.Types, diff)
-	if err != nil {
-		return nil, err
-	}
+		diff, err := p.diffState(req.GetOlds(), newInputs, label)
+		if err != nil {
+			return nil, err
+		}
 
-	glog.V(9).Infof("%s.UpdateResource %q id %q state %+v", label, spec.CfType, id, ops)
-	resourceState, err := p.ccc.Update(p.canceler.context, spec.CfType, id, ops)
-	if err != nil {
-		return nil, err
-	}
-	outputs := naming.CfnToSdk(resourceState)
+		// Write-only properties can't even be read internally within the CloudControl service so they must be included in
+		// patch requests as adds to ensure the updated model validates.
+		for _, writeOnlyPropName := range spec.WriteOnly {
+			propKey := resource.PropertyKey(writeOnlyPropName)
+			if _, ok := diff.Sames[propKey]; ok {
+				delete(diff.Sames, propKey)
+				diff.Adds[propKey] = newInputs[propKey]
+			}
+		}
 
-	// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
-	if len(spec.WriteOnly) > 0 {
-		inputsMap := newInputs.Mappable()
-		for _, writeOnlyProp := range spec.WriteOnly {
-			if _, ok := outputs[writeOnlyProp]; !ok {
-				inputValue, ok := inputsMap[writeOnlyProp]
-				if ok {
-					outputs[writeOnlyProp] = inputValue
+		ops, err := naming.DiffToPatch(&spec, p.resourceMap.Types, diff)
+		if err != nil {
+			return nil, err
+		}
+
+		glog.V(9).Infof("%s.UpdateResource %q id %q state %+v", label, spec.CfType, id, ops)
+		resourceState, err := p.ccc.Update(p.canceler.context, spec.CfType, id, ops)
+		if err != nil {
+			return nil, err
+		}
+		outputs = naming.CfnToSdk(resourceState)
+
+		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
+		if len(spec.WriteOnly) > 0 {
+			inputsMap := newInputs.Mappable()
+			for _, writeOnlyProp := range spec.WriteOnly {
+				if _, ok := outputs[writeOnlyProp]; !ok {
+					inputValue, ok := inputsMap[writeOnlyProp]
+					if ok {
+						outputs[writeOnlyProp] = inputValue
+					}
 				}
 			}
 		}
 	}
-
 	// Store both outputs and inputs into the state and return RPC checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
 		checkpointObject(newInputs, outputs),
@@ -1092,32 +1121,35 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	label := fmt.Sprintf("%s.Delete(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
+	id := req.GetId()
 	resourceToken := string(urn.Type())
-	var cfType string
-	switch resourceToken {
-	case schema.ExtensionResourceToken:
-		// Retrieve the old state and inputs to fetch the CF type.
-		oldState, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.properties", label), SkipNulls: true,
+	if customResource, ok := p.customResources[resourceToken]; ok {
+		oldInputs, err := plugin.UnmarshalProperties(req.OldInputs, plugin.MarshalOptions{
+			Label:        fmt.Sprintf("%s.properties", label),
+			KeepUnknowns: true,
+			RejectAssets: true,
+			KeepSecrets:  true,
 		})
+		if err != nil {
+			return nil, errors.Wrapf(err, "failed to parse inputs for update")
+		}
+
+		err = customResource.Delete(ctx, urn, id, oldInputs)
 		if err != nil {
 			return nil, err
 		}
-		oldInputs := parseCheckpointObject(oldState).Mappable()
-		cfType = oldInputs["type"].(string)
-	default:
+	} else {
+		// Standard resource
 		spec, ok := p.resourceMap.Resources[resourceToken]
 		if !ok {
 			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
-		cfType = spec.CfType
-	}
-	id := req.GetId()
 
-	glog.V(9).Infof("%s.DeleteResource %q id %q", label, cfType, id)
-	err := p.ccc.Delete(p.canceler.context, cfType, id)
-	if err != nil {
-		return nil, err
+		glog.V(9).Infof("%s.DeleteResource %q id %q", label, spec.CfType, id)
+		err := p.ccc.Delete(p.canceler.context, spec.CfType, id)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	return &pbempty.Empty{}, nil
@@ -1168,27 +1200,6 @@ func (p *cfnProvider) diffState(olds *pbstruct.Struct, newInputs resource.Proper
 	diff := oldInputs.Diff(newInputs)
 
 	return diff, nil
-}
-
-// applyDiff produces a new map as a merge of a calculated diff into an existing map of values.
-func applyDiff(values resource.PropertyMap, diff *resource.ObjectDiff) resource.PropertyMap {
-	if diff == nil {
-		return values
-	}
-
-	result := resource.PropertyMap{}
-	for name, value := range values {
-		if !diff.Deleted(name) {
-			result[name] = value
-		}
-	}
-	for key, value := range diff.Adds {
-		result[key] = value
-	}
-	for key, value := range diff.Updates {
-		result[key] = value.New
-	}
-	return result
 }
 
 // checkpointObject puts inputs in the `__inputs` field of the state.
