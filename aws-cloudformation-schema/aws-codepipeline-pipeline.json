@@ -238,6 +238,9 @@
         },
         "Name" : {
           "type" : "string"
+        },
+        "TimeoutInMinutes" : {
+          "type" : "integer"
         }
       },
       "required" : [ "ActionTypeId", "Name" ]

@@ -49,6 +49,7 @@ AWS::AppConfig::HostedConfigurationVersion
 AWS::AppFlow::Connector
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
+AWS::AppIntegrations::Application
 AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::AutoScalingConfiguration
