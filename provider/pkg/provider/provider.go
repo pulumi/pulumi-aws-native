@@ -46,7 +46,6 @@ import (
 	smithyhttp "github.com/aws/smithy-go/transport/http"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
-	pbstruct "github.com/golang/protobuf/ptypes/struct"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
@@ -792,10 +791,21 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 		return nil, errors.Wrapf(err, "failed to parse inputs for update")
 	}
 
-	diff, err := p.diffState(req.GetOlds(), newInputs, label)
+	oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.oldState", label),
+		KeepUnknowns: true,
+		RejectAssets: true,
+		KeepSecrets:  true,
+	})
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs")
 	}
+
+	// Extract old inputs from the `__inputs` field of the old state.
+	oldInputs := parseCheckpointObject(oldState)
+
+	diff := oldInputs.Diff(newInputs)
+
 	if diff == nil {
 		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 	}
@@ -1064,10 +1074,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
 
-		diff, err := p.diffState(req.GetOlds(), newInputs, label)
-		if err != nil {
-			return nil, err
-		}
+		diff := oldInputs.Diff(newInputs)
 
 		// Write-only properties can't even be read internally within the CloudControl service so they must be included in
 		// patch requests as adds to ensure the updated model validates.
@@ -1180,26 +1187,6 @@ func (p *cfnProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*pulumirpc
 func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
 	p.canceler.cancel()
 	return &pbempty.Empty{}, nil
-}
-
-// diffState extracts old and new inputs and calculates a diff between them.
-func (p *cfnProvider) diffState(olds *pbstruct.Struct, newInputs resource.PropertyMap, label string) (*resource.ObjectDiff, error) {
-	oldState, err := plugin.UnmarshalProperties(olds, plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.oldState", label),
-		KeepUnknowns: true,
-		RejectAssets: true,
-		KeepSecrets:  true,
-	})
-	if err != nil {
-		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs")
-	}
-
-	// Extract old inputs from the `__inputs` field of the old state.
-	oldInputs := parseCheckpointObject(oldState)
-
-	diff := oldInputs.Diff(newInputs)
-
-	return diff, nil
 }
 
 // checkpointObject puts inputs in the `__inputs` field of the state.
