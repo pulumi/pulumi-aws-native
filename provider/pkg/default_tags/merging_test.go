@@ -154,4 +154,26 @@ func TestDefaultTags(t *testing.T) {
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 	})
+
+	t.Run("key value array uppercase", func(t *testing.T) {
+		tags := resource.NewPropertyValue([]interface{}{
+			map[string]interface{}{
+				"Key":   "localTag",
+				"Value": "localTagValue",
+			},
+		})
+		expected := resource.NewPropertyValue([]interface{}{
+			map[string]interface{}{
+				"Key":   "localTag",
+				"Value": "localTagValue",
+			},
+			map[string]interface{}{
+				"Key":   "defaultTag",
+				"Value": "defaultTagValue",
+			},
+		})
+		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleKeyValueArrayUpperCase)
+		assert.NoError(t, err)
+		assert.Equal(t, expected, actual)
+	})
 }
