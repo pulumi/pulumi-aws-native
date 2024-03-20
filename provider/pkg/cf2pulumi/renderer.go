@@ -898,12 +898,17 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 				return nil, diagnostics, fmt.Errorf("'%v' must be a mapping", keyString(f))
 			}
 			for _, sf := range subValues {
+				keyValue := keyString(sf)
+				// Properties should never contain a colon. This is only used within metadata which we discard.
+				if strings.ContainsRune(keyValue, ':') {
+					continue
+				}
 				sv, err := ctx.renderValue(sf.Value)
 				if err != nil {
 					return nil, diagnostics, err
 				}
 				items = append(items, &model.Attribute{
-					Name:  camel(keyString(sf)),
+					Name:  camel(keyValue),
 					Value: sv,
 				})
 			}
