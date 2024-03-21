@@ -35,19 +35,19 @@ import (
 //			_, err := ecs.NewClusterCapacityProviderAssociations(ctx, "clusterCPAssociation", &ecs.ClusterCapacityProviderAssociationsArgs{
 //				Cluster: pulumi.String(clusterName),
 //				CapacityProviders: pulumi.StringArray{
-//					pulumi.String("FARGATE"),
-//					pulumi.String("FARGATE_SPOT"),
+//					pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargate),
+//					pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargateSpot),
 //				},
 //				DefaultCapacityProviderStrategy: ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArray{
 //					&ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{
 //						Base:             pulumi.Int(2),
 //						Weight:           pulumi.Int(1),
-//						CapacityProvider: pulumi.String("FARGATE"),
+//						CapacityProvider: pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargate),
 //					},
 //					&ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{
 //						Base:             pulumi.Int(0),
 //						Weight:           pulumi.Int(1),
-//						CapacityProvider: pulumi.String("FARGATE_SPOT"),
+//						CapacityProvider: pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargateSpot),
 //					},
 //				},
 //			})
@@ -79,19 +79,19 @@ import (
 //			_, err := ecs.NewClusterCapacityProviderAssociations(ctx, "clusterCPAssociation", &ecs.ClusterCapacityProviderAssociationsArgs{
 //				Cluster: pulumi.String(clusterName),
 //				CapacityProviders: pulumi.StringArray{
-//					pulumi.String("FARGATE"),
-//					pulumi.String("FARGATE_SPOT"),
+//					pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargate),
+//					pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargateSpot),
 //				},
 //				DefaultCapacityProviderStrategy: ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArray{
 //					&ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{
 //						Base:             pulumi.Int(2),
 //						Weight:           pulumi.Int(1),
-//						CapacityProvider: pulumi.String("FARGATE"),
+//						CapacityProvider: pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargate),
 //					},
 //					&ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{
 //						Base:             pulumi.Int(0),
 //						Weight:           pulumi.Int(1),
-//						CapacityProvider: pulumi.String("FARGATE_SPOT"),
+//						CapacityProvider: pulumi.String(ecs.ClusterCapacityProviderAssociationsCapacityProviderFargateSpot),
 //					},
 //				},
 //			})
