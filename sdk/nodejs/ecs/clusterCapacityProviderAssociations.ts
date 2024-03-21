@@ -22,19 +22,19 @@ import * as utilities from "../utilities";
  * const clusterCPAssociation = new aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation", {
  *     cluster: clusterName,
  *     capacityProviders: [
- *         "FARGATE",
- *         "FARGATE_SPOT",
+ *         aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
+ *         aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
  *     ],
  *     defaultCapacityProviderStrategy: [
  *         {
  *             base: 2,
  *             weight: 1,
- *             capacityProvider: "FARGATE",
+ *             capacityProvider: aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
  *         },
  *         {
  *             base: 0,
  *             weight: 1,
- *             capacityProvider: "FARGATE_SPOT",
+ *             capacityProvider: aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
  *         },
  *     ],
  * });
@@ -51,19 +51,19 @@ import * as utilities from "../utilities";
  * const clusterCPAssociation = new aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation", {
  *     cluster: clusterName,
  *     capacityProviders: [
- *         "FARGATE",
- *         "FARGATE_SPOT",
+ *         aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
+ *         aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
  *     ],
  *     defaultCapacityProviderStrategy: [
  *         {
  *             base: 2,
  *             weight: 1,
- *             capacityProvider: "FARGATE",
+ *             capacityProvider: aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
  *         },
  *         {
  *             base: 0,
  *             weight: 1,
- *             capacityProvider: "FARGATE_SPOT",
+ *             capacityProvider: aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
  *         },
  *     ],
  * });
