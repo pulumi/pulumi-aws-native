@@ -29,8 +29,8 @@ namespace Pulumi.AwsNative.Ecs
     ///         Cluster = clusterName,
     ///         CapacityProviders = new[]
     ///         {
-    ///             "FARGATE",
-    ///             "FARGATE_SPOT",
+    ///             AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
+    ///             AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
     ///         },
     ///         DefaultCapacityProviderStrategy = new[]
     ///         {
@@ -38,13 +38,13 @@ namespace Pulumi.AwsNative.Ecs
     ///             {
     ///                 Base = 2,
     ///                 Weight = 1,
-    ///                 CapacityProvider = "FARGATE",
+    ///                 CapacityProvider = AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
     ///             },
     ///             new AwsNative.Ecs.Inputs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs
     ///             {
     ///                 Base = 0,
     ///                 Weight = 1,
-    ///                 CapacityProvider = "FARGATE_SPOT",
+    ///                 CapacityProvider = AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
     ///             },
     ///         },
     ///     });
@@ -69,8 +69,8 @@ namespace Pulumi.AwsNative.Ecs
     ///         Cluster = clusterName,
     ///         CapacityProviders = new[]
     ///         {
-    ///             "FARGATE",
-    ///             "FARGATE_SPOT",
+    ///             AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
+    ///             AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
     ///         },
     ///         DefaultCapacityProviderStrategy = new[]
     ///         {
@@ -78,13 +78,13 @@ namespace Pulumi.AwsNative.Ecs
     ///             {
     ///                 Base = 2,
     ///                 Weight = 1,
-    ///                 CapacityProvider = "FARGATE",
+    ///                 CapacityProvider = AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
     ///             },
     ///             new AwsNative.Ecs.Inputs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs
     ///             {
     ///                 Base = 0,
     ///                 Weight = 1,
-    ///                 CapacityProvider = "FARGATE_SPOT",
+    ///                 CapacityProvider = AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
     ///             },
     ///         },
     ///     });
