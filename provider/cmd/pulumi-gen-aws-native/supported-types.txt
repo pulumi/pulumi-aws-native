@@ -49,6 +49,7 @@ AWS::AppConfig::HostedConfigurationVersion
 AWS::AppFlow::Connector
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
+AWS::AppIntegrations::Application
 AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::AutoScalingConfiguration
@@ -545,6 +546,8 @@ AWS::KMS::Alias
 AWS::KMS::Key
 AWS::KMS::ReplicaKey
 AWS::KafkaConnect::Connector
+AWS::KafkaConnect::CustomPlugin
+AWS::KafkaConnect::WorkerConfiguration
 AWS::Kendra::DataSource
 AWS::Kendra::Faq
 AWS::Kendra::Index
