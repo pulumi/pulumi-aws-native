@@ -55,6 +55,7 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -1078,15 +1079,11 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 
 		// Write-only properties can't even be read internally within the CloudControl service so they must be included in
 		// patch requests as adds to ensure the updated model validates.
-		createOnlyProps := make(map[string]struct{}, len(spec.CreateOnly))
-		for _, createOnlyPropName := range spec.CreateOnly {
-			createOnlyProps[createOnlyPropName] = struct{}{}
-		}
-		for _, writeOnlyPropName := range spec.WriteOnly {
-			if _, ok := createOnlyProps[writeOnlyPropName]; ok {
-				// If a property is both write-only and create-only, we should not include it in the patch request.
-				continue
-			}
+		// If a property is both write-only and create-only, we should not include it in the patch request.
+		createOnlyProps := codegen.NewStringSet(spec.CreateOnly...)
+		writeOnlyProps := codegen.NewStringSet(spec.WriteOnly...)
+		mustSendProps := writeOnlyProps.Subtract(createOnlyProps)
+		for writeOnlyPropName := range mustSendProps {
 			propKey := resource.PropertyKey(writeOnlyPropName)
 			if _, ok := diff.Sames[propKey]; ok {
 				delete(diff.Sames, propKey)
