@@ -325,7 +325,7 @@
   "additionalProperties" : false,
   "required" : [ "Description", "StopConditions", "Targets", "RoleArn", "Tags" ],
   "readOnlyProperties" : [ "/properties/Id" ],
-  "createOnlyProperties" : [ "/properties/Tags", "/properties/ExperimentOptions/properties/AccountTargeting" ],
+  "createOnlyProperties" : [ "/properties/Tags", "/properties/ExperimentOptions/AccountTargeting" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {

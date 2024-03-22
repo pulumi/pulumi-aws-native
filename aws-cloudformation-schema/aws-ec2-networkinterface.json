@@ -122,6 +122,10 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "VpcId" : {
+      "description" : "The ID of the VPC",
+      "type" : "string"
     }
   },
   "definitions" : {
@@ -200,7 +204,7 @@
   "required" : [ "SubnetId" ],
   "createOnlyProperties" : [ "/properties/PrivateIpAddress", "/properties/InterfaceType", "/properties/SubnetId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/SecondaryPrivateIpAddresses", "/properties/PrimaryPrivateIpAddress", "/properties/PrimaryIpv6Address" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/SecondaryPrivateIpAddresses", "/properties/PrimaryPrivateIpAddress", "/properties/PrimaryIpv6Address", "/properties/VpcId" ],
   "conditionalCreateOnlyProperties" : [ "/properties/PrivateIpAddresses", "/properties/EnablePrimaryIpv6", "/properties/ConnectionTrackingSpecification" ],
   "taggable" : true,
   "handlers" : {

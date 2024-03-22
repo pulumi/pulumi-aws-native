@@ -49,6 +49,7 @@ AWS::AppConfig::HostedConfigurationVersion
 AWS::AppFlow::Connector
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
+AWS::AppIntegrations::Application
 AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::AutoScalingConfiguration
@@ -147,6 +148,7 @@ AWS::CloudWatch::Alarm
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
 AWS::CodeArtifact::Domain
+AWS::CodeArtifact::PackageGroup
 AWS::CodeArtifact::Repository
 AWS::CodeBuild::Fleet
 AWS::CodeDeploy::Application
@@ -545,6 +547,8 @@ AWS::KMS::Alias
 AWS::KMS::Key
 AWS::KMS::ReplicaKey
 AWS::KafkaConnect::Connector
+AWS::KafkaConnect::CustomPlugin
+AWS::KafkaConnect::WorkerConfiguration
 AWS::Kendra::DataSource
 AWS::Kendra::Faq
 AWS::Kendra::Index
@@ -867,7 +871,10 @@ AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
 AWS::SecretsManager::Secret
 AWS::SecurityHub::AutomationRule
+AWS::SecurityHub::DelegatedAdmin
 AWS::SecurityHub::Hub
+AWS::SecurityHub::Insight
+AWS::SecurityHub::ProductSubscription
 AWS::SecurityHub::Standard
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::ServiceAction
