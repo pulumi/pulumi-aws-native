@@ -66,6 +66,19 @@ namespace Pulumi.AwsNative
 
     public sealed class ExtensionResourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("createOnly")]
+        private InputList<string>? _createOnly;
+
+        /// <summary>
+        /// Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
+        /// In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+        /// </summary>
+        public InputList<string> CreateOnly
+        {
+            get => _createOnly ?? (_createOnly = new InputList<string>());
+            set => _createOnly = value;
+        }
+
         [Input("properties", required: true)]
         private InputMap<object>? _properties;
 

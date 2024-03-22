@@ -5,6 +5,7 @@ package naming
 import (
 	"fmt"
 	"reflect"
+	"slices"
 	"strings"
 
 	"github.com/mattbaird/jsonpatch"
@@ -179,7 +180,14 @@ func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, spec metadata.C
 
 func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
 	var ops []jsonpatch.JsonPatchOperation
-	for sdkName, prop := range c.spec.Inputs {
+	// Sort keys to ensure deterministic ordering of patch operations.
+	sortedKeys := make([]string, 0, len(c.spec.Inputs))
+	for sdkName := range c.spec.Inputs {
+		sortedKeys = append(sortedKeys, string(sdkName))
+	}
+	slices.Sort(sortedKeys)
+	for _, sdkName := range sortedKeys {
+		prop := c.spec.Inputs[sdkName]
 		cfnName := ToCfnName(sdkName, c.spec.IrreversibleNames)
 		key := resource.PropertyKey(sdkName)
 		if v, ok := diff.Updates[key]; ok {

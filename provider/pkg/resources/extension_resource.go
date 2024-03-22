@@ -6,18 +6,17 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/mattbaird/jsonpatch"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/wI2L/jsondiff"
 )
 
 type ExtensionResourceInputs struct {
 	Type         string
 	Properties   map[string]any
+	CreateOnly   []string
 	WriteOnly    []string
 	TagsProperty string
 	TagsStyle    default_tags.TagsStyle
@@ -163,41 +162,9 @@ func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id str
 		return nil, fmt.Errorf("changing the type of an extension resource is not supported")
 	}
 
-	jsonDiffPatch, err := jsondiff.Compare(typedOldInputs.Properties, typedInputs.Properties)
+	jsonPatch, err := CalculateUntypedPatch(typedOldInputs, typedInputs)
 	if err != nil {
-		return nil, fmt.Errorf("failed to compare properties: %w", err)
-	}
-
-	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
-	// patch requests as adds to ensure the updated model validates.
-	for _, writeOnlyPropName := range typedInputs.WriteOnly {
-		newValue, ok := typedInputs.Properties[writeOnlyPropName]
-		if !ok {
-			continue
-		}
-		hasPatch := false
-		for _, op := range jsonDiffPatch {
-			if op.Path == writeOnlyPropName {
-				hasPatch = true
-				break
-			}
-		}
-		if !hasPatch {
-			jsonDiffPatch = append(jsonDiffPatch, jsondiff.Operation{
-				Type:  "add",
-				Path:  writeOnlyPropName,
-				Value: newValue,
-			})
-		}
-	}
-
-	jsonPatch := make([]jsonpatch.JsonPatchOperation, 0, len(jsonDiffPatch))
-	for _, op := range jsonDiffPatch {
-		jsonPatch = append(jsonPatch, jsonpatch.JsonPatchOperation{
-			Operation: op.Type,
-			Path:      op.Path,
-			Value:     op.Value,
-		})
+		return nil, fmt.Errorf("failed to calculate patch: %w", err)
 	}
 
 	resourceState, err := r.client.Update(ctx, typedInputs.Type, id, jsonPatch)
@@ -223,72 +190,73 @@ func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id str
 	return nil
 }
 
-func extensionResourceInputProperties() map[string]pschema.PropertySpec {
-	return map[string]pschema.PropertySpec{
-		"type": {
-			Description: "CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.",
-			TypeSpec: pschema.TypeSpec{
-				Type: "string",
-			},
-			ReplaceOnChanges: true,
-		},
-		"properties": {
-			Description: "Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.",
-			TypeSpec: pschema.TypeSpec{
-				Type: "object",
-				AdditionalProperties: &pschema.TypeSpec{
-					Ref: "pulumi.json#/Any",
-				},
-			},
-		},
-		"writeOnly": {
-			Description: "Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.\nIn the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).",
-			TypeSpec: pschema.TypeSpec{
-				Type: "array",
-				Items: &pschema.TypeSpec{
-					Type: "string",
-				},
-			},
-		},
-		"tagsProperty": {
-			Description: "Optional name of the property containing the tags. Defaults to \"Tags\" if the `tagsStyle` is set to either \"stringMap\" or \"keyValueArray\". This is used to apply default tags to the resource and can be ignored if not using default tags.",
-			TypeSpec: pschema.TypeSpec{
-				Type: "string",
-			},
-		},
-		"tagsStyle": {
-			Description: "Optional style of tags this resource uses. Valid values are \"stringMap\", \"keyValueArray\" or \"none\". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.",
-			TypeSpec: pschema.TypeSpec{
-				Type: "string",
-			},
-		},
-	}
-}
-
 func ExtensionResourceSpec() pschema.ResourceSpec {
 	return pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Description: "A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.",
-			Properties:  extensionResourceOutputProperties(),
-			Required:    []string{"outputs"},
+			Properties: map[string]pschema.PropertySpec{
+				"outputs": {
+					Description: "Dictionary of the extension resource attributes.",
+					TypeSpec: pschema.TypeSpec{
+						Type: "object",
+						AdditionalProperties: &pschema.TypeSpec{
+							Ref: "pulumi.json#/Any",
+						},
+					},
+				},
+			},
+			Required: []string{"outputs"},
 		},
-		InputProperties: extensionResourceInputProperties(),
-		RequiredInputs:  []string{"type", "properties"},
-	}
-}
-
-func extensionResourceOutputProperties() map[string]pschema.PropertySpec {
-	properties := map[string]pschema.PropertySpec{}
-	properties["outputs"] = pschema.PropertySpec{
-		Description: "Dictionary of the extension resource attributes.",
-		TypeSpec: pschema.TypeSpec{
-			Type: "object",
-			AdditionalProperties: &pschema.TypeSpec{
-				Ref: "pulumi.json#/Any",
+		InputProperties: map[string]pschema.PropertySpec{
+			"type": {
+				Description: "CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.",
+				TypeSpec: pschema.TypeSpec{
+					Type: "string",
+				},
+				ReplaceOnChanges: true,
+			},
+			"properties": {
+				Description: "Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.",
+				TypeSpec: pschema.TypeSpec{
+					Type: "object",
+					AdditionalProperties: &pschema.TypeSpec{
+						Ref: "pulumi.json#/Any",
+					},
+				},
+			},
+			"createOnly": {
+				Description: "Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.\nIn the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).",
+				TypeSpec: pschema.TypeSpec{
+					Type: "array",
+					Items: &pschema.TypeSpec{
+						Type: "string",
+					},
+				},
+			},
+			"writeOnly": {
+				Description: "Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.\nIn the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).",
+				TypeSpec: pschema.TypeSpec{
+					Type: "array",
+					Items: &pschema.TypeSpec{
+						Type: "string",
+					},
+				},
+			},
+			"tagsProperty": {
+				Description: "Optional name of the property containing the tags. Defaults to \"Tags\" if the `tagsStyle` is set to either \"stringMap\" or \"keyValueArray\". This is used to apply default tags to the resource and can be ignored if not using default tags.",
+				TypeSpec: pschema.TypeSpec{
+					Type: "string",
+				},
+			},
+			"tagsStyle": {
+				Description: "Optional style of tags this resource uses. Valid values are \"stringMap\", \"keyValueArray\" or \"none\". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.",
+				TypeSpec: pschema.TypeSpec{
+					Type: "string",
+				},
 			},
 		},
+		RequiredInputs: []string{"type", "properties"},
 	}
-	return properties
 }
 
 func (r *ExtensionResourceInputs) toOutputs(resourceState map[string]interface{}) map[string]any {
