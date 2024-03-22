@@ -55,7 +55,6 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -1075,23 +1074,10 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
 
-		diff := oldInputs.Diff(newInputs)
-
 		// Write-only properties can't even be read internally within the CloudControl service so they must be included in
 		// patch requests as adds to ensure the updated model validates.
 		// If a property is both write-only and create-only, we should not include it in the patch request.
-		createOnlyProps := codegen.NewStringSet(spec.CreateOnly...)
-		writeOnlyProps := codegen.NewStringSet(spec.WriteOnly...)
-		mustSendProps := writeOnlyProps.Subtract(createOnlyProps)
-		for writeOnlyPropName := range mustSendProps {
-			propKey := resource.PropertyKey(writeOnlyPropName)
-			if _, ok := diff.Sames[propKey]; ok {
-				delete(diff.Sames, propKey)
-				diff.Adds[propKey] = newInputs[propKey]
-			}
-		}
-
-		ops, err := naming.DiffToPatch(&spec, p.resourceMap.Types, diff)
+		ops, err := resources.CalcPatch(oldInputs, newInputs, spec, p.resourceMap.Types)
 		if err != nil {
 			return nil, err
 		}
