@@ -30,7 +30,7 @@ func CreateAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resou
 		}
 	}
 
-	tryMakeSpecForField := func(loweredName string) (spec *metadata.AutoNamingSpec) {
+	tryMakeSpecForField := func(loweredName string) *metadata.AutoNamingSpec {
 		sdkName := fieldsLowered[loweredName].sdkName
 		if prop, has := inputProperties[sdkName]; !has || prop.Type != "string" {
 			return nil
@@ -39,45 +39,44 @@ func CreateAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resou
 		if jsonSpec == nil {
 			return nil
 		}
-		return &metadata.AutoNamingSpec{
+
+		spec := metadata.AutoNamingSpec{
 			SdkName:   sdkName,
 			MinLength: jsonSpec.MinLength.Val,
 			MaxLength: jsonSpec.MaxLength.Val,
 		}
+		if namingTriviaSpec, ok := semanticsSpec.NamingTriviaSpec[sdkName]; ok {
+			spec.TriviaSpec = &namingTriviaSpec
+		}
+		return &spec
 	}
 
 	// 1. Look for a property named "Name"
-	autoNameSpec := tryMakeSpecForField("name")
-	if autoNameSpec == nil {
-		// 2. Look for a property named "<ResourceTypeName>Name"
-		autoNameSpec = tryMakeSpecForField(strings.ToLower(resourceTypeName) + "name")
+	if autoNameSpec := tryMakeSpecForField("name"); autoNameSpec != nil {
+		return autoNameSpec
 	}
-	if autoNameSpec == nil {
-		// 3. Look for a property that ends with "*Name" where that prefix is also contained in the resource name.
-		// E.g. ScalingPolicy has a field "PolicyName".
-		var potentialSpecs []*metadata.AutoNamingSpec
-		for k := range fieldsLowered {
-			if before, ok := strings.CutSuffix(k, "name"); ok {
-				if strings.HasSuffix(strings.ToLower(resourceTypeName), before) {
-					potentialSpec := tryMakeSpecForField(k)
-					if potentialSpec != nil {
-						potentialSpecs = append(potentialSpecs, potentialSpec)
-					}
+	// 2. Look for a property named "<ResourceTypeName>Name"
+	if autoNameSpec := tryMakeSpecForField(strings.ToLower(resourceTypeName) + "name"); autoNameSpec != nil {
+		return autoNameSpec
+	}
+	// 3. Look for a property that ends with "*Name" where that prefix is also contained in the resource name.
+	// E.g. ScalingPolicy has a field "PolicyName".
+
+	var potentialSpecs []*metadata.AutoNamingSpec
+	for k := range fieldsLowered {
+		if before, ok := strings.CutSuffix(k, "name"); ok {
+			if strings.HasSuffix(strings.ToLower(resourceTypeName), before) {
+				potentialSpec := tryMakeSpecForField(k)
+				if potentialSpec != nil {
+					potentialSpecs = append(potentialSpecs, potentialSpec)
 				}
 			}
 		}
-		// Only proceed if there is exactly one matched property name to avoid ambiguity.
-		if len(potentialSpecs) == 1 {
-			autoNameSpec = potentialSpecs[0]
-		}
+	}
+	// Only proceed if there is exactly one matched property name to avoid ambiguity.
+	if len(potentialSpecs) == 1 {
+		return potentialSpecs[0]
 	}
 
-	if autoNameSpec != nil {
-		namingTriviaSpec, ok := semanticsSpec.NamingTriviaSpec[autoNameSpec.SdkName]
-		if ok {
-			autoNameSpec.TriviaSpec = &namingTriviaSpec
-		}
-	}
-
-	return autoNameSpec
+	return nil
 }

@@ -19,6 +19,7 @@ func TestCreateAutoNamingSpec(t *testing.T) {
 	create := func(args args) *metadata.AutoNamingSpec {
 		return CreateAutoNamingSpec(args.inputProperties, args.resourceTypeName, args.jsonSchemaProperties, args.semanticsSpec)
 	}
+
 	t.Run("literal name", func(t *testing.T) {
 		expected := &metadata.AutoNamingSpec{
 			SdkName: "name",
@@ -41,6 +42,52 @@ func TestCreateAutoNamingSpec(t *testing.T) {
 			},
 		})
 		assert.Nil(t, spec)
+	})
+
+	t.Run("copies naming trivia", func(t *testing.T) {
+		nameTrivia := metadata.NamingTriviaSpec{
+			Trivia: &metadata.NamingTrivia{
+				Suffix: "suffix",
+			},
+		}
+		expected := &metadata.AutoNamingSpec{
+			SdkName:    "name",
+			TriviaSpec: &nameTrivia,
+		}
+		spec := create(args{
+			inputProperties: map[string]schema.PropertySpec{
+				"name": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			jsonSchemaProperties: map[string]*jsschema.Schema{
+				"Name": {},
+			},
+			semanticsSpec: metadata.SemanticsSpec{
+				NamingTriviaSpec: map[string]metadata.NamingTriviaSpec{
+					"name": nameTrivia,
+				},
+			},
+		})
+		assert.Equal(t, expected, spec)
+	})
+
+	t.Run("copies field length constraints", func(t *testing.T) {
+		expected := &metadata.AutoNamingSpec{
+			SdkName:   "name",
+			MinLength: 1,
+			MaxLength: 255,
+		}
+		spec := create(args{
+			inputProperties: map[string]schema.PropertySpec{
+				"name": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			jsonSchemaProperties: map[string]*jsschema.Schema{
+				"Name": {
+					MinLength: jsschema.Integer{Initialized: true, Val: 1},
+					MaxLength: jsschema.Integer{Initialized: true, Val: 255},
+				},
+			},
+		})
+		assert.Equal(t, expected, spec)
 	})
 
 	t.Run("literal name preferred", func(t *testing.T) {
