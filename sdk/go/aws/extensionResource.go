@@ -66,6 +66,9 @@ func (ExtensionResourceState) ElementType() reflect.Type {
 }
 
 type extensionResourceArgs struct {
+	// Optional auto-naming specification for the resource.
+	// If provided and the name is not specified manually, the provider will automatically generate a name based on the Pulumi resource name and a random suffix.
+	AutoNaming *AutoNaming `pulumi:"autoNaming"`
 	// Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
 	// In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
 	CreateOnly []string `pulumi:"createOnly"`
@@ -84,6 +87,9 @@ type extensionResourceArgs struct {
 
 // The set of arguments for constructing a ExtensionResource resource.
 type ExtensionResourceArgs struct {
+	// Optional auto-naming specification for the resource.
+	// If provided and the name is not specified manually, the provider will automatically generate a name based on the Pulumi resource name and a random suffix.
+	AutoNaming AutoNamingPtrInput
 	// Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
 	// In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
 	CreateOnly pulumi.StringArrayInput

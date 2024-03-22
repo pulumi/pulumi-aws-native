@@ -7,6 +7,24 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 
 /**
+ * Auto-naming specification for the resource.
+ */
+export interface AutoNamingArgs {
+    /**
+     * The maximum length of the name.
+     */
+    maxLength?: pulumi.Input<number>;
+    /**
+     * The minimum length of the name.
+     */
+    minLength?: pulumi.Input<number>;
+    /**
+     * The name of the property in the Cloud Control payload that is used to set the name of the resource.
+     */
+    propertyName?: pulumi.Input<string>;
+}
+
+/**
  * A set of tags to apply to the resource.
  */
 export interface CreateOnlyTagArgs {
