@@ -2,6 +2,8 @@ package resources
 
 import (
 	"fmt"
+	"slices"
+	"strings"
 
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
@@ -71,5 +73,8 @@ func CalculateUntypedPatch(typedOldInputs ExtensionResourceInputs, typedInputs E
 			Value:     op.Value,
 		})
 	}
+	slices.SortStableFunc(jsonPatch, func(a, b jsonpatch.JsonPatchOperation) int {
+		return strings.Compare(a.Path, b.Path)
+	})
 	return jsonPatch, nil
 }

@@ -84,7 +84,7 @@ func TestCalcPatch(t *testing.T) {
 						},
 						WriteOnly: []string{"prop1"},
 					}})
-				assert.ElementsMatch(t, expected, patch)
+				assert.Equal(t, expected, patch)
 			})
 			t.Run("don't send write-only, create-only properties", func(t *testing.T) {
 				expected := []jsonpatch.JsonPatchOperation{
@@ -107,7 +107,7 @@ func TestCalcPatch(t *testing.T) {
 						WriteOnly:  []string{"prop1"},
 						CreateOnly: []string{"prop1"},
 					}})
-				assert.ElementsMatch(t, expected, patch)
+				assert.Equal(t, expected, patch)
 			})
 		})
 	}
