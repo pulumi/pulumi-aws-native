@@ -10,6 +10,7 @@ import (
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
@@ -179,7 +180,12 @@ func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, spec metadata.C
 
 func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
 	var ops []jsonpatch.JsonPatchOperation
-	for sdkName, prop := range c.spec.Inputs {
+	inputKeys := codegen.NewStringSet()
+	for sdkName := range c.spec.Inputs {
+		inputKeys.Add(string(sdkName))
+	}
+	for _, sdkName := range inputKeys.SortedValues() {
+		prop := c.spec.Inputs[sdkName]
 		cfnName := ToCfnName(sdkName, c.spec.IrreversibleNames)
 		key := resource.PropertyKey(sdkName)
 		if v, ok := diff.Updates[key]; ok {
