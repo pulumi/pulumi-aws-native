@@ -6,14 +6,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/mattbaird/jsonpatch"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/wI2L/jsondiff"
 )
 
 type ExtensionResourceInputs struct {
@@ -165,45 +162,11 @@ func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id str
 		return nil, fmt.Errorf("changing the type of an extension resource is not supported")
 	}
 
-	jsonDiffPatch, err := jsondiff.Compare(typedOldInputs.Properties, typedInputs.Properties)
-	if err != nil {
-		return nil, fmt.Errorf("failed to compare properties: %w", err)
-	}
-
 	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
 	// patch requests as adds to ensure the updated model validates.
-	createOnlyProps := codegen.NewStringSet(typedInputs.CreateOnly...)
-	for _, writeOnlyPropName := range typedInputs.WriteOnly {
-		if createOnlyProps.Has(writeOnlyPropName) {
-			continue
-		}
-		newValue, ok := typedInputs.Properties[writeOnlyPropName]
-		if !ok {
-			continue
-		}
-		hasPatch := false
-		for _, op := range jsonDiffPatch {
-			if op.Path == writeOnlyPropName {
-				hasPatch = true
-				break
-			}
-		}
-		if !hasPatch {
-			jsonDiffPatch = append(jsonDiffPatch, jsondiff.Operation{
-				Type:  "add",
-				Path:  writeOnlyPropName,
-				Value: newValue,
-			})
-		}
-	}
-
-	jsonPatch := make([]jsonpatch.JsonPatchOperation, 0, len(jsonDiffPatch))
-	for _, op := range jsonDiffPatch {
-		jsonPatch = append(jsonPatch, jsonpatch.JsonPatchOperation{
-			Operation: op.Type,
-			Path:      op.Path,
-			Value:     op.Value,
-		})
+	jsonPatch, err := CalculateUntypedPatch(typedOldInputs, typedInputs)
+	if err != nil {
+		return nil, fmt.Errorf("failed to calculate patch: %w", err)
 	}
 
 	resourceState, err := r.client.Update(ctx, typedInputs.Type, id, jsonPatch)
