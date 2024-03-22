@@ -28,7 +28,7 @@ const globalCreateOnlyTagToken = "aws-native:index:CreateOnlyTag"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
 func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Schema,
-	genAll bool, semanticsDocument *autonaming.SemanticsSpecDocument) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
+	genAll bool, semanticsDocument *metadata.SemanticsSpecDocument) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
 	globalTagType := pschema.ObjectTypeSpec{
 		Type:        "object",
 		Description: "A set of tags to apply to the resource.",
@@ -636,7 +636,7 @@ type cfSchemaContext struct {
 	resourceSpec  *jsschema.Schema
 	visitedTypes  codegen.StringSet
 	isSupported   bool
-	semantics     *autonaming.SemanticsSpecDocument
+	semantics     *metadata.SemanticsSpecDocument
 	reports       *Reports
 }
 
@@ -865,7 +865,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		}
 	}
 
-	autoNamingSpec := ctx.createAutoNamingSpec(inputProperties, resourceTypeName, properties)
+	autoNamingSpec := autonaming.CreateAutoNamingSpec(inputProperties, resourceTypeName, ctx.resourceSpec.Properties, ctx.semantics.Resources[ctx.resourceToken])
 	// If a field can be auto-named, its no longer required.
 	if autoNamingSpec != nil {
 		delete(requiredInputs, autoNamingSpec.SdkName)
@@ -921,59 +921,6 @@ func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
 		}
 		propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", cfTypeName)
 	}
-}
-
-func (ctx *cfSchemaContext) createAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resourceTypeName string, properties map[string]pschema.PropertySpec) *metadata.AutoNamingSpec {
-	// ** Autonaming **
-	var autoNameSpec *metadata.AutoNamingSpec
-
-	semanticsSpec := ctx.semantics.Resources[ctx.resourceToken]
-
-	lookForField := func(fieldName string) func(map[string]pschema.PropertySpec) {
-		return func(properties map[string]pschema.PropertySpec) {
-			sdkName := naming.ToSdkName(fieldName)
-			if propSpec, has := inputProperties[sdkName]; has && propSpec.Type == "string" {
-				autoNameSpec = &metadata.AutoNamingSpec{
-					SdkName: sdkName,
-				}
-				spec, ok := ctx.resourceSpec.Properties[fieldName]
-				if ok {
-					autoNameSpec.MinLength = spec.MinLength.Val
-					autoNameSpec.MaxLength = spec.MaxLength.Val
-				}
-				namingTriviaSpec, ok := semanticsSpec.NamingTriviaSpec[sdkName]
-				if ok {
-					autoNameSpec.TriviaSpec = &namingTriviaSpec
-				}
-			}
-		}
-	}
-
-	autoNamePropLookupFuncs := []func(map[string]pschema.PropertySpec){
-		lookForField("Name"),
-		lookForField(resourceTypeName + "Name"),
-		func(m map[string]pschema.PropertySpec) {
-			// Look for a property that ends with "*Name" where that prefix is also contained in the resource name.
-			// E.g. ScalingPolicy has a field "PolicyName".
-			for k := range m {
-				if before, ok := strings.CutSuffix(k, "Name"); ok {
-					cfKey := naming.ToCfnName(before, nil)
-					if strings.HasSuffix(resourceTypeName, cfKey) {
-						lookForField(naming.ToCfnName(k, nil))(m)
-					}
-				}
-			}
-		},
-	}
-
-	for _, fn := range autoNamePropLookupFuncs {
-		fn(properties)
-		if autoNameSpec != nil {
-			break
-		}
-	}
-
-	return autoNameSpec
 }
 
 func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
@@ -1448,8 +1395,8 @@ func primitiveTypeSpec(primitiveType string) pschema.TypeSpec {
 	}
 }
 
-func GatherSemantics(schemaDir string) (autonaming.SemanticsSpecDocument, error) {
-	var semanticsDocument autonaming.SemanticsSpecDocument
+func GatherSemantics(schemaDir string) (metadata.SemanticsSpecDocument, error) {
+	var semanticsDocument metadata.SemanticsSpecDocument
 	semanticsPath := filepath.Join(schemaDir, "semantics.json")
 	semanticsBytes, err := os.ReadFile(semanticsPath)
 	if err != nil {

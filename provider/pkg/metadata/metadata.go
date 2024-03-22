@@ -3,7 +3,6 @@
 package metadata
 
 import (
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
@@ -30,10 +29,10 @@ type CloudAPIResource struct {
 }
 
 type AutoNamingSpec struct {
-	SdkName    string                       `json:"sdkName"`
-	MinLength  int                          `json:"minLength,omitempty"`
-	MaxLength  int                          `json:"maxLength,omitempty"`
-	TriviaSpec *autonaming.NamingTriviaSpec `json:"namingTriviaSpec,omitempty"`
+	SdkName    string            `json:"sdkName"`
+	MinLength  int               `json:"minLength,omitempty"`
+	MaxLength  int               `json:"maxLength,omitempty"`
+	TriviaSpec *NamingTriviaSpec `json:"namingTriviaSpec,omitempty"`
 }
 
 // CloudAPIType contains metadata for an auxiliary type.
