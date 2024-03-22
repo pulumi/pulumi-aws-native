@@ -18,7 +18,8 @@ func CalcPatch(oldInputs resource.PropertyMap, newInputs resource.PropertyMap, s
 
 	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
 	// patch requests as adds to ensure the updated model validates.
-	// If a property is both write-only and create-only, we should not include it in the patch request.
+	// If a property is both write-only and create-only, we should not include it in the patch request
+	// because create-only properties can't be updated and even doing an add of the same value is rejected.
 	createOnlyProps := codegen.NewStringSet(spec.CreateOnly...)
 	writeOnlyProps := codegen.NewStringSet(spec.WriteOnly...)
 	mustSendProps := writeOnlyProps.Subtract(createOnlyProps)
@@ -39,6 +40,10 @@ func CalculateUntypedPatch(typedOldInputs ExtensionResourceInputs, typedInputs E
 		return nil, fmt.Errorf("failed to compare properties: %w", err)
 	}
 
+	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
+	// patch requests as adds to ensure the updated model validates.
+	// If a property is both write-only and create-only, we should not include it in the patch request
+	// because create-only properties can't be updated and even doing an add of the same value is rejected.
 	createOnlyProps := codegen.NewStringSet(typedInputs.CreateOnly...)
 	for _, writeOnlyPropName := range typedInputs.WriteOnly {
 		if createOnlyProps.Has(writeOnlyPropName) {

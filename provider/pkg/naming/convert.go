@@ -5,12 +5,12 @@ package naming
 import (
 	"fmt"
 	"reflect"
+	"slices"
 	"strings"
 
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
@@ -180,11 +180,13 @@ func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, spec metadata.C
 
 func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
 	var ops []jsonpatch.JsonPatchOperation
-	inputKeys := codegen.NewStringSet()
+	// Sort keys to ensure deterministic ordering of patch operations.
+	sortedKeys := make([]string, 0, len(c.spec.Inputs))
 	for sdkName := range c.spec.Inputs {
-		inputKeys.Add(string(sdkName))
+		sortedKeys = append(sortedKeys, string(sdkName))
 	}
-	for _, sdkName := range inputKeys.SortedValues() {
+	slices.Sort(sortedKeys)
+	for _, sdkName := range sortedKeys {
 		prop := c.spec.Inputs[sdkName]
 		cfnName := ToCfnName(sdkName, c.spec.IrreversibleNames)
 		key := resource.PropertyKey(sdkName)

@@ -162,8 +162,6 @@ func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id str
 		return nil, fmt.Errorf("changing the type of an extension resource is not supported")
 	}
 
-	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
-	// patch requests as adds to ensure the updated model validates.
 	jsonPatch, err := CalculateUntypedPatch(typedOldInputs, typedInputs)
 	if err != nil {
 		return nil, fmt.Errorf("failed to calculate patch: %w", err)
@@ -227,7 +225,7 @@ func ExtensionResourceSpec() pschema.ResourceSpec {
 				},
 			},
 			"createOnly": {
-				Description: "Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated.\nIn the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).",
+				Description: "Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.\nIn the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).",
 				TypeSpec: pschema.TypeSpec{
 					Type: "array",
 					Items: &pschema.TypeSpec{

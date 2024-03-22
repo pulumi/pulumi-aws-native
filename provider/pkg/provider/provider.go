@@ -1074,9 +1074,6 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
 
-		// Write-only properties can't even be read internally within the CloudControl service so they must be included in
-		// patch requests as adds to ensure the updated model validates.
-		// If a property is both write-only and create-only, we should not include it in the patch request.
 		ops, err := resources.CalcPatch(oldInputs, newInputs, spec, p.resourceMap.Types)
 		if err != nil {
 			return nil, err
