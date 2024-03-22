@@ -113,8 +113,8 @@ namespace Pulumi.AwsNative.Cognito
         [Input("providerDetails")]
         public Input<object>? ProviderDetails { get; set; }
 
-        [Input("providerName", required: true)]
-        public Input<string> ProviderName { get; set; } = null!;
+        [Input("providerName")]
+        public Input<string>? ProviderName { get; set; }
 
         [Input("providerType", required: true)]
         public Input<string> ProviderType { get; set; } = null!;

@@ -104,8 +104,8 @@ namespace Pulumi.AwsNative.Athena
         /// <summary>
         /// The name of the prepared statement.
         /// </summary>
-        [Input("statementName", required: true)]
-        public Input<string> StatementName { get; set; } = null!;
+        [Input("statementName")]
+        public Input<string>? StatementName { get; set; }
 
         /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.

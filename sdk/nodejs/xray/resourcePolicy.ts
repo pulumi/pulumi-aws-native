@@ -89,9 +89,6 @@ export class ResourcePolicy extends pulumi.CustomResource {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.policyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             resourceInputs["bypassPolicyLockoutCheck"] = args ? args.bypassPolicyLockoutCheck : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
@@ -122,5 +119,5 @@ export interface ResourcePolicyArgs {
     /**
      * The name of the resource policy. Must be unique within a specific AWS account.
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
 }

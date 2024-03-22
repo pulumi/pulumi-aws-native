@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.Redshift
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public EventSubscription(string name, EventSubscriptionArgs args, CustomResourceOptions? options = null)
+        public EventSubscription(string name, EventSubscriptionArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:redshift:EventSubscription", name, args ?? new EventSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -199,8 +199,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The name of the Amazon Redshift event notification subscription
         /// </summary>
-        [Input("subscriptionName", required: true)]
-        public Input<string> SubscriptionName { get; set; } = null!;
+        [Input("subscriptionName")]
+        public Input<string>? SubscriptionName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

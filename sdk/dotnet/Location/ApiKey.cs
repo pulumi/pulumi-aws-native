@@ -115,8 +115,8 @@ namespace Pulumi.AwsNative.Location
         [Input("forceUpdate")]
         public Input<bool>? ForceUpdate { get; set; }
 
-        [Input("keyName", required: true)]
-        public Input<string> KeyName { get; set; } = null!;
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
 
         [Input("noExpiry")]
         public Input<bool>? NoExpiry { get; set; }

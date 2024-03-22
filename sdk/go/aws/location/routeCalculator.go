@@ -36,9 +36,6 @@ func NewRouteCalculator(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CalculatorName == nil {
-		return nil, errors.New("invalid value for required argument 'CalculatorName'")
-	}
 	if args.DataSource == nil {
 		return nil, errors.New("invalid value for required argument 'DataSource'")
 	}
@@ -80,7 +77,7 @@ func (RouteCalculatorState) ElementType() reflect.Type {
 }
 
 type routeCalculatorArgs struct {
-	CalculatorName string                      `pulumi:"calculatorName"`
+	CalculatorName *string                     `pulumi:"calculatorName"`
 	DataSource     string                      `pulumi:"dataSource"`
 	Description    *string                     `pulumi:"description"`
 	PricingPlan    *RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
@@ -90,7 +87,7 @@ type routeCalculatorArgs struct {
 
 // The set of arguments for constructing a RouteCalculator resource.
 type RouteCalculatorArgs struct {
-	CalculatorName pulumi.StringInput
+	CalculatorName pulumi.StringPtrInput
 	DataSource     pulumi.StringInput
 	Description    pulumi.StringPtrInput
 	PricingPlan    RouteCalculatorPricingPlanPtrInput

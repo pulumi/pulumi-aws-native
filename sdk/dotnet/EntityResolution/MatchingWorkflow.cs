@@ -139,8 +139,8 @@ namespace Pulumi.AwsNative.EntityResolution
         /// <summary>
         /// The name of the MatchingWorkflow
         /// </summary>
-        [Input("workflowName", required: true)]
-        public Input<string> WorkflowName { get; set; } = null!;
+        [Input("workflowName")]
+        public Input<string>? WorkflowName { get; set; }
 
         public MatchingWorkflowArgs()
         {

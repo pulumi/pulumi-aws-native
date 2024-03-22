@@ -45,9 +45,6 @@ func NewMicrosoftTeamsChannelConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'ConfigurationName'")
-	}
 	if args.IamRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'IamRoleArn'")
 	}
@@ -100,7 +97,7 @@ func (MicrosoftTeamsChannelConfigurationState) ElementType() reflect.Type {
 
 type microsoftTeamsChannelConfigurationArgs struct {
 	// The name of the configuration
-	ConfigurationName string `pulumi:"configurationName"`
+	ConfigurationName *string `pulumi:"configurationName"`
 	// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
 	GuardrailPolicies []string `pulumi:"guardrailPolicies"`
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot
@@ -122,7 +119,7 @@ type microsoftTeamsChannelConfigurationArgs struct {
 // The set of arguments for constructing a MicrosoftTeamsChannelConfiguration resource.
 type MicrosoftTeamsChannelConfigurationArgs struct {
 	// The name of the configuration
-	ConfigurationName pulumi.StringInput
+	ConfigurationName pulumi.StringPtrInput
 	// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
 	GuardrailPolicies pulumi.StringArrayInput
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot

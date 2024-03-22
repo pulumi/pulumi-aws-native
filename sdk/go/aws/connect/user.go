@@ -62,9 +62,6 @@ func NewUser(ctx *pulumi.Context,
 	if args.SecurityProfileArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityProfileArns'")
 	}
-	if args.Username == nil {
-		return nil, errors.New("invalid value for required argument 'Username'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws-native:connect:User", name, args, &resource, opts...)
@@ -119,7 +116,7 @@ type userArgs struct {
 	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
 	UserProficiencies []UserProficiency `pulumi:"userProficiencies"`
 	// The user name for the account.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -145,7 +142,7 @@ type UserArgs struct {
 	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
 	UserProficiencies UserProficiencyArrayInput
 	// The user name for the account.
-	Username pulumi.StringInput
+	Username pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

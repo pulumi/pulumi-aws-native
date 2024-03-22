@@ -14,29 +14,30 @@ __all__ = ['SlackChannelConfigurationArgs', 'SlackChannelConfiguration']
 @pulumi.input_type
 class SlackChannelConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_name: pulumi.Input[str],
                  iam_role_arn: pulumi.Input[str],
                  slack_channel_id: pulumi.Input[str],
                  slack_workspace_id: pulumi.Input[str],
+                 configuration_name: Optional[pulumi.Input[str]] = None,
                  guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_role_required: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
-        :param pulumi.Input[str] configuration_name: The name of the configuration
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
         :param pulumi.Input[str] slack_channel_id: The id of the Slack channel
         :param pulumi.Input[str] slack_workspace_id: The id of the Slack workspace
+        :param pulumi.Input[str] configuration_name: The name of the configuration
         :param pulumi.Input[Sequence[pulumi.Input[str]]] guardrail_policies: The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         :param pulumi.Input[bool] user_role_required: Enables use of a user role requirement in your chat configuration
         """
-        pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "slack_channel_id", slack_channel_id)
         pulumi.set(__self__, "slack_workspace_id", slack_workspace_id)
+        if configuration_name is not None:
+            pulumi.set(__self__, "configuration_name", configuration_name)
         if guardrail_policies is not None:
             pulumi.set(__self__, "guardrail_policies", guardrail_policies)
         if logging_level is not None:
@@ -45,18 +46,6 @@ class SlackChannelConfigurationArgs:
             pulumi.set(__self__, "sns_topic_arns", sns_topic_arns)
         if user_role_required is not None:
             pulumi.set(__self__, "user_role_required", user_role_required)
-
-    @property
-    @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> pulumi.Input[str]:
-        """
-        The name of the configuration
-        """
-        return pulumi.get(self, "configuration_name")
-
-    @configuration_name.setter
-    def configuration_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "configuration_name", value)
 
     @property
     @pulumi.getter(name="iamRoleArn")
@@ -93,6 +82,18 @@ class SlackChannelConfigurationArgs:
     @slack_workspace_id.setter
     def slack_workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slack_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the configuration
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_name", value)
 
     @property
     @pulumi.getter(name="guardrailPolicies")
@@ -212,8 +213,6 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SlackChannelConfigurationArgs.__new__(SlackChannelConfigurationArgs)
 
-            if configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
             __props__.__dict__["guardrail_policies"] = guardrail_policies
             if iam_role_arn is None and not opts.urn:

@@ -34,9 +34,6 @@ func NewServerlessCluster(ctx *pulumi.Context,
 	if args.ClientAuthentication == nil {
 		return nil, errors.New("invalid value for required argument 'ClientAuthentication'")
 	}
-	if args.ClusterName == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
 	if args.VpcConfigs == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfigs'")
 	}
@@ -81,7 +78,7 @@ func (ServerlessClusterState) ElementType() reflect.Type {
 
 type serverlessClusterArgs struct {
 	ClientAuthentication ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
-	ClusterName          string                                `pulumi:"clusterName"`
+	ClusterName          *string                               `pulumi:"clusterName"`
 	// A key-value pair to associate with a resource.
 	Tags       map[string]string            `pulumi:"tags"`
 	VpcConfigs []ServerlessClusterVpcConfig `pulumi:"vpcConfigs"`
@@ -90,7 +87,7 @@ type serverlessClusterArgs struct {
 // The set of arguments for constructing a ServerlessCluster resource.
 type ServerlessClusterArgs struct {
 	ClientAuthentication ServerlessClusterClientAuthenticationInput
-	ClusterName          pulumi.StringInput
+	ClusterName          pulumi.StringPtrInput
 	// A key-value pair to associate with a resource.
 	Tags       pulumi.StringMapInput
 	VpcConfigs ServerlessClusterVpcConfigArrayInput

@@ -213,8 +213,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The user name for the account.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public UserArgs()
         {

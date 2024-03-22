@@ -91,8 +91,8 @@ namespace Pulumi.AwsNative.Configuration
         [Input("queryExpression", required: true)]
         public Input<string> QueryExpression { get; set; } = null!;
 
-        [Input("queryName", required: true)]
-        public Input<string> QueryName { get; set; } = null!;
+        [Input("queryName")]
+        public Input<string>? QueryName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

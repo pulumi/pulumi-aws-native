@@ -17,7 +17,7 @@ __all__ = ['GeofenceCollectionArgs', 'GeofenceCollection']
 @pulumi.input_type
 class GeofenceCollectionArgs:
     def __init__(__self__, *,
-                 collection_name: pulumi.Input[str],
+                 collection_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
@@ -27,7 +27,8 @@ class GeofenceCollectionArgs:
         The set of arguments for constructing a GeofenceCollection resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "collection_name", collection_name)
+        if collection_name is not None:
+            pulumi.set(__self__, "collection_name", collection_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
@@ -41,11 +42,11 @@ class GeofenceCollectionArgs:
 
     @property
     @pulumi.getter(name="collectionName")
-    def collection_name(self) -> pulumi.Input[str]:
+    def collection_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
-    def collection_name(self, value: pulumi.Input[str]):
+    def collection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "collection_name", value)
 
     @property
@@ -120,7 +121,7 @@ class GeofenceCollection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GeofenceCollectionArgs,
+                 args: Optional[GeofenceCollectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Location::GeofenceCollection Resource Type
@@ -155,8 +156,6 @@ class GeofenceCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GeofenceCollectionArgs.__new__(GeofenceCollectionArgs)
 
-            if collection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'collection_name'")
             __props__.__dict__["collection_name"] = collection_name
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_id"] = kms_key_id

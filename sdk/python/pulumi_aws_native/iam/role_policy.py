@@ -14,13 +14,11 @@ __all__ = ['RolePolicyInitArgs', 'RolePolicy']
 @pulumi.input_type
 class RolePolicyInitArgs:
     def __init__(__self__, *,
-                 policy_name: pulumi.Input[str],
                  role_name: pulumi.Input[str],
-                 policy_document: Optional[Any] = None):
+                 policy_document: Optional[Any] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RolePolicy resource.
-        :param pulumi.Input[str] policy_name: The name of the policy document.
-                This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :param pulumi.Input[str] role_name: The name of the role to associate the policy with.
                 This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :param Any policy_document: The policy document.
@@ -31,24 +29,14 @@ class RolePolicyInitArgs:
                  +  The special characters tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``)
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IAM::RolePolicy` for more information about the expected schema for this property.
+        :param pulumi.Input[str] policy_name: The name of the policy document.
+                This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         """
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "role_name", role_name)
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
-
-    @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[str]:
-        """
-        The name of the policy document.
-         This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policy_name", value)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
 
     @property
     @pulumi.getter(name="roleName")
@@ -81,6 +69,19 @@ class RolePolicyInitArgs:
     @policy_document.setter
     def policy_document(self, value: Optional[Any]):
         pulumi.set(self, "policy_document", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy document.
+         This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
 
 
 class RolePolicy(pulumi.CustomResource):
@@ -153,8 +154,6 @@ class RolePolicy(pulumi.CustomResource):
             __props__ = RolePolicyInitArgs.__new__(RolePolicyInitArgs)
 
             __props__.__dict__["policy_document"] = policy_document
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")

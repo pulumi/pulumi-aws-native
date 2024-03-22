@@ -310,9 +310,6 @@ export class AnomalyMonitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.monitorName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'monitorName'");
-            }
             if ((!args || args.monitorType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorType'");
             }
@@ -356,7 +353,7 @@ export interface AnomalyMonitorArgs {
     /**
      * The name of the monitor.
      */
-    monitorName: pulumi.Input<string>;
+    monitorName?: pulumi.Input<string>;
     monitorSpecification?: pulumi.Input<string>;
     monitorType: pulumi.Input<enums.ce.AnomalyMonitorMonitorType>;
     /**

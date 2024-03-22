@@ -58,13 +58,10 @@ export class InAppTemplate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: InAppTemplateArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: InAppTemplateArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.templateName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'templateName'");
-            }
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["customConfig"] = args ? args.customConfig : undefined;
             resourceInputs["layout"] = args ? args.layout : undefined;
@@ -103,5 +100,5 @@ export interface InAppTemplateArgs {
      */
     tags?: any;
     templateDescription?: pulumi.Input<string>;
-    templateName: pulumi.Input<string>;
+    templateName?: pulumi.Input<string>;
 }

@@ -50,9 +50,6 @@ func NewMatchingWorkflow(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
-	if args.WorkflowName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkflowName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"workflowName",
 	})
@@ -98,7 +95,7 @@ type matchingWorkflowArgs struct {
 	RoleArn              string                               `pulumi:"roleArn"`
 	Tags                 []aws.Tag                            `pulumi:"tags"`
 	// The name of the MatchingWorkflow
-	WorkflowName string `pulumi:"workflowName"`
+	WorkflowName *string `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a MatchingWorkflow resource.
@@ -111,7 +108,7 @@ type MatchingWorkflowArgs struct {
 	RoleArn              pulumi.StringInput
 	Tags                 aws.TagArrayInput
 	// The name of the MatchingWorkflow
-	WorkflowName pulumi.StringInput
+	WorkflowName pulumi.StringPtrInput
 }
 
 func (MatchingWorkflowArgs) ElementType() reflect.Type {

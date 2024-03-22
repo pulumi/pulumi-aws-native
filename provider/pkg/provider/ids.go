@@ -90,7 +90,7 @@ func getDefaultName(
 
 	// Apply naming trivia to the generated name.
 	if namingTriviaApplies {
-		random = namingTrivia.ApplyTrivia(sdkName, random)
+		random = autonaming.ApplyTrivia(namingTrivia, random)
 	}
 
 	return resource.NewStringProperty(random), nil

@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.Pinpoint
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public InAppTemplate(string name, InAppTemplateArgs args, CustomResourceOptions? options = null)
+        public InAppTemplate(string name, InAppTemplateArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:pinpoint:InAppTemplate", name, args ?? new InAppTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -117,8 +117,8 @@ namespace Pulumi.AwsNative.Pinpoint
         [Input("templateDescription")]
         public Input<string>? TemplateDescription { get; set; }
 
-        [Input("templateName", required: true)]
-        public Input<string> TemplateName { get; set; } = null!;
+        [Input("templateName")]
+        public Input<string>? TemplateName { get; set; }
 
         public InAppTemplateArgs()
         {

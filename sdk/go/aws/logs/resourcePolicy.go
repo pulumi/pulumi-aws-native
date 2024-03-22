@@ -32,9 +32,6 @@ func NewResourcePolicy(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"policyName",
 	})
@@ -75,7 +72,7 @@ type resourcePolicyArgs struct {
 	// The policy document
 	PolicyDocument string `pulumi:"policyDocument"`
 	// A name for resource policy
-	PolicyName string `pulumi:"policyName"`
+	PolicyName *string `pulumi:"policyName"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
@@ -83,7 +80,7 @@ type ResourcePolicyArgs struct {
 	// The policy document
 	PolicyDocument pulumi.StringInput
 	// A name for resource policy
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 }
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {

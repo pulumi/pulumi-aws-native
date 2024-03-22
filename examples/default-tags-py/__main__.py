@@ -12,7 +12,6 @@ log_group = logs.LogGroup(
 
 policy = resiliencehub.ResiliencyPolicy(
   "policy",
-  policy_name="my-policy",
   tier=resiliencehub.ResiliencyPolicyTier.NON_CRITICAL,
   policy={
     'Software': resiliencehub.ResiliencyPolicyFailurePolicyArgs(

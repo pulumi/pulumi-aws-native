@@ -65,9 +65,6 @@ export class PreparedStatement extends pulumi.CustomResource {
             if ((!args || args.queryStatement === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryStatement'");
             }
-            if ((!args || args.statementName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'statementName'");
-            }
             if ((!args || args.workGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workGroup'");
             }
@@ -103,7 +100,7 @@ export interface PreparedStatementArgs {
     /**
      * The name of the prepared statement.
      */
-    statementName: pulumi.Input<string>;
+    statementName?: pulumi.Input<string>;
     /**
      * The name of the workgroup to which the prepared statement belongs.
      */

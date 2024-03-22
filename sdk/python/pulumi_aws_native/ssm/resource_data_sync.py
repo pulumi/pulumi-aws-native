@@ -16,19 +16,18 @@ __all__ = ['ResourceDataSyncArgs', 'ResourceDataSync']
 @pulumi.input_type
 class ResourceDataSyncArgs:
     def __init__(__self__, *,
-                 sync_name: pulumi.Input[str],
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  s3_destination: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']] = None,
                  sync_format: Optional[pulumi.Input[str]] = None,
+                 sync_name: Optional[pulumi.Input[str]] = None,
                  sync_source: Optional[pulumi.Input['ResourceDataSyncSyncSourceArgs']] = None,
                  sync_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourceDataSync resource.
         """
-        pulumi.set(__self__, "sync_name", sync_name)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_prefix is not None:
@@ -41,19 +40,12 @@ class ResourceDataSyncArgs:
             pulumi.set(__self__, "s3_destination", s3_destination)
         if sync_format is not None:
             pulumi.set(__self__, "sync_format", sync_format)
+        if sync_name is not None:
+            pulumi.set(__self__, "sync_name", sync_name)
         if sync_source is not None:
             pulumi.set(__self__, "sync_source", sync_source)
         if sync_type is not None:
             pulumi.set(__self__, "sync_type", sync_type)
-
-    @property
-    @pulumi.getter(name="syncName")
-    def sync_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "sync_name")
-
-    @sync_name.setter
-    def sync_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sync_name", value)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -108,6 +100,15 @@ class ResourceDataSyncArgs:
     @sync_format.setter
     def sync_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sync_format", value)
+
+    @property
+    @pulumi.getter(name="syncName")
+    def sync_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sync_name")
+
+    @sync_name.setter
+    def sync_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_name", value)
 
     @property
     @pulumi.getter(name="syncSource")
@@ -309,7 +310,7 @@ class ResourceDataSync(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceDataSyncArgs,
+                 args: Optional[ResourceDataSyncArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SSM::ResourceDataSync
@@ -509,8 +510,6 @@ class ResourceDataSync(pulumi.CustomResource):
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["s3_destination"] = s3_destination
             __props__.__dict__["sync_format"] = sync_format
-            if sync_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sync_name'")
             __props__.__dict__["sync_name"] = sync_name
             __props__.__dict__["sync_source"] = sync_source
             __props__.__dict__["sync_type"] = sync_type

@@ -166,8 +166,8 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// The name of the account policy
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// Type of the policy.

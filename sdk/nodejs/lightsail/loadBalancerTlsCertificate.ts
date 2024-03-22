@@ -78,9 +78,6 @@ export class LoadBalancerTlsCertificate extends pulumi.CustomResource {
             if ((!args || args.certificateDomainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'certificateDomainName'");
             }
-            if ((!args || args.certificateName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
@@ -124,7 +121,7 @@ export interface LoadBalancerTlsCertificateArgs {
     /**
      * The SSL/TLS certificate name.
      */
-    certificateName: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
      */
