@@ -66,6 +66,9 @@ func (ExtensionResourceState) ElementType() reflect.Type {
 }
 
 type extensionResourceArgs struct {
+	// Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated.
+	// In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+	CreateOnly []string `pulumi:"createOnly"`
 	// Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.
 	Properties map[string]interface{} `pulumi:"properties"`
 	// Optional name of the property containing the tags. Defaults to "Tags" if the `tagsStyle` is set to either "stringMap" or "keyValueArray". This is used to apply default tags to the resource and can be ignored if not using default tags.
@@ -81,6 +84,9 @@ type extensionResourceArgs struct {
 
 // The set of arguments for constructing a ExtensionResource resource.
 type ExtensionResourceArgs struct {
+	// Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated.
+	// In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+	CreateOnly pulumi.StringArrayInput
 	// Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.
 	Properties pulumi.MapInput
 	// Optional name of the property containing the tags. Defaults to "Tags" if the `tagsStyle` is set to either "stringMap" or "keyValueArray". This is used to apply default tags to the resource and can be ignored if not using default tags.

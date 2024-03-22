@@ -56,6 +56,7 @@ export class ExtensionResource extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["createOnly"] = args ? args.createOnly : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["tagsProperty"] = args ? args.tagsProperty : undefined;
             resourceInputs["tagsStyle"] = args ? args.tagsStyle : undefined;
@@ -74,6 +75,11 @@ export class ExtensionResource extends pulumi.CustomResource {
  * The set of arguments for constructing a ExtensionResource resource.
  */
 export interface ExtensionResourceArgs {
+    /**
+     * Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated.
+     * In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+     */
+    createOnly?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.
      */
