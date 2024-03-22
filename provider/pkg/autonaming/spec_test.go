@@ -124,4 +124,20 @@ func TestCreateAutoNamingSpec(t *testing.T) {
 		})
 		assert.Nil(t, spec)
 	})
+
+	t.Run("handles oddly cased acryonyms", func(t *testing.T) {
+		expected := &metadata.AutoNamingSpec{
+			SdkName: "tlsInspectionConfigurationName",
+		}
+		spec := create(args{
+			resourceTypeName: "TlsInspectionConfiguration",
+			inputProperties: map[string]schema.PropertySpec{
+				"tlsInspectionConfigurationName": {TypeSpec: schema.TypeSpec{Type: "string"}},
+			},
+			jsonSchemaProperties: map[string]*jsschema.Schema{
+				"TLSInspectionConfigurationName": {},
+			},
+		})
+		assert.Equal(t, expected, spec)
+	})
 }
