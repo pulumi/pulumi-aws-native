@@ -47,6 +47,7 @@ import (
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
@@ -723,7 +724,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	var failures []resources.ValidationFailure
 	resourceToken := string(urn.Type())
 	if customResource, ok := p.customResources[resourceToken]; ok {
-		newInputs, failures, err = customResource.Check(ctx, urn, newInputs, olds, p.defaultTags)
+		newInputs, failures, err = customResource.Check(ctx, urn, req.RandomSeed, newInputs, olds, p.defaultTags)
 		if err != nil {
 			return nil, fmt.Errorf("failed to check custom resource %q: %w", resourceToken, err)
 		}
@@ -733,14 +734,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
 
-		if autoNamingSpec := spec.AutoNamingSpec; autoNamingSpec != nil {
-			// Auto-name fields if not already specified
-			val, err := getDefaultName(req.RandomSeed, urn, autoNamingSpec, olds, newInputs)
-			if err != nil {
-				return nil, err
-			}
-			newInputs[resource.PropertyKey(autoNamingSpec.SdkName)] = val
-		}
+		autonaming.ApplyAutoNaming(spec.AutoNamingSpec, urn, req.RandomSeed, olds, newInputs)
 
 		// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
 		if len(p.defaultTags) > 0 && spec.TagsProperty != "" && spec.TagsStyle != default_tags.TagsStyleUnknown {

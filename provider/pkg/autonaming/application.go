@@ -1,26 +1,32 @@
-// Copyright 2016-2023, Pulumi Corporation.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// Copyright 2024, Pulumi Corporation.
 
-package provider
+package autonaming
 
 import (
 	"fmt"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
+
+func ApplyAutoNaming(
+	spec *metadata.AutoNamingSpec,
+	urn resource.URN,
+	randomSeed []byte,
+	olds,
+	news resource.PropertyMap,
+) error {
+	if spec == nil {
+		return nil
+	}
+	// Auto-name fields if not already specified
+	val, err := getDefaultName(randomSeed, urn, spec, olds, news)
+	if err != nil {
+		return err
+	}
+	news[resource.PropertyKey(spec.SdkName)] = val
+	return nil
+}
 
 // getDefaultName retrieves either the explicitly specified name in inputs,
 // or the equivalent in the old values. If neither is specified, it generates
@@ -47,7 +53,7 @@ func getDefaultName(
 	}
 
 	// Generate naming trivia for the resource.
-	namingTriviaApplies, namingTrivia, err := autonaming.CheckNamingTrivia(sdkName, news, autoNamingSpec.TriviaSpec)
+	namingTriviaApplies, namingTrivia, err := CheckNamingTrivia(sdkName, news, autoNamingSpec.TriviaSpec)
 	if err != nil {
 		return resource.PropertyValue{}, err
 	}
@@ -90,7 +96,7 @@ func getDefaultName(
 
 	// Apply naming trivia to the generated name.
 	if namingTriviaApplies {
-		random = autonaming.ApplyTrivia(namingTrivia, random)
+		random = ApplyTrivia(namingTrivia, random)
 	}
 
 	return resource.NewStringProperty(random), nil

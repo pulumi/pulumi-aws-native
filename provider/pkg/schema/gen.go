@@ -368,6 +368,9 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 			globalCreateOnlyTagToken: {
 				ObjectTypeSpec: globalCreateOnlyTagType,
 			},
+			resources.AutoNamingTypeToken: {
+				ObjectTypeSpec: resources.AutoNamingTypeSpec(),
+			},
 		},
 		Resources: map[string]pschema.ResourceSpec{
 			metadata.ExtensionResourceToken: resources.ExtensionResourceSpec(),
