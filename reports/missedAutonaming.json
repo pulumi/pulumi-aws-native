@@ -1494,6 +1494,42 @@
       }
     }
   },
+  "aws-native:codeartifact:PackageGroup": {
+    "cfTypeName": "AWS::CodeArtifact::PackageGroup",
+    "properties": {
+      "contactInfo": {
+        "type": "string",
+        "description": "The contact info of the package group."
+      },
+      "description": {
+        "type": "string",
+        "description": "The text description of the package group."
+      },
+      "domainName": {
+        "type": "string",
+        "description": "The name of the domain that contains the package group."
+      },
+      "domainOwner": {
+        "type": "string",
+        "description": "The 12-digit account ID of the AWS account that owns the domain."
+      },
+      "originConfiguration": {
+        "$ref": "#/types/aws-native:codeartifact:PackageGroupOriginConfiguration",
+        "description": "The package origin configuration of the package group."
+      },
+      "pattern": {
+        "type": "string",
+        "description": "The package group pattern that is used to gather packages."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to the package group."
+      }
+    }
+  },
   "aws-native:codepipeline:CustomActionType": {
     "cfTypeName": "AWS::CodePipeline::CustomActionType",
     "properties": {
@@ -5661,19 +5697,23 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerRuleAction"
-        }
+        },
+        "description": "The actions.\n The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action."
       },
       "conditions": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerRuleRuleCondition"
-        }
+        },
+        "description": "The conditions.\n The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``."
       },
       "listenerArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the listener."
       },
       "priority": {
-        "type": "integer"
+        "type": "integer",
+        "description": "The rule priority. A listener can't have multiple rules with the same priority.\n If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update."
       }
     }
   },
@@ -7122,7 +7162,7 @@
       },
       "invokeMode": {
         "$ref": "#/types/aws-native:lambda:UrlInvokeMode",
-        "description": "The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED."
+        "description": "The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED."
       },
       "qualifier": {
         "type": "string",
