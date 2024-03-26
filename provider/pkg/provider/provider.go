@@ -731,10 +731,12 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	} else {
 		spec, ok := p.resourceMap.Resources[resourceToken]
 		if !ok {
-			return nil, errors.Errorf("Resource type %s not found", resourceToken)
+			return nil, errors.Errorf("resource type %s not found", resourceToken)
 		}
 
-		autonaming.ApplyAutoNaming(spec.AutoNamingSpec, urn, req.RandomSeed, olds, newInputs)
+		if err := autonaming.ApplyAutoNaming(spec.AutoNamingSpec, urn, req.RandomSeed, olds, newInputs); err != nil {
+			return nil, fmt.Errorf("failed to apply auto-naming: %w", err)
+		}
 
 		// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
 		if len(p.defaultTags) > 0 && spec.TagsProperty != "" && spec.TagsStyle != default_tags.TagsStyleUnknown {

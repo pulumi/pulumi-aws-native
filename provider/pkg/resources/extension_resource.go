@@ -59,11 +59,13 @@ func (r *extensionResource) Check(ctx context.Context, urn resource.URN, randomS
 	}
 
 	if typedInputs.AutoNaming != nil {
-		autonaming.ApplyAutoNaming(&metadata.AutoNamingSpec{
+		if err = autonaming.ApplyAutoNaming(&metadata.AutoNamingSpec{
 			SdkName:   typedInputs.AutoNaming.PropertyName,
 			MinLength: typedInputs.AutoNaming.MinLength,
 			MaxLength: typedInputs.AutoNaming.MaxLength,
-		}, urn, randomSeed, state, inputs)
+		}, urn, randomSeed, state, inputs); err != nil {
+			return nil, nil, fmt.Errorf("failed to apply auto-naming: %w", err)
+		}
 	}
 
 	// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
