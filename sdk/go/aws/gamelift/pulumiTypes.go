@@ -1838,7 +1838,7 @@ func (o FleetTargetConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupAutoScalingPolicy struct {
 	EstimatedInstanceWarmup     *float64                                   `pulumi:"estimatedInstanceWarmup"`
 	TargetTrackingConfiguration GameServerGroupTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
@@ -1855,7 +1855,7 @@ type GameServerGroupAutoScalingPolicyInput interface {
 	ToGameServerGroupAutoScalingPolicyOutputWithContext(context.Context) GameServerGroupAutoScalingPolicyOutput
 }
 
-// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupAutoScalingPolicyArgs struct {
 	EstimatedInstanceWarmup     pulumi.Float64PtrInput                          `pulumi:"estimatedInstanceWarmup"`
 	TargetTrackingConfiguration GameServerGroupTargetTrackingConfigurationInput `pulumi:"targetTrackingConfiguration"`
@@ -1914,7 +1914,7 @@ func (i *gameServerGroupAutoScalingPolicyPtrType) ToGameServerGroupAutoScalingPo
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyPtrOutput)
 }
 
-// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupAutoScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupAutoScalingPolicyOutput) ElementType() reflect.Type {
@@ -2094,7 +2094,7 @@ func (o GameServerGroupInstanceDefinitionArrayOutput) Index(i pulumi.IntInput) G
 	}).(GameServerGroupInstanceDefinitionOutput)
 }
 
-// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupLaunchTemplate struct {
 	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
@@ -2112,7 +2112,7 @@ type GameServerGroupLaunchTemplateInput interface {
 	ToGameServerGroupLaunchTemplateOutputWithContext(context.Context) GameServerGroupLaunchTemplateOutput
 }
 
-// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupLaunchTemplateArgs struct {
 	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
@@ -2172,7 +2172,7 @@ func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePt
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplatePtrOutput)
 }
 
-// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
 type GameServerGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupLaunchTemplateOutput) ElementType() reflect.Type {

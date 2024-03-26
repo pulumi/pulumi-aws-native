@@ -44,7 +44,7 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly idMappingTechniques!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowIdMappingTechniques>;
     public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowInputSource[]>;
-    public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowOutputSource[]>;
+    public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowOutputSource[] | undefined>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
@@ -70,9 +70,6 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
             }
             if ((!args || args.inputSourceConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'inputSourceConfig'");
-            }
-            if ((!args || args.outputSourceConfig === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'outputSourceConfig'");
             }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
@@ -116,7 +113,7 @@ export interface IdMappingWorkflowArgs {
     description?: pulumi.Input<string>;
     idMappingTechniques: pulumi.Input<inputs.entityresolution.IdMappingWorkflowIdMappingTechniquesArgs>;
     inputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowInputSourceArgs>[]>;
-    outputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowOutputSourceArgs>[]>;
+    outputSourceConfig?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowOutputSourceArgs>[]>;
     roleArn: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

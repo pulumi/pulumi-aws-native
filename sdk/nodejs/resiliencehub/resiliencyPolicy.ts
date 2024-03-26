@@ -41,7 +41,7 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
      * Data Location Constraint of the Policy.
      */
     public readonly dataLocationConstraint!: pulumi.Output<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint | undefined>;
-    public readonly policy!: pulumi.Output<{[key: string]: outputs.resiliencehub.ResiliencyPolicyFailurePolicy}>;
+    public readonly policy!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicyMap>;
     /**
      * Amazon Resource Name (ARN) of the Resiliency Policy.
      */
@@ -106,7 +106,7 @@ export interface ResiliencyPolicyArgs {
      * Data Location Constraint of the Policy.
      */
     dataLocationConstraint?: pulumi.Input<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint>;
-    policy: pulumi.Input<{[key: string]: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyFailurePolicyArgs>}>;
+    policy: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicyMapArgs>;
     /**
      * Description of Resiliency Policy.
      */

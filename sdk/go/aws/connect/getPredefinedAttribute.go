@@ -30,6 +30,10 @@ type LookupPredefinedAttributeArgs struct {
 }
 
 type LookupPredefinedAttributeResult struct {
+	// Last modified region.
+	LastModifiedRegion *string `pulumi:"lastModifiedRegion"`
+	// Last modified time.
+	LastModifiedTime *float64 `pulumi:"lastModifiedTime"`
 	// The values of a predefined attribute.
 	Values *ValuesProperties `pulumi:"values"`
 }
@@ -70,6 +74,16 @@ func (o LookupPredefinedAttributeResultOutput) ToLookupPredefinedAttributeResult
 
 func (o LookupPredefinedAttributeResultOutput) ToLookupPredefinedAttributeResultOutputWithContext(ctx context.Context) LookupPredefinedAttributeResultOutput {
 	return o
+}
+
+// Last modified region.
+func (o LookupPredefinedAttributeResultOutput) LastModifiedRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPredefinedAttributeResult) *string { return v.LastModifiedRegion }).(pulumi.StringPtrOutput)
+}
+
+// Last modified time.
+func (o LookupPredefinedAttributeResultOutput) LastModifiedTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupPredefinedAttributeResult) *float64 { return v.LastModifiedTime }).(pulumi.Float64PtrOutput)
 }
 
 // The values of a predefined attribute.

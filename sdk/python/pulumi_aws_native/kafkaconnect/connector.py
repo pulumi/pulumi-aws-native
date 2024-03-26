@@ -9,6 +9,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -28,6 +30,7 @@ class ConnectorArgs:
                  connector_description: Optional[pulumi.Input[str]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  log_delivery: Optional[pulumi.Input['ConnectorLogDeliveryArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Connector resource.
@@ -37,6 +40,7 @@ class ConnectorArgs:
         :param pulumi.Input[str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
         :param pulumi.Input[str] connector_description: A summary description of the connector.
         :param pulumi.Input[str] connector_name: The name of the connector.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "connector_configuration", connector_configuration)
@@ -52,6 +56,8 @@ class ConnectorArgs:
             pulumi.set(__self__, "connector_name", connector_name)
         if log_delivery is not None:
             pulumi.set(__self__, "log_delivery", log_delivery)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if worker_configuration is not None:
             pulumi.set(__self__, "worker_configuration", worker_configuration)
 
@@ -173,6 +179,18 @@ class ConnectorArgs:
         pulumi.set(self, "log_delivery", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="workerConfiguration")
     def worker_configuration(self) -> Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']]:
         return pulumi.get(self, "worker_configuration")
@@ -198,6 +216,7 @@ class Connector(pulumi.CustomResource):
                  log_delivery: Optional[pulumi.Input[pulumi.InputType['ConnectorLogDeliveryArgs']]] = None,
                  plugins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorPluginArgs']]]]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  worker_configuration: Optional[pulumi.Input[pulumi.InputType['ConnectorWorkerConfigurationArgs']]] = None,
                  __props__=None):
         """
@@ -211,6 +230,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[str] kafka_connect_version: The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorPluginArgs']]]] plugins: List of plugins to use with the connector.
         :param pulumi.Input[str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -247,6 +267,7 @@ class Connector(pulumi.CustomResource):
                  log_delivery: Optional[pulumi.Input[pulumi.InputType['ConnectorLogDeliveryArgs']]] = None,
                  plugins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectorPluginArgs']]]]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  worker_configuration: Optional[pulumi.Input[pulumi.InputType['ConnectorWorkerConfigurationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -284,6 +305,7 @@ class Connector(pulumi.CustomResource):
             if service_execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_execution_role_arn'")
             __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["worker_configuration"] = worker_configuration
             __props__.__dict__["connector_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectorConfiguration.*", "connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"])
@@ -322,6 +344,7 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["log_delivery"] = None
         __props__.__dict__["plugins"] = None
         __props__.__dict__["service_execution_role_arn"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["worker_configuration"] = None
         return Connector(resource_name, opts=opts, __props__=__props__)
 
@@ -405,6 +428,14 @@ class Connector(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
         """
         return pulumi.get(self, "service_execution_role_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="workerConfiguration")

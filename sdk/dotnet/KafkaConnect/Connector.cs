@@ -72,6 +72,12 @@ namespace Pulumi.AwsNative.KafkaConnect
         [Output("serviceExecutionRoleArn")]
         public Output<string> ServiceExecutionRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
         [Output("workerConfiguration")]
         public Output<Outputs.ConnectorWorkerConfiguration?> WorkerConfiguration { get; private set; } = null!;
 
@@ -196,6 +202,18 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// </summary>
         [Input("serviceExecutionRoleArn", required: true)]
         public Input<string> ServiceExecutionRoleArn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         [Input("workerConfiguration")]
         public Input<Inputs.ConnectorWorkerConfigurationArgs>? WorkerConfiguration { get; set; }

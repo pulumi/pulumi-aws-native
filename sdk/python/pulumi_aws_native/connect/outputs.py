@@ -58,6 +58,7 @@ __all__ = [
     'RuleTaskAction',
     'RuleTriggerEventSource',
     'RuleUpdateCaseAction',
+    'SecurityProfileApplication',
     'SecurityProfileTag',
     'TaskTemplateDefaultFieldValue',
     'TaskTemplateField',
@@ -2355,6 +2356,56 @@ class RuleUpdateCaseAction(dict):
     @pulumi.getter
     def fields(self) -> Sequence['outputs.RuleField']:
         return pulumi.get(self, "fields")
+
+
+@pulumi.output_type
+class SecurityProfileApplication(dict):
+    """
+    A third-party application's metadata.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationPermissions":
+            suggest = "application_permissions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileApplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileApplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileApplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_permissions: Sequence[str],
+                 namespace: str):
+        """
+        A third-party application's metadata.
+        :param Sequence[str] application_permissions: The permissions that the agent is granted on the application
+        :param str namespace: Namespace of the application that you want to give access to.
+        """
+        pulumi.set(__self__, "application_permissions", application_permissions)
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter(name="applicationPermissions")
+    def application_permissions(self) -> Sequence[str]:
+        """
+        The permissions that the agent is granted on the application
+        """
+        return pulumi.get(self, "application_permissions")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        Namespace of the application that you want to give access to.
+        """
+        return pulumi.get(self, "namespace")
 
 
 @pulumi.output_type

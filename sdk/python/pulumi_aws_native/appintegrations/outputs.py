@@ -8,12 +8,88 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'ApplicationExternalUrlConfig',
+    'ApplicationSourceConfigProperties',
     'DataIntegrationFileConfiguration',
     'DataIntegrationScheduleConfig',
     'EventIntegrationEventFilter',
 ]
+
+@pulumi.output_type
+class ApplicationExternalUrlConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessUrl":
+            suggest = "access_url"
+        elif key == "approvedOrigins":
+            suggest = "approved_origins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationExternalUrlConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationExternalUrlConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationExternalUrlConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_url: str,
+                 approved_origins: Sequence[str]):
+        pulumi.set(__self__, "access_url", access_url)
+        pulumi.set(__self__, "approved_origins", approved_origins)
+
+    @property
+    @pulumi.getter(name="accessUrl")
+    def access_url(self) -> str:
+        return pulumi.get(self, "access_url")
+
+    @property
+    @pulumi.getter(name="approvedOrigins")
+    def approved_origins(self) -> Sequence[str]:
+        return pulumi.get(self, "approved_origins")
+
+
+@pulumi.output_type
+class ApplicationSourceConfigProperties(dict):
+    """
+    Application source config
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalUrlConfig":
+            suggest = "external_url_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSourceConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSourceConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSourceConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_url_config: 'outputs.ApplicationExternalUrlConfig'):
+        """
+        Application source config
+        """
+        pulumi.set(__self__, "external_url_config", external_url_config)
+
+    @property
+    @pulumi.getter(name="externalUrlConfig")
+    def external_url_config(self) -> 'outputs.ApplicationExternalUrlConfig':
+        return pulumi.get(self, "external_url_config")
+
 
 @pulumi.output_type
 class DataIntegrationFileConfiguration(dict):

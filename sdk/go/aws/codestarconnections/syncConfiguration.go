@@ -23,7 +23,9 @@ type SyncConfiguration struct {
 	// the ID of the entity that owns the repository.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	ProviderType SyncConfigurationProviderTypeOutput `pulumi:"providerType"`
+	// Whether to enable or disable publishing of deployment status to source providers.
+	PublishDeploymentStatus SyncConfigurationPublishDeploymentStatusPtrOutput `pulumi:"publishDeploymentStatus"`
 	// A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
 	RepositoryLinkId pulumi.StringOutput `pulumi:"repositoryLinkId"`
 	// The name of the repository that is being synced to.
@@ -34,6 +36,8 @@ type SyncConfiguration struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
 	SyncType pulumi.StringOutput `pulumi:"syncType"`
+	// When to trigger Git sync to begin the stack update.
+	TriggerResourceUpdateOn SyncConfigurationTriggerResourceUpdateOnPtrOutput `pulumi:"triggerResourceUpdateOn"`
 }
 
 // NewSyncConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -103,6 +107,8 @@ type syncConfigurationArgs struct {
 	Branch string `pulumi:"branch"`
 	// The source provider repository path of the sync configuration file of the respective SyncType.
 	ConfigFile string `pulumi:"configFile"`
+	// Whether to enable or disable publishing of deployment status to source providers.
+	PublishDeploymentStatus *SyncConfigurationPublishDeploymentStatus `pulumi:"publishDeploymentStatus"`
 	// A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
 	RepositoryLinkId string `pulumi:"repositoryLinkId"`
 	// The name of the resource that is being synchronized to the repository.
@@ -111,6 +117,8 @@ type syncConfigurationArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
 	SyncType string `pulumi:"syncType"`
+	// When to trigger Git sync to begin the stack update.
+	TriggerResourceUpdateOn *SyncConfigurationTriggerResourceUpdateOn `pulumi:"triggerResourceUpdateOn"`
 }
 
 // The set of arguments for constructing a SyncConfiguration resource.
@@ -119,6 +127,8 @@ type SyncConfigurationArgs struct {
 	Branch pulumi.StringInput
 	// The source provider repository path of the sync configuration file of the respective SyncType.
 	ConfigFile pulumi.StringInput
+	// Whether to enable or disable publishing of deployment status to source providers.
+	PublishDeploymentStatus SyncConfigurationPublishDeploymentStatusPtrInput
 	// A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
 	RepositoryLinkId pulumi.StringInput
 	// The name of the resource that is being synchronized to the repository.
@@ -127,6 +137,8 @@ type SyncConfigurationArgs struct {
 	RoleArn pulumi.StringInput
 	// The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
 	SyncType pulumi.StringInput
+	// When to trigger Git sync to begin the stack update.
+	TriggerResourceUpdateOn SyncConfigurationTriggerResourceUpdateOnPtrInput
 }
 
 func (SyncConfigurationArgs) ElementType() reflect.Type {
@@ -182,8 +194,15 @@ func (o SyncConfigurationOutput) OwnerId() pulumi.StringOutput {
 }
 
 // The name of the external provider where your third-party code repository is configured.
-func (o SyncConfigurationOutput) ProviderType() pulumi.StringOutput {
-	return o.ApplyT(func(v *SyncConfiguration) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
+func (o SyncConfigurationOutput) ProviderType() SyncConfigurationProviderTypeOutput {
+	return o.ApplyT(func(v *SyncConfiguration) SyncConfigurationProviderTypeOutput { return v.ProviderType }).(SyncConfigurationProviderTypeOutput)
+}
+
+// Whether to enable or disable publishing of deployment status to source providers.
+func (o SyncConfigurationOutput) PublishDeploymentStatus() SyncConfigurationPublishDeploymentStatusPtrOutput {
+	return o.ApplyT(func(v *SyncConfiguration) SyncConfigurationPublishDeploymentStatusPtrOutput {
+		return v.PublishDeploymentStatus
+	}).(SyncConfigurationPublishDeploymentStatusPtrOutput)
 }
 
 // A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
@@ -209,6 +228,13 @@ func (o SyncConfigurationOutput) RoleArn() pulumi.StringOutput {
 // The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
 func (o SyncConfigurationOutput) SyncType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyncConfiguration) pulumi.StringOutput { return v.SyncType }).(pulumi.StringOutput)
+}
+
+// When to trigger Git sync to begin the stack update.
+func (o SyncConfigurationOutput) TriggerResourceUpdateOn() SyncConfigurationTriggerResourceUpdateOnPtrOutput {
+	return o.ApplyT(func(v *SyncConfiguration) SyncConfigurationTriggerResourceUpdateOnPtrOutput {
+		return v.TriggerResourceUpdateOn
+	}).(SyncConfigurationTriggerResourceUpdateOnPtrOutput)
 }
 
 func init() {

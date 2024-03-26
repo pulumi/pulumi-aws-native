@@ -30,6 +30,7 @@ class TableArgs:
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
+                 resource_policy: Optional[pulumi.Input['TableResourcePolicyArgs']] = None,
                  sse_specification: Optional[pulumi.Input['TableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['TableStreamSpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
@@ -94,6 +95,8 @@ class TableArgs:
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if provisioned_throughput is not None:
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+        if resource_policy is not None:
+            pulumi.set(__self__, "resource_policy", resource_policy)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_specification is not None:
@@ -254,6 +257,15 @@ class TableArgs:
         pulumi.set(self, "provisioned_throughput", value)
 
     @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> Optional[pulumi.Input['TableResourcePolicyArgs']]:
+        return pulumi.get(self, "resource_policy")
+
+    @resource_policy.setter
+    def resource_policy(self, value: Optional[pulumi.Input['TableResourcePolicyArgs']]):
+        pulumi.set(self, "resource_policy", value)
+
+    @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['TableSseSpecificationArgs']]:
         """
@@ -345,6 +357,7 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
+                 resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
@@ -887,6 +900,7 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
+                 resource_policy: Optional[pulumi.Input[pulumi.InputType['TableResourcePolicyArgs']]] = None,
                  sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSseSpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
@@ -915,6 +929,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
             __props__.__dict__["point_in_time_recovery_specification"] = point_in_time_recovery_specification
             __props__.__dict__["provisioned_throughput"] = provisioned_throughput
+            __props__.__dict__["resource_policy"] = resource_policy
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["stream_specification"] = stream_specification
             __props__.__dict__["table_class"] = table_class
@@ -959,6 +974,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["local_secondary_indexes"] = None
         __props__.__dict__["point_in_time_recovery_specification"] = None
         __props__.__dict__["provisioned_throughput"] = None
+        __props__.__dict__["resource_policy"] = None
         __props__.__dict__["sse_specification"] = None
         __props__.__dict__["stream_arn"] = None
         __props__.__dict__["stream_specification"] = None
@@ -1074,6 +1090,11 @@ class Table(pulumi.CustomResource):
          If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
         """
         return pulumi.get(self, "provisioned_throughput")
+
+    @property
+    @pulumi.getter(name="resourcePolicy")
+    def resource_policy(self) -> pulumi.Output[Optional['outputs.TableResourcePolicy']]:
+        return pulumi.get(self, "resource_policy")
 
     @property
     @pulumi.getter(name="sseSpecification")

@@ -62,6 +62,7 @@ export class Subnet extends pulumi.CustomResource {
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
      */
     public readonly enableDns64!: pulumi.Output<boolean | undefined>;
+    public readonly enableLniAtDeviceIndex!: pulumi.Output<number | undefined>;
     /**
      * An IPv4 IPAM pool ID for the subnet.
      */
@@ -139,6 +140,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
             resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             resourceInputs["enableDns64"] = args ? args.enableDns64 : undefined;
+            resourceInputs["enableLniAtDeviceIndex"] = args ? args.enableLniAtDeviceIndex : undefined;
             resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
             resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
@@ -159,6 +161,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["enableDns64"] = undefined /*out*/;
+            resourceInputs["enableLniAtDeviceIndex"] = undefined /*out*/;
             resourceInputs["ipv4IpamPoolId"] = undefined /*out*/;
             resourceInputs["ipv4NetmaskLength"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
@@ -208,6 +211,7 @@ export interface SubnetArgs {
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
      */
     enableDns64?: pulumi.Input<boolean>;
+    enableLniAtDeviceIndex?: pulumi.Input<number>;
     /**
      * An IPv4 IPAM pool ID for the subnet.
      */

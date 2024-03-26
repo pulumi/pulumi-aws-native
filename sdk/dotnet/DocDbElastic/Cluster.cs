@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.DocDbElastic
         [Output("authType")]
         public Output<string> AuthType { get; private set; } = null!;
 
+        [Output("backupRetentionPeriod")]
+        public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
+
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.DocDbElastic
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        [Output("preferredBackupWindow")]
+        public Output<string?> PreferredBackupWindow { get; private set; } = null!;
+
         [Output("preferredMaintenanceWindow")]
         public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
 
@@ -44,6 +50,9 @@ namespace Pulumi.AwsNative.DocDbElastic
 
         [Output("shardCount")]
         public Output<int> ShardCount { get; private set; } = null!;
+
+        [Output("shardInstanceCount")]
+        public Output<int?> ShardInstanceCount { get; private set; } = null!;
 
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -115,11 +124,17 @@ namespace Pulumi.AwsNative.DocDbElastic
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
 
+        [Input("backupRetentionPeriod")]
+        public Input<int>? BackupRetentionPeriod { get; set; }
+
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        [Input("preferredBackupWindow")]
+        public Input<string>? PreferredBackupWindow { get; set; }
 
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -129,6 +144,9 @@ namespace Pulumi.AwsNative.DocDbElastic
 
         [Input("shardCount", required: true)]
         public Input<int> ShardCount { get; set; } = null!;
+
+        [Input("shardInstanceCount")]
+        public Input<int>? ShardInstanceCount { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;

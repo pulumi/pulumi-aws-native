@@ -22,6 +22,18 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
+        /// Last modified region.
+        /// </summary>
+        [Output("lastModifiedRegion")]
+        public Output<string> LastModifiedRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// Last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<double> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the predefined attribute.
         /// </summary>
         [Output("name")]

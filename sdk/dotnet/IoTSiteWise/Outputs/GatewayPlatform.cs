@@ -24,15 +24,22 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// A gateway that runs on AWS IoT Greengrass V2.
         /// </summary>
         public readonly Outputs.GatewayGreengrassV2? GreengrassV2;
+        /// <summary>
+        /// A gateway that runs on Siemens Industrial Edge.
+        /// </summary>
+        public readonly Outputs.GatewaySiemensIe? SiemensIe;
 
         [OutputConstructor]
         private GatewayPlatform(
             Outputs.GatewayGreengrass? greengrass,
 
-            Outputs.GatewayGreengrassV2? greengrassV2)
+            Outputs.GatewayGreengrassV2? greengrassV2,
+
+            Outputs.GatewaySiemensIe? siemensIe)
         {
             Greengrass = greengrass;
             GreengrassV2 = greengrassV2;
+            SiemensIe = siemensIe;
         }
     }
 }

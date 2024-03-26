@@ -52,7 +52,7 @@ export class RepositoryLink extends pulumi.CustomResource {
     /**
      * The name of the external provider where your third-party code repository is configured.
      */
-    public /*out*/ readonly providerType!: pulumi.Output<string>;
+    public /*out*/ readonly providerType!: pulumi.Output<enums.codestarconnections.RepositoryLinkProviderType>;
     /**
      * A unique Amazon Resource Name (ARN) to designate the repository link.
      */

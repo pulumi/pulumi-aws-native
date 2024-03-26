@@ -10,10 +10,58 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ApplicationExternalUrlConfigArgs',
+    'ApplicationSourceConfigPropertiesArgs',
     'DataIntegrationFileConfigurationArgs',
     'DataIntegrationScheduleConfigArgs',
     'EventIntegrationEventFilterArgs',
 ]
+
+@pulumi.input_type
+class ApplicationExternalUrlConfigArgs:
+    def __init__(__self__, *,
+                 access_url: pulumi.Input[str],
+                 approved_origins: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "access_url", access_url)
+        pulumi.set(__self__, "approved_origins", approved_origins)
+
+    @property
+    @pulumi.getter(name="accessUrl")
+    def access_url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "access_url")
+
+    @access_url.setter
+    def access_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_url", value)
+
+    @property
+    @pulumi.getter(name="approvedOrigins")
+    def approved_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "approved_origins")
+
+    @approved_origins.setter
+    def approved_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "approved_origins", value)
+
+
+@pulumi.input_type
+class ApplicationSourceConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 external_url_config: pulumi.Input['ApplicationExternalUrlConfigArgs']):
+        """
+        Application source config
+        """
+        pulumi.set(__self__, "external_url_config", external_url_config)
+
+    @property
+    @pulumi.getter(name="externalUrlConfig")
+    def external_url_config(self) -> pulumi.Input['ApplicationExternalUrlConfigArgs']:
+        return pulumi.get(self, "external_url_config")
+
+    @external_url_config.setter
+    def external_url_config(self, value: pulumi.Input['ApplicationExternalUrlConfigArgs']):
+        pulumi.set(self, "external_url_config", value)
+
 
 @pulumi.input_type
 class DataIntegrationFileConfigurationArgs:

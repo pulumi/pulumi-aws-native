@@ -127,7 +127,7 @@
       "permissions" : [ "ivschat:GetRoom", "ivschat:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "ivschat:UpdateRoom", "ivschat:TagResource", "ivschat:UnTagResource", "ivschat:ListTagsForResource" ]
+      "permissions" : [ "ivschat:UpdateRoom", "ivschat:TagResource", "ivschat:UntagResource", "ivschat:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "ivschat:DeleteRoom", "ivschat:UntagResource" ]

@@ -410,6 +410,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("provisionedThroughput")]
         public Output<Outputs.TableProvisionedThroughput?> ProvisionedThroughput { get; private set; } = null!;
 
+        [Output("resourcePolicy")]
+        public Output<Outputs.TableResourcePolicy?> ResourcePolicy { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the settings to enable server-side encryption.
         /// </summary>
@@ -599,6 +602,9 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         [Input("provisionedThroughput")]
         public Input<Inputs.TableProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
+
+        [Input("resourcePolicy")]
+        public Input<Inputs.TableResourcePolicyArgs>? ResourcePolicy { get; set; }
 
         /// <summary>
         /// Specifies the settings to enable server-side encryption.

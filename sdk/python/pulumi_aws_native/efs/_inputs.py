@@ -175,10 +175,10 @@ class AccessPointRootDirectoryArgs:
 @pulumi.input_type
 class FileSystemBackupPolicyArgs:
     def __init__(__self__, *,
-                 status: pulumi.Input[str]):
+                 status: pulumi.Input['FileSystemBackupPolicyStatus']):
         """
         The backup policy turns automatic backups for the file system on or off.
-        :param pulumi.Input[str] status: Set the backup policy status for the file system.
+        :param pulumi.Input['FileSystemBackupPolicyStatus'] status: Set the backup policy status for the file system.
                  +   *ENABLED* - Turns automatic backups on for the file system. 
                  +   *DISABLED* - Turns automatic backups off for the file system.
         """
@@ -186,7 +186,7 @@ class FileSystemBackupPolicyArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input['FileSystemBackupPolicyStatus']:
         """
         Set the backup policy status for the file system.
           +   *ENABLED* - Turns automatic backups on for the file system. 
@@ -195,7 +195,7 @@ class FileSystemBackupPolicyArgs:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input['FileSystemBackupPolicyStatus']):
         pulumi.set(self, "status", value)
 
 

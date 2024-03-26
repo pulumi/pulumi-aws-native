@@ -44,9 +44,6 @@ func NewIdMappingWorkflow(ctx *pulumi.Context,
 	if args.InputSourceConfig == nil {
 		return nil, errors.New("invalid value for required argument 'InputSourceConfig'")
 	}
-	if args.OutputSourceConfig == nil {
-		return nil, errors.New("invalid value for required argument 'OutputSourceConfig'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}

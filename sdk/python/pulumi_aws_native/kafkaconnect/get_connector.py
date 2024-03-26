@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetConnectorResult',
@@ -19,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectorResult:
-    def __init__(__self__, capacity=None, connector_arn=None):
+    def __init__(__self__, capacity=None, connector_arn=None, tags=None):
         if capacity and not isinstance(capacity, dict):
             raise TypeError("Expected argument 'capacity' to be a dict")
         pulumi.set(__self__, "capacity", capacity)
         if connector_arn and not isinstance(connector_arn, str):
             raise TypeError("Expected argument 'connector_arn' to be a str")
         pulumi.set(__self__, "connector_arn", connector_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -40,6 +44,14 @@ class GetConnectorResult:
         """
         return pulumi.get(self, "connector_arn")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetConnectorResult(GetConnectorResult):
     # pylint: disable=using-constant-test
@@ -48,7 +60,8 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             yield self
         return GetConnectorResult(
             capacity=self.capacity,
-            connector_arn=self.connector_arn)
+            connector_arn=self.connector_arn,
+            tags=self.tags)
 
 
 def get_connector(connector_arn: Optional[str] = None,
@@ -66,7 +79,8 @@ def get_connector(connector_arn: Optional[str] = None,
 
     return AwaitableGetConnectorResult(
         capacity=pulumi.get(__ret__, 'capacity'),
-        connector_arn=pulumi.get(__ret__, 'connector_arn'))
+        connector_arn=pulumi.get(__ret__, 'connector_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_connector)

@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Outputs
 {
 
+    /// <summary>
+    /// ``TotalLocalStorageGBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total local storage size for an instance type, in GB.
+    /// </summary>
     [OutputType]
     public sealed class AutoScalingGroupTotalLocalStorageGbRequest
     {
+        /// <summary>
+        /// The storage maximum in GB.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// The storage minimum in GB.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

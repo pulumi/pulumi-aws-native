@@ -121,6 +121,7 @@ namespace Pulumi.AwsNative.DynamoDb
         ///  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
         /// </summary>
         public readonly Outputs.TableProvisionedThroughput? ProvisionedThroughput;
+        public readonly Outputs.TableResourcePolicy? ResourcePolicy;
         /// <summary>
         /// Specifies the settings to enable server-side encryption.
         /// </summary>
@@ -169,6 +170,8 @@ namespace Pulumi.AwsNative.DynamoDb
 
             Outputs.TableProvisionedThroughput? provisionedThroughput,
 
+            Outputs.TableResourcePolicy? resourcePolicy,
+
             Outputs.TableSseSpecification? sseSpecification,
 
             string? streamArn,
@@ -192,6 +195,7 @@ namespace Pulumi.AwsNative.DynamoDb
             LocalSecondaryIndexes = localSecondaryIndexes;
             PointInTimeRecoverySpecification = pointInTimeRecoverySpecification;
             ProvisionedThroughput = provisionedThroughput;
+            ResourcePolicy = resourcePolicy;
             SseSpecification = sseSpecification;
             StreamArn = streamArn;
             StreamSpecification = streamSpecification;

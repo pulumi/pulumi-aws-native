@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         ///   +  The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages.
         ///   
         ///  If you specify a value for ``ResponsePagePath``, you must also specify a value for ``ResponseCode``.
-        ///  We recommend 
+        ///  We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
         /// </summary>
         [Input("responsePagePath")]
         public Input<string>? ResponsePagePath { get; set; }

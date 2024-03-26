@@ -64,6 +64,7 @@ namespace Pulumi.AwsNative.DataSync
         public readonly ImmutableArray<string> DestinationNetworkInterfaceArns;
         public readonly ImmutableArray<Outputs.TaskFilterRule> Excludes;
         public readonly ImmutableArray<Outputs.TaskFilterRule> Includes;
+        public readonly Outputs.TaskManifestConfig? ManifestConfig;
         /// <summary>
         /// The name of a task. This value is a text reference that is used to identify the task in the console.
         /// </summary>
@@ -95,6 +96,8 @@ namespace Pulumi.AwsNative.DataSync
 
             ImmutableArray<Outputs.TaskFilterRule> includes,
 
+            Outputs.TaskManifestConfig? manifestConfig,
+
             string? name,
 
             Outputs.TaskOptions? options,
@@ -115,6 +118,7 @@ namespace Pulumi.AwsNative.DataSync
             DestinationNetworkInterfaceArns = destinationNetworkInterfaceArns;
             Excludes = excludes;
             Includes = includes;
+            ManifestConfig = manifestConfig;
             Name = name;
             Options = options;
             Schedule = schedule;

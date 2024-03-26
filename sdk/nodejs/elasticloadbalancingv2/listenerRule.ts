@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
+ * Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+ *  For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
  */
 export class ListenerRule extends pulumi.CustomResource {
     /**
@@ -37,10 +38,25 @@ export class ListenerRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ListenerRule.__pulumiType;
     }
 
+    /**
+     * The actions.
+     *  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+     */
     public readonly actions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleAction[]>;
+    /**
+     * The conditions.
+     *  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+     */
     public readonly conditions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleRuleCondition[]>;
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
     public readonly listenerArn!: pulumi.Output<string | undefined>;
+    /**
+     * The rule priority. A listener can't have multiple rules with the same priority.
+     *  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+     */
     public readonly priority!: pulumi.Output<number>;
     public /*out*/ readonly ruleArn!: pulumi.Output<string>;
 
@@ -89,8 +105,23 @@ export class ListenerRule extends pulumi.CustomResource {
  * The set of arguments for constructing a ListenerRule resource.
  */
 export interface ListenerRuleArgs {
+    /**
+     * The actions.
+     *  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+     */
     actions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleActionArgs>[]>;
+    /**
+     * The conditions.
+     *  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+     */
     conditions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleRuleConditionArgs>[]>;
+    /**
+     * The Amazon Resource Name (ARN) of the listener.
+     */
     listenerArn?: pulumi.Input<string>;
+    /**
+     * The rule priority. A listener can't have multiple rules with the same priority.
+     *  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+     */
     priority: pulumi.Input<number>;
 }

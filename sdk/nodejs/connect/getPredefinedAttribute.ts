@@ -32,6 +32,14 @@ export interface GetPredefinedAttributeArgs {
 
 export interface GetPredefinedAttributeResult {
     /**
+     * Last modified region.
+     */
+    readonly lastModifiedRegion?: string;
+    /**
+     * Last modified time.
+     */
+    readonly lastModifiedTime?: number;
+    /**
      * The values of a predefined attribute.
      */
     readonly values?: outputs.connect.ValuesProperties;

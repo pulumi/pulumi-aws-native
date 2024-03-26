@@ -835,7 +835,7 @@ class FleetTargetConfiguration(dict):
 @pulumi.output_type
 class GameServerGroupAutoScalingPolicy(dict):
     """
-    Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+    Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -860,7 +860,7 @@ class GameServerGroupAutoScalingPolicy(dict):
                  target_tracking_configuration: 'outputs.GameServerGroupTargetTrackingConfiguration',
                  estimated_instance_warmup: Optional[float] = None):
         """
-        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
@@ -925,7 +925,7 @@ class GameServerGroupInstanceDefinition(dict):
 @pulumi.output_type
 class GameServerGroupLaunchTemplate(dict):
     """
-    The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+    The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -951,7 +951,7 @@ class GameServerGroupLaunchTemplate(dict):
                  launch_template_name: Optional[str] = None,
                  version: Optional[str] = None):
         """
-        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)

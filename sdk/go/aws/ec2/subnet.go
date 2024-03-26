@@ -32,7 +32,8 @@ type Subnet struct {
 	//  If you update this property, we create a new subnet, and then delete the existing one.
 	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
-	EnableDns64 pulumi.BoolPtrOutput `pulumi:"enableDns64"`
+	EnableDns64            pulumi.BoolPtrOutput `pulumi:"enableDns64"`
+	EnableLniAtDeviceIndex pulumi.IntPtrOutput  `pulumi:"enableLniAtDeviceIndex"`
 	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
 	// An IPv4 netmask length for the subnet.
@@ -136,7 +137,8 @@ type subnetArgs struct {
 	//  If you update this property, we create a new subnet, and then delete the existing one.
 	CidrBlock *string `pulumi:"cidrBlock"`
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
-	EnableDns64 *bool `pulumi:"enableDns64"`
+	EnableDns64            *bool `pulumi:"enableDns64"`
+	EnableLniAtDeviceIndex *int  `pulumi:"enableLniAtDeviceIndex"`
 	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
 	// An IPv4 netmask length for the subnet.
@@ -184,7 +186,8 @@ type SubnetArgs struct {
 	//  If you update this property, we create a new subnet, and then delete the existing one.
 	CidrBlock pulumi.StringPtrInput
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
-	EnableDns64 pulumi.BoolPtrInput
+	EnableDns64            pulumi.BoolPtrInput
+	EnableLniAtDeviceIndex pulumi.IntPtrInput
 	// An IPv4 IPAM pool ID for the subnet.
 	Ipv4IpamPoolId pulumi.StringPtrInput
 	// An IPv4 netmask length for the subnet.
@@ -284,6 +287,10 @@ func (o SubnetOutput) CidrBlock() pulumi.StringPtrOutput {
 // Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
 func (o SubnetOutput) EnableDns64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
+}
+
+func (o SubnetOutput) EnableLniAtDeviceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.IntPtrOutput { return v.EnableLniAtDeviceIndex }).(pulumi.IntPtrOutput)
 }
 
 // An IPv4 IPAM pool ID for the subnet.

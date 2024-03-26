@@ -173,6 +173,171 @@ func (in *idMappingWorkflowIdMappingTechniquesIdMappingTypePtr) ToIdMappingWorkf
 	return pulumi.ToOutputWithContext(ctx, in).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
+type IdMappingWorkflowInputSourceType string
+
+const (
+	IdMappingWorkflowInputSourceTypeSource = IdMappingWorkflowInputSourceType("SOURCE")
+	IdMappingWorkflowInputSourceTypeTarget = IdMappingWorkflowInputSourceType("TARGET")
+)
+
+func (IdMappingWorkflowInputSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowInputSourceType)(nil)).Elem()
+}
+
+func (e IdMappingWorkflowInputSourceType) ToIdMappingWorkflowInputSourceTypeOutput() IdMappingWorkflowInputSourceTypeOutput {
+	return pulumi.ToOutput(e).(IdMappingWorkflowInputSourceTypeOutput)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToIdMappingWorkflowInputSourceTypeOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IdMappingWorkflowInputSourceTypeOutput)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput {
+	return e.ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e IdMappingWorkflowInputSourceType) ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypePtrOutput {
+	return IdMappingWorkflowInputSourceType(e).ToIdMappingWorkflowInputSourceTypeOutputWithContext(ctx).ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdMappingWorkflowInputSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IdMappingWorkflowInputSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IdMappingWorkflowInputSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowInputSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdMappingWorkflowInputSourceType)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToIdMappingWorkflowInputSourceTypeOutput() IdMappingWorkflowInputSourceTypeOutput {
+	return o
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToIdMappingWorkflowInputSourceTypeOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypeOutput {
+	return o
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput {
+	return o.ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdMappingWorkflowInputSourceType) *IdMappingWorkflowInputSourceType {
+		return &v
+	}).(IdMappingWorkflowInputSourceTypePtrOutput)
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdMappingWorkflowInputSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowInputSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdMappingWorkflowInputSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdMappingWorkflowInputSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IdMappingWorkflowInputSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdMappingWorkflowInputSourceType)(nil)).Elem()
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput {
+	return o
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypePtrOutput {
+	return o
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) Elem() IdMappingWorkflowInputSourceTypeOutput {
+	return o.ApplyT(func(v *IdMappingWorkflowInputSourceType) IdMappingWorkflowInputSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret IdMappingWorkflowInputSourceType
+		return ret
+	}).(IdMappingWorkflowInputSourceTypeOutput)
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IdMappingWorkflowInputSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdMappingWorkflowInputSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IdMappingWorkflowInputSourceTypeInput is an input type that accepts values of the IdMappingWorkflowInputSourceType enum
+// A concrete instance of `IdMappingWorkflowInputSourceTypeInput` can be one of the following:
+//
+//	IdMappingWorkflowInputSourceTypeSource
+//	IdMappingWorkflowInputSourceTypeTarget
+type IdMappingWorkflowInputSourceTypeInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowInputSourceTypeOutput() IdMappingWorkflowInputSourceTypeOutput
+	ToIdMappingWorkflowInputSourceTypeOutputWithContext(context.Context) IdMappingWorkflowInputSourceTypeOutput
+}
+
+var idMappingWorkflowInputSourceTypePtrType = reflect.TypeOf((**IdMappingWorkflowInputSourceType)(nil)).Elem()
+
+type IdMappingWorkflowInputSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput
+	ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(context.Context) IdMappingWorkflowInputSourceTypePtrOutput
+}
+
+type idMappingWorkflowInputSourceTypePtr string
+
+func IdMappingWorkflowInputSourceTypePtr(v string) IdMappingWorkflowInputSourceTypePtrInput {
+	return (*idMappingWorkflowInputSourceTypePtr)(&v)
+}
+
+func (*idMappingWorkflowInputSourceTypePtr) ElementType() reflect.Type {
+	return idMappingWorkflowInputSourceTypePtrType
+}
+
+func (in *idMappingWorkflowInputSourceTypePtr) ToIdMappingWorkflowInputSourceTypePtrOutput() IdMappingWorkflowInputSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(IdMappingWorkflowInputSourceTypePtrOutput)
+}
+
+func (in *idMappingWorkflowInputSourceTypePtr) ToIdMappingWorkflowInputSourceTypePtrOutputWithContext(ctx context.Context) IdMappingWorkflowInputSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IdMappingWorkflowInputSourceTypePtrOutput)
+}
+
 type MatchingWorkflowResolutionTechniquesResolutionType string
 
 const (
@@ -709,6 +874,8 @@ func (in *schemaMappingSchemaAttributeTypePtr) ToSchemaMappingSchemaAttributeTyp
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingTechniquesIdMappingTypeInput)(nil)).Elem(), IdMappingWorkflowIdMappingTechniquesIdMappingType("PROVIDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput)(nil)).Elem(), IdMappingWorkflowIdMappingTechniquesIdMappingType("PROVIDER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowInputSourceTypeInput)(nil)).Elem(), IdMappingWorkflowInputSourceType("SOURCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingWorkflowInputSourceTypePtrInput)(nil)).Elem(), IdMappingWorkflowInputSourceType("SOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowResolutionTechniquesResolutionTypeInput)(nil)).Elem(), MatchingWorkflowResolutionTechniquesResolutionType("RULE_MATCHING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowResolutionTechniquesResolutionTypePtrInput)(nil)).Elem(), MatchingWorkflowResolutionTechniquesResolutionType("RULE_MATCHING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput)(nil)).Elem(), MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel("ONE_TO_ONE"))
@@ -717,6 +884,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMappingSchemaAttributeTypePtrInput)(nil)).Elem(), SchemaMappingSchemaAttributeType("NAME"))
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput{})
 	pulumi.RegisterOutputType(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput{})
+	pulumi.RegisterOutputType(IdMappingWorkflowInputSourceTypeOutput{})
+	pulumi.RegisterOutputType(IdMappingWorkflowInputSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowResolutionTechniquesResolutionTypeOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput{})

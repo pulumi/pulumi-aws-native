@@ -128,6 +128,8 @@ class PredefinedAttribute(pulumi.CustomResource):
             if values is None and not opts.urn:
                 raise TypeError("Missing required property 'values'")
             __props__.__dict__["values"] = values
+            __props__.__dict__["last_modified_region"] = None
+            __props__.__dict__["last_modified_time"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PredefinedAttribute, __self__).__init__(
@@ -153,6 +155,8 @@ class PredefinedAttribute(pulumi.CustomResource):
         __props__ = PredefinedAttributeArgs.__new__(PredefinedAttributeArgs)
 
         __props__.__dict__["instance_arn"] = None
+        __props__.__dict__["last_modified_region"] = None
+        __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["values"] = None
         return PredefinedAttribute(resource_name, opts=opts, __props__=__props__)
@@ -164,6 +168,22 @@ class PredefinedAttribute(pulumi.CustomResource):
         The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
+
+    @property
+    @pulumi.getter(name="lastModifiedRegion")
+    def last_modified_region(self) -> pulumi.Output[str]:
+        """
+        Last modified region.
+        """
+        return pulumi.get(self, "last_modified_region")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> pulumi.Output[float]:
+        """
+        Last modified time.
+        """
+        return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter
