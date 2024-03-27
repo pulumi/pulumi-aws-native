@@ -17,6 +17,7 @@ __all__ = [
     'AppPhysicalResourceId',
     'AppResourceMapping',
     'ResiliencyPolicyFailurePolicy',
+    'ResiliencyPolicyPolicyMap',
 ]
 
 @pulumi.output_type
@@ -336,5 +337,39 @@ class ResiliencyPolicyFailurePolicy(dict):
         RTO in seconds.
         """
         return pulumi.get(self, "rto_in_secs")
+
+
+@pulumi.output_type
+class ResiliencyPolicyPolicyMap(dict):
+    def __init__(__self__, *,
+                 az: 'outputs.ResiliencyPolicyFailurePolicy',
+                 hardware: 'outputs.ResiliencyPolicyFailurePolicy',
+                 software: 'outputs.ResiliencyPolicyFailurePolicy',
+                 region: Optional['outputs.ResiliencyPolicyFailurePolicy'] = None):
+        pulumi.set(__self__, "az", az)
+        pulumi.set(__self__, "hardware", hardware)
+        pulumi.set(__self__, "software", software)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def az(self) -> 'outputs.ResiliencyPolicyFailurePolicy':
+        return pulumi.get(self, "az")
+
+    @property
+    @pulumi.getter
+    def hardware(self) -> 'outputs.ResiliencyPolicyFailurePolicy':
+        return pulumi.get(self, "hardware")
+
+    @property
+    @pulumi.getter
+    def software(self) -> 'outputs.ResiliencyPolicyFailurePolicy':
+        return pulumi.get(self, "software")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional['outputs.ResiliencyPolicyFailurePolicy']:
+        return pulumi.get(self, "region")
 
 

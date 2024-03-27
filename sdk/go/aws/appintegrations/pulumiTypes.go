@@ -13,6 +13,196 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApplicationExternalUrlConfig struct {
+	AccessUrl       string   `pulumi:"accessUrl"`
+	ApprovedOrigins []string `pulumi:"approvedOrigins"`
+}
+
+// ApplicationExternalUrlConfigInput is an input type that accepts ApplicationExternalUrlConfigArgs and ApplicationExternalUrlConfigOutput values.
+// You can construct a concrete instance of `ApplicationExternalUrlConfigInput` via:
+//
+//	ApplicationExternalUrlConfigArgs{...}
+type ApplicationExternalUrlConfigInput interface {
+	pulumi.Input
+
+	ToApplicationExternalUrlConfigOutput() ApplicationExternalUrlConfigOutput
+	ToApplicationExternalUrlConfigOutputWithContext(context.Context) ApplicationExternalUrlConfigOutput
+}
+
+type ApplicationExternalUrlConfigArgs struct {
+	AccessUrl       pulumi.StringInput      `pulumi:"accessUrl"`
+	ApprovedOrigins pulumi.StringArrayInput `pulumi:"approvedOrigins"`
+}
+
+func (ApplicationExternalUrlConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationExternalUrlConfig)(nil)).Elem()
+}
+
+func (i ApplicationExternalUrlConfigArgs) ToApplicationExternalUrlConfigOutput() ApplicationExternalUrlConfigOutput {
+	return i.ToApplicationExternalUrlConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationExternalUrlConfigArgs) ToApplicationExternalUrlConfigOutputWithContext(ctx context.Context) ApplicationExternalUrlConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationExternalUrlConfigOutput)
+}
+
+type ApplicationExternalUrlConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationExternalUrlConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationExternalUrlConfig)(nil)).Elem()
+}
+
+func (o ApplicationExternalUrlConfigOutput) ToApplicationExternalUrlConfigOutput() ApplicationExternalUrlConfigOutput {
+	return o
+}
+
+func (o ApplicationExternalUrlConfigOutput) ToApplicationExternalUrlConfigOutputWithContext(ctx context.Context) ApplicationExternalUrlConfigOutput {
+	return o
+}
+
+func (o ApplicationExternalUrlConfigOutput) AccessUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationExternalUrlConfig) string { return v.AccessUrl }).(pulumi.StringOutput)
+}
+
+func (o ApplicationExternalUrlConfigOutput) ApprovedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationExternalUrlConfig) []string { return v.ApprovedOrigins }).(pulumi.StringArrayOutput)
+}
+
+type ApplicationExternalUrlConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationExternalUrlConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationExternalUrlConfig)(nil)).Elem()
+}
+
+func (o ApplicationExternalUrlConfigPtrOutput) ToApplicationExternalUrlConfigPtrOutput() ApplicationExternalUrlConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationExternalUrlConfigPtrOutput) ToApplicationExternalUrlConfigPtrOutputWithContext(ctx context.Context) ApplicationExternalUrlConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationExternalUrlConfigPtrOutput) Elem() ApplicationExternalUrlConfigOutput {
+	return o.ApplyT(func(v *ApplicationExternalUrlConfig) ApplicationExternalUrlConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationExternalUrlConfig
+		return ret
+	}).(ApplicationExternalUrlConfigOutput)
+}
+
+func (o ApplicationExternalUrlConfigPtrOutput) AccessUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationExternalUrlConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationExternalUrlConfigPtrOutput) ApprovedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationExternalUrlConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ApprovedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// Application source config
+type ApplicationSourceConfigProperties struct {
+	ExternalUrlConfig ApplicationExternalUrlConfig `pulumi:"externalUrlConfig"`
+}
+
+// ApplicationSourceConfigPropertiesInput is an input type that accepts ApplicationSourceConfigPropertiesArgs and ApplicationSourceConfigPropertiesOutput values.
+// You can construct a concrete instance of `ApplicationSourceConfigPropertiesInput` via:
+//
+//	ApplicationSourceConfigPropertiesArgs{...}
+type ApplicationSourceConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToApplicationSourceConfigPropertiesOutput() ApplicationSourceConfigPropertiesOutput
+	ToApplicationSourceConfigPropertiesOutputWithContext(context.Context) ApplicationSourceConfigPropertiesOutput
+}
+
+// Application source config
+type ApplicationSourceConfigPropertiesArgs struct {
+	ExternalUrlConfig ApplicationExternalUrlConfigInput `pulumi:"externalUrlConfig"`
+}
+
+func (ApplicationSourceConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSourceConfigProperties)(nil)).Elem()
+}
+
+func (i ApplicationSourceConfigPropertiesArgs) ToApplicationSourceConfigPropertiesOutput() ApplicationSourceConfigPropertiesOutput {
+	return i.ToApplicationSourceConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i ApplicationSourceConfigPropertiesArgs) ToApplicationSourceConfigPropertiesOutputWithContext(ctx context.Context) ApplicationSourceConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSourceConfigPropertiesOutput)
+}
+
+// Application source config
+type ApplicationSourceConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSourceConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationSourceConfigProperties)(nil)).Elem()
+}
+
+func (o ApplicationSourceConfigPropertiesOutput) ToApplicationSourceConfigPropertiesOutput() ApplicationSourceConfigPropertiesOutput {
+	return o
+}
+
+func (o ApplicationSourceConfigPropertiesOutput) ToApplicationSourceConfigPropertiesOutputWithContext(ctx context.Context) ApplicationSourceConfigPropertiesOutput {
+	return o
+}
+
+func (o ApplicationSourceConfigPropertiesOutput) ExternalUrlConfig() ApplicationExternalUrlConfigOutput {
+	return o.ApplyT(func(v ApplicationSourceConfigProperties) ApplicationExternalUrlConfig { return v.ExternalUrlConfig }).(ApplicationExternalUrlConfigOutput)
+}
+
+type ApplicationSourceConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationSourceConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationSourceConfigProperties)(nil)).Elem()
+}
+
+func (o ApplicationSourceConfigPropertiesPtrOutput) ToApplicationSourceConfigPropertiesPtrOutput() ApplicationSourceConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o ApplicationSourceConfigPropertiesPtrOutput) ToApplicationSourceConfigPropertiesPtrOutputWithContext(ctx context.Context) ApplicationSourceConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o ApplicationSourceConfigPropertiesPtrOutput) Elem() ApplicationSourceConfigPropertiesOutput {
+	return o.ApplyT(func(v *ApplicationSourceConfigProperties) ApplicationSourceConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSourceConfigProperties
+		return ret
+	}).(ApplicationSourceConfigPropertiesOutput)
+}
+
+func (o ApplicationSourceConfigPropertiesPtrOutput) ExternalUrlConfig() ApplicationExternalUrlConfigPtrOutput {
+	return o.ApplyT(func(v *ApplicationSourceConfigProperties) *ApplicationExternalUrlConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalUrlConfig
+	}).(ApplicationExternalUrlConfigPtrOutput)
+}
+
+// A label for tagging Application resources
+type ApplicationTag struct {
+	// A key to identify the tag.
+	Key string `pulumi:"key"`
+	// Corresponding tag value for the key.
+	Value string `pulumi:"value"`
+}
+
 // The configuration for what files should be pulled from the source.
 type DataIntegrationFileConfiguration struct {
 	// Restrictions for what files should be pulled from the source.
@@ -415,11 +605,17 @@ type EventIntegrationTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationExternalUrlConfigInput)(nil)).Elem(), ApplicationExternalUrlConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSourceConfigPropertiesInput)(nil)).Elem(), ApplicationSourceConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationFileConfigurationInput)(nil)).Elem(), DataIntegrationFileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationFileConfigurationPtrInput)(nil)).Elem(), DataIntegrationFileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataIntegrationScheduleConfigPtrInput)(nil)).Elem(), DataIntegrationScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
+	pulumi.RegisterOutputType(ApplicationExternalUrlConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationExternalUrlConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationSourceConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(ApplicationSourceConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataIntegrationFileConfigurationOutput{})
 	pulumi.RegisterOutputType(DataIntegrationFileConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataIntegrationScheduleConfigOutput{})

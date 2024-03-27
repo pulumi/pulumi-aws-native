@@ -69,6 +69,7 @@ type LookupTableResult struct {
 	// Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
 	//  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
 	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
+	ResourcePolicy        *TableResourcePolicy        `pulumi:"resourcePolicy"`
 	// Specifies the settings to enable server-side encryption.
 	SseSpecification *TableSseSpecification `pulumi:"sseSpecification"`
 	StreamArn        *string                `pulumi:"streamArn"`
@@ -194,6 +195,10 @@ func (o LookupTableResultOutput) PointInTimeRecoverySpecification() TablePointIn
 //	If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
 func (o LookupTableResultOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableProvisionedThroughput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
+}
+
+func (o LookupTableResultOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *TableResourcePolicy { return v.ResourcePolicy }).(TableResourcePolicyPtrOutput)
 }
 
 // Specifies the settings to enable server-side encryption.

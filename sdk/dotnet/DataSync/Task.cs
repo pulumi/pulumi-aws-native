@@ -76,6 +76,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("includes")]
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Includes { get; private set; } = null!;
 
+        [Output("manifestConfig")]
+        public Output<Outputs.TaskManifestConfig?> ManifestConfig { get; private set; } = null!;
+
         /// <summary>
         /// The name of a task. This value is a text reference that is used to identify the task in the console.
         /// </summary>
@@ -195,6 +198,9 @@ namespace Pulumi.AwsNative.DataSync
             get => _includes ?? (_includes = new InputList<Inputs.TaskFilterRuleArgs>());
             set => _includes = value;
         }
+
+        [Input("manifestConfig")]
+        public Input<Inputs.TaskManifestConfigArgs>? ManifestConfig { get; set; }
 
         /// <summary>
         /// The name of a task. This value is a text reference that is used to identify the task in the console.

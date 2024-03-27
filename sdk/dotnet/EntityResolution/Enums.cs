@@ -35,6 +35,34 @@ namespace Pulumi.AwsNative.EntityResolution
     }
 
     [EnumType]
+    public readonly struct IdMappingWorkflowInputSourceType : IEquatable<IdMappingWorkflowInputSourceType>
+    {
+        private readonly string _value;
+
+        private IdMappingWorkflowInputSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdMappingWorkflowInputSourceType Source { get; } = new IdMappingWorkflowInputSourceType("SOURCE");
+        public static IdMappingWorkflowInputSourceType Target { get; } = new IdMappingWorkflowInputSourceType("TARGET");
+
+        public static bool operator ==(IdMappingWorkflowInputSourceType left, IdMappingWorkflowInputSourceType right) => left.Equals(right);
+        public static bool operator !=(IdMappingWorkflowInputSourceType left, IdMappingWorkflowInputSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(IdMappingWorkflowInputSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdMappingWorkflowInputSourceType other && Equals(other);
+        public bool Equals(IdMappingWorkflowInputSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct MatchingWorkflowResolutionTechniquesResolutionType : IEquatable<MatchingWorkflowResolutionTechniquesResolutionType>
     {
         private readonly string _value;

@@ -224,7 +224,7 @@
   "createOnlyProperties" : [ "/properties/TLSInspectionConfigurationName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "network-firewall:CreateTLSInspectionConfiguration", "network-firewall:DescribeTLSInspectionConfiguration", "network-firewall:TagResource" ]
+      "permissions" : [ "iam:CreateServiceLinkedRole", "network-firewall:CreateTLSInspectionConfiguration", "network-firewall:DescribeTLSInspectionConfiguration", "network-firewall:TagResource" ]
     },
     "read" : {
       "permissions" : [ "network-firewall:DescribeTLSInspectionConfiguration", "network-firewall:ListTagsForResources" ]

@@ -10,23 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 {
     /// <summary>
-    /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
+    /// Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+    ///  For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:ListenerRule")]
     public partial class ListenerRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The actions.
+        ///  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.ListenerRuleAction>> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// The conditions.
+        ///  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+        /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.ListenerRuleRuleCondition>> Conditions { get; private set; } = null!;
 
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         [Output("listenerArn")]
         public Output<string?> ListenerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The rule priority. A listener can't have multiple rules with the same priority.
+        ///  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+        /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
@@ -84,6 +100,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     {
         [Input("actions", required: true)]
         private InputList<Inputs.ListenerRuleActionArgs>? _actions;
+
+        /// <summary>
+        /// The actions.
+        ///  The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+        /// </summary>
         public InputList<Inputs.ListenerRuleActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.ListenerRuleActionArgs>());
@@ -92,15 +113,27 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         [Input("conditions", required: true)]
         private InputList<Inputs.ListenerRuleRuleConditionArgs>? _conditions;
+
+        /// <summary>
+        /// The conditions.
+        ///  The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+        /// </summary>
         public InputList<Inputs.ListenerRuleRuleConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.ListenerRuleRuleConditionArgs>());
             set => _conditions = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
         [Input("listenerArn")]
         public Input<string>? ListenerArn { get; set; }
 
+        /// <summary>
+        /// The rule priority. A listener can't have multiple rules with the same priority.
+        ///  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 

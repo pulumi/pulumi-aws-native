@@ -2481,6 +2481,517 @@ func (o TaskFilterRuleArrayOutput) Index(i pulumi.IntInput) TaskFilterRuleOutput
 	}).(TaskFilterRuleOutput)
 }
 
+// Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+type TaskManifestConfig struct {
+	// Specifies what DataSync uses the manifest for.
+	Action *TaskManifestConfigAction `pulumi:"action"`
+	// Specifies the file format of your manifest.
+	Format *TaskManifestConfigFormat `pulumi:"format"`
+	// Specifies the manifest that you want DataSync to use and where it's hosted.
+	Source TaskManifestConfigSourceProperties `pulumi:"source"`
+}
+
+// TaskManifestConfigInput is an input type that accepts TaskManifestConfigArgs and TaskManifestConfigOutput values.
+// You can construct a concrete instance of `TaskManifestConfigInput` via:
+//
+//	TaskManifestConfigArgs{...}
+type TaskManifestConfigInput interface {
+	pulumi.Input
+
+	ToTaskManifestConfigOutput() TaskManifestConfigOutput
+	ToTaskManifestConfigOutputWithContext(context.Context) TaskManifestConfigOutput
+}
+
+// Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+type TaskManifestConfigArgs struct {
+	// Specifies what DataSync uses the manifest for.
+	Action TaskManifestConfigActionPtrInput `pulumi:"action"`
+	// Specifies the file format of your manifest.
+	Format TaskManifestConfigFormatPtrInput `pulumi:"format"`
+	// Specifies the manifest that you want DataSync to use and where it's hosted.
+	Source TaskManifestConfigSourcePropertiesInput `pulumi:"source"`
+}
+
+func (TaskManifestConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfig)(nil)).Elem()
+}
+
+func (i TaskManifestConfigArgs) ToTaskManifestConfigOutput() TaskManifestConfigOutput {
+	return i.ToTaskManifestConfigOutputWithContext(context.Background())
+}
+
+func (i TaskManifestConfigArgs) ToTaskManifestConfigOutputWithContext(ctx context.Context) TaskManifestConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskManifestConfigOutput)
+}
+
+func (i TaskManifestConfigArgs) ToTaskManifestConfigPtrOutput() TaskManifestConfigPtrOutput {
+	return i.ToTaskManifestConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TaskManifestConfigArgs) ToTaskManifestConfigPtrOutputWithContext(ctx context.Context) TaskManifestConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskManifestConfigOutput).ToTaskManifestConfigPtrOutputWithContext(ctx)
+}
+
+// TaskManifestConfigPtrInput is an input type that accepts TaskManifestConfigArgs, TaskManifestConfigPtr and TaskManifestConfigPtrOutput values.
+// You can construct a concrete instance of `TaskManifestConfigPtrInput` via:
+//
+//	        TaskManifestConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskManifestConfigPtrInput interface {
+	pulumi.Input
+
+	ToTaskManifestConfigPtrOutput() TaskManifestConfigPtrOutput
+	ToTaskManifestConfigPtrOutputWithContext(context.Context) TaskManifestConfigPtrOutput
+}
+
+type taskManifestConfigPtrType TaskManifestConfigArgs
+
+func TaskManifestConfigPtr(v *TaskManifestConfigArgs) TaskManifestConfigPtrInput {
+	return (*taskManifestConfigPtrType)(v)
+}
+
+func (*taskManifestConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskManifestConfig)(nil)).Elem()
+}
+
+func (i *taskManifestConfigPtrType) ToTaskManifestConfigPtrOutput() TaskManifestConfigPtrOutput {
+	return i.ToTaskManifestConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *taskManifestConfigPtrType) ToTaskManifestConfigPtrOutputWithContext(ctx context.Context) TaskManifestConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskManifestConfigPtrOutput)
+}
+
+// Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+type TaskManifestConfigOutput struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfig)(nil)).Elem()
+}
+
+func (o TaskManifestConfigOutput) ToTaskManifestConfigOutput() TaskManifestConfigOutput {
+	return o
+}
+
+func (o TaskManifestConfigOutput) ToTaskManifestConfigOutputWithContext(ctx context.Context) TaskManifestConfigOutput {
+	return o
+}
+
+func (o TaskManifestConfigOutput) ToTaskManifestConfigPtrOutput() TaskManifestConfigPtrOutput {
+	return o.ToTaskManifestConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigOutput) ToTaskManifestConfigPtrOutputWithContext(ctx context.Context) TaskManifestConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskManifestConfig) *TaskManifestConfig {
+		return &v
+	}).(TaskManifestConfigPtrOutput)
+}
+
+// Specifies what DataSync uses the manifest for.
+func (o TaskManifestConfigOutput) Action() TaskManifestConfigActionPtrOutput {
+	return o.ApplyT(func(v TaskManifestConfig) *TaskManifestConfigAction { return v.Action }).(TaskManifestConfigActionPtrOutput)
+}
+
+// Specifies the file format of your manifest.
+func (o TaskManifestConfigOutput) Format() TaskManifestConfigFormatPtrOutput {
+	return o.ApplyT(func(v TaskManifestConfig) *TaskManifestConfigFormat { return v.Format }).(TaskManifestConfigFormatPtrOutput)
+}
+
+// Specifies the manifest that you want DataSync to use and where it's hosted.
+func (o TaskManifestConfigOutput) Source() TaskManifestConfigSourcePropertiesOutput {
+	return o.ApplyT(func(v TaskManifestConfig) TaskManifestConfigSourceProperties { return v.Source }).(TaskManifestConfigSourcePropertiesOutput)
+}
+
+type TaskManifestConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskManifestConfig)(nil)).Elem()
+}
+
+func (o TaskManifestConfigPtrOutput) ToTaskManifestConfigPtrOutput() TaskManifestConfigPtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigPtrOutput) ToTaskManifestConfigPtrOutputWithContext(ctx context.Context) TaskManifestConfigPtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigPtrOutput) Elem() TaskManifestConfigOutput {
+	return o.ApplyT(func(v *TaskManifestConfig) TaskManifestConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TaskManifestConfig
+		return ret
+	}).(TaskManifestConfigOutput)
+}
+
+// Specifies what DataSync uses the manifest for.
+func (o TaskManifestConfigPtrOutput) Action() TaskManifestConfigActionPtrOutput {
+	return o.ApplyT(func(v *TaskManifestConfig) *TaskManifestConfigAction {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(TaskManifestConfigActionPtrOutput)
+}
+
+// Specifies the file format of your manifest.
+func (o TaskManifestConfigPtrOutput) Format() TaskManifestConfigFormatPtrOutput {
+	return o.ApplyT(func(v *TaskManifestConfig) *TaskManifestConfigFormat {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(TaskManifestConfigFormatPtrOutput)
+}
+
+// Specifies the manifest that you want DataSync to use and where it's hosted.
+func (o TaskManifestConfigPtrOutput) Source() TaskManifestConfigSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v *TaskManifestConfig) *TaskManifestConfigSourceProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(TaskManifestConfigSourcePropertiesPtrOutput)
+}
+
+// Specifies the manifest that you want DataSync to use and where it's hosted.
+type TaskManifestConfigSourceProperties struct {
+	S3 *TaskManifestConfigSourceS3 `pulumi:"s3"`
+}
+
+// TaskManifestConfigSourcePropertiesInput is an input type that accepts TaskManifestConfigSourcePropertiesArgs and TaskManifestConfigSourcePropertiesOutput values.
+// You can construct a concrete instance of `TaskManifestConfigSourcePropertiesInput` via:
+//
+//	TaskManifestConfigSourcePropertiesArgs{...}
+type TaskManifestConfigSourcePropertiesInput interface {
+	pulumi.Input
+
+	ToTaskManifestConfigSourcePropertiesOutput() TaskManifestConfigSourcePropertiesOutput
+	ToTaskManifestConfigSourcePropertiesOutputWithContext(context.Context) TaskManifestConfigSourcePropertiesOutput
+}
+
+// Specifies the manifest that you want DataSync to use and where it's hosted.
+type TaskManifestConfigSourcePropertiesArgs struct {
+	S3 TaskManifestConfigSourceS3PtrInput `pulumi:"s3"`
+}
+
+func (TaskManifestConfigSourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfigSourceProperties)(nil)).Elem()
+}
+
+func (i TaskManifestConfigSourcePropertiesArgs) ToTaskManifestConfigSourcePropertiesOutput() TaskManifestConfigSourcePropertiesOutput {
+	return i.ToTaskManifestConfigSourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i TaskManifestConfigSourcePropertiesArgs) ToTaskManifestConfigSourcePropertiesOutputWithContext(ctx context.Context) TaskManifestConfigSourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskManifestConfigSourcePropertiesOutput)
+}
+
+func (i TaskManifestConfigSourcePropertiesArgs) ToTaskManifestConfigSourcePropertiesPtrOutput() TaskManifestConfigSourcePropertiesPtrOutput {
+	return i.ToTaskManifestConfigSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TaskManifestConfigSourcePropertiesArgs) ToTaskManifestConfigSourcePropertiesPtrOutputWithContext(ctx context.Context) TaskManifestConfigSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskManifestConfigSourcePropertiesOutput).ToTaskManifestConfigSourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// TaskManifestConfigSourcePropertiesPtrInput is an input type that accepts TaskManifestConfigSourcePropertiesArgs, TaskManifestConfigSourcePropertiesPtr and TaskManifestConfigSourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `TaskManifestConfigSourcePropertiesPtrInput` via:
+//
+//	        TaskManifestConfigSourcePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskManifestConfigSourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTaskManifestConfigSourcePropertiesPtrOutput() TaskManifestConfigSourcePropertiesPtrOutput
+	ToTaskManifestConfigSourcePropertiesPtrOutputWithContext(context.Context) TaskManifestConfigSourcePropertiesPtrOutput
+}
+
+type taskManifestConfigSourcePropertiesPtrType TaskManifestConfigSourcePropertiesArgs
+
+func TaskManifestConfigSourcePropertiesPtr(v *TaskManifestConfigSourcePropertiesArgs) TaskManifestConfigSourcePropertiesPtrInput {
+	return (*taskManifestConfigSourcePropertiesPtrType)(v)
+}
+
+func (*taskManifestConfigSourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskManifestConfigSourceProperties)(nil)).Elem()
+}
+
+func (i *taskManifestConfigSourcePropertiesPtrType) ToTaskManifestConfigSourcePropertiesPtrOutput() TaskManifestConfigSourcePropertiesPtrOutput {
+	return i.ToTaskManifestConfigSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *taskManifestConfigSourcePropertiesPtrType) ToTaskManifestConfigSourcePropertiesPtrOutputWithContext(ctx context.Context) TaskManifestConfigSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskManifestConfigSourcePropertiesPtrOutput)
+}
+
+// Specifies the manifest that you want DataSync to use and where it's hosted.
+type TaskManifestConfigSourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigSourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfigSourceProperties)(nil)).Elem()
+}
+
+func (o TaskManifestConfigSourcePropertiesOutput) ToTaskManifestConfigSourcePropertiesOutput() TaskManifestConfigSourcePropertiesOutput {
+	return o
+}
+
+func (o TaskManifestConfigSourcePropertiesOutput) ToTaskManifestConfigSourcePropertiesOutputWithContext(ctx context.Context) TaskManifestConfigSourcePropertiesOutput {
+	return o
+}
+
+func (o TaskManifestConfigSourcePropertiesOutput) ToTaskManifestConfigSourcePropertiesPtrOutput() TaskManifestConfigSourcePropertiesPtrOutput {
+	return o.ToTaskManifestConfigSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigSourcePropertiesOutput) ToTaskManifestConfigSourcePropertiesPtrOutputWithContext(ctx context.Context) TaskManifestConfigSourcePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskManifestConfigSourceProperties) *TaskManifestConfigSourceProperties {
+		return &v
+	}).(TaskManifestConfigSourcePropertiesPtrOutput)
+}
+
+func (o TaskManifestConfigSourcePropertiesOutput) S3() TaskManifestConfigSourceS3PtrOutput {
+	return o.ApplyT(func(v TaskManifestConfigSourceProperties) *TaskManifestConfigSourceS3 { return v.S3 }).(TaskManifestConfigSourceS3PtrOutput)
+}
+
+type TaskManifestConfigSourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigSourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskManifestConfigSourceProperties)(nil)).Elem()
+}
+
+func (o TaskManifestConfigSourcePropertiesPtrOutput) ToTaskManifestConfigSourcePropertiesPtrOutput() TaskManifestConfigSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigSourcePropertiesPtrOutput) ToTaskManifestConfigSourcePropertiesPtrOutputWithContext(ctx context.Context) TaskManifestConfigSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigSourcePropertiesPtrOutput) Elem() TaskManifestConfigSourcePropertiesOutput {
+	return o.ApplyT(func(v *TaskManifestConfigSourceProperties) TaskManifestConfigSourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TaskManifestConfigSourceProperties
+		return ret
+	}).(TaskManifestConfigSourcePropertiesOutput)
+}
+
+func (o TaskManifestConfigSourcePropertiesPtrOutput) S3() TaskManifestConfigSourceS3PtrOutput {
+	return o.ApplyT(func(v *TaskManifestConfigSourceProperties) *TaskManifestConfigSourceS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(TaskManifestConfigSourceS3PtrOutput)
+}
+
+// Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+type TaskManifestConfigSourceS3 struct {
+	// Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+	BucketAccessRoleArn *string `pulumi:"bucketAccessRoleArn"`
+	// Specifies the Amazon S3 object key of your manifest.
+	ManifestObjectPath *string `pulumi:"manifestObjectPath"`
+	// Specifies the object version ID of the manifest that you want DataSync to use.
+	ManifestObjectVersionId *string `pulumi:"manifestObjectVersionId"`
+	// Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+	S3BucketArn *string `pulumi:"s3BucketArn"`
+}
+
+// TaskManifestConfigSourceS3Input is an input type that accepts TaskManifestConfigSourceS3Args and TaskManifestConfigSourceS3Output values.
+// You can construct a concrete instance of `TaskManifestConfigSourceS3Input` via:
+//
+//	TaskManifestConfigSourceS3Args{...}
+type TaskManifestConfigSourceS3Input interface {
+	pulumi.Input
+
+	ToTaskManifestConfigSourceS3Output() TaskManifestConfigSourceS3Output
+	ToTaskManifestConfigSourceS3OutputWithContext(context.Context) TaskManifestConfigSourceS3Output
+}
+
+// Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+type TaskManifestConfigSourceS3Args struct {
+	// Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+	BucketAccessRoleArn pulumi.StringPtrInput `pulumi:"bucketAccessRoleArn"`
+	// Specifies the Amazon S3 object key of your manifest.
+	ManifestObjectPath pulumi.StringPtrInput `pulumi:"manifestObjectPath"`
+	// Specifies the object version ID of the manifest that you want DataSync to use.
+	ManifestObjectVersionId pulumi.StringPtrInput `pulumi:"manifestObjectVersionId"`
+	// Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+	S3BucketArn pulumi.StringPtrInput `pulumi:"s3BucketArn"`
+}
+
+func (TaskManifestConfigSourceS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfigSourceS3)(nil)).Elem()
+}
+
+func (i TaskManifestConfigSourceS3Args) ToTaskManifestConfigSourceS3Output() TaskManifestConfigSourceS3Output {
+	return i.ToTaskManifestConfigSourceS3OutputWithContext(context.Background())
+}
+
+func (i TaskManifestConfigSourceS3Args) ToTaskManifestConfigSourceS3OutputWithContext(ctx context.Context) TaskManifestConfigSourceS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskManifestConfigSourceS3Output)
+}
+
+func (i TaskManifestConfigSourceS3Args) ToTaskManifestConfigSourceS3PtrOutput() TaskManifestConfigSourceS3PtrOutput {
+	return i.ToTaskManifestConfigSourceS3PtrOutputWithContext(context.Background())
+}
+
+func (i TaskManifestConfigSourceS3Args) ToTaskManifestConfigSourceS3PtrOutputWithContext(ctx context.Context) TaskManifestConfigSourceS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskManifestConfigSourceS3Output).ToTaskManifestConfigSourceS3PtrOutputWithContext(ctx)
+}
+
+// TaskManifestConfigSourceS3PtrInput is an input type that accepts TaskManifestConfigSourceS3Args, TaskManifestConfigSourceS3Ptr and TaskManifestConfigSourceS3PtrOutput values.
+// You can construct a concrete instance of `TaskManifestConfigSourceS3PtrInput` via:
+//
+//	        TaskManifestConfigSourceS3Args{...}
+//
+//	or:
+//
+//	        nil
+type TaskManifestConfigSourceS3PtrInput interface {
+	pulumi.Input
+
+	ToTaskManifestConfigSourceS3PtrOutput() TaskManifestConfigSourceS3PtrOutput
+	ToTaskManifestConfigSourceS3PtrOutputWithContext(context.Context) TaskManifestConfigSourceS3PtrOutput
+}
+
+type taskManifestConfigSourceS3PtrType TaskManifestConfigSourceS3Args
+
+func TaskManifestConfigSourceS3Ptr(v *TaskManifestConfigSourceS3Args) TaskManifestConfigSourceS3PtrInput {
+	return (*taskManifestConfigSourceS3PtrType)(v)
+}
+
+func (*taskManifestConfigSourceS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskManifestConfigSourceS3)(nil)).Elem()
+}
+
+func (i *taskManifestConfigSourceS3PtrType) ToTaskManifestConfigSourceS3PtrOutput() TaskManifestConfigSourceS3PtrOutput {
+	return i.ToTaskManifestConfigSourceS3PtrOutputWithContext(context.Background())
+}
+
+func (i *taskManifestConfigSourceS3PtrType) ToTaskManifestConfigSourceS3PtrOutputWithContext(ctx context.Context) TaskManifestConfigSourceS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskManifestConfigSourceS3PtrOutput)
+}
+
+// Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+type TaskManifestConfigSourceS3Output struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigSourceS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskManifestConfigSourceS3)(nil)).Elem()
+}
+
+func (o TaskManifestConfigSourceS3Output) ToTaskManifestConfigSourceS3Output() TaskManifestConfigSourceS3Output {
+	return o
+}
+
+func (o TaskManifestConfigSourceS3Output) ToTaskManifestConfigSourceS3OutputWithContext(ctx context.Context) TaskManifestConfigSourceS3Output {
+	return o
+}
+
+func (o TaskManifestConfigSourceS3Output) ToTaskManifestConfigSourceS3PtrOutput() TaskManifestConfigSourceS3PtrOutput {
+	return o.ToTaskManifestConfigSourceS3PtrOutputWithContext(context.Background())
+}
+
+func (o TaskManifestConfigSourceS3Output) ToTaskManifestConfigSourceS3PtrOutputWithContext(ctx context.Context) TaskManifestConfigSourceS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskManifestConfigSourceS3) *TaskManifestConfigSourceS3 {
+		return &v
+	}).(TaskManifestConfigSourceS3PtrOutput)
+}
+
+// Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+func (o TaskManifestConfigSourceS3Output) BucketAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskManifestConfigSourceS3) *string { return v.BucketAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon S3 object key of your manifest.
+func (o TaskManifestConfigSourceS3Output) ManifestObjectPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskManifestConfigSourceS3) *string { return v.ManifestObjectPath }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the object version ID of the manifest that you want DataSync to use.
+func (o TaskManifestConfigSourceS3Output) ManifestObjectVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskManifestConfigSourceS3) *string { return v.ManifestObjectVersionId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+func (o TaskManifestConfigSourceS3Output) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskManifestConfigSourceS3) *string { return v.S3BucketArn }).(pulumi.StringPtrOutput)
+}
+
+type TaskManifestConfigSourceS3PtrOutput struct{ *pulumi.OutputState }
+
+func (TaskManifestConfigSourceS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskManifestConfigSourceS3)(nil)).Elem()
+}
+
+func (o TaskManifestConfigSourceS3PtrOutput) ToTaskManifestConfigSourceS3PtrOutput() TaskManifestConfigSourceS3PtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigSourceS3PtrOutput) ToTaskManifestConfigSourceS3PtrOutputWithContext(ctx context.Context) TaskManifestConfigSourceS3PtrOutput {
+	return o
+}
+
+func (o TaskManifestConfigSourceS3PtrOutput) Elem() TaskManifestConfigSourceS3Output {
+	return o.ApplyT(func(v *TaskManifestConfigSourceS3) TaskManifestConfigSourceS3 {
+		if v != nil {
+			return *v
+		}
+		var ret TaskManifestConfigSourceS3
+		return ret
+	}).(TaskManifestConfigSourceS3Output)
+}
+
+// Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+func (o TaskManifestConfigSourceS3PtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskManifestConfigSourceS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon S3 object key of your manifest.
+func (o TaskManifestConfigSourceS3PtrOutput) ManifestObjectPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskManifestConfigSourceS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestObjectPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the object version ID of the manifest that you want DataSync to use.
+func (o TaskManifestConfigSourceS3PtrOutput) ManifestObjectVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskManifestConfigSourceS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestObjectVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+func (o TaskManifestConfigSourceS3PtrOutput) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskManifestConfigSourceS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Represents the options that are available to control the behavior of a StartTaskExecution operation.
 type TaskOptions struct {
 	// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
@@ -3105,8 +3616,7 @@ func (o TaskReportConfigPtrOutput) ReportLevel() TaskReportConfigReportLevelPtrO
 
 // Specifies where DataSync uploads your task report.
 type TaskReportConfigDestinationProperties struct {
-	// Specifies the Amazon S3 bucket where DataSync uploads your task report.
-	S3 *TaskReportConfigDestinationPropertiesS3Properties `pulumi:"s3"`
+	S3 *TaskReportConfigDestinationS3 `pulumi:"s3"`
 }
 
 // TaskReportConfigDestinationPropertiesInput is an input type that accepts TaskReportConfigDestinationPropertiesArgs and TaskReportConfigDestinationPropertiesOutput values.
@@ -3122,8 +3632,7 @@ type TaskReportConfigDestinationPropertiesInput interface {
 
 // Specifies where DataSync uploads your task report.
 type TaskReportConfigDestinationPropertiesArgs struct {
-	// Specifies the Amazon S3 bucket where DataSync uploads your task report.
-	S3 TaskReportConfigDestinationPropertiesS3PropertiesPtrInput `pulumi:"s3"`
+	S3 TaskReportConfigDestinationS3PtrInput `pulumi:"s3"`
 }
 
 func (TaskReportConfigDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -3204,11 +3713,8 @@ func (o TaskReportConfigDestinationPropertiesOutput) ToTaskReportConfigDestinati
 	}).(TaskReportConfigDestinationPropertiesPtrOutput)
 }
 
-// Specifies the Amazon S3 bucket where DataSync uploads your task report.
-func (o TaskReportConfigDestinationPropertiesOutput) S3() TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
-	return o.ApplyT(func(v TaskReportConfigDestinationProperties) *TaskReportConfigDestinationPropertiesS3Properties {
-		return v.S3
-	}).(TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput)
+func (o TaskReportConfigDestinationPropertiesOutput) S3() TaskReportConfigDestinationS3PtrOutput {
+	return o.ApplyT(func(v TaskReportConfigDestinationProperties) *TaskReportConfigDestinationS3 { return v.S3 }).(TaskReportConfigDestinationS3PtrOutput)
 }
 
 type TaskReportConfigDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -3235,18 +3741,17 @@ func (o TaskReportConfigDestinationPropertiesPtrOutput) Elem() TaskReportConfigD
 	}).(TaskReportConfigDestinationPropertiesOutput)
 }
 
-// Specifies the Amazon S3 bucket where DataSync uploads your task report.
-func (o TaskReportConfigDestinationPropertiesPtrOutput) S3() TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
-	return o.ApplyT(func(v *TaskReportConfigDestinationProperties) *TaskReportConfigDestinationPropertiesS3Properties {
+func (o TaskReportConfigDestinationPropertiesPtrOutput) S3() TaskReportConfigDestinationS3PtrOutput {
+	return o.ApplyT(func(v *TaskReportConfigDestinationProperties) *TaskReportConfigDestinationS3 {
 		if v == nil {
 			return nil
 		}
 		return v.S3
-	}).(TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput)
+	}).(TaskReportConfigDestinationS3PtrOutput)
 }
 
 // Specifies the Amazon S3 bucket where DataSync uploads your task report.
-type TaskReportConfigDestinationPropertiesS3Properties struct {
+type TaskReportConfigDestinationS3 struct {
 	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
 	BucketAccessRoleArn *string `pulumi:"bucketAccessRoleArn"`
 	// Specifies the ARN of the S3 bucket where Datasync uploads your report.
@@ -3255,19 +3760,19 @@ type TaskReportConfigDestinationPropertiesS3Properties struct {
 	Subdirectory *string `pulumi:"subdirectory"`
 }
 
-// TaskReportConfigDestinationPropertiesS3PropertiesInput is an input type that accepts TaskReportConfigDestinationPropertiesS3PropertiesArgs and TaskReportConfigDestinationPropertiesS3PropertiesOutput values.
-// You can construct a concrete instance of `TaskReportConfigDestinationPropertiesS3PropertiesInput` via:
+// TaskReportConfigDestinationS3Input is an input type that accepts TaskReportConfigDestinationS3Args and TaskReportConfigDestinationS3Output values.
+// You can construct a concrete instance of `TaskReportConfigDestinationS3Input` via:
 //
-//	TaskReportConfigDestinationPropertiesS3PropertiesArgs{...}
-type TaskReportConfigDestinationPropertiesS3PropertiesInput interface {
+//	TaskReportConfigDestinationS3Args{...}
+type TaskReportConfigDestinationS3Input interface {
 	pulumi.Input
 
-	ToTaskReportConfigDestinationPropertiesS3PropertiesOutput() TaskReportConfigDestinationPropertiesS3PropertiesOutput
-	ToTaskReportConfigDestinationPropertiesS3PropertiesOutputWithContext(context.Context) TaskReportConfigDestinationPropertiesS3PropertiesOutput
+	ToTaskReportConfigDestinationS3Output() TaskReportConfigDestinationS3Output
+	ToTaskReportConfigDestinationS3OutputWithContext(context.Context) TaskReportConfigDestinationS3Output
 }
 
 // Specifies the Amazon S3 bucket where DataSync uploads your task report.
-type TaskReportConfigDestinationPropertiesS3PropertiesArgs struct {
+type TaskReportConfigDestinationS3Args struct {
 	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
 	BucketAccessRoleArn pulumi.StringPtrInput `pulumi:"bucketAccessRoleArn"`
 	// Specifies the ARN of the S3 bucket where Datasync uploads your report.
@@ -3276,126 +3781,126 @@ type TaskReportConfigDestinationPropertiesS3PropertiesArgs struct {
 	Subdirectory pulumi.StringPtrInput `pulumi:"subdirectory"`
 }
 
-func (TaskReportConfigDestinationPropertiesS3PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskReportConfigDestinationPropertiesS3Properties)(nil)).Elem()
+func (TaskReportConfigDestinationS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigDestinationS3)(nil)).Elem()
 }
 
-func (i TaskReportConfigDestinationPropertiesS3PropertiesArgs) ToTaskReportConfigDestinationPropertiesS3PropertiesOutput() TaskReportConfigDestinationPropertiesS3PropertiesOutput {
-	return i.ToTaskReportConfigDestinationPropertiesS3PropertiesOutputWithContext(context.Background())
+func (i TaskReportConfigDestinationS3Args) ToTaskReportConfigDestinationS3Output() TaskReportConfigDestinationS3Output {
+	return i.ToTaskReportConfigDestinationS3OutputWithContext(context.Background())
 }
 
-func (i TaskReportConfigDestinationPropertiesS3PropertiesArgs) ToTaskReportConfigDestinationPropertiesS3PropertiesOutputWithContext(ctx context.Context) TaskReportConfigDestinationPropertiesS3PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskReportConfigDestinationPropertiesS3PropertiesOutput)
+func (i TaskReportConfigDestinationS3Args) ToTaskReportConfigDestinationS3OutputWithContext(ctx context.Context) TaskReportConfigDestinationS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskReportConfigDestinationS3Output)
 }
 
-func (i TaskReportConfigDestinationPropertiesS3PropertiesArgs) ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutput() TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
-	return i.ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutputWithContext(context.Background())
+func (i TaskReportConfigDestinationS3Args) ToTaskReportConfigDestinationS3PtrOutput() TaskReportConfigDestinationS3PtrOutput {
+	return i.ToTaskReportConfigDestinationS3PtrOutputWithContext(context.Background())
 }
 
-func (i TaskReportConfigDestinationPropertiesS3PropertiesArgs) ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutputWithContext(ctx context.Context) TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskReportConfigDestinationPropertiesS3PropertiesOutput).ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutputWithContext(ctx)
+func (i TaskReportConfigDestinationS3Args) ToTaskReportConfigDestinationS3PtrOutputWithContext(ctx context.Context) TaskReportConfigDestinationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskReportConfigDestinationS3Output).ToTaskReportConfigDestinationS3PtrOutputWithContext(ctx)
 }
 
-// TaskReportConfigDestinationPropertiesS3PropertiesPtrInput is an input type that accepts TaskReportConfigDestinationPropertiesS3PropertiesArgs, TaskReportConfigDestinationPropertiesS3PropertiesPtr and TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput values.
-// You can construct a concrete instance of `TaskReportConfigDestinationPropertiesS3PropertiesPtrInput` via:
+// TaskReportConfigDestinationS3PtrInput is an input type that accepts TaskReportConfigDestinationS3Args, TaskReportConfigDestinationS3Ptr and TaskReportConfigDestinationS3PtrOutput values.
+// You can construct a concrete instance of `TaskReportConfigDestinationS3PtrInput` via:
 //
-//	        TaskReportConfigDestinationPropertiesS3PropertiesArgs{...}
+//	        TaskReportConfigDestinationS3Args{...}
 //
 //	or:
 //
 //	        nil
-type TaskReportConfigDestinationPropertiesS3PropertiesPtrInput interface {
+type TaskReportConfigDestinationS3PtrInput interface {
 	pulumi.Input
 
-	ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutput() TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput
-	ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutputWithContext(context.Context) TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput
+	ToTaskReportConfigDestinationS3PtrOutput() TaskReportConfigDestinationS3PtrOutput
+	ToTaskReportConfigDestinationS3PtrOutputWithContext(context.Context) TaskReportConfigDestinationS3PtrOutput
 }
 
-type taskReportConfigDestinationPropertiesS3PropertiesPtrType TaskReportConfigDestinationPropertiesS3PropertiesArgs
+type taskReportConfigDestinationS3PtrType TaskReportConfigDestinationS3Args
 
-func TaskReportConfigDestinationPropertiesS3PropertiesPtr(v *TaskReportConfigDestinationPropertiesS3PropertiesArgs) TaskReportConfigDestinationPropertiesS3PropertiesPtrInput {
-	return (*taskReportConfigDestinationPropertiesS3PropertiesPtrType)(v)
+func TaskReportConfigDestinationS3Ptr(v *TaskReportConfigDestinationS3Args) TaskReportConfigDestinationS3PtrInput {
+	return (*taskReportConfigDestinationS3PtrType)(v)
 }
 
-func (*taskReportConfigDestinationPropertiesS3PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskReportConfigDestinationPropertiesS3Properties)(nil)).Elem()
+func (*taskReportConfigDestinationS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskReportConfigDestinationS3)(nil)).Elem()
 }
 
-func (i *taskReportConfigDestinationPropertiesS3PropertiesPtrType) ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutput() TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
-	return i.ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutputWithContext(context.Background())
+func (i *taskReportConfigDestinationS3PtrType) ToTaskReportConfigDestinationS3PtrOutput() TaskReportConfigDestinationS3PtrOutput {
+	return i.ToTaskReportConfigDestinationS3PtrOutputWithContext(context.Background())
 }
 
-func (i *taskReportConfigDestinationPropertiesS3PropertiesPtrType) ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutputWithContext(ctx context.Context) TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput)
+func (i *taskReportConfigDestinationS3PtrType) ToTaskReportConfigDestinationS3PtrOutputWithContext(ctx context.Context) TaskReportConfigDestinationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskReportConfigDestinationS3PtrOutput)
 }
 
 // Specifies the Amazon S3 bucket where DataSync uploads your task report.
-type TaskReportConfigDestinationPropertiesS3PropertiesOutput struct{ *pulumi.OutputState }
+type TaskReportConfigDestinationS3Output struct{ *pulumi.OutputState }
 
-func (TaskReportConfigDestinationPropertiesS3PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskReportConfigDestinationPropertiesS3Properties)(nil)).Elem()
+func (TaskReportConfigDestinationS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskReportConfigDestinationS3)(nil)).Elem()
 }
 
-func (o TaskReportConfigDestinationPropertiesS3PropertiesOutput) ToTaskReportConfigDestinationPropertiesS3PropertiesOutput() TaskReportConfigDestinationPropertiesS3PropertiesOutput {
+func (o TaskReportConfigDestinationS3Output) ToTaskReportConfigDestinationS3Output() TaskReportConfigDestinationS3Output {
 	return o
 }
 
-func (o TaskReportConfigDestinationPropertiesS3PropertiesOutput) ToTaskReportConfigDestinationPropertiesS3PropertiesOutputWithContext(ctx context.Context) TaskReportConfigDestinationPropertiesS3PropertiesOutput {
+func (o TaskReportConfigDestinationS3Output) ToTaskReportConfigDestinationS3OutputWithContext(ctx context.Context) TaskReportConfigDestinationS3Output {
 	return o
 }
 
-func (o TaskReportConfigDestinationPropertiesS3PropertiesOutput) ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutput() TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
-	return o.ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutputWithContext(context.Background())
+func (o TaskReportConfigDestinationS3Output) ToTaskReportConfigDestinationS3PtrOutput() TaskReportConfigDestinationS3PtrOutput {
+	return o.ToTaskReportConfigDestinationS3PtrOutputWithContext(context.Background())
 }
 
-func (o TaskReportConfigDestinationPropertiesS3PropertiesOutput) ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutputWithContext(ctx context.Context) TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskReportConfigDestinationPropertiesS3Properties) *TaskReportConfigDestinationPropertiesS3Properties {
+func (o TaskReportConfigDestinationS3Output) ToTaskReportConfigDestinationS3PtrOutputWithContext(ctx context.Context) TaskReportConfigDestinationS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskReportConfigDestinationS3) *TaskReportConfigDestinationS3 {
 		return &v
-	}).(TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput)
+	}).(TaskReportConfigDestinationS3PtrOutput)
 }
 
 // Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
-func (o TaskReportConfigDestinationPropertiesS3PropertiesOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskReportConfigDestinationPropertiesS3Properties) *string { return v.BucketAccessRoleArn }).(pulumi.StringPtrOutput)
+func (o TaskReportConfigDestinationS3Output) BucketAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskReportConfigDestinationS3) *string { return v.BucketAccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the ARN of the S3 bucket where Datasync uploads your report.
-func (o TaskReportConfigDestinationPropertiesS3PropertiesOutput) S3BucketArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskReportConfigDestinationPropertiesS3Properties) *string { return v.S3BucketArn }).(pulumi.StringPtrOutput)
+func (o TaskReportConfigDestinationS3Output) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskReportConfigDestinationS3) *string { return v.S3BucketArn }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a bucket prefix for your report.
-func (o TaskReportConfigDestinationPropertiesS3PropertiesOutput) Subdirectory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskReportConfigDestinationPropertiesS3Properties) *string { return v.Subdirectory }).(pulumi.StringPtrOutput)
+func (o TaskReportConfigDestinationS3Output) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskReportConfigDestinationS3) *string { return v.Subdirectory }).(pulumi.StringPtrOutput)
 }
 
-type TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput struct{ *pulumi.OutputState }
+type TaskReportConfigDestinationS3PtrOutput struct{ *pulumi.OutputState }
 
-func (TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskReportConfigDestinationPropertiesS3Properties)(nil)).Elem()
+func (TaskReportConfigDestinationS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskReportConfigDestinationS3)(nil)).Elem()
 }
 
-func (o TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput) ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutput() TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
+func (o TaskReportConfigDestinationS3PtrOutput) ToTaskReportConfigDestinationS3PtrOutput() TaskReportConfigDestinationS3PtrOutput {
 	return o
 }
 
-func (o TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput) ToTaskReportConfigDestinationPropertiesS3PropertiesPtrOutputWithContext(ctx context.Context) TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput {
+func (o TaskReportConfigDestinationS3PtrOutput) ToTaskReportConfigDestinationS3PtrOutputWithContext(ctx context.Context) TaskReportConfigDestinationS3PtrOutput {
 	return o
 }
 
-func (o TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput) Elem() TaskReportConfigDestinationPropertiesS3PropertiesOutput {
-	return o.ApplyT(func(v *TaskReportConfigDestinationPropertiesS3Properties) TaskReportConfigDestinationPropertiesS3Properties {
+func (o TaskReportConfigDestinationS3PtrOutput) Elem() TaskReportConfigDestinationS3Output {
+	return o.ApplyT(func(v *TaskReportConfigDestinationS3) TaskReportConfigDestinationS3 {
 		if v != nil {
 			return *v
 		}
-		var ret TaskReportConfigDestinationPropertiesS3Properties
+		var ret TaskReportConfigDestinationS3
 		return ret
-	}).(TaskReportConfigDestinationPropertiesS3PropertiesOutput)
+	}).(TaskReportConfigDestinationS3Output)
 }
 
 // Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
-func (o TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskReportConfigDestinationPropertiesS3Properties) *string {
+func (o TaskReportConfigDestinationS3PtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskReportConfigDestinationS3) *string {
 		if v == nil {
 			return nil
 		}
@@ -3404,8 +3909,8 @@ func (o TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput) BucketAccess
 }
 
 // Specifies the ARN of the S3 bucket where Datasync uploads your report.
-func (o TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput) S3BucketArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskReportConfigDestinationPropertiesS3Properties) *string {
+func (o TaskReportConfigDestinationS3PtrOutput) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskReportConfigDestinationS3) *string {
 		if v == nil {
 			return nil
 		}
@@ -3414,8 +3919,8 @@ func (o TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput) S3BucketArn(
 }
 
 // Specifies a bucket prefix for your report.
-func (o TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput) Subdirectory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskReportConfigDestinationPropertiesS3Properties) *string {
+func (o TaskReportConfigDestinationS3PtrOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskReportConfigDestinationS3) *string {
 		if v == nil {
 			return nil
 		}
@@ -4378,14 +4883,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageSystemServerCredentialsPtrInput)(nil)).Elem(), StorageSystemServerCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleInput)(nil)).Elem(), TaskFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskFilterRuleArrayInput)(nil)).Elem(), TaskFilterRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigInput)(nil)).Elem(), TaskManifestConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigPtrInput)(nil)).Elem(), TaskManifestConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigSourcePropertiesInput)(nil)).Elem(), TaskManifestConfigSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigSourcePropertiesPtrInput)(nil)).Elem(), TaskManifestConfigSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigSourceS3Input)(nil)).Elem(), TaskManifestConfigSourceS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigSourceS3PtrInput)(nil)).Elem(), TaskManifestConfigSourceS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsInput)(nil)).Elem(), TaskOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsPtrInput)(nil)).Elem(), TaskOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigInput)(nil)).Elem(), TaskReportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigPtrInput)(nil)).Elem(), TaskReportConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigDestinationPropertiesInput)(nil)).Elem(), TaskReportConfigDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigDestinationPropertiesPtrInput)(nil)).Elem(), TaskReportConfigDestinationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigDestinationPropertiesS3PropertiesInput)(nil)).Elem(), TaskReportConfigDestinationPropertiesS3PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigDestinationPropertiesS3PropertiesPtrInput)(nil)).Elem(), TaskReportConfigDestinationPropertiesS3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigDestinationS3Input)(nil)).Elem(), TaskReportConfigDestinationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigDestinationS3PtrInput)(nil)).Elem(), TaskReportConfigDestinationS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesPtrInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskReportConfigOverridesPropertiesDeletedPropertiesInput)(nil)).Elem(), TaskReportConfigOverridesPropertiesDeletedPropertiesArgs{})
@@ -4433,14 +4944,20 @@ func init() {
 	pulumi.RegisterOutputType(StorageSystemServerCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(TaskManifestConfigOutput{})
+	pulumi.RegisterOutputType(TaskManifestConfigPtrOutput{})
+	pulumi.RegisterOutputType(TaskManifestConfigSourcePropertiesOutput{})
+	pulumi.RegisterOutputType(TaskManifestConfigSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TaskManifestConfigSourceS3Output{})
+	pulumi.RegisterOutputType(TaskManifestConfigSourceS3PtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOutput{})
 	pulumi.RegisterOutputType(TaskOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TaskReportConfigOutput{})
 	pulumi.RegisterOutputType(TaskReportConfigPtrOutput{})
 	pulumi.RegisterOutputType(TaskReportConfigDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(TaskReportConfigDestinationPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(TaskReportConfigDestinationPropertiesS3PropertiesOutput{})
-	pulumi.RegisterOutputType(TaskReportConfigDestinationPropertiesS3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TaskReportConfigDestinationS3Output{})
+	pulumi.RegisterOutputType(TaskReportConfigDestinationS3PtrOutput{})
 	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesOutput{})
 	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TaskReportConfigOverridesPropertiesDeletedPropertiesOutput{})

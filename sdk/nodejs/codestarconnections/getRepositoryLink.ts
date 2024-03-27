@@ -37,7 +37,7 @@ export interface GetRepositoryLinkResult {
     /**
      * The name of the external provider where your third-party code repository is configured.
      */
-    readonly providerType?: string;
+    readonly providerType?: enums.codestarconnections.RepositoryLinkProviderType;
     /**
      * A unique Amazon Resource Name (ARN) to designate the repository link.
      */

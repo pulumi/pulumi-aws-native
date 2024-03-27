@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
     /// </summary>
     public sealed class TableStreamSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("resourcePolicy")]
+        public Input<Inputs.TableResourcePolicyArgs>? ResourcePolicy { get; set; }
+
         /// <summary>
         /// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
         ///   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.

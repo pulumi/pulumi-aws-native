@@ -16,8 +16,9 @@ import (
 type TransitGatewayRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	AwsId                      pulumi.StringOutput `pulumi:"awsId"`
+	// The ID of transit gateway attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
+	// The ID of transit gateway route table.
 	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -72,13 +73,17 @@ func (TransitGatewayRouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type transitGatewayRouteTableAssociationArgs struct {
+	// The ID of transit gateway attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
+	// The ID of transit gateway route table.
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
 // The set of arguments for constructing a TransitGatewayRouteTableAssociation resource.
 type TransitGatewayRouteTableAssociationArgs struct {
+	// The ID of transit gateway attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
+	// The ID of transit gateway route table.
 	TransitGatewayRouteTableId pulumi.StringInput
 }
 
@@ -119,14 +124,12 @@ func (o TransitGatewayRouteTableAssociationOutput) ToTransitGatewayRouteTableAss
 	return o
 }
 
-func (o TransitGatewayRouteTableAssociationOutput) AwsId() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGatewayRouteTableAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
-}
-
+// The ID of transit gateway attachment.
 func (o TransitGatewayRouteTableAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
+// The ID of transit gateway route table.
 func (o TransitGatewayRouteTableAssociationOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }

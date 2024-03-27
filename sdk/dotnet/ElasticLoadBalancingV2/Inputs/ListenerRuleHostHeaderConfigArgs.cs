@@ -10,10 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
+    /// <summary>
+    /// Information about a host header condition.
+    /// </summary>
     public sealed class ListenerRuleHostHeaderConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+        ///  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

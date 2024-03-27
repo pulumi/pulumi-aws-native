@@ -38,6 +38,12 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        [Input("replicaStreamSpecification")]
+        public Input<Inputs.GlobalTableReplicaStreamSpecificationArgs>? ReplicaStreamSpecification { get; set; }
+
+        [Input("resourcePolicy")]
+        public Input<Inputs.GlobalTableResourcePolicyArgs>? ResourcePolicy { get; set; }
+
         [Input("sseSpecification")]
         public Input<Inputs.GlobalTableReplicaSseSpecificationArgs>? SseSpecification { get; set; }
 

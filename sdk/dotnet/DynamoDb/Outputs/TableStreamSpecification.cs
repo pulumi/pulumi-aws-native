@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class TableStreamSpecification
     {
+        public readonly Outputs.TableResourcePolicy? ResourcePolicy;
         /// <summary>
         /// When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
         ///   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
@@ -26,8 +27,12 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         public readonly string StreamViewType;
 
         [OutputConstructor]
-        private TableStreamSpecification(string streamViewType)
+        private TableStreamSpecification(
+            Outputs.TableResourcePolicy? resourcePolicy,
+
+            string streamViewType)
         {
+            ResourcePolicy = resourcePolicy;
             StreamViewType = streamViewType;
         }
     }

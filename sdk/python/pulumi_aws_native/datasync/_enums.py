@@ -23,6 +23,8 @@ __all__ = [
     'StorageSystemConnectivityStatus',
     'StorageSystemSystemType',
     'TaskFilterRuleFilterType',
+    'TaskManifestConfigAction',
+    'TaskManifestConfigFormat',
     'TaskOptionsAtime',
     'TaskOptionsGid',
     'TaskOptionsLogLevel',
@@ -208,6 +210,20 @@ class TaskFilterRuleFilterType(str, Enum):
     The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
     """
     SIMPLE_PATTERN = "SIMPLE_PATTERN"
+
+
+class TaskManifestConfigAction(str, Enum):
+    """
+    Specifies what DataSync uses the manifest for.
+    """
+    TRANSFER = "TRANSFER"
+
+
+class TaskManifestConfigFormat(str, Enum):
+    """
+    Specifies the file format of your manifest.
+    """
+    CSV = "CSV"
 
 
 class TaskOptionsAtime(str, Enum):

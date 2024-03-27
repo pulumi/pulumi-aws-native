@@ -6764,8 +6764,11 @@ func (o InstanceVolumeArrayOutput) Index(i pulumi.IntInput) InstanceVolumeOutput
 	}).(InstanceVolumeOutput)
 }
 
+// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
 type InternetGatewayTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 

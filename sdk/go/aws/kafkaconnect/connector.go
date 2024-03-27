@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,8 +35,10 @@ type Connector struct {
 	// List of plugins to use with the connector.
 	Plugins ConnectorPluginArrayOutput `pulumi:"plugins"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
-	ServiceExecutionRoleArn pulumi.StringOutput                   `pulumi:"serviceExecutionRoleArn"`
-	WorkerConfiguration     ConnectorWorkerConfigurationPtrOutput `pulumi:"workerConfiguration"`
+	ServiceExecutionRoleArn pulumi.StringOutput `pulumi:"serviceExecutionRoleArn"`
+	// A collection of tags associated with a resource
+	Tags                aws.TagArrayOutput                    `pulumi:"tags"`
+	WorkerConfiguration ConnectorWorkerConfigurationPtrOutput `pulumi:"workerConfiguration"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -132,8 +135,10 @@ type connectorArgs struct {
 	// List of plugins to use with the connector.
 	Plugins []ConnectorPlugin `pulumi:"plugins"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
-	ServiceExecutionRoleArn string                        `pulumi:"serviceExecutionRoleArn"`
-	WorkerConfiguration     *ConnectorWorkerConfiguration `pulumi:"workerConfiguration"`
+	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
+	// A collection of tags associated with a resource
+	Tags                []aws.Tag                     `pulumi:"tags"`
+	WorkerConfiguration *ConnectorWorkerConfiguration `pulumi:"workerConfiguration"`
 }
 
 // The set of arguments for constructing a Connector resource.
@@ -155,7 +160,9 @@ type ConnectorArgs struct {
 	Plugins ConnectorPluginArrayInput
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
 	ServiceExecutionRoleArn pulumi.StringInput
-	WorkerConfiguration     ConnectorWorkerConfigurationPtrInput
+	// A collection of tags associated with a resource
+	Tags                aws.TagArrayInput
+	WorkerConfiguration ConnectorWorkerConfigurationPtrInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {
@@ -252,6 +259,11 @@ func (o ConnectorOutput) Plugins() ConnectorPluginArrayOutput {
 // The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
 func (o ConnectorOutput) ServiceExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ServiceExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// A collection of tags associated with a resource
+func (o ConnectorOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Connector) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ConnectorOutput) WorkerConfiguration() ConnectorWorkerConfigurationPtrOutput {

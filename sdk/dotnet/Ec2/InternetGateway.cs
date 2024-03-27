@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Resource Type definition for AWS::EC2::InternetGateway
+    /// Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
     /// 
     /// ## Example Usage
     /// ### Example
@@ -42,9 +42,6 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:InternetGateway")]
     public partial class InternetGateway : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of internet gateway.
-        /// </summary>
         [Output("internetGatewayId")]
         public Output<string> InternetGatewayId { get; private set; } = null!;
 

@@ -33,6 +33,7 @@ export interface GetTaskResult {
     readonly destinationNetworkInterfaceArns?: string[];
     readonly excludes?: outputs.datasync.TaskFilterRule[];
     readonly includes?: outputs.datasync.TaskFilterRule[];
+    readonly manifestConfig?: outputs.datasync.TaskManifestConfig;
     /**
      * The name of a task. This value is a text reference that is used to identify the task in the console.
      */

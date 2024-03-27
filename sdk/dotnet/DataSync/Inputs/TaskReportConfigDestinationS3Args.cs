@@ -7,39 +7,35 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataSync.Outputs
+namespace Pulumi.AwsNative.DataSync.Inputs
 {
 
     /// <summary>
     /// Specifies the Amazon S3 bucket where DataSync uploads your task report.
     /// </summary>
-    [OutputType]
-    public sealed class TaskReportConfigDestinationPropertiesS3Properties
+    public sealed class TaskReportConfigDestinationS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
         /// </summary>
-        public readonly string? BucketAccessRoleArn;
+        [Input("bucketAccessRoleArn")]
+        public Input<string>? BucketAccessRoleArn { get; set; }
+
         /// <summary>
         /// Specifies the ARN of the S3 bucket where Datasync uploads your report.
         /// </summary>
-        public readonly string? S3BucketArn;
+        [Input("s3BucketArn")]
+        public Input<string>? S3BucketArn { get; set; }
+
         /// <summary>
         /// Specifies a bucket prefix for your report.
         /// </summary>
-        public readonly string? Subdirectory;
+        [Input("subdirectory")]
+        public Input<string>? Subdirectory { get; set; }
 
-        [OutputConstructor]
-        private TaskReportConfigDestinationPropertiesS3Properties(
-            string? bucketAccessRoleArn,
-
-            string? s3BucketArn,
-
-            string? subdirectory)
+        public TaskReportConfigDestinationS3Args()
         {
-            BucketAccessRoleArn = bucketAccessRoleArn;
-            S3BucketArn = s3BucketArn;
-            Subdirectory = subdirectory;
         }
+        public static new TaskReportConfigDestinationS3Args Empty => new TaskReportConfigDestinationS3Args();
     }
 }

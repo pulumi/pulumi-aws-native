@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
     /// <summary>
-    /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+    /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
     /// </summary>
     public sealed class GameServerGroupAutoScalingPolicyArgs : global::Pulumi.ResourceArgs
     {

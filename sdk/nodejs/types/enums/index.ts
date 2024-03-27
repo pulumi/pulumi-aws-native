@@ -22,9 +22,11 @@ import * as cleanrooms from "./cleanrooms";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
 import * as cloudtrail from "./cloudtrail";
+import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
+import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as comprehend from "./comprehend";
 import * as connect from "./connect";
@@ -173,9 +175,11 @@ export {
     cloudformation,
     cloudfront,
     cloudtrail,
+    codeartifact,
     codebuild,
     codeguruprofiler,
     codegurureviewer,
+    codestarconnections,
     codestarnotifications,
     comprehend,
     connect,

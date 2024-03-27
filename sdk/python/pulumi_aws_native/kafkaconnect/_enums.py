@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ConnectorKafkaClusterClientAuthenticationType',
     'ConnectorKafkaClusterEncryptionInTransitType',
+    'CustomPluginContentType',
 ]
 
 
@@ -24,3 +25,11 @@ class ConnectorKafkaClusterEncryptionInTransitType(str, Enum):
     """
     PLAINTEXT = "PLAINTEXT"
     TLS = "TLS"
+
+
+class CustomPluginContentType(str, Enum):
+    """
+    The type of the plugin file.
+    """
+    JAR = "JAR"
+    ZIP = "ZIP"

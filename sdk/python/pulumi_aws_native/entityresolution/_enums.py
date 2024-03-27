@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'IdMappingWorkflowIdMappingTechniquesIdMappingType',
+    'IdMappingWorkflowInputSourceType',
     'MatchingWorkflowResolutionTechniquesResolutionType',
     'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
     'SchemaMappingSchemaAttributeType',
@@ -14,6 +15,11 @@ __all__ = [
 
 class IdMappingWorkflowIdMappingTechniquesIdMappingType(str, Enum):
     PROVIDER = "PROVIDER"
+
+
+class IdMappingWorkflowInputSourceType(str, Enum):
+    SOURCE = "SOURCE"
+    TARGET = "TARGET"
 
 
 class MatchingWorkflowResolutionTechniquesResolutionType(str, Enum):

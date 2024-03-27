@@ -10,6 +10,174 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Set the backup policy status for the file system.
+//   - *ENABLED* - Turns automatic backups on for the file system.
+//   - *DISABLED* - Turns automatic backups off for the file system.
+type FileSystemBackupPolicyStatus string
+
+const (
+	FileSystemBackupPolicyStatusDisabled = FileSystemBackupPolicyStatus("DISABLED")
+	FileSystemBackupPolicyStatusEnabled  = FileSystemBackupPolicyStatus("ENABLED")
+)
+
+func (FileSystemBackupPolicyStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemBackupPolicyStatus)(nil)).Elem()
+}
+
+func (e FileSystemBackupPolicyStatus) ToFileSystemBackupPolicyStatusOutput() FileSystemBackupPolicyStatusOutput {
+	return pulumi.ToOutput(e).(FileSystemBackupPolicyStatusOutput)
+}
+
+func (e FileSystemBackupPolicyStatus) ToFileSystemBackupPolicyStatusOutputWithContext(ctx context.Context) FileSystemBackupPolicyStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FileSystemBackupPolicyStatusOutput)
+}
+
+func (e FileSystemBackupPolicyStatus) ToFileSystemBackupPolicyStatusPtrOutput() FileSystemBackupPolicyStatusPtrOutput {
+	return e.ToFileSystemBackupPolicyStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FileSystemBackupPolicyStatus) ToFileSystemBackupPolicyStatusPtrOutputWithContext(ctx context.Context) FileSystemBackupPolicyStatusPtrOutput {
+	return FileSystemBackupPolicyStatus(e).ToFileSystemBackupPolicyStatusOutputWithContext(ctx).ToFileSystemBackupPolicyStatusPtrOutputWithContext(ctx)
+}
+
+func (e FileSystemBackupPolicyStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FileSystemBackupPolicyStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FileSystemBackupPolicyStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FileSystemBackupPolicyStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FileSystemBackupPolicyStatusOutput struct{ *pulumi.OutputState }
+
+func (FileSystemBackupPolicyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemBackupPolicyStatus)(nil)).Elem()
+}
+
+func (o FileSystemBackupPolicyStatusOutput) ToFileSystemBackupPolicyStatusOutput() FileSystemBackupPolicyStatusOutput {
+	return o
+}
+
+func (o FileSystemBackupPolicyStatusOutput) ToFileSystemBackupPolicyStatusOutputWithContext(ctx context.Context) FileSystemBackupPolicyStatusOutput {
+	return o
+}
+
+func (o FileSystemBackupPolicyStatusOutput) ToFileSystemBackupPolicyStatusPtrOutput() FileSystemBackupPolicyStatusPtrOutput {
+	return o.ToFileSystemBackupPolicyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemBackupPolicyStatusOutput) ToFileSystemBackupPolicyStatusPtrOutputWithContext(ctx context.Context) FileSystemBackupPolicyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemBackupPolicyStatus) *FileSystemBackupPolicyStatus {
+		return &v
+	}).(FileSystemBackupPolicyStatusPtrOutput)
+}
+
+func (o FileSystemBackupPolicyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FileSystemBackupPolicyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileSystemBackupPolicyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FileSystemBackupPolicyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemBackupPolicyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileSystemBackupPolicyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileSystemBackupPolicyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemBackupPolicyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemBackupPolicyStatus)(nil)).Elem()
+}
+
+func (o FileSystemBackupPolicyStatusPtrOutput) ToFileSystemBackupPolicyStatusPtrOutput() FileSystemBackupPolicyStatusPtrOutput {
+	return o
+}
+
+func (o FileSystemBackupPolicyStatusPtrOutput) ToFileSystemBackupPolicyStatusPtrOutputWithContext(ctx context.Context) FileSystemBackupPolicyStatusPtrOutput {
+	return o
+}
+
+func (o FileSystemBackupPolicyStatusPtrOutput) Elem() FileSystemBackupPolicyStatusOutput {
+	return o.ApplyT(func(v *FileSystemBackupPolicyStatus) FileSystemBackupPolicyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemBackupPolicyStatus
+		return ret
+	}).(FileSystemBackupPolicyStatusOutput)
+}
+
+func (o FileSystemBackupPolicyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemBackupPolicyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FileSystemBackupPolicyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FileSystemBackupPolicyStatusInput is an input type that accepts values of the FileSystemBackupPolicyStatus enum
+// A concrete instance of `FileSystemBackupPolicyStatusInput` can be one of the following:
+//
+//	FileSystemBackupPolicyStatusDisabled
+//	FileSystemBackupPolicyStatusEnabled
+type FileSystemBackupPolicyStatusInput interface {
+	pulumi.Input
+
+	ToFileSystemBackupPolicyStatusOutput() FileSystemBackupPolicyStatusOutput
+	ToFileSystemBackupPolicyStatusOutputWithContext(context.Context) FileSystemBackupPolicyStatusOutput
+}
+
+var fileSystemBackupPolicyStatusPtrType = reflect.TypeOf((**FileSystemBackupPolicyStatus)(nil)).Elem()
+
+type FileSystemBackupPolicyStatusPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemBackupPolicyStatusPtrOutput() FileSystemBackupPolicyStatusPtrOutput
+	ToFileSystemBackupPolicyStatusPtrOutputWithContext(context.Context) FileSystemBackupPolicyStatusPtrOutput
+}
+
+type fileSystemBackupPolicyStatusPtr string
+
+func FileSystemBackupPolicyStatusPtr(v string) FileSystemBackupPolicyStatusPtrInput {
+	return (*fileSystemBackupPolicyStatusPtr)(&v)
+}
+
+func (*fileSystemBackupPolicyStatusPtr) ElementType() reflect.Type {
+	return fileSystemBackupPolicyStatusPtrType
+}
+
+func (in *fileSystemBackupPolicyStatusPtr) ToFileSystemBackupPolicyStatusPtrOutput() FileSystemBackupPolicyStatusPtrOutput {
+	return pulumi.ToOutput(in).(FileSystemBackupPolicyStatusPtrOutput)
+}
+
+func (in *fileSystemBackupPolicyStatusPtr) ToFileSystemBackupPolicyStatusPtrOutputWithContext(ctx context.Context) FileSystemBackupPolicyStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FileSystemBackupPolicyStatusPtrOutput)
+}
+
 // The status of the file system's replication overwrite protection.
 //
 //   - “ENABLED“ – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is “ENABLED“ by default.
@@ -185,8 +353,12 @@ func (in *fileSystemProtectionReplicationOverwriteProtectionPtr) ToFileSystemPro
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemBackupPolicyStatusInput)(nil)).Elem(), FileSystemBackupPolicyStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemBackupPolicyStatusPtrInput)(nil)).Elem(), FileSystemBackupPolicyStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemProtectionReplicationOverwriteProtectionInput)(nil)).Elem(), FileSystemProtectionReplicationOverwriteProtection("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemProtectionReplicationOverwriteProtectionPtrInput)(nil)).Elem(), FileSystemProtectionReplicationOverwriteProtection("DISABLED"))
+	pulumi.RegisterOutputType(FileSystemBackupPolicyStatusOutput{})
+	pulumi.RegisterOutputType(FileSystemBackupPolicyStatusPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemProtectionReplicationOverwriteProtectionOutput{})
 	pulumi.RegisterOutputType(FileSystemProtectionReplicationOverwriteProtectionPtrOutput{})
 }

@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.AppSync
 {
+    /// <summary>
+    /// Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+    /// </summary>
     [EnumType]
     public readonly struct ResolverMetricsConfig : IEquatable<ResolverMetricsConfig>
     {

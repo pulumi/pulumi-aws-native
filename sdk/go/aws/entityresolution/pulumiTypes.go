@@ -115,9 +115,10 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) ProviderProperties() IdMa
 }
 
 type IdMappingWorkflowInputSource struct {
-	// An Glue table ARN for the input source table
-	InputSourceArn string `pulumi:"inputSourceArn"`
-	SchemaArn      string `pulumi:"schemaArn"`
+	// An Glue table ARN for the input source table or IdNamespace ARN
+	InputSourceArn string                            `pulumi:"inputSourceArn"`
+	SchemaArn      *string                           `pulumi:"schemaArn"`
+	Type           *IdMappingWorkflowInputSourceType `pulumi:"type"`
 }
 
 // IdMappingWorkflowInputSourceInput is an input type that accepts IdMappingWorkflowInputSourceArgs and IdMappingWorkflowInputSourceOutput values.
@@ -132,9 +133,10 @@ type IdMappingWorkflowInputSourceInput interface {
 }
 
 type IdMappingWorkflowInputSourceArgs struct {
-	// An Glue table ARN for the input source table
-	InputSourceArn pulumi.StringInput `pulumi:"inputSourceArn"`
-	SchemaArn      pulumi.StringInput `pulumi:"schemaArn"`
+	// An Glue table ARN for the input source table or IdNamespace ARN
+	InputSourceArn pulumi.StringInput                       `pulumi:"inputSourceArn"`
+	SchemaArn      pulumi.StringPtrInput                    `pulumi:"schemaArn"`
+	Type           IdMappingWorkflowInputSourceTypePtrInput `pulumi:"type"`
 }
 
 func (IdMappingWorkflowInputSourceArgs) ElementType() reflect.Type {
@@ -188,13 +190,17 @@ func (o IdMappingWorkflowInputSourceOutput) ToIdMappingWorkflowInputSourceOutput
 	return o
 }
 
-// An Glue table ARN for the input source table
+// An Glue table ARN for the input source table or IdNamespace ARN
 func (o IdMappingWorkflowInputSourceOutput) InputSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdMappingWorkflowInputSource) string { return v.InputSourceArn }).(pulumi.StringOutput)
 }
 
-func (o IdMappingWorkflowInputSourceOutput) SchemaArn() pulumi.StringOutput {
-	return o.ApplyT(func(v IdMappingWorkflowInputSource) string { return v.SchemaArn }).(pulumi.StringOutput)
+func (o IdMappingWorkflowInputSourceOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdMappingWorkflowInputSource) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+func (o IdMappingWorkflowInputSourceOutput) Type() IdMappingWorkflowInputSourceTypePtrOutput {
+	return o.ApplyT(func(v IdMappingWorkflowInputSource) *IdMappingWorkflowInputSourceType { return v.Type }).(IdMappingWorkflowInputSourceTypePtrOutput)
 }
 
 type IdMappingWorkflowInputSourceArrayOutput struct{ *pulumi.OutputState }

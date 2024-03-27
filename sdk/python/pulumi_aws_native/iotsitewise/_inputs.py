@@ -37,6 +37,7 @@ __all__ = [
     'GatewayGreengrassV2Args',
     'GatewayGreengrassArgs',
     'GatewayPlatformArgs',
+    'GatewaySiemensIeArgs',
 ]
 
 @pulumi.input_type
@@ -1283,16 +1284,20 @@ class GatewayGreengrassArgs:
 class GatewayPlatformArgs:
     def __init__(__self__, *,
                  greengrass: Optional[pulumi.Input['GatewayGreengrassArgs']] = None,
-                 greengrass_v2: Optional[pulumi.Input['GatewayGreengrassV2Args']] = None):
+                 greengrass_v2: Optional[pulumi.Input['GatewayGreengrassV2Args']] = None,
+                 siemens_ie: Optional[pulumi.Input['GatewaySiemensIeArgs']] = None):
         """
         Contains a gateway's platform information.
         :param pulumi.Input['GatewayGreengrassArgs'] greengrass: A gateway that runs on AWS IoT Greengrass V1.
         :param pulumi.Input['GatewayGreengrassV2Args'] greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
+        :param pulumi.Input['GatewaySiemensIeArgs'] siemens_ie: A gateway that runs on Siemens Industrial Edge.
         """
         if greengrass is not None:
             pulumi.set(__self__, "greengrass", greengrass)
         if greengrass_v2 is not None:
             pulumi.set(__self__, "greengrass_v2", greengrass_v2)
+        if siemens_ie is not None:
+            pulumi.set(__self__, "siemens_ie", siemens_ie)
 
     @property
     @pulumi.getter
@@ -1317,5 +1322,40 @@ class GatewayPlatformArgs:
     @greengrass_v2.setter
     def greengrass_v2(self, value: Optional[pulumi.Input['GatewayGreengrassV2Args']]):
         pulumi.set(self, "greengrass_v2", value)
+
+    @property
+    @pulumi.getter(name="siemensIe")
+    def siemens_ie(self) -> Optional[pulumi.Input['GatewaySiemensIeArgs']]:
+        """
+        A gateway that runs on Siemens Industrial Edge.
+        """
+        return pulumi.get(self, "siemens_ie")
+
+    @siemens_ie.setter
+    def siemens_ie(self, value: Optional[pulumi.Input['GatewaySiemensIeArgs']]):
+        pulumi.set(self, "siemens_ie", value)
+
+
+@pulumi.input_type
+class GatewaySiemensIeArgs:
+    def __init__(__self__, *,
+                 iot_core_thing_name: pulumi.Input[str]):
+        """
+        Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+        :param pulumi.Input[str] iot_core_thing_name: The name of the IoT Core Thing.
+        """
+        pulumi.set(__self__, "iot_core_thing_name", iot_core_thing_name)
+
+    @property
+    @pulumi.getter(name="iotCoreThingName")
+    def iot_core_thing_name(self) -> pulumi.Input[str]:
+        """
+        The name of the IoT Core Thing.
+        """
+        return pulumi.get(self, "iot_core_thing_name")
+
+    @iot_core_thing_name.setter
+    def iot_core_thing_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iot_core_thing_name", value)
 
 

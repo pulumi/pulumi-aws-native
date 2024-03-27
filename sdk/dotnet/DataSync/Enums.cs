@@ -584,6 +584,66 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// Specifies what DataSync uses the manifest for.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskManifestConfigAction : IEquatable<TaskManifestConfigAction>
+    {
+        private readonly string _value;
+
+        private TaskManifestConfigAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskManifestConfigAction Transfer { get; } = new TaskManifestConfigAction("TRANSFER");
+
+        public static bool operator ==(TaskManifestConfigAction left, TaskManifestConfigAction right) => left.Equals(right);
+        public static bool operator !=(TaskManifestConfigAction left, TaskManifestConfigAction right) => !left.Equals(right);
+
+        public static explicit operator string(TaskManifestConfigAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskManifestConfigAction other && Equals(other);
+        public bool Equals(TaskManifestConfigAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the file format of your manifest.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskManifestConfigFormat : IEquatable<TaskManifestConfigFormat>
+    {
+        private readonly string _value;
+
+        private TaskManifestConfigFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskManifestConfigFormat Csv { get; } = new TaskManifestConfigFormat("CSV");
+
+        public static bool operator ==(TaskManifestConfigFormat left, TaskManifestConfigFormat right) => left.Equals(right);
+        public static bool operator !=(TaskManifestConfigFormat left, TaskManifestConfigFormat right) => !left.Equals(right);
+
+        public static explicit operator string(TaskManifestConfigFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskManifestConfigFormat other && Equals(other);
+        public bool Equals(TaskManifestConfigFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
     /// </summary>
     [EnumType]

@@ -39,11 +39,19 @@ class GetListenerRuleResult:
     @property
     @pulumi.getter
     def actions(self) -> Optional[Sequence['outputs.ListenerRuleAction']]:
+        """
+        The actions.
+         The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.ListenerRuleRuleCondition']]:
+        """
+        The conditions.
+         The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
+        """
         return pulumi.get(self, "conditions")
 
     @property
@@ -54,6 +62,10 @@ class GetListenerRuleResult:
     @property
     @pulumi.getter
     def priority(self) -> Optional[int]:
+        """
+        The rule priority. A listener can't have multiple rules with the same priority.
+         If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
+        """
         return pulumi.get(self, "priority")
 
     @property
@@ -78,7 +90,8 @@ class AwaitableGetListenerRuleResult(GetListenerRuleResult):
 def get_listener_rule(rule_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerRuleResult:
     """
-    Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
+    Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+     For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
     """
     __args__ = dict()
     __args__['ruleArn'] = rule_arn
@@ -97,6 +110,7 @@ def get_listener_rule(rule_arn: Optional[str] = None,
 def get_listener_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
-    Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
+    Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
+     For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
     """
     ...

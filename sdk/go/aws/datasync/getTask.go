@@ -30,10 +30,11 @@ type LookupTaskArgs struct {
 
 type LookupTaskResult struct {
 	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
-	CloudWatchLogGroupArn           *string          `pulumi:"cloudWatchLogGroupArn"`
-	DestinationNetworkInterfaceArns []string         `pulumi:"destinationNetworkInterfaceArns"`
-	Excludes                        []TaskFilterRule `pulumi:"excludes"`
-	Includes                        []TaskFilterRule `pulumi:"includes"`
+	CloudWatchLogGroupArn           *string             `pulumi:"cloudWatchLogGroupArn"`
+	DestinationNetworkInterfaceArns []string            `pulumi:"destinationNetworkInterfaceArns"`
+	Excludes                        []TaskFilterRule    `pulumi:"excludes"`
+	Includes                        []TaskFilterRule    `pulumi:"includes"`
+	ManifestConfig                  *TaskManifestConfig `pulumi:"manifestConfig"`
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
 	Name                       *string       `pulumi:"name"`
 	Options                    *TaskOptions  `pulumi:"options"`
@@ -99,6 +100,10 @@ func (o LookupTaskResultOutput) Excludes() TaskFilterRuleArrayOutput {
 
 func (o LookupTaskResultOutput) Includes() TaskFilterRuleArrayOutput {
 	return o.ApplyT(func(v LookupTaskResult) []TaskFilterRule { return v.Includes }).(TaskFilterRuleArrayOutput)
+}
+
+func (o LookupTaskResultOutput) ManifestConfig() TaskManifestConfigPtrOutput {
+	return o.ApplyT(func(v LookupTaskResult) *TaskManifestConfig { return v.ManifestConfig }).(TaskManifestConfigPtrOutput)
 }
 
 // The name of a task. This value is a text reference that is used to identify the task in the console.

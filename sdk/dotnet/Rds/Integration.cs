@@ -22,6 +22,18 @@ namespace Pulumi.AwsNative.Rds
         public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
+        /// The data filter for the integration.
+        /// </summary>
+        [Output("dataFilter")]
+        public Output<string?> DataFilter { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the integration.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the integration.
         /// </summary>
         [Output("integrationArn")]
@@ -83,7 +95,6 @@ namespace Pulumi.AwsNative.Rds
                 ReplaceOnChanges =
                 {
                     "additionalEncryptionContext.*",
-                    "integrationName",
                     "kmsKeyId",
                     "sourceArn",
                     "targetArn",
@@ -117,6 +128,18 @@ namespace Pulumi.AwsNative.Rds
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
+
+        /// <summary>
+        /// The data filter for the integration.
+        /// </summary>
+        [Input("dataFilter")]
+        public Input<string>? DataFilter { get; set; }
+
+        /// <summary>
+        /// The description of the integration.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// The name of the integration.

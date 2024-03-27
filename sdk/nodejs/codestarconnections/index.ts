@@ -36,6 +36,9 @@ export const SyncConfiguration: typeof import("./syncConfiguration").SyncConfigu
 utilities.lazyLoad(exports, ["SyncConfiguration"], () => require("./syncConfiguration"));
 
 
+// Export enums:
+export * from "../types/enums/codestarconnections";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

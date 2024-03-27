@@ -864,7 +864,8 @@
         "description": "The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation."
       },
       "metricsConfig": {
-        "$ref": "#/types/aws-native:appsync:ResolverMetricsConfig"
+        "$ref": "#/types/aws-native:appsync:ResolverMetricsConfig",
+        "description": "Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value."
       },
       "pipelineConfig": {
         "$ref": "#/types/aws-native:appsync:ResolverPipelineConfig",
@@ -1494,6 +1495,42 @@
       }
     }
   },
+  "aws-native:codeartifact:PackageGroup": {
+    "cfTypeName": "AWS::CodeArtifact::PackageGroup",
+    "properties": {
+      "contactInfo": {
+        "type": "string",
+        "description": "The contact info of the package group."
+      },
+      "description": {
+        "type": "string",
+        "description": "The text description of the package group."
+      },
+      "domainName": {
+        "type": "string",
+        "description": "The name of the domain that contains the package group."
+      },
+      "domainOwner": {
+        "type": "string",
+        "description": "The 12-digit account ID of the AWS account that owns the domain."
+      },
+      "originConfiguration": {
+        "$ref": "#/types/aws-native:codeartifact:PackageGroupOriginConfiguration",
+        "description": "The package origin configuration of the package group."
+      },
+      "pattern": {
+        "type": "string",
+        "description": "The package group pattern that is used to gather packages."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to the package group."
+      }
+    }
+  },
   "aws-native:codepipeline:CustomActionType": {
     "cfTypeName": "AWS::CodePipeline::CustomActionType",
     "properties": {
@@ -1576,6 +1613,10 @@
         "type": "string",
         "description": "The source provider repository path of the sync configuration file of the respective SyncType."
       },
+      "publishDeploymentStatus": {
+        "$ref": "#/types/aws-native:codestarconnections:SyncConfigurationPublishDeploymentStatus",
+        "description": "Whether to enable or disable publishing of deployment status to source providers."
+      },
       "repositoryLinkId": {
         "type": "string",
         "description": "A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with."
@@ -1591,6 +1632,10 @@
       "syncType": {
         "type": "string",
         "description": "The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC."
+      },
+      "triggerResourceUpdateOn": {
+        "$ref": "#/types/aws-native:codestarconnections:SyncConfigurationTriggerResourceUpdateOn",
+        "description": "When to trigger Git sync to begin the stack update."
       }
     }
   },
@@ -4103,6 +4148,9 @@
         "type": "boolean",
         "description": "Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*."
       },
+      "enableLniAtDeviceIndex": {
+        "type": "integer"
+      },
       "ipv4IpamPoolId": {
         "type": "string",
         "description": "An IPv4 IPAM pool ID for the subnet."
@@ -4419,10 +4467,12 @@
     "cfTypeName": "AWS::EC2::TransitGatewayRouteTableAssociation",
     "properties": {
       "transitGatewayAttachmentId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of transit gateway attachment."
       },
       "transitGatewayRouteTableId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of transit gateway route table."
       }
     }
   },
@@ -5661,19 +5711,23 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerRuleAction"
-        }
+        },
+        "description": "The actions.\n The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action."
       },
       "conditions": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:elasticloadbalancingv2:ListenerRuleRuleCondition"
-        }
+        },
+        "description": "The conditions.\n The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``."
       },
       "listenerArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the listener."
       },
       "priority": {
-        "type": "integer"
+        "type": "integer",
+        "description": "The rule priority. A listener can't have multiple rules with the same priority.\n If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update."
       }
     }
   },
@@ -7122,7 +7176,7 @@
       },
       "invokeMode": {
         "$ref": "#/types/aws-native:lambda:UrlInvokeMode",
-        "description": "The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED."
+        "description": "The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED."
       },
       "qualifier": {
         "type": "string",

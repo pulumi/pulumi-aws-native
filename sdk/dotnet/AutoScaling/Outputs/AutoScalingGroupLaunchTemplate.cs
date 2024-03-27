@@ -10,10 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Outputs
 {
 
+    /// <summary>
+    /// Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
+    ///   ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+    /// </summary>
     [OutputType]
     public sealed class AutoScalingGroupLaunchTemplate
     {
+        /// <summary>
+        /// The launch template.
+        /// </summary>
         public readonly Outputs.AutoScalingGroupLaunchTemplateSpecification LaunchTemplateSpecification;
+        /// <summary>
+        /// Any properties that you specify override the same properties in the launch template.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AutoScalingGroupLaunchTemplateOverrides> Overrides;
 
         [OutputConstructor]

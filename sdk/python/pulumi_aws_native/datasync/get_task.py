@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTaskResult:
-    def __init__(__self__, cloud_watch_log_group_arn=None, destination_network_interface_arns=None, excludes=None, includes=None, name=None, options=None, schedule=None, source_network_interface_arns=None, status=None, tags=None, task_arn=None, task_report_config=None):
+    def __init__(__self__, cloud_watch_log_group_arn=None, destination_network_interface_arns=None, excludes=None, includes=None, manifest_config=None, name=None, options=None, schedule=None, source_network_interface_arns=None, status=None, tags=None, task_arn=None, task_report_config=None):
         if cloud_watch_log_group_arn and not isinstance(cloud_watch_log_group_arn, str):
             raise TypeError("Expected argument 'cloud_watch_log_group_arn' to be a str")
         pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
@@ -34,6 +34,9 @@ class GetTaskResult:
         if includes and not isinstance(includes, list):
             raise TypeError("Expected argument 'includes' to be a list")
         pulumi.set(__self__, "includes", includes)
+        if manifest_config and not isinstance(manifest_config, dict):
+            raise TypeError("Expected argument 'manifest_config' to be a dict")
+        pulumi.set(__self__, "manifest_config", manifest_config)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -81,6 +84,11 @@ class GetTaskResult:
     @pulumi.getter
     def includes(self) -> Optional[Sequence['outputs.TaskFilterRule']]:
         return pulumi.get(self, "includes")
+
+    @property
+    @pulumi.getter(name="manifestConfig")
+    def manifest_config(self) -> Optional['outputs.TaskManifestConfig']:
+        return pulumi.get(self, "manifest_config")
 
     @property
     @pulumi.getter
@@ -145,6 +153,7 @@ class AwaitableGetTaskResult(GetTaskResult):
             destination_network_interface_arns=self.destination_network_interface_arns,
             excludes=self.excludes,
             includes=self.includes,
+            manifest_config=self.manifest_config,
             name=self.name,
             options=self.options,
             schedule=self.schedule,
@@ -173,6 +182,7 @@ def get_task(task_arn: Optional[str] = None,
         destination_network_interface_arns=pulumi.get(__ret__, 'destination_network_interface_arns'),
         excludes=pulumi.get(__ret__, 'excludes'),
         includes=pulumi.get(__ret__, 'includes'),
+        manifest_config=pulumi.get(__ret__, 'manifest_config'),
         name=pulumi.get(__ret__, 'name'),
         options=pulumi.get(__ret__, 'options'),
         schedule=pulumi.get(__ret__, 'schedule'),

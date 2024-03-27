@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         ///  If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
         ///  To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
         ///  To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
-        ///  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://d
+        ///  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly string? OriginAccessIdentity;
 

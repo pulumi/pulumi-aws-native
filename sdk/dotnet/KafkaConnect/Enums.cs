@@ -68,4 +68,35 @@ namespace Pulumi.AwsNative.KafkaConnect
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of the plugin file.
+    /// </summary>
+    [EnumType]
+    public readonly struct CustomPluginContentType : IEquatable<CustomPluginContentType>
+    {
+        private readonly string _value;
+
+        private CustomPluginContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomPluginContentType Jar { get; } = new CustomPluginContentType("JAR");
+        public static CustomPluginContentType Zip { get; } = new CustomPluginContentType("ZIP");
+
+        public static bool operator ==(CustomPluginContentType left, CustomPluginContentType right) => left.Equals(right);
+        public static bool operator !=(CustomPluginContentType left, CustomPluginContentType right) => !left.Equals(right);
+
+        public static explicit operator string(CustomPluginContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomPluginContentType other && Equals(other);
+        public bool Equals(CustomPluginContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

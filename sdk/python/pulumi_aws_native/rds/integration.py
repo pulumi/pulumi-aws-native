@@ -19,6 +19,8 @@ class IntegrationArgs:
                  source_arn: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 data_filter: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -26,6 +28,8 @@ class IntegrationArgs:
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
         :param pulumi.Input[str] target_arn: The ARN of the Redshift data warehouse to use as the target for replication.
+        :param pulumi.Input[str] data_filter: The data filter for the integration.
+        :param pulumi.Input[str] description: The description of the integration.
         :param pulumi.Input[str] integration_name: The name of the integration.
         :param pulumi.Input[str] kms_key_id: An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -34,6 +38,10 @@ class IntegrationArgs:
         pulumi.set(__self__, "target_arn", target_arn)
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
+        if data_filter is not None:
+            pulumi.set(__self__, "data_filter", data_filter)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if integration_name is not None:
             pulumi.set(__self__, "integration_name", integration_name)
         if kms_key_id is not None:
@@ -73,6 +81,30 @@ class IntegrationArgs:
     @additional_encryption_context.setter
     def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
+
+    @property
+    @pulumi.getter(name="dataFilter")
+    def data_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data filter for the integration.
+        """
+        return pulumi.get(self, "data_filter")
+
+    @data_filter.setter
+    def data_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_filter", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the integration.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="integrationName")
@@ -117,6 +149,8 @@ class Integration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 data_filter: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
@@ -128,6 +162,8 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_filter: The data filter for the integration.
+        :param pulumi.Input[str] description: The description of the integration.
         :param pulumi.Input[str] integration_name: The name of the integration.
         :param pulumi.Input[str] kms_key_id: An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.
         :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.
@@ -159,6 +195,8 @@ class Integration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 data_filter: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  integration_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
@@ -174,6 +212,8 @@ class Integration(pulumi.CustomResource):
             __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
+            __props__.__dict__["data_filter"] = data_filter
+            __props__.__dict__["description"] = description
             __props__.__dict__["integration_name"] = integration_name
             __props__.__dict__["kms_key_id"] = kms_key_id
             if source_arn is None and not opts.urn:
@@ -185,7 +225,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["create_time"] = None
             __props__.__dict__["integration_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additionalEncryptionContext.*", "integrationName", "kmsKeyId", "sourceArn", "targetArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additionalEncryptionContext.*", "kmsKeyId", "sourceArn", "targetArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Integration, __self__).__init__(
             'aws-native:rds:Integration',
@@ -211,6 +251,8 @@ class Integration(pulumi.CustomResource):
 
         __props__.__dict__["additional_encryption_context"] = None
         __props__.__dict__["create_time"] = None
+        __props__.__dict__["data_filter"] = None
+        __props__.__dict__["description"] = None
         __props__.__dict__["integration_arn"] = None
         __props__.__dict__["integration_name"] = None
         __props__.__dict__["kms_key_id"] = None
@@ -228,6 +270,22 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter(name="dataFilter")
+    def data_filter(self) -> pulumi.Output[Optional[str]]:
+        """
+        The data filter for the integration.
+        """
+        return pulumi.get(self, "data_filter")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the integration.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="integrationArn")

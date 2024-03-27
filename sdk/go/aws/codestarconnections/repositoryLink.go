@@ -24,7 +24,7 @@ type RepositoryLink struct {
 	// the ID of the entity that owns the repository.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	ProviderType RepositoryLinkProviderTypeOutput `pulumi:"providerType"`
 	// A unique Amazon Resource Name (ARN) to designate the repository link.
 	RepositoryLinkArn pulumi.StringOutput `pulumi:"repositoryLinkArn"`
 	// A UUID that uniquely identifies the RepositoryLink.
@@ -168,8 +168,8 @@ func (o RepositoryLinkOutput) OwnerId() pulumi.StringOutput {
 }
 
 // The name of the external provider where your third-party code repository is configured.
-func (o RepositoryLinkOutput) ProviderType() pulumi.StringOutput {
-	return o.ApplyT(func(v *RepositoryLink) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
+func (o RepositoryLinkOutput) ProviderType() RepositoryLinkProviderTypeOutput {
+	return o.ApplyT(func(v *RepositoryLink) RepositoryLinkProviderTypeOutput { return v.ProviderType }).(RepositoryLinkProviderTypeOutput)
 }
 
 // A unique Amazon Resource Name (ARN) to designate the repository link.
