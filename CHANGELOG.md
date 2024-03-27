@@ -1,9 +1,14 @@
 # Change Log
 
-## Unreleased
+## 0.100.0 (2024-03-27)
 
 - [Fix replaceOnChanges for Python programs with multi-word properties](https://github.com/pulumi/pulumi-aws-native/pull/1424)
 - [Fix handling of AlreadyExists error while creating a resource](https://github.com/pulumi/pulumi-aws-native/pull/1439)
+- [Improve cf2pulumi error messages](https://github.com/pulumi/pulumi-aws-native/pull/1438)
+- [Skip aws:cdk:path metadata which fails conversion](https://github.com/pulumi/pulumi-aws-native/pull/1444)
+- [Fix extension resource](https://github.com/pulumi/pulumi-aws-native/pull/1406)
+- [Don't send writeOnly properties if they're also createOnly](https://github.com/pulumi/pulumi-aws-native/pull/1448)
+- [Improve autonaming coverage](https://github.com/pulumi/pulumi-aws-native/pull/1443)
 
 ## 0.99.0 (2024-03-14)
 
