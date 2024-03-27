@@ -27,7 +27,6 @@ class ParameterArgs:
         """
         The set of arguments for constructing a Parameter resource.
         :param pulumi.Input['ParameterType'] type: The type of parameter.
-                 Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
         :param pulumi.Input[str] value: The parameter value.
                  If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
         :param pulumi.Input[str] allowed_pattern: A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
@@ -62,7 +61,6 @@ class ParameterArgs:
     def type(self) -> pulumi.Input['ParameterType']:
         """
         The type of parameter.
-          Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
         """
         return pulumi.get(self, "type")
 
@@ -305,7 +303,6 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
         :param pulumi.Input['ParameterTier'] tier: The parameter tier.
         :param pulumi.Input['ParameterType'] type: The type of parameter.
-                 Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
         :param pulumi.Input[str] value: The parameter value.
                  If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
         """
@@ -567,7 +564,6 @@ class Parameter(pulumi.CustomResource):
     def type(self) -> pulumi.Output['ParameterType']:
         """
         The type of parameter.
-          Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
         """
         return pulumi.get(self, "type")
 

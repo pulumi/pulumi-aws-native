@@ -15,11 +15,8 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// </summary>
     public sealed class TaskReportConfigDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the Amazon S3 bucket where DataSync uploads your task report.
-        /// </summary>
         [Input("s3")]
-        public Input<Inputs.TaskReportConfigDestinationPropertiesS3PropertiesArgs>? S3 { get; set; }
+        public Input<Inputs.TaskReportConfigDestinationS3Args>? S3 { get; set; }
 
         public TaskReportConfigDestinationPropertiesArgs()
         {

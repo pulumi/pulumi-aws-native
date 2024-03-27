@@ -144,6 +144,7 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Targets'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"experimentOptions.accountTargeting",
 		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)

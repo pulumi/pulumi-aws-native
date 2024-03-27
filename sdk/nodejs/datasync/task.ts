@@ -74,6 +74,7 @@ export class Task extends pulumi.CustomResource {
     public /*out*/ readonly destinationNetworkInterfaceArns!: pulumi.Output<string[]>;
     public readonly excludes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
     public readonly includes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
+    public readonly manifestConfig!: pulumi.Output<outputs.datasync.TaskManifestConfig | undefined>;
     /**
      * The name of a task. This value is a text reference that is used to identify the task in the console.
      */
@@ -120,6 +121,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
             resourceInputs["excludes"] = args ? args.excludes : undefined;
             resourceInputs["includes"] = args ? args.includes : undefined;
+            resourceInputs["manifestConfig"] = args ? args.manifestConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
@@ -136,6 +138,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
             resourceInputs["excludes"] = undefined /*out*/;
             resourceInputs["includes"] = undefined /*out*/;
+            resourceInputs["manifestConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["options"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
@@ -167,6 +170,7 @@ export interface TaskArgs {
     destinationLocationArn: pulumi.Input<string>;
     excludes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
     includes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
+    manifestConfig?: pulumi.Input<inputs.datasync.TaskManifestConfigArgs>;
     /**
      * The name of a task. This value is a text reference that is used to identify the task in the console.
      */

@@ -57,6 +57,11 @@ class AutoScalingGroupAcceleratorCountRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        """
+        ``AcceleratorCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of accelerators for an instance type.
+        :param pulumi.Input[int] max: The maximum value.
+        :param pulumi.Input[int] min: The minimum value.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -65,6 +70,9 @@ class AutoScalingGroupAcceleratorCountRequestArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum value.
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -74,6 +82,9 @@ class AutoScalingGroupAcceleratorCountRequestArgs:
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum value.
+        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -86,6 +97,11 @@ class AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        """
+        ``AcceleratorTotalMemoryMiBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total memory size for the accelerators for an instance type, in MiB.
+        :param pulumi.Input[int] max: The memory maximum in MiB.
+        :param pulumi.Input[int] min: The memory minimum in MiB.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -94,6 +110,9 @@ class AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The memory maximum in MiB.
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -103,6 +122,9 @@ class AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs:
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The memory minimum in MiB.
+        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -115,6 +137,11 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        """
+        ``BaselineEbsBandwidthMbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
+        :param pulumi.Input[int] max: The maximum value in Mbps.
+        :param pulumi.Input[int] min: The minimum value in Mbps.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -123,6 +150,9 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum value in Mbps.
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -132,6 +162,9 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs:
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum value in Mbps.
+        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -144,6 +177,13 @@ class AutoScalingGroupInstanceMaintenancePolicyArgs:
     def __init__(__self__, *,
                  max_healthy_percentage: Optional[pulumi.Input[int]] = None,
                  min_healthy_percentage: Optional[pulumi.Input[int]] = None):
+        """
+        ``InstanceMaintenancePolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+         For more information, see [Instance maintenance policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        :param pulumi.Input[int] max_healthy_percentage: Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the maximum percentage of the group that can be in service and healthy, or pending, to support your workload when replacing instances. Value range is 100 to 200. To clear a previously set value, specify a value of ``-1``.
+                Both ``MinHealthyPercentage`` and ``MaxHealthyPercentage`` must be specified, and the difference between them cannot be greater than 100. A large range increases the number of instances that can be replaced at the same time.
+        :param pulumi.Input[int] min_healthy_percentage: Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the minimum percentage of the group to keep in service, healthy, and ready to use to support your workload when replacing instances. Value range is 0 to 100. To clear a previously set value, specify a value of ``-1``.
+        """
         if max_healthy_percentage is not None:
             pulumi.set(__self__, "max_healthy_percentage", max_healthy_percentage)
         if min_healthy_percentage is not None:
@@ -152,6 +192,10 @@ class AutoScalingGroupInstanceMaintenancePolicyArgs:
     @property
     @pulumi.getter(name="maxHealthyPercentage")
     def max_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the maximum percentage of the group that can be in service and healthy, or pending, to support your workload when replacing instances. Value range is 100 to 200. To clear a previously set value, specify a value of ``-1``.
+         Both ``MinHealthyPercentage`` and ``MaxHealthyPercentage`` must be specified, and the difference between them cannot be greater than 100. A large range increases the number of instances that can be replaced at the same time.
+        """
         return pulumi.get(self, "max_healthy_percentage")
 
     @max_healthy_percentage.setter
@@ -161,6 +205,9 @@ class AutoScalingGroupInstanceMaintenancePolicyArgs:
     @property
     @pulumi.getter(name="minHealthyPercentage")
     def min_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the minimum percentage of the group to keep in service, healthy, and ready to use to support your workload when replacing instances. Value range is 0 to 100. To clear a previously set value, specify a value of ``-1``.
+        """
         return pulumi.get(self, "min_healthy_percentage")
 
     @min_healthy_percentage.setter
@@ -195,6 +242,108 @@ class AutoScalingGroupInstanceRequirementsArgs:
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  total_local_storage_gb: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']] = None):
+        """
+        The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
+         When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+         To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+          +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+          +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+          
+          You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+          For an example template, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+         For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
+         ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+        :param pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs'] memory_mi_b: The minimum and maximum instance memory size for an instance type, in MiB.
+        :param pulumi.Input['AutoScalingGroupVCpuCountRequestArgs'] v_cpu_count: The minimum and maximum number of vCPUs for an instance type.
+        :param pulumi.Input['AutoScalingGroupAcceleratorCountRequestArgs'] accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.
+                To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+                Default: No minimum or maximum limits
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: Indicates whether instance types must have accelerators by specific manufacturers.
+                 +  For instance types with NVIDIA devices, specify ``nvidia``.
+                 +  For instance types with AMD devices, specify ``amd``.
+                 +  For instance types with AWS devices, specify ``amazon-web-services``.
+                 +  For instance types with Xilinx devices, specify ``xilinx``.
+                 
+                Default: Any manufacturer
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: Lists the accelerators that must be on an instance type.
+                 +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
+                 +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
+                 +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+                 +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
+                 +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
+                 +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+                 +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
+                 
+                Default: Any accelerator
+        :param pulumi.Input['AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs'] accelerator_total_memory_mi_b: The minimum and maximum total memory size for the accelerators on an instance type, in MiB.
+                Default: No minimum or maximum limits
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: Lists the accelerator types that must be on an instance type.
+                 +  For instance types with GPU accelerators, specify ``gpu``.
+                 +  For instance types with FPGA accelerators, specify ``fpga``.
+                 +  For instance types with inference accelerators, specify ``inference``.
+                 
+                Default: Any accelerator type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+                You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+                For example, if you specify ``c5*``, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.
+                 If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+                 Default: All instance types
+        :param pulumi.Input[str] bare_metal: Indicates whether bare metal instance types are included, excluded, or required.
+                Default: ``excluded``
+        :param pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs'] baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
+                Default: No minimum or maximum limits
+        :param pulumi.Input[str] burstable_performance: Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
+                Default: ``excluded``
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: Lists which specific CPU manufacturers to include.
+                 +  For instance types with Intel CPUs, specify ``intel``.
+                 +  For instance types with AMD CPUs, specify ``amd``.
+                 +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+                 
+                 Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+                 Default: Any manufacturer
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance family, type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``. 
+                For example, if you specify ``c5*``, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.
+                 If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+                 Default: No excluded instance types
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: Indicates whether current or previous generation instance types are included.
+                 +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+                 +  For previous generation instance types, specify ``previous``.
+                 
+                Default: Any current or previous generation
+        :param pulumi.Input[str] local_storage: Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances*.
+                Default: ``included``
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: Indicates the type of local storage that is required.
+                 +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
+                 +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
+                 
+                Default: Any local storage type
+        :param pulumi.Input[int] max_spot_price_as_percentage_of_optimal_on_demand_price: [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+                The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+                To indicate no price protection threshold, specify a high value, such as ``999999``. 
+                If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+                 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, then ``SpotMaxPricePercentageOverLowestPrice`` is used and the value for that parameter defaults to ``100``.
+        :param pulumi.Input['AutoScalingGroupMemoryGiBPerVCpuRequestArgs'] memory_gi_b_per_v_cpu: The minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+                Default: No minimum or maximum limits
+        :param pulumi.Input['AutoScalingGroupNetworkBandwidthGbpsRequestArgs'] network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+                Default: No minimum or maximum limits
+        :param pulumi.Input['AutoScalingGroupNetworkInterfaceCountRequestArgs'] network_interface_count: The minimum and maximum number of network interfaces for an instance type.
+                Default: No minimum or maximum limits
+        :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold. 
+                The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+                To turn off price protection, specify a high value, such as ``999999``. 
+                If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per instance price. 
+                Default: ``20``
+        :param pulumi.Input[bool] require_hibernate_support: Indicates whether instance types must provide On-Demand Instance hibernation support.
+                Default: ``false``
+        :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+                The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+                To turn off price protection, specify a high value, such as ``999999``. 
+                If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+                 Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified.
+                 Default: ``100``
+        :param pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs'] total_local_storage_gb: The minimum and maximum total local storage size for an instance type, in GB.
+                Default: No minimum or maximum limits
+        """
         pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         pulumi.set(__self__, "v_cpu_count", v_cpu_count)
         if accelerator_count is not None:
@@ -245,6 +394,9 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="memoryMiB")
     def memory_mi_b(self) -> pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs']:
+        """
+        The minimum and maximum instance memory size for an instance type, in MiB.
+        """
         return pulumi.get(self, "memory_mi_b")
 
     @memory_mi_b.setter
@@ -254,6 +406,9 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="vCpuCount")
     def v_cpu_count(self) -> pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']:
+        """
+        The minimum and maximum number of vCPUs for an instance type.
+        """
         return pulumi.get(self, "v_cpu_count")
 
     @v_cpu_count.setter
@@ -263,6 +418,11 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorCount")
     def accelerator_count(self) -> Optional[pulumi.Input['AutoScalingGroupAcceleratorCountRequestArgs']]:
+        """
+        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.
+         To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+         Default: No minimum or maximum limits
+        """
         return pulumi.get(self, "accelerator_count")
 
     @accelerator_count.setter
@@ -272,6 +432,15 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorManufacturers")
     def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Indicates whether instance types must have accelerators by specific manufacturers.
+          +  For instance types with NVIDIA devices, specify ``nvidia``.
+          +  For instance types with AMD devices, specify ``amd``.
+          +  For instance types with AWS devices, specify ``amazon-web-services``.
+          +  For instance types with Xilinx devices, specify ``xilinx``.
+          
+         Default: Any manufacturer
+        """
         return pulumi.get(self, "accelerator_manufacturers")
 
     @accelerator_manufacturers.setter
@@ -281,6 +450,18 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorNames")
     def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Lists the accelerators that must be on an instance type.
+          +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
+          +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
+          +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+          +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
+          +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
+          +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+          +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
+          
+         Default: Any accelerator
+        """
         return pulumi.get(self, "accelerator_names")
 
     @accelerator_names.setter
@@ -290,6 +471,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorTotalMemoryMiB")
     def accelerator_total_memory_mi_b(self) -> Optional[pulumi.Input['AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs']]:
+        """
+        The minimum and maximum total memory size for the accelerators on an instance type, in MiB.
+         Default: No minimum or maximum limits
+        """
         return pulumi.get(self, "accelerator_total_memory_mi_b")
 
     @accelerator_total_memory_mi_b.setter
@@ -299,6 +484,14 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorTypes")
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Lists the accelerator types that must be on an instance type.
+          +  For instance types with GPU accelerators, specify ``gpu``.
+          +  For instance types with FPGA accelerators, specify ``fpga``.
+          +  For instance types with inference accelerators, specify ``inference``.
+          
+         Default: Any accelerator type
+        """
         return pulumi.get(self, "accelerator_types")
 
     @accelerator_types.setter
@@ -308,6 +501,13 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="allowedInstanceTypes")
     def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+         You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+         For example, if you specify ``c5*``, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.
+          If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+          Default: All instance types
+        """
         return pulumi.get(self, "allowed_instance_types")
 
     @allowed_instance_types.setter
@@ -317,6 +517,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether bare metal instance types are included, excluded, or required.
+         Default: ``excluded``
+        """
         return pulumi.get(self, "bare_metal")
 
     @bare_metal.setter
@@ -326,6 +530,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="baselineEbsBandwidthMbps")
     def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs']]:
+        """
+        The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         Default: No minimum or maximum limits
+        """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
     @baseline_ebs_bandwidth_mbps.setter
@@ -335,6 +543,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="burstablePerformance")
     def burstable_performance(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         Default: ``excluded``
+        """
         return pulumi.get(self, "burstable_performance")
 
     @burstable_performance.setter
@@ -344,6 +556,15 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="cpuManufacturers")
     def cpu_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Lists which specific CPU manufacturers to include.
+          +  For instance types with Intel CPUs, specify ``intel``.
+          +  For instance types with AMD CPUs, specify ``amd``.
+          +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+          
+          Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+          Default: Any manufacturer
+        """
         return pulumi.get(self, "cpu_manufacturers")
 
     @cpu_manufacturers.setter
@@ -353,6 +574,12 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance family, type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``. 
+         For example, if you specify ``c5*``, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.
+          If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+          Default: No excluded instance types
+        """
         return pulumi.get(self, "excluded_instance_types")
 
     @excluded_instance_types.setter
@@ -362,6 +589,13 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="instanceGenerations")
     def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Indicates whether current or previous generation instance types are included.
+          +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+          +  For previous generation instance types, specify ``previous``.
+          
+         Default: Any current or previous generation
+        """
         return pulumi.get(self, "instance_generations")
 
     @instance_generations.setter
@@ -371,6 +605,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="localStorage")
     def local_storage(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         Default: ``included``
+        """
         return pulumi.get(self, "local_storage")
 
     @local_storage.setter
@@ -380,6 +618,13 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="localStorageTypes")
     def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Indicates the type of local storage that is required.
+          +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
+          +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
+          
+         Default: Any local storage type
+        """
         return pulumi.get(self, "local_storage_types")
 
     @local_storage_types.setter
@@ -389,6 +634,13 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
     def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[pulumi.Input[int]]:
+        """
+        [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+         The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+         To indicate no price protection threshold, specify a high value, such as ``999999``. 
+         If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+          Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, then ``SpotMaxPricePercentageOverLowestPrice`` is used and the value for that parameter defaults to ``100``.
+        """
         return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
 
     @max_spot_price_as_percentage_of_optimal_on_demand_price.setter
@@ -398,6 +650,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="memoryGiBPerVCpu")
     def memory_gi_b_per_v_cpu(self) -> Optional[pulumi.Input['AutoScalingGroupMemoryGiBPerVCpuRequestArgs']]:
+        """
+        The minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+         Default: No minimum or maximum limits
+        """
         return pulumi.get(self, "memory_gi_b_per_v_cpu")
 
     @memory_gi_b_per_v_cpu.setter
@@ -407,6 +663,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="networkBandwidthGbps")
     def network_bandwidth_gbps(self) -> Optional[pulumi.Input['AutoScalingGroupNetworkBandwidthGbpsRequestArgs']]:
+        """
+        The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+         Default: No minimum or maximum limits
+        """
         return pulumi.get(self, "network_bandwidth_gbps")
 
     @network_bandwidth_gbps.setter
@@ -416,6 +676,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="networkInterfaceCount")
     def network_interface_count(self) -> Optional[pulumi.Input['AutoScalingGroupNetworkInterfaceCountRequestArgs']]:
+        """
+        The minimum and maximum number of network interfaces for an instance type.
+         Default: No minimum or maximum limits
+        """
         return pulumi.get(self, "network_interface_count")
 
     @network_interface_count.setter
@@ -425,6 +689,13 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
+        """
+        [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold. 
+         The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+         To turn off price protection, specify a high value, such as ``999999``. 
+         If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per instance price. 
+         Default: ``20``
+        """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
     @on_demand_max_price_percentage_over_lowest_price.setter
@@ -434,6 +705,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="requireHibernateSupport")
     def require_hibernate_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether instance types must provide On-Demand Instance hibernation support.
+         Default: ``false``
+        """
         return pulumi.get(self, "require_hibernate_support")
 
     @require_hibernate_support.setter
@@ -443,6 +718,14 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
+        """
+        [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+         The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+         To turn off price protection, specify a high value, such as ``999999``. 
+         If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+          Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified.
+          Default: ``100``
+        """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
     @spot_max_price_percentage_over_lowest_price.setter
@@ -452,6 +735,10 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']]:
+        """
+        The minimum and maximum total local storage size for an instance type, in GB.
+         Default: No minimum or maximum limits
+        """
         return pulumi.get(self, "total_local_storage_gb")
 
     @total_local_storage_gb.setter
@@ -468,6 +755,29 @@ class AutoScalingGroupInstancesDistributionArgs:
                  spot_allocation_strategy: Optional[pulumi.Input[str]] = None,
                  spot_instance_pools: Optional[pulumi.Input[int]] = None,
                  spot_max_price: Optional[pulumi.Input[str]] = None):
+        """
+        Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
+         For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
+          ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+        :param pulumi.Input[str] on_demand_allocation_strategy: The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
+                The following lists the valid values:
+                 + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
+        :param pulumi.Input[int] on_demand_base_capacity: The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances. This base portion is launched first as your group scales.
+                This number has the same unit of measurement as the group's desired capacity. If you change the default unit of measurement (number of instances) by specifying weighted capacity values in your launch template overrides list, or by changing the default desired capacity type setting of the group, you must specify this number using the same unit of measurement.
+                Default: 0
+                 An update to this setting means a gradual replacement of instances to adjust the current On-Demand Instance levels. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
+        :param pulumi.Input[int] on_demand_percentage_above_base_capacity: Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond ``OnDemandBaseCapacity``. Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances). If set to 100, only On-Demand Instances are used.
+                Default: 100
+                 An update to this setting means a gradual replacement of instances to adjust the current On-Demand and Spot Instance levels for your additional capacity higher than the base capacity. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
+        :param pulumi.Input[str] spot_allocation_strategy: The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
+                The following lists the valid values:
+                 + capacity-optimized Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use capacity-optimized-prioritized. + capacity-optimized-prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to prioritized, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify InstanceRequirements. + lowest-price Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the SpotInstancePools property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity. + price-capacity-optimized (recommended) The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price.
+        :param pulumi.Input[int] spot_instance_pools: The number of Spot Instance pools across which to allocate your Spot Instances. The Spot pools are determined from the different instance types in the overrides. Valid only when the ``SpotAllocationStrategy`` is ``lowest-price``. Value must be in the range of 1–20.
+                Default: 2
+        :param pulumi.Input[str] spot_max_price: The maximum price per unit hour that you are willing to pay for a Spot Instance. If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched. We do not recommend specifying a maximum price because it can lead to increased interruptions. When Spot Instances launch, you pay the current Spot price. To remove a maximum price that you previously set, include the property but specify an empty string ("") for the value.
+                 If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.
+                 Valid Range: Minimum value of 0.001
+        """
         if on_demand_allocation_strategy is not None:
             pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
         if on_demand_base_capacity is not None:
@@ -484,6 +794,11 @@ class AutoScalingGroupInstancesDistributionArgs:
     @property
     @pulumi.getter(name="onDemandAllocationStrategy")
     def on_demand_allocation_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
+         The following lists the valid values:
+          + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
+        """
         return pulumi.get(self, "on_demand_allocation_strategy")
 
     @on_demand_allocation_strategy.setter
@@ -493,6 +808,12 @@ class AutoScalingGroupInstancesDistributionArgs:
     @property
     @pulumi.getter(name="onDemandBaseCapacity")
     def on_demand_base_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances. This base portion is launched first as your group scales.
+         This number has the same unit of measurement as the group's desired capacity. If you change the default unit of measurement (number of instances) by specifying weighted capacity values in your launch template overrides list, or by changing the default desired capacity type setting of the group, you must specify this number using the same unit of measurement.
+         Default: 0
+          An update to this setting means a gradual replacement of instances to adjust the current On-Demand Instance levels. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
+        """
         return pulumi.get(self, "on_demand_base_capacity")
 
     @on_demand_base_capacity.setter
@@ -502,6 +823,11 @@ class AutoScalingGroupInstancesDistributionArgs:
     @property
     @pulumi.getter(name="onDemandPercentageAboveBaseCapacity")
     def on_demand_percentage_above_base_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond ``OnDemandBaseCapacity``. Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances). If set to 100, only On-Demand Instances are used.
+         Default: 100
+          An update to this setting means a gradual replacement of instances to adjust the current On-Demand and Spot Instance levels for your additional capacity higher than the base capacity. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
+        """
         return pulumi.get(self, "on_demand_percentage_above_base_capacity")
 
     @on_demand_percentage_above_base_capacity.setter
@@ -511,6 +837,11 @@ class AutoScalingGroupInstancesDistributionArgs:
     @property
     @pulumi.getter(name="spotAllocationStrategy")
     def spot_allocation_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
+         The following lists the valid values:
+          + capacity-optimized Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use capacity-optimized-prioritized. + capacity-optimized-prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to prioritized, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify InstanceRequirements. + lowest-price Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the SpotInstancePools property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity. + price-capacity-optimized (recommended) The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price.
+        """
         return pulumi.get(self, "spot_allocation_strategy")
 
     @spot_allocation_strategy.setter
@@ -520,6 +851,10 @@ class AutoScalingGroupInstancesDistributionArgs:
     @property
     @pulumi.getter(name="spotInstancePools")
     def spot_instance_pools(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Spot Instance pools across which to allocate your Spot Instances. The Spot pools are determined from the different instance types in the overrides. Valid only when the ``SpotAllocationStrategy`` is ``lowest-price``. Value must be in the range of 1–20.
+         Default: 2
+        """
         return pulumi.get(self, "spot_instance_pools")
 
     @spot_instance_pools.setter
@@ -529,6 +864,11 @@ class AutoScalingGroupInstancesDistributionArgs:
     @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum price per unit hour that you are willing to pay for a Spot Instance. If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched. We do not recommend specifying a maximum price because it can lead to increased interruptions. When Spot Instances launch, you pay the current Spot price. To remove a maximum price that you previously set, include the property but specify an empty string ("") for the value.
+          If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.
+          Valid Range: Minimum value of 0.001
+        """
         return pulumi.get(self, "spot_max_price")
 
     @spot_max_price.setter
@@ -543,6 +883,25 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  launch_template_specification: Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']] = None,
                  weighted_capacity: Optional[pulumi.Input[str]] = None):
+        """
+        Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:
+          +  Override the instance type that is specified in the launch template.
+          +  Use multiple instance types.
+          
+         Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.
+         After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
+          ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+        :param pulumi.Input['AutoScalingGroupInstanceRequirementsArgs'] instance_requirements: The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
+                You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. 
+                 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+        :param pulumi.Input[str] instance_type: The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+                You can specify up to 40 instance types per Auto Scaling group.
+        :param pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs'] launch_template_specification: Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the ``LaunchTemplate`` definition. For more information, see [Specifying a different launch template for an instance type](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html) in the *Amazon EC2 Auto Scaling User Guide*. 
+                You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the ``LaunchTemplate`` definition count towards this limit.
+        :param pulumi.Input[str] weighted_capacity: If you provide a list of instance types to use, you can specify the number of capacity units provided by each instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a ``WeightedCapacity`` of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see [Configure instance weighting for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html) in the *Amazon EC2 Auto Scaling User Guide*. Value must be in the range of 1-999. 
+                If you specify a value for ``WeightedCapacity`` for one instance type, you must specify a value for ``WeightedCapacity`` for all of them.
+                 Every Auto Scaling group has three size parameters (``DesiredCapacity``, ``MaxSize``, and ``MinSize``). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.
+        """
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
@@ -555,6 +914,11 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
     @property
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional[pulumi.Input['AutoScalingGroupInstanceRequirementsArgs']]:
+        """
+        The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
+         You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. 
+          If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+        """
         return pulumi.get(self, "instance_requirements")
 
     @instance_requirements.setter
@@ -564,6 +928,10 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         You can specify up to 40 instance types per Auto Scaling group.
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -573,6 +941,10 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
     @property
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']]:
+        """
+        Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the ``LaunchTemplate`` definition. For more information, see [Specifying a different launch template for an instance type](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html) in the *Amazon EC2 Auto Scaling User Guide*. 
+         You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the ``LaunchTemplate`` definition count towards this limit.
+        """
         return pulumi.get(self, "launch_template_specification")
 
     @launch_template_specification.setter
@@ -582,6 +954,11 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
     @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you provide a list of instance types to use, you can specify the number of capacity units provided by each instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a ``WeightedCapacity`` of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see [Configure instance weighting for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html) in the *Amazon EC2 Auto Scaling User Guide*. Value must be in the range of 1-999. 
+         If you specify a value for ``WeightedCapacity`` for one instance type, you must specify a value for ``WeightedCapacity`` for all of them.
+          Every Auto Scaling group has three size parameters (``DesiredCapacity``, ``MaxSize``, and ``MinSize``). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.
+        """
         return pulumi.get(self, "weighted_capacity")
 
     @weighted_capacity.setter
@@ -595,6 +972,23 @@ class AutoScalingGroupLaunchTemplateSpecificationArgs:
                  version: pulumi.Input[str],
                  launch_template_id: Optional[pulumi.Input[str]] = None,
                  launch_template_name: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies a launch template to use when provisioning EC2 instances for an Auto Scaling group.
+         You must specify the following:
+          +  The ID or the name of the launch template, but not both.
+          +  The version of the launch template.
+          
+         ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
+         For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
+         For examples of launch templates, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) and the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) section in the ``AWS::EC2::LaunchTemplate`` resource.
+        :param pulumi.Input[str] version: The version number of the launch template.
+                Specifying ``$Latest`` or ``$Default`` for the template version number is not supported. However, you can specify ``LatestVersionNumber`` or ``DefaultVersionNumber`` using the ``Fn::GetAtt`` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).
+                 For an example of using the ``Fn::GetAtt`` function, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+        :param pulumi.Input[str] launch_template_id: The ID of the launch template.
+                You must specify the ``LaunchTemplateID`` or the ``LaunchTemplateName``, but not both.
+        :param pulumi.Input[str] launch_template_name: The name of the launch template.
+                You must specify the ``LaunchTemplateName`` or the ``LaunchTemplateID``, but not both.
+        """
         pulumi.set(__self__, "version", version)
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
@@ -604,6 +998,11 @@ class AutoScalingGroupLaunchTemplateSpecificationArgs:
     @property
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
+        """
+        The version number of the launch template.
+         Specifying ``$Latest`` or ``$Default`` for the template version number is not supported. However, you can specify ``LatestVersionNumber`` or ``DefaultVersionNumber`` using the ``Fn::GetAtt`` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).
+          For an example of using the ``Fn::GetAtt`` function, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -613,6 +1012,10 @@ class AutoScalingGroupLaunchTemplateSpecificationArgs:
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the launch template.
+         You must specify the ``LaunchTemplateID`` or the ``LaunchTemplateName``, but not both.
+        """
         return pulumi.get(self, "launch_template_id")
 
     @launch_template_id.setter
@@ -622,6 +1025,10 @@ class AutoScalingGroupLaunchTemplateSpecificationArgs:
     @property
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch template.
+         You must specify the ``LaunchTemplateName`` or the ``LaunchTemplateID``, but not both.
+        """
         return pulumi.get(self, "launch_template_name")
 
     @launch_template_name.setter
@@ -634,6 +1041,12 @@ class AutoScalingGroupLaunchTemplateArgs:
     def __init__(__self__, *,
                  launch_template_specification: pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs'],
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLaunchTemplateOverridesArgs']]]] = None):
+        """
+        Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
+          ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+        :param pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs'] launch_template_specification: The launch template.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLaunchTemplateOverridesArgs']]] overrides: Any properties that you specify override the same properties in the launch template.
+        """
         pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if overrides is not None:
             pulumi.set(__self__, "overrides", overrides)
@@ -641,6 +1054,9 @@ class AutoScalingGroupLaunchTemplateArgs:
     @property
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']:
+        """
+        The launch template.
+        """
         return pulumi.get(self, "launch_template_specification")
 
     @launch_template_specification.setter
@@ -650,6 +1066,9 @@ class AutoScalingGroupLaunchTemplateArgs:
     @property
     @pulumi.getter
     def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupLaunchTemplateOverridesArgs']]]]:
+        """
+        Any properties that you specify override the same properties in the launch template.
+        """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
@@ -667,6 +1086,21 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
                  notification_metadata: Optional[pulumi.Input[str]] = None,
                  notification_target_arn: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        ``LifecycleHookSpecification`` specifies a lifecycle hook for the ``LifecycleHookSpecificationList`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. A lifecycle hook specifies actions to perform when Amazon EC2 Auto Scaling launches or terminates instances. 
+         For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#aws-resource-as-lifecyclehook--examples) section of the ``AWS::AutoScaling::LifecycleHook`` resource.
+        :param pulumi.Input[str] lifecycle_hook_name: The name of the lifecycle hook.
+        :param pulumi.Input[str] lifecycle_transition: The lifecycle transition. For Auto Scaling groups, there are two major lifecycle transitions.
+                 +  To create a lifecycle hook for scale-out events, specify ``autoscaling:EC2_INSTANCE_LAUNCHING``.
+                 +  To create a lifecycle hook for scale-in events, specify ``autoscaling:EC2_INSTANCE_TERMINATING``.
+        :param pulumi.Input[str] default_result: The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The default value is ``ABANDON``.
+                Valid values: ``CONTINUE`` | ``ABANDON``
+        :param pulumi.Input[int] heartbeat_timeout: The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from ``30`` to ``7200`` seconds. The default value is ``3600`` seconds (1 hour).
+        :param pulumi.Input[str] notification_metadata: Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
+        :param pulumi.Input[str] notification_target_arn: The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling sends notifications to when an instance is in a wait state for the lifecycle hook. You can specify an Amazon SNS topic or an Amazon SQS queue.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Configure a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target) in the *Amazon EC2 Auto Scaling User Guide*.
+                Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
+        """
         pulumi.set(__self__, "lifecycle_hook_name", lifecycle_hook_name)
         pulumi.set(__self__, "lifecycle_transition", lifecycle_transition)
         if default_result is not None:
@@ -683,6 +1117,9 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
     @property
     @pulumi.getter(name="lifecycleHookName")
     def lifecycle_hook_name(self) -> pulumi.Input[str]:
+        """
+        The name of the lifecycle hook.
+        """
         return pulumi.get(self, "lifecycle_hook_name")
 
     @lifecycle_hook_name.setter
@@ -692,6 +1129,11 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
     @property
     @pulumi.getter(name="lifecycleTransition")
     def lifecycle_transition(self) -> pulumi.Input[str]:
+        """
+        The lifecycle transition. For Auto Scaling groups, there are two major lifecycle transitions.
+          +  To create a lifecycle hook for scale-out events, specify ``autoscaling:EC2_INSTANCE_LAUNCHING``.
+          +  To create a lifecycle hook for scale-in events, specify ``autoscaling:EC2_INSTANCE_TERMINATING``.
+        """
         return pulumi.get(self, "lifecycle_transition")
 
     @lifecycle_transition.setter
@@ -701,6 +1143,10 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
     @property
     @pulumi.getter(name="defaultResult")
     def default_result(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The default value is ``ABANDON``.
+         Valid values: ``CONTINUE`` | ``ABANDON``
+        """
         return pulumi.get(self, "default_result")
 
     @default_result.setter
@@ -710,6 +1156,9 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
     @property
     @pulumi.getter(name="heartbeatTimeout")
     def heartbeat_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from ``30`` to ``7200`` seconds. The default value is ``3600`` seconds (1 hour).
+        """
         return pulumi.get(self, "heartbeat_timeout")
 
     @heartbeat_timeout.setter
@@ -719,6 +1168,9 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
     @property
     @pulumi.getter(name="notificationMetadata")
     def notification_metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
+        """
         return pulumi.get(self, "notification_metadata")
 
     @notification_metadata.setter
@@ -728,6 +1180,9 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
     @property
     @pulumi.getter(name="notificationTargetArn")
     def notification_target_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling sends notifications to when an instance is in a wait state for the lifecycle hook. You can specify an Amazon SNS topic or an Amazon SQS queue.
+        """
         return pulumi.get(self, "notification_target_arn")
 
     @notification_target_arn.setter
@@ -737,6 +1192,10 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Configure a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target) in the *Amazon EC2 Auto Scaling User Guide*.
+         Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -749,6 +1208,11 @@ class AutoScalingGroupMemoryGiBPerVCpuRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
+        """
+        ``MemoryGiBPerVCpuRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+        :param pulumi.Input[float] max: The memory maximum in GiB.
+        :param pulumi.Input[float] min: The memory minimum in GiB.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -757,6 +1221,9 @@ class AutoScalingGroupMemoryGiBPerVCpuRequestArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        The memory maximum in GiB.
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -766,6 +1233,9 @@ class AutoScalingGroupMemoryGiBPerVCpuRequestArgs:
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        The memory minimum in GiB.
+        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -778,6 +1248,11 @@ class AutoScalingGroupMemoryMiBRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        """
+        ``MemoryMiBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum instance memory size for an instance type, in MiB.
+        :param pulumi.Input[int] max: The memory maximum in MiB.
+        :param pulumi.Input[int] min: The memory minimum in MiB.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -786,6 +1261,9 @@ class AutoScalingGroupMemoryMiBRequestArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The memory maximum in MiB.
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -795,6 +1273,9 @@ class AutoScalingGroupMemoryMiBRequestArgs:
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The memory minimum in MiB.
+        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -807,6 +1288,36 @@ class AutoScalingGroupMetricsCollectionArgs:
     def __init__(__self__, *,
                  granularity: pulumi.Input[str],
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        ``MetricsCollection`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource that describes the group metrics that an Amazon EC2 Auto Scaling group sends to Amazon CloudWatch. These metrics describe the group rather than any of its instances. 
+         For more information, see [Monitor CloudWatch metrics for your Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+        :param pulumi.Input[str] granularity: The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch. The only valid value is ``1Minute``.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] metrics: Identifies the metrics to enable.
+                You can specify one or more of the following metrics:
+                 +   ``GroupMinSize`` 
+                 +   ``GroupMaxSize`` 
+                 +   ``GroupDesiredCapacity`` 
+                 +   ``GroupInServiceInstances`` 
+                 +   ``GroupPendingInstances`` 
+                 +   ``GroupStandbyInstances`` 
+                 +   ``GroupTerminatingInstances`` 
+                 +   ``GroupTotalInstances`` 
+                 +   ``GroupInServiceCapacity`` 
+                 +   ``GroupPendingCapacity`` 
+                 +   ``GroupStandbyCapacity`` 
+                 +   ``GroupTerminatingCapacity`` 
+                 +   ``GroupTotalCapacity`` 
+                 +   ``WarmPoolDesiredCapacity`` 
+                 +   ``WarmPoolWarmedCapacity`` 
+                 +   ``WarmPoolPendingCapacity`` 
+                 +   ``WarmPoolTerminatingCapacity`` 
+                 +   ``WarmPoolTotalCapacity`` 
+                 +   ``GroupAndWarmPoolDesiredCapacity`` 
+                 +   ``GroupAndWarmPoolTotalCapacity`` 
+                 
+                If you specify ``Granularity`` and don't specify any metrics, all metrics are enabled.
+                For more information, see [Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics) in the *Amazon EC2 Auto Scaling User Guide*.
+        """
         pulumi.set(__self__, "granularity", granularity)
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
@@ -814,6 +1325,9 @@ class AutoScalingGroupMetricsCollectionArgs:
     @property
     @pulumi.getter
     def granularity(self) -> pulumi.Input[str]:
+        """
+        The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch. The only valid value is ``1Minute``.
+        """
         return pulumi.get(self, "granularity")
 
     @granularity.setter
@@ -823,6 +1337,33 @@ class AutoScalingGroupMetricsCollectionArgs:
     @property
     @pulumi.getter
     def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Identifies the metrics to enable.
+         You can specify one or more of the following metrics:
+          +   ``GroupMinSize`` 
+          +   ``GroupMaxSize`` 
+          +   ``GroupDesiredCapacity`` 
+          +   ``GroupInServiceInstances`` 
+          +   ``GroupPendingInstances`` 
+          +   ``GroupStandbyInstances`` 
+          +   ``GroupTerminatingInstances`` 
+          +   ``GroupTotalInstances`` 
+          +   ``GroupInServiceCapacity`` 
+          +   ``GroupPendingCapacity`` 
+          +   ``GroupStandbyCapacity`` 
+          +   ``GroupTerminatingCapacity`` 
+          +   ``GroupTotalCapacity`` 
+          +   ``WarmPoolDesiredCapacity`` 
+          +   ``WarmPoolWarmedCapacity`` 
+          +   ``WarmPoolPendingCapacity`` 
+          +   ``WarmPoolTerminatingCapacity`` 
+          +   ``WarmPoolTotalCapacity`` 
+          +   ``GroupAndWarmPoolDesiredCapacity`` 
+          +   ``GroupAndWarmPoolTotalCapacity`` 
+          
+         If you specify ``Granularity`` and don't specify any metrics, all metrics are enabled.
+         For more information, see [Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics) in the *Amazon EC2 Auto Scaling User Guide*.
+        """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
@@ -835,6 +1376,19 @@ class AutoScalingGroupMixedInstancesPolicyArgs:
     def __init__(__self__, *,
                  launch_template: pulumi.Input['AutoScalingGroupLaunchTemplateArgs'],
                  instances_distribution: Optional[pulumi.Input['AutoScalingGroupInstancesDistributionArgs']] = None):
+        """
+        Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.
+         A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
+         You can create a mixed instances policy for new and existing Auto Scaling groups. You must use a launch template to configure the policy. You cannot use a launch configuration.
+         There are key differences between Spot Instances and On-Demand Instances:
+          +  The price for Spot Instances varies based on demand
+          +  Amazon EC2 can terminate an individual Spot Instance as the availability of, or price for, Spot Instances changes
+          
+         When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group. 
+          ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+        :param pulumi.Input['AutoScalingGroupLaunchTemplateArgs'] launch_template: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+        :param pulumi.Input['AutoScalingGroupInstancesDistributionArgs'] instances_distribution: The instances distribution.
+        """
         pulumi.set(__self__, "launch_template", launch_template)
         if instances_distribution is not None:
             pulumi.set(__self__, "instances_distribution", instances_distribution)
@@ -842,6 +1396,9 @@ class AutoScalingGroupMixedInstancesPolicyArgs:
     @property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Input['AutoScalingGroupLaunchTemplateArgs']:
+        """
+        One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+        """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
@@ -851,6 +1408,9 @@ class AutoScalingGroupMixedInstancesPolicyArgs:
     @property
     @pulumi.getter(name="instancesDistribution")
     def instances_distribution(self) -> Optional[pulumi.Input['AutoScalingGroupInstancesDistributionArgs']]:
+        """
+        The instances distribution.
+        """
         return pulumi.get(self, "instances_distribution")
 
     @instances_distribution.setter
@@ -863,6 +1423,12 @@ class AutoScalingGroupNetworkBandwidthGbpsRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
+        """
+        ``NetworkBandwidthGbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum network bandwidth for an instance type, in Gbps.
+          Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide for Linux Instances*.
+        :param pulumi.Input[float] max: The maximum amount of network bandwidth, in gigabits per second (Gbps).
+        :param pulumi.Input[float] min: The minimum amount of network bandwidth, in gigabits per second (Gbps).
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -871,6 +1437,9 @@ class AutoScalingGroupNetworkBandwidthGbpsRequestArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum amount of network bandwidth, in gigabits per second (Gbps).
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -880,6 +1449,9 @@ class AutoScalingGroupNetworkBandwidthGbpsRequestArgs:
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        The minimum amount of network bandwidth, in gigabits per second (Gbps).
+        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -892,6 +1464,11 @@ class AutoScalingGroupNetworkInterfaceCountRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        """
+        ``NetworkInterfaceCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of network interfaces for an instance type.
+        :param pulumi.Input[int] max: The maximum number of network interfaces.
+        :param pulumi.Input[int] min: The minimum number of network interfaces.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -900,6 +1477,9 @@ class AutoScalingGroupNetworkInterfaceCountRequestArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of network interfaces.
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -909,6 +1489,9 @@ class AutoScalingGroupNetworkInterfaceCountRequestArgs:
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of network interfaces.
+        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -921,6 +1504,19 @@ class AutoScalingGroupNotificationConfigurationArgs:
     def __init__(__self__, *,
                  topic_arn: pulumi.Input[Sequence[pulumi.Input[str]]],
                  notification_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        A structure that specifies an Amazon SNS notification configuration for the ``NotificationConfigurations`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+         For an example template snippet, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+         For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_types: A list of event types that send a notification. Event types can include any of the following types. 
+                *Allowed values*:
+                 +   ``autoscaling:EC2_INSTANCE_LAUNCH`` 
+                 +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR`` 
+                 +   ``autoscaling:EC2_INSTANCE_TERMINATE`` 
+                 +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR`` 
+                 +   ``autoscaling:TEST_NOTIFICATION``
+        """
         pulumi.set(__self__, "topic_arn", topic_arn)
         if notification_types is not None:
             pulumi.set(__self__, "notification_types", notification_types)
@@ -928,6 +1524,9 @@ class AutoScalingGroupNotificationConfigurationArgs:
     @property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -937,6 +1536,15 @@ class AutoScalingGroupNotificationConfigurationArgs:
     @property
     @pulumi.getter(name="notificationTypes")
     def notification_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of event types that send a notification. Event types can include any of the following types. 
+         *Allowed values*:
+          +   ``autoscaling:EC2_INSTANCE_LAUNCH`` 
+          +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR`` 
+          +   ``autoscaling:EC2_INSTANCE_TERMINATE`` 
+          +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR`` 
+          +   ``autoscaling:TEST_NOTIFICATION``
+        """
         return pulumi.get(self, "notification_types")
 
     @notification_types.setter
@@ -950,6 +1558,17 @@ class AutoScalingGroupTagPropertyArgs:
                  key: pulumi.Input[str],
                  propagate_at_launch: pulumi.Input[bool],
                  value: pulumi.Input[str]):
+        """
+        A structure that specifies a tag for the ``Tags`` property of [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+         For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+         CloudFormation adds the following tags to all Auto Scaling groups and associated instances: 
+          +  aws:cloudformation:stack-name
+          +  aws:cloudformation:stack-id
+          +  aws:cloudformation:logical-id
+        :param pulumi.Input[str] key: The tag key.
+        :param pulumi.Input[bool] propagate_at_launch: Set to ``true`` if you want CloudFormation to copy the tag to EC2 instances that are launched as part of the Auto Scaling group. Set to ``false`` if you want the tag attached only to the Auto Scaling group and not copied to any instances launched as part of the Auto Scaling group.
+        :param pulumi.Input[str] value: The tag value.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "propagate_at_launch", propagate_at_launch)
         pulumi.set(__self__, "value", value)
@@ -957,6 +1576,9 @@ class AutoScalingGroupTagPropertyArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The tag key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -966,6 +1588,9 @@ class AutoScalingGroupTagPropertyArgs:
     @property
     @pulumi.getter(name="propagateAtLaunch")
     def propagate_at_launch(self) -> pulumi.Input[bool]:
+        """
+        Set to ``true`` if you want CloudFormation to copy the tag to EC2 instances that are launched as part of the Auto Scaling group. Set to ``false`` if you want the tag attached only to the Auto Scaling group and not copied to any instances launched as part of the Auto Scaling group.
+        """
         return pulumi.get(self, "propagate_at_launch")
 
     @propagate_at_launch.setter
@@ -975,6 +1600,9 @@ class AutoScalingGroupTagPropertyArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The tag value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -987,6 +1615,11 @@ class AutoScalingGroupTotalLocalStorageGbRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
+        """
+        ``TotalLocalStorageGBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total local storage size for an instance type, in GB.
+        :param pulumi.Input[float] max: The storage maximum in GB.
+        :param pulumi.Input[float] min: The storage minimum in GB.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -995,6 +1628,9 @@ class AutoScalingGroupTotalLocalStorageGbRequestArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        The storage maximum in GB.
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1004,6 +1640,9 @@ class AutoScalingGroupTotalLocalStorageGbRequestArgs:
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        The storage minimum in GB.
+        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1016,6 +1655,11 @@ class AutoScalingGroupVCpuCountRequestArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
+        """
+        ``VCpuCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of vCPUs for an instance type.
+        :param pulumi.Input[int] max: The maximum number of vCPUs.
+        :param pulumi.Input[int] min: The minimum number of vCPUs.
+        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1024,6 +1668,9 @@ class AutoScalingGroupVCpuCountRequestArgs:
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of vCPUs.
+        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1033,6 +1680,9 @@ class AutoScalingGroupVCpuCountRequestArgs:
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of vCPUs.
+        """
         return pulumi.get(self, "min")
 
     @min.setter

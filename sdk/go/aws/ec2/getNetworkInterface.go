@@ -64,6 +64,8 @@ type LookupNetworkInterfaceResult struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// An arbitrary set of tags (key-value pairs) for this network interface.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceResultOutput {
@@ -193,6 +195,11 @@ func (o LookupNetworkInterfaceResultOutput) SourceDestCheck() pulumi.BoolPtrOutp
 // An arbitrary set of tags (key-value pairs) for this network interface.
 func (o LookupNetworkInterfaceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The ID of the VPC
+func (o LookupNetworkInterfaceResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

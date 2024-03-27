@@ -36,7 +36,6 @@ export interface GetParameterResult {
     readonly dataType?: enums.ssm.ParameterDataType;
     /**
      * The type of parameter.
-     *   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
      */
     readonly type?: enums.ssm.ParameterType;
     /**

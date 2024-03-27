@@ -180,7 +180,6 @@ export class Parameter extends pulumi.CustomResource {
     public readonly tier!: pulumi.Output<enums.ssm.ParameterTier | undefined>;
     /**
      * The type of parameter.
-     *   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
      */
     public readonly type!: pulumi.Output<enums.ssm.ParameterType>;
     /**
@@ -269,7 +268,6 @@ export interface ParameterArgs {
     tier?: pulumi.Input<enums.ssm.ParameterTier>;
     /**
      * The type of parameter.
-     *   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
      */
     type: pulumi.Input<enums.ssm.ParameterType>;
     /**

@@ -10,14 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
+    /// <summary>
+    /// Specifies information required when returning a custom HTTP response.
+    /// </summary>
     public sealed class ListenerRuleFixedResponseConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content type.
+        ///  Valid Values: text/plain | text/css | text/html | application/javascript | application/json
+        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
+        /// <summary>
+        /// The message.
+        /// </summary>
         [Input("messageBody")]
         public Input<string>? MessageBody { get; set; }
 
+        /// <summary>
+        /// The HTTP response code (2XX, 4XX, or 5XX).
+        /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
 

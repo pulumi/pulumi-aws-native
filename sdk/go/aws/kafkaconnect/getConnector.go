@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,6 +32,8 @@ type LookupConnectorResult struct {
 	Capacity *ConnectorCapacity `pulumi:"capacity"`
 	// Amazon Resource Name for the created Connector.
 	ConnectorArn *string `pulumi:"connectorArn"`
+	// A collection of tags associated with a resource
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
@@ -76,6 +79,11 @@ func (o LookupConnectorResultOutput) Capacity() ConnectorCapacityPtrOutput {
 // Amazon Resource Name for the created Connector.
 func (o LookupConnectorResultOutput) ConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorArn }).(pulumi.StringPtrOutput)
+}
+
+// A collection of tags associated with a resource
+func (o LookupConnectorResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConnectorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -118,6 +118,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      * An arbitrary set of tags (key-value pairs) for this network interface.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC
+     */
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -154,6 +158,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["primaryIpv6Address"] = undefined /*out*/;
             resourceInputs["primaryPrivateIpAddress"] = undefined /*out*/;
             resourceInputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["connectionTrackingSpecification"] = undefined /*out*/;
@@ -176,6 +181,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["sourceDestCheck"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["interfaceType", "privateIpAddress", "subnetId"] };

@@ -35,7 +35,7 @@ type LookupUrlResult struct {
 	FunctionArn *string `pulumi:"functionArn"`
 	// The generated url for this resource.
 	FunctionUrl *string `pulumi:"functionUrl"`
-	// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+	// The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
 	InvokeMode *UrlInvokeMode `pulumi:"invokeMode"`
 }
 
@@ -94,7 +94,7 @@ func (o LookupUrlResultOutput) FunctionUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUrlResult) *string { return v.FunctionUrl }).(pulumi.StringPtrOutput)
 }
 
-// The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
+// The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
 func (o LookupUrlResultOutput) InvokeMode() UrlInvokeModePtrOutput {
 	return o.ApplyT(func(v LookupUrlResult) *UrlInvokeMode { return v.InvokeMode }).(UrlInvokeModePtrOutput)
 }

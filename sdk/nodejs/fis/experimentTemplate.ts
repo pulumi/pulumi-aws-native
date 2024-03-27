@@ -162,7 +162,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["targets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["tags.*"] };
+        const replaceOnChanges = { replaceOnChanges: ["experimentOptions.accountTargeting", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ExperimentTemplate.__pulumiType, name, resourceInputs, opts);
     }

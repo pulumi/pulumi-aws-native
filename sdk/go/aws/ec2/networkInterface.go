@@ -58,6 +58,8 @@ type NetworkInterface struct {
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// An arbitrary set of tags (key-value pairs) for this network interface.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
@@ -324,6 +326,11 @@ func (o NetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 // An arbitrary set of tags (key-value pairs) for this network interface.
 func (o NetworkInterfaceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NetworkInterface) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The ID of the VPC
+func (o NetworkInterfaceOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
 func init() {

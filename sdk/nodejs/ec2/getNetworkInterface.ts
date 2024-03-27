@@ -95,6 +95,10 @@ export interface GetNetworkInterfaceResult {
      * An arbitrary set of tags (key-value pairs) for this network interface.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The ID of the VPC
+     */
+    readonly vpcId?: string;
 }
 /**
  * The AWS::EC2::NetworkInterface resource creates network interface

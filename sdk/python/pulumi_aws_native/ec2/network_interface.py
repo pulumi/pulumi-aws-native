@@ -408,6 +408,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["primary_ipv6_address"] = None
             __props__.__dict__["primary_private_ip_address"] = None
             __props__.__dict__["secondary_private_ip_addresses"] = None
+            __props__.__dict__["vpc_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["interfaceType", "privateIpAddress", "subnetId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NetworkInterface, __self__).__init__(
@@ -453,6 +454,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["source_dest_check"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_id"] = None
         return NetworkInterface(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -619,4 +621,12 @@ class NetworkInterface(pulumi.CustomResource):
         An arbitrary set of tags (key-value pairs) for this network interface.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPC
+        """
+        return pulumi.get(self, "vpc_id")
 

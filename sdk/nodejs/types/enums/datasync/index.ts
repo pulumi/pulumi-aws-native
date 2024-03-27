@@ -200,6 +200,24 @@ export const TaskFilterRuleFilterType = {
  */
 export type TaskFilterRuleFilterType = (typeof TaskFilterRuleFilterType)[keyof typeof TaskFilterRuleFilterType];
 
+export const TaskManifestConfigAction = {
+    Transfer: "TRANSFER",
+} as const;
+
+/**
+ * Specifies what DataSync uses the manifest for.
+ */
+export type TaskManifestConfigAction = (typeof TaskManifestConfigAction)[keyof typeof TaskManifestConfigAction];
+
+export const TaskManifestConfigFormat = {
+    Csv: "CSV",
+} as const;
+
+/**
+ * Specifies the file format of your manifest.
+ */
+export type TaskManifestConfigFormat = (typeof TaskManifestConfigFormat)[keyof typeof TaskManifestConfigFormat];
+
 export const TaskOptionsAtime = {
     None: "NONE",
     BestEffort: "BEST_EFFORT",

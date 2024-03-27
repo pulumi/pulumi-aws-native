@@ -229,7 +229,6 @@ type Parameter struct {
 	// The parameter tier.
 	Tier ParameterTierPtrOutput `pulumi:"tier"`
 	// The type of parameter.
-	//   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
 	Type ParameterTypeOutput `pulumi:"type"`
 	// The parameter value.
 	//   If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
@@ -303,7 +302,6 @@ type parameterArgs struct {
 	// The parameter tier.
 	Tier *ParameterTier `pulumi:"tier"`
 	// The type of parameter.
-	//   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
 	Type ParameterType `pulumi:"type"`
 	// The parameter value.
 	//   If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
@@ -329,7 +327,6 @@ type ParameterArgs struct {
 	// The parameter tier.
 	Tier ParameterTierPtrInput
 	// The type of parameter.
-	//   Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
 	Type ParameterTypeInput
 	// The parameter value.
 	//   If type is ``StringList``, the system returns a comma-separated string with no spaces between commas in the ``Value`` field.
@@ -413,8 +410,6 @@ func (o ParameterOutput) Tier() ParameterTierPtrOutput {
 }
 
 // The type of parameter.
-//
-//	Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.
 func (o ParameterOutput) Type() ParameterTypeOutput {
 	return o.ApplyT(func(v *Parameter) ParameterTypeOutput { return v.Type }).(ParameterTypeOutput)
 }

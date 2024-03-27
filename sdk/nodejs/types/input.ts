@@ -3912,138 +3912,590 @@ export namespace auditmanager {
 }
 
 export namespace autoscaling {
+    /**
+     * ``AcceleratorCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of accelerators for an instance type.
+     */
     export interface AutoScalingGroupAcceleratorCountRequestArgs {
+        /**
+         * The maximum value.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum value.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * ``AcceleratorTotalMemoryMiBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total memory size for the accelerators for an instance type, in MiB.
+     */
     export interface AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs {
+        /**
+         * The memory maximum in MiB.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The memory minimum in MiB.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * ``BaselineEbsBandwidthMbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
+     */
     export interface AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs {
+        /**
+         * The maximum value in Mbps.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum value in Mbps.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * ``InstanceMaintenancePolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+     *  For more information, see [Instance maintenance policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     */
     export interface AutoScalingGroupInstanceMaintenancePolicyArgs {
+        /**
+         * Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the maximum percentage of the group that can be in service and healthy, or pending, to support your workload when replacing instances. Value range is 100 to 200. To clear a previously set value, specify a value of ``-1``.
+         *  Both ``MinHealthyPercentage`` and ``MaxHealthyPercentage`` must be specified, and the difference between them cannot be greater than 100. A large range increases the number of instances that can be replaced at the same time.
+         */
         maxHealthyPercentage?: pulumi.Input<number>;
+        /**
+         * Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling group. It represents the minimum percentage of the group to keep in service, healthy, and ready to use to support your workload when replacing instances. Value range is 0 to 100. To clear a previously set value, specify a value of ``-1``.
+         */
         minHealthyPercentage?: pulumi.Input<number>;
     }
 
+    /**
+     * The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
+     *  When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
+     *  To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:
+     *   +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
+     *   +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
+     *   
+     *   You must specify ``VCpuCount`` and ``MemoryMiB``. All other attributes are optional. Any unspecified optional attribute is set to its default.
+     *   For an example template, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+     *  For more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements) in the *Amazon EC2 User Guide for Linux Instances*.
+     *  ``InstanceRequirements`` is a property of the ``LaunchTemplateOverrides`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+     */
     export interface AutoScalingGroupInstanceRequirementsArgs {
+        /**
+         * The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.
+         *  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
+         *  Default: No minimum or maximum limits
+         */
         acceleratorCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAcceleratorCountRequestArgs>;
+        /**
+         * Indicates whether instance types must have accelerators by specific manufacturers.
+         *   +  For instance types with NVIDIA devices, specify ``nvidia``.
+         *   +  For instance types with AMD devices, specify ``amd``.
+         *   +  For instance types with AWS devices, specify ``amazon-web-services``.
+         *   +  For instance types with Xilinx devices, specify ``xilinx``.
+         *   
+         *  Default: Any manufacturer
+         */
         acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Lists the accelerators that must be on an instance type.
+         *   +  For instance types with NVIDIA A100 GPUs, specify ``a100``.
+         *   +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
+         *   +  For instance types with NVIDIA K80 GPUs, specify ``k80``.
+         *   +  For instance types with NVIDIA T4 GPUs, specify ``t4``.
+         *   +  For instance types with NVIDIA M60 GPUs, specify ``m60``.
+         *   +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.
+         *   +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
+         *   
+         *  Default: Any accelerator
+         */
         acceleratorNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The minimum and maximum total memory size for the accelerators on an instance type, in MiB.
+         *  Default: No minimum or maximum limits
+         */
         acceleratorTotalMemoryMiB?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs>;
+        /**
+         * Lists the accelerator types that must be on an instance type.
+         *   +  For instance types with GPU accelerators, specify ``gpu``.
+         *   +  For instance types with FPGA accelerators, specify ``fpga``.
+         *   +  For instance types with inference accelerators, specify ``inference``.
+         *   
+         *  Default: Any accelerator type
+         */
         acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
+         *  You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
+         *  For example, if you specify ``c5*``, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.
+         *   If you specify ``AllowedInstanceTypes``, you can't specify ``ExcludedInstanceTypes``.
+         *   Default: All instance types
+         */
         allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Indicates whether bare metal instance types are included, excluded, or required.
+         *  Default: ``excluded``
+         */
         bareMetal?: pulumi.Input<string>;
+        /**
+         * The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         *  Default: No minimum or maximum limits
+         */
         baselineEbsBandwidthMbps?: pulumi.Input<inputs.autoscaling.AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs>;
+        /**
+         * Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         *  Default: ``excluded``
+         */
         burstablePerformance?: pulumi.Input<string>;
+        /**
+         * Lists which specific CPU manufacturers to include.
+         *   +  For instance types with Intel CPUs, specify ``intel``.
+         *   +  For instance types with AMD CPUs, specify ``amd``.
+         *   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
+         *   
+         *   Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+         *   Default: Any manufacturer
+         */
         cpuManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (``*``), to exclude an instance family, type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``. 
+         *  For example, if you specify ``c5*``, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify ``m5a.*``, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.
+         *   If you specify ``ExcludedInstanceTypes``, you can't specify ``AllowedInstanceTypes``.
+         *   Default: No excluded instance types
+         */
         excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Indicates whether current or previous generation instance types are included.
+         *   +  For current generation instance types, specify ``current``. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         *   +  For previous generation instance types, specify ``previous``.
+         *   
+         *  Default: Any current or previous generation
+         */
         instanceGenerations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances*.
+         *  Default: ``included``
+         */
         localStorage?: pulumi.Input<string>;
+        /**
+         * Indicates the type of local storage that is required.
+         *   +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
+         *   +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
+         *   
+         *  Default: Any local storage type
+         */
         localStorageTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+         *  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+         *  To indicate no price protection threshold, specify a high value, such as ``999999``. 
+         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+         *   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, then ``SpotMaxPricePercentageOverLowestPrice`` is used and the value for that parameter defaults to ``100``.
+         */
         maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: pulumi.Input<number>;
+        /**
+         * The minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+         *  Default: No minimum or maximum limits
+         */
         memoryGiBPerVCpu?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequestArgs>;
+        /**
+         * The minimum and maximum instance memory size for an instance type, in MiB.
+         */
         memoryMiB: pulumi.Input<inputs.autoscaling.AutoScalingGroupMemoryMiBRequestArgs>;
+        /**
+         * The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+         *  Default: No minimum or maximum limits
+         */
         networkBandwidthGbps?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNetworkBandwidthGbpsRequestArgs>;
+        /**
+         * The minimum and maximum number of network interfaces for an instance type.
+         *  Default: No minimum or maximum limits
+         */
         networkInterfaceCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNetworkInterfaceCountRequestArgs>;
+        /**
+         * [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold. 
+         *  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+         *  To turn off price protection, specify a high value, such as ``999999``. 
+         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per instance price. 
+         *  Default: ``20``
+         */
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        /**
+         * Indicates whether instance types must provide On-Demand Instance hibernation support.
+         *  Default: ``false``
+         */
         requireHibernateSupport?: pulumi.Input<boolean>;
+        /**
+         * [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from either the lowest priced current generation instance types or, failing that, the lowest priced previous generation instance types that match your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price exceeds your specified threshold.
+         *  The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+         *  To turn off price protection, specify a high value, such as ``999999``. 
+         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per-vCPU or per-memory price instead of the per instance price. 
+         *   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified.
+         *   Default: ``100``
+         */
         spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        /**
+         * The minimum and maximum total local storage size for an instance type, in GB.
+         *  Default: No minimum or maximum limits
+         */
         totalLocalStorageGb?: pulumi.Input<inputs.autoscaling.AutoScalingGroupTotalLocalStorageGbRequestArgs>;
+        /**
+         * The minimum and maximum number of vCPUs for an instance type.
+         */
         vCpuCount: pulumi.Input<inputs.autoscaling.AutoScalingGroupVCpuCountRequestArgs>;
     }
 
+    /**
+     * Use this structure to specify the distribution of On-Demand Instances and Spot Instances and the allocation strategies used to fulfill On-Demand and Spot capacities for a mixed instances policy.
+     *  For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     *   ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+     */
     export interface AutoScalingGroupInstancesDistributionArgs {
+        /**
+         * The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
+         *  The following lists the valid values:
+         *   + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
+         */
         onDemandAllocationStrategy?: pulumi.Input<string>;
+        /**
+         * The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances. This base portion is launched first as your group scales.
+         *  This number has the same unit of measurement as the group's desired capacity. If you change the default unit of measurement (number of instances) by specifying weighted capacity values in your launch template overrides list, or by changing the default desired capacity type setting of the group, you must specify this number using the same unit of measurement.
+         *  Default: 0
+         *   An update to this setting means a gradual replacement of instances to adjust the current On-Demand Instance levels. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
+         */
         onDemandBaseCapacity?: pulumi.Input<number>;
+        /**
+         * Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond ``OnDemandBaseCapacity``. Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances). If set to 100, only On-Demand Instances are used.
+         *  Default: 100
+         *   An update to this setting means a gradual replacement of instances to adjust the current On-Demand and Spot Instance levels for your additional capacity higher than the base capacity. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the previous ones.
+         */
         onDemandPercentageAboveBaseCapacity?: pulumi.Input<number>;
+        /**
+         * The allocation strategy to apply to your Spot Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
+         *  The following lists the valid values:
+         *   + capacity-optimized Requests Spot Instances using pools that are optimally chosen based on the available Spot capacity. This strategy has the lowest risk of interruption. To give certain instance types a higher chance of launching first, use capacity-optimized-prioritized. + capacity-optimized-prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best effort basis but optimizes for capacity first. Note that if the On-Demand allocation strategy is set to prioritized, the same priority is applied when fulfilling On-Demand capacity. This is not a valid value for Auto Scaling groups that specify InstanceRequirements. + lowest-price Requests Spot Instances using the lowest priced pools within an Availability Zone, across the number of Spot pools that you specify for the SpotInstancePools property. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. This is the default value, but it might lead to high interruption rates because this strategy only considers instance price and not available capacity. + price-capacity-optimized (recommended) The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price.
+         */
         spotAllocationStrategy?: pulumi.Input<string>;
+        /**
+         * The number of Spot Instance pools across which to allocate your Spot Instances. The Spot pools are determined from the different instance types in the overrides. Valid only when the ``SpotAllocationStrategy`` is ``lowest-price``. Value must be in the range of 1–20.
+         *  Default: 2
+         */
         spotInstancePools?: pulumi.Input<number>;
+        /**
+         * The maximum price per unit hour that you are willing to pay for a Spot Instance. If your maximum price is lower than the Spot price for the instance types that you selected, your Spot Instances are not launched. We do not recommend specifying a maximum price because it can lead to increased interruptions. When Spot Instances launch, you pay the current Spot price. To remove a maximum price that you previously set, include the property but specify an empty string ("") for the value.
+         *   If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.
+         *   Valid Range: Minimum value of 0.001
+         */
         spotMaxPrice?: pulumi.Input<string>;
     }
 
+    /**
+     * Use this structure to specify the launch templates and instance types (overrides) for a mixed instances policy.
+     *   ``LaunchTemplate`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
+     */
     export interface AutoScalingGroupLaunchTemplateArgs {
+        /**
+         * The launch template.
+         */
         launchTemplateSpecification: pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateSpecificationArgs>;
+        /**
+         * Any properties that you specify override the same properties in the launch template.
+         */
         overrides?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateOverridesArgs>[]>;
     }
 
+    /**
+     * Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:
+     *   +  Override the instance type that is specified in the launch template.
+     *   +  Use multiple instance types.
+     *   
+     *  Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.
+     *  After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
+     *   ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
+     */
     export interface AutoScalingGroupLaunchTemplateOverridesArgs {
+        /**
+         * The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
+         *  You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. 
+         *   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+         */
         instanceRequirements?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstanceRequirementsArgs>;
+        /**
+         * The instance type, such as ``m3.xlarge``. You must specify an instance type that is supported in your requested Region and Availability Zones. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         *  You can specify up to 40 instance types per Auto Scaling group.
+         */
         instanceType?: pulumi.Input<string>;
+        /**
+         * Provides a launch template for the specified instance type or set of instance requirements. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in the ``LaunchTemplate`` definition. For more information, see [Specifying a different launch template for an instance type](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html) in the *Amazon EC2 Auto Scaling User Guide*. 
+         *  You can specify up to 20 launch templates per Auto Scaling group. The launch templates specified in the overrides and in the ``LaunchTemplate`` definition count towards this limit.
+         */
         launchTemplateSpecification?: pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateSpecificationArgs>;
+        /**
+         * If you provide a list of instance types to use, you can specify the number of capacity units provided by each instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only launch an instance with a ``WeightedCapacity`` of five units, the instance is launched, and the desired capacity is exceeded by three units. For more information, see [Configure instance weighting for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html) in the *Amazon EC2 Auto Scaling User Guide*. Value must be in the range of 1-999. 
+         *  If you specify a value for ``WeightedCapacity`` for one instance type, you must specify a value for ``WeightedCapacity`` for all of them.
+         *   Every Auto Scaling group has three size parameters (``DesiredCapacity``, ``MaxSize``, and ``MinSize``). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.
+         */
         weightedCapacity?: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies a launch template to use when provisioning EC2 instances for an Auto Scaling group.
+     *  You must specify the following:
+     *   +  The ID or the name of the launch template, but not both.
+     *   +  The version of the launch template.
+     *   
+     *  ``LaunchTemplateSpecification`` is property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. It is also a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) and [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property types.
+     *  For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     *  For examples of launch templates, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html) and the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) section in the ``AWS::EC2::LaunchTemplate`` resource.
+     */
     export interface AutoScalingGroupLaunchTemplateSpecificationArgs {
+        /**
+         * The ID of the launch template.
+         *  You must specify the ``LaunchTemplateID`` or the ``LaunchTemplateName``, but not both.
+         */
         launchTemplateId?: pulumi.Input<string>;
+        /**
+         * The name of the launch template.
+         *  You must specify the ``LaunchTemplateName`` or the ``LaunchTemplateID``, but not both.
+         */
         launchTemplateName?: pulumi.Input<string>;
+        /**
+         * The version number of the launch template.
+         *  Specifying ``$Latest`` or ``$Default`` for the template version number is not supported. However, you can specify ``LatestVersionNumber`` or ``DefaultVersionNumber`` using the ``Fn::GetAtt`` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).
+         *   For an example of using the ``Fn::GetAtt`` function, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+         */
         version: pulumi.Input<string>;
     }
 
+    /**
+     * ``LifecycleHookSpecification`` specifies a lifecycle hook for the ``LifecycleHookSpecificationList`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource. A lifecycle hook specifies actions to perform when Amazon EC2 Auto Scaling launches or terminates instances. 
+     *  For more information, see [Amazon EC2 Auto Scaling lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#aws-resource-as-lifecyclehook--examples) section of the ``AWS::AutoScaling::LifecycleHook`` resource.
+     */
     export interface AutoScalingGroupLifecycleHookSpecificationArgs {
+        /**
+         * The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The default value is ``ABANDON``.
+         *  Valid values: ``CONTINUE`` | ``ABANDON``
+         */
         defaultResult?: pulumi.Input<string>;
+        /**
+         * The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from ``30`` to ``7200`` seconds. The default value is ``3600`` seconds (1 hour).
+         */
         heartbeatTimeout?: pulumi.Input<number>;
+        /**
+         * The name of the lifecycle hook.
+         */
         lifecycleHookName: pulumi.Input<string>;
+        /**
+         * The lifecycle transition. For Auto Scaling groups, there are two major lifecycle transitions.
+         *   +  To create a lifecycle hook for scale-out events, specify ``autoscaling:EC2_INSTANCE_LAUNCHING``.
+         *   +  To create a lifecycle hook for scale-in events, specify ``autoscaling:EC2_INSTANCE_TERMINATING``.
+         */
         lifecycleTransition: pulumi.Input<string>;
+        /**
+         * Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
+         */
         notificationMetadata?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling sends notifications to when an instance is in a wait state for the lifecycle hook. You can specify an Amazon SNS topic or an Amazon SQS queue.
+         */
         notificationTargetArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target. For information about creating this role, see [Configure a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target) in the *Amazon EC2 Auto Scaling User Guide*.
+         *  Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.
+         */
         roleArn?: pulumi.Input<string>;
     }
 
+    /**
+     * ``MemoryGiBPerVCpuRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum amount of memory per vCPU for an instance type, in GiB.
+     */
     export interface AutoScalingGroupMemoryGiBPerVCpuRequestArgs {
+        /**
+         * The memory maximum in GiB.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The memory minimum in GiB.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * ``MemoryMiBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum instance memory size for an instance type, in MiB.
+     */
     export interface AutoScalingGroupMemoryMiBRequestArgs {
+        /**
+         * The memory maximum in MiB.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The memory minimum in MiB.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * ``MetricsCollection`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource that describes the group metrics that an Amazon EC2 Auto Scaling group sends to Amazon CloudWatch. These metrics describe the group rather than any of its instances. 
+     *  For more information, see [Monitor CloudWatch metrics for your Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+     */
     export interface AutoScalingGroupMetricsCollectionArgs {
+        /**
+         * The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch. The only valid value is ``1Minute``.
+         */
         granularity: pulumi.Input<string>;
+        /**
+         * Identifies the metrics to enable.
+         *  You can specify one or more of the following metrics:
+         *   +   ``GroupMinSize`` 
+         *   +   ``GroupMaxSize`` 
+         *   +   ``GroupDesiredCapacity`` 
+         *   +   ``GroupInServiceInstances`` 
+         *   +   ``GroupPendingInstances`` 
+         *   +   ``GroupStandbyInstances`` 
+         *   +   ``GroupTerminatingInstances`` 
+         *   +   ``GroupTotalInstances`` 
+         *   +   ``GroupInServiceCapacity`` 
+         *   +   ``GroupPendingCapacity`` 
+         *   +   ``GroupStandbyCapacity`` 
+         *   +   ``GroupTerminatingCapacity`` 
+         *   +   ``GroupTotalCapacity`` 
+         *   +   ``WarmPoolDesiredCapacity`` 
+         *   +   ``WarmPoolWarmedCapacity`` 
+         *   +   ``WarmPoolPendingCapacity`` 
+         *   +   ``WarmPoolTerminatingCapacity`` 
+         *   +   ``WarmPoolTotalCapacity`` 
+         *   +   ``GroupAndWarmPoolDesiredCapacity`` 
+         *   +   ``GroupAndWarmPoolTotalCapacity`` 
+         *   
+         *  If you specify ``Granularity`` and don't specify any metrics, all metrics are enabled.
+         *  For more information, see [Auto Scaling group metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics) in the *Amazon EC2 Auto Scaling User Guide*.
+         */
         metrics?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Use this structure to launch multiple instance types and On-Demand Instances and Spot Instances within a single Auto Scaling group.
+     *  A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch instances and help optimize your costs. For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     *  You can create a mixed instances policy for new and existing Auto Scaling groups. You must use a launch template to configure the policy. You cannot use a launch configuration.
+     *  There are key differences between Spot Instances and On-Demand Instances:
+     *   +  The price for Spot Instances varies based on demand
+     *   +  Amazon EC2 can terminate an individual Spot Instance as the availability of, or price for, Spot Instances changes
+     *   
+     *  When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group. 
+     *   ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+     */
     export interface AutoScalingGroupMixedInstancesPolicyArgs {
+        /**
+         * The instances distribution.
+         */
         instancesDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstancesDistributionArgs>;
+        /**
+         * One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+         */
         launchTemplate: pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateArgs>;
     }
 
+    /**
+     * ``NetworkBandwidthGbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum network bandwidth for an instance type, in Gbps.
+     *   Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide for Linux Instances*.
+     */
     export interface AutoScalingGroupNetworkBandwidthGbpsRequestArgs {
+        /**
+         * The maximum amount of network bandwidth, in gigabits per second (Gbps).
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum amount of network bandwidth, in gigabits per second (Gbps).
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * ``NetworkInterfaceCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of network interfaces for an instance type.
+     */
     export interface AutoScalingGroupNetworkInterfaceCountRequestArgs {
+        /**
+         * The maximum number of network interfaces.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum number of network interfaces.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * A structure that specifies an Amazon SNS notification configuration for the ``NotificationConfigurations`` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+     *  For an example template snippet, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).
+     *  For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     */
     export interface AutoScalingGroupNotificationConfigurationArgs {
+        /**
+         * A list of event types that send a notification. Event types can include any of the following types. 
+         *  *Allowed values*:
+         *   +   ``autoscaling:EC2_INSTANCE_LAUNCH`` 
+         *   +   ``autoscaling:EC2_INSTANCE_LAUNCH_ERROR`` 
+         *   +   ``autoscaling:EC2_INSTANCE_TERMINATE`` 
+         *   +   ``autoscaling:EC2_INSTANCE_TERMINATE_ERROR`` 
+         *   +   ``autoscaling:TEST_NOTIFICATION``
+         */
         notificationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon SNS topic.
+         */
         topicArn: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * A structure that specifies a tag for the ``Tags`` property of [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+     *  For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+     *  CloudFormation adds the following tags to all Auto Scaling groups and associated instances: 
+     *   +  aws:cloudformation:stack-name
+     *   +  aws:cloudformation:stack-id
+     *   +  aws:cloudformation:logical-id
+     */
     export interface AutoScalingGroupTagPropertyArgs {
+        /**
+         * The tag key.
+         */
         key: pulumi.Input<string>;
+        /**
+         * Set to ``true`` if you want CloudFormation to copy the tag to EC2 instances that are launched as part of the Auto Scaling group. Set to ``false`` if you want the tag attached only to the Auto Scaling group and not copied to any instances launched as part of the Auto Scaling group.
+         */
         propagateAtLaunch: pulumi.Input<boolean>;
+        /**
+         * The tag value.
+         */
         value: pulumi.Input<string>;
     }
 
+    /**
+     * ``TotalLocalStorageGBRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum total local storage size for an instance type, in GB.
+     */
     export interface AutoScalingGroupTotalLocalStorageGbRequestArgs {
+        /**
+         * The storage maximum in GB.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The storage minimum in GB.
+         */
         min?: pulumi.Input<number>;
     }
 
+    /**
+     * ``VCpuCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of vCPUs for an instance type.
+     */
     export interface AutoScalingGroupVCpuCountRequestArgs {
+        /**
+         * The maximum number of vCPUs.
+         */
         max?: pulumi.Input<number>;
+        /**
+         * The minimum number of vCPUs.
+         */
         min?: pulumi.Input<number>;
     }
 
@@ -9080,6 +9532,53 @@ export namespace datasync {
     }
 
     /**
+     * Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+     */
+    export interface TaskManifestConfigArgs {
+        /**
+         * Specifies what DataSync uses the manifest for.
+         */
+        action?: pulumi.Input<enums.datasync.TaskManifestConfigAction>;
+        /**
+         * Specifies the file format of your manifest.
+         */
+        format?: pulumi.Input<enums.datasync.TaskManifestConfigFormat>;
+        /**
+         * Specifies the manifest that you want DataSync to use and where it's hosted.
+         */
+        source: pulumi.Input<inputs.datasync.TaskManifestConfigSourcePropertiesArgs>;
+    }
+
+    /**
+     * Specifies the manifest that you want DataSync to use and where it's hosted.
+     */
+    export interface TaskManifestConfigSourcePropertiesArgs {
+        s3?: pulumi.Input<inputs.datasync.TaskManifestConfigSourceS3Args>;
+    }
+
+    /**
+     * Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+     */
+    export interface TaskManifestConfigSourceS3Args {
+        /**
+         * Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+         */
+        bucketAccessRoleArn?: pulumi.Input<string>;
+        /**
+         * Specifies the Amazon S3 object key of your manifest.
+         */
+        manifestObjectPath?: pulumi.Input<string>;
+        /**
+         * Specifies the object version ID of the manifest that you want DataSync to use.
+         */
+        manifestObjectVersionId?: pulumi.Input<string>;
+        /**
+         * Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+         */
+        s3BucketArn?: pulumi.Input<string>;
+    }
+
+    /**
      * Represents the options that are available to control the behavior of a StartTaskExecution operation.
      */
     export interface TaskOptionsArgs {
@@ -9175,16 +9674,13 @@ export namespace datasync {
      * Specifies where DataSync uploads your task report.
      */
     export interface TaskReportConfigDestinationPropertiesArgs {
-        /**
-         * Specifies the Amazon S3 bucket where DataSync uploads your task report.
-         */
-        s3?: pulumi.Input<inputs.datasync.TaskReportConfigDestinationPropertiesS3PropertiesArgs>;
+        s3?: pulumi.Input<inputs.datasync.TaskReportConfigDestinationS3Args>;
     }
 
     /**
      * Specifies the Amazon S3 bucket where DataSync uploads your task report.
      */
-    export interface TaskReportConfigDestinationPropertiesS3PropertiesArgs {
+    export interface TaskReportConfigDestinationS3Args {
         /**
          * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
          */
@@ -14827,111 +15323,386 @@ export namespace elasticloadbalancingv2 {
         statusCode: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies an action for a listener rule.
+     */
     export interface ListenerRuleActionArgs {
+        /**
+         * [HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when ``Type`` is ``authenticate-cognito``.
+         */
         authenticateCognitoConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleAuthenticateCognitoConfigArgs>;
+        /**
+         * [HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when ``Type`` is ``authenticate-oidc``.
+         */
         authenticateOidcConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleAuthenticateOidcConfigArgs>;
+        /**
+         * [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
+         */
         fixedResponseConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleFixedResponseConfigArgs>;
+        /**
+         * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+         */
         forwardConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleForwardConfigArgs>;
+        /**
+         * The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
+         */
         order?: pulumi.Input<number>;
+        /**
+         * [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
+         */
         redirectConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleRedirectConfigArgs>;
+        /**
+         * The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+         */
         targetGroupArn?: pulumi.Input<string>;
+        /**
+         * The type of action.
+         */
         type: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies information required when integrating with Amazon Cognito to authenticate users.
+     */
     export interface ListenerRuleAuthenticateCognitoConfigArgs {
+        /**
+         * The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+         */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The behavior if the user is not authenticated. The following are possible values:
+         *   +  deny```` - Return an HTTP 401 Unauthorized error.
+         *   +  allow```` - Allow the request to be forwarded to the target.
+         *   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+         */
         onUnauthenticatedRequest?: pulumi.Input<string>;
+        /**
+         * The set of user claims to be requested from the IdP. The default is ``openid``.
+         *  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+         */
         scope?: pulumi.Input<string>;
+        /**
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+         */
         sessionCookieName?: pulumi.Input<string>;
+        /**
+         * The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+         */
         sessionTimeout?: pulumi.Input<number>;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+         */
         userPoolArn: pulumi.Input<string>;
+        /**
+         * The ID of the Amazon Cognito user pool client.
+         */
         userPoolClientId: pulumi.Input<string>;
+        /**
+         * The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+         */
         userPoolDomain: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.
+     */
     export interface ListenerRuleAuthenticateOidcConfigArgs {
+        /**
+         * The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+         */
         authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         authorizationEndpoint: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client identifier.
+         */
         clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set ``UseExistingClientSecret`` to true.
+         */
         clientSecret?: pulumi.Input<string>;
+        /**
+         * The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         issuer: pulumi.Input<string>;
+        /**
+         * The behavior if the user is not authenticated. The following are possible values:
+         *   +  deny```` - Return an HTTP 401 Unauthorized error.
+         *   +  allow```` - Allow the request to be forwarded to the target.
+         *   +  authenticate```` - Redirect the request to the IdP authorization endpoint. This is the default value.
+         */
         onUnauthenticatedRequest?: pulumi.Input<string>;
+        /**
+         * The set of user claims to be requested from the IdP. The default is ``openid``.
+         *  To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+         */
         scope?: pulumi.Input<string>;
+        /**
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+         */
         sessionCookieName?: pulumi.Input<string>;
+        /**
+         * The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+         */
         sessionTimeout?: pulumi.Input<number>;
+        /**
+         * The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         tokenEndpoint: pulumi.Input<string>;
+        /**
+         * Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+         */
         useExistingClientSecret?: pulumi.Input<boolean>;
+        /**
+         * The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+         */
         userInfoEndpoint: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies information required when returning a custom HTTP response.
+     */
     export interface ListenerRuleFixedResponseConfigArgs {
+        /**
+         * The content type.
+         *  Valid Values: text/plain | text/css | text/html | application/javascript | application/json
+         */
         contentType?: pulumi.Input<string>;
+        /**
+         * The message.
+         */
         messageBody?: pulumi.Input<string>;
+        /**
+         * The HTTP response code (2XX, 4XX, or 5XX).
+         */
         statusCode: pulumi.Input<string>;
     }
 
+    /**
+     * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+     */
     export interface ListenerRuleForwardConfigArgs {
+        /**
+         * Information about the target group stickiness for a rule.
+         */
         targetGroupStickinessConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleTargetGroupStickinessConfigArgs>;
+        /**
+         * Information about how traffic will be distributed between multiple target groups in a forward rule.
+         */
         targetGroups?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleTargetGroupTupleArgs>[]>;
     }
 
+    /**
+     * Information about a host header condition.
+     */
     export interface ListenerRuleHostHeaderConfigArgs {
+        /**
+         * The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+         *  If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
+         */
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Information about an HTTP header condition.
+     *  There is a set of standard HTTP header fields. You can also define custom HTTP header fields.
+     */
     export interface ListenerRuleHttpHeaderConfigArgs {
+        /**
+         * The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
+         */
         httpHeaderName?: pulumi.Input<string>;
+        /**
+         * The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+         *  If the same header appears multiple times in the request, we search them in order until a match is found.
+         *  If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
+         */
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Information about an HTTP method condition.
+     *  HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.
+     */
     export interface ListenerRuleHttpRequestMethodConfigArgs {
+        /**
+         * The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+         *  If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
+         */
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Information about a path pattern condition.
+     */
     export interface ListenerRulePathPatternConfigArgs {
+        /**
+         * The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+         *  If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
+         */
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Information about a query string condition.
+     *  The query string component of a URI starts after the first '?' character and is terminated by either a '#' character or the end of the URI. A typical query string contains key/value pairs separated by '&' characters. The allowed characters are specified by RFC 3986. Any character can be percentage encoded.
+     */
     export interface ListenerRuleQueryStringConfigArgs {
+        /**
+         * The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
+         *  If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
+         */
         values?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleQueryStringKeyValueArgs>[]>;
     }
 
+    /**
+     * Information about a key/value pair.
+     */
     export interface ListenerRuleQueryStringKeyValueArgs {
+        /**
+         * The key. You can omit the key.
+         */
         key?: pulumi.Input<string>;
+        /**
+         * The value.
+         */
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * Information about a redirect action.
+     *  A URI consists of the following components: protocol://hostname:port/path?query. You must modify at least one of the following components to avoid a redirect loop: protocol, hostname, port, or path. Any components that you do not modify retain their original values.
+     *  You can reuse URI components using the following reserved keywords:
+     *   +  #{protocol}
+     *   +  #{host}
+     *   +  #{port}
+     *   +  #{path} (the leading "/" is removed)
+     *   +  #{query}
+     *   
+     *  For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
+     */
     export interface ListenerRuleRedirectConfigArgs {
+        /**
+         * The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+         */
         host?: pulumi.Input<string>;
+        /**
+         * The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
+         */
         path?: pulumi.Input<string>;
+        /**
+         * The port. You can specify a value from 1 to 65535 or #{port}.
+         */
         port?: pulumi.Input<string>;
+        /**
+         * The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+         */
         protocol?: pulumi.Input<string>;
+        /**
+         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
+         */
         query?: pulumi.Input<string>;
+        /**
+         * The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
+         */
         statusCode: pulumi.Input<string>;
     }
 
+    /**
+     * Specifies a condition for a listener rule.
+     */
     export interface ListenerRuleRuleConditionArgs {
+        /**
+         * The field in the HTTP request. The following are the possible values:
+         *   +   ``http-header`` 
+         *   +   ``http-request-method`` 
+         *   +   ``host-header`` 
+         *   +   ``path-pattern`` 
+         *   +   ``query-string`` 
+         *   +   ``source-ip``
+         */
         field?: pulumi.Input<string>;
+        /**
+         * Information for a host header condition. Specify only when ``Field`` is ``host-header``.
+         */
         hostHeaderConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleHostHeaderConfigArgs>;
+        /**
+         * Information for an HTTP header condition. Specify only when ``Field`` is ``http-header``.
+         */
         httpHeaderConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleHttpHeaderConfigArgs>;
+        /**
+         * Information for an HTTP method condition. Specify only when ``Field`` is ``http-request-method``.
+         */
         httpRequestMethodConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleHttpRequestMethodConfigArgs>;
+        /**
+         * Information for a path pattern condition. Specify only when ``Field`` is ``path-pattern``.
+         */
         pathPatternConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRulePathPatternConfigArgs>;
+        /**
+         * Information for a query string condition. Specify only when ``Field`` is ``query-string``.
+         */
         queryStringConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleQueryStringConfigArgs>;
+        /**
+         * Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
+         */
         sourceIpConfig?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleSourceIpConfigArgs>;
+        /**
+         * The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
+         *  If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
+         *   +  A-Z, a-z, 0-9
+         *   +  - .
+         *   +  * (matches 0 or more characters)
+         *   +  ? (matches exactly 1 character)
+         *   
+         *  If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
+         *   +  A-Z, a-z, 0-9
+         *   +  _ - . $ / ~ " ' @ : +
+         *   +  & (using &amp;)
+         *   +  * (matches 0 or more characters)
+         *   +  ? (matches exactly 1 character)
+         */
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Information about a source IP condition.
+     *  You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+     */
     export interface ListenerRuleSourceIpConfigArgs {
+        /**
+         * The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
+         *  If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
+         */
         values?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Information about the target group stickiness for a rule.
+     */
     export interface ListenerRuleTargetGroupStickinessConfigArgs {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         */
         durationSeconds?: pulumi.Input<number>;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
         enabled?: pulumi.Input<boolean>;
     }
 
+    /**
+     * Information about how traffic will be distributed between multiple target groups in a forward rule.
+     */
     export interface ListenerRuleTargetGroupTupleArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the target group.
+         */
         targetGroupArn?: pulumi.Input<string>;
+        /**
+         * The weight. The range is 0 to 999.
+         */
         weight?: pulumi.Input<number>;
     }
 
