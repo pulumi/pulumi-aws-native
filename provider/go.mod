@@ -25,9 +25,10 @@ require (
 	github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54
 	github.com/pulumi/providertest v0.0.10
 	github.com/pulumi/pulumi-go-provider v0.14.1-0.20240312115843-96cd54a979b1
-	github.com/pulumi/pulumi/pkg/v3 v3.110.0
-	github.com/pulumi/pulumi/sdk/v3 v3.110.0
+	github.com/pulumi/pulumi/pkg/v3 v3.111.1
+	github.com/pulumi/pulumi/sdk/v3 v3.111.1
 	github.com/stretchr/testify v1.8.4
+	github.com/wI2L/jsondiff v0.5.1
 	github.com/zclconf/go-cty v1.13.2
 	google.golang.org/grpc v1.59.0
 	google.golang.org/protobuf v1.33.0
@@ -175,6 +176,10 @@ require (
 	github.com/spf13/cobra v1.7.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
+	github.com/tidwall/gjson v1.17.0 // indirect
+	github.com/tidwall/match v1.1.1 // indirect
+	github.com/tidwall/pretty v1.2.1 // indirect
+	github.com/tidwall/sjson v1.2.5 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect

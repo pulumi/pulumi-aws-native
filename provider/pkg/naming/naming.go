@@ -1,6 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
-package schema
+package naming
 
 import (
 	"strings"
@@ -12,7 +12,7 @@ func ToSdkName(s string) string {
 	if s == "" {
 		return s
 	}
-	s = lowerAcronyms(s)
+	s = LowerAcronyms(s)
 	if r := rune(s[0]); r >= 'A' && r <= 'Z' {
 		s = strings.ToLower(string(r)) + s[1:]
 	}
@@ -52,7 +52,7 @@ func HasUppercaseAcronym(s string) bool {
 }
 
 // lowers the trailing chars of any uppercase acronyms
-func lowerAcronyms(s string) string {
+func LowerAcronyms(s string) string {
 	startIndex, endIndex := firstUppercaseAcronym(s)
 	if startIndex == -1 {
 		return s
@@ -61,7 +61,7 @@ func lowerAcronyms(s string) string {
 	// Note: we've defined uppercase to be ASCII [A-Z] so index math is safe here
 	startIndex = startIndex + 1 // don't lower the first char of the run
 
-	return s[:startIndex] + strings.ToLower(s[startIndex:endIndex]) + lowerAcronyms(s[endIndex:])
+	return s[:startIndex] + strings.ToLower(s[startIndex:endIndex]) + LowerAcronyms(s[endIndex:])
 }
 
 // Returns the indices of the first Uppercase acronym in the string

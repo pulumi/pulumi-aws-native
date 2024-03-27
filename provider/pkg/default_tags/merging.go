@@ -1,13 +1,12 @@
-package provider
+package default_tags
 
 import (
 	"fmt"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
-func mergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string, tagsStyle schema.TagsStyle) (resource.PropertyValue, error) {
+func MergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string, tagsStyle TagsStyle) (resource.PropertyValue, error) {
 	if len(defaultTags) == 0 {
 		return tags, nil
 	}
@@ -34,6 +33,12 @@ func mergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string
 
 	if tagsStyle.IsKeyValueArray() {
 		var asArray []resource.PropertyValue
+		keyProp := resource.PropertyKey("key")
+		valueProp := resource.PropertyKey("value")
+		if tagsStyle == TagsStyleKeyValueArrayUpperCase {
+			keyProp = resource.PropertyKey("Key")
+			valueProp = resource.PropertyKey("Value")
+		}
 
 		if tags.IsArray() {
 			asArray = tags.ArrayValue()
@@ -46,10 +51,10 @@ func mergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string
 				return tags, fmt.Errorf("expected tags to be an array of objects but found %v", tag.TypeString())
 			}
 			asObject := tag.ObjectValue()
-			if !asObject.HasValue("key") || !asObject.HasValue("value") {
-				return tags, fmt.Errorf("expected tags to be an array of objects with 'key' and 'value' properties but found %v", tag.TypeString())
+			if !asObject.HasValue(keyProp) || !asObject.HasValue(valueProp) {
+				return tags, fmt.Errorf("expected tags to be an array of objects with '%s' and '%s' properties but found %v", keyProp, valueProp, tag.TypeString())
 			}
-			key := asObject["key"]
+			key := asObject[keyProp]
 			if key.IsString() {
 				existingKeys[key.StringValue()] = true
 			}
@@ -57,8 +62,8 @@ func mergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string
 		for k, v := range defaultTags {
 			if _, ok := existingKeys[k]; !ok {
 				asArray = append(asArray, resource.NewObjectProperty(map[resource.PropertyKey]resource.PropertyValue{
-					"key":   resource.NewStringProperty(k),
-					"value": resource.NewStringProperty(v),
+					keyProp:   resource.NewStringProperty(k),
+					valueProp: resource.NewStringProperty(v),
 				}))
 			}
 		}

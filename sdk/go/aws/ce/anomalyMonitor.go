@@ -472,9 +472,6 @@ func NewAnomalyMonitor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.MonitorName == nil {
-		return nil, errors.New("invalid value for required argument 'MonitorName'")
-	}
 	if args.MonitorType == nil {
 		return nil, errors.New("invalid value for required argument 'MonitorType'")
 	}
@@ -521,7 +518,7 @@ type anomalyMonitorArgs struct {
 	// The dimensions to evaluate
 	MonitorDimension *AnomalyMonitorMonitorDimension `pulumi:"monitorDimension"`
 	// The name of the monitor.
-	MonitorName          string                    `pulumi:"monitorName"`
+	MonitorName          *string                   `pulumi:"monitorName"`
 	MonitorSpecification *string                   `pulumi:"monitorSpecification"`
 	MonitorType          AnomalyMonitorMonitorType `pulumi:"monitorType"`
 	// Tags to assign to monitor.
@@ -533,7 +530,7 @@ type AnomalyMonitorArgs struct {
 	// The dimensions to evaluate
 	MonitorDimension AnomalyMonitorMonitorDimensionPtrInput
 	// The name of the monitor.
-	MonitorName          pulumi.StringInput
+	MonitorName          pulumi.StringPtrInput
 	MonitorSpecification pulumi.StringPtrInput
 	MonitorType          AnomalyMonitorMonitorTypeInput
 	// Tags to assign to monitor.

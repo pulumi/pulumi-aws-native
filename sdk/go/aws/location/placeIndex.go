@@ -40,9 +40,6 @@ func NewPlaceIndex(ctx *pulumi.Context,
 	if args.DataSource == nil {
 		return nil, errors.New("invalid value for required argument 'DataSource'")
 	}
-	if args.IndexName == nil {
-		return nil, errors.New("invalid value for required argument 'IndexName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"dataSource",
 		"indexName",
@@ -84,7 +81,7 @@ type placeIndexArgs struct {
 	DataSource              string                             `pulumi:"dataSource"`
 	DataSourceConfiguration *PlaceIndexDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	Description             *string                            `pulumi:"description"`
-	IndexName               string                             `pulumi:"indexName"`
+	IndexName               *string                            `pulumi:"indexName"`
 	PricingPlan             *PlaceIndexPricingPlan             `pulumi:"pricingPlan"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -95,7 +92,7 @@ type PlaceIndexArgs struct {
 	DataSource              pulumi.StringInput
 	DataSourceConfiguration PlaceIndexDataSourceConfigurationPtrInput
 	Description             pulumi.StringPtrInput
-	IndexName               pulumi.StringInput
+	IndexName               pulumi.StringPtrInput
 	PricingPlan             PlaceIndexPricingPlanPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput

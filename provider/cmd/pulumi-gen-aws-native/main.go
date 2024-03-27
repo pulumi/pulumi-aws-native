@@ -25,6 +25,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation/types"
 	"github.com/pkg/errors"
 	jsschema "github.com/pulumi/jsschema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
@@ -122,7 +123,7 @@ func main() {
 	}
 }
 
-func readJsonSchemas(schemaDir string) (res []jsschema.Schema) {
+func readJsonSchemas(schemaDir string) (res []*jsschema.Schema) {
 	var fileNames []string
 	root := filepath.Join(".", schemaDir)
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
@@ -142,13 +143,13 @@ func readJsonSchemas(schemaDir string) (res []jsschema.Schema) {
 	return
 }
 
-func readJsonSchema(schemaPath string) jsschema.Schema {
+func readJsonSchema(schemaPath string) *jsschema.Schema {
 	s, err := jsschema.ReadFile(schemaPath)
 	if err != nil {
 		panic(errors.Wrapf(err, schemaPath))
 	}
 
-	return *s
+	return s
 }
 
 const supportedResourcesFile = "supported-types.txt"
@@ -292,7 +293,7 @@ func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, includeUncomp
 	return nil
 }
 
-func writeMetadata(metadata *schema.CloudAPIMetadata, outDir string, includeUncompressed bool) error {
+func writeMetadata(metadata *metadata.CloudAPIMetadata, outDir string, includeUncompressed bool) error {
 	compressedMeta := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedMeta)
 	err := json.NewEncoder(compressedWriter).Encode(metadata)

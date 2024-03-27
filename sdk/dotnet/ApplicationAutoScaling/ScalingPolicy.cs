@@ -135,8 +135,8 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         /// 
         /// Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// The scaling policy type.

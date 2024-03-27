@@ -12,6 +12,11 @@ import (
 
 	"github.com/pkg/errors"
 	jsschema "github.com/pulumi/jsschema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -23,8 +28,8 @@ const globalTagToken = "aws-native:index:Tag"
 const globalCreateOnlyTagToken = "aws-native:index:CreateOnlyTag"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
-func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema,
-	genAll bool, semanticsDocument *SemanticsSpecDocument) (*pschema.PackageSpec, *CloudAPIMetadata, *Reports, error) {
+func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Schema,
+	genAll bool, semanticsDocument *metadata.SemanticsSpecDocument) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
 	globalTagType := pschema.ObjectTypeSpec{
 		Type:        "object",
 		Description: "A set of tags to apply to the resource.",
@@ -365,41 +370,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			},
 		},
 		Resources: map[string]pschema.ResourceSpec{
-			ExtensionResourceToken: {
-				ObjectTypeSpec: pschema.ObjectTypeSpec{
-					Description: "A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.",
-					Properties: map[string]pschema.PropertySpec{
-						"outputs": {
-							Description: "Dictionary of the extension resource attributes.",
-							TypeSpec: pschema.TypeSpec{
-								Type: "object",
-								AdditionalProperties: &pschema.TypeSpec{
-									Ref: "pulumi.json#/Any",
-								},
-							},
-						},
-					},
-					Required: []string{"outputs"},
-				},
-				InputProperties: map[string]pschema.PropertySpec{
-					"type": {
-						Description: "CloudFormation type name.",
-						TypeSpec: pschema.TypeSpec{
-							Type: "string",
-						},
-					},
-					"properties": {
-						Description: "Dictionary of the extension resource properties.",
-						TypeSpec: pschema.TypeSpec{
-							Type: "object",
-							AdditionalProperties: &pschema.TypeSpec{
-								Ref: "pulumi.json#/Any",
-							},
-						},
-					},
-				},
-				RequiredInputs: []string{"type", "properties"},
-			},
+			metadata.ExtensionResourceToken: resources.ExtensionResourceSpec(),
 		},
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]pschema.RawMessage{},
@@ -429,15 +400,9 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		},
 	})
 
-	metadata := CloudAPIMetadata{
-		Resources: map[string]CloudAPIResource{
-			ExtensionResourceToken: {
-				Inputs:     p.Resources[ExtensionResourceToken].InputProperties,
-				Outputs:    p.Resources[ExtensionResourceToken].Properties,
-				CreateOnly: []string{"type", "properties"},
-			},
-		},
-		Types: map[string]CloudAPIType{
+	metadata := metadata.CloudAPIMetadata{
+		Resources: map[string]metadata.CloudAPIResource{},
+		Types: map[string]metadata.CloudAPIType{
 			globalTagToken: {
 				Type:       "object",
 				Properties: globalTagType.Properties,
@@ -447,12 +412,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				Properties: globalCreateOnlyTagType.Properties,
 			},
 		},
-		Functions: map[string]CloudAPIFunction{},
+		Functions: map[string]metadata.CloudAPIFunction{},
 	}
 
-	reports := &Reports{
-		UnexpectedTagsShapes: map[string]interface{}{},
-	}
+	reports := NewReports()
 
 	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
 
@@ -464,14 +427,14 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			resourceName, resourceToken := typeToken(cfTypeName)
 			fullMod := moduleName(cfTypeName)
 			mod := strings.ToLower(fullMod)
-			ctx := &context{
+			ctx := &cfSchemaContext{
 				pkg:           &p,
 				metadata:      &metadata,
 				cfTypeName:    cfTypeName,
 				mod:           mod,
 				resourceName:  resourceName,
 				resourceToken: resourceToken,
-				resourceSpec:  &jsonSchema,
+				resourceSpec:  jsonSchema,
 				visitedTypes:  codegen.NewStringSet(),
 				isSupported:   isSupported,
 				semantics:     semanticsDocument,
@@ -623,10 +586,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 	return &p, &metadata, reports, nil
 }
 
-// context holds shared information for a single CF JSON schema.
-type context struct {
+// cfSchemaContext holds shared information for a single CF JSON schema.
+type cfSchemaContext struct {
 	pkg           *pschema.PackageSpec
-	metadata      *CloudAPIMetadata
+	metadata      *metadata.CloudAPIMetadata
 	cfTypeName    string
 	mod           string
 	resourceName  string
@@ -634,13 +597,13 @@ type context struct {
 	resourceSpec  *jsschema.Schema
 	visitedTypes  codegen.StringSet
 	isSupported   bool
-	semantics     *SemanticsSpecDocument
+	semantics     *metadata.SemanticsSpecDocument
 	reports       *Reports
 }
 
-func (ctx *context) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
+func (ctx *cfSchemaContext) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
 	errs := []error{}
-	for propPath, _ := range createOnlyProperties {
+	for propPath := range createOnlyProperties {
 		// each path in createOnlyProperties is delimited with "/"
 		path := strings.Split(propPath, "/")
 		prop, ok := resource.Properties[path[0]]
@@ -660,7 +623,7 @@ func (ctx *context) markCreateOnlyProperties(createOnlyProperties codegen.String
 	return nil
 }
 
-func (ctx *context) markCreateOnlyProperty(propPath []string, property *pschema.PropertySpec) error {
+func (ctx *cfSchemaContext) markCreateOnlyProperty(propPath []string, property *pschema.PropertySpec) error {
 	// base case, just set the flag
 	if len(propPath) == 0 {
 		property.ReplaceOnChanges = true
@@ -690,14 +653,14 @@ func (ctx *context) markCreateOnlyProperty(propPath []string, property *pschema.
 	return errors.Errorf("Property is not a Ref or Array[Ref], can't traverse: %v", property)
 }
 
-func (ctx *context) markCreateOnlyPropertyOnType(propName, typeRef string, remainingPath []string) error {
+func (ctx *cfSchemaContext) markCreateOnlyPropertyOnType(propName, typeRef string, remainingPath []string) error {
 	ref := strings.TrimPrefix(typeRef, "#/types/")
 	propType, ok := ctx.pkg.Types[ref]
 	if !ok {
 		return errors.Errorf("Could not find referencedType: " + typeRef)
 	}
 
-	propertyName := ToSdkName(propName)
+	propertyName := naming.ToSdkName(propName)
 	innerProperty, ok := propType.Properties[propertyName]
 	if !ok {
 		return errors.Errorf("Type %s does not have property named '%s'", typeRef, propertyName)
@@ -711,7 +674,7 @@ func (ctx *context) markCreateOnlyPropertyOnType(propName, typeRef string, remai
 	return nil
 }
 
-func (ctx *context) gatherInvoke() error {
+func (ctx *cfSchemaContext) gatherInvoke() error {
 	resourceTypeName := typeName(ctx.cfTypeName)
 	_, getterToken := getterToken(ctx.cfTypeName)
 
@@ -727,7 +690,7 @@ func (ctx *context) gatherInvoke() error {
 	inputNames := make([]string, len(primaryIdentifier))
 	for i, r := range primaryIdentifier {
 		n := strings.TrimPrefix(r, "/properties/")
-		sdkName := ToSdkName(n)
+		sdkName := naming.ToSdkName(n)
 		inputNames[i] = sdkName
 		s, ok := ctx.resourceSpec.Properties[n]
 		if !ok {
@@ -749,7 +712,7 @@ func (ctx *context) gatherInvoke() error {
 
 	outputs := map[string]pschema.PropertySpec{}
 	for k, v := range ctx.resourceSpec.Properties {
-		sdkName := ToSdkName(k)
+		sdkName := naming.ToSdkName(k)
 		if nonOutputProperties.Has(k) {
 			continue
 		}
@@ -770,7 +733,7 @@ func (ctx *context) gatherInvoke() error {
 	}
 
 	ctx.pkg.Functions[getterToken] = pschema.FunctionSpec{
-		Description: SanitizeCfnString(ctx.resourceSpec.Description),
+		Description: naming.SanitizeCfnString(ctx.resourceSpec.Description),
 		Inputs: &pschema.ObjectTypeSpec{
 			Properties: inputs,
 			Required:   inputNames,
@@ -782,9 +745,9 @@ func (ctx *context) gatherInvoke() error {
 
 	identifiers := make([]string, len(primaryIdentifier))
 	for i, v := range primaryIdentifier {
-		identifiers[i] = ToSdkName(v)
+		identifiers[i] = naming.ToSdkName(v)
 	}
-	ctx.metadata.Functions[getterToken] = CloudAPIFunction{
+	ctx.metadata.Functions[getterToken] = metadata.CloudAPIFunction{
 		CfType:      ctx.cfTypeName,
 		Identifiers: identifiers,
 	}
@@ -814,14 +777,14 @@ func readPropSdkNames(resourceSpec *jsschema.Schema, listName string) codegen.St
 		pSlice := p.([]interface{})
 		for _, v := range pSlice {
 			n := strings.TrimPrefix(v.(string), "/properties/")
-			output.Add(ToSdkName(n))
+			output.Add(naming.ToSdkName(n))
 		}
 	}
 	return output
 }
 
 // gatherResourceType builds the schema for the resource type in the context.
-func (ctx *context) gatherResourceType() error {
+func (ctx *cfSchemaContext) gatherResourceType() error {
 	resourceTypeName := typeName(ctx.cfTypeName)
 
 	writeOnlyProperties := readPropSdkNames(ctx.resourceSpec, "writeOnlyProperties")
@@ -829,13 +792,13 @@ func (ctx *context) gatherResourceType() error {
 	readOnlyProperties := codegen.NewStringSet(readPropNames(ctx.resourceSpec, "readOnlyProperties")...)
 	tagsProp, hasTags := GetTagsProperty(ctx.resourceSpec)
 	requiredProperties := codegen.NewStringSet(ctx.resourceSpec.Required...)
-	var tagsStyle TagsStyle
+	var tagsStyle default_tags.TagsStyle
 
 	irreversibleNames := map[string]string{}
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	for prop, spec := range ctx.resourceSpec.Properties {
-		sdkName := ToSdkName(prop)
+		sdkName := naming.ToSdkName(prop)
 		originalSdkName := sdkName
 		if sdkName == "id" {
 			sdkName = "awsId"
@@ -858,15 +821,20 @@ func (ctx *context) gatherResourceType() error {
 				requiredInputs.Add(sdkName)
 			}
 		}
-		if HasUppercaseAcronym(prop) || ToCfnName(sdkName, nil) != prop {
+		if naming.HasUppercaseAcronym(prop) || naming.ToCfnName(sdkName, nil) != prop {
 			irreversibleNames[sdkName] = prop
 		}
 	}
 
-	autoNamingSpec := ctx.createAutoNamingSpec(inputProperties, resourceTypeName, properties)
+	autoNamingSpec := autonaming.CreateAutoNamingSpec(inputProperties, resourceTypeName, ctx.resourceSpec.Properties, ctx.semantics.Resources[ctx.resourceToken])
 	// If a field can be auto-named, its no longer required.
 	if autoNamingSpec != nil {
 		delete(requiredInputs, autoNamingSpec.SdkName)
+	} else {
+		ctx.reports.MissedAutonaming[ctx.resourceToken] = map[string]any{
+			"cfTypeName": ctx.cfTypeName,
+			"properties": inputProperties,
+		}
 	}
 
 	var deprecationMessage string
@@ -875,7 +843,7 @@ func (ctx *context) gatherResourceType() error {
 	}
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: SanitizeCfnString(ctx.resourceSpec.Description),
+			Description: naming.SanitizeCfnString(ctx.resourceSpec.Description),
 			Properties:  properties,
 			Type:        "object",
 			Required:    required.SortedValues(),
@@ -892,7 +860,7 @@ func (ctx *context) gatherResourceType() error {
 
 	ctx.pkg.Resources[ctx.resourceToken] = resourceSpec
 
-	ctx.metadata.Resources[ctx.resourceToken] = CloudAPIResource{
+	ctx.metadata.Resources[ctx.resourceToken] = metadata.CloudAPIResource{
 		CfType:            ctx.cfTypeName,
 		Inputs:            inputProperties,
 		Outputs:           properties,
@@ -901,7 +869,7 @@ func (ctx *context) gatherResourceType() error {
 		AutoNamingSpec:    autoNamingSpec,
 		WriteOnly:         writeOnlyProperties.SortedValues(),
 		IrreversibleNames: irreversibleNames,
-		TagsProperty:      ToSdkName(tagsProp),
+		TagsProperty:      naming.ToSdkName(tagsProp),
 		TagsStyle:         tagsStyle,
 	}
 	return nil
@@ -916,55 +884,14 @@ func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
 	}
 }
 
-func (ctx *context) createAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resourceTypeName string, properties map[string]pschema.PropertySpec) *AutoNamingSpec {
-	// ** Autonaming **
-	var autoNameSpec *AutoNamingSpec
-
-	semanticsSpec := ctx.semantics.Resources[ctx.resourceToken]
-
-	lookForField := func(fieldName string) func(map[string]pschema.PropertySpec) {
-		return func(properties map[string]pschema.PropertySpec) {
-			sdkName := ToSdkName(fieldName)
-			if propSpec, has := inputProperties[sdkName]; has && propSpec.Type == "string" {
-				autoNameSpec = &AutoNamingSpec{
-					SdkName: sdkName,
-				}
-				spec, ok := ctx.resourceSpec.Properties[fieldName]
-				if ok {
-					autoNameSpec.MinLength = spec.MinLength.Val
-					autoNameSpec.MaxLength = spec.MaxLength.Val
-				}
-				namingTriviaSpec, ok := semanticsSpec.NamingTriviaSpec[sdkName]
-				if ok {
-					autoNameSpec.TriviaSpec = &namingTriviaSpec
-				}
-			}
-		}
-	}
-
-	autoNamePropLookupFuncs := []func(map[string]pschema.PropertySpec){
-		lookForField("Name"),
-		lookForField(resourceTypeName + "Name"),
-	}
-
-	for _, fn := range autoNamePropLookupFuncs {
-		fn(properties)
-		if autoNameSpec != nil {
-			break
-		}
-	}
-
-	return autoNameSpec
-}
-
-func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
-	typeSpec, err := ctx.propertyTypeSpec(lowerAcronyms(propName), spec)
+func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
+	typeSpec, err := ctx.propertyTypeSpec(naming.LowerAcronyms(propName), spec)
 	if err != nil {
 		return nil, err
 	}
 	propertySpec := pschema.PropertySpec{
 		TypeSpec:    *typeSpec,
-		Description: SanitizeCfnString(spec.Description),
+		Description: naming.SanitizeCfnString(spec.Description),
 	}
 
 	// If the property name is the same as the resource type name, we need to rename the property's C# name
@@ -982,7 +909,7 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 }
 
 // propertyTypeSpec converts a JSON type definition to a Pulumi type definition.
-func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
+func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
 	propSchema = NormaliseTypes(propSchema)
 
 	// References to other type definitions.
@@ -1007,7 +934,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 			}
 		}
 
-		typName = lowerAcronyms(typName)
+		typName = naming.LowerAcronyms(typName)
 
 		tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
 
@@ -1060,13 +987,13 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 
 				ctx.pkg.Types[tok] = pschema.ComplexTypeSpec{
 					ObjectTypeSpec: pschema.ObjectTypeSpec{
-						Description: SanitizeCfnString(typeSchema.Description),
+						Description: naming.SanitizeCfnString(typeSchema.Description),
 						Type:        "object",
 						Properties:  specs,
 						Required:    requiredSpecs.SortedValues(),
 					},
 				}
-				ctx.metadata.Types[tok] = CloudAPIType{
+				ctx.metadata.Types[tok] = metadata.CloudAPIType{
 					Type:              "object",
 					Properties:        specs,
 					IrreversibleNames: irreversibleNames,
@@ -1091,13 +1018,13 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 
 		ctx.pkg.Types[tok] = pschema.ComplexTypeSpec{
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
-				Description: SanitizeCfnString(propSchema.Description),
+				Description: naming.SanitizeCfnString(propSchema.Description),
 				Type:        "object",
 				Properties:  specs,
 				Required:    requiredSpecs.SortedValues(),
 			},
 		}
-		ctx.metadata.Types[tok] = CloudAPIType{
+		ctx.metadata.Types[tok] = metadata.CloudAPIType{
 			Type:              "object",
 			Properties:        specs,
 			IrreversibleNames: irreversibleNames,
@@ -1240,20 +1167,20 @@ func parseJsonType(t jsschema.PrimitiveType) pschema.TypeSpec {
 	}
 }
 
-func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
+func (ctx *cfSchemaContext) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
 	specs := map[string]pschema.PropertySpec{}
 	requiredSpecs := codegen.NewStringSet()
 	irreversibleNames := map[string]string{}
 	for _, name := range codegen.SortedKeys(typeSchema.Properties) {
 		value := typeSchema.Properties[name]
-		sdkName := ToSdkName(name)
+		sdkName := naming.ToSdkName(name)
 
-		typeSpec, err := ctx.propertyTypeSpec(parentName+lowerAcronyms(name), value)
+		typeSpec, err := ctx.propertyTypeSpec(parentName+naming.LowerAcronyms(name), value)
 		if err != nil {
 			return nil, nil, nil, errors.Wrapf(err, "property %s", name)
 		}
 		propertySpec := pschema.PropertySpec{
-			Description: SanitizeCfnString(value.Description),
+			Description: naming.SanitizeCfnString(value.Description),
 			TypeSpec:    *typeSpec,
 		}
 		// TODO: temporary workaround to get the 0.1.0 out, let's find a better solution later.
@@ -1266,12 +1193,12 @@ func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema
 		}
 		specs[sdkName] = propertySpec
 
-		if HasUppercaseAcronym(name) {
+		if naming.HasUppercaseAcronym(name) {
 			irreversibleNames[sdkName] = name
 		}
 	}
 	for _, name := range typeSchema.Required {
-		sdkName := ToSdkName(name)
+		sdkName := naming.ToSdkName(name)
 		if _, has := specs[sdkName]; has {
 			requiredSpecs.Add(sdkName)
 		}
@@ -1280,14 +1207,14 @@ func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema
 }
 
 // genEnumType generates the enum type for a given schema.
-func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
+func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
 	if len(propSchema.Type) == 0 {
 		return nil, nil
 	}
 	if propSchema.Type[0] != jsschema.StringType {
 		return nil, nil
 	}
-	typName := lowerAcronyms(enumName)
+	typName := naming.LowerAcronyms(enumName)
 	if !strings.HasPrefix(enumName, ctx.resourceName) {
 		typName = ctx.resourceName + enumName
 	}
@@ -1300,14 +1227,14 @@ func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*
 	enumSpec := &pschema.ComplexTypeSpec{
 		Enum: []pschema.EnumValueSpec{},
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: SanitizeCfnString(propSchema.Description),
+			Description: naming.SanitizeCfnString(propSchema.Description),
 			Type:        "string",
 		},
 	}
 
 	values := codegen.NewStringSet()
 	for _, val := range propSchema.Enum {
-		str := lowerAcronyms(ToUpperCamel(val.(string)))
+		str := naming.LowerAcronyms(naming.ToUpperCamel(val.(string)))
 		if values.Has(str) {
 			continue
 		}
@@ -1342,7 +1269,7 @@ func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*
 		}
 	}
 	ctx.pkg.Types[tok] = *enumSpec
-	ctx.metadata.Types[tok] = CloudAPIType{Type: enumSpec.Type}
+	ctx.metadata.Types[tok] = metadata.CloudAPIType{Type: enumSpec.Type}
 
 	referencedTypeName := fmt.Sprintf("#/types/%s", tok)
 	return &pschema.TypeSpec{
@@ -1372,7 +1299,7 @@ func moduleName(resourceType string) string {
 		module = "Configuration"
 	}
 
-	return lowerAcronyms(module)
+	return naming.LowerAcronyms(module)
 }
 
 func typeToken(typ string) (string, string) {
@@ -1402,7 +1329,7 @@ func typeName(typ string) string {
 		}
 		name = trimmed + "OutputResource"
 	}
-	return lowerAcronyms(name)
+	return naming.LowerAcronyms(name)
 }
 
 func primitiveTypeSpec(primitiveType string) pschema.TypeSpec {
@@ -1429,8 +1356,8 @@ func primitiveTypeSpec(primitiveType string) pschema.TypeSpec {
 	}
 }
 
-func GatherSemantics(schemaDir string) (SemanticsSpecDocument, error) {
-	var semanticsDocument SemanticsSpecDocument
+func GatherSemantics(schemaDir string) (metadata.SemanticsSpecDocument, error) {
+	var semanticsDocument metadata.SemanticsSpecDocument
 	semanticsPath := filepath.Join(schemaDir, "semantics.json")
 	semanticsBytes, err := os.ReadFile(semanticsPath)
 	if err != nil {

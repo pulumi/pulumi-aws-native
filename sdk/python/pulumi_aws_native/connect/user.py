@@ -23,32 +23,31 @@ class UserArgs:
                  phone_config: pulumi.Input['UserPhoneConfigArgs'],
                  routing_profile_arn: pulumi.Input[str],
                  security_profile_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 username: pulumi.Input[str],
                  directory_user_id: Optional[pulumi.Input[str]] = None,
                  hierarchy_group_arn: Optional[pulumi.Input[str]] = None,
                  identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]]] = None):
+                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input['UserPhoneConfigArgs'] phone_config: The phone settings for the user.
         :param pulumi.Input[str] routing_profile_arn: The identifier of the routing profile for the user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_profile_arns: One or more security profile arns for the user
-        :param pulumi.Input[str] username: The user name for the account.
         :param pulumi.Input[str] directory_user_id: The identifier of the user account in the directory used for identity management.
         :param pulumi.Input[str] hierarchy_group_arn: The identifier of the hierarchy group for the user.
         :param pulumi.Input['UserIdentityInfoArgs'] identity_info: The information about the identity of the user.
         :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         :param pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]] user_proficiencies: One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+        :param pulumi.Input[str] username: The user name for the account.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "phone_config", phone_config)
         pulumi.set(__self__, "routing_profile_arn", routing_profile_arn)
         pulumi.set(__self__, "security_profile_arns", security_profile_arns)
-        pulumi.set(__self__, "username", username)
         if directory_user_id is not None:
             pulumi.set(__self__, "directory_user_id", directory_user_id)
         if hierarchy_group_arn is not None:
@@ -61,6 +60,8 @@ class UserArgs:
             pulumi.set(__self__, "tags", tags)
         if user_proficiencies is not None:
             pulumi.set(__self__, "user_proficiencies", user_proficiencies)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -109,18 +110,6 @@ class UserArgs:
     @security_profile_arns.setter
     def security_profile_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "security_profile_arns", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
-        """
-        The user name for the account.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter(name="directoryUserId")
@@ -193,6 +182,18 @@ class UserArgs:
     @user_proficiencies.setter
     def user_proficiencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]]]):
         pulumi.set(self, "user_proficiencies", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user name for the account.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 class User(pulumi.CustomResource):
@@ -291,8 +292,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["security_profile_arns"] = security_profile_arns
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_proficiencies"] = user_proficiencies
-            if username is None and not opts.urn:
-                raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
             __props__.__dict__["user_arn"] = None
         super(User, __self__).__init__(

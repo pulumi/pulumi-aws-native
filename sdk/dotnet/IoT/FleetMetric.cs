@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public FleetMetric(string name, FleetMetricArgs args, CustomResourceOptions? options = null)
+        public FleetMetric(string name, FleetMetricArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:iot:FleetMetric", name, args ?? new FleetMetricArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -169,8 +169,8 @@ namespace Pulumi.AwsNative.IoT
         /// <summary>
         /// The name of the fleet metric
         /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
+        [Input("metricName")]
+        public Input<string>? MetricName { get; set; }
 
         /// <summary>
         /// The period of metric emission in seconds

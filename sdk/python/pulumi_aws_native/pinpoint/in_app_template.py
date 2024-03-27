@@ -17,18 +17,17 @@ __all__ = ['InAppTemplateArgs', 'InAppTemplate']
 @pulumi.input_type
 class InAppTemplateArgs:
     def __init__(__self__, *,
-                 template_name: pulumi.Input[str],
                  content: Optional[pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]] = None,
                  custom_config: Optional[Any] = None,
                  layout: Optional[pulumi.Input['InAppTemplateLayout']] = None,
                  tags: Optional[Any] = None,
-                 template_description: Optional[pulumi.Input[str]] = None):
+                 template_description: Optional[pulumi.Input[str]] = None,
+                 template_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a InAppTemplate resource.
         :param Any custom_config: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
         :param Any tags: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
         """
-        pulumi.set(__self__, "template_name", template_name)
         if content is not None:
             pulumi.set(__self__, "content", content)
         if custom_config is not None:
@@ -39,15 +38,8 @@ class InAppTemplateArgs:
             pulumi.set(__self__, "tags", tags)
         if template_description is not None:
             pulumi.set(__self__, "template_description", template_description)
-
-    @property
-    @pulumi.getter(name="templateName")
-    def template_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "template_name")
-
-    @template_name.setter
-    def template_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "template_name", value)
+        if template_name is not None:
+            pulumi.set(__self__, "template_name", template_name)
 
     @property
     @pulumi.getter
@@ -100,6 +92,15 @@ class InAppTemplateArgs:
     def template_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template_description", value)
 
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "template_name")
+
+    @template_name.setter
+    def template_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_name", value)
+
 
 class InAppTemplate(pulumi.CustomResource):
     @overload
@@ -125,7 +126,7 @@ class InAppTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InAppTemplateArgs,
+                 args: Optional[InAppTemplateArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Pinpoint::InAppTemplate
@@ -165,8 +166,6 @@ class InAppTemplate(pulumi.CustomResource):
             __props__.__dict__["layout"] = layout
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_description"] = template_description
-            if template_name is None and not opts.urn:
-                raise TypeError("Missing required property 'template_name'")
             __props__.__dict__["template_name"] = template_name
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["templateName"])

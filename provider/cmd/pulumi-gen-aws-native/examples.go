@@ -15,6 +15,8 @@ import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
@@ -25,7 +27,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
-func generateExamples(pkgSpec *schema.PackageSpec, metadata *pschema.CloudAPIMetadata, languages []string) error {
+func generateExamples(pkgSpec *schema.PackageSpec, metadata *metadata.CloudAPIMetadata, languages []string) error {
 	// Find all snippets in the AWS CloudFormation Docs repo.
 	folder := path.Join(".", "aws-cloudformation-user-guide", "doc_source")
 	examples, err := findAllExamples(folder)
@@ -78,7 +80,7 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *pschema.CloudAPIMet
 	return nil
 }
 
-func generateExample(yaml string, metadata *pschema.CloudAPIMetadata, languages []string, bindOpts ...pcl.BindOption) (*resourceExample, error) {
+func generateExample(yaml string, metadata *metadata.CloudAPIMetadata, languages []string, bindOpts ...pcl.BindOption) (*resourceExample, error) {
 	body, diagnostics, err := cf2pulumi.RenderText(yaml, metadata)
 	if err != nil {
 		return nil, errors.Wrapf(err, "rendering YAML")
@@ -209,7 +211,7 @@ func findExamples(fileName string) ([]string, error) {
 		line := scanner.Text()
 		if strings.HasPrefix(line, "```") {
 			if snippet && buf.Len() > 0 {
-				ex := pschema.SanitizeCfnString(buf.String())
+				ex := naming.SanitizeCfnString(buf.String())
 				result = append(result, ex)
 			}
 			snippet = !snippet

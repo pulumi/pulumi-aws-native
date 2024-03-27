@@ -88,8 +88,8 @@ namespace Pulumi.AwsNative.Msk
         [Input("clientAuthentication", required: true)]
         public Input<Inputs.ServerlessClusterClientAuthenticationArgs> ClientAuthentication { get; set; } = null!;
 
-        [Input("clusterName", required: true)]
-        public Input<string> ClusterName { get; set; } = null!;
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

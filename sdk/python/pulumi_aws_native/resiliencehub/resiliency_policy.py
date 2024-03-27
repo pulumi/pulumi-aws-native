@@ -18,25 +18,26 @@ __all__ = ['ResiliencyPolicyArgs', 'ResiliencyPolicy']
 class ResiliencyPolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[Mapping[str, pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]],
-                 policy_name: pulumi.Input[str],
                  tier: pulumi.Input['ResiliencyPolicyTier'],
                  data_location_constraint: Optional[pulumi.Input['ResiliencyPolicyDataLocationConstraint']] = None,
                  policy_description: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResiliencyPolicy resource.
-        :param pulumi.Input[str] policy_name: Name of Resiliency Policy.
         :param pulumi.Input['ResiliencyPolicyTier'] tier: Resiliency Policy Tier.
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
         :param pulumi.Input[str] policy_description: Description of Resiliency Policy.
+        :param pulumi.Input[str] policy_name: Name of Resiliency Policy.
         """
         pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "tier", tier)
         if data_location_constraint is not None:
             pulumi.set(__self__, "data_location_constraint", data_location_constraint)
         if policy_description is not None:
             pulumi.set(__self__, "policy_description", policy_description)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -48,18 +49,6 @@ class ResiliencyPolicyArgs:
     @policy.setter
     def policy(self, value: pulumi.Input[Mapping[str, pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]]):
         pulumi.set(self, "policy", value)
-
-    @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[str]:
-        """
-        Name of Resiliency Policy.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policy_name", value)
 
     @property
     @pulumi.getter
@@ -96,6 +85,18 @@ class ResiliencyPolicyArgs:
     @policy_description.setter
     def policy_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_description", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Resiliency Policy.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
 
     @property
     @pulumi.getter
@@ -173,8 +174,6 @@ class ResiliencyPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
             __props__.__dict__["policy_description"] = policy_description
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             __props__.__dict__["tags"] = tags
             if tier is None and not opts.urn:

@@ -16,8 +16,8 @@ __all__ = ['AccountPolicyArgs', 'AccountPolicy']
 class AccountPolicyArgs:
     def __init__(__self__, *,
                  policy_document: pulumi.Input[str],
-                 policy_name: pulumi.Input[str],
                  policy_type: pulumi.Input['AccountPolicyPolicyType'],
+                 policy_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['AccountPolicyScope']] = None,
                  selection_criteria: Optional[pulumi.Input[str]] = None):
         """
@@ -29,14 +29,15 @@ class AccountPolicyArgs:
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 30720
-        :param pulumi.Input[str] policy_name: The name of the account policy
         :param pulumi.Input['AccountPolicyPolicyType'] policy_type: Type of the policy.
+        :param pulumi.Input[str] policy_name: The name of the account policy
         :param pulumi.Input['AccountPolicyScope'] scope: Scope for policy application
         :param pulumi.Input[str] selection_criteria: Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
         """
         pulumi.set(__self__, "policy_document", policy_document)
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "policy_type", policy_type)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if selection_criteria is not None:
@@ -61,18 +62,6 @@ class AccountPolicyArgs:
         pulumi.set(self, "policy_document", value)
 
     @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[str]:
-        """
-        The name of the account policy
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "policy_name", value)
-
-    @property
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Input['AccountPolicyPolicyType']:
         """
@@ -83,6 +72,18 @@ class AccountPolicyArgs:
     @policy_type.setter
     def policy_type(self, value: pulumi.Input['AccountPolicyPolicyType']):
         pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the account policy
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
 
     @property
     @pulumi.getter
@@ -234,8 +235,6 @@ class AccountPolicy(pulumi.CustomResource):
             if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")

@@ -3,10 +3,11 @@
 package schema
 
 import (
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
-func GetInputsFromState(res *CloudAPIResource, state resource.PropertyMap) (resource.PropertyMap, error) {
+func GetInputsFromState(res *metadata.CloudAPIResource, state resource.PropertyMap) (resource.PropertyMap, error) {
 	inputs := resource.NewPropertyMapFromMap(map[string]interface{}{})
 	for n := range res.Inputs {
 		k := resource.PropertyKey(n)

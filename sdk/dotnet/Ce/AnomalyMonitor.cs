@@ -477,8 +477,8 @@ namespace Pulumi.AwsNative.Ce
         /// <summary>
         /// The name of the monitor.
         /// </summary>
-        [Input("monitorName", required: true)]
-        public Input<string> MonitorName { get; set; } = null!;
+        [Input("monitorName")]
+        public Input<string>? MonitorName { get; set; }
 
         [Input("monitorSpecification")]
         public Input<string>? MonitorSpecification { get; set; }

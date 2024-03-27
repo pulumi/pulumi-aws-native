@@ -61,9 +61,6 @@ export class RouteCalculator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.calculatorName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'calculatorName'");
-            }
             if ((!args || args.dataSource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSource'");
             }
@@ -98,7 +95,7 @@ export class RouteCalculator extends pulumi.CustomResource {
  * The set of arguments for constructing a RouteCalculator resource.
  */
 export interface RouteCalculatorArgs {
-    calculatorName: pulumi.Input<string>;
+    calculatorName?: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<enums.location.RouteCalculatorPricingPlan>;

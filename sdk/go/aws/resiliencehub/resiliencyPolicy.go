@@ -40,9 +40,6 @@ func NewResiliencyPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	if args.Tier == nil {
 		return nil, errors.New("invalid value for required argument 'Tier'")
 	}
@@ -85,7 +82,7 @@ type resiliencyPolicyArgs struct {
 	// Description of Resiliency Policy.
 	PolicyDescription *string `pulumi:"policyDescription"`
 	// Name of Resiliency Policy.
-	PolicyName string            `pulumi:"policyName"`
+	PolicyName *string           `pulumi:"policyName"`
 	Tags       map[string]string `pulumi:"tags"`
 	// Resiliency Policy Tier.
 	Tier ResiliencyPolicyTier `pulumi:"tier"`
@@ -99,7 +96,7 @@ type ResiliencyPolicyArgs struct {
 	// Description of Resiliency Policy.
 	PolicyDescription pulumi.StringPtrInput
 	// Name of Resiliency Policy.
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 	Tags       pulumi.StringMapInput
 	// Resiliency Policy Tier.
 	Tier ResiliencyPolicyTierInput

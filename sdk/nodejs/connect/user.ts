@@ -109,9 +109,6 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.securityProfileArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityProfileArns'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'username'");
-            }
             resourceInputs["directoryUserId"] = args ? args.directoryUserId : undefined;
             resourceInputs["hierarchyGroupArn"] = args ? args.hierarchyGroupArn : undefined;
             resourceInputs["identityInfo"] = args ? args.identityInfo : undefined;
@@ -190,5 +187,5 @@ export interface UserArgs {
     /**
      * The user name for the account.
      */
-    username: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }

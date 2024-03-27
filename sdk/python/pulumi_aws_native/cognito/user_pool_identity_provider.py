@@ -14,18 +14,17 @@ __all__ = ['UserPoolIdentityProviderArgs', 'UserPoolIdentityProvider']
 @pulumi.input_type
 class UserPoolIdentityProviderArgs:
     def __init__(__self__, *,
-                 provider_name: pulumi.Input[str],
                  provider_type: pulumi.Input[str],
                  user_pool_id: pulumi.Input[str],
                  attribute_mapping: Optional[Any] = None,
                  idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 provider_details: Optional[Any] = None):
+                 provider_details: Optional[Any] = None,
+                 provider_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPoolIdentityProvider resource.
         :param Any attribute_mapping: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         :param Any provider_details: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
-        pulumi.set(__self__, "provider_name", provider_name)
         pulumi.set(__self__, "provider_type", provider_type)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if attribute_mapping is not None:
@@ -34,15 +33,8 @@ class UserPoolIdentityProviderArgs:
             pulumi.set(__self__, "idp_identifiers", idp_identifiers)
         if provider_details is not None:
             pulumi.set(__self__, "provider_details", provider_details)
-
-    @property
-    @pulumi.getter(name="providerName")
-    def provider_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "provider_name")
-
-    @provider_name.setter
-    def provider_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "provider_name", value)
+        if provider_name is not None:
+            pulumi.set(__self__, "provider_name", provider_name)
 
     @property
     @pulumi.getter(name="providerType")
@@ -94,6 +86,15 @@ class UserPoolIdentityProviderArgs:
     @provider_details.setter
     def provider_details(self, value: Optional[Any]):
         pulumi.set(self, "provider_details", value)
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "provider_name")
+
+    @provider_name.setter
+    def provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_name", value)
 
 
 class UserPoolIdentityProvider(pulumi.CustomResource):
@@ -158,8 +159,6 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
             __props__.__dict__["attribute_mapping"] = attribute_mapping
             __props__.__dict__["idp_identifiers"] = idp_identifiers
             __props__.__dict__["provider_details"] = provider_details
-            if provider_name is None and not opts.urn:
-                raise TypeError("Missing required property 'provider_name'")
             __props__.__dict__["provider_name"] = provider_name
             if provider_type is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_type'")

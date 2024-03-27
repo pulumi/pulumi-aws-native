@@ -21,6 +21,27 @@ func TestSimplePython(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestUntypedPython(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "untyped-py", "step1"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join(getCwd(t), "untyped-py", "step2"),
+					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+						assert.Equal(t, "updatedValue", stackInfo.Outputs["outputs"].(map[string]interface{})["Value"])
+						assert.Equal(t,
+							map[string]interface{}{"defaultTag": "defaultTagValue", "localTag": "localTagValue"},
+							stackInfo.Outputs["outputs"].(map[string]interface{})["Tags"])
+					},
+				},
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestDefaultTagsPython(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -48,6 +69,27 @@ func TestDefaultTagsPython(t *testing.T) {
 					"defaultTag": "defaultTagValue",
 					"localTag":   "localTagValue",
 				}, stackInfo.Outputs["policyTags"])
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestVpcPython(t *testing.T) {
+	// This test is not stable for several reasons so we can't run it in CI.
+	// Deletion of the aws-native:ec2:IpamPoolCidr regularly fails with "GeneralServiceException: Error occurred during operation 'The CIDR has one or more allocations.'" even after the VPC is deleted.
+	// Sometimes Update of the aws-native:ec2:IpamPool fails with "NotStabilized: IpamPoolCidrFailureReason(Message=The CIDR has one or more allocations."
+	// The refresh of the aws-native:ec2:IpamPool fails due to a diff in the provisionedCidrs property.
+	// It's also not ideal that we have to create the IPAM manually to avoid the test failing if run in parallel.
+	t.SkipNow()
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "vpc-py", "step1"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join(getCwd(t), "vpc-py", "step2"),
+					Additive: true,
+				},
 			},
 		})
 

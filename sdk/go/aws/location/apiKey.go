@@ -39,9 +39,6 @@ func NewApiKey(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KeyName == nil {
-		return nil, errors.New("invalid value for required argument 'KeyName'")
-	}
 	if args.Restrictions == nil {
 		return nil, errors.New("invalid value for required argument 'Restrictions'")
 	}
@@ -86,7 +83,7 @@ type apiKeyArgs struct {
 	ExpireTime   *string            `pulumi:"expireTime"`
 	ForceDelete  *bool              `pulumi:"forceDelete"`
 	ForceUpdate  *bool              `pulumi:"forceUpdate"`
-	KeyName      string             `pulumi:"keyName"`
+	KeyName      *string            `pulumi:"keyName"`
 	NoExpiry     *bool              `pulumi:"noExpiry"`
 	Restrictions ApiKeyRestrictions `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
@@ -99,7 +96,7 @@ type ApiKeyArgs struct {
 	ExpireTime   pulumi.StringPtrInput
 	ForceDelete  pulumi.BoolPtrInput
 	ForceUpdate  pulumi.BoolPtrInput
-	KeyName      pulumi.StringInput
+	KeyName      pulumi.StringPtrInput
 	NoExpiry     pulumi.BoolPtrInput
 	Restrictions ApiKeyRestrictionsInput
 	// An array of key-value pairs to apply to this resource.

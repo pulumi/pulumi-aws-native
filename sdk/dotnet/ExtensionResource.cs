@@ -66,11 +66,24 @@ namespace Pulumi.AwsNative
 
     public sealed class ExtensionResourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("createOnly")]
+        private InputList<string>? _createOnly;
+
+        /// <summary>
+        /// Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
+        /// In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+        /// </summary>
+        public InputList<string> CreateOnly
+        {
+            get => _createOnly ?? (_createOnly = new InputList<string>());
+            set => _createOnly = value;
+        }
+
         [Input("properties", required: true)]
         private InputMap<object>? _properties;
 
         /// <summary>
-        /// Dictionary of the extension resource properties.
+        /// Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.
         /// </summary>
         public InputMap<object> Properties
         {
@@ -79,10 +92,35 @@ namespace Pulumi.AwsNative
         }
 
         /// <summary>
-        /// CloudFormation type name.
+        /// Optional name of the property containing the tags. Defaults to "Tags" if the `tagsStyle` is set to either "stringMap" or "keyValueArray". This is used to apply default tags to the resource and can be ignored if not using default tags.
+        /// </summary>
+        [Input("tagsProperty")]
+        public Input<string>? TagsProperty { get; set; }
+
+        /// <summary>
+        /// Optional style of tags this resource uses. Valid values are "stringMap", "keyValueArray" or "none". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.
+        /// </summary>
+        [Input("tagsStyle")]
+        public Input<string>? TagsStyle { get; set; }
+
+        /// <summary>
+        /// CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        [Input("writeOnly")]
+        private InputList<string>? _writeOnly;
+
+        /// <summary>
+        /// Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.
+        /// In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+        /// </summary>
+        public InputList<string> WriteOnly
+        {
+            get => _writeOnly ?? (_writeOnly = new InputList<string>());
+            set => _writeOnly = value;
+        }
 
         public ExtensionResourceArgs()
         {

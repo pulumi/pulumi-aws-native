@@ -98,13 +98,10 @@ export class FleetMetric extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FleetMetricArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: FleetMetricArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.metricName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'metricName'");
-            }
             resourceInputs["aggregationField"] = args ? args.aggregationField : undefined;
             resourceInputs["aggregationType"] = args ? args.aggregationType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -162,7 +159,7 @@ export interface FleetMetricArgs {
     /**
      * The name of the fleet metric
      */
-    metricName: pulumi.Input<string>;
+    metricName?: pulumi.Input<string>;
     /**
      * The period of metric emission in seconds
      */

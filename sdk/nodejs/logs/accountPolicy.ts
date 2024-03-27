@@ -112,9 +112,6 @@ export class AccountPolicy extends pulumi.CustomResource {
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyDocument'");
             }
-            if ((!args || args.policyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if ((!args || args.policyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
@@ -156,7 +153,7 @@ export interface AccountPolicyArgs {
     /**
      * The name of the account policy
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * Type of the policy.
      */

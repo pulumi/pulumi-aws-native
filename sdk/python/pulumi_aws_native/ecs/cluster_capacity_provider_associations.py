@@ -79,19 +79,19 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
         cluster_cpassociation = aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation",
             cluster=cluster_name,
             capacity_providers=[
-                "FARGATE",
-                "FARGATE_SPOT",
+                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
+                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
             ],
             default_capacity_provider_strategy=[
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
                     base=2,
                     weight=1,
-                    capacity_provider="FARGATE",
+                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
                 ),
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
                     base=0,
                     weight=1,
-                    capacity_provider="FARGATE_SPOT",
+                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
                 ),
             ])
 
@@ -107,19 +107,19 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
         cluster_cpassociation = aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation",
             cluster=cluster_name,
             capacity_providers=[
-                "FARGATE",
-                "FARGATE_SPOT",
+                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
+                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
             ],
             default_capacity_provider_strategy=[
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
                     base=2,
                     weight=1,
-                    capacity_provider="FARGATE",
+                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
                 ),
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
                     base=0,
                     weight=1,
-                    capacity_provider="FARGATE_SPOT",
+                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
                 ),
             ])
 
@@ -149,19 +149,19 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
         cluster_cpassociation = aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation",
             cluster=cluster_name,
             capacity_providers=[
-                "FARGATE",
-                "FARGATE_SPOT",
+                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
+                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
             ],
             default_capacity_provider_strategy=[
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
                     base=2,
                     weight=1,
-                    capacity_provider="FARGATE",
+                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
                 ),
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
                     base=0,
                     weight=1,
-                    capacity_provider="FARGATE_SPOT",
+                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
                 ),
             ])
 
@@ -177,19 +177,19 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
         cluster_cpassociation = aws_native.ecs.ClusterCapacityProviderAssociations("clusterCPAssociation",
             cluster=cluster_name,
             capacity_providers=[
-                "FARGATE",
-                "FARGATE_SPOT",
+                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
+                aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
             ],
             default_capacity_provider_strategy=[
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
                     base=2,
                     weight=1,
-                    capacity_provider="FARGATE",
+                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE,
                 ),
                 aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs(
                     base=0,
                     weight=1,
-                    capacity_provider="FARGATE_SPOT",
+                    capacity_provider=aws_native.ecs.ClusterCapacityProviderAssociationsCapacityProvider.FARGATE_SPOT,
                 ),
             ])
 

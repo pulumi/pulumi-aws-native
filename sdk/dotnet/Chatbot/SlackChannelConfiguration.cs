@@ -122,8 +122,8 @@ namespace Pulumi.AwsNative.Chatbot
         /// <summary>
         /// The name of the configuration
         /// </summary>
-        [Input("configurationName", required: true)]
-        public Input<string> ConfigurationName { get; set; } = null!;
+        [Input("configurationName")]
+        public Input<string>? ConfigurationName { get; set; }
 
         [Input("guardrailPolicies")]
         private InputList<string>? _guardrailPolicies;

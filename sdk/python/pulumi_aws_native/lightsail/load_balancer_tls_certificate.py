@@ -15,25 +15,26 @@ __all__ = ['LoadBalancerTlsCertificateArgs', 'LoadBalancerTlsCertificate']
 class LoadBalancerTlsCertificateArgs:
     def __init__(__self__, *,
                  certificate_domain_name: pulumi.Input[str],
-                 certificate_name: pulumi.Input[str],
                  load_balancer_name: pulumi.Input[str],
                  certificate_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
                  https_redirection_enabled: Optional[pulumi.Input[bool]] = None,
                  is_attached: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LoadBalancerTlsCertificate resource.
         :param pulumi.Input[str] certificate_domain_name: The domain name (e.g., example.com ) for your SSL/TLS certificate.
-        :param pulumi.Input[str] certificate_name: The SSL/TLS certificate name.
         :param pulumi.Input[str] load_balancer_name: The name of your load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_alternative_names: An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
+        :param pulumi.Input[str] certificate_name: The SSL/TLS certificate name.
         :param pulumi.Input[bool] https_redirection_enabled: A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
         :param pulumi.Input[bool] is_attached: When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
         """
         pulumi.set(__self__, "certificate_domain_name", certificate_domain_name)
-        pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         if certificate_alternative_names is not None:
             pulumi.set(__self__, "certificate_alternative_names", certificate_alternative_names)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if https_redirection_enabled is not None:
             pulumi.set(__self__, "https_redirection_enabled", https_redirection_enabled)
         if is_attached is not None:
@@ -50,18 +51,6 @@ class LoadBalancerTlsCertificateArgs:
     @certificate_domain_name.setter
     def certificate_domain_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "certificate_domain_name", value)
-
-    @property
-    @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> pulumi.Input[str]:
-        """
-        The SSL/TLS certificate name.
-        """
-        return pulumi.get(self, "certificate_name")
-
-    @certificate_name.setter
-    def certificate_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_name", value)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -86,6 +75,18 @@ class LoadBalancerTlsCertificateArgs:
     @certificate_alternative_names.setter
     def certificate_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "certificate_alternative_names", value)
+
+    @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SSL/TLS certificate name.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_name", value)
 
     @property
     @pulumi.getter(name="httpsRedirectionEnabled")
@@ -179,8 +180,6 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
             if certificate_domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_domain_name'")
             __props__.__dict__["certificate_domain_name"] = certificate_domain_name
-            if certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_name'")
             __props__.__dict__["certificate_name"] = certificate_name
             __props__.__dict__["https_redirection_enabled"] = https_redirection_enabled
             __props__.__dict__["is_attached"] = is_attached

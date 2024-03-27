@@ -74,9 +74,6 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.policyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if ((!args || args.tier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
@@ -117,7 +114,7 @@ export interface ResiliencyPolicyArgs {
     /**
      * Name of Resiliency Policy.
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resiliency Policy Tier.

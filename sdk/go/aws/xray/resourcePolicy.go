@@ -90,9 +90,6 @@ func NewResourcePolicy(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
-	if args.PolicyName == nil {
-		return nil, errors.New("invalid value for required argument 'PolicyName'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"policyName",
 	})
@@ -135,7 +132,7 @@ type resourcePolicyArgs struct {
 	// The resource policy document, which can be up to 5kb in size.
 	PolicyDocument string `pulumi:"policyDocument"`
 	// The name of the resource policy. Must be unique within a specific AWS account.
-	PolicyName string `pulumi:"policyName"`
+	PolicyName *string `pulumi:"policyName"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
@@ -145,7 +142,7 @@ type ResourcePolicyArgs struct {
 	// The resource policy document, which can be up to 5kb in size.
 	PolicyDocument pulumi.StringInput
 	// The name of the resource policy. Must be unique within a specific AWS account.
-	PolicyName pulumi.StringInput
+	PolicyName pulumi.StringPtrInput
 }
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {

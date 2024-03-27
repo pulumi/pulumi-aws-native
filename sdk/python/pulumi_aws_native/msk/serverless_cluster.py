@@ -17,16 +17,17 @@ __all__ = ['ServerlessClusterArgs', 'ServerlessCluster']
 class ServerlessClusterArgs:
     def __init__(__self__, *,
                  client_authentication: pulumi.Input['ServerlessClusterClientAuthenticationArgs'],
-                 cluster_name: pulumi.Input[str],
                  vpc_configs: pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]],
+                 cluster_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServerlessCluster resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value pair to associate with a resource.
         """
         pulumi.set(__self__, "client_authentication", client_authentication)
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "vpc_configs", vpc_configs)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -40,15 +41,6 @@ class ServerlessClusterArgs:
         pulumi.set(self, "client_authentication", value)
 
     @property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cluster_name", value)
-
-    @property
     @pulumi.getter(name="vpcConfigs")
     def vpc_configs(self) -> pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]:
         return pulumi.get(self, "vpc_configs")
@@ -56,6 +48,15 @@ class ServerlessClusterArgs:
     @vpc_configs.setter
     def vpc_configs(self, value: pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]):
         pulumi.set(self, "vpc_configs", value)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @property
     @pulumi.getter
@@ -127,8 +128,6 @@ class ServerlessCluster(pulumi.CustomResource):
             if client_authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'client_authentication'")
             __props__.__dict__["client_authentication"] = client_authentication
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["tags"] = tags
             if vpc_configs is None and not opts.urn:

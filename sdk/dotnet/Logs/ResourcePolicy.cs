@@ -85,8 +85,8 @@ namespace Pulumi.AwsNative.Logs
         /// <summary>
         /// A name for resource policy
         /// </summary>
-        [Input("policyName", required: true)]
-        public Input<string> PolicyName { get; set; } = null!;
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         public ResourcePolicyArgs()
         {

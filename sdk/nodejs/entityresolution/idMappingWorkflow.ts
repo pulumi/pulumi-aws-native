@@ -77,9 +77,6 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            if ((!args || args.workflowName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'workflowName'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["idMappingTechniques"] = args ? args.idMappingTechniques : undefined;
             resourceInputs["inputSourceConfig"] = args ? args.inputSourceConfig : undefined;
@@ -125,5 +122,5 @@ export interface IdMappingWorkflowArgs {
     /**
      * The name of the IdMappingWorkflow
      */
-    workflowName: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string>;
 }

@@ -1,6 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
-package schema
+package naming
 
 import (
 	"sort"
@@ -8,6 +8,7 @@ import (
 
 	"github.com/mattbaird/jsonpatch"
 
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
@@ -36,7 +37,7 @@ func TestSdkToCfn(t *testing.T) {
 }
 
 func TestSdkToCfnEnumTypeRef(t *testing.T) {
-	res := CloudAPIResource{
+	res := metadata.CloudAPIResource{
 		Inputs: map[string]pschema.PropertySpec{
 			"foo": {
 				TypeSpec: pschema.TypeSpec{
@@ -46,7 +47,7 @@ func TestSdkToCfnEnumTypeRef(t *testing.T) {
 		},
 	}
 	// Enums just look like strings in the metadata
-	types := map[string]CloudAPIType{
+	types := map[string]metadata.CloudAPIType{
 		"bar": {Type: "string"},
 	}
 	state := map[string]interface{}{"foo": "BBB"}
@@ -57,16 +58,16 @@ func TestSdkToCfnEnumTypeRef(t *testing.T) {
 }
 
 func TestSdkToCfnOneOf(t *testing.T) {
-	res := CloudAPIResource{
+	res := metadata.CloudAPIResource{
 		Inputs: map[string]pschema.PropertySpec{
 			"foo": {
 				TypeSpec: pschema.TypeSpec{
 					OneOf: []pschema.TypeSpec{
-						pschema.TypeSpec{
+						{
 							Type:  "array",
 							Items: &pschema.TypeSpec{Type: "string"},
 						},
-						pschema.TypeSpec{
+						{
 							Type:                 "object",
 							AdditionalProperties: &pschema.TypeSpec{Type: "number"},
 						},
@@ -244,8 +245,8 @@ var sdkState = map[string]interface{}{
 	"taskDefinition":     "arn:aws:ecs:us-west-2:12345:task-definition/fargate-task-definition:131",
 }
 
-var sampleSchema = &CloudAPIMetadata{
-	Types: map[string]CloudAPIType{
+var sampleSchema = &metadata.CloudAPIMetadata{
+	Types: map[string]metadata.CloudAPIType{
 		"aws-native:ecs:AwsVpcConfiguration": {
 			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
@@ -303,7 +304,7 @@ var sampleSchema = &CloudAPIMetadata{
 			},
 		},
 	},
-	Resources: map[string]CloudAPIResource{
+	Resources: map[string]metadata.CloudAPIResource{
 		"aws-native:ecs:Service": {
 			Inputs: map[string]pschema.PropertySpec{
 				"serviceArn": {TypeSpec: pschema.TypeSpec{Type: "string"}},

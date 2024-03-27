@@ -1,13 +1,15 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
-package schema
+package naming
 
 import (
 	"fmt"
 	"reflect"
+	"slices"
 	"strings"
 
 	"github.com/mattbaird/jsonpatch"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -15,14 +17,14 @@ import (
 
 // SdkToCfn converts Pulumi-SDK-shaped state to CloudFormation-shaped payload. In particular, SDK properties
 // are lowerCamelCase, while CloudFormation is usually (but not always) PascalCase.
-func SdkToCfn(res *CloudAPIResource, types map[string]CloudAPIType, properties map[string]interface{}) (map[string]interface{}, error) {
+func SdkToCfn(res *metadata.CloudAPIResource, types map[string]metadata.CloudAPIType, properties map[string]interface{}) (map[string]interface{}, error) {
 	converter := sdkToCfnConverter{res, types}
 	return converter.sdkToCfn(properties)
 }
 
 // DiffToPatch converts a Pulumi object diff to a CloudFormation-shaped patch operation slice. Update/add/delete operations are
 // mapped to corresponding patch terms, and SDK properties are translated to respective CFN names.
-func DiffToPatch(res *CloudAPIResource, types map[string]CloudAPIType, diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
+func DiffToPatch(res *metadata.CloudAPIResource, types map[string]metadata.CloudAPIType, diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
 	if diff == nil {
 		return []jsonpatch.JsonPatchOperation{}, nil
 	}
@@ -44,8 +46,8 @@ func SanitizeCfnString(str string) string {
 }
 
 type sdkToCfnConverter struct {
-	spec  *CloudAPIResource
-	types map[string]CloudAPIType
+	spec  *metadata.CloudAPIResource
+	types map[string]metadata.CloudAPIType
 }
 
 func (c *sdkToCfnConverter) sdkToCfn(properties map[string]interface{}) (map[string]interface{}, error) {
@@ -157,7 +159,7 @@ func isNumberLike(v interface{}) bool {
 	return false
 }
 
-func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, spec CloudAPIType, value interface{}) (interface{}, error) {
+func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, spec metadata.CloudAPIType, value interface{}) (interface{}, error) {
 	properties, ok := value.(map[string]interface{})
 	if !ok {
 		return nil, &ConversionError{typeName, value}
@@ -178,7 +180,14 @@ func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, spec CloudAPITy
 
 func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
 	var ops []jsonpatch.JsonPatchOperation
-	for sdkName, prop := range c.spec.Inputs {
+	// Sort keys to ensure deterministic ordering of patch operations.
+	sortedKeys := make([]string, 0, len(c.spec.Inputs))
+	for sdkName := range c.spec.Inputs {
+		sortedKeys = append(sortedKeys, string(sdkName))
+	}
+	slices.Sort(sortedKeys)
+	for _, sdkName := range sortedKeys {
+		prop := c.spec.Inputs[sdkName]
 		cfnName := ToCfnName(sdkName, c.spec.IrreversibleNames)
 		key := resource.PropertyKey(sdkName)
 		if v, ok := diff.Updates[key]; ok {

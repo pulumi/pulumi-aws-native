@@ -34,9 +34,6 @@ func NewUserPoolIdentityProvider(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ProviderName == nil {
-		return nil, errors.New("invalid value for required argument 'ProviderName'")
-	}
 	if args.ProviderType == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderType'")
 	}
@@ -87,7 +84,7 @@ type userPoolIdentityProviderArgs struct {
 	IdpIdentifiers   []string    `pulumi:"idpIdentifiers"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 	ProviderDetails interface{} `pulumi:"providerDetails"`
-	ProviderName    string      `pulumi:"providerName"`
+	ProviderName    *string     `pulumi:"providerName"`
 	ProviderType    string      `pulumi:"providerType"`
 	UserPoolId      string      `pulumi:"userPoolId"`
 }
@@ -99,7 +96,7 @@ type UserPoolIdentityProviderArgs struct {
 	IdpIdentifiers   pulumi.StringArrayInput
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
 	ProviderDetails pulumi.Input
-	ProviderName    pulumi.StringInput
+	ProviderName    pulumi.StringPtrInput
 	ProviderType    pulumi.StringInput
 	UserPoolId      pulumi.StringInput
 }

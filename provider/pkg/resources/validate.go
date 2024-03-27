@@ -1,15 +1,17 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
-package schema
+package resources
 
 import (
 	"fmt"
+	"math"
+	"strings"
+
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"math"
-	"strings"
 )
 
 type ValidationFailure struct {
@@ -49,7 +51,7 @@ func validatePrimitive(primitiveType string, path string, property resource.Prop
 	return nil, nil
 }
 
-func validateProperty(types map[string]CloudAPIType, required codegen.StringSet, spec *pschema.TypeSpec, path string, property resource.PropertyValue) ([]ValidationFailure, error) {
+func validateProperty(types map[string]metadata.CloudAPIType, required codegen.StringSet, spec *pschema.TypeSpec, path string, property resource.PropertyValue) ([]ValidationFailure, error) {
 	// If the property is secret, inspect its element.
 	for property.IsSecret() {
 		property = property.SecretValue().Element
@@ -119,7 +121,7 @@ func validateProperty(types map[string]CloudAPIType, required codegen.StringSet,
 	}
 }
 
-func validateProperties(types map[string]CloudAPIType, required codegen.StringSet, propertySpecs map[string]pschema.PropertySpec, path string, properties resource.PropertyMap) ([]ValidationFailure, error) {
+func validateProperties(types map[string]metadata.CloudAPIType, required codegen.StringSet, propertySpecs map[string]pschema.PropertySpec, path string, properties resource.PropertyMap) ([]ValidationFailure, error) {
 	// Do a schema-directed check first.
 	var failures []ValidationFailure
 	remainingProperties := properties.Mappable()
@@ -152,7 +154,7 @@ func validateProperties(types map[string]CloudAPIType, required codegen.StringSe
 	return failures, nil
 }
 
-func ValidateResource(res *CloudAPIResource, types map[string]CloudAPIType, properties resource.PropertyMap) ([]ValidationFailure, error) {
+func ValidateResource(res *metadata.CloudAPIResource, types map[string]metadata.CloudAPIType, properties resource.PropertyMap) ([]ValidationFailure, error) {
 	required := codegen.NewStringSet(res.Required...)
 	return validateProperties(types, required, res.Inputs, "", properties)
 }

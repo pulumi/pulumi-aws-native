@@ -43,9 +43,6 @@ func NewLoadBalancerTlsCertificate(ctx *pulumi.Context,
 	if args.CertificateDomainName == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateDomainName'")
 	}
-	if args.CertificateName == nil {
-		return nil, errors.New("invalid value for required argument 'CertificateName'")
-	}
 	if args.LoadBalancerName == nil {
 		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
 	}
@@ -94,7 +91,7 @@ type loadBalancerTlsCertificateArgs struct {
 	// The domain name (e.g., example.com ) for your SSL/TLS certificate.
 	CertificateDomainName string `pulumi:"certificateDomainName"`
 	// The SSL/TLS certificate name.
-	CertificateName string `pulumi:"certificateName"`
+	CertificateName *string `pulumi:"certificateName"`
 	// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
 	HttpsRedirectionEnabled *bool `pulumi:"httpsRedirectionEnabled"`
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
@@ -110,7 +107,7 @@ type LoadBalancerTlsCertificateArgs struct {
 	// The domain name (e.g., example.com ) for your SSL/TLS certificate.
 	CertificateDomainName pulumi.StringInput
 	// The SSL/TLS certificate name.
-	CertificateName pulumi.StringInput
+	CertificateName pulumi.StringPtrInput
 	// A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
 	HttpsRedirectionEnabled pulumi.BoolPtrInput
 	// When true, the SSL/TLS certificate is attached to the Lightsail load balancer.

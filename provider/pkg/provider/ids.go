@@ -17,7 +17,8 @@ package provider
 import (
 	"fmt"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
@@ -29,7 +30,7 @@ import (
 func getDefaultName(
 	randomSeed []byte,
 	urn resource.URN,
-	autoNamingSpec *schema.AutoNamingSpec,
+	autoNamingSpec *metadata.AutoNamingSpec,
 	olds,
 	news resource.PropertyMap,
 ) (resource.PropertyValue, error) {
@@ -46,7 +47,7 @@ func getDefaultName(
 	}
 
 	// Generate naming trivia for the resource.
-	namingTriviaApplies, namingTrivia, err := schema.CheckNamingTrivia(sdkName, news, autoNamingSpec.TriviaSpec)
+	namingTriviaApplies, namingTrivia, err := autonaming.CheckNamingTrivia(sdkName, news, autoNamingSpec.TriviaSpec)
 	if err != nil {
 		return resource.PropertyValue{}, err
 	}
@@ -89,7 +90,7 @@ func getDefaultName(
 
 	// Apply naming trivia to the generated name.
 	if namingTriviaApplies {
-		random = namingTrivia.ApplyTrivia(sdkName, random)
+		random = autonaming.ApplyTrivia(namingTrivia, random)
 	}
 
 	return resource.NewStringProperty(random), nil

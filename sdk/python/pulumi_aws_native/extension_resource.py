@@ -15,20 +15,38 @@ __all__ = ['ExtensionResourceArgs', 'ExtensionResource']
 class ExtensionResourceArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Mapping[str, Any]],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 create_only: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags_property: Optional[pulumi.Input[str]] = None,
+                 tags_style: Optional[pulumi.Input[str]] = None,
+                 write_only: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ExtensionResource resource.
-        :param pulumi.Input[Mapping[str, Any]] properties: Dictionary of the extension resource properties.
-        :param pulumi.Input[str] type: CloudFormation type name.
+        :param pulumi.Input[Mapping[str, Any]] properties: Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.
+        :param pulumi.Input[str] type: CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] create_only: Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
+               In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+        :param pulumi.Input[str] tags_property: Optional name of the property containing the tags. Defaults to "Tags" if the `tagsStyle` is set to either "stringMap" or "keyValueArray". This is used to apply default tags to the resource and can be ignored if not using default tags.
+        :param pulumi.Input[str] tags_style: Optional style of tags this resource uses. Valid values are "stringMap", "keyValueArray" or "none". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_only: Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.
+               In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "type", type)
+        if create_only is not None:
+            pulumi.set(__self__, "create_only", create_only)
+        if tags_property is not None:
+            pulumi.set(__self__, "tags_property", tags_property)
+        if tags_style is not None:
+            pulumi.set(__self__, "tags_style", tags_style)
+        if write_only is not None:
+            pulumi.set(__self__, "write_only", write_only)
 
     @property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Mapping[str, Any]]:
         """
-        Dictionary of the extension resource properties.
+        Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.
         """
         return pulumi.get(self, "properties")
 
@@ -40,7 +58,7 @@ class ExtensionResourceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        CloudFormation type name.
+        CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.
         """
         return pulumi.get(self, "type")
 
@@ -48,22 +66,82 @@ class ExtensionResourceArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="createOnly")
+    def create_only(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
+        In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+        """
+        return pulumi.get(self, "create_only")
+
+    @create_only.setter
+    def create_only(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "create_only", value)
+
+    @property
+    @pulumi.getter(name="tagsProperty")
+    def tags_property(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional name of the property containing the tags. Defaults to "Tags" if the `tagsStyle` is set to either "stringMap" or "keyValueArray". This is used to apply default tags to the resource and can be ignored if not using default tags.
+        """
+        return pulumi.get(self, "tags_property")
+
+    @tags_property.setter
+    def tags_property(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tags_property", value)
+
+    @property
+    @pulumi.getter(name="tagsStyle")
+    def tags_style(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional style of tags this resource uses. Valid values are "stringMap", "keyValueArray" or "none". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.
+        """
+        return pulumi.get(self, "tags_style")
+
+    @tags_style.setter
+    def tags_style(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tags_style", value)
+
+    @property
+    @pulumi.getter(name="writeOnly")
+    def write_only(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.
+        In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+        """
+        return pulumi.get(self, "write_only")
+
+    @write_only.setter
+    def write_only(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "write_only", value)
+
 
 class ExtensionResource(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 create_only: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 tags_property: Optional[pulumi.Input[str]] = None,
+                 tags_style: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 write_only: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] properties: Dictionary of the extension resource properties.
-        :param pulumi.Input[str] type: CloudFormation type name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] create_only: Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.
+               In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
+        :param pulumi.Input[Mapping[str, Any]] properties: Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.
+        :param pulumi.Input[str] tags_property: Optional name of the property containing the tags. Defaults to "Tags" if the `tagsStyle` is set to either "stringMap" or "keyValueArray". This is used to apply default tags to the resource and can be ignored if not using default tags.
+        :param pulumi.Input[str] tags_style: Optional style of tags this resource uses. Valid values are "stringMap", "keyValueArray" or "none". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.
+        :param pulumi.Input[str] type: CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_only: Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.
+               In the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).
         """
         ...
     @overload
@@ -89,8 +167,12 @@ class ExtensionResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 create_only: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 tags_property: Optional[pulumi.Input[str]] = None,
+                 tags_style: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 write_only: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -100,12 +182,16 @@ class ExtensionResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExtensionResourceArgs.__new__(ExtensionResourceArgs)
 
+            __props__.__dict__["create_only"] = create_only
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["tags_property"] = tags_property
+            __props__.__dict__["tags_style"] = tags_style
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["write_only"] = write_only
             __props__.__dict__["outputs"] = None
         super(ExtensionResource, __self__).__init__(
             'aws-native:index:ExtensionResource',

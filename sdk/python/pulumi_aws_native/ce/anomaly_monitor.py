@@ -17,37 +17,26 @@ __all__ = ['AnomalyMonitorArgs', 'AnomalyMonitor']
 @pulumi.input_type
 class AnomalyMonitorArgs:
     def __init__(__self__, *,
-                 monitor_name: pulumi.Input[str],
                  monitor_type: pulumi.Input['AnomalyMonitorMonitorType'],
                  monitor_dimension: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']] = None,
+                 monitor_name: Optional[pulumi.Input[str]] = None,
                  monitor_specification: Optional[pulumi.Input[str]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]]] = None):
         """
         The set of arguments for constructing a AnomalyMonitor resource.
-        :param pulumi.Input[str] monitor_name: The name of the monitor.
         :param pulumi.Input['AnomalyMonitorMonitorDimension'] monitor_dimension: The dimensions to evaluate
+        :param pulumi.Input[str] monitor_name: The name of the monitor.
         :param pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]] resource_tags: Tags to assign to monitor.
         """
-        pulumi.set(__self__, "monitor_name", monitor_name)
         pulumi.set(__self__, "monitor_type", monitor_type)
         if monitor_dimension is not None:
             pulumi.set(__self__, "monitor_dimension", monitor_dimension)
+        if monitor_name is not None:
+            pulumi.set(__self__, "monitor_name", monitor_name)
         if monitor_specification is not None:
             pulumi.set(__self__, "monitor_specification", monitor_specification)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
-
-    @property
-    @pulumi.getter(name="monitorName")
-    def monitor_name(self) -> pulumi.Input[str]:
-        """
-        The name of the monitor.
-        """
-        return pulumi.get(self, "monitor_name")
-
-    @monitor_name.setter
-    def monitor_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "monitor_name", value)
 
     @property
     @pulumi.getter(name="monitorType")
@@ -69,6 +58,18 @@ class AnomalyMonitorArgs:
     @monitor_dimension.setter
     def monitor_dimension(self, value: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']]):
         pulumi.set(self, "monitor_dimension", value)
+
+    @property
+    @pulumi.getter(name="monitorName")
+    def monitor_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the monitor.
+        """
+        return pulumi.get(self, "monitor_name")
+
+    @monitor_name.setter
+    def monitor_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitor_name", value)
 
     @property
     @pulumi.getter(name="monitorSpecification")
@@ -571,8 +572,6 @@ class AnomalyMonitor(pulumi.CustomResource):
             __props__ = AnomalyMonitorArgs.__new__(AnomalyMonitorArgs)
 
             __props__.__dict__["monitor_dimension"] = monitor_dimension
-            if monitor_name is None and not opts.urn:
-                raise TypeError("Missing required property 'monitor_name'")
             __props__.__dict__["monitor_name"] = monitor_name
             __props__.__dict__["monitor_specification"] = monitor_specification
             if monitor_type is None and not opts.urn:

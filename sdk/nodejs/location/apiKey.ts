@@ -64,9 +64,6 @@ export class ApiKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyName'");
-            }
             if ((!args || args.restrictions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restrictions'");
             }
@@ -111,7 +108,7 @@ export interface ApiKeyArgs {
     expireTime?: pulumi.Input<string>;
     forceDelete?: pulumi.Input<boolean>;
     forceUpdate?: pulumi.Input<boolean>;
-    keyName: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     noExpiry?: pulumi.Input<boolean>;
     restrictions: pulumi.Input<inputs.location.ApiKeyRestrictionsArgs>;
     /**

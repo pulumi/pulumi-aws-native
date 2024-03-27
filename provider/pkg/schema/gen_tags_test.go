@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	jsschema "github.com/pulumi/jsschema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -14,27 +15,27 @@ import (
 
 func TestGetTagsStyle(t *testing.T) {
 	t.Run("defaults to unknown when typeSpec is nil", func(t *testing.T) {
-		ctx := &context{}
-		assert.Equal(t, TagsStyleUnknown, ctx.getTagsStyle("Tags", nil))
+		ctx := &cfSchemaContext{}
+		assert.Equal(t, default_tags.TagsStyleUnknown, ctx.getTagsStyle("Tags", nil))
 	})
 	t.Run("untyped style", func(t *testing.T) {
-		ctx := &context{}
+		ctx := &cfSchemaContext{}
 		typeSpec := &schema.TypeSpec{
 			Ref: "pulumi.json#/Any",
 		}
-		assert.Equal(t, TagsStyleUntyped, ctx.getTagsStyle("Tags", typeSpec))
+		assert.Equal(t, default_tags.TagsStyleUntyped, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("string map style", func(t *testing.T) {
-		ctx := &context{}
+		ctx := &cfSchemaContext{}
 		typeSpec := &schema.TypeSpec{
 			AdditionalProperties: &schema.TypeSpec{
 				Type: "string",
 			},
 		}
-		assert.Equal(t, TagsStyleStringMap, ctx.getTagsStyle("Tags", typeSpec))
+		assert.Equal(t, default_tags.TagsStyleStringMap, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("key value array style", func(t *testing.T) {
-		ctx := &context{
+		ctx := &cfSchemaContext{
 			pkg: &schema.PackageSpec{
 				Types: map[string]schema.ComplexTypeSpec{
 					"pulumi:types:input:common:ComponentResourceOptions:TagsEntry": {
@@ -53,10 +54,10 @@ func TestGetTagsStyle(t *testing.T) {
 				Ref: "#/types/pulumi:types:input:common:ComponentResourceOptions:TagsEntry",
 			},
 		}
-		assert.Equal(t, TagsStyleKeyValueArray, ctx.getTagsStyle("Tags", typeSpec))
+		assert.Equal(t, default_tags.TagsStyleKeyValueArray, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("not key value array style with extra field", func(t *testing.T) {
-		ctx := &context{
+		ctx := &cfSchemaContext{
 			pkg: &schema.PackageSpec{
 				Types: map[string]schema.ComplexTypeSpec{
 					"pulumi:types:input:common:ComponentResourceOptions:TagsEntry": {
@@ -76,10 +77,10 @@ func TestGetTagsStyle(t *testing.T) {
 				Ref: "#/types/pulumi:types:input:common:ComponentResourceOptions:TagsEntry",
 			},
 		}
-		assert.Equal(t, TagsStyleKeyValueArrayWithExtraProperties, ctx.getTagsStyle("Tags", typeSpec))
+		assert.Equal(t, default_tags.TagsStyleKeyValueArrayWithExtraProperties, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("key value create-only array style if causes replacement", func(t *testing.T) {
-		ctx := &context{
+		ctx := &cfSchemaContext{
 			pkg: &schema.PackageSpec{
 				Types: map[string]schema.ComplexTypeSpec{
 					"pulumi:types:input:common:ComponentResourceOptions:TagsEntry": {
@@ -103,10 +104,10 @@ func TestGetTagsStyle(t *testing.T) {
 				Ref: "#/types/pulumi:types:input:common:ComponentResourceOptions:TagsEntry",
 			},
 		}
-		assert.Equal(t, TagsStyleKeyValueArrayCreateOnly, ctx.getTagsStyle("Tags", typeSpec))
+		assert.Equal(t, default_tags.TagsStyleKeyValueArrayCreateOnly, ctx.getTagsStyle("Tags", typeSpec))
 	})
 	t.Run("key value array with alternate type style", func(t *testing.T) {
-		ctx := &context{
+		ctx := &cfSchemaContext{
 			pkg: &schema.PackageSpec{
 				Types: map[string]schema.ComplexTypeSpec{
 					"pulumi:types:input:common:ComponentResourceOptions:TagsEntry": {
@@ -145,7 +146,7 @@ func TestGetTagsStyle(t *testing.T) {
 				},
 			},
 		}
-		assert.Equal(t, TagsStyleKeyValueArrayWithAlternateType, ctx.getTagsStyle("Tags", typeSpec))
+		assert.Equal(t, default_tags.TagsStyleKeyValueArrayWithAlternateType, ctx.getTagsStyle("Tags", typeSpec))
 	})
 }
 
