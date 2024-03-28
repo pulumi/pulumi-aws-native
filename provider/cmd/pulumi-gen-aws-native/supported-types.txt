@@ -3,6 +3,7 @@ AWS::ACMPCA::CertificateAuthority
 AWS::ACMPCA::CertificateAuthorityActivation
 AWS::ACMPCA::Permission
 AWS::APS::RuleGroupsNamespace
+AWS::APS::Scraper
 AWS::APS::Workspace
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
@@ -49,6 +50,7 @@ AWS::AppConfig::HostedConfigurationVersion
 AWS::AppFlow::Connector
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
+AWS::AppIntegrations::Application
 AWS::AppIntegrations::DataIntegration
 AWS::AppIntegrations::EventIntegration
 AWS::AppRunner::AutoScalingConfiguration
@@ -147,6 +149,7 @@ AWS::CloudWatch::Alarm
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
 AWS::CodeArtifact::Domain
+AWS::CodeArtifact::PackageGroup
 AWS::CodeArtifact::Repository
 AWS::CodeBuild::Fleet
 AWS::CodeDeploy::Application
@@ -545,6 +548,8 @@ AWS::KMS::Alias
 AWS::KMS::Key
 AWS::KMS::ReplicaKey
 AWS::KafkaConnect::Connector
+AWS::KafkaConnect::CustomPlugin
+AWS::KafkaConnect::WorkerConfiguration
 AWS::Kendra::DataSource
 AWS::Kendra::Faq
 AWS::Kendra::Index
