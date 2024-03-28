@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Output<Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint?> DataLocationConstraint { get; private set; } = null!;
 
         [Output("policy")]
-        public Output<ImmutableDictionary<string, Outputs.ResiliencyPolicyFailurePolicy>> Policy { get; private set; } = null!;
+        public Output<Outputs.ResiliencyPolicyPolicyMap> Policy { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
@@ -103,12 +103,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Input<Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint>? DataLocationConstraint { get; set; }
 
         [Input("policy", required: true)]
-        private InputMap<Inputs.ResiliencyPolicyFailurePolicyArgs>? _policy;
-        public InputMap<Inputs.ResiliencyPolicyFailurePolicyArgs> Policy
-        {
-            get => _policy ?? (_policy = new InputMap<Inputs.ResiliencyPolicyFailurePolicyArgs>());
-            set => _policy = value;
-        }
+        public Input<Inputs.ResiliencyPolicyPolicyMapArgs> Policy { get; set; } = null!;
 
         /// <summary>
         /// Description of Resiliency Policy.

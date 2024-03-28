@@ -98,6 +98,17 @@ class ConfiguredTableScalarFunctions(str, Enum):
     RTRIM = "RTRIM"
     UPPER = "UPPER"
     COALESCE = "COALESCE"
+    CONVERT = "CONVERT"
+    CURRENT_DATE = "CURRENT_DATE"
+    DATEADD = "DATEADD"
+    EXTRACT = "EXTRACT"
+    GETDATE = "GETDATE"
+    SUBSTRING = "SUBSTRING"
+    TO_CHAR = "TO_CHAR"
+    TO_DATE = "TO_DATE"
+    TO_NUMBER = "TO_NUMBER"
+    TO_TIMESTAMP = "TO_TIMESTAMP"
+    TRIM = "TRIM"
 
 
 class MembershipQueryLogStatus(str, Enum):

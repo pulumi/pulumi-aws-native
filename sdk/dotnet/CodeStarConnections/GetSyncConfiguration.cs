@@ -84,7 +84,11 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured.
         /// </summary>
-        public readonly string? ProviderType;
+        public readonly Pulumi.AwsNative.CodeStarConnections.SyncConfigurationProviderType? ProviderType;
+        /// <summary>
+        /// Whether to enable or disable publishing of deployment status to source providers.
+        /// </summary>
+        public readonly Pulumi.AwsNative.CodeStarConnections.SyncConfigurationPublishDeploymentStatus? PublishDeploymentStatus;
         /// <summary>
         /// A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
         /// </summary>
@@ -97,6 +101,10 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// The IAM Role that allows AWS to update CloudFormation stacks based on content in the specified repository.
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// When to trigger Git sync to begin the stack update.
+        /// </summary>
+        public readonly Pulumi.AwsNative.CodeStarConnections.SyncConfigurationTriggerResourceUpdateOn? TriggerResourceUpdateOn;
 
         [OutputConstructor]
         private GetSyncConfigurationResult(
@@ -106,21 +114,27 @@ namespace Pulumi.AwsNative.CodeStarConnections
 
             string? ownerId,
 
-            string? providerType,
+            Pulumi.AwsNative.CodeStarConnections.SyncConfigurationProviderType? providerType,
+
+            Pulumi.AwsNative.CodeStarConnections.SyncConfigurationPublishDeploymentStatus? publishDeploymentStatus,
 
             string? repositoryLinkId,
 
             string? repositoryName,
 
-            string? roleArn)
+            string? roleArn,
+
+            Pulumi.AwsNative.CodeStarConnections.SyncConfigurationTriggerResourceUpdateOn? triggerResourceUpdateOn)
         {
             Branch = branch;
             ConfigFile = configFile;
             OwnerId = ownerId;
             ProviderType = providerType;
+            PublishDeploymentStatus = publishDeploymentStatus;
             RepositoryLinkId = repositoryLinkId;
             RepositoryName = repositoryName;
             RoleArn = roleArn;
+            TriggerResourceUpdateOn = triggerResourceUpdateOn;
         }
     }
 }

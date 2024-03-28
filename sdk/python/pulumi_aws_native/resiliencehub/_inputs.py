@@ -16,6 +16,7 @@ __all__ = [
     'AppPhysicalResourceIdArgs',
     'AppResourceMappingArgs',
     'ResiliencyPolicyFailurePolicyArgs',
+    'ResiliencyPolicyPolicyMapArgs',
 ]
 
 @pulumi.input_type
@@ -292,5 +293,55 @@ class ResiliencyPolicyFailurePolicyArgs:
     @rto_in_secs.setter
     def rto_in_secs(self, value: pulumi.Input[int]):
         pulumi.set(self, "rto_in_secs", value)
+
+
+@pulumi.input_type
+class ResiliencyPolicyPolicyMapArgs:
+    def __init__(__self__, *,
+                 az: pulumi.Input['ResiliencyPolicyFailurePolicyArgs'],
+                 hardware: pulumi.Input['ResiliencyPolicyFailurePolicyArgs'],
+                 software: pulumi.Input['ResiliencyPolicyFailurePolicyArgs'],
+                 region: Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']] = None):
+        pulumi.set(__self__, "az", az)
+        pulumi.set(__self__, "hardware", hardware)
+        pulumi.set(__self__, "software", software)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def az(self) -> pulumi.Input['ResiliencyPolicyFailurePolicyArgs']:
+        return pulumi.get(self, "az")
+
+    @az.setter
+    def az(self, value: pulumi.Input['ResiliencyPolicyFailurePolicyArgs']):
+        pulumi.set(self, "az", value)
+
+    @property
+    @pulumi.getter
+    def hardware(self) -> pulumi.Input['ResiliencyPolicyFailurePolicyArgs']:
+        return pulumi.get(self, "hardware")
+
+    @hardware.setter
+    def hardware(self, value: pulumi.Input['ResiliencyPolicyFailurePolicyArgs']):
+        pulumi.set(self, "hardware", value)
+
+    @property
+    @pulumi.getter
+    def software(self) -> pulumi.Input['ResiliencyPolicyFailurePolicyArgs']:
+        return pulumi.get(self, "software")
+
+    @software.setter
+    def software(self, value: pulumi.Input['ResiliencyPolicyFailurePolicyArgs']):
+        pulumi.set(self, "software", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]):
+        pulumi.set(self, "region", value)
 
 

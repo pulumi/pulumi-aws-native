@@ -83,6 +83,13 @@
       "maxItems" : 1000
     }
   },
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "required" : [ "OrganizationConformancePackName" ],
   "writeOnlyProperties" : [ "/properties/TemplateBody", "/properties/TemplateS3Uri" ],
   "createOnlyProperties" : [ "/properties/OrganizationConformancePackName" ],

@@ -10,31 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
-    /// Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
+    /// The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
+    ///  The maximum number of metric filters that can be associated with a log group is 100.
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:MetricFilter")]
     public partial class MetricFilter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A name for the metric filter.
+        /// The name of the metric filter.
         /// </summary>
         [Output("filterName")]
         public Output<string?> FilterName { get; private set; } = null!;
 
         /// <summary>
-        /// Pattern that Logs follows to interpret each entry in a log.
+        /// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         [Output("filterPattern")]
         public Output<string> FilterPattern { get; private set; } = null!;
 
         /// <summary>
-        /// Existing log group that you want to associate with this filter.
+        /// The name of an existing log group that you want to associate with this metric filter.
         /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of information that defines how metric data gets emitted.
+        /// The metric transformations.
         /// </summary>
         [Output("metricTransformations")]
         public Output<ImmutableArray<Outputs.MetricFilterMetricTransformation>> MetricTransformations { get; private set; } = null!;
@@ -90,19 +91,19 @@ namespace Pulumi.AwsNative.Logs
     public sealed class MetricFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A name for the metric filter.
+        /// The name of the metric filter.
         /// </summary>
         [Input("filterName")]
         public Input<string>? FilterName { get; set; }
 
         /// <summary>
-        /// Pattern that Logs follows to interpret each entry in a log.
+        /// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         [Input("filterPattern", required: true)]
         public Input<string> FilterPattern { get; set; } = null!;
 
         /// <summary>
-        /// Existing log group that you want to associate with this filter.
+        /// The name of an existing log group that you want to associate with this metric filter.
         /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
@@ -111,7 +112,7 @@ namespace Pulumi.AwsNative.Logs
         private InputList<Inputs.MetricFilterMetricTransformationArgs>? _metricTransformations;
 
         /// <summary>
-        /// A collection of information that defines how metric data gets emitted.
+        /// The metric transformations.
         /// </summary>
         public InputList<Inputs.MetricFilterMetricTransformationArgs> MetricTransformations
         {

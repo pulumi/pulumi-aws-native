@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     {
         public readonly ImmutableArray<string> AllowedAnalyses;
         public readonly ImmutableArray<string> AllowedAnalysisProviders;
+        public readonly Outputs.ConfiguredTableDifferentialPrivacy? DifferentialPrivacy;
 
         [OutputConstructor]
         private ConfiguredTableAnalysisRuleCustom(
             ImmutableArray<string> allowedAnalyses,
 
-            ImmutableArray<string> allowedAnalysisProviders)
+            ImmutableArray<string> allowedAnalysisProviders,
+
+            Outputs.ConfiguredTableDifferentialPrivacy? differentialPrivacy)
         {
             AllowedAnalyses = allowedAnalyses;
             AllowedAnalysisProviders = allowedAnalysisProviders;
+            DifferentialPrivacy = differentialPrivacy;
         }
     }
 }

@@ -21,9 +21,12 @@ class ClusterArgs:
                  shard_capacity: pulumi.Input[int],
                  shard_count: pulumi.Input[int],
                  admin_user_password: Optional[pulumi.Input[str]] = None,
+                 backup_retention_period: Optional[pulumi.Input[int]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 shard_instance_count: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -36,12 +39,18 @@ class ClusterArgs:
         pulumi.set(__self__, "shard_count", shard_count)
         if admin_user_password is not None:
             pulumi.set(__self__, "admin_user_password", admin_user_password)
+        if backup_retention_period is not None:
+            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if preferred_backup_window is not None:
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if shard_instance_count is not None:
+            pulumi.set(__self__, "shard_instance_count", shard_instance_count)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
@@ -95,6 +104,15 @@ class ClusterArgs:
         pulumi.set(self, "admin_user_password", value)
 
     @property
+    @pulumi.getter(name="backupRetentionPeriod")
+    def backup_retention_period(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "backup_retention_period")
+
+    @backup_retention_period.setter
+    def backup_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backup_retention_period", value)
+
+    @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "cluster_name")
@@ -113,6 +131,15 @@ class ClusterArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="preferredBackupWindow")
+    def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "preferred_backup_window")
+
+    @preferred_backup_window.setter
+    def preferred_backup_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_backup_window", value)
+
+    @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "preferred_maintenance_window")
@@ -120,6 +147,15 @@ class ClusterArgs:
     @preferred_maintenance_window.setter
     def preferred_maintenance_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="shardInstanceCount")
+    def shard_instance_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "shard_instance_count")
+
+    @shard_instance_count.setter
+    def shard_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "shard_instance_count", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -157,11 +193,14 @@ class Cluster(pulumi.CustomResource):
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
+                 backup_retention_period: Optional[pulumi.Input[int]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  shard_capacity: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
+                 shard_instance_count: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -199,11 +238,14 @@ class Cluster(pulumi.CustomResource):
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
+                 backup_retention_period: Optional[pulumi.Input[int]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  shard_capacity: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
+                 shard_instance_count: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -223,8 +265,10 @@ class Cluster(pulumi.CustomResource):
             if auth_type is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_type'")
             __props__.__dict__["auth_type"] = auth_type
+            __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             if shard_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'shard_capacity'")
@@ -232,6 +276,7 @@ class Cluster(pulumi.CustomResource):
             if shard_count is None and not opts.urn:
                 raise TypeError("Missing required property 'shard_count'")
             __props__.__dict__["shard_count"] = shard_count
+            __props__.__dict__["shard_instance_count"] = shard_instance_count
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
@@ -264,13 +309,16 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["admin_user_name"] = None
         __props__.__dict__["admin_user_password"] = None
         __props__.__dict__["auth_type"] = None
+        __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["cluster_arn"] = None
         __props__.__dict__["cluster_endpoint"] = None
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["kms_key_id"] = None
+        __props__.__dict__["preferred_backup_window"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
         __props__.__dict__["shard_capacity"] = None
         __props__.__dict__["shard_count"] = None
+        __props__.__dict__["shard_instance_count"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
@@ -290,6 +338,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="authType")
     def auth_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="backupRetentionPeriod")
+    def backup_retention_period(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "backup_retention_period")
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -312,6 +365,11 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="preferredBackupWindow")
+    def preferred_backup_window(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "preferred_backup_window")
+
+    @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "preferred_maintenance_window")
@@ -325,6 +383,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Output[int]:
         return pulumi.get(self, "shard_count")
+
+    @property
+    @pulumi.getter(name="shardInstanceCount")
+    def shard_instance_count(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "shard_instance_count")
 
     @property
     @pulumi.getter(name="subnetIds")

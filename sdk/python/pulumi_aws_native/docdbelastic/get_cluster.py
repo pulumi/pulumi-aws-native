@@ -19,13 +19,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, cluster_arn=None, cluster_endpoint=None, preferred_maintenance_window=None, shard_capacity=None, shard_count=None, subnet_ids=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, backup_retention_period=None, cluster_arn=None, cluster_endpoint=None, preferred_backup_window=None, preferred_maintenance_window=None, shard_capacity=None, shard_count=None, shard_instance_count=None, subnet_ids=None, tags=None, vpc_security_group_ids=None):
+        if backup_retention_period and not isinstance(backup_retention_period, int):
+            raise TypeError("Expected argument 'backup_retention_period' to be a int")
+        pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         if cluster_endpoint and not isinstance(cluster_endpoint, str):
             raise TypeError("Expected argument 'cluster_endpoint' to be a str")
         pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if preferred_backup_window and not isinstance(preferred_backup_window, str):
+            raise TypeError("Expected argument 'preferred_backup_window' to be a str")
+        pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
             raise TypeError("Expected argument 'preferred_maintenance_window' to be a str")
         pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
@@ -35,6 +41,9 @@ class GetClusterResult:
         if shard_count and not isinstance(shard_count, int):
             raise TypeError("Expected argument 'shard_count' to be a int")
         pulumi.set(__self__, "shard_count", shard_count)
+        if shard_instance_count and not isinstance(shard_instance_count, int):
+            raise TypeError("Expected argument 'shard_instance_count' to be a int")
+        pulumi.set(__self__, "shard_instance_count", shard_instance_count)
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -46,6 +55,11 @@ class GetClusterResult:
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
+    @pulumi.getter(name="backupRetentionPeriod")
+    def backup_retention_period(self) -> Optional[int]:
+        return pulumi.get(self, "backup_retention_period")
+
+    @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[str]:
         return pulumi.get(self, "cluster_arn")
@@ -54,6 +68,11 @@ class GetClusterResult:
     @pulumi.getter(name="clusterEndpoint")
     def cluster_endpoint(self) -> Optional[str]:
         return pulumi.get(self, "cluster_endpoint")
+
+    @property
+    @pulumi.getter(name="preferredBackupWindow")
+    def preferred_backup_window(self) -> Optional[str]:
+        return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
@@ -69,6 +88,11 @@ class GetClusterResult:
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> Optional[int]:
         return pulumi.get(self, "shard_count")
+
+    @property
+    @pulumi.getter(name="shardInstanceCount")
+    def shard_instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "shard_instance_count")
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -92,11 +116,14 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            backup_retention_period=self.backup_retention_period,
             cluster_arn=self.cluster_arn,
             cluster_endpoint=self.cluster_endpoint,
+            preferred_backup_window=self.preferred_backup_window,
             preferred_maintenance_window=self.preferred_maintenance_window,
             shard_capacity=self.shard_capacity,
             shard_count=self.shard_count,
+            shard_instance_count=self.shard_instance_count,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
             vpc_security_group_ids=self.vpc_security_group_ids)
@@ -113,11 +140,14 @@ def get_cluster(cluster_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:docdbelastic:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         cluster_endpoint=pulumi.get(__ret__, 'cluster_endpoint'),
+        preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         shard_capacity=pulumi.get(__ret__, 'shard_capacity'),
         shard_count=pulumi.get(__ret__, 'shard_count'),
+        shard_instance_count=pulumi.get(__ret__, 'shard_instance_count'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))

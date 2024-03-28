@@ -18,6 +18,8 @@ class TransitGatewayRouteTableAssociationArgs:
                  transit_gateway_route_table_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a TransitGatewayRouteTableAssociation resource.
+        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of transit gateway attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: The ID of transit gateway route table.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
@@ -25,6 +27,9 @@ class TransitGatewayRouteTableAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Input[str]:
+        """
+        The ID of transit gateway attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -34,6 +39,9 @@ class TransitGatewayRouteTableAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Input[str]:
+        """
+        The ID of transit gateway route table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -54,6 +62,8 @@ class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of transit gateway attachment.
+        :param pulumi.Input[str] transit_gateway_route_table_id: The ID of transit gateway route table.
         """
         ...
     @overload
@@ -96,7 +106,6 @@ class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
             if transit_gateway_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_route_table_id'")
             __props__.__dict__["transit_gateway_route_table_id"] = transit_gateway_route_table_id
-            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["transitGatewayAttachmentId", "transitGatewayRouteTableId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayRouteTableAssociation, __self__).__init__(
@@ -121,23 +130,23 @@ class TransitGatewayRouteTableAssociation(pulumi.CustomResource):
 
         __props__ = TransitGatewayRouteTableAssociationArgs.__new__(TransitGatewayRouteTableAssociationArgs)
 
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["transit_gateway_attachment_id"] = None
         __props__.__dict__["transit_gateway_route_table_id"] = None
         return TransitGatewayRouteTableAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "aws_id")
-
-    @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of transit gateway attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
+        """
+        The ID of transit gateway route table.
+        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 

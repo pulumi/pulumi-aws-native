@@ -328,6 +328,7 @@ export class Table extends pulumi.CustomResource {
      *  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
      */
     public readonly provisionedThroughput!: pulumi.Output<outputs.dynamodb.TableProvisionedThroughput | undefined>;
+    public readonly resourcePolicy!: pulumi.Output<outputs.dynamodb.TableResourcePolicy | undefined>;
     /**
      * Specifies the settings to enable server-side encryption.
      */
@@ -382,6 +383,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
             resourceInputs["pointInTimeRecoverySpecification"] = args ? args.pointInTimeRecoverySpecification : undefined;
             resourceInputs["provisionedThroughput"] = args ? args.provisionedThroughput : undefined;
+            resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
             resourceInputs["tableClass"] = args ? args.tableClass : undefined;
@@ -403,6 +405,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["localSecondaryIndexes"] = undefined /*out*/;
             resourceInputs["pointInTimeRecoverySpecification"] = undefined /*out*/;
             resourceInputs["provisionedThroughput"] = undefined /*out*/;
+            resourceInputs["resourcePolicy"] = undefined /*out*/;
             resourceInputs["sseSpecification"] = undefined /*out*/;
             resourceInputs["streamArn"] = undefined /*out*/;
             resourceInputs["streamSpecification"] = undefined /*out*/;
@@ -480,6 +483,7 @@ export interface TableArgs {
      *  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
      */
     provisionedThroughput?: pulumi.Input<inputs.dynamodb.TableProvisionedThroughputArgs>;
+    resourcePolicy?: pulumi.Input<inputs.dynamodb.TableResourcePolicyArgs>;
     /**
      * Specifies the settings to enable server-side encryption.
      */

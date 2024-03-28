@@ -323,6 +323,17 @@ namespace Pulumi.AwsNative.CleanRooms
         public static ConfiguredTableScalarFunctions Rtrim { get; } = new ConfiguredTableScalarFunctions("RTRIM");
         public static ConfiguredTableScalarFunctions Upper { get; } = new ConfiguredTableScalarFunctions("UPPER");
         public static ConfiguredTableScalarFunctions Coalesce { get; } = new ConfiguredTableScalarFunctions("COALESCE");
+        public static ConfiguredTableScalarFunctions Convert { get; } = new ConfiguredTableScalarFunctions("CONVERT");
+        public static ConfiguredTableScalarFunctions CurrentDate { get; } = new ConfiguredTableScalarFunctions("CURRENT_DATE");
+        public static ConfiguredTableScalarFunctions Dateadd { get; } = new ConfiguredTableScalarFunctions("DATEADD");
+        public static ConfiguredTableScalarFunctions Extract { get; } = new ConfiguredTableScalarFunctions("EXTRACT");
+        public static ConfiguredTableScalarFunctions Getdate { get; } = new ConfiguredTableScalarFunctions("GETDATE");
+        public static ConfiguredTableScalarFunctions Substring { get; } = new ConfiguredTableScalarFunctions("SUBSTRING");
+        public static ConfiguredTableScalarFunctions ToChar { get; } = new ConfiguredTableScalarFunctions("TO_CHAR");
+        public static ConfiguredTableScalarFunctions ToDate { get; } = new ConfiguredTableScalarFunctions("TO_DATE");
+        public static ConfiguredTableScalarFunctions ToNumber { get; } = new ConfiguredTableScalarFunctions("TO_NUMBER");
+        public static ConfiguredTableScalarFunctions ToTimestamp { get; } = new ConfiguredTableScalarFunctions("TO_TIMESTAMP");
+        public static ConfiguredTableScalarFunctions Trim { get; } = new ConfiguredTableScalarFunctions("TRIM");
 
         public static bool operator ==(ConfiguredTableScalarFunctions left, ConfiguredTableScalarFunctions right) => left.Equals(right);
         public static bool operator !=(ConfiguredTableScalarFunctions left, ConfiguredTableScalarFunctions right) => !left.Equals(right);

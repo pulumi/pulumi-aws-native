@@ -24,6 +24,7 @@ class SubnetArgs:
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -76,6 +77,8 @@ class SubnetArgs:
             pulumi.set(__self__, "cidr_block", cidr_block)
         if enable_dns64 is not None:
             pulumi.set(__self__, "enable_dns64", enable_dns64)
+        if enable_lni_at_device_index is not None:
+            pulumi.set(__self__, "enable_lni_at_device_index", enable_lni_at_device_index)
         if ipv4_ipam_pool_id is not None:
             pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
         if ipv4_netmask_length is not None:
@@ -174,6 +177,15 @@ class SubnetArgs:
     @enable_dns64.setter
     def enable_dns64(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_dns64", value)
+
+    @property
+    @pulumi.getter(name="enableLniAtDeviceIndex")
+    def enable_lni_at_device_index(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "enable_lni_at_device_index")
+
+    @enable_lni_at_device_index.setter
+    def enable_lni_at_device_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "enable_lni_at_device_index", value)
 
     @property
     @pulumi.getter(name="ipv4IpamPoolId")
@@ -324,6 +336,7 @@ class Subnet(pulumi.CustomResource):
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -403,6 +416,7 @@ class Subnet(pulumi.CustomResource):
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  enable_dns64: Optional[pulumi.Input[bool]] = None,
+                 enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -429,6 +443,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["availability_zone_id"] = availability_zone_id
             __props__.__dict__["cidr_block"] = cidr_block
             __props__.__dict__["enable_dns64"] = enable_dns64
+            __props__.__dict__["enable_lni_at_device_index"] = enable_lni_at_device_index
             __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
             __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
@@ -474,6 +489,7 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["availability_zone_id"] = None
         __props__.__dict__["cidr_block"] = None
         __props__.__dict__["enable_dns64"] = None
+        __props__.__dict__["enable_lni_at_device_index"] = None
         __props__.__dict__["ipv4_ipam_pool_id"] = None
         __props__.__dict__["ipv4_netmask_length"] = None
         __props__.__dict__["ipv6_cidr_block"] = None
@@ -532,6 +548,11 @@ class Subnet(pulumi.CustomResource):
         Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
         """
         return pulumi.get(self, "enable_dns64")
+
+    @property
+    @pulumi.getter(name="enableLniAtDeviceIndex")
+    def enable_lni_at_device_index(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "enable_lni_at_device_index")
 
     @property
     @pulumi.getter(name="ipv4IpamPoolId")

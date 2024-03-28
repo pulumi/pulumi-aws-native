@@ -21,6 +21,497 @@ type RuleGroupsNamespaceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Scraper metrics destination
+type ScraperDestination struct {
+	// Configuration for Amazon Managed Prometheus metrics destination
+	AmpConfiguration *ScraperDestinationAmpConfigurationProperties `pulumi:"ampConfiguration"`
+}
+
+// ScraperDestinationInput is an input type that accepts ScraperDestinationArgs and ScraperDestinationOutput values.
+// You can construct a concrete instance of `ScraperDestinationInput` via:
+//
+//	ScraperDestinationArgs{...}
+type ScraperDestinationInput interface {
+	pulumi.Input
+
+	ToScraperDestinationOutput() ScraperDestinationOutput
+	ToScraperDestinationOutputWithContext(context.Context) ScraperDestinationOutput
+}
+
+// Scraper metrics destination
+type ScraperDestinationArgs struct {
+	// Configuration for Amazon Managed Prometheus metrics destination
+	AmpConfiguration ScraperDestinationAmpConfigurationPropertiesPtrInput `pulumi:"ampConfiguration"`
+}
+
+func (ScraperDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperDestination)(nil)).Elem()
+}
+
+func (i ScraperDestinationArgs) ToScraperDestinationOutput() ScraperDestinationOutput {
+	return i.ToScraperDestinationOutputWithContext(context.Background())
+}
+
+func (i ScraperDestinationArgs) ToScraperDestinationOutputWithContext(ctx context.Context) ScraperDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationOutput)
+}
+
+// Scraper metrics destination
+type ScraperDestinationOutput struct{ *pulumi.OutputState }
+
+func (ScraperDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperDestination)(nil)).Elem()
+}
+
+func (o ScraperDestinationOutput) ToScraperDestinationOutput() ScraperDestinationOutput {
+	return o
+}
+
+func (o ScraperDestinationOutput) ToScraperDestinationOutputWithContext(ctx context.Context) ScraperDestinationOutput {
+	return o
+}
+
+// Configuration for Amazon Managed Prometheus metrics destination
+func (o ScraperDestinationOutput) AmpConfiguration() ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v ScraperDestination) *ScraperDestinationAmpConfigurationProperties { return v.AmpConfiguration }).(ScraperDestinationAmpConfigurationPropertiesPtrOutput)
+}
+
+// Configuration for Amazon Managed Prometheus metrics destination
+type ScraperDestinationAmpConfigurationProperties struct {
+	// ARN of an Amazon Managed Prometheus workspace
+	WorkspaceArn string `pulumi:"workspaceArn"`
+}
+
+// ScraperDestinationAmpConfigurationPropertiesInput is an input type that accepts ScraperDestinationAmpConfigurationPropertiesArgs and ScraperDestinationAmpConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `ScraperDestinationAmpConfigurationPropertiesInput` via:
+//
+//	ScraperDestinationAmpConfigurationPropertiesArgs{...}
+type ScraperDestinationAmpConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToScraperDestinationAmpConfigurationPropertiesOutput() ScraperDestinationAmpConfigurationPropertiesOutput
+	ToScraperDestinationAmpConfigurationPropertiesOutputWithContext(context.Context) ScraperDestinationAmpConfigurationPropertiesOutput
+}
+
+// Configuration for Amazon Managed Prometheus metrics destination
+type ScraperDestinationAmpConfigurationPropertiesArgs struct {
+	// ARN of an Amazon Managed Prometheus workspace
+	WorkspaceArn pulumi.StringInput `pulumi:"workspaceArn"`
+}
+
+func (ScraperDestinationAmpConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperDestinationAmpConfigurationProperties)(nil)).Elem()
+}
+
+func (i ScraperDestinationAmpConfigurationPropertiesArgs) ToScraperDestinationAmpConfigurationPropertiesOutput() ScraperDestinationAmpConfigurationPropertiesOutput {
+	return i.ToScraperDestinationAmpConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ScraperDestinationAmpConfigurationPropertiesArgs) ToScraperDestinationAmpConfigurationPropertiesOutputWithContext(ctx context.Context) ScraperDestinationAmpConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationAmpConfigurationPropertiesOutput)
+}
+
+func (i ScraperDestinationAmpConfigurationPropertiesArgs) ToScraperDestinationAmpConfigurationPropertiesPtrOutput() ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return i.ToScraperDestinationAmpConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperDestinationAmpConfigurationPropertiesArgs) ToScraperDestinationAmpConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationAmpConfigurationPropertiesOutput).ToScraperDestinationAmpConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ScraperDestinationAmpConfigurationPropertiesPtrInput is an input type that accepts ScraperDestinationAmpConfigurationPropertiesArgs, ScraperDestinationAmpConfigurationPropertiesPtr and ScraperDestinationAmpConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ScraperDestinationAmpConfigurationPropertiesPtrInput` via:
+//
+//	        ScraperDestinationAmpConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperDestinationAmpConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToScraperDestinationAmpConfigurationPropertiesPtrOutput() ScraperDestinationAmpConfigurationPropertiesPtrOutput
+	ToScraperDestinationAmpConfigurationPropertiesPtrOutputWithContext(context.Context) ScraperDestinationAmpConfigurationPropertiesPtrOutput
+}
+
+type scraperDestinationAmpConfigurationPropertiesPtrType ScraperDestinationAmpConfigurationPropertiesArgs
+
+func ScraperDestinationAmpConfigurationPropertiesPtr(v *ScraperDestinationAmpConfigurationPropertiesArgs) ScraperDestinationAmpConfigurationPropertiesPtrInput {
+	return (*scraperDestinationAmpConfigurationPropertiesPtrType)(v)
+}
+
+func (*scraperDestinationAmpConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperDestinationAmpConfigurationProperties)(nil)).Elem()
+}
+
+func (i *scraperDestinationAmpConfigurationPropertiesPtrType) ToScraperDestinationAmpConfigurationPropertiesPtrOutput() ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return i.ToScraperDestinationAmpConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperDestinationAmpConfigurationPropertiesPtrType) ToScraperDestinationAmpConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationAmpConfigurationPropertiesPtrOutput)
+}
+
+// Configuration for Amazon Managed Prometheus metrics destination
+type ScraperDestinationAmpConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ScraperDestinationAmpConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperDestinationAmpConfigurationProperties)(nil)).Elem()
+}
+
+func (o ScraperDestinationAmpConfigurationPropertiesOutput) ToScraperDestinationAmpConfigurationPropertiesOutput() ScraperDestinationAmpConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ScraperDestinationAmpConfigurationPropertiesOutput) ToScraperDestinationAmpConfigurationPropertiesOutputWithContext(ctx context.Context) ScraperDestinationAmpConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ScraperDestinationAmpConfigurationPropertiesOutput) ToScraperDestinationAmpConfigurationPropertiesPtrOutput() ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return o.ToScraperDestinationAmpConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperDestinationAmpConfigurationPropertiesOutput) ToScraperDestinationAmpConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperDestinationAmpConfigurationProperties) *ScraperDestinationAmpConfigurationProperties {
+		return &v
+	}).(ScraperDestinationAmpConfigurationPropertiesPtrOutput)
+}
+
+// ARN of an Amazon Managed Prometheus workspace
+func (o ScraperDestinationAmpConfigurationPropertiesOutput) WorkspaceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScraperDestinationAmpConfigurationProperties) string { return v.WorkspaceArn }).(pulumi.StringOutput)
+}
+
+type ScraperDestinationAmpConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperDestinationAmpConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperDestinationAmpConfigurationProperties)(nil)).Elem()
+}
+
+func (o ScraperDestinationAmpConfigurationPropertiesPtrOutput) ToScraperDestinationAmpConfigurationPropertiesPtrOutput() ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ScraperDestinationAmpConfigurationPropertiesPtrOutput) ToScraperDestinationAmpConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ScraperDestinationAmpConfigurationPropertiesPtrOutput) Elem() ScraperDestinationAmpConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *ScraperDestinationAmpConfigurationProperties) ScraperDestinationAmpConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperDestinationAmpConfigurationProperties
+		return ret
+	}).(ScraperDestinationAmpConfigurationPropertiesOutput)
+}
+
+// ARN of an Amazon Managed Prometheus workspace
+func (o ScraperDestinationAmpConfigurationPropertiesPtrOutput) WorkspaceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperDestinationAmpConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkspaceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Scraper configuration
+type ScraperScrapeConfiguration struct {
+	// Prometheus compatible scrape configuration in base64 encoded blob format
+	ConfigurationBlob *string `pulumi:"configurationBlob"`
+}
+
+// ScraperScrapeConfigurationInput is an input type that accepts ScraperScrapeConfigurationArgs and ScraperScrapeConfigurationOutput values.
+// You can construct a concrete instance of `ScraperScrapeConfigurationInput` via:
+//
+//	ScraperScrapeConfigurationArgs{...}
+type ScraperScrapeConfigurationInput interface {
+	pulumi.Input
+
+	ToScraperScrapeConfigurationOutput() ScraperScrapeConfigurationOutput
+	ToScraperScrapeConfigurationOutputWithContext(context.Context) ScraperScrapeConfigurationOutput
+}
+
+// Scraper configuration
+type ScraperScrapeConfigurationArgs struct {
+	// Prometheus compatible scrape configuration in base64 encoded blob format
+	ConfigurationBlob pulumi.StringPtrInput `pulumi:"configurationBlob"`
+}
+
+func (ScraperScrapeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperScrapeConfiguration)(nil)).Elem()
+}
+
+func (i ScraperScrapeConfigurationArgs) ToScraperScrapeConfigurationOutput() ScraperScrapeConfigurationOutput {
+	return i.ToScraperScrapeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScraperScrapeConfigurationArgs) ToScraperScrapeConfigurationOutputWithContext(ctx context.Context) ScraperScrapeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperScrapeConfigurationOutput)
+}
+
+// Scraper configuration
+type ScraperScrapeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScraperScrapeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperScrapeConfiguration)(nil)).Elem()
+}
+
+func (o ScraperScrapeConfigurationOutput) ToScraperScrapeConfigurationOutput() ScraperScrapeConfigurationOutput {
+	return o
+}
+
+func (o ScraperScrapeConfigurationOutput) ToScraperScrapeConfigurationOutputWithContext(ctx context.Context) ScraperScrapeConfigurationOutput {
+	return o
+}
+
+// Prometheus compatible scrape configuration in base64 encoded blob format
+func (o ScraperScrapeConfigurationOutput) ConfigurationBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScraperScrapeConfiguration) *string { return v.ConfigurationBlob }).(pulumi.StringPtrOutput)
+}
+
+// Scraper metrics source
+type ScraperSource struct {
+	// Configuration for EKS metrics source
+	EksConfiguration *ScraperSourceEksConfigurationProperties `pulumi:"eksConfiguration"`
+}
+
+// ScraperSourceInput is an input type that accepts ScraperSourceArgs and ScraperSourceOutput values.
+// You can construct a concrete instance of `ScraperSourceInput` via:
+//
+//	ScraperSourceArgs{...}
+type ScraperSourceInput interface {
+	pulumi.Input
+
+	ToScraperSourceOutput() ScraperSourceOutput
+	ToScraperSourceOutputWithContext(context.Context) ScraperSourceOutput
+}
+
+// Scraper metrics source
+type ScraperSourceArgs struct {
+	// Configuration for EKS metrics source
+	EksConfiguration ScraperSourceEksConfigurationPropertiesPtrInput `pulumi:"eksConfiguration"`
+}
+
+func (ScraperSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperSource)(nil)).Elem()
+}
+
+func (i ScraperSourceArgs) ToScraperSourceOutput() ScraperSourceOutput {
+	return i.ToScraperSourceOutputWithContext(context.Background())
+}
+
+func (i ScraperSourceArgs) ToScraperSourceOutputWithContext(ctx context.Context) ScraperSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceOutput)
+}
+
+// Scraper metrics source
+type ScraperSourceOutput struct{ *pulumi.OutputState }
+
+func (ScraperSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperSource)(nil)).Elem()
+}
+
+func (o ScraperSourceOutput) ToScraperSourceOutput() ScraperSourceOutput {
+	return o
+}
+
+func (o ScraperSourceOutput) ToScraperSourceOutputWithContext(ctx context.Context) ScraperSourceOutput {
+	return o
+}
+
+// Configuration for EKS metrics source
+func (o ScraperSourceOutput) EksConfiguration() ScraperSourceEksConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v ScraperSource) *ScraperSourceEksConfigurationProperties { return v.EksConfiguration }).(ScraperSourceEksConfigurationPropertiesPtrOutput)
+}
+
+// Configuration for EKS metrics source
+type ScraperSourceEksConfigurationProperties struct {
+	// ARN of an EKS cluster
+	ClusterArn string `pulumi:"clusterArn"`
+	// List of security group IDs
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of subnet IDs
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// ScraperSourceEksConfigurationPropertiesInput is an input type that accepts ScraperSourceEksConfigurationPropertiesArgs and ScraperSourceEksConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `ScraperSourceEksConfigurationPropertiesInput` via:
+//
+//	ScraperSourceEksConfigurationPropertiesArgs{...}
+type ScraperSourceEksConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToScraperSourceEksConfigurationPropertiesOutput() ScraperSourceEksConfigurationPropertiesOutput
+	ToScraperSourceEksConfigurationPropertiesOutputWithContext(context.Context) ScraperSourceEksConfigurationPropertiesOutput
+}
+
+// Configuration for EKS metrics source
+type ScraperSourceEksConfigurationPropertiesArgs struct {
+	// ARN of an EKS cluster
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// List of security group IDs
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of subnet IDs
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ScraperSourceEksConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperSourceEksConfigurationProperties)(nil)).Elem()
+}
+
+func (i ScraperSourceEksConfigurationPropertiesArgs) ToScraperSourceEksConfigurationPropertiesOutput() ScraperSourceEksConfigurationPropertiesOutput {
+	return i.ToScraperSourceEksConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ScraperSourceEksConfigurationPropertiesArgs) ToScraperSourceEksConfigurationPropertiesOutputWithContext(ctx context.Context) ScraperSourceEksConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceEksConfigurationPropertiesOutput)
+}
+
+func (i ScraperSourceEksConfigurationPropertiesArgs) ToScraperSourceEksConfigurationPropertiesPtrOutput() ScraperSourceEksConfigurationPropertiesPtrOutput {
+	return i.ToScraperSourceEksConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperSourceEksConfigurationPropertiesArgs) ToScraperSourceEksConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperSourceEksConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceEksConfigurationPropertiesOutput).ToScraperSourceEksConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ScraperSourceEksConfigurationPropertiesPtrInput is an input type that accepts ScraperSourceEksConfigurationPropertiesArgs, ScraperSourceEksConfigurationPropertiesPtr and ScraperSourceEksConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ScraperSourceEksConfigurationPropertiesPtrInput` via:
+//
+//	        ScraperSourceEksConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperSourceEksConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToScraperSourceEksConfigurationPropertiesPtrOutput() ScraperSourceEksConfigurationPropertiesPtrOutput
+	ToScraperSourceEksConfigurationPropertiesPtrOutputWithContext(context.Context) ScraperSourceEksConfigurationPropertiesPtrOutput
+}
+
+type scraperSourceEksConfigurationPropertiesPtrType ScraperSourceEksConfigurationPropertiesArgs
+
+func ScraperSourceEksConfigurationPropertiesPtr(v *ScraperSourceEksConfigurationPropertiesArgs) ScraperSourceEksConfigurationPropertiesPtrInput {
+	return (*scraperSourceEksConfigurationPropertiesPtrType)(v)
+}
+
+func (*scraperSourceEksConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperSourceEksConfigurationProperties)(nil)).Elem()
+}
+
+func (i *scraperSourceEksConfigurationPropertiesPtrType) ToScraperSourceEksConfigurationPropertiesPtrOutput() ScraperSourceEksConfigurationPropertiesPtrOutput {
+	return i.ToScraperSourceEksConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperSourceEksConfigurationPropertiesPtrType) ToScraperSourceEksConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperSourceEksConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceEksConfigurationPropertiesPtrOutput)
+}
+
+// Configuration for EKS metrics source
+type ScraperSourceEksConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ScraperSourceEksConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperSourceEksConfigurationProperties)(nil)).Elem()
+}
+
+func (o ScraperSourceEksConfigurationPropertiesOutput) ToScraperSourceEksConfigurationPropertiesOutput() ScraperSourceEksConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ScraperSourceEksConfigurationPropertiesOutput) ToScraperSourceEksConfigurationPropertiesOutputWithContext(ctx context.Context) ScraperSourceEksConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ScraperSourceEksConfigurationPropertiesOutput) ToScraperSourceEksConfigurationPropertiesPtrOutput() ScraperSourceEksConfigurationPropertiesPtrOutput {
+	return o.ToScraperSourceEksConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperSourceEksConfigurationPropertiesOutput) ToScraperSourceEksConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperSourceEksConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperSourceEksConfigurationProperties) *ScraperSourceEksConfigurationProperties {
+		return &v
+	}).(ScraperSourceEksConfigurationPropertiesPtrOutput)
+}
+
+// ARN of an EKS cluster
+func (o ScraperSourceEksConfigurationPropertiesOutput) ClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScraperSourceEksConfigurationProperties) string { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+// List of security group IDs
+func (o ScraperSourceEksConfigurationPropertiesOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScraperSourceEksConfigurationProperties) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs
+func (o ScraperSourceEksConfigurationPropertiesOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScraperSourceEksConfigurationProperties) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ScraperSourceEksConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperSourceEksConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperSourceEksConfigurationProperties)(nil)).Elem()
+}
+
+func (o ScraperSourceEksConfigurationPropertiesPtrOutput) ToScraperSourceEksConfigurationPropertiesPtrOutput() ScraperSourceEksConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ScraperSourceEksConfigurationPropertiesPtrOutput) ToScraperSourceEksConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperSourceEksConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ScraperSourceEksConfigurationPropertiesPtrOutput) Elem() ScraperSourceEksConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *ScraperSourceEksConfigurationProperties) ScraperSourceEksConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperSourceEksConfigurationProperties
+		return ret
+	}).(ScraperSourceEksConfigurationPropertiesOutput)
+}
+
+// ARN of an EKS cluster
+func (o ScraperSourceEksConfigurationPropertiesPtrOutput) ClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperSourceEksConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of security group IDs
+func (o ScraperSourceEksConfigurationPropertiesPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScraperSourceEksConfigurationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs
+func (o ScraperSourceEksConfigurationPropertiesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScraperSourceEksConfigurationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ScraperTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // Logging configuration
 type WorkspaceLoggingConfiguration struct {
 	// CloudWatch log group ARN
@@ -170,8 +661,22 @@ type WorkspaceTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationInput)(nil)).Elem(), ScraperDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpConfigurationPropertiesInput)(nil)).Elem(), ScraperDestinationAmpConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpConfigurationPropertiesPtrInput)(nil)).Elem(), ScraperDestinationAmpConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperScrapeConfigurationInput)(nil)).Elem(), ScraperScrapeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceInput)(nil)).Elem(), ScraperSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksConfigurationPropertiesInput)(nil)).Elem(), ScraperSourceEksConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksConfigurationPropertiesPtrInput)(nil)).Elem(), ScraperSourceEksConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
+	pulumi.RegisterOutputType(ScraperDestinationOutput{})
+	pulumi.RegisterOutputType(ScraperDestinationAmpConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(ScraperDestinationAmpConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ScraperScrapeConfigurationOutput{})
+	pulumi.RegisterOutputType(ScraperSourceOutput{})
+	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationPtrOutput{})
 }

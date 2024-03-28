@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::InternetGateway
+ * Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
  */
 export function getInternetGateway(args: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
 
@@ -19,16 +19,10 @@ export function getInternetGateway(args: GetInternetGatewayArgs, opts?: pulumi.I
 }
 
 export interface GetInternetGatewayArgs {
-    /**
-     * ID of internet gateway.
-     */
     internetGatewayId: string;
 }
 
 export interface GetInternetGatewayResult {
-    /**
-     * ID of internet gateway.
-     */
     readonly internetGatewayId?: string;
     /**
      * Any tags to assign to the internet gateway.
@@ -36,15 +30,12 @@ export interface GetInternetGatewayResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::EC2::InternetGateway
+ * Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
  */
 export function getInternetGatewayOutput(args: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
     return pulumi.output(args).apply((a: any) => getInternetGateway(a, opts))
 }
 
 export interface GetInternetGatewayOutputArgs {
-    /**
-     * ID of internet gateway.
-     */
     internetGatewayId: pulumi.Input<string>;
 }

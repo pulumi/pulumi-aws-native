@@ -53,7 +53,7 @@ class GetResiliencyPolicyResult:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[Mapping[str, 'outputs.ResiliencyPolicyFailurePolicy']]:
+    def policy(self) -> Optional['outputs.ResiliencyPolicyPolicyMap']:
         return pulumi.get(self, "policy")
 
     @property

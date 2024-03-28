@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['RepositoryLinkArgs', 'RepositoryLink']
 
@@ -232,7 +233,7 @@ class RepositoryLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> pulumi.Output[str]:
+    def provider_type(self) -> pulumi.Output['RepositoryLinkProviderType']:
         """
         The name of the external provider where your third-party code repository is configured.
         """

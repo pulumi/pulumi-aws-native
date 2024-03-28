@@ -319,6 +319,7 @@ type Table struct {
 	// Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
 	//  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
 	ProvisionedThroughput TableProvisionedThroughputPtrOutput `pulumi:"provisionedThroughput"`
+	ResourcePolicy        TableResourcePolicyPtrOutput        `pulumi:"resourcePolicy"`
 	// Specifies the settings to enable server-side encryption.
 	SseSpecification TableSseSpecificationPtrOutput `pulumi:"sseSpecification"`
 	StreamArn        pulumi.StringOutput            `pulumi:"streamArn"`
@@ -421,6 +422,7 @@ type tableArgs struct {
 	// Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
 	//  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
 	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
+	ResourcePolicy        *TableResourcePolicy        `pulumi:"resourcePolicy"`
 	// Specifies the settings to enable server-side encryption.
 	SseSpecification *TableSseSpecification `pulumi:"sseSpecification"`
 	// The settings for the DDB table stream, which capture changes to items stored in the table.
@@ -476,6 +478,7 @@ type TableArgs struct {
 	// Throughput for the specified table, which consists of values for ``ReadCapacityUnits`` and ``WriteCapacityUnits``. For more information about the contents of a provisioned throughput structure, see [Amazon DynamoDB Table ProvisionedThroughput](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ProvisionedThroughput.html).
 	//  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
 	ProvisionedThroughput TableProvisionedThroughputPtrInput
+	ResourcePolicy        TableResourcePolicyPtrInput
 	// Specifies the settings to enable server-side encryption.
 	SseSpecification TableSseSpecificationPtrInput
 	// The settings for the DDB table stream, which capture changes to items stored in the table.
@@ -610,6 +613,10 @@ func (o TableOutput) PointInTimeRecoverySpecification() TablePointInTimeRecovery
 //	If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
 func (o TableOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v *Table) TableProvisionedThroughputPtrOutput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
+}
+
+func (o TableOutput) ResourcePolicy() TableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v *Table) TableResourcePolicyPtrOutput { return v.ResourcePolicy }).(TableResourcePolicyPtrOutput)
 }
 
 // Specifies the settings to enable server-side encryption.

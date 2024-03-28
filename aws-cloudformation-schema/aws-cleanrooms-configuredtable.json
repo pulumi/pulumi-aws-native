@@ -66,7 +66,7 @@
     },
     "ScalarFunctions" : {
       "type" : "string",
-      "enum" : [ "TRUNC", "ABS", "CEILING", "FLOOR", "LN", "LOG", "ROUND", "SQRT", "CAST", "LOWER", "RTRIM", "UPPER", "COALESCE" ]
+      "enum" : [ "TRUNC", "ABS", "CEILING", "FLOOR", "LN", "LOG", "ROUND", "SQRT", "CAST", "LOWER", "RTRIM", "UPPER", "COALESCE", "CONVERT", "CURRENT_DATE", "DATEADD", "EXTRACT", "GETDATE", "SUBSTRING", "TO_CHAR", "TO_DATE", "TO_NUMBER", "TO_TIMESTAMP", "TRIM" ]
     },
     "AnalysisRuleAggregation" : {
       "type" : "object",
@@ -181,6 +181,31 @@
         "$ref" : "#/definitions/AllowedAnalysisProvider"
       }
     },
+    "DifferentialPrivacyColumn" : {
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Name" ],
+      "additionalProperties" : false
+    },
+    "DifferentialPrivacy" : {
+      "type" : "object",
+      "properties" : {
+        "Columns" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/DifferentialPrivacyColumn"
+          },
+          "minItems" : 1
+        }
+      },
+      "required" : [ "Columns" ],
+      "additionalProperties" : false
+    },
     "AnalysisRuleCustom" : {
       "type" : "object",
       "properties" : {
@@ -189,6 +214,9 @@
         },
         "AllowedAnalysisProviders" : {
           "$ref" : "#/definitions/AllowedAnalysisProviders"
+        },
+        "DifferentialPrivacy" : {
+          "$ref" : "#/definitions/DifferentialPrivacy"
         }
       },
       "required" : [ "AllowedAnalyses" ],

@@ -85,6 +85,7 @@ export interface GetTableResult {
      *  If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
      */
     readonly provisionedThroughput?: outputs.dynamodb.TableProvisionedThroughput;
+    readonly resourcePolicy?: outputs.dynamodb.TableResourcePolicy;
     /**
      * Specifies the settings to enable server-side encryption.
      */

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:aps:RuleGroupsNamespace":
 		r = &RuleGroupsNamespace{}
+	case "aws-native:aps:Scraper":
+		r = &Scraper{}
 	case "aws-native:aps:Workspace":
 		r = &Workspace{}
 	default:

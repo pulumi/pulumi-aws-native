@@ -23,11 +23,14 @@ export interface GetClusterArgs {
 }
 
 export interface GetClusterResult {
+    readonly backupRetentionPeriod?: number;
     readonly clusterArn?: string;
     readonly clusterEndpoint?: string;
+    readonly preferredBackupWindow?: string;
     readonly preferredMaintenanceWindow?: string;
     readonly shardCapacity?: number;
     readonly shardCount?: number;
+    readonly shardInstanceCount?: number;
     readonly subnetIds?: string[];
     readonly tags?: outputs.Tag[];
     readonly vpcSecurityGroupIds?: string[];

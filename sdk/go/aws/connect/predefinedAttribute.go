@@ -18,6 +18,10 @@ type PredefinedAttribute struct {
 
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
+	// Last modified region.
+	LastModifiedRegion pulumi.StringOutput `pulumi:"lastModifiedRegion"`
+	// Last modified time.
+	LastModifiedTime pulumi.Float64Output `pulumi:"lastModifiedTime"`
 	// The name of the predefined attribute.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The values of a predefined attribute.
@@ -133,6 +137,16 @@ func (o PredefinedAttributeOutput) ToPredefinedAttributeOutputWithContext(ctx co
 // The identifier of the Amazon Connect instance.
 func (o PredefinedAttributeOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PredefinedAttribute) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// Last modified region.
+func (o PredefinedAttributeOutput) LastModifiedRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *PredefinedAttribute) pulumi.StringOutput { return v.LastModifiedRegion }).(pulumi.StringOutput)
+}
+
+// Last modified time.
+func (o PredefinedAttributeOutput) LastModifiedTime() pulumi.Float64Output {
+	return o.ApplyT(func(v *PredefinedAttribute) pulumi.Float64Output { return v.LastModifiedTime }).(pulumi.Float64Output)
 }
 
 // The name of the predefined attribute.

@@ -2,6 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const FileSystemBackupPolicyStatus = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+/**
+ * Set the backup policy status for the file system.
+ *   +   *ENABLED* - Turns automatic backups on for the file system. 
+ *   +   *DISABLED* - Turns automatic backups off for the file system.
+ */
+export type FileSystemBackupPolicyStatus = (typeof FileSystemBackupPolicyStatus)[keyof typeof FileSystemBackupPolicyStatus];
+
 export const FileSystemProtectionReplicationOverwriteProtection = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",

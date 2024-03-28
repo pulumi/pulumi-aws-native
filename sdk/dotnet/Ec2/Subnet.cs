@@ -50,6 +50,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("enableDns64")]
         public Output<bool?> EnableDns64 { get; private set; } = null!;
 
+        [Output("enableLniAtDeviceIndex")]
+        public Output<int?> EnableLniAtDeviceIndex { get; private set; } = null!;
+
         /// <summary>
         /// An IPv4 IPAM pool ID for the subnet.
         /// </summary>
@@ -225,6 +228,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("enableDns64")]
         public Input<bool>? EnableDns64 { get; set; }
+
+        [Input("enableLniAtDeviceIndex")]
+        public Input<int>? EnableLniAtDeviceIndex { get; set; }
 
         /// <summary>
         /// An IPv4 IPAM pool ID for the subnet.

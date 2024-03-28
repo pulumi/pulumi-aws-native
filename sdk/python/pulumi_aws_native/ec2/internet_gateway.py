@@ -45,7 +45,7 @@ class InternetGateway(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::InternetGateway
+        Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
 
         ## Example Usage
         ### Example
@@ -72,7 +72,7 @@ class InternetGateway(pulumi.CustomResource):
                  args: Optional[InternetGatewayArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::InternetGateway
+        Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
 
         ## Example Usage
         ### Example
@@ -144,9 +144,6 @@ class InternetGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="internetGatewayId")
     def internet_gateway_id(self) -> pulumi.Output[str]:
-        """
-        ID of internet gateway.
-        """
         return pulumi.get(self, "internet_gateway_id")
 
     @property

@@ -30,8 +30,14 @@ type LookupIntegrationArgs struct {
 
 type LookupIntegrationResult struct {
 	CreateTime *string `pulumi:"createTime"`
+	// The data filter for the integration.
+	DataFilter *string `pulumi:"dataFilter"`
+	// The description of the integration.
+	Description *string `pulumi:"description"`
 	// The ARN of the integration.
 	IntegrationArn *string `pulumi:"integrationArn"`
+	// The name of the integration.
+	IntegrationName *string `pulumi:"integrationName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -76,9 +82,24 @@ func (o LookupIntegrationResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
+// The data filter for the integration.
+func (o LookupIntegrationResultOutput) DataFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.DataFilter }).(pulumi.StringPtrOutput)
+}
+
+// The description of the integration.
+func (o LookupIntegrationResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the integration.
 func (o LookupIntegrationResultOutput) IntegrationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.IntegrationArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the integration.
+func (o LookupIntegrationResultOutput) IntegrationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.IntegrationName }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

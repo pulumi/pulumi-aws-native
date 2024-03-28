@@ -60,18 +60,22 @@ class IdMappingWorkflowIdMappingTechniquesArgs:
 class IdMappingWorkflowInputSourceArgs:
     def __init__(__self__, *,
                  input_source_arn: pulumi.Input[str],
-                 schema_arn: pulumi.Input[str]):
+                 schema_arn: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['IdMappingWorkflowInputSourceType']] = None):
         """
-        :param pulumi.Input[str] input_source_arn: An Glue table ARN for the input source table
+        :param pulumi.Input[str] input_source_arn: An Glue table ARN for the input source table or IdNamespace ARN
         """
         pulumi.set(__self__, "input_source_arn", input_source_arn)
-        pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="inputSourceArn")
     def input_source_arn(self) -> pulumi.Input[str]:
         """
-        An Glue table ARN for the input source table
+        An Glue table ARN for the input source table or IdNamespace ARN
         """
         return pulumi.get(self, "input_source_arn")
 
@@ -81,12 +85,21 @@ class IdMappingWorkflowInputSourceArgs:
 
     @property
     @pulumi.getter(name="schemaArn")
-    def schema_arn(self) -> pulumi.Input[str]:
+    def schema_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "schema_arn")
 
     @schema_arn.setter
-    def schema_arn(self, value: pulumi.Input[str]):
+    def schema_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_arn", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['IdMappingWorkflowInputSourceType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['IdMappingWorkflowInputSourceType']]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

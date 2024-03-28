@@ -2543,6 +2543,18 @@ export namespace appflow {
 }
 
 export namespace appintegrations {
+    export interface ApplicationExternalUrlConfig {
+        accessUrl: string;
+        approvedOrigins: string[];
+    }
+
+    /**
+     * Application source config
+     */
+    export interface ApplicationSourceConfigProperties {
+        externalUrlConfig: outputs.appintegrations.ApplicationExternalUrlConfig;
+    }
+
     /**
      * The configuration for what files should be pulled from the source.
      */
@@ -3645,6 +3657,64 @@ export namespace appsync {
 }
 
 export namespace aps {
+    /**
+     * Scraper metrics destination
+     */
+    export interface ScraperDestination {
+        /**
+         * Configuration for Amazon Managed Prometheus metrics destination
+         */
+        ampConfiguration?: outputs.aps.ScraperDestinationAmpConfigurationProperties;
+    }
+
+    /**
+     * Configuration for Amazon Managed Prometheus metrics destination
+     */
+    export interface ScraperDestinationAmpConfigurationProperties {
+        /**
+         * ARN of an Amazon Managed Prometheus workspace
+         */
+        workspaceArn: string;
+    }
+
+    /**
+     * Scraper configuration
+     */
+    export interface ScraperScrapeConfiguration {
+        /**
+         * Prometheus compatible scrape configuration in base64 encoded blob format
+         */
+        configurationBlob?: string;
+    }
+
+    /**
+     * Scraper metrics source
+     */
+    export interface ScraperSource {
+        /**
+         * Configuration for EKS metrics source
+         */
+        eksConfiguration?: outputs.aps.ScraperSourceEksConfigurationProperties;
+    }
+
+    /**
+     * Configuration for EKS metrics source
+     */
+    export interface ScraperSourceEksConfigurationProperties {
+        /**
+         * ARN of an EKS cluster
+         */
+        clusterArn: string;
+        /**
+         * List of security group IDs
+         */
+        securityGroupIds?: string[];
+        /**
+         * List of subnet IDs
+         */
+        subnetIds: string[];
+    }
+
     /**
      * Logging configuration
      */
@@ -5407,6 +5477,7 @@ export namespace cleanrooms {
     export interface ConfiguredTableAnalysisRuleCustom {
         allowedAnalyses: string[];
         allowedAnalysisProviders?: string[];
+        differentialPrivacy?: outputs.cleanrooms.ConfiguredTableDifferentialPrivacy;
     }
 
     export interface ConfiguredTableAnalysisRuleList {
@@ -5429,6 +5500,14 @@ export namespace cleanrooms {
 
     export interface ConfiguredTableAnalysisRulePolicyV12Properties {
         custom: outputs.cleanrooms.ConfiguredTableAnalysisRuleCustom;
+    }
+
+    export interface ConfiguredTableDifferentialPrivacy {
+        columns: outputs.cleanrooms.ConfiguredTableDifferentialPrivacyColumn[];
+    }
+
+    export interface ConfiguredTableDifferentialPrivacyColumn {
+        name: string;
     }
 
     export interface ConfiguredTableGlueTableReference {
@@ -5668,7 +5747,9 @@ export namespace cloudfront {
      *  You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.
      *  For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.
      *  If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element because this is invalid.
-     *  To delete all cache behaviors in an exist
+     *  To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
+     *  To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
+     *  For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
      */
     export interface DistributionCacheBehavior {
         /**
@@ -5699,7 +5780,7 @@ export namespace cloudfront {
         compress?: boolean;
         /**
          * This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         defaultTtl?: number;
         /**
@@ -5709,7 +5790,9 @@ export namespace cloudfront {
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
          *  If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  A ``CacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+         *  A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
          */
         forwardedValues?: outputs.cloudfront.DistributionForwardedValues;
         /**
@@ -5722,13 +5805,13 @@ export namespace cloudfront {
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionLambdaFunctionAssociation[];
         /**
          * This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         maxTtl?: number;
         /**
          * This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
          *  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
-         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
          */
         minTtl?: number;
         /**
@@ -5776,7 +5859,7 @@ export namespace cloudfront {
          *   +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
          *   
          *  For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
-         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         viewerProtocolPolicy: string;
     }
@@ -5821,7 +5904,7 @@ export namespace cloudfront {
          *  If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
          *  To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
          *  To replace the default root object, update the distribution configuration and specify the new object.
-         *  For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/D
+         *  For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
          */
         defaultRootObject?: string;
         /**
@@ -5836,7 +5919,13 @@ export namespace cloudfront {
         httpVersion?: string;
         /**
          * If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
-         *  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/Devel
+         *  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the ``IpAddress`` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide*.
+         *  If you're using an R53AWSIntlong alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:
+         *   +  You enable IPv6 for the distribution
+         *   +  You're using alternate domain names in the URLs for your objects
+         *   
+         *  For more information, see [Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html) in the *Developer Guide*.
+         *  If you created a CNAME resource record set, either with R53AWSIntlong or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.
          */
         ipv6Enabled?: boolean;
         /**
@@ -5873,7 +5962,7 @@ export namespace cloudfront {
         viewerCertificate?: outputs.cloudfront.DistributionViewerCertificate;
         /**
          * A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
-         *   WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest
+         *   WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
          */
         webAclId?: string;
     }
@@ -5882,7 +5971,7 @@ export namespace cloudfront {
      * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
      *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
      *  If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-     *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+     *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html) in the *Amazon CloudFront Developer Guide*.
      */
     export interface DistributionCookies {
         /**
@@ -5890,14 +5979,16 @@ export namespace cloudfront {
          *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send cookies to the origin but not include them in the cache key, use origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
          *  Specifies which cookies to forward to the origin for this cache behavior: all, none, or the list of cookies specified in the ``WhitelistedNames`` complex type.
-         *  Amazon S3 doesn't process cookies. When the cache behavior is forw
+         *  Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an Amazon S3 origin, specify none for the ``Forward`` element.
          */
         forward: string;
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
          *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-         *  Required if you specify ``whitelist`` for the value of ``Forward``. A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward se
+         *  Required if you specify ``whitelist`` for the value of ``Forward``. A complex type that specifies how many different cookies you want CloudFront to forward to the origin for this cache behavior and, if you want to forward selected cookies, the names of those cookies.
+         *  If you specify ``all`` or ``none`` for the value of ``Forward``, omit ``WhitelistedNames``. If you change the value of ``Forward`` from ``whitelist`` to ``all`` or ``none`` and you don't delete the ``WhitelistedNames`` element and its child elements, CloudFront deletes them automatically.
+         *  For the current limit on the number of cookie names that you can whitelist for each cache behavior, see [CloudFront Limits](https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront) in the *General Reference*.
          */
         whitelistedNames?: string[];
     }
@@ -5934,7 +6025,7 @@ export namespace cloudfront {
          *   +  The value of ``TargetOriginId`` specifies the value of the ``ID`` element for the origin that contains your custom error pages.
          *   
          *  If you specify a value for ``ResponsePagePath``, you must also specify a value for ``ResponseCode``.
-         *  We recommend 
+         *  We recommend that you store custom error pages in an Amazon S3 bucket. If you store custom error pages on an HTTP server and the server starts to return 5xx errors, CloudFront can't get the files that you want to return to viewers because the origin server is unavailable.
          */
         responsePagePath?: string;
     }
@@ -6007,7 +6098,7 @@ export namespace cloudfront {
         compress?: boolean;
         /**
          * This field is deprecated. We recommend that you use the ``DefaultTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide
+         *  The default amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin does not add HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         defaultTtl?: number;
         /**
@@ -6017,7 +6108,9 @@ export namespace cloudfront {
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field. For more information, see [Working with policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html) in the *Amazon CloudFront Developer Guide*.
          *  If you want to include values in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-r
+         *  If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
+         *  A ``DefaultCacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
+         *  A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
          */
         forwardedValues?: outputs.cloudfront.DistributionForwardedValues;
         /**
@@ -6030,13 +6123,13 @@ export namespace cloudfront {
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionLambdaFunctionAssociation[];
         /**
          * This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
-         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.
+         *  The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         maxTtl?: number;
         /**
          * This field is deprecated. We recommend that you use the ``MinTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
          *  The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
-         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``He
+         *  You must specify ``0`` for ``MinTTL`` if you configure CloudFront to forward all headers to your origin (under ``Headers``, if you specify ``1`` for ``Quantity`` and ``*`` for ``Name``).
          */
         minTtl?: number;
         /**
@@ -6077,7 +6170,7 @@ export namespace cloudfront {
          *   +   ``https-only``: If a viewer sends an HTTP request, CloudFront returns an HTTP status code of 403 (Forbidden).
          *   
          *  For more information about requiring the HTTPS protocol, see [Requiring HTTPS Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html) in the *Amazon CloudFront Developer Guide*.
-         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol
+         *   The only way to guarantee that viewers retrieve an object that was fetched from the origin using HTTPS is never to use any other protocol to fetch the object. If you have recently changed from HTTP to HTTPS, we recommend that you clear your objects' cache because cached objects are protocol agnostic. That means that an edge location will return an object from the cache regardless of whether the current request protocol matches the protocol used previously. For more information, see [Managing Cache Expiration](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
          */
         viewerProtocolPolicy: string;
     }
@@ -6093,21 +6186,26 @@ export namespace cloudfront {
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
          *  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send cookies to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-         *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs C
+         *  A complex type that specifies whether you want CloudFront to forward cookies to the origin and, if so, which ones. For more information about forwarding cookies to the origin, see [How CloudFront Forwards, Caches, and Logs Cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html) in the *Amazon CloudFront Developer Guide*.
          */
         cookies?: outputs.cloudfront.DistributionCookies;
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
          *  If you want to include headers in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send headers to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-         *  A complex type that specifies the ``Headers``, if any, that you want CloudFront to forward to the origin for this cache behavior (whitelisted headers). For the headers that you specify, CloudFront also caches separate versio
+         *  A complex type that specifies the ``Headers``, if any, that you want CloudFront to forward to the origin for this cache behavior (whitelisted headers). For the headers that you specify, CloudFront also caches separate versions of a specified object that is based on the header values in viewer requests.
+         *  For more information, see [Caching Content Based on Request Headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/header-caching.html) in the *Amazon CloudFront Developer Guide*.
          */
         headers?: string[];
         /**
          * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
          *  If you want to include query strings in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
          *  If you want to send query strings to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) in the *Amazon CloudFront Developer Guide*.
-         *  Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of
+         *  Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior and cache based on the query string parameters. CloudFront behavior depends on the value of ``QueryString`` and on the values that you specify for ``QueryStringCacheKeys``, if any:
+         *  If you specify true for ``QueryString`` and you don't specify any values for ``QueryStringCacheKeys``, CloudFront forwards all query string parameters to the origin and caches based on all query string parameters. Depending on how many query string parameters and values you have, this can adversely affect performance because CloudFront must forward more requests to the origin.
+         *  If you specify true for ``QueryString`` and you specify one or more values for ``QueryStringCacheKeys``, CloudFront forwards all query string parameters to the origin, but it only caches based on the query string parameters that you specify.
+         *  If you specify false for ``QueryString``, CloudFront doesn't forward any query string parameters to the origin, and doesn't cache based on query string parameters.
+         *  For more information, see [Configuring CloudFront to Cache Based on Query String Parameters](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/QueryStringParameters.html) in the *Amazon CloudFront Developer Guide*.
          */
         queryString: boolean;
         /**
@@ -6391,7 +6489,7 @@ export namespace cloudfront {
          *  If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
          *  To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
          *  To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
-         *  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://d
+         *  For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
          */
         originAccessIdentity?: string;
     }
@@ -6415,7 +6513,17 @@ export namespace cloudfront {
      *  If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty.
      *  If the distribution uses ``Aliases`` (alternate domain names or CNAMEs), use the fields in this type to specify the following settings:
      *   +  Which viewers the distribution accepts HTTPS connections from: only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication) (recommended), or all viewers including those that don't support SNI.
-     *   +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field n
+     *   +  To accept HTTPS connections from only viewers that support SNI, set ``SSLSupportMethod`` to ``sni-only``. This is recommended. Most browsers and clients support SNI. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+     *   +  To accept HTTPS connections from all viewers, including those that don't support SNI, set ``SSLSupportMethod`` to ``vip``. This is not recommended, and results in additional monthly charges from CloudFront. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+     *   
+     *   +  The minimum SSL/TLS protocol version that the distribution can use to communicate with viewers. To specify a minimum version, choose a value for ``MinimumProtocolVersion``. For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) in the *Amazon CloudFront Developer Guide*.
+     *   +  The location of the SSL/TLS certificate, [(ACM)](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html) (recommended) or [(IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). You specify the location by setting a value in one of the following fields (not both):
+     *   +   ``ACMCertificateArn`` (In CloudFormation, this field name is ``AcmCertificateArn``. Note the different capitalization.)
+     *   +   ``IAMCertificateId`` (In CloudFormation, this field name is ``IamCertificateId``. Note the different capitalization.)
+     *   
+     *   
+     *  All distributions support HTTPS connections from viewers. To require viewers to use HTTPS only, or to redirect them from HTTP to HTTPS, use ``ViewerProtocolPolicy`` in the ``CacheBehavior`` or ``DefaultCacheBehavior``. To specify how CloudFront should use SSL/TLS to communicate with your custom origin, use ``CustomOriginConfig``.
+     *  For more information, see [Using HTTPS with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https.html) and [Using Alternate Domain Names and HTTPS](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.html) in the *Amazon CloudFront Developer Guide*.
      */
     export interface DistributionViewerCertificate {
         /**
@@ -6445,7 +6553,8 @@ export namespace cloudfront {
          *   
          *  For more information, see [Security Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy) and [Supported Protocols and Ciphers Between Viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers) in the *Amazon CloudFront Developer Guide*.
          *   On the CloudFront console, this setting is called *Security Policy*.
-         *   When you're using SNI only (you set ``SSLSupportMethod`` to ``sni-onl
+         *   When you're using SNI only (you set ``SSLSupportMethod`` to ``sni-only``), you must specify ``TLSv1`` or higher. (In CloudFormation, the field name is ``SslSupportMethod``. Note the different capitalization.)
+         *  If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net`` (you set ``CloudFrontDefaultCertificate`` to ``true``), CloudFront automatically sets the security policy to ``TLSv1`` regardless of the value that you set here.
          */
         minimumProtocolVersion?: string;
         /**
@@ -6454,6 +6563,8 @@ export namespace cloudfront {
          *   +   ``sni-only`` – The distribution accepts HTTPS connections from only viewers that support [server name indication (SNI)](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Server_Name_Indication). This is recommended. Most browsers and clients support SNI.
          *   +   ``vip`` – The distribution accepts HTTPS connections from all viewers including those that don't support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
          *   +   ``static-ip`` - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the [Center](https://docs.aws.amazon.com/support/home).
+         *   
+         *  If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
          */
         sslSupportMethod?: string;
     }
@@ -6942,6 +7053,33 @@ export namespace cloudwatch {
 }
 
 export namespace codeartifact {
+    export interface PackageGroupOriginConfiguration {
+        /**
+         * The origin configuration that is applied to the package group.
+         */
+        restrictions: outputs.codeartifact.PackageGroupRestrictions;
+    }
+
+    export interface PackageGroupRestrictionType {
+        repositories?: string[];
+        restrictionMode: enums.codeartifact.PackageGroupRestrictionTypeRestrictionMode;
+    }
+
+    export interface PackageGroupRestrictions {
+        /**
+         * The external upstream restriction determines if new package versions can be ingested or retained from external connections.
+         */
+        externalUpstream?: outputs.codeartifact.PackageGroupRestrictionType;
+        /**
+         * The internal upstream restriction determines if new package versions can be ingested or retained from upstream repositories.
+         */
+        internalUpstream?: outputs.codeartifact.PackageGroupRestrictionType;
+        /**
+         * The publish restriction determines if new package versions can be published.
+         */
+        publish?: outputs.codeartifact.PackageGroupRestrictionType;
+    }
+
 }
 
 export namespace codebuild {
@@ -8215,6 +8353,20 @@ export namespace connect {
      */
     export interface RuleUpdateCaseAction {
         fields: outputs.connect.RuleField[];
+    }
+
+    /**
+     * A third-party application's metadata.
+     */
+    export interface SecurityProfileApplication {
+        /**
+         * The permissions that the agent is granted on the application
+         */
+        applicationPermissions: string[];
+        /**
+         * Namespace of the application that you want to give access to.
+         */
+        namespace: string;
     }
 
     /**
@@ -10356,6 +10508,8 @@ export namespace dynamodb {
         pointInTimeRecoverySpecification?: outputs.dynamodb.GlobalTablePointInTimeRecoverySpecification;
         readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableReadProvisionedThroughputSettings;
         region: string;
+        replicaStreamSpecification?: outputs.dynamodb.GlobalTableReplicaStreamSpecification;
+        resourcePolicy?: outputs.dynamodb.GlobalTableResourcePolicy;
         sseSpecification?: outputs.dynamodb.GlobalTableReplicaSseSpecification;
         tableClass?: string;
         tags?: outputs.dynamodb.GlobalTableTag[];
@@ -10363,6 +10517,14 @@ export namespace dynamodb {
 
     export interface GlobalTableReplicaSseSpecification {
         kmsMasterKeyId: string;
+    }
+
+    export interface GlobalTableReplicaStreamSpecification {
+        resourcePolicy: outputs.dynamodb.GlobalTableResourcePolicy;
+    }
+
+    export interface GlobalTableResourcePolicy {
+        policyDocument: any;
     }
 
     export interface GlobalTableSseSpecification {
@@ -10605,6 +10767,10 @@ export namespace dynamodb {
         writeCapacityUnits: number;
     }
 
+    export interface TableResourcePolicy {
+        policyDocument: any;
+    }
+
     /**
      * The S3 bucket that is being imported from.
      */
@@ -10646,6 +10812,7 @@ export namespace dynamodb {
      * Represents the DynamoDB Streams configuration for a table in DynamoDB.
      */
     export interface TableStreamSpecification {
+        resourcePolicy?: outputs.dynamodb.TableResourcePolicy;
         /**
          * When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
          *   +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
@@ -11389,7 +11556,9 @@ export namespace ec2 {
          *   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
          *   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
          *   
-         *   If you specify ``InstanceReq
+         *   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+         *  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+         *   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
          */
         instanceRequirements?: outputs.ec2.LaunchTemplateInstanceRequirements;
         /**
@@ -11508,13 +11677,14 @@ export namespace ec2 {
          */
         volumeSize?: number;
         /**
-         * The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*.
+         * The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
          */
         volumeType?: string;
     }
 
     /**
-     * Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
+     * Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+     *   Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
      *   ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateElasticGpuSpecification {
@@ -11589,7 +11759,7 @@ export namespace ec2 {
 
     /**
      * Specifies an IAM instance profile, which is a container for an IAM role for your instance. You can use an IAM role to distribute your AWS credentials to your instances.
-     *  If you are creating the launch template for use with an Amazon EC2 Auto Scaling group, you can specify either the name or the ARN of the instance profile, but not both.
+     *  If you are creating the launch template for use with an ASlong group, you can specify either the name or the ARN of the instance profile, but not both.
      *   ``IamInstanceProfile`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
      */
     export interface LaunchTemplateIamInstanceProfile {
@@ -11626,7 +11796,9 @@ export namespace ec2 {
      *   +   ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
      *   +   ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
      *   
-     *   If you specify ``InstanceReq
+     *   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
+     *  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
+     *   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
      */
     export interface LaunchTemplateInstanceRequirements {
         /**
@@ -11754,8 +11926,8 @@ export namespace ec2 {
         /**
          * [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
          *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         *  To indicate no price protection threshold, specify a high value, such as ``999999``.
-         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instanc
+         *  If you set ``DesiredCapacityType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is based on the per vCPU or per memory price instead of the per instance price.
+         *   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
          */
         maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
         /**
@@ -11782,7 +11954,8 @@ export namespace ec2 {
          *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
          *  To turn off price protection, specify a high value, such as ``999999``.
          *  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
-         *   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-
+         *   If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+         *   Default: ``20``
          */
         onDemandMaxPricePercentageOverLowestPrice?: number;
         /**
@@ -11794,8 +11967,10 @@ export namespace ec2 {
         /**
          * [Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.
          *  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
-         *  To indicate no price protection threshold, specify a high value, such as ``999999``.
-         *  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price i
+         *  If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+         *  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).
+         *   Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.
+         *   Default: ``100``
          */
         spotMaxPricePercentageOverLowestPrice?: number;
         /**
@@ -11861,7 +12036,6 @@ export namespace ec2 {
          * Disables the automatic recovery behavior of your instance or sets it to default.
          */
         autoRecovery?: string;
-        rebootMigration?: string;
     }
 
     /**
@@ -12163,7 +12337,7 @@ export namespace ec2 {
         maxPrice?: string;
         /**
          * The Spot Instance request type.
-         *  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+         *  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
          */
         spotInstanceType?: string;
         /**
@@ -14747,7 +14921,7 @@ export namespace efs {
          *   +   *ENABLED* - Turns automatic backups on for the file system. 
          *   +   *DISABLED* - Turns automatic backups off for the file system.
          */
-        status: string;
+        status: enums.efs.FileSystemBackupPolicyStatus;
     }
 
     /**
@@ -16286,10 +16460,11 @@ export namespace entityresolution {
 
     export interface IdMappingWorkflowInputSource {
         /**
-         * An Glue table ARN for the input source table
+         * An Glue table ARN for the input source table or IdNamespace ARN
          */
         inputSourceArn: string;
-        schemaArn: string;
+        schemaArn?: string;
+        type?: enums.entityresolution.IdMappingWorkflowInputSourceType;
     }
 
     export interface IdMappingWorkflowIntermediateSourceConfiguration {
@@ -17468,7 +17643,7 @@ export namespace gamelift {
     }
 
     /**
-     * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+     * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
     export interface GameServerGroupAutoScalingPolicy {
         estimatedInstanceWarmup?: number;
@@ -17484,7 +17659,7 @@ export namespace gamelift {
     }
 
     /**
-     * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+     * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
      */
     export interface GameServerGroupLaunchTemplate {
         launchTemplateId?: string;
@@ -21308,6 +21483,20 @@ export namespace iotsitewise {
          * A gateway that runs on AWS IoT Greengrass V2.
          */
         greengrassV2?: outputs.iotsitewise.GatewayGreengrassV2;
+        /**
+         * A gateway that runs on Siemens Industrial Edge.
+         */
+        siemensIe?: outputs.iotsitewise.GatewaySiemensIe;
+    }
+
+    /**
+     * Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+     */
+    export interface GatewaySiemensIe {
+        /**
+         * The name of the IoT Core Thing.
+         */
+        iotCoreThingName: string;
     }
 
 }
@@ -22221,6 +22410,45 @@ export namespace kafkaconnect {
         cloudWatchLogs?: outputs.kafkaconnect.ConnectorCloudWatchLogsLogDelivery;
         firehose?: outputs.kafkaconnect.ConnectorFirehoseLogDelivery;
         s3?: outputs.kafkaconnect.ConnectorS3LogDelivery;
+    }
+
+    /**
+     * Details about the custom plugin file.
+     */
+    export interface CustomPluginFileDescription {
+        /**
+         * The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.
+         */
+        fileMd5?: string;
+        /**
+         * The size in bytes of the custom plugin file. You can use it to validate the file.
+         */
+        fileSize?: number;
+    }
+
+    /**
+     * Information about the location of a custom plugin.
+     */
+    export interface CustomPluginLocation {
+        s3Location: outputs.kafkaconnect.CustomPluginS3Location;
+    }
+
+    /**
+     * The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
+     */
+    export interface CustomPluginS3Location {
+        /**
+         * The Amazon Resource Name (ARN) of an S3 bucket.
+         */
+        bucketArn: string;
+        /**
+         * The file key for an object in an S3 bucket.
+         */
+        fileKey: string;
+        /**
+         * The version of an object in an S3 bucket.
+         */
+        objectVersion?: string;
     }
 
 }
@@ -26075,42 +26303,54 @@ export namespace logs {
     }
 
     /**
-     * the key-value pairs that further define a metric.
+     * Specifies the CW metric dimensions to publish with this metric.
+     *   Because dimensions are part of the unique identifier for a metric, whenever a unique dimension name/value pair is extracted from your logs, you are creating a new variation of that metric.
+     *  For more information about publishing dimensions with metrics created by metric filters, see [Publishing dimensions with metrics from values in JSON or space-delimited log events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html#logs-metric-filters-dimensions).
+     *  Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
+     *  To help prevent accidental high charges, Amazon disables a metric filter if it generates 1000 different name/value pairs for the dimensions that you have specified within a certain amount of time.
+     *  You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
      */
     export interface MetricFilterDimension {
         /**
-         * The key of the dimension. Maximum length of 255.
+         * The name for the CW metric dimension that the metric filter creates.
+         *  Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
          */
         key: string;
         /**
-         * The value of the dimension. Maximum length of 255.
+         * The log event field that will contain the value for this dimension. This dimension will only be published for a metric if the value is found in the log event. For example, ``$.eventType`` for JSON log events, or ``$server`` for space-delimited log events.
          */
         value: string;
     }
 
+    /**
+     * ``MetricTransformation`` is a property of the ``AWS::Logs::MetricFilter`` resource that describes how to transform log streams into a CloudWatch metric.
+     */
     export interface MetricFilterMetricTransformation {
         /**
-         * The value to emit when a filter pattern does not match a log event. This value can be null.
+         * (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
          */
         defaultValue?: number;
         /**
-         * Dimensions are the key-value pairs that further define a metric
+         * The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.
+         *   Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. 
+         *  CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges.
+         *  You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
          */
         dimensions?: outputs.logs.MetricFilterDimension[];
         /**
-         * The name of the CloudWatch metric. Metric name must be in ASCII format.
+         * The name of the CloudWatch metric.
          */
         metricName: string;
         /**
-         * The namespace of the CloudWatch metric.
+         * A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see [Namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace).
          */
         metricNamespace: string;
         /**
-         * The value to publish to the CloudWatch metric when a filter pattern matches a log event.
+         * The value that is published to the CloudWatch metric. For example, if you're counting the occurrences of a particular term like ``Error``, specify 1 for the metric value. If you're counting the number of bytes transferred, reference the value that is in the log event by using $. followed by the name of the field that you specified in the filter pattern, such as ``$.size``.
          */
         metricValue: string;
         /**
-         * The unit to assign to the metric. If you omit this, the unit is set as None.
+         * The unit to assign to the metric. If you omit this, the unit is set as ``None``.
          */
         unit?: enums.logs.MetricFilterMetricTransformationUnit;
     }
@@ -41746,6 +41986,13 @@ export namespace resiliencehub {
          * RTO in seconds.
          */
         rtoInSecs: number;
+    }
+
+    export interface ResiliencyPolicyPolicyMap {
+        az: outputs.resiliencehub.ResiliencyPolicyFailurePolicy;
+        hardware: outputs.resiliencehub.ResiliencyPolicyFailurePolicy;
+        region?: outputs.resiliencehub.ResiliencyPolicyFailurePolicy;
+        software: outputs.resiliencehub.ResiliencyPolicyFailurePolicy;
     }
 
 }

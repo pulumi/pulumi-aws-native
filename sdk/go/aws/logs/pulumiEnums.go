@@ -512,7 +512,13 @@ func (in *logAnomalyDetectorEvaluationFrequencyPtr) ToLogAnomalyDetectorEvaluati
 	return pulumi.ToOutputWithContext(ctx, in).(LogAnomalyDetectorEvaluationFrequencyPtrOutput)
 }
 
-// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+// Specifies the log group class for this log group. There are two classes:
+//
+//   - The “Standard“ log class supports all CWL features.
+//
+//   - The “Infrequent Access“ log class supports a subset of CWL features and incurs lower costs.
+//
+//     For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
 type LogGroupClass string
 
 const (
@@ -678,7 +684,7 @@ func (in *logGroupClassPtr) ToLogGroupClassPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(LogGroupClassPtrOutput)
 }
 
-// The unit to assign to the metric. If you omit this, the unit is set as None.
+// The unit to assign to the metric. If you omit this, the unit is set as “None“.
 type MetricFilterMetricTransformationUnit string
 
 const (
@@ -894,7 +900,7 @@ func (in *metricFilterMetricTransformationUnitPtr) ToMetricFilterMetricTransform
 	return pulumi.ToOutputWithContext(ctx, in).(MetricFilterMetricTransformationUnitPtrOutput)
 }
 
-// The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
+// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 type SubscriptionFilterDistribution string
 
 const (

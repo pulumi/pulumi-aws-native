@@ -8,6 +8,13 @@ export const IdMappingWorkflowIdMappingTechniquesIdMappingType = {
 
 export type IdMappingWorkflowIdMappingTechniquesIdMappingType = (typeof IdMappingWorkflowIdMappingTechniquesIdMappingType)[keyof typeof IdMappingWorkflowIdMappingTechniquesIdMappingType];
 
+export const IdMappingWorkflowInputSourceType = {
+    Source: "SOURCE",
+    Target: "TARGET",
+} as const;
+
+export type IdMappingWorkflowInputSourceType = (typeof IdMappingWorkflowInputSourceType)[keyof typeof IdMappingWorkflowInputSourceType];
+
 export const MatchingWorkflowResolutionTechniquesResolutionType = {
     RuleMatching: "RULE_MATCHING",
     MlMatching: "ML_MATCHING",

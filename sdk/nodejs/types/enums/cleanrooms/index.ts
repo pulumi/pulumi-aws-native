@@ -99,6 +99,17 @@ export const ConfiguredTableScalarFunctions = {
     Rtrim: "RTRIM",
     Upper: "UPPER",
     Coalesce: "COALESCE",
+    Convert: "CONVERT",
+    CurrentDate: "CURRENT_DATE",
+    Dateadd: "DATEADD",
+    Extract: "EXTRACT",
+    Getdate: "GETDATE",
+    Substring: "SUBSTRING",
+    ToChar: "TO_CHAR",
+    ToDate: "TO_DATE",
+    ToNumber: "TO_NUMBER",
+    ToTimestamp: "TO_TIMESTAMP",
+    Trim: "TRIM",
 } as const;
 
 export type ConfiguredTableScalarFunctions = (typeof ConfiguredTableScalarFunctions)[keyof typeof ConfiguredTableScalarFunctions];

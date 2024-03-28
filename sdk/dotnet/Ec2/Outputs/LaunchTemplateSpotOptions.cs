@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly string? MaxPrice;
         /// <summary>
         /// The Spot Instance request type.
-        ///  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.
+        ///  If you are using Spot Instances with an Auto Scaling group, use ``one-time`` requests, as the ASlong service handles requesting new Spot Instances whenever the group is below its desired capacity.
         /// </summary>
         public readonly string? SpotInstanceType;
         /// <summary>

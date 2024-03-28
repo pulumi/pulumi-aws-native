@@ -19,8 +19,11 @@ __all__ = ['SecurityProfileArgs', 'SecurityProfile']
 class SecurityProfileArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
+                 allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[str]] = None,
                  allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
+                 applications: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
                  tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -28,18 +31,27 @@ class SecurityProfileArgs:
         """
         The set of arguments for constructing a SecurityProfile resource.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
+        :param pulumi.Input[str] allowed_access_control_hierarchy_group_id: The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]] allowed_access_control_tags: The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]] applications: A list of third-party applications that the security profile will give access to.
         :param pulumi.Input[str] description: The description of the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hierarchy_restricted_resources: The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Permissions assigned to the security profile.
         :param pulumi.Input[str] security_profile_name: The name of the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tag_restricted_resources: The list of resources that a security profile applies tag restrictions to in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
+        if allowed_access_control_hierarchy_group_id is not None:
+            pulumi.set(__self__, "allowed_access_control_hierarchy_group_id", allowed_access_control_hierarchy_group_id)
         if allowed_access_control_tags is not None:
             pulumi.set(__self__, "allowed_access_control_tags", allowed_access_control_tags)
+        if applications is not None:
+            pulumi.set(__self__, "applications", applications)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if hierarchy_restricted_resources is not None:
+            pulumi.set(__self__, "hierarchy_restricted_resources", hierarchy_restricted_resources)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if security_profile_name is not None:
@@ -62,6 +74,18 @@ class SecurityProfileArgs:
         pulumi.set(self, "instance_arn", value)
 
     @property
+    @pulumi.getter(name="allowedAccessControlHierarchyGroupId")
+    def allowed_access_control_hierarchy_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+        """
+        return pulumi.get(self, "allowed_access_control_hierarchy_group_id")
+
+    @allowed_access_control_hierarchy_group_id.setter
+    def allowed_access_control_hierarchy_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allowed_access_control_hierarchy_group_id", value)
+
+    @property
     @pulumi.getter(name="allowedAccessControlTags")
     def allowed_access_control_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]:
         """
@@ -75,6 +99,18 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter
+    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]]:
+        """
+        A list of third-party applications that the security profile will give access to.
+        """
+        return pulumi.get(self, "applications")
+
+    @applications.setter
+    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]]):
+        pulumi.set(self, "applications", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         The description of the security profile.
@@ -84,6 +120,18 @@ class SecurityProfileArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="hierarchyRestrictedResources")
+    def hierarchy_restricted_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+        """
+        return pulumi.get(self, "hierarchy_restricted_resources")
+
+    @hierarchy_restricted_resources.setter
+    def hierarchy_restricted_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "hierarchy_restricted_resources", value)
 
     @property
     @pulumi.getter
@@ -139,8 +187,11 @@ class SecurityProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[str]] = None,
                  allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
+                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileApplicationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
@@ -152,8 +203,11 @@ class SecurityProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allowed_access_control_hierarchy_group_id: The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]] allowed_access_control_tags: The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileApplicationArgs']]]] applications: A list of third-party applications that the security profile will give access to.
         :param pulumi.Input[str] description: The description of the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hierarchy_restricted_resources: The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: Permissions assigned to the security profile.
         :param pulumi.Input[str] security_profile_name: The name of the security profile.
@@ -184,8 +238,11 @@ class SecurityProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_access_control_hierarchy_group_id: Optional[pulumi.Input[str]] = None,
                  allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
+                 applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileApplicationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
@@ -200,8 +257,11 @@ class SecurityProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityProfileArgs.__new__(SecurityProfileArgs)
 
+            __props__.__dict__["allowed_access_control_hierarchy_group_id"] = allowed_access_control_hierarchy_group_id
             __props__.__dict__["allowed_access_control_tags"] = allowed_access_control_tags
+            __props__.__dict__["applications"] = applications
             __props__.__dict__["description"] = description
+            __props__.__dict__["hierarchy_restricted_resources"] = hierarchy_restricted_resources
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
@@ -209,6 +269,8 @@ class SecurityProfile(pulumi.CustomResource):
             __props__.__dict__["security_profile_name"] = security_profile_name
             __props__.__dict__["tag_restricted_resources"] = tag_restricted_resources
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["last_modified_region"] = None
+            __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["security_profile_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceArn", "securityProfileName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -234,15 +296,28 @@ class SecurityProfile(pulumi.CustomResource):
 
         __props__ = SecurityProfileArgs.__new__(SecurityProfileArgs)
 
+        __props__.__dict__["allowed_access_control_hierarchy_group_id"] = None
         __props__.__dict__["allowed_access_control_tags"] = None
+        __props__.__dict__["applications"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["hierarchy_restricted_resources"] = None
         __props__.__dict__["instance_arn"] = None
+        __props__.__dict__["last_modified_region"] = None
+        __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["permissions"] = None
         __props__.__dict__["security_profile_arn"] = None
         __props__.__dict__["security_profile_name"] = None
         __props__.__dict__["tag_restricted_resources"] = None
         __props__.__dict__["tags"] = None
         return SecurityProfile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowedAccessControlHierarchyGroupId")
+    def allowed_access_control_hierarchy_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+        """
+        return pulumi.get(self, "allowed_access_control_hierarchy_group_id")
 
     @property
     @pulumi.getter(name="allowedAccessControlTags")
@@ -254,11 +329,27 @@ class SecurityProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def applications(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityProfileApplication']]]:
+        """
+        A list of third-party applications that the security profile will give access to.
+        """
+        return pulumi.get(self, "applications")
+
+    @property
+    @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the security profile.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="hierarchyRestrictedResources")
+    def hierarchy_restricted_resources(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+        """
+        return pulumi.get(self, "hierarchy_restricted_resources")
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -267,6 +358,22 @@ class SecurityProfile(pulumi.CustomResource):
         The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
+
+    @property
+    @pulumi.getter(name="lastModifiedRegion")
+    def last_modified_region(self) -> pulumi.Output[str]:
+        """
+        The AWS Region where this resource was last modified.
+        """
+        return pulumi.get(self, "last_modified_region")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> pulumi.Output[float]:
+        """
+        The timestamp when this resource was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter

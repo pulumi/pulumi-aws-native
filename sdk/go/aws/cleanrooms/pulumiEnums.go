@@ -1779,19 +1779,30 @@ func (in *configuredTableJoinRequiredOptionPtr) ToConfiguredTableJoinRequiredOpt
 type ConfiguredTableScalarFunctions string
 
 const (
-	ConfiguredTableScalarFunctionsTrunc    = ConfiguredTableScalarFunctions("TRUNC")
-	ConfiguredTableScalarFunctionsAbs      = ConfiguredTableScalarFunctions("ABS")
-	ConfiguredTableScalarFunctionsCeiling  = ConfiguredTableScalarFunctions("CEILING")
-	ConfiguredTableScalarFunctionsFloor    = ConfiguredTableScalarFunctions("FLOOR")
-	ConfiguredTableScalarFunctionsLn       = ConfiguredTableScalarFunctions("LN")
-	ConfiguredTableScalarFunctionsLog      = ConfiguredTableScalarFunctions("LOG")
-	ConfiguredTableScalarFunctionsRound    = ConfiguredTableScalarFunctions("ROUND")
-	ConfiguredTableScalarFunctionsSqrt     = ConfiguredTableScalarFunctions("SQRT")
-	ConfiguredTableScalarFunctionsCast     = ConfiguredTableScalarFunctions("CAST")
-	ConfiguredTableScalarFunctionsLower    = ConfiguredTableScalarFunctions("LOWER")
-	ConfiguredTableScalarFunctionsRtrim    = ConfiguredTableScalarFunctions("RTRIM")
-	ConfiguredTableScalarFunctionsUpper    = ConfiguredTableScalarFunctions("UPPER")
-	ConfiguredTableScalarFunctionsCoalesce = ConfiguredTableScalarFunctions("COALESCE")
+	ConfiguredTableScalarFunctionsTrunc       = ConfiguredTableScalarFunctions("TRUNC")
+	ConfiguredTableScalarFunctionsAbs         = ConfiguredTableScalarFunctions("ABS")
+	ConfiguredTableScalarFunctionsCeiling     = ConfiguredTableScalarFunctions("CEILING")
+	ConfiguredTableScalarFunctionsFloor       = ConfiguredTableScalarFunctions("FLOOR")
+	ConfiguredTableScalarFunctionsLn          = ConfiguredTableScalarFunctions("LN")
+	ConfiguredTableScalarFunctionsLog         = ConfiguredTableScalarFunctions("LOG")
+	ConfiguredTableScalarFunctionsRound       = ConfiguredTableScalarFunctions("ROUND")
+	ConfiguredTableScalarFunctionsSqrt        = ConfiguredTableScalarFunctions("SQRT")
+	ConfiguredTableScalarFunctionsCast        = ConfiguredTableScalarFunctions("CAST")
+	ConfiguredTableScalarFunctionsLower       = ConfiguredTableScalarFunctions("LOWER")
+	ConfiguredTableScalarFunctionsRtrim       = ConfiguredTableScalarFunctions("RTRIM")
+	ConfiguredTableScalarFunctionsUpper       = ConfiguredTableScalarFunctions("UPPER")
+	ConfiguredTableScalarFunctionsCoalesce    = ConfiguredTableScalarFunctions("COALESCE")
+	ConfiguredTableScalarFunctionsConvert     = ConfiguredTableScalarFunctions("CONVERT")
+	ConfiguredTableScalarFunctionsCurrentDate = ConfiguredTableScalarFunctions("CURRENT_DATE")
+	ConfiguredTableScalarFunctionsDateadd     = ConfiguredTableScalarFunctions("DATEADD")
+	ConfiguredTableScalarFunctionsExtract     = ConfiguredTableScalarFunctions("EXTRACT")
+	ConfiguredTableScalarFunctionsGetdate     = ConfiguredTableScalarFunctions("GETDATE")
+	ConfiguredTableScalarFunctionsSubstring   = ConfiguredTableScalarFunctions("SUBSTRING")
+	ConfiguredTableScalarFunctionsToChar      = ConfiguredTableScalarFunctions("TO_CHAR")
+	ConfiguredTableScalarFunctionsToDate      = ConfiguredTableScalarFunctions("TO_DATE")
+	ConfiguredTableScalarFunctionsToNumber    = ConfiguredTableScalarFunctions("TO_NUMBER")
+	ConfiguredTableScalarFunctionsToTimestamp = ConfiguredTableScalarFunctions("TO_TIMESTAMP")
+	ConfiguredTableScalarFunctionsTrim        = ConfiguredTableScalarFunctions("TRIM")
 )
 
 func (ConfiguredTableScalarFunctions) ElementType() reflect.Type {
@@ -1929,6 +1940,17 @@ func (o ConfiguredTableScalarFunctionsPtrOutput) ToStringPtrOutputWithContext(ct
 //	ConfiguredTableScalarFunctionsRtrim
 //	ConfiguredTableScalarFunctionsUpper
 //	ConfiguredTableScalarFunctionsCoalesce
+//	ConfiguredTableScalarFunctionsConvert
+//	ConfiguredTableScalarFunctionsCurrentDate
+//	ConfiguredTableScalarFunctionsDateadd
+//	ConfiguredTableScalarFunctionsExtract
+//	ConfiguredTableScalarFunctionsGetdate
+//	ConfiguredTableScalarFunctionsSubstring
+//	ConfiguredTableScalarFunctionsToChar
+//	ConfiguredTableScalarFunctionsToDate
+//	ConfiguredTableScalarFunctionsToNumber
+//	ConfiguredTableScalarFunctionsToTimestamp
+//	ConfiguredTableScalarFunctionsTrim
 type ConfiguredTableScalarFunctionsInput interface {
 	pulumi.Input
 

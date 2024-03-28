@@ -6102,6 +6102,115 @@ func (o RuleUpdateCaseActionArrayOutput) Index(i pulumi.IntInput) RuleUpdateCase
 	}).(RuleUpdateCaseActionOutput)
 }
 
+// A third-party application's metadata.
+type SecurityProfileApplication struct {
+	// The permissions that the agent is granted on the application
+	ApplicationPermissions []string `pulumi:"applicationPermissions"`
+	// Namespace of the application that you want to give access to.
+	Namespace string `pulumi:"namespace"`
+}
+
+// SecurityProfileApplicationInput is an input type that accepts SecurityProfileApplicationArgs and SecurityProfileApplicationOutput values.
+// You can construct a concrete instance of `SecurityProfileApplicationInput` via:
+//
+//	SecurityProfileApplicationArgs{...}
+type SecurityProfileApplicationInput interface {
+	pulumi.Input
+
+	ToSecurityProfileApplicationOutput() SecurityProfileApplicationOutput
+	ToSecurityProfileApplicationOutputWithContext(context.Context) SecurityProfileApplicationOutput
+}
+
+// A third-party application's metadata.
+type SecurityProfileApplicationArgs struct {
+	// The permissions that the agent is granted on the application
+	ApplicationPermissions pulumi.StringArrayInput `pulumi:"applicationPermissions"`
+	// Namespace of the application that you want to give access to.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (SecurityProfileApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileApplication)(nil)).Elem()
+}
+
+func (i SecurityProfileApplicationArgs) ToSecurityProfileApplicationOutput() SecurityProfileApplicationOutput {
+	return i.ToSecurityProfileApplicationOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileApplicationArgs) ToSecurityProfileApplicationOutputWithContext(ctx context.Context) SecurityProfileApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileApplicationOutput)
+}
+
+// SecurityProfileApplicationArrayInput is an input type that accepts SecurityProfileApplicationArray and SecurityProfileApplicationArrayOutput values.
+// You can construct a concrete instance of `SecurityProfileApplicationArrayInput` via:
+//
+//	SecurityProfileApplicationArray{ SecurityProfileApplicationArgs{...} }
+type SecurityProfileApplicationArrayInput interface {
+	pulumi.Input
+
+	ToSecurityProfileApplicationArrayOutput() SecurityProfileApplicationArrayOutput
+	ToSecurityProfileApplicationArrayOutputWithContext(context.Context) SecurityProfileApplicationArrayOutput
+}
+
+type SecurityProfileApplicationArray []SecurityProfileApplicationInput
+
+func (SecurityProfileApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfileApplication)(nil)).Elem()
+}
+
+func (i SecurityProfileApplicationArray) ToSecurityProfileApplicationArrayOutput() SecurityProfileApplicationArrayOutput {
+	return i.ToSecurityProfileApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileApplicationArray) ToSecurityProfileApplicationArrayOutputWithContext(ctx context.Context) SecurityProfileApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileApplicationArrayOutput)
+}
+
+// A third-party application's metadata.
+type SecurityProfileApplicationOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileApplication)(nil)).Elem()
+}
+
+func (o SecurityProfileApplicationOutput) ToSecurityProfileApplicationOutput() SecurityProfileApplicationOutput {
+	return o
+}
+
+func (o SecurityProfileApplicationOutput) ToSecurityProfileApplicationOutputWithContext(ctx context.Context) SecurityProfileApplicationOutput {
+	return o
+}
+
+// The permissions that the agent is granted on the application
+func (o SecurityProfileApplicationOutput) ApplicationPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityProfileApplication) []string { return v.ApplicationPermissions }).(pulumi.StringArrayOutput)
+}
+
+// Namespace of the application that you want to give access to.
+func (o SecurityProfileApplicationOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileApplication) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type SecurityProfileApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfileApplication)(nil)).Elem()
+}
+
+func (o SecurityProfileApplicationArrayOutput) ToSecurityProfileApplicationArrayOutput() SecurityProfileApplicationArrayOutput {
+	return o
+}
+
+func (o SecurityProfileApplicationArrayOutput) ToSecurityProfileApplicationArrayOutputWithContext(ctx context.Context) SecurityProfileApplicationArrayOutput {
+	return o
+}
+
+func (o SecurityProfileApplicationArrayOutput) Index(i pulumi.IntInput) SecurityProfileApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityProfileApplication {
+		return vs[0].([]SecurityProfileApplication)[vs[1].(int)]
+	}).(SecurityProfileApplicationOutput)
+}
+
 // A key-value pair to associate with a resource.
 type SecurityProfileTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -7425,6 +7534,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceInput)(nil)).Elem(), RuleTriggerEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleUpdateCaseActionInput)(nil)).Elem(), RuleUpdateCaseActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleUpdateCaseActionArrayInput)(nil)).Elem(), RuleUpdateCaseActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileApplicationInput)(nil)).Elem(), SecurityProfileApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileApplicationArrayInput)(nil)).Elem(), SecurityProfileApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagInput)(nil)).Elem(), SecurityProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagArrayInput)(nil)).Elem(), SecurityProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateDefaultFieldValueInput)(nil)).Elem(), TaskTemplateDefaultFieldValueArgs{})
@@ -7530,6 +7641,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleTriggerEventSourceOutput{})
 	pulumi.RegisterOutputType(RuleUpdateCaseActionOutput{})
 	pulumi.RegisterOutputType(RuleUpdateCaseActionArrayOutput{})
+	pulumi.RegisterOutputType(SecurityProfileApplicationOutput{})
+	pulumi.RegisterOutputType(SecurityProfileApplicationArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileTagOutput{})
 	pulumi.RegisterOutputType(SecurityProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateDefaultFieldValueOutput{})

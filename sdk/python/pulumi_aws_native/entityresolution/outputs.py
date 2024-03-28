@@ -91,25 +91,34 @@ class IdMappingWorkflowInputSource(dict):
 
     def __init__(__self__, *,
                  input_source_arn: str,
-                 schema_arn: str):
+                 schema_arn: Optional[str] = None,
+                 type: Optional['IdMappingWorkflowInputSourceType'] = None):
         """
-        :param str input_source_arn: An Glue table ARN for the input source table
+        :param str input_source_arn: An Glue table ARN for the input source table or IdNamespace ARN
         """
         pulumi.set(__self__, "input_source_arn", input_source_arn)
-        pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="inputSourceArn")
     def input_source_arn(self) -> str:
         """
-        An Glue table ARN for the input source table
+        An Glue table ARN for the input source table or IdNamespace ARN
         """
         return pulumi.get(self, "input_source_arn")
 
     @property
     @pulumi.getter(name="schemaArn")
-    def schema_arn(self) -> str:
+    def schema_arn(self) -> Optional[str]:
         return pulumi.get(self, "schema_arn")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['IdMappingWorkflowInputSourceType']:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

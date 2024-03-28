@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.AppSync
         /// The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
         /// </summary>
         public readonly int? MaxBatchSize;
+        /// <summary>
+        /// Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppSync.ResolverMetricsConfig? MetricsConfig;
         /// <summary>
         /// Functions linked with the pipeline resolver.

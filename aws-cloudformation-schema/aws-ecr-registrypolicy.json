@@ -41,5 +41,8 @@
       "permissions" : [ "ecr:DeleteRegistryPolicy" ]
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "additionalProperties" : false
 }

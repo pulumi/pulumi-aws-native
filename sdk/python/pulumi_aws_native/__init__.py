@@ -748,6 +748,7 @@ _utilities.register(
   "mod": "appintegrations",
   "fqn": "pulumi_aws_native.appintegrations",
   "classes": {
+   "aws-native:appintegrations:Application": "Application",
    "aws-native:appintegrations:DataIntegration": "DataIntegration",
    "aws-native:appintegrations:EventIntegration": "EventIntegration"
   }
@@ -814,6 +815,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.aps",
   "classes": {
    "aws-native:aps:RuleGroupsNamespace": "RuleGroupsNamespace",
+   "aws-native:aps:Scraper": "Scraper",
    "aws-native:aps:Workspace": "Workspace"
   }
  },
@@ -1024,6 +1026,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.codeartifact",
   "classes": {
    "aws-native:codeartifact:Domain": "Domain",
+   "aws-native:codeartifact:PackageGroup": "PackageGroup",
    "aws-native:codeartifact:Repository": "Repository"
   }
  },
@@ -1928,7 +1931,9 @@ _utilities.register(
   "mod": "kafkaconnect",
   "fqn": "pulumi_aws_native.kafkaconnect",
   "classes": {
-   "aws-native:kafkaconnect:Connector": "Connector"
+   "aws-native:kafkaconnect:Connector": "Connector",
+   "aws-native:kafkaconnect:CustomPlugin": "CustomPlugin",
+   "aws-native:kafkaconnect:WorkerConfiguration": "WorkerConfiguration"
   }
  },
  {
