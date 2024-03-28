@@ -6,12 +6,20 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
+
+type AutoNaming struct {
+	PropertyName string
+	MinLength    int
+	MaxLength    int
+}
 
 type ExtensionResourceInputs struct {
 	Type         string
@@ -20,6 +28,7 @@ type ExtensionResourceInputs struct {
 	WriteOnly    []string
 	TagsProperty string
 	TagsStyle    default_tags.TagsStyle
+	AutoNaming   *AutoNaming
 }
 
 type extensionResource struct {
@@ -35,7 +44,7 @@ func NewExtensionResource(client client.CloudControlClient) *extensionResource {
 	}
 }
 
-func (r *extensionResource) Check(ctx context.Context, urn resource.URN, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
+func (r *extensionResource) Check(ctx context.Context, urn resource.URN, randomSeed []byte, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
 	var typedInputs ExtensionResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -47,6 +56,16 @@ func (r *extensionResource) Check(ctx context.Context, urn resource.URN, inputs,
 
 	if len(failures) > 0 {
 		return nil, failures, nil
+	}
+
+	if typedInputs.AutoNaming != nil {
+		if err = autonaming.ApplyAutoNaming(&metadata.AutoNamingSpec{
+			SdkName:   typedInputs.AutoNaming.PropertyName,
+			MinLength: typedInputs.AutoNaming.MinLength,
+			MaxLength: typedInputs.AutoNaming.MaxLength,
+		}, urn, randomSeed, state, inputs); err != nil {
+			return nil, nil, fmt.Errorf("failed to apply auto-naming: %w", err)
+		}
 	}
 
 	// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
@@ -190,6 +209,29 @@ func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id str
 	return nil
 }
 
+const AutoNamingTypeToken = "aws-native:index:AutoNaming"
+
+func AutoNamingTypeSpec() pschema.ObjectTypeSpec {
+	return pschema.ObjectTypeSpec{
+		Description: "Auto-naming specification for the resource.",
+		Type:        "object",
+		Properties: map[string]pschema.PropertySpec{
+			"propertyName": {
+				Description: "The name of the property in the Cloud Control payload that is used to set the name of the resource.",
+				TypeSpec:    pschema.TypeSpec{Type: "string"},
+			},
+			"minLength": {
+				Description: "The minimum length of the name.",
+				TypeSpec:    pschema.TypeSpec{Type: "integer"},
+			},
+			"maxLength": {
+				Description: "The maximum length of the name.",
+				TypeSpec:    pschema.TypeSpec{Type: "integer"},
+			},
+		},
+	}
+}
+
 func ExtensionResourceSpec() pschema.ResourceSpec {
 	return pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
@@ -253,6 +295,10 @@ func ExtensionResourceSpec() pschema.ResourceSpec {
 				TypeSpec: pschema.TypeSpec{
 					Type: "string",
 				},
+			},
+			"autoNaming": {
+				Description: "Optional auto-naming specification for the resource.\nIf provided and the name is not specified manually, the provider will automatically generate a name based on the Pulumi resource name and a random suffix.",
+				TypeSpec:    pschema.TypeSpec{Ref: fmt.Sprint("#/types/", AutoNamingTypeToken)},
 			},
 		},
 		RequiredInputs: []string{"type", "properties"},

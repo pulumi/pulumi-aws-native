@@ -10,7 +10,7 @@ import (
 
 type CustomResource interface {
 	// Check validates and transforms the inputs of the resource.
-	Check(ctx context.Context, urn resource.URN, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error)
+	Check(ctx context.Context, urn resource.URN, randomSeed []byte, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error)
 	// Create creates a new resource in the cloud provider and returns its unique identifier and outputs.
 	Create(ctx context.Context, urn resource.URN, inputs resource.PropertyMap) (identifier *string, outputs map[string]any, err error)
 	// Read returns the outputs and the updated inputs of the resource.

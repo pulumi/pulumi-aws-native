@@ -66,6 +66,13 @@ namespace Pulumi.AwsNative
 
     public sealed class ExtensionResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Optional auto-naming specification for the resource.
+        /// If provided and the name is not specified manually, the provider will automatically generate a name based on the Pulumi resource name and a random suffix.
+        /// </summary>
+        [Input("autoNaming")]
+        public Input<Inputs.AutoNamingArgs>? AutoNaming { get; set; }
+
         [Input("createOnly")]
         private InputList<string>? _createOnly;
 

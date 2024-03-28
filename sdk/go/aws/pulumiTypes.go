@@ -13,6 +13,184 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Auto-naming specification for the resource.
+type AutoNaming struct {
+	// The maximum length of the name.
+	MaxLength *int `pulumi:"maxLength"`
+	// The minimum length of the name.
+	MinLength *int `pulumi:"minLength"`
+	// The name of the property in the Cloud Control payload that is used to set the name of the resource.
+	PropertyName *string `pulumi:"propertyName"`
+}
+
+// AutoNamingInput is an input type that accepts AutoNamingArgs and AutoNamingOutput values.
+// You can construct a concrete instance of `AutoNamingInput` via:
+//
+//	AutoNamingArgs{...}
+type AutoNamingInput interface {
+	pulumi.Input
+
+	ToAutoNamingOutput() AutoNamingOutput
+	ToAutoNamingOutputWithContext(context.Context) AutoNamingOutput
+}
+
+// Auto-naming specification for the resource.
+type AutoNamingArgs struct {
+	// The maximum length of the name.
+	MaxLength pulumi.IntPtrInput `pulumi:"maxLength"`
+	// The minimum length of the name.
+	MinLength pulumi.IntPtrInput `pulumi:"minLength"`
+	// The name of the property in the Cloud Control payload that is used to set the name of the resource.
+	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
+}
+
+func (AutoNamingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoNaming)(nil)).Elem()
+}
+
+func (i AutoNamingArgs) ToAutoNamingOutput() AutoNamingOutput {
+	return i.ToAutoNamingOutputWithContext(context.Background())
+}
+
+func (i AutoNamingArgs) ToAutoNamingOutputWithContext(ctx context.Context) AutoNamingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoNamingOutput)
+}
+
+func (i AutoNamingArgs) ToAutoNamingPtrOutput() AutoNamingPtrOutput {
+	return i.ToAutoNamingPtrOutputWithContext(context.Background())
+}
+
+func (i AutoNamingArgs) ToAutoNamingPtrOutputWithContext(ctx context.Context) AutoNamingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoNamingOutput).ToAutoNamingPtrOutputWithContext(ctx)
+}
+
+// AutoNamingPtrInput is an input type that accepts AutoNamingArgs, AutoNamingPtr and AutoNamingPtrOutput values.
+// You can construct a concrete instance of `AutoNamingPtrInput` via:
+//
+//	        AutoNamingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoNamingPtrInput interface {
+	pulumi.Input
+
+	ToAutoNamingPtrOutput() AutoNamingPtrOutput
+	ToAutoNamingPtrOutputWithContext(context.Context) AutoNamingPtrOutput
+}
+
+type autoNamingPtrType AutoNamingArgs
+
+func AutoNamingPtr(v *AutoNamingArgs) AutoNamingPtrInput {
+	return (*autoNamingPtrType)(v)
+}
+
+func (*autoNamingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoNaming)(nil)).Elem()
+}
+
+func (i *autoNamingPtrType) ToAutoNamingPtrOutput() AutoNamingPtrOutput {
+	return i.ToAutoNamingPtrOutputWithContext(context.Background())
+}
+
+func (i *autoNamingPtrType) ToAutoNamingPtrOutputWithContext(ctx context.Context) AutoNamingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoNamingPtrOutput)
+}
+
+// Auto-naming specification for the resource.
+type AutoNamingOutput struct{ *pulumi.OutputState }
+
+func (AutoNamingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoNaming)(nil)).Elem()
+}
+
+func (o AutoNamingOutput) ToAutoNamingOutput() AutoNamingOutput {
+	return o
+}
+
+func (o AutoNamingOutput) ToAutoNamingOutputWithContext(ctx context.Context) AutoNamingOutput {
+	return o
+}
+
+func (o AutoNamingOutput) ToAutoNamingPtrOutput() AutoNamingPtrOutput {
+	return o.ToAutoNamingPtrOutputWithContext(context.Background())
+}
+
+func (o AutoNamingOutput) ToAutoNamingPtrOutputWithContext(ctx context.Context) AutoNamingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoNaming) *AutoNaming {
+		return &v
+	}).(AutoNamingPtrOutput)
+}
+
+// The maximum length of the name.
+func (o AutoNamingOutput) MaxLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoNaming) *int { return v.MaxLength }).(pulumi.IntPtrOutput)
+}
+
+// The minimum length of the name.
+func (o AutoNamingOutput) MinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoNaming) *int { return v.MinLength }).(pulumi.IntPtrOutput)
+}
+
+// The name of the property in the Cloud Control payload that is used to set the name of the resource.
+func (o AutoNamingOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoNaming) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
+}
+
+type AutoNamingPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoNamingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoNaming)(nil)).Elem()
+}
+
+func (o AutoNamingPtrOutput) ToAutoNamingPtrOutput() AutoNamingPtrOutput {
+	return o
+}
+
+func (o AutoNamingPtrOutput) ToAutoNamingPtrOutputWithContext(ctx context.Context) AutoNamingPtrOutput {
+	return o
+}
+
+func (o AutoNamingPtrOutput) Elem() AutoNamingOutput {
+	return o.ApplyT(func(v *AutoNaming) AutoNaming {
+		if v != nil {
+			return *v
+		}
+		var ret AutoNaming
+		return ret
+	}).(AutoNamingOutput)
+}
+
+// The maximum length of the name.
+func (o AutoNamingPtrOutput) MaxLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoNaming) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxLength
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum length of the name.
+func (o AutoNamingPtrOutput) MinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoNaming) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinLength
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the property in the Cloud Control payload that is used to set the name of the resource.
+func (o AutoNamingPtrOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoNaming) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertyName
+	}).(pulumi.StringPtrOutput)
+}
+
 // A set of tags to apply to the resource.
 type CreateOnlyTag struct {
 	// The key name of the tag
@@ -940,6 +1118,8 @@ func (o TagArrayOutput) Index(i pulumi.IntInput) TagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoNamingInput)(nil)).Elem(), AutoNamingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoNamingPtrInput)(nil)).Elem(), AutoNamingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CreateOnlyTagInput)(nil)).Elem(), CreateOnlyTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CreateOnlyTagArrayInput)(nil)).Elem(), CreateOnlyTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
@@ -952,6 +1132,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIgnoreTagsPtrInput)(nil)).Elem(), ProviderIgnoreTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagInput)(nil)).Elem(), TagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagArrayInput)(nil)).Elem(), TagArray{})
+	pulumi.RegisterOutputType(AutoNamingOutput{})
+	pulumi.RegisterOutputType(AutoNamingPtrOutput{})
 	pulumi.RegisterOutputType(CreateOnlyTagOutput{})
 	pulumi.RegisterOutputType(CreateOnlyTagArrayOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
