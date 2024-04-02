@@ -864,7 +864,8 @@
         "description": "The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation."
       },
       "metricsConfig": {
-        "$ref": "#/types/aws-native:appsync:ResolverMetricsConfig"
+        "$ref": "#/types/aws-native:appsync:ResolverMetricsConfig",
+        "description": "Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value."
       },
       "pipelineConfig": {
         "$ref": "#/types/aws-native:appsync:ResolverPipelineConfig",
@@ -918,6 +919,31 @@
       "sourceApiIdentifier": {
         "type": "string",
         "description": "Identifier of the Source GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN"
+      }
+    }
+  },
+  "aws-native:aps:Scraper": {
+    "cfTypeName": "AWS::APS::Scraper",
+    "properties": {
+      "alias": {
+        "type": "string",
+        "description": "Scraper alias."
+      },
+      "destination": {
+        "$ref": "#/types/aws-native:aps:ScraperDestination"
+      },
+      "scrapeConfiguration": {
+        "$ref": "#/types/aws-native:aps:ScraperScrapeConfiguration"
+      },
+      "source": {
+        "$ref": "#/types/aws-native:aps:ScraperSource"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
@@ -1494,6 +1520,42 @@
       }
     }
   },
+  "aws-native:codeartifact:PackageGroup": {
+    "cfTypeName": "AWS::CodeArtifact::PackageGroup",
+    "properties": {
+      "contactInfo": {
+        "type": "string",
+        "description": "The contact info of the package group."
+      },
+      "description": {
+        "type": "string",
+        "description": "The text description of the package group."
+      },
+      "domainName": {
+        "type": "string",
+        "description": "The name of the domain that contains the package group."
+      },
+      "domainOwner": {
+        "type": "string",
+        "description": "The 12-digit account ID of the AWS account that owns the domain."
+      },
+      "originConfiguration": {
+        "$ref": "#/types/aws-native:codeartifact:PackageGroupOriginConfiguration",
+        "description": "The package origin configuration of the package group."
+      },
+      "pattern": {
+        "type": "string",
+        "description": "The package group pattern that is used to gather packages."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to the package group."
+      }
+    }
+  },
   "aws-native:codepipeline:CustomActionType": {
     "cfTypeName": "AWS::CodePipeline::CustomActionType",
     "properties": {
@@ -1576,6 +1638,10 @@
         "type": "string",
         "description": "The source provider repository path of the sync configuration file of the respective SyncType."
       },
+      "publishDeploymentStatus": {
+        "$ref": "#/types/aws-native:codestarconnections:SyncConfigurationPublishDeploymentStatus",
+        "description": "Whether to enable or disable publishing of deployment status to source providers."
+      },
       "repositoryLinkId": {
         "type": "string",
         "description": "A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with."
@@ -1591,6 +1657,10 @@
       "syncType": {
         "type": "string",
         "description": "The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC."
+      },
+      "triggerResourceUpdateOn": {
+        "$ref": "#/types/aws-native:codestarconnections:SyncConfigurationTriggerResourceUpdateOn",
+        "description": "When to trigger Git sync to begin the stack update."
       }
     }
   },
@@ -2488,6 +2558,185 @@
         "items": {
           "$ref": "#/types/aws-native:datazone:EnvironmentBlueprintConfigurationRegionalParameter"
         }
+      }
+    }
+  },
+  "aws-native:deadline:Farm": {
+    "cfTypeName": "AWS::Deadline::Farm",
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "displayName": {
+        "type": "string"
+      },
+      "kmsKeyArn": {
+        "type": "string"
+      }
+    }
+  },
+  "aws-native:deadline:Fleet": {
+    "cfTypeName": "AWS::Deadline::Fleet",
+    "properties": {
+      "configuration": {
+        "oneOf": [
+          {
+            "$ref": "#/types/aws-native:deadline:FleetConfiguration0Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:deadline:FleetConfiguration1Properties"
+          }
+        ]
+      },
+      "description": {
+        "type": "string"
+      },
+      "displayName": {
+        "type": "string"
+      },
+      "farmId": {
+        "type": "string"
+      },
+      "maxWorkerCount": {
+        "type": "integer"
+      },
+      "minWorkerCount": {
+        "type": "integer"
+      },
+      "roleArn": {
+        "type": "string"
+      }
+    }
+  },
+  "aws-native:deadline:LicenseEndpoint": {
+    "cfTypeName": "AWS::Deadline::LicenseEndpoint",
+    "properties": {
+      "securityGroupIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "subnetIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "vpcId": {
+        "type": "string"
+      }
+    }
+  },
+  "aws-native:deadline:MeteredProduct": {
+    "cfTypeName": "AWS::Deadline::MeteredProduct",
+    "properties": {
+      "family": {
+        "type": "string"
+      },
+      "licenseEndpointId": {
+        "type": "string"
+      },
+      "port": {
+        "type": "integer"
+      },
+      "productId": {
+        "type": "string"
+      },
+      "vendor": {
+        "type": "string"
+      }
+    }
+  },
+  "aws-native:deadline:Queue": {
+    "cfTypeName": "AWS::Deadline::Queue",
+    "properties": {
+      "allowedStorageProfileIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "defaultBudgetAction": {
+        "$ref": "#/types/aws-native:deadline:QueueDefaultQueueBudgetAction"
+      },
+      "description": {
+        "type": "string"
+      },
+      "displayName": {
+        "type": "string"
+      },
+      "farmId": {
+        "type": "string"
+      },
+      "jobAttachmentSettings": {
+        "$ref": "#/types/aws-native:deadline:QueueJobAttachmentSettings"
+      },
+      "jobRunAsUser": {
+        "$ref": "#/types/aws-native:deadline:QueueJobRunAsUser"
+      },
+      "requiredFileSystemLocationNames": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "roleArn": {
+        "type": "string"
+      }
+    }
+  },
+  "aws-native:deadline:QueueEnvironment": {
+    "cfTypeName": "AWS::Deadline::QueueEnvironment",
+    "properties": {
+      "farmId": {
+        "type": "string"
+      },
+      "priority": {
+        "type": "integer"
+      },
+      "queueId": {
+        "type": "string"
+      },
+      "template": {
+        "type": "string"
+      },
+      "templateType": {
+        "$ref": "#/types/aws-native:deadline:QueueEnvironmentEnvironmentTemplateType"
+      }
+    }
+  },
+  "aws-native:deadline:QueueFleetAssociation": {
+    "cfTypeName": "AWS::Deadline::QueueFleetAssociation",
+    "properties": {
+      "farmId": {
+        "type": "string"
+      },
+      "fleetId": {
+        "type": "string"
+      },
+      "queueId": {
+        "type": "string"
+      }
+    }
+  },
+  "aws-native:deadline:StorageProfile": {
+    "cfTypeName": "AWS::Deadline::StorageProfile",
+    "properties": {
+      "displayName": {
+        "type": "string"
+      },
+      "farmId": {
+        "type": "string"
+      },
+      "fileSystemLocations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:deadline:StorageProfileFileSystemLocation"
+        }
+      },
+      "osFamily": {
+        "$ref": "#/types/aws-native:deadline:StorageProfileOperatingSystemFamily"
       }
     }
   },
@@ -4103,6 +4352,10 @@
         "type": "boolean",
         "description": "Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*."
       },
+      "enableLniAtDeviceIndex": {
+        "type": "integer",
+        "description": "Indicates the device position for local network interfaces in this subnet. For example, ``1`` indicates local network interfaces in this subnet are the secondary network interface (eth1)."
+      },
       "ipv4IpamPoolId": {
         "type": "string",
         "description": "An IPv4 IPAM pool ID for the subnet."
@@ -4136,7 +4389,7 @@
       },
       "mapPublicIpOnLaunch": {
         "type": "boolean",
-        "description": "Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.\n AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/)."
+        "description": "Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.\n  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/)."
       },
       "outpostArn": {
         "type": "string",
@@ -4144,7 +4397,7 @@
       },
       "privateDnsNameOptionsOnLaunch": {
         "$ref": "#/types/aws-native:ec2:PrivateDnsNameOptionsOnLaunchProperties",
-        "description": "The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.\n Available options:\n  + EnableResourceNameDnsAAAARecord (true | false)\n + EnableResourceNameDnsARecord (true | false)\n + HostnameType (ip-name | resource-name)"
+        "description": "The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.\n Available options:\n  +  EnableResourceNameDnsAAAARecord (true | false)\n  +  EnableResourceNameDnsARecord (true | false)\n  +  HostnameType (ip-name | resource-name)"
       },
       "tags": {
         "type": "array",
@@ -4419,10 +4672,12 @@
     "cfTypeName": "AWS::EC2::TransitGatewayRouteTableAssociation",
     "properties": {
       "transitGatewayAttachmentId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of transit gateway attachment."
       },
       "transitGatewayRouteTableId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of transit gateway route table."
       }
     }
   },
@@ -5715,6 +5970,35 @@
       "studioId": {
         "type": "string",
         "description": "The ID of the Amazon EMR Studio to which the user or group will be mapped."
+      }
+    }
+  },
+  "aws-native:entityresolution:PolicyStatement": {
+    "cfTypeName": "AWS::EntityResolution::PolicyStatement",
+    "properties": {
+      "action": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "arn": {
+        "type": "string"
+      },
+      "condition": {
+        "type": "string"
+      },
+      "effect": {
+        "$ref": "#/types/aws-native:entityresolution:PolicyStatementStatementEffect"
+      },
+      "principal": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "statementId": {
+        "type": "string"
       }
     }
   },
@@ -9779,6 +10063,30 @@
       "standardsArn": {
         "type": "string",
         "description": "The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation."
+      }
+    }
+  },
+  "aws-native:securitylake:DataLake": {
+    "cfTypeName": "AWS::SecurityLake::DataLake",
+    "properties": {
+      "encryptionConfiguration": {
+        "$ref": "#/types/aws-native:securitylake:DataLakeEncryptionConfiguration"
+      },
+      "lifecycleConfiguration": {
+        "$ref": "#/types/aws-native:securitylake:DataLakeLifecycleConfiguration"
+      },
+      "metaStoreManagerRoleArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) used to index AWS Glue table partitions that are generated by the ingestion and normalization of AWS log sources and custom sources."
+      },
+      "replicationConfiguration": {
+        "$ref": "#/types/aws-native:securitylake:DataLakeReplicationConfiguration"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },

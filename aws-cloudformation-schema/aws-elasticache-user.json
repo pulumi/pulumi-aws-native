@@ -115,7 +115,7 @@
   "primaryIdentifier" : [ "/properties/UserId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticache:CreateUser", "elasticache:DescribeUsers", "elasticache:ListTagsForResource" ]
+      "permissions" : [ "elasticache:CreateUser", "elasticache:DescribeUsers", "elasticache:ListTagsForResource", "elasticache:AddTagsToResource" ]
     },
     "read" : {
       "permissions" : [ "elasticache:DescribeUsers", "elasticache:ListTagsForResource" ]
