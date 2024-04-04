@@ -25,24 +25,24 @@ namespace Pulumi.AwsNative.EventSchemas
     ///     var registryPolicy = new AwsNative.EventSchemas.RegistryPolicy("registryPolicy", new()
     ///     {
     ///         RegistryName = "registryName",
-    ///         Policy = 
+    ///         Policy = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", 
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "sid", 1 },
-    ///                 { "effect", "Allow" },
-    ///                 { "principal", 
+    ///                 ["sid"] = 1,
+    ///                 ["effect"] = "Allow",
+    ///                 ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "aws", "arn:aws:iam::012345678901:user/TestAccountForRegistryPolicy" },
-    ///                 } },
-    ///                 { "action", new[]
+    ///                     ["aws"] = "arn:aws:iam::012345678901:user/TestAccountForRegistryPolicy",
+    ///                 },
+    ///                 ["action"] = new[]
     ///                 {
     ///                     "schemas:DescribeRegistry",
     ///                     "schemas:CreateSchema",
-    ///                 } },
-    ///                 { "resource", "registryArn" },
-    ///             } },
+    ///                 },
+    ///                 ["resource"] = "registryArn",
+    ///             },
     ///         },
     ///     });
     /// 
@@ -62,33 +62,33 @@ namespace Pulumi.AwsNative.EventSchemas
     ///     var registryPolicy = new AwsNative.EventSchemas.RegistryPolicy("registryPolicy", new()
     ///     {
     ///         RegistryName = "MyRegistry",
-    ///         Policy = 
+    ///         Policy = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "sid", "Test" },
-    ///                     { "effect", "Allow" },
-    ///                     { "action", new[]
+    ///                     ["sid"] = "Test",
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "schemas:*",
-    ///                     } },
-    ///                     { "principal", 
+    ///                     },
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "aws", new[]
+    ///                         ["aws"] = new[]
     ///                         {
     ///                             "109876543210",
-    ///                         } },
-    ///                     } },
-    ///                     { "resource", new[]
+    ///                         },
+    ///                     },
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "arn:aws:schemas:us-east-1:012345678901:registry/MyRegistry",
     ///                         "arn:aws:schemas:us-east-1:012345678901:schema/MyRegistry*",
-    ///                     } },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -108,33 +108,33 @@ namespace Pulumi.AwsNative.EventSchemas
     ///     var registryPolicy = new AwsNative.EventSchemas.RegistryPolicy("registryPolicy", new()
     ///     {
     ///         RegistryName = "MyRegistry",
-    ///         Policy = 
+    ///         Policy = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "sid", "Test" },
-    ///                     { "effect", "Allow" },
-    ///                     { "action", new[]
+    ///                     ["sid"] = "Test",
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "schemas:*",
-    ///                     } },
-    ///                     { "principal", 
+    ///                     },
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "aws", new[]
+    ///                         ["aws"] = new[]
     ///                         {
     ///                             "109876543210",
-    ///                         } },
-    ///                     } },
-    ///                     { "resource", new[]
+    ///                         },
+    ///                     },
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "arn:aws:schemas:us-east-1:012345678901:registry/MyRegistry",
     ///                         "arn:aws:schemas:us-east-1:012345678901:schema/MyRegistry*",
-    ///                     } },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 

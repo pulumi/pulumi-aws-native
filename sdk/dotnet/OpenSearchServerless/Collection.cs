@@ -37,9 +37,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     ///         Description = "Search collection",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             encryptionPolicy,
+    ///             encryptionPolicy, 
     ///         },
     ///     });
     /// 
@@ -71,9 +71,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     ///         Description = "Search collection",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             encryptionPolicy,
+    ///             encryptionPolicy, 
     ///         },
     ///     });
     /// 

@@ -166,10 +166,10 @@ namespace Pulumi.AwsNative.Sqs
     /// 
     ///     var mySourceQueue = new AwsNative.Sqs.Queue("mySourceQueue", new()
     ///     {
-    ///         RedrivePolicy = 
+    ///         RedrivePolicy = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "deadLetterTargetArn", myDeadLetterQueue.Arn },
-    ///             { "maxReceiveCount", 5 },
+    ///             ["deadLetterTargetArn"] = myDeadLetterQueue.Arn,
+    ///             ["maxReceiveCount"] = 5,
     ///         },
     ///     });
     /// 
@@ -197,10 +197,10 @@ namespace Pulumi.AwsNative.Sqs
     /// 
     ///     var mySourceQueue = new AwsNative.Sqs.Queue("mySourceQueue", new()
     ///     {
-    ///         RedrivePolicy = 
+    ///         RedrivePolicy = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "deadLetterTargetArn", myDeadLetterQueue.Arn },
-    ///             { "maxReceiveCount", 5 },
+    ///             ["deadLetterTargetArn"] = myDeadLetterQueue.Arn,
+    ///             ["maxReceiveCount"] = 5,
     ///         },
     ///     });
     /// 

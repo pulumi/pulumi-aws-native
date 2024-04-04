@@ -58,9 +58,9 @@ namespace Pulumi.AwsNative.S3
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             s3Bucket,
+    ///             s3Bucket, 
     ///         },
     ///     });
     /// 
@@ -70,9 +70,9 @@ namespace Pulumi.AwsNative.S3
     ///         RecordingConfigurationArn = recordingConfiguration.Id,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             recordingConfiguration,
+    ///             recordingConfiguration, 
     ///         },
     ///     });
     /// 
@@ -123,9 +123,9 @@ namespace Pulumi.AwsNative.S3
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             s3Bucket,
+    ///             s3Bucket, 
     ///         },
     ///     });
     /// 
@@ -135,9 +135,9 @@ namespace Pulumi.AwsNative.S3
     ///         RecordingConfigurationArn = recordingConfiguration.Id,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             recordingConfiguration,
+    ///             recordingConfiguration, 
     ///         },
     ///     });
     /// 
@@ -172,18 +172,18 @@ namespace Pulumi.AwsNative.S3
     ///         {
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "action", new[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
-    ///                             } },
-    ///                             { "resource", new[]
+    ///                             },
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:aws:s3:::aws-ssm-${AWS::Region}/*",
     ///                                 "arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
@@ -191,37 +191,37 @@ namespace Pulumi.AwsNative.S3
     ///                                 "arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*",
     ///                                 "arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*",
     ///                                 "arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*",
-    ///                             } },
-    ///                             { "effect", "Allow" },
+    ///                             },
+    ///                             ["effect"] = "Allow",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///                 PolicyName = "ssm-custom-s3-policy",
     ///             },
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "action", new[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:PutObject",
     ///                                 "s3:PutObjectAcl",
     ///                                 "s3:ListBucket",
-    ///                             } },
-    ///                             { "resource", new[]
+    ///                             },
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
-    ///                             } },
-    ///                             { "effect", "Allow" },
+    ///                             },
+    ///                             ["effect"] = "Allow",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///                 PolicyName = "s3-instance-bucket-policy",
     ///             },
@@ -231,25 +231,25 @@ namespace Pulumi.AwsNative.S3
     ///         {
     ///             "arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore",
     ///         },
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
     ///                             "ssm.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", "sts:AssumeRole" },
+    ///                         },
+    ///                     },
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -359,18 +359,18 @@ namespace Pulumi.AwsNative.S3
     ///         {
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "action", new[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
-    ///                             } },
-    ///                             { "resource", new[]
+    ///                             },
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:aws:s3:::aws-ssm-${AWS::Region}/*",
     ///                                 "arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
@@ -378,37 +378,37 @@ namespace Pulumi.AwsNative.S3
     ///                                 "arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*",
     ///                                 "arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*",
     ///                                 "arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*",
-    ///                             } },
-    ///                             { "effect", "Allow" },
+    ///                             },
+    ///                             ["effect"] = "Allow",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///                 PolicyName = "ssm-custom-s3-policy",
     ///             },
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "action", new[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:PutObject",
     ///                                 "s3:PutObjectAcl",
     ///                                 "s3:ListBucket",
-    ///                             } },
-    ///                             { "resource", new[]
+    ///                             },
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
-    ///                             } },
-    ///                             { "effect", "Allow" },
+    ///                             },
+    ///                             ["effect"] = "Allow",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///                 PolicyName = "s3-instance-bucket-policy",
     ///             },
@@ -419,25 +419,25 @@ namespace Pulumi.AwsNative.S3
     ///             "arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore",
     ///             "arn:${AWS::Partition}:iam::aws:policy/CloudWatchAgentServerPolicy",
     ///         },
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
     ///                             "ssm.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", "sts:AssumeRole" },
+    ///                         },
+    ///                     },
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -497,9 +497,9 @@ namespace Pulumi.AwsNative.S3
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             ec2Instance,
+    ///             ec2Instance, 
     ///         },
     ///     });
     /// 
@@ -532,47 +532,47 @@ namespace Pulumi.AwsNative.S3
     ///     var nginxInstallAutomation = new AwsNative.Ssm.Document("nginxInstallAutomation", new()
     ///     {
     ///         DocumentType = AwsNative.Ssm.DocumentType.Automation,
-    ///         Content = 
+    ///         Content = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "schemaVersion", "0.3" },
-    ///             { "description", "Updates AMI with Linux distribution packages and installs Nginx software" },
-    ///             { "assumeRole", "{{AutomationAssumeRole}}" },
-    ///             { "parameters", 
+    ///             ["schemaVersion"] = "0.3",
+    ///             ["description"] = "Updates AMI with Linux distribution packages and installs Nginx software",
+    ///             ["assumeRole"] = "{{AutomationAssumeRole}}",
+    ///             ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "instanceId", 
+    ///                 ["instanceId"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "description", "ID of the Instance." },
-    ///                     { "type", "String" },
-    ///                 } },
-    ///                 { "automationAssumeRole", 
+    ///                     ["description"] = "ID of the Instance.",
+    ///                     ["type"] = "String",
+    ///                 },
+    ///                 ["automationAssumeRole"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "default", "" },
-    ///                     { "description", "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf." },
-    ///                     { "type", "String" },
-    ///                 } },
-    ///             } },
-    ///             { "mainSteps", new[]
+    ///                     ["default"] = "",
+    ///                     ["description"] = "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf.",
+    ///                     ["type"] = "String",
+    ///                 },
+    ///             },
+    ///             ["mainSteps"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "name", "updateOSSoftware" },
-    ///                     { "action", "aws:runCommand" },
-    ///                     { "maxAttempts", 3 },
-    ///                     { "timeoutSeconds", 3600 },
-    ///                     { "inputs", 
+    ///                     ["name"] = "updateOSSoftware",
+    ///                     ["action"] = "aws:runCommand",
+    ///                     ["maxAttempts"] = 3,
+    ///                     ["timeoutSeconds"] = 3600,
+    ///                     ["inputs"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "documentName", "AWS-RunShellScript" },
-    ///                         { "instanceIds", new[]
+    ///                         ["documentName"] = "AWS-RunShellScript",
+    ///                         ["instanceIds"] = new[]
     ///                         {
     ///                             "{{InstanceId}}",
-    ///                         } },
-    ///                         { "cloudWatchOutputConfig", 
+    ///                         },
+    ///                         ["cloudWatchOutputConfig"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "cloudWatchOutputEnabled", "true" },
-    ///                         } },
-    ///                         { "parameters", 
+    ///                             ["cloudWatchOutputEnabled"] = "true",
+    ///                         },
+    ///                         ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "commands", new[]
+    ///                             ["commands"] = new[]
     ///                             {
     ///                                 @"#!/bin/bash
     /// sudo yum update -y
@@ -584,61 +584,61 @@ namespace Pulumi.AwsNative.S3
     ///         exit 0
     /// fi
     /// ",
-    ///                             } },
-    ///                         } },
-    ///                     } },
+    ///                             },
+    ///                         },
+    ///                     },
     ///                 },
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "name", "InstallNginx" },
-    ///                     { "action", "aws:runCommand" },
-    ///                     { "inputs", 
+    ///                     ["name"] = "InstallNginx",
+    ///                     ["action"] = "aws:runCommand",
+    ///                     ["inputs"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "documentName", "AWS-RunShellScript" },
-    ///                         { "instanceIds", new[]
+    ///                         ["documentName"] = "AWS-RunShellScript",
+    ///                         ["instanceIds"] = new[]
     ///                         {
     ///                             "{{InstanceId}}",
-    ///                         } },
-    ///                         { "cloudWatchOutputConfig", 
+    ///                         },
+    ///                         ["cloudWatchOutputConfig"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "cloudWatchOutputEnabled", "true" },
-    ///                         } },
-    ///                         { "parameters", 
+    ///                             ["cloudWatchOutputEnabled"] = "true",
+    ///                         },
+    ///                         ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "commands", new[]
+    ///                             ["commands"] = new[]
     ///                             {
     ///                                 @"sudo amazon-linux-extras install nginx1 -y
     /// sudo service nginx start
     /// ",
-    ///                             } },
-    ///                         } },
-    ///                     } },
+    ///                             },
+    ///                         },
+    ///                     },
     ///                 },
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "name", "TestInstall" },
-    ///                     { "action", "aws:runCommand" },
-    ///                     { "maxAttempts", 3 },
-    ///                     { "timeoutSeconds", 3600 },
-    ///                     { "onFailure", "Abort" },
-    ///                     { "inputs", 
+    ///                     ["name"] = "TestInstall",
+    ///                     ["action"] = "aws:runCommand",
+    ///                     ["maxAttempts"] = 3,
+    ///                     ["timeoutSeconds"] = 3600,
+    ///                     ["onFailure"] = "Abort",
+    ///                     ["inputs"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "documentName", "AWS-RunShellScript" },
-    ///                         { "instanceIds", new[]
+    ///                         ["documentName"] = "AWS-RunShellScript",
+    ///                         ["instanceIds"] = new[]
     ///                         {
     ///                             "{{InstanceId}}",
-    ///                         } },
-    ///                         { "parameters", 
+    ///                         },
+    ///                         ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "commands", new[]
+    ///                             ["commands"] = new[]
     ///                             {
     ///                                 @"curl localhost
     /// ",
-    ///                             } },
-    ///                         } },
-    ///                     } },
+    ///                             },
+    ///                         },
+    ///                     },
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -648,24 +648,24 @@ namespace Pulumi.AwsNative.S3
     ///         {
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "action", new[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "ssm:StartAssociationsOnce",
     ///                                 "ssm:CreateAssociation",
     ///                                 "ssm:CreateAssociationBatch",
     ///                                 "ssm:UpdateAssociation",
-    ///                             } },
-    ///                             { "resource", "*" },
-    ///                             { "effect", "Allow" },
+    ///                             },
+    ///                             ["resource"] = "*",
+    ///                             ["effect"] = "Allow",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///                 PolicyName = "ssm-association",
     ///             },
@@ -675,25 +675,25 @@ namespace Pulumi.AwsNative.S3
     ///         {
     ///             "arn:${AWS::Partition}:iam::aws:policy/service-role/AmazonSSMAutomationRole",
     ///         },
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
     ///                             "ssm.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", "sts:AssumeRole" },
+    ///                         },
+    ///                     },
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -703,18 +703,18 @@ namespace Pulumi.AwsNative.S3
     ///         {
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "action", new[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
-    ///                             } },
-    ///                             { "resource", new[]
+    ///                             },
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:aws:s3:::aws-ssm-${AWS::Region}/*",
     ///                                 "arn:aws:s3:::aws-windows-downloads-${AWS::Region}/*",
@@ -722,37 +722,37 @@ namespace Pulumi.AwsNative.S3
     ///                                 "arn:aws:s3:::amazon-ssm-packages-${AWS::Region}/*",
     ///                                 "arn:aws:s3:::${AWS::Region}-birdwatcher-prod/*",
     ///                                 "arn:aws:s3:::patch-baseline-snapshot-${AWS::Region}/*",
-    ///                             } },
-    ///                             { "effect", "Allow" },
+    ///                             },
+    ///                             ["effect"] = "Allow",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///                 PolicyName = "ssm-custom-s3-policy",
     ///             },
     ///             new AwsNative.Iam.Inputs.RolePolicyArgs
     ///             {
-    ///                 PolicyDocument = 
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "version", "2012-10-17" },
-    ///                     { "statement", new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
-    ///                         
+    ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             { "action", new[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "s3:GetObject",
     ///                                 "s3:PutObject",
     ///                                 "s3:PutObjectAcl",
     ///                                 "s3:ListBucket",
-    ///                             } },
-    ///                             { "resource", new[]
+    ///                             },
+    ///                             ["resource"] = new[]
     ///                             {
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}/*",
     ///                                 "arn:${AWS::Partition}:s3:::${SSMAssocLogs}",
-    ///                             } },
-    ///                             { "effect", "Allow" },
+    ///                             },
+    ///                             ["effect"] = "Allow",
     ///                         },
-    ///                     } },
+    ///                     },
     ///                 },
     ///                 PolicyName = "s3-instance-bucket-policy",
     ///             },
@@ -763,25 +763,25 @@ namespace Pulumi.AwsNative.S3
     ///             "arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore",
     ///             "arn:${AWS::Partition}:iam::aws:policy/CloudWatchAgentServerPolicy",
     ///         },
-    ///         AssumeRolePolicyDocument = 
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             { "version", "2012-10-17" },
-    ///             { "statement", new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
-    ///                 
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "effect", "Allow" },
-    ///                     { "principal", 
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         { "service", new[]
+    ///                         ["service"] = new[]
     ///                         {
     ///                             "ec2.amazonaws.com",
     ///                             "ssm.amazonaws.com",
-    ///                         } },
-    ///                     } },
-    ///                     { "action", "sts:AssumeRole" },
+    ///                         },
+    ///                     },
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
-    ///             } },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -840,9 +840,9 @@ namespace Pulumi.AwsNative.S3
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             ec2Instance,
+    ///             ec2Instance, 
     ///         },
     ///     });
     /// 
