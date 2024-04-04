@@ -185,9 +185,9 @@ import (
 //			_, err = iam.NewRole(ctx, "ssmInstanceRole", &iam.RoleArgs{
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"action": []string{
 //										"s3:GetObject",
@@ -203,13 +203,13 @@ import (
 //									"effect": "Allow",
 //								},
 //							},
-//						},
+//						}),
 //						PolicyName: pulumi.String("ssm-custom-s3-policy"),
 //					},
 //					&iam.RolePolicyTypeArgs{
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"action": []string{
 //										"s3:GetObject",
@@ -224,7 +224,7 @@ import (
 //									"effect": "Allow",
 //								},
 //							},
-//						},
+//						}),
 //						PolicyName: pulumi.String("s3-instance-bucket-policy"),
 //					},
 //				},
@@ -232,9 +232,9 @@ import (
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"),
 //				},
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -246,7 +246,7 @@ import (
 //							"action": "sts:AssumeRole",
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -356,9 +356,9 @@ import (
 //			_, err = iam.NewRole(ctx, "ssmInstanceRole", &iam.RoleArgs{
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"action": []string{
 //										"s3:GetObject",
@@ -374,13 +374,13 @@ import (
 //									"effect": "Allow",
 //								},
 //							},
-//						},
+//						}),
 //						PolicyName: pulumi.String("ssm-custom-s3-policy"),
 //					},
 //					&iam.RolePolicyTypeArgs{
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"action": []string{
 //										"s3:GetObject",
@@ -395,7 +395,7 @@ import (
 //									"effect": "Allow",
 //								},
 //							},
-//						},
+//						}),
 //						PolicyName: pulumi.String("s3-instance-bucket-policy"),
 //					},
 //				},
@@ -404,9 +404,9 @@ import (
 //					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"),
 //					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/CloudWatchAgentServerPolicy"),
 //				},
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -418,7 +418,7 @@ import (
 //							"action": "sts:AssumeRole",
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -517,11 +517,11 @@ import (
 //			}
 //			_, err = ssm.NewDocument(ctx, "nginxInstallAutomation", &ssm.DocumentArgs{
 //				DocumentType: ssm.DocumentTypeAutomation,
-//				Content: pulumi.Any{
-//					SchemaVersion: "0.3",
-//					Description:   "Updates AMI with Linux distribution packages and installs Nginx software",
-//					AssumeRole:    "{{AutomationAssumeRole}}",
-//					Parameters: map[string]interface{}{
+//				Content: pulumi.Any(map[string]interface{}{
+//					"schemaVersion": "0.3",
+//					"description":   "Updates AMI with Linux distribution packages and installs Nginx software",
+//					"assumeRole":    "{{AutomationAssumeRole}}",
+//					"parameters": map[string]interface{}{
 //						"instanceId": map[string]interface{}{
 //							"description": "ID of the Instance.",
 //							"type":        "String",
@@ -532,7 +532,7 @@ import (
 //							"type":        "String",
 //						},
 //					},
-//					MainSteps: []interface{}{
+//					"mainSteps": []interface{}{
 //						map[string]interface{}{
 //							"name":           "updateOSSoftware",
 //							"action":         "aws:runCommand",
@@ -605,7 +605,7 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -613,9 +613,9 @@ import (
 //			_, err = iam.NewRole(ctx, "ssmExecutionRole", &iam.RoleArgs{
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"action": []string{
 //										"ssm:StartAssociationsOnce",
@@ -627,7 +627,7 @@ import (
 //									"effect":   "Allow",
 //								},
 //							},
-//						},
+//						}),
 //						PolicyName: pulumi.String("ssm-association"),
 //					},
 //				},
@@ -635,9 +635,9 @@ import (
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/service-role/AmazonSSMAutomationRole"),
 //				},
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -649,7 +649,7 @@ import (
 //							"action": "sts:AssumeRole",
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err
@@ -657,9 +657,9 @@ import (
 //			_, err = iam.NewRole(ctx, "ssmInstanceRole", &iam.RoleArgs{
 //				Policies: iam.RolePolicyTypeArray{
 //					&iam.RolePolicyTypeArgs{
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"action": []string{
 //										"s3:GetObject",
@@ -675,13 +675,13 @@ import (
 //									"effect": "Allow",
 //								},
 //							},
-//						},
+//						}),
 //						PolicyName: pulumi.String("ssm-custom-s3-policy"),
 //					},
 //					&iam.RolePolicyTypeArgs{
-//						PolicyDocument: pulumi.Any{
-//							Version: "2012-10-17",
-//							Statement: []map[string]interface{}{
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]interface{}{
 //								map[string]interface{}{
 //									"action": []string{
 //										"s3:GetObject",
@@ -696,7 +696,7 @@ import (
 //									"effect": "Allow",
 //								},
 //							},
-//						},
+//						}),
 //						PolicyName: pulumi.String("s3-instance-bucket-policy"),
 //					},
 //				},
@@ -705,9 +705,9 @@ import (
 //					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"),
 //					pulumi.String("arn:${AWS::Partition}:iam::aws:policy/CloudWatchAgentServerPolicy"),
 //				},
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -719,7 +719,7 @@ import (
 //							"action": "sts:AssumeRole",
 //						},
 //					},
-//				},
+//				}),
 //			})
 //			if err != nil {
 //				return err

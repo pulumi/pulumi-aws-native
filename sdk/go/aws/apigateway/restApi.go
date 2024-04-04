@@ -442,22 +442,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Body: pulumi.Any{
-//					Swagger: 2,
-//					Info: map[string]interface{}{
+//				Body: pulumi.Any(map[string]interface{}{
+//					"swagger": 2,
+//					"info": map[string]interface{}{
 //						"version": "0.0.1",
 //						"title":   "test",
 //					},
-//					BasePath: "/pete",
-//					Schemes: []string{
+//					"basePath": "/pete",
+//					"schemes": []string{
 //						"https",
 //					},
-//					Definitions: map[string]interface{}{
+//					"definitions": map[string]interface{}{
 //						"empty": map[string]interface{}{
 //							"type": "object",
 //						},
 //					},
-//				},
+//				}),
 //				Name: pulumi.String("myApi"),
 //				Parameters: pulumi.StringMap{
 //					"endpointConfigurationTypes": pulumi.String("REGIONAL"),
@@ -486,22 +486,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
-//				Body: pulumi.Any{
-//					Swagger: 2,
-//					Info: map[string]interface{}{
+//				Body: pulumi.Any(map[string]interface{}{
+//					"swagger": 2,
+//					"info": map[string]interface{}{
 //						"version": "0.0.1",
 //						"title":   "test",
 //					},
-//					BasePath: "/pete",
-//					Schemes: []string{
+//					"basePath": "/pete",
+//					"schemes": []string{
 //						"https",
 //					},
-//					Definitions: map[string]interface{}{
+//					"definitions": map[string]interface{}{
 //						"empty": map[string]interface{}{
 //							"type": "object",
 //						},
 //					},
-//				},
+//				}),
 //				Name: pulumi.String("myApi"),
 //				Parameters: pulumi.StringMap{
 //					"endpointConfigurationTypes": pulumi.String("REGIONAL"),

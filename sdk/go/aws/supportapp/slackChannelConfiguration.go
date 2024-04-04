@@ -31,9 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			awsSupportSlackAppCFNRole, err := iam.NewRole(ctx, "awsSupportSlackAppCFNRole", &iam.RoleArgs{
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -46,7 +46,7 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:aws:iam::aws:policy/AWSSupportAppFullAccess"),
 //				},
@@ -88,9 +88,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			awsSupportSlackAppCFNRole, err := iam.NewRole(ctx, "awsSupportSlackAppCFNRole", &iam.RoleArgs{
-//				AssumeRolePolicyDocument: pulumi.Any{
-//					Version: "2012-10-17",
-//					Statement: []map[string]interface{}{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
 //							"principal": map[string]interface{}{
@@ -103,7 +103,7 @@ import (
 //							},
 //						},
 //					},
-//				},
+//				}),
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:aws:iam::aws:policy/AWSSupportAppFullAccess"),
 //				},
