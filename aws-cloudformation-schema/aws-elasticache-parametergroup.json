@@ -3,9 +3,6 @@
   "description" : "Resource Type definition for AWS::ElastiCache::ParameterGroup",
   "additionalProperties" : false,
   "properties" : {
-    "CacheParameterGroupName" : {
-      "type" : "string"
-    },
     "Description" : {
       "type" : "string"
     },
@@ -49,5 +46,5 @@
   "required" : [ "Description", "CacheParameterGroupFamily" ],
   "createOnlyProperties" : [ "/properties/CacheParameterGroupFamily" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/CacheParameterGroupName", "/properties/Id" ]
+  "readOnlyProperties" : [ "/properties/Id" ]
 }

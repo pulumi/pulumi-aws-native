@@ -128,7 +128,7 @@
     },
     "Parameters" : {
       "patternProperties" : {
-        ".*{1,255}" : {
+        ".{1,255}" : {
           "$ref" : "#/definitions/ParameterValues"
         }
       },

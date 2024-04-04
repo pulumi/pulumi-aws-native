@@ -5,7 +5,7 @@
   "typeName" : "AWS::GameLift::Fleet",
   "readOnlyProperties" : [ "/properties/FleetId" ],
   "description" : "The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.",
-  "createOnlyProperties" : [ "/properties/ApplyCapacity", "/properties/BuildId", "/properties/CertificateConfiguration", "/properties/EC2InstanceType", "/properties/FleetType", "/properties/InstanceRoleARN", "/properties/InstanceRoleCredentialsProvider", "/properties/LogPaths", "/properties/PeerVpcAwsAccountId", "/properties/PeerVpcId", "/properties/ScriptId", "/properties/ServerLaunchParameters", "/properties/ServerLaunchPath", "/properties/CertificateType", "/properties/ComputeType" ],
+  "createOnlyProperties" : [ "/properties/ApplyCapacity", "/properties/BuildId", "/properties/CertificateConfiguration", "/properties/EC2InstanceType", "/properties/FleetType", "/properties/InstanceRoleARN", "/properties/InstanceRoleCredentialsProvider", "/properties/LogPaths", "/properties/PeerVpcAwsAccountId", "/properties/PeerVpcId", "/properties/ScriptId", "/properties/ServerLaunchParameters", "/properties/ServerLaunchPath", "/properties/ComputeType" ],
   "primaryIdentifier" : [ "/properties/FleetId" ],
   "required" : [ "Name" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
