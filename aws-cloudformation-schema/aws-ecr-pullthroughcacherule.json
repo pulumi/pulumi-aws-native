@@ -79,7 +79,9 @@
       "description" : "The name of the upstream registry."
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "primaryIdentifier" : [ "/properties/EcrRepositoryPrefix" ],
   "createOnlyProperties" : [ "/properties/EcrRepositoryPrefix", "/properties/UpstreamRegistryUrl", "/properties/CredentialArn", "/properties/UpstreamRegistry" ],
   "writeOnlyProperties" : [ "/properties/CredentialArn", "/properties/UpstreamRegistry" ],

@@ -121,7 +121,8 @@
   "required" : [ "AppId", "DomainName", "SubDomainSettings" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/AppId", "/properties/DomainName" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/DomainStatus", "/properties/StatusReason", "/properties/CertificateRecord" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/DomainStatus", "/properties/StatusReason", "/properties/CertificateRecord", "/properties/Certificate", "/properties/UpdateStatus" ],
+  "writeOnlyProperties" : [ "/properties/CertificateSettings" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "amplify:CreateDomainAssociation", "route53:ListHostedZones", "route53:ChangeResourceRecordSets", "iam:PassRole", "amplify:TagResource" ]
