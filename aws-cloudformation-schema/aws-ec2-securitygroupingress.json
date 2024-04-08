@@ -67,6 +67,11 @@
   "createOnlyProperties" : [ "/properties/GroupName", "/properties/IpProtocol", "/properties/SourceSecurityGroupId", "/properties/SourcePrefixListId", "/properties/ToPort", "/properties/CidrIp", "/properties/SourceSecurityGroupName", "/properties/SourceSecurityGroupOwnerId", "/properties/FromPort", "/properties/GroupId", "/properties/CidrIpv6" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ],
+  "propertyTransform" : {
+    "/properties/IpProtocol" : "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$mapVal ? $mapVal : $lowercase(IpProtocol))",
+    "/properties/FromPort" : "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$ipProtocol := $mapVal ? $mapVal : $lowercase(IpProtocol);$ipProtocol in ['imcp', 'tcp', 'udp', 'imcp'] ? FromPort : -1)",
+    "/properties/ToPort" : "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$ipProtocol := $mapVal ? $mapVal : $lowercase(IpProtocol);$ipProtocol in ['imcp', 'tcp', 'udp', 'imcp'] ? ToPort : -1)"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:DescribeSecurityGroupRules", "ec2:AuthorizeSecurityGroupIngress" ]
