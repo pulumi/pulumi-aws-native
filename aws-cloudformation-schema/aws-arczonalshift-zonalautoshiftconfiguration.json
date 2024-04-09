@@ -4,7 +4,7 @@
   "definitions" : {
     "ZonalAutoshiftStatus" : {
       "type" : "string",
-      "enum" : [ "ENABLED", "DISABLED" ]
+      "enum" : [ "ENABLED" ]
     },
     "ControlCondition" : {
       "type" : "object",
