@@ -220,7 +220,15 @@
       "permissions" : [ "s3-outposts:DeleteBucket" ]
     },
     "list" : {
-      "permissions" : [ "s3-outposts:ListRegionalBuckets" ]
+      "permissions" : [ "s3-outposts:ListRegionalBuckets" ],
+      "handlerSchema" : {
+        "properties" : {
+          "OutpostId" : {
+            "$ref" : "resource-schema.json#/properties/OutpostId"
+          }
+        },
+        "required" : [ "OutpostId" ]
+      }
     }
   }
 }
