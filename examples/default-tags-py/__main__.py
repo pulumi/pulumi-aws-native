@@ -13,24 +13,24 @@ log_group = logs.LogGroup(
 policy = resiliencehub.ResiliencyPolicy(
   "policy",
   tier=resiliencehub.ResiliencyPolicyTier.NON_CRITICAL,
-  policy={
-    'Software': resiliencehub.ResiliencyPolicyFailurePolicyArgs(
+  policy=resiliencehub.ResiliencyPolicyPolicyMapArgs(
+    software=resiliencehub.ResiliencyPolicyFailurePolicyArgs(
       rto_in_secs=10,
       rpo_in_secs=10,
     ),
-    'Hardware': resiliencehub.ResiliencyPolicyFailurePolicyArgs(
+    hardware=resiliencehub.ResiliencyPolicyFailurePolicyArgs(
       rto_in_secs=10,
       rpo_in_secs=10,
     ),
-    'AZ': resiliencehub.ResiliencyPolicyFailurePolicyArgs(
+    az=resiliencehub.ResiliencyPolicyFailurePolicyArgs(
       rto_in_secs=10,
       rpo_in_secs=10,
     ),
-    'Region': resiliencehub.ResiliencyPolicyFailurePolicyArgs(
+    region=resiliencehub.ResiliencyPolicyFailurePolicyArgs(
       rto_in_secs=10,
       rpo_in_secs=10,
     ),
-  },
+  ),
   tags={"localTag": "localTagValue"},
 )
 

@@ -1,5 +1,35 @@
 # Change Log
 
+## 0.101.0 (2024-04-11)
+
+### Breaking changes
+
+#### Resources
+
+- "aws-native:amplify:Domain": missing properties "certificate" & "updateStatus"
+- "aws-native:codestarconnections:RepositoryLink": properties: "providerType" type changed from "string" to "#/types/aws-native:codestarconnections:RepositoryLinkProviderType"
+- "aws-native:codestarconnections:SyncConfiguration": properties: "providerType" type changed from "string" to "#/types/aws-native:codestarconnections:SyncConfigurationProviderType"
+- "aws-native:ec2:TransitGatewayRouteTableAssociation": properties: "awsId" missing output "awsId"
+- "aws-native:entityresolution:IdMappingWorkflow": required: "outputSourceConfig" property is no longer Required
+- "aws-native:rds:CustomDbEngineVersion": required: "databaseInstallationFilesS3BucketName" property is no longer Required
+- "aws-native:resiliencehub:ResiliencyPolicy":
+    - inputs: "policy" type changed from "object" to "#/types/aws-native:resiliencehub:ResiliencyPolicyPolicyMap":
+        - additional properties had &{Type: Ref:#/types/aws-native:resiliencehub:ResiliencyPolicyFailurePolicy AdditionalProperties:<nil> Items:<nil> OneOf:[] Discriminator:<nil> Plain:false} but now has no type
+    - properties: "policy" type changed from "object" to "#/types/aws-native:resiliencehub:ResiliencyPolicyPolicyMap":
+        - additional properties had &{Type: Ref:#/types/aws-native:resiliencehub:ResiliencyPolicyFailurePolicy AdditionalProperties:<nil> Items:<nil> OneOf:[] Discriminator:<nil> Plain:false} but now has no type
+
+#### Functions
+
+- "aws-native:ec2:getTransitGatewayRouteTableAssociation" missing
+
+#### Types
+- "aws-native:ec2:LaunchTemplateMaintenanceOptions": properties: "rebootMigration" missing
+- "aws-native:ec2:SecurityGroupEgress": properties: "sourceSecurityGroupId" missing
+- "aws-native:efs:FileSystemBackupPolicy": properties: "status" type changed from "string" to "#/types/aws-native:efs:FileSystemBackupPolicyStatus"
+- "aws-native:elasticache:ServerlessCacheDataStorage": required: "maximum" property is no longer Required
+- "aws-native:elasticache:ServerlessCacheEcpuPerSecond": required: "maximum" property is no longer Required
+- "aws-native:entityresolution:IdMappingWorkflowInputSource": required: "schemaArn" property is no longer Required
+
 ## 0.100.0 (2024-03-27)
 
 - [Fix replaceOnChanges for Python programs with multi-word properties](https://github.com/pulumi/pulumi-aws-native/pull/1424)
