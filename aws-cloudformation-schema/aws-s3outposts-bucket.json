@@ -200,7 +200,13 @@
       "$ref" : "#/definitions/LifecycleConfiguration"
     }
   },
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/BucketName", "/properties/OutpostId" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
@@ -220,7 +226,15 @@
       "permissions" : [ "s3-outposts:DeleteBucket" ]
     },
     "list" : {
-      "permissions" : [ "s3-outposts:ListRegionalBuckets" ]
+      "permissions" : [ "s3-outposts:ListRegionalBuckets" ],
+      "handlerSchema" : {
+        "properties" : {
+          "OutpostId" : {
+            "$ref" : "resource-schema.json#/properties/OutpostId"
+          }
+        },
+        "required" : [ "OutpostId" ]
+      }
     }
   }
 }

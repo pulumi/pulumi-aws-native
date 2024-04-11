@@ -120,7 +120,7 @@
   },
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/GlobalReplicationGroupId", "/properties/Status" ],
-  "writeOnlyProperties" : [ "/properties/GlobalReplicationGroupIdSuffix", "/properties/AutomaticFailoverEnabled", "/properties/CacheNodeType", "/properties/EngineVersion", "/properties/GlobalNodeGroupCount", "/properties/GlobalReplicationGroupDescription", "/properties/RegionalConfigurations" ],
+  "writeOnlyProperties" : [ "/properties/GlobalReplicationGroupIdSuffix", "/properties/AutomaticFailoverEnabled", "/properties/CacheNodeType", "/properties/EngineVersion", "/properties/GlobalNodeGroupCount", "/properties/RegionalConfigurations" ],
   "required" : [ "Members" ],
   "primaryIdentifier" : [ "/properties/GlobalReplicationGroupId" ],
   "handlers" : {

@@ -80,7 +80,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticache:CreateUserGroup", "elasticache:DescribeUserGroups", "elasticache:ListTagsForResource" ]
+      "permissions" : [ "elasticache:CreateUserGroup", "elasticache:DescribeUserGroups", "elasticache:ListTagsForResource", "elasticache:AddTagsToResource" ]
     },
     "read" : {
       "permissions" : [ "elasticache:DescribeUserGroups", "elasticache:ListTagsForResource" ]
